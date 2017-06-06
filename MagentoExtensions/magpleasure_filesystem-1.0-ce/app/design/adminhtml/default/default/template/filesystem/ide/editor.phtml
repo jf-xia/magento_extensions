@@ -1,0 +1,57 @@
+<?php
+/**
+ * Magpleasure Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE-CE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magpleasure.com/LICENSE-CE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * Magpleasure does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * Magpleasure does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   Magpleasure
+ * @package    Magpleasure_Filesystem
+ * @version    1.0
+ * @copyright  Copyright (c) 2011 Magpleasure Ltd. (http://www.magpleasure.com)
+ * @license    http://www.magpleasure.com/LICENSE-CE.txt
+ */
+?>
+<div class="path" id="path">    
+    <?php echo $this->getPath(); ?>   
+</div>
+<textarea id="edit_area"></textarea>
+
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl('web').'js/editarea/edit_area_full.js'; ?>"></script>
+
+<script language="javascript" type="text/javascript">
+       
+_closeUrl = '<?php echo $this->getUrl('filesystem/adminhtml_filesystem/close', array('file'=>'{{file}}')) ?>';
+_saveUrl = '<?php echo $this->getUrl('filesystem/adminhtml_filesystem/save', array('file'=>'{{file}}')) ?>';
+_filesUrl = '<?php echo $this->getUrl('filesystem/adminhtml_filesystem/files', array('file'=>'{{file}}')) ?>';
+       
+editAreaLoader.init({
+	id : "edit_area",
+    syntax: "css",
+    syntax_selection_allow: "css,html,js,php,python,xml,sql",
+    start_highlight: true,
+    toolbar: "save, |,  search, go_to_line, |, undo, redo, |, select_font, |, syntax_selection, |, change_smooth_selection, highlight, reset_highlight, |, help",
+    save_callback: "saveFile",
+    EA_file_switch_on_callback: "switchOn",
+    EA_file_close_callback: "closeFile",
+    replace_tab_by_spaces: 4,
+    allow_resize: true,
+    EA_load_callback: "getFiles"
+});
+
+</script>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Fontis_Recaptcha</name>
+    <version>2.3.1</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">Open Software License (OSL 3.0)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension easily protects the "Send to Friend", "Contact Us", "Product Review" and customer registration forms from unwanted spambots by adding in reCAPTCHA to these forms.</summary>
+    <description>This extension easily protects the "Send to Friend", "Contact Us", "Product Review" and customer registration forms from unwanted spambots by adding in reCAPTCHA to these forms.</description>
+    <notes>Recaptcha extension - version 2</notes>
+    <authors><author><name>Chris</name><user>auto-converted</user><email>chris.norton@fontis.com.au</email></author></authors>
+    <date>2011-07-01</date>
+    <time>18:15:16</time>
+    <contents><target name="magecommunity"><dir name="Fontis"><dir name="Recaptcha"><dir name="Block"><dir name="Review"><file name="Form.php" hash="cd78b92e1ea6282b4fee447d8c98cab1"/></dir></dir><dir name="Helper"><file name="Data.php" hash="aa65e79f1d40d6110cb93dd87a10592c"/></dir><dir name="Model"><dir name="Source"><file name="Recaptchalanguage.php" hash="4276c7f0d529c9cd5789a2693da8c975"/><file name="Recaptchatheme.php" hash="af1cc2ae59c8a29cd950e88d25b403c2"/></dir></dir><dir name="controllers"><file name="AccountController.php" hash="4d56ea77359b23cfe1b8ed48f2823bee"/><file name="ContactsController.php" hash="e21e7081e7d0baf9211a96760d5bd014"/><file name="ProductController.php" hash="be6ee9462615eaf9f8ba83cfc538835d"/><file name="ReviewController.php" hash="817dee5c56aec00435f4f2a9a23d908a"/></dir><dir name="etc"><file name="config.xml" hash="bab8e8012351cddb16bae7646fea4463"/><file name="system.xml" hash="37b929e509ac3d161d54ea0160c49b6d"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="fontis_recaptcha.xml" hash="d8b2cd12ef202e9380122860d10f7097"/></dir><dir name="template"><dir name="fontis"><dir name="recaptcha"><file name="contacts.phtml" hash="34be3783c9811db6be3de3f79f4917c9"/><file name="form.phtml" hash="4bfb5063db3f32e4206039e28ef1c014"/><file name="recaptcha.phtml" hash="9225e1483cdff2c36ebd385d74fa72d2"/><file name="register.phtml" hash="d0a5189b8186fbadcc95950c14eeab9c"/><file name="send.phtml" hash="f8fa95d1cd3d2d812c4f4abd7f511ed8"/></dir></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="images"><dir name="fontis"><file name="help.png" hash="c3812c74bc524179f4ccf5d2db7b3cbf"/><file name="refresh.png" hash="6b95778460f660aa7c08f47d244780a7"/><file name="sound.png" hash="8158cd1e7493e88be977a0be37d73aaf"/><file name="text.png" hash="dfcf6dcfd81693487e5642fc8e735dd6"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Fontis_Recaptcha.xml" hash="5d85569faf8e3fe65be0b4ed0d9e3bd3"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

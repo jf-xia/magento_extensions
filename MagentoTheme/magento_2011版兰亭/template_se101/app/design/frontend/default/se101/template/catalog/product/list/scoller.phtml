@@ -1,0 +1,60 @@
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+
+<script src="<?php echo $this->getSkinUrl('js/slider.js') ?>" type="text/javascript"></script>
+
+<?php if (Mage::registry('current_category')): ?>
+<?php
+$_cat         = $this->getCurrentCategory();
+$_parent      = $_cat->getParentCategory();
+$_categories  = $_parent->getChildren();
+
+$_currentCategory = Mage::getModel('catalog/category')->load(Mage::registry('current_category')->getId()); 
+$visibility = array(
+            Mage_Catalog_Model_Product_Visibility::VISIBILITY_BOTH,
+            Mage_Catalog_Model_Product_Visibility::VISIBILITY_IN_CATALOG
+);
+$products = Mage::getResourceModel('catalog/product_collection')->addCategoryFilter($_currentCategory)->addAttributeToSelect(array('name', 'price'), 'inner')-> addAttributeToFilter('visibility', $visibility); 
+
+
+?>
+
+<div class="category-container">
+
+     <div class="scoller-products">
+    <div id="slider-container" class="slider-wrapper">
+      
+           <ul id="slider-featured" class="list-horizontal list-featured">
+	       <?php $_items = $products->getItems(); shuffle($_items); $_i=0; ?>
+		 <?php foreach ( $_items as $productModel ):  ?>
+		 <?php $_product = Mage::getModel('catalog/product')->load($productModel->getId()); ?>
+		    <li>
+		       <div class="products-col-1">
+			    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(90); ?>" width="90" height="90" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" /></a>
+			     <span class="scoller-price"><?php echo Mage::helper('core')->currency($_product->getPrice());  ?></span>
+
+			</div>
+		    </li>
+		    <?php  if(++$_i>20) {break;} ?>
+		<?php endforeach; ?>
+	    </ul>
+	</div>
+	 <a href="#" id="move-right">Move right</a>
+         <a href="#" id="move-left">Move left</a>
+    </div>
+    <script type="text/javascript">
+         new Slider('slider-container', 'move-left', 'move-right'); 
+   </script>
+</div>
+<?php endif; ?>
+
+
+
+
+
+

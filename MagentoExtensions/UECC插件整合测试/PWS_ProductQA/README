@@ -1,0 +1,86 @@
+= Magento Product Q&A
+
+A Magento module for managing product Q&A (questions and answers). For more details and screenshots see: http://www.pandawebstudio.com/projects/free-magento-product-qa-extension
+Current version 0.1.1. See CHANGES for a changelog
+Works with: Magento Community Edition 1.3, 1.4
+
+
+== Installation
+   
+    Download the source code and copy the files in the corresponding magento folders; no Magento existing file is modified.
+    
+    
+== Resources
+
+* View Source on Google Code (http://code.google.com/p/magento-product-qa/source/browse/)
+* Report Issues on Google Code (http://code.google.com/p/magento-product-qa/issues/list)
+* Read More at the project's page (http://www.pandawebstudio.com/projects/free-magento-product-qa-extension)
+
+   
+== Usage
+
+=== General
+You can find the module in admin under Catalog menu: Product Q&A.
+If you don't want a question do be displayed in the front-end product view just set the status to hidden. The question are displayed in the front-end view only if the store is the same store where the question was originally posted and if the question is answered.
+
+The module configuration is in Admin->System->Configuration->Catalog->Product Q&A.
+From the configuration area you can set:
+* send an email or not to the poster when a question is answered
+* receive notification email when a question is posted
+* set the email where you want to receive the notification
+
+There are two email templates:
+* one that is received by the poster when a question is answered: app/locale/en_US/template/email/pws_productqa/product_qa_answer.html.
+* one that is received by the admin when a question is posted: app/locale/en_US/template/email/pws_productqa/product_qa_notification.html.
+
+The email sender is 'general' (the email address set in Admin->System->Configuration->General->Store Email Addresses->General contact). You can change the sender from the module's config.xml file.
+
+
+=== Using Product Q&A with EasyTabs extension
+
+1. comment the lines from layout/pws_productqa.xml:
+<catalog_product_view>
+    <!--<reference name="product.info.additional">
+        <block type="pws_productqa/list" name="catalog.product.qa" template="pws_productqa/list.phtml" >
+            <block type="core/template" name="question.form" as="questionForm" template="pws_productqa/form.phtml"/>
+        </block>
+    </reference>-->        
+</catalog_product_view>
+
+2. add the following lines to layout/easytabs.xml, catalog_product_view section:
+
+2.1 in the <block type="catalog/product_view_tabs" name="product.info.tabs" as="info_tabs"> block:
+ 
+<action method="addTab" translate="title" module="catalog"><alias>catalog_product_qa</alias><title>Product Questions</title><block>pws_productqa/list</block><template>pws_productqa/list.phtml</template></action>
+
+2.2 after <reference name="product.info.additional">:
+
+<reference name="catalog_product_qa">
+    <block type="core/template" name="question.form" as="questionForm" template="pws_productqa/form.phtml"/>
+</reference>
+
+So in the end the code should look something like this:
+
+        <reference name="product.info.additional">
+                <action method="unsetChild" ifconfig="easy_tabs/general/tagstabbed"><name>product_tag_list</name></action>
+				<block type="catalog/product_view_tabs" name="product.info.tabs" as="info_tabs">
+                    <action method="setTemplate" ifconfig="easy_tabs/general/enabled"><template>easytabs/tabs.phtml</template></action>
+					<action method="addTab" translate="title" module="catalog" ifconfig="easy_tabs/general/descriptiontabbed"><alias>description_tabbed</alias><title>Product Description</title><block>catalog/product_view_description</block><template>easytabs/description.phtml</template></action>
+                    <action method="addTab" translate="title" module="catalog" ifconfig="easy_tabs/general/additionaltabbed"><alias>additional_tabbed</alias><title>Additional Information</title><block>catalog/product_view_attributes</block><template>easytabs/attributes.phtml</template></action>
+					<action method="addTab" translate="title" module="catalog" ifconfig="easy_tabs/general/upsellproductstabbed"><alias>upsell_products_tabbed</alias><title>We Also Recommend</title><block>catalog/product_list_upsell</block><template>catalog/product/list/upsell.phtml</template></action>                   
+                    <action method="addTab" translate="title" module="catalog" ifconfig="easy_tabs/general/relatedtabbed"><alias>related_tabbed</alias><title>Related Products</title><block>catalog/product_list_related</block><template>easytabs/catalogproductrelated.phtml</template></action>               
+		            <!-- more lines here ... -->
+		            
+					<action method="addTab" translate="title" module="catalog"><alias>catalog_product_qa</alias><title>Product Questions</title><block>pws_productqa/list</block><template>pws_productqa/list.phtml</template></action>								
+                </block>
+		</reference>
+        <reference name="catalog_product_qa">
+            <block type="core/template" name="question.form" as="questionForm" template="pws_productqa/form.phtml"/>
+        </reference>
+        
+
+== Copyright
+
+Copyright (c) 2010 Anda Bardeanu. See LICENSE for details.
+License: MIT
+

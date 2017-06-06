@@ -1,0 +1,42 @@
+<?php
+
+class Brisign_Checklist_IndexController extends Mage_Core_Controller_Front_Action {        
+
+	public function likeAction() {
+		$session = Mage::getSingleton("customer/session");
+		if($session->isLoggedIn()){
+			foreach($this->getRequest()->getParams() as $title=>$url) {
+				$customerLoginURL = Mage::getBaseChecknote() . "checklist/index/list";
+				$customerId = $session->getCustomer()->getId();
+				$wpChecknote = Mage::getModel('checklist/checknote')->getCollection()->addFieldToFilter('customer_id',$customerId);
+				foreach ($wpChecknote->getItems() as $_item){
+					if($_item->getTitle()==$title) {
+						Mage::app()->getFrontController()->getResponse()->setRedirect($customerLoginURL)->sendResponse();	
+        		return;
+					}
+				}
+				$setCustomerId = Mage::getModel('checklist/checknote')->setCustomerId($customerId);
+				$setTitle = $setCustomerId->setTitle($title);
+				$checklistChecknote = $setTitle->setChecknote($url)->save();
+				Mage::app()->getFrontController()->getResponse()->setRedirect($customerLoginURL)->sendResponse();	
+			}
+		}
+  }
+	
+	
+  public function listAction() {
+		$customerId = Mage::getSingleton('customer/session')->getCustomer()->getId();
+		$wpChecknote = Mage::getModel('checklist/checknote')->getCollection()->addFieldToFilter('customer_id',$customerId);
+		echo '<ol>';
+		foreach ($wpChecknote->getItems() as $_item){
+			echo '<li>';
+				echo $_item->getTitle();
+			echo '</li>';
+			echo '<li>';
+				echo $_item->getChecknote();
+			echo '</li>';
+		}
+		echo '</ol>';
+  }
+
+}

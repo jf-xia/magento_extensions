@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   Php4u
+ * @package    Php4u_BlastLuceneSearch
+ * @author     Marcin Szterling <marcin@php4u.co.uk>
+ * @copyright  Php4u Marcin Szterling (c) 2012
+ * @license http://php4u.co.uk/licence/
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ * Any form of ditribution, sell, transfer forbidden see licence above
+ */
+ -->
+<config>
+    <modules>
+        <Php4u_Notification>
+            <version>1.6.2.3</version>
+        </Php4u_Notification>
+    </modules>
+    <global>
+        <models>
+            <php4unotification>
+            	<class>Php4u_Notification_Model</class>
+            </php4unotification>
+        </models>
+    </global>
+    <adminhtml>  
+	    <events>
+	        <controller_action_predispatch>
+	            <observers>
+	                <php4u_notification_upds>
+	                    <type>singleton</type>
+	                    <class>php4unotification/observer</class>
+	                    <method>preDispatch</method>
+	                </php4u_notification_upds>
+	            </observers>
+	        </controller_action_predispatch>
+	    </events>
+   </adminhtml>
+    <default>
+        <php4u>
+            <adminnotification>
+                <feed_url>notifications.php4u.co.uk/feed.rss</feed_url>
+                <popup_url>widgets.magentocommerce.com/notificationPopup</popup_url>
+                <severity_icons_url>widgets.magentocommerce.com/%s/%s.gif</severity_icons_url>
+                <use_https>0</use_https>
+                <frequency>1</frequency>
+                <last_update>0</last_update>
+            </adminnotification>
+        </php4u>
+    </default>
+</config>

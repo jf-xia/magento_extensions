@@ -1,0 +1,492 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title> Installation Manual :: Magento Themes &amp; Magento Templates Home</title>
+<style type="text/css">
+body {
+	-x-system-font:none;
+	background:#fff;
+	color:#2F2F2F;
+	font-family: helvetica, verdana, sans-serif;
+	font-size:11px;
+	line-height:1.55em;
+	padding-boblockquoteom: 50px;	
+}
+
+html {
+	min-height:100%;
+}
+
+form, input {
+	margin: 0px;
+	padding: 0px;
+	display: inline;
+}
+td , p,  a, span, div, li {
+	font: 11px Tahoma,  Helvetica, sans-serif;
+}
+a {
+	text-decoration: none;
+	color: #0B75A7;
+	outline: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a img {
+	border: none;
+}
+
+blockquote{
+	background: #c5e0ec;
+	padding: 4px 10px;
+	border: 1px dotted #1d87b7;
+	display: block;
+}
+
+textarea{
+	background: none;
+	border: none;
+	width: 100%;
+	font: 11px Tahoma, Verdana, Helvetica, sans-serif;	
+}
+
+p {
+	font: 12px Tahoma, Verdana, Helvetica, sans-serif;
+	padding: 0px;
+	
+}
+h1, h2, h3, h4, h6 {
+	padding: 0px;	
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+h1 {font-size: 19px; color: #5184B6;}
+h2 {font-size: 17px;  color: #fff; padding:5px;  background:#cc0000; width:100%;}
+h3 {font-size: 15px; color: #fff; padding:5px;  background:#2a2a2a; width:100%;}
+h4, h5, h6 {font-size: 12px;}
+.catalog-product-view #maincolumn h4 {background:transparent url(../images/hline.gif) repeat-x scroll left boblockquoteom; color: #5FA2CB; margin-top: 10px !important; line-height: 18px;}
+
+ul, li {
+	margin: 5px 30px;;
+	padding: 0px;
+}
+
+.footerc, .footerl{
+	padding: 5px;
+	text-align: right;
+}
+
+.footerc, .footerl, .footerc *, .footerl *{
+	color: #fff;
+}
+
+.footerc{
+	width: 180px;
+	float: left;
+}
+
+.footerl{
+	width: 380px;
+	float: right;
+}
+.headerc{
+	color: #ffffff;
+	font-size:13px;
+	line-height: 24px;
+	padding: 5px;	
+}
+
+.fright{
+	float: right;
+	font-weight: bold;
+}
+
+
+</style>
+</head>
+<body>
+<table align="center" bgcolor="#ffffff" border="0" cellpadding="1" cellspacing="0" width="800"><tbody>
+	<tr>
+		<td>
+			<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="800"><tbody>
+				<tr>
+					<td>
+						<a href="http://www.zuimoban.com/free/1197.html">Magento兰亭2011最新版下载地址</a>
+					</td>
+				</tr>
+				<tr>
+					<td  bgcolor="#0B75A7">
+						<div class="headerc">Magento Themes &amp; Magento Templates Home :: #1 Source for Magento Themes &amp; Magento Templates</div>
+					</td>
+				</tr>
+			</tbody></table><br>
+		</td>
+	</tr>
+</tbody></table>
+
+<table align="center" bgcolor="#ffffff" border="0" cellpadding="1" cellspacing="0" width="800"><tbody>
+	<tr>
+		<td>
+			<table align="center"><tbody>
+				<tr>
+					<td>
+
+<p>谢谢你购买我们的模板，下面是安装说明，</p>
+
+
+<h2>纯净安装(只安装模板，没有示例产品数据)(安装方法2)</h2>
+<h3># 文件拷贝</h3>
+
+<p>把template_se101下的文件全部拷贝到Magento安装目录</p>
+
+<h3># 把Magento的cache暂时关闭:</h3>
+
+<p>在 Admin -> System -> Manage Cache 去暂时关闭cache功能，等模板安装测试成功再打开cache.</p>
+
+
+
+
+<h3># 首页安装:</h3>
+
+<p>打开 Admin -> CMS -> Manage Pages -> Homepage.</p>
+
+<ul>
+<li><p>点击左边content tab，然后点击 "show/hide Editor" 把html关闭，把下面代码加入 content 区域:</p>
+<p>******************************************************************************</p>
+
+<blockquote><textarea rows="25">
+
+<div class="top-banners">
+<div id="slider">
+    <div class="slidercontrolwr">
+        <div class="slidercontrol">
+            <a href="#section1" title="Slide 1" class="">1</a>
+            <a href="#section2" title="Slide 2" class="">2</a>
+            <a href="#section3" title="Slide 3" class="">3</a>
+            <a href="#section4" title="Slide 4" class="">4</a>
+            <a href="#section5" title="Slide 5" class="">5</a>
+        </div>
+    </div>
+    <div class="scroller">
+        <div class="content">
+            <div class="sectionslide" id="section1">
+                <a href="{{store direct_url="#"}}"><img src="{{skin url=""}}images/slider/slider1.jpg" alt="" /></a>
+            </div>
+            <div class="sectionslide" id="section2">
+                <a href="{{store direct_url="#"}}"><img src="{{skin url=""}}images/slider/slider2.jpg" alt="" /></a>
+            </div>
+            <div class="sectionslide" id="section3">
+                <a href="{{store direct_url="#"}}"><img src="{{skin url=""}}images/slider/slider3.jpg" alt="" /></a>
+            </div>
+            <div class="sectionslide" id="section4">
+                <a href="{{store direct_url="#"}}"><img src="{{skin url=""}}images/slider/slider4.jpg" alt="" /></a>
+            </div>
+           <div class="sectionslide" id="section5">
+                <a href="{{store direct_url="#"}}"><img src="{{skin url=""}}images/slider/slider5.jpg" alt="" /></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    var my_glider = new Glider('slider', {duration:0.5, autoGlide: true, frequency: 4, initialSection: 'section1'});
+ </script>
+
+<a class="top-banner-right" href="{{store direct_url="#"}}"><img src="{{skin url='images/media/right-banner.jpg'}}" alt=""/></a>
+
+<div class="clear"></div>
+</div><!-- end of top banner -->
+
+{{block type="catalog/product_new" name="home.catalog.product.new" alias="product_homepage" template="catalog/product/new_scoller.phtml" _productsCount="12"}}
+
+<div class="category-images">
+            {{block type="catalog/navigation" name="catalog.categoriesImgTopNav" template="easycatalogimg/homepage.phtml"}}
+</div>
+
+
+<div class="home-bottom">
+  <div id="mainmenu">
+    <ul id="home-tabs">
+	<li><a class="home-active-tab" href="#tab1">Bestsellers</a></li>
+	<li><a class="" href="#tab2">Featured Products</a></li>
+	<li><a  class="last" href="#tab3">Promotion Products</a></li>
+    </ul>
+ <div>
+ <div class="panel" id="tab1">
+   <fieldset>
+     <legend>Tab 1 Body</legend>
+       {{block type="bestsellers/list" name="home.bestsellers.list" alias="product_homepage" template="catalog/product/listhome.phtml" }}
+   </fieldset>
+  </div>
+  <div class="panel" id="tab2">
+    <fieldset>
+      <legend>Tab 2 Body</legend>
+	{{block type="catalog/product_list" category_id="34" template="catalog/product/listhome.phtml"}} 
+    </fieldset>
+   </div>
+   <div class="panel" id="tab3">
+     <fieldset>
+	<legend>Tab 3 Body</legend>
+	 {{block type="catalog/product_list" category_id="23" template="catalog/product/listhome.phtml"}} 
+     </fieldset>
+    </div>
+</div>
+</div>
+</div><!-- end of home-bottom -->
+
+</textarea></blockquote></li>
+
+
+<li><p>在 homepage -> Design -> Layout Update XML field:</p>
+
+<blockquote><textarea rows="12">
+
+<remove name="catalog.compare.sidebar" />
+<remove name="right.poll" />
+
+<reference name="head">
+  <action method="addItem"><type>skin_js</type><name>js/scripts.js</name></action>
+</reference>
+
+<reference name="left">
+     <block type="mostviewed/list" name="home.mostviewed.list" before="-"  template="catalog/product/sidelist.phtml" />
+     <block type="blog/blog" name="left.blog.menu"  template="aw_blog/menu.phtml" />
+     <block type="newsletter/subscribe" name="homepage.newsletter" template="newsletter/left-subscribe.phtml"/>
+     <block type="tag/popular" name="tags_popular" template="tag/left-popular.phtml"/>
+</reference>
+
+
+<reference name="footer-top">
+       <block type="core/template" name="cms_footer_aboutus"  as="footer_aboutus" template="cms/about.phtml"/>
+</reference>
+
+
+</textarea></blockquote></li>
+
+
+<li><p>选择左边的 'design' tab， 选择layout为： '2 column with left bar'</p></li>
+<li><p>最后选择 save page 按钮存储该页面</P></li>
+ 
+ 
+ <li><p>在首页代码中 href="{{store direct_url="#"}}" 可以填入产品或者分类的url，比如是浏览器看到某页面url是http://www.yourdomain.com/electronics/computers.html，则代码href="{{store direct_url="electronics/computers.html"}}"就是该页面的链接。</p></li>
+<li><p>Hot Products是客户浏览最多的产品列表，这个是动态自动生成，可以去后台 system -> Configuration -> MostViewed 去设置该块显示产品个数。</p></li>
+<li><p>Bestseller是卖的最好的产品列表，这个是动态自动生成。</p></li>
+<li><p>Featured category是产品分类列表，可以去后台 system -> Configuration -> Easy Catalog Images 去设置, 请按照下面例子设置该插件：</p></li>
+<ul>
+   <li>Enable: Yes</li>
+   <li>Show categories listing on homepage:Yes</li>
+   <li>Show produt listing on categories pages with child categories: Yes </li>
+   <li>Show categories listing for anchor categories: Yes</li>
+    <li>Columns count: 4</li>
+   <li>Show categories thumbnails:Yes</li>
+   <li>Resize categories thumbnail: Yes </li>
+   <li>Thumbnail height:165</li>
+    <li>Thumbnail width:165</li>
+	<li> Show child Categories:Yes</li>
+   <li>Number of child categories to show: 2 </li>
+</ul>
+<li><p>首页New Arrivals需要在后台产品管理把 "Set Product As New from Date" 选项中设置一个日期，设置完成后该产品会在设定日期开始显示在首页 New Arrivals。 </p></li>
+<li><p>首页Featured Product 和 Promotion Product 都是显示的某个分类里的产品，需要修改首页代码中的 category_id="22" ID值</p></li>
+<li><p>首页产品广告轮换图片存放在 skin/frontend/default/se101/images/slider 目录下, 可以用你自己的图片替换，替换时要注意每个图片的尺寸要和原来的图片相同。</p></li>
+</ul>
+
+
+<h3># 在后台加入静态块代码:</h3>
+<p style="color:red">在加入静态块时，一定要注意 Identifier 要一模一样，Magento就是用这个id 去调用相应的静态块的</p>
+<h4>静态块1</h4>
+<p>打开 CMS ->Static Blocks 加入下面静态块</p>
+<ul>
+   <li>Block Title:Community Block</li>
+   <li>Identifier:community-block</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>Content代码如下，一定要先点击 ”show/hide Editor“ 按钮隐含html编辑器。</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="10">
+
+<div class="community-block">
+<ul>
+    <li class="community-title"><span>Join our community :</span></li>
+    <li class="i-blog"><a href="{{store direct_url=""}}"><span>blog</span></a></li>
+    <li class="i-twitter"><a href="http://www.twitter.com"><span>twitter</span></a></li>
+    <li class="i-facebook"><a href="http://www.facebook.com"><span>facebook</span></a></li>
+    <li class="i-youtube"><a href="http://www.youtube.com"><span>youtube</span></a></li>
+</ul> 
+</div>
+
+</textarea></blockquote></li>
+<li><p>可以加入一些facebook 等链接。</p></li>
+    
+</ul>
+
+
+<h4>静态块2</h4>
+<p>打开 CMS ->Static Blocks 加入下面静态块</p>
+<ul>
+   <li>Block Title:Footer CMS Links</li>
+   <li>Identifier:footer-cms-links</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>Content代码如下，一定要先点击 ”show/hide Editor“ 按钮隐含html编辑器。</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="25">
+
+<div class="footer_block">
+<ul class="mar_t2">
+      <li><span>Company Info</span>
+        <ul class="mar_t1">
+          <li><a href="{{store direct_url="#"}}">About Us</a></li>
+          <li><a href="{{store direct_url="#"}}">Location & Working Hours</a></li>
+          <li><a href="{{store direct_url="#"}}">Testimonials</a></li>
+          <li><a href="{{store direct_url="#"}}">Our Guarantee</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="mar_t2">
+      <li><span>Customer Service</span>
+        <ul class="mar_t1">
+          <li><a href="{{store direct_url="contacts"}}">Contact Us</a></li>
+          <li><a href="{{store direct_url="#"}}">Track Your Order</a></li>
+          <li><a href="{{store direct_url="#"}}">Live Chat</a></li>
+          <li><a href="{{store direct_url="#"}}">Submit a Request</a></li>
+          <li><a href="{{store direct_url="#"}}">Help Page and Knowledge Base</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="mar_t2">
+      <li><span>Shipping & Returns</span>
+        <ul class="mar_t1">
+          <li><a href="{{store direct_url="#"}}">Shipping Method Guide</a></li>
+          <li><a href="{{store direct_url="#"}}">Return Policy</a></li>
+          <li><a href="{{store direct_url="#"}}">Locations We Ship To</a></li>
+          <li><a href="{{store direct_url="#"}}">Estimate Delivery Time</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="mar_t2">
+      <li><span>Security & Privacy</span>
+        <ul class="mar_t1">
+          <li><a href="{{store direct_url="#"}}">Privacy Policy</a></li>
+          <li><a href="{{store direct_url="#"}}">Terms of Use</a></li>
+        </ul>
+      </li>
+    </ul>
+   <ul class="mar_t2">
+      <li><span>Customer Service</span>
+        <ul class="mar_t1">
+          <li><a href="{{store direct_url="contacts"}}">Contact Us</a></li>
+          <li><a href="{{store direct_url="#"}}">Track Your Order</a></li>
+          <li><a href="{{store direct_url="#"}}">Live Chat</a></li>
+          <li><a href="{{store direct_url="#"}}">Submit a Request</a></li>
+          <li><a href="{{store direct_url="#"}}">Help Page and Knowledge Base</a></li>
+        </ul>
+      </li>
+    </ul>
+     <div class="clear"></div>
+</div>
+
+ 
+
+
+</textarea></blockquote></li>
+<li><p>可以加入一些外部链接，或者CMS页面。</p></li>
+    
+</ul>
+
+<h4>静态块3</h4>
+<p>打开 CMS ->Static Blocks 加入下面静态块</p>
+<ul>
+   <li>Block Title:Footer Secure</li>
+   <li>Identifier:secure</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>Content代码如下，一定要先点击 ”show/hide Editor“ 按钮隐含html编辑器。</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="10">
+
+<div class="footer-bot secure-block">
+    <div class="secure-title">
+        <strong><span>100% Secure</span></strong>
+    </div>
+    <div class="secure-content">
+       <p>Shop in confidence on our site! We accept all major cards as well as Google Checkout & Paypal...</p>
+       <img src="{{skin url='images/payment-logos.gif'}}" border="0"  />
+    </div>
+</div>
+
+</textarea></blockquote></li>
+    
+</ul>
+
+<h4>静态块4(顶部导航图片广告)</h4>
+<p>打开 CMS ->Static Blocks 加入下面静态块</p>
+<ul>
+   <li>Block Title: Top Menu Banner 1</li>
+   <li>Identifier:banner_1 (这里是第一个大分类，ID就是 banner_1， 如果是第一个分类就是 banner_2, 依次类推。</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>Content代码如下，一定要先点击 ”show/hide Editor“ 按钮隐含html编辑器。</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="10">
+
+<div class="banner-block">
+<h4>Special Offers</h4>
+<ul banner-imgs>
+<li class="disc"><a href="{{store direct_url="#"}}">Discount Car Tech</a></li>
+<li class="disc"><a href="{{store direct_url="#"}}">Custom Logo MP3 Player</a></li>
+<li class="last disc"><a href="{{store direct_url="c#"}}">Mp3 on Sale</a></li>
+</ul>
+<a href="{{store direct_url="electronics/cell-phones/sony-ericsson-w810i.html"}}"><img src="{{skin url='images/media/car_tech.jpg'}}" alt=""/></a>
+</div>
+
+
+</textarea></blockquote></li>
+<li><p>href="{{store direct_url="#"}}" 用相应的链接代替，比如 Magento Contacts 页面是：href="{{store direct_url="contacts"}}"</p></li>
+    
+</ul>
+
+<h3>#关于blog</h3>
+
+<p>本模板已经集成了 aw_blog,在登陆Magento后台后可以看到Blog的菜单项，可以添加blog文章等，具体使用和问题可以参考该插件的官方网站：
+http://www.magentocommerce.com/magento-connect/aheadWorks/extension/1516/blog-extension-by-aheadworks
+</p>
+
+
+
+
+ 
+
+<h3># 在后台选择模板:</h3>
+<p>在  Admin -> System -> Configuration -> 'Design' tab -> Themes' Group' 中 'Default' 中填入
+<strong>se101</strong></p>
+
+<h3># 安装完成.</h3>
+					</td>
+				</tr>
+			</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+
+
+</body>
+</html>

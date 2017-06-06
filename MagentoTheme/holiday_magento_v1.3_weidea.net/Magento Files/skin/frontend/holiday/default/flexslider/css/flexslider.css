@@ -1,0 +1,192 @@
+/*
+ * jQuery FlexSlider v2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+
+ 
+/* Browser Resets */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none !important;} 
+
+/* FlexSlider Necessary Styles
+*********************************/ 
+.flexslider {margin: 0; padding: 0;}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {width: 100%; display: block; }
+#banner-slider.flexslider .slides img {width: 100%; display: block;height:590px; }
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
+html[xmlns] .slides {display: block;} 
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider { position: relative; zoom: 1;}
+.flex-viewport {max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; transition: all 1s ease; display: inline-block;}
+.loading .flex-viewport {max-height: 300px;}
+.flexslider .slides {zoom: 1;}
+.loading{}
+.carousel li {}
+
+#banner-slider .flex-viewport{ height: 590px;}
+html[xmlns] #banner-slider .slides {display: block; height: 590px;} 
+
+/* Direction Nav */
+.flex-direction-nav {}
+.flex-direction-nav a { display: block;  position: absolute; top: -7.2%; z-index: 10; cursor: pointer; opacity: 0;text-decoration:none;font-family:'FontAwesome';}
+.flex-direction-nav .flex-disabled { filter:alpha(opacity=30); cursor: default;}
+.flexslider:hover .flex-direction-nav .flex-disabled{opacity: 0.3 !important;}
+.flexslider .flex-direction-nav .flex-disabled{opacity: 0.3 !important;}
+
+#main-slider{float:left;}
+#main-slider .flex-direction-nav a {top: -13%;font-size: 17px;color: #FFF;border: 1px solid;border-radius: 100%;width: 28px;text-align: center;padding: 5px 0px 5px 0px;}
+#main-slider .flex-direction-nav a:hover{color:#5F5F5F;}
+#main-slider .flex-next {opacity:1;right:10px;}
+#main-slider .flex-prev {opacity: 1;}
+#main-slider .flex-direction-nav .flex-prev{left: 1125px;}
+
+#sale-slider{float:left;width: 1200px;}
+#sale-slider .flex-viewport{width: 1200px;}
+#sale-slider .flex-direction-nav a {top: -13%;font-size: 17px;color: #FFF;border: 1px solid;border-radius: 100%;width: 28px;text-align: center;padding: 5px 0px 5px 0px;}
+#sale-slider .flex-direction-nav a:hover{color:#5F5F5F;}
+#sale-slider .flex-next {opacity: 1;right: 10px;}
+#sale-slider .flex-prev {opacity: 1;}
+#sale-slider .flex-direction-nav .flex-prev{left: 1125px;}
+
+#related-slider .flex-direction-nav a {top: -16%;font-size: 17px;border: 1px solid #DCDCDC;border-radius: 3px;width: 28px;text-align: center;padding: 5px 0px 5px 0px;background: #EFEFEF;box-shadow: 0 0 5px rgba(0, 0, 0, 0.10);}
+#related-slider .flex-direction-nav a:hover{background:#F07318;color:#FFF;}
+#related-slider .flex-next {opacity:1; right:0px;}
+#related-slider .flex-prev {opacity: 1;}
+#related-slider .flex-direction-nav .flex-prev{right: 35px;}
+
+#upsell-slider{float:left;width: 1160px;}
+#upsell-slider .flex-viewport{width: 1160px;}
+#upsell-slider .flex-direction-nav a {top: -16.8%;font-size: 17px;border: 1px solid #DCDCDC;border-radius: 3px;width: 28px;text-align: center;padding: 5px 0px 5px 0px;background: #EFEFEF;box-shadow: 0 0 5px rgba(0, 0, 0, 0.10);}
+#upsell-slider .flex-direction-nav a:hover{background:#F07318;color:#FFF;}
+#upsell-slider .flex-next {opacity:1; right:0px;}
+#upsell-slider .flex-prev {opacity: 1;}
+#upsell-slider .flex-direction-nav .flex-prev{right: 35px;}
+
+#crosssell-slider{float:left;width: 1160px;}
+#crosssell-slider .flex-viewport{width: 1160px;}
+#crosssell-slider .flex-direction-nav a {top: -16.8%;font-size: 17px;border: 1px solid #DCDCDC;border-radius: 3px;width: 28px;text-align: center;padding: 5px 0px 5px 0px;background: #EFEFEF;box-shadow: 0 0 5px rgba(0, 0, 0, 0.10);}
+#crosssell-slider .flex-direction-nav a:hover{background:#F07318;color:#FFF;}
+#crosssell-slider .flex-next {opacity:1; right:0px;}
+#crosssell-slider .flex-prev {opacity: 1;}
+#crosssell-slider .flex-direction-nav .flex-prev{right: 35px;}
+
+#banner-slider:hover .flex-direction-nav{display:block;}
+#banner-slider .flex-direction-nav {width:100%;position: absolute;bottom: 275px;display:none;}
+#banner-slider .flex-direction-nav a {background:#FFF ;font-size: 30px;color:#000; top: -11.8%;}
+#banner-slider .flex-direction-nav a:hover{color:#5F5F5F;}
+#banner-slider .flex-direction-nav .flex-next{opacity:1;right:5px;padding:0px 10px 1px 14px; }
+#banner-slider .flex-direction-nav .flex-prev{left:5px;opacity:1;padding:0px 14px 1px 10px;}
+
+
+/*detail-carousel flex-direction-nav======================*/
+.detail-carousel .product-image{background:#FFF;}
+.detail-carousel .slides li{background:#FFF;}
+.detail-carousel{/*border-bottom: 1px solid #DCDCDC;padding-bottom:20px;*/}
+.detail-carousel #carousel .flex-viewport{}
+.detail-carousel .flex-direction-nav{border-bottom:1px solid #DCDCDC;margin-bottom: 20px;font-size: 17px;text-align:right;padding:10px 0px;font-family: 'FontAwesome';text-decoration: none;margin-top:20px;}
+.detail-carousel .flex-direction-nav li{display:inline-block;margin-right:5px;}
+.detail-carousel .flex-direction-nav a{border: 1px solid #DCDCDC;border-radius: 3px;width: 28px;opacity:1;text-decoration: none;padding: 5px 0px 5px 0px;position:relative;text-align:center;background: #EFEFEF;box-shadow: 0 0 5px rgba(0, 0, 0, 0.10);}
+.detail-carousel .flex-direction-nav a:hover{background:#F07318;color:#FFF;border: 1px solid #F07318;}
+.detail-carousel #slider .flex-viewport li{opacity:0.75;border:3px solid transparent;margin-right:10px;background:#fff;}
+.detail-carousel #slider .flex-viewport li.flex-active-slide{border:3px solid #DCDCDC;opacity:1;}
+.detail-carousel .flex-direction-nav a.flex-next {margin-right:5px;}
+.detail-carousel .flex-direction-nav a.flex-prev {}
+
+/*detail-carousel flex-direction-nav with zoom*/
+.detail-carousel .product-image{background:#FFF;}
+.detail-carousel.cloudzoom #slider .flex-viewport li{border: 3px solid #DCDCDC;}
+.detail-carousel.cloudzoom .product-image.product-image-zoom{}
+.detail-carousel.cloudzoom .flex-viewport{padding-top:95px;}
+.detail-carousel.cloudzoom .flex-direction-nav{position: absolute;top: 0;width: 100%;}
+.detail-carousel.cloudzoom h2{top:28px;z-index:9999;}
+
+/*End detail-carousel flex-direction-nav==================*/
+
+
+/*Custom2 Without Zoom=============*/
+.custom2-views.detail-carousel{border:none;padding-bottom:0px;}
+.custom2-views.detail-carousel .flex-direction-nav a.flex-prev{}
+.custom2-views.detail-carousel .flex-direction-nav a.flex-next{top:440px;}
+#slider1 .flex-direction-nav{position:absolute;top:0;left:-125px;padding: 0px 0px 0px 0px;margin: 0px;border: none;}
+#slider1 .flex-direction-nav li{display:table;margin:0px;}
+/*#slider1 .flex-viewport{border-bottom:1px solid #DCDCDC;padding-bottom:20px;}*/
+#slider1{width: 374px; float: left;}
+#slider1 .flex-direction-nav a.flex-next{}
+#slider1 .flex-viewport li{margin-right:0px;border:none;background:#FFF;}
+.detail-carousel #carousel1 .flex-viewport li{opacity:0.75;border:3px solid transparent;margin-right:10px;background:#fff;}
+.detail-carousel #carousel1 .flex-viewport li.flex-active-slide{border:3px solid #DCDCDC;opacity:1;}
+#carousel1{width: 150px; float: left;margin-top:40px;}
+#carousel1 .slides li{float: none !important;margin-bottom:10px;}
+#carousel1 .flex-viewport{height:420px;}
+.custom2-views .noimage{margin:0 auto;display:table;}
+
+/*End Custom2 Without Zoom=========*/
+
+/*Custom2 With Zoom=============*/
+
+#carousel2 .flex-direction-nav{left:25px;width: auto;float: right;padding: 0px;margin: 0px;border: none;}
+.custom2-views.cloudzoom #carousel2 .flex-viewport{float: left;width: 75px;padding-top:0px;height:420px !important;margin-top:40px;}
+.custom2-views.cloudzoom .product-image-zoom {float: right;/*padding-bottom: 20px;*/margin-bottom: 0px !important;}
+#carousel2 .flex-direction-nav li{display:table;margin:0px;}
+#carousel2 .flex-direction-nav a.flex-next{}
+#carousel2 .slides li{float: none !important;margin-bottom:10px;}
+.detail-carousel.cloudzoom #carousel2 .flex-viewport li{background:#fff;border:3px solid #DCDCDC;}
+
+/*End Custom2 With Zoom=========*/
+
+
+/* without image */
+
+.noimage{}
+.vertical-noimage{width: 300px; margin: 0 auto;}
+.horizontal-noimage{width: 500px; margin: 0 auto;}
+.default-noimage{width: 374px; margin: 0 auto;}
+/*.noimage li.item{border-bottom: 1px solid #DCDCDC;padding-bottom: 20px;}*/
+/*.vertical-noimage li.item{border-bottom: 1px solid #DCDCDC;padding-bottom: 20px;}*/
+/*.horizontal-noimage li.item{border-bottom: 1px solid #DCDCDC;padding-bottom: 20px;}*/
+/*.default-noimage li.item{border-bottom: 1px solid #DCDCDC;padding-bottom: 20px;}*/
+
+/* Control Nav */
+.flex-control-nav {width: 100%; position: relative; float: left; text-align: center;}
+.flex-control-nav li {margin:6px; display:inline-block;}
+.flex-control-paging li a {width: 11px; height: 11px; display: block; background: #CCC;/* background: rgba(0,0,0,0.5);*/ cursor: pointer; text-indent: -9999px; -webkit-border-radius: 20px; -moz-border-radius: 20px; -o-border-radius: 20px; border-radius: 20px; box-shadow: inset 0 0 3px rgba(0,0,0,0.3);}
+.flex-control-paging li a:hover { background: #FFF; /*background: rgba(0,0,0,0.7);*/ }
+.flex-control-paging li a.flex-active { background: #FFF; /*background: rgba(0,0,0,0.9);*/ cursor: default; }
+
+.flex-control-thumbs {margin: 5px 0 0; position: static; overflow: hidden;}
+.flex-control-thumbs li {width: 25%; float: left; margin: 0;}
+.flex-control-thumbs img {width: 100%; display: block; opacity: .7; cursor: pointer;}
+.flex-control-thumbs img:hover {opacity: 1;}
+.flex-control-thumbs .flex-active {opacity: 1; cursor: default;}
+
+
+
+
+@media screen and (max-width: 860px) {
+  .flex-direction-nav .flex-prev {opacity: 1; left: 0;}
+  .flex-direction-nav .flex-next {opacity: 1; right: 0;}
+}

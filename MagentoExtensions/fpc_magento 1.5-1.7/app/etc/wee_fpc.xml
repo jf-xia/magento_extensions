@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <global>
+        <cache>
+            <request_processors>
+                <fpc>Wee_Fpc_Model_Processor</fpc>
+            </request_processors>
+         </cache>
+    </global>
+</config>

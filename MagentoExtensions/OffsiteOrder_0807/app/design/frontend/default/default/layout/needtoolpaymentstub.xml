@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+<!--
+One page paymentstub main layout
+-->
+    <paymentstub_stub_index>
+        <!-- Mage_paymentstub -->
+        <remove name="left"/>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="right">
+            <!--action method="unsetChildren"></action-->
+        </reference>
+        <reference name="content">
+            <block type="paymentstub/stub" name="paymentstub.stub" template="needtoolpaymentstub/stub.phtml">
+                  <block type="paymentstub/stub_methods" name="paymentstub.stub.methods"  as="methods" template="needtoolpaymentstub/methods.phtml">
+                        <!--action method="setMethodFormTemplate"><method>purchaseorder</method><template>needtoolpaymentstub/form/purchaseorder.phtml</template></action-->
+                    </block>
+            </block>
+        </reference>
+    </paymentstub_stub_index>
+
+    <paymentstub_success>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="paymentstub/success" name="paymentstub.success" template="needtoolpaymentstub/success.phtml"/>
+        </reference>
+    </paymentstub_success>
+    <paymentstub_failure>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="paymentstub/failure" name="paymentstub.failure" template="needtoolpaymentstub/failure.phtml"/>
+        </reference>
+    </paymentstub_failure>
+</layout>

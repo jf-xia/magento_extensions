@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <magpleasure_common_js>
+        <reference name="head">
+            <action method="addJs"><script>magpleasure/common.js</script></action>
+        </reference>
+    </magpleasure_common_js>
+    <magpleasure_widget_dialog>
+        <update handle="magpleasure_common_js" />
+        <reference name="head">
+            <action method="addJs"><script>magpleasure/widget/dialog.js</script></action>
+            <action method="addCss"><script>magpleasure/css/widget/dialog.css</script></action>
+        </reference>
+        <reference name="content">
+            <block type="magpleasure/widget_dialog_wrapper" name="magpleasure.widget.dialog" as="magpleasure_widget_dialog" />
+        </reference>
+    </magpleasure_widget_dialog>
+    <apply_glyphicons>
+        <reference name="head">
+            <action method="addCss"><style>magpleasure/vendor/glyphicons/css/glyphicons.css</style></action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>magpleasure/vendor/glyphicons/css/glyphicons-ie7-fix.css</name>
+                <params/>
+                <if>lte IE 7</if>
+            </action>
+        </reference>
+    </apply_glyphicons>
+
+    <apply_jquery>
+        <update handle="browser_js_fix"/>
+        <reference name="head">
+            <action method="addJs"><script>magpleasure/libs/jquery/jquery-1.8.2.min.js</script></action>
+        </reference>
+    </apply_jquery>
+
+    <apply_jquery_ui>
+        <update handle="apply_jquery"/>
+        <reference name="head">
+            <action method="addJs"><script>magpleasure/libs/jquery/ui/jquery-ui-1.9.1.custom.min.js</script></action>
+            <action method="addItem"><type>js_css</type><script>magpleasure/libs/jquery/ui/css/jquery-ui-1.9.1.magento.css</script></action>
+        </reference>
+    </apply_jquery_ui>
+
+    <apply_angularjs>
+        <reference name="head">
+            <action method="addJs"><script>magpleasure/libs/angularjs/angular.min.js</script></action>
+        </reference>
+    </apply_angularjs>
+
+    <apply_angularjs_dragdrop>
+        <update handle="apply_jquery_ui"/>
+        <reference name="head">
+            <action method="addJs"><script>magpleasure/libs/angularjs/utils/angular-dragdrop.min.js</script></action>
+        </reference>
+    </apply_angularjs_dragdrop>
+
+    <apply_angularjs_grid>
+        <update handle="apply_angularjs"/>
+        <update handle="apply_jquery"/>
+        <reference name="head">
+            <action method="addJs"><script>magpleasure/libs/angularjs/utils/ng-grid.min.js</script></action>
+            <action method="addItem"><type>js_css</type><script>magpleasure/libs/angularjs/utils/ng-grid.min.css</script></action>
+        </reference>
+    </apply_angularjs_grid>
+
+    <apply_base64>
+        <reference name="head">
+            <action method="addJs"><script>magpleasure/libs/webtoolkit/base64.js</script></action>
+        </reference>
+    </apply_base64>
+
+    <apply_lightbox2>
+        <update handle="apply_jquery"/>
+        <reference name="head">
+            <action method="addItem"><type>js_css</type><script>magpleasure/libs/lightbox2/css/lightbox.css</script></action>
+            <action method="addJs"><script>magpleasure/libs/lightbox2/js/lightbox-2.6.min.js</script></action>
+            <action method="addJs"><script>magpleasure/libs/lightbox2/js/modernizr.custom.js</script></action>
+        </reference>
+    </apply_lightbox2>
+</layout>

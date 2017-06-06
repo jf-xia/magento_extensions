@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<config>
+  <modules>
+    <NeedTool_Base>
+      <version>0.1</version>
+    </NeedTool_Base>
+  </modules>
+  
+	<global>
+
+		<models>
+			<ntbase>
+				<class>NeedTool_Base_Model</class>
+			</ntbase>
+		</models>
+
+	  <helpers>
+		  <ntbase>
+			  <class>NeedTool_Base_Helper</class>
+		  </ntbase>
+	  </helpers>
+	</global>
+	
+	<adminhtml>
+	
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<ntbase>
+											<title>NEEDTOOL - Base</title>
+										</ntbase>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<events>
+            <controller_action_predispatch>
+                <observers>
+                    <ntbase>
+                        <type>singleton</type>
+                        <class>ntbase/feed</class>
+                        <method>check</method>
+                    </ntbase>
+                </observers>
+            </controller_action_predispatch>
+        </events>	
+	</adminhtml>
+	<default>
+		<ntbase>
+			<feed>
+				<url>cn.needtool.com/update/feed.xml</url>
+				<use_https>0</use_https>
+				<frequency>24</frequency>
+				<enable>1</enable>
+			</feed>
+		</ntbase>
+	</default>			
+</config>

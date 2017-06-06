@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>wp_price_decimal</name>
+    <version>1.4.0</version>
+    <stability>stable</stability>
+    <license uri="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Decimal price (WebAndPeople.com)</summary>
+    <description>Decimal price (WebAndPeople.com)</description>
+    <notes>+ trim decimal zero to the right, ~ fix: exclude cart</notes>
+    <authors><author><name>WebAndPeople</name><user>auto-converted</user><email>design@webandpeople.com</email></author><author><name>Yura Gerassimenko</name><user>auto-converted</user><email>y.gerassimenko@webandpeople.com</email></author></authors>
+    <date>2012-02-29</date>
+    <time>12:34:31</time>
+    <contents><target name="magecommunity"><dir name="WP"><dir name="PriceDecimal"><dir name="Block"><file name="About.php" hash="e64d4b64438c4b31258d3d37849a72cf"/></dir><dir name="Helper"><file name="Data.php" hash="91104b07553625a02be163e75a9ae62d"/></dir><dir name="Model"><file name="Currency.php" hash="90e0a2a555054ea5b6b3976b41e6818c"/><file name="Locale.php" hash="d66eb5e2e8b0fc14202f699d94b2c26e"/></dir><dir name="etc"><file name="config.xml" hash="773208fc7b5822eef94de53385ca7b25"/><file name="system.xml" hash="753085ff1ea0365aa6647aeee9a3a61d"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="WP_PriceDecimal.xml" hash="9b870760e423ab063bd152305552564c"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><dir name="webandpeople"><file name="pricedecimal.xml" hash="bc44be7e61f49d7012e0a71036ac1fec"/></dir></dir></dir></dir></dir></target><target name="mageweb"><dir name="js"><dir name="webandpeople"><dir name="pricedecimal"><file name="trim_zero_right.js" hash="53fcc4c36d0ff2bc0729beb78158cb92"/></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

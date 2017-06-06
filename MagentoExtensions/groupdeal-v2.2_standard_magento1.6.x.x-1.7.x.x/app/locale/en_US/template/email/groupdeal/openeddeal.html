@@ -1,0 +1,76 @@
+<!--@subject {{var store.getFrontendName()}}: Groupdeal {{var deal.getDiscountHtml()}} - {{var deal.getDealTitle()}} @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"skin url=\"images/logo_email.gif\" _area='frontend'":"Email Logo Image",
+"htmlescape var=$member.getMemberName()":"Member Name",
+"var store.getFrontendName()":"Store Name",
+"store url=\"customer/account/\"":"Customer Account Url",
+}
+@-->
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<div style="font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;">
+<table cellspacing="0" cellpadding="0" border="0" width="98%" style="margin-top:10px; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px;">
+<tr>
+    <td align="center" valign="top">
+        <!-- [ header starts here] -->
+        <table cellspacing="0" cellpadding="0" border="0" width="705">
+            <tr>
+                <td valign="top"><a style="text-decoration:none;color:#1E7EC8;" href="{{store url=""}}"><img src="{{skin url="images/logo_email.gif" _area='frontend'}}" alt="{{var store.getFrontendName()}}"  style="margin-bottom:10px;" border="0"/></a></td>
+            </tr>
+        </table>
+        <!-- [ middle starts here] -->
+        <table cellspacing="0" cellpadding="0" border="0" width="705">
+        	<tr>
+            	<td style="color:#CCCCCC; font-size:14px; text-align:center;">
+                	<a style="text-decoration:none;color:#1E7EC8;" href="{{store url="groupdeal"}}">Go to Groupdeal on {{var store.getFrontendName()}}</a>
+                    |
+					<a style="text-decoration:none;color:#1E7EC8;" href="{{var deal.getSubscribeUrl()}}">Manage Subscribe</a>
+				</td>
+            </tr>
+            <tr>
+                <td style="padding: 20px 10px;background: url('{{skin url='images/bkg_product-view.gif' _area='frontend'}}') no-repeat #FFFFFF;border:10px solid #98C267;">
+                	<div>
+                    	<a style="text-decoration:none;color:#1E7EC8;" href="{{var deal.getDealUrl()}}">
+							<h1 style="color: #333333; font-family: Arial; font-weight: bold; margin: 0 10px 5px; font-size:20px;">
+							{{var deal.getDealTitle()}}
+							</h1>
+						</a>
+                        <p style="color: #A9A9A9; font-size: 14px; font-weight: bold; margin: 8px 10px;">{{var deal.getShortDescription()}}</p>
+                    </div>
+                    <div style="float: left; margin-right:10px;width:220px;">
+                    	<div style="background:#45BBD6; height: 50px; padding-top:10px;">
+                			<span style="color: #FFFFFF; display: block; float: left; font-size: 30px; font-weight: bold; margin: 15px 0 0 50px;">{{var deal.getPriceHtml()}}</span>
+            			</div>           
+                        <div style="background: #CFEEF6; border: 1px solid #64C8E2; font-size: 18px; height: 50px; margin-top: -12px; padding:10px 2px 0 2px; font: 12px/1.55 Arial,Helvetica,sans-serif;">
+                            <dl style="float:left; font-weight:bold;text-align:center; margin:0;">
+                                <dt style="font-size:13px;">Value</dt>
+                                <dd style="font-size:18px;margin-left:0;">{{var deal.getPriceHtml()}}</dd>
+                            </dl>
+                            <dl style="float:left; font-weight:bold; width:70px; text-align:center; margin:0;">
+                                <dt style="font-size:13px;">Discount</dt>
+                                <dd style="font-size:18px;margin-left:0;">{{var deal.getDiscountHtml()}}</dd>
+                            </dl>
+                            <dl style="float:left; font-weight:bold; width:70px; text-align:center; margin:0;">
+                                <dt style="font-size:13px;">You save</dt>
+                                <dd style="font-size:18px;margin-left:0;">{{var deal.getYouSaveHtml()}}</dd>
+                            </dl>
+                        </div>
+						<div style="background: #CFEEF6; border: 1px solid #64C8E2;margin:10px 0 0 0; padding:10px 2px;">
+							{{var deal.getFormattedShortDescription()}}
+						</div>
+                    </div>
+                    <div style="float-right;">
+                    	<div style="background: none repeat scroll 0 0 #FFFFFF;border: 1px solid #DFDFDF;height: 262px;margin-bottom: 10px;position: relative; width: 427px;float:left;">
+							<img src="{{var deal.getThumbnailImage()}}" width="420" height="255"/>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+</table>
+</div>

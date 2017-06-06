@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mdlb_Mlayer>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Mdlb_Mlayer>
+    </modules>
+</config> 

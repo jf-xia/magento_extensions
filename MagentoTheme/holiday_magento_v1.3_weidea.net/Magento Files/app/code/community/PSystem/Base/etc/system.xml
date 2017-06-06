@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<config>
+	<tabs>
+		<psystem translate="label">
+			<label>PEER SYSTEM</label>
+			<sort_order>4</sort_order>
+		</psystem>
+	</tabs>
+	<sections>
+		<psbase translate="label" module="psbase">
+			<label>Base</label>
+			<tab>psystem</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>5</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<quickimages translate="label">
+					<label>Quick Zoom Image in catalog list</label>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<sort_order>5</sort_order>
+					<fields>
+						<disable translate="label,comment">
+							<label>Disable module</label>
+							<comment><![CDATA[default: Yes]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</disable>
+						<selector translate="label,comment">
+							<label>Image Link</label>
+							<comment><![CDATA[default: a.product-image]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</selector>
+					</fields>
+				</quickimages>
+			</groups>
+		</psbase>
+	</sections>
+</config>

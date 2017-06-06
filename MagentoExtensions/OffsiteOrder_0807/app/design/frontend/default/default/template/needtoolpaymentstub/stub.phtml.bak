@@ -1,0 +1,124 @@
+<script type="text/javascript" src="<?php echo $this->getJsUrl('varien/accordion.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/opcheckout.js') ?>"></script>
+<ol id="checkoutSteps" class="one-page-checkout">
+    <li id="opc-payment" class="section allow active" >
+
+ <div class="head">
+       <h3><?php echo $this->__('Payment Information') ?></h3>
+ </div>
+       <div id="checkout-step-payment" class="box a-item" >
+           <script type="text/javascript">
+var payment = new Payment('co-payment-form', '<?php echo $this->getUrl('checkout/onepage/savePayment') ?>');
+</script>
+<form action="" id="co-payment-form">
+    <?php echo $this->getChildHtml('methods') ?>
+    <div class="tool-tip" id="payment-tool-tip" style="display:none;">
+        <div class="btn-close">
+            <a href="#" id="payment-tool-tip-close"><img src="<?php echo $this->getSkinUrl('images/btn_window_close.gif') ?>" alt="<?php echo $this->__('Close') ?>" /></a>
+        </div>
+        <div class="block-content">
+        <img src="<?php echo $this->getSkinUrl('images/cvv.gif') ?>" alt="<?php echo $this->__('Card Verification Number Visual Reference') ?>" />
+        </div>
+    </div>
+</form>
+<div class="button-set">
+    <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+    function toggleToolTip(event){
+        if($('payment-tool-tip')){
+            $('payment-tool-tip').setStyle({
+                //left: (Event.pointerX(event)+100)+'px'
+                top: (Event.pointerY(event)-515)+'px'
+            })
+            $('payment-tool-tip').toggle();
+        }
+        Event.stop(event);
+    }
+    if($('payment-tool-tip-close')){
+        Event.observe($('payment-tool-tip-close'), 'click', toggleToolTip);
+    }
+
+    $$('.cvv-what-is-this').each(function(element){
+        Event.observe(element, 'click', toggleToolTip);
+    });
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+    payment.currentMethod = "<?php echo $this->getChild('methods')->getSelectedMethodCode() ?>";
+//]]>
+</script>
+        </div>
+        <div class="content button-set">
+    <p>
+        <span id="review-buttons-container" class="a-center">
+            <input type="image" src="<?php echo $this->getSkinUrl('images/btn_place_order.gif') ?>" onclick="review.save();" value="<?php echo $this->__('Place Order') ?>" />
+        </span>
+    </p>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+var Review = Class.create();
+Review.prototype = {
+    initialize: function(saveUrl, successUrl){
+        this.saveUrl = saveUrl;
+        this.successUrl = successUrl;
+        this.onSave = this.nextStep.bindAsEventListener(this);
+        this.onComplete = this.resetLoadWaiting.bindAsEventListener(this);
+    },
+
+    save: function(){
+        var params = Form.serialize(payment.form);
+        params.save = true;
+        var request = new Ajax.Request(
+            this.saveUrl,
+            {
+                method:'post',
+                parameters:params,
+                onComplete: this.onComplete,
+                onSuccess: this.onSave
+            }
+        );
+    },
+
+    resetLoadWaiting: function(transport){
+        checkout.setLoadWaiting(false, this.isSuccess);
+    },
+
+    nextStep: function(transport){
+        if (transport && transport.responseText) {
+            try{
+                response = eval('(' + transport.responseText + ')');
+            }
+            catch (e) {
+                response = {};
+            }
+            if (response.redirect) {
+                location.href = response.redirect;
+                return;
+            }
+            if (response.success) {
+                this.isSuccess = true;
+                window.location=this.successUrl;
+            }
+            else{
+                var msg = response.error_messages;
+                if (typeof(msg)=='object') {
+                    msg = msg.join("\n");
+                }
+                alert(msg);
+            }
+        }
+    },
+
+    isSuccess: false
+}
+    var review = new Review('<?php echo $this->getUrl('paymentstub/stub/saveOrder') ?>', '<?php echo $this->getUrl('paymentstub/stub/success') ?>');
+//]]>
+</script>
+</li>
+</ol>

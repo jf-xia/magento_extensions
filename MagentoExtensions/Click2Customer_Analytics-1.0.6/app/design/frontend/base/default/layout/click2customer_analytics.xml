@@ -1,0 +1,12 @@
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addExternalItem"><type>external_js</type><name>//www.click-2-customer.com/js/ss_analytics.min.js</name><params/></action>
+            <action method="addExternalItem"><type>external_js</type><name>//www.click-2-customer.com/js/c2cQuery.min.yui.js</name><params/></action>
+            <action method="addExternalItem"><type>external_css</type><name>//www.click-2-customer.com/content/defaults.css</name><params/></action>
+        </reference>
+        <reference name="after_body_start">
+            <block type="click2customer_analytics/analytics" name="click2customer_analytics" as="click2customer_analytics"/>
+        </reference>
+    </default>
+</layout>

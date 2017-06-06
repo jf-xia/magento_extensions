@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <guestbook_admin_adminhtml_message_index>
+        <reference name="content">
+            <block type="guestbook/adminhtml_message" name="message"/>
+        </reference>
+    </guestbook_admin_adminhtml_message_index>
+    <guestbook_admin_adminhtml_message_edit>
+        <reference name="content">
+            <block type="guestbook/adminhtml_message_edit" name="mpblog_comment_edit" />
+        </reference>
+        <reference name="left">
+            <block type="guestbook/adminhtml_message_edit_tabs" name="guestbook_comment_edit_tabs">
+                <block type="guestbook/adminhtml_message_edit_tab_general" name="guestbook_comment_edit_tab_general" />
+                <action method="addTab"><name>general</name><block>guestbook_comment_edit_tab_general</block></action>
+            </block>
+        </reference>
+    </guestbook_admin_adminhtml_message_edit>
+
+</layout>

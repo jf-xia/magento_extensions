@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <noovias_extensions translate="label" module="noovias_extensions">
+            <label>NOOVIAS EXTENSIONS</label>
+            <sort_order>1000</sort_order>
+            <class>tab-noovias-extensions</class>
+        </noovias_extensions>
+    </tabs>
+	<sections>
+		<noovias_extensions translate="label" module="noovias_extensions">
+			<label>General</label>
+			<tab>noovias_extensions</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>1</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+                <info translate="label comment" module="noovias_extensions">
+                    <label>Info</label>
+                    <comment>further extensions and support can be found at www.noovias.com</comment>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </info>
+			</groups>
+		</noovias_extensions>
+	</sections>
+</config>

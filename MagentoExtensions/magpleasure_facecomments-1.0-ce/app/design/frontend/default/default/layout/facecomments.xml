@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * MagPleasure Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magpleasure.com/LICENSE.txt
+ *
+ * @category   Magpleasure
+ * @package    Magpleasure_Facecomments
+ * @copyright  Copyright (c) 2011 Magpleasure Co. (http://www.magpleasure.com)
+ * @license    http://www.magpleasure.com/LICENSE.txt
+ */
+-->
+<layout version="0.1.0">
+    <catalog_product_view>
+        <reference name="head">
+            <block type="facecomments/wrap" template="facecomments/wrap.phtml" name="facecomments.wrapper" ifconfig="facecomments/general/enabled" />
+        </reference>
+        <reference name="product.info">
+            <block type="facecomments/comments" name="facecomments.comments" as="facecomments" template="facecomments/comments.phtml" >
+                <action method="isGeneral"><value>1</value></action>
+            </block>
+        </reference>
+        <reference name="product.info.additional">
+            <block type="facecomments/comments" name="additional.facecomments.comments" as="additional.facecomments" template="facecomments/comments.phtml" before="*" />
+        </reference>
+    </catalog_product_view>
+</layout>

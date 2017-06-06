@@ -1,0 +1,63 @@
+<?php
+$schedule = Mage::registry('noovias_cron_schedule');
+$helper = Mage::helper('noovias_cron');
+?>
+<div class="content-header">
+    <?php echo $this->getHeaderHtml() ?>
+    <p class="form-buttons"><?php echo $this->getButtonsHtml('header') ?></p>
+</div>
+
+<div class="box-left">
+    <form action="<?php echo $this->getSaveUrl() ?>" method="post" id="schedule_edit_form"
+          enctype="multipart/form-data">
+        <?php echo $this->getFormHtml() ?>
+        <div style="display:none"></div>
+    </form>
+</div>
+
+<div class="box-right">
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $helper->__('Info') ?></h4>
+        </div>
+        <div class="fieldset">
+            <table cellspacing="0" class="form-list">
+                <tr>
+                    <td class="label"><label><?php echo $helper->__('Created') ?></label></td>
+                    <td><strong><?php echo
+                    Mage::app()->getLocale()->date($schedule->getCreatedAt()); ?></strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $helper->__('Executed') ?></label></td>
+                    <td><strong><?php echo $schedule->getExecutedAt() ?></strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $helper->__('Finished') ?></label></td>
+                    <td><strong><?php echo $schedule->getFinishedAt() ?></strong></td>
+                </tr>
+                <?php
+                $starting = $helper->getStartingIn($schedule);
+                $style = $starting->getPrefix() == '-' ? 'color:red; font-weight:bold;' : 'font-weight:bold;';
+                ?>
+                <tr>
+                    <td class="label"><label><?php echo $helper->__('Starting In') ?></label></td>
+                    <td>
+                        <div style="<?php echo $style ?>"><?php echo $starting->getPrefix() . ' ' . $starting->getToString(); ?></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $helper->__('Runtime') ?></label></td>
+                    <td><strong><?php echo $helper->getRuntime($schedule)->getToString() ?></strong></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var editForm = new varienForm('schedule_edit_form');
+    //]]>
+</script>

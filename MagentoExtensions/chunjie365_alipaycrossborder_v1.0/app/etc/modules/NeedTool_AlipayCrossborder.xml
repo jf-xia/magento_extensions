@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   NeedTool
+ * @package    NeedTool_AlipayCrossborder
+ * @copyright  NeedTool.com
+ */
+-->
+<config>
+    <modules>
+        <NeedTool_AlipayCrossborder>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Payment/>
+            </depends>
+        </NeedTool_AlipayCrossborder>
+    </modules>
+</config>

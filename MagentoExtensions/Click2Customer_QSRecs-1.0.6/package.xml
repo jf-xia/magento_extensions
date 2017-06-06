@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Click2Customer_QSRecs</name>
+    <version>1.0.6</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/mit-license.php">MIT License</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Click2Customer Qucik Start Recommendations Package</summary>
+    <description>Click2Customer Quick Start Recommendations Package.</description>
+    <notes>Initial Release</notes>
+    <authors><author><name>Click2Customer</name><user>auto-converted</user><email>info@click-2-customer.com</email></author></authors>
+    <date>2011-08-09</date>
+    <time>14:37:17</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Click2Customer_QSRecs.xml" hash="3d9d216ebf640df4d597badc6b92e50e"/></dir></target><target name="magecommunity"><dir name="Click2Customer"><dir name="QSRecs"><dir name="Block"><file name="Recs.php" hash="30160244e905f472d6bb3ab9aff325b7"/></dir><dir name="Helper"><file name="Data.php" hash="d989d3c737bdb050ceb434b89bb42d70"/></dir><dir name="etc"><file name="config.xml" hash="c428374bfb63880a43f03cafa32c4775"/></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><package><name>Click2Customer_Analytics</name><channel>community</channel><min>1.0.0</min><max>2.0.0</max></package></required></dependencies>
+</package>

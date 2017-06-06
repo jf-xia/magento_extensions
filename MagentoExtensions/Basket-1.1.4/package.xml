@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Basket</name>
+    <version>1.1.4</version>
+    <stability>beta</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Basket is the simple application to show your cart details in a popup box.</summary>
+    <description>Basket shows all your cart details on a popup box in a beautiful fashion. All products are shown on the popup window. You can easily remove the items in the cart without navigating to any other page and your cart is updated in seconds. So Basket can save a lot of your time that you spend navigating here and there.</description>
+    <notes>Compatible for Magento 1.3, 1.4, 1.4.1, 1.4.2</notes>
+    <authors><author><name>Arvind Bhardwaj</name><user>auto-converted</user><email>bhardwajsonheight@gmail.com</email></author><author><name>Arvind Bhardwaj</name><user>auto-converted</user><email>bhardwajsonheight@gmail.com</email></author></authors>
+    <date>2011-01-25</date>
+    <time>06:21:46</time>
+    <contents><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="basket.xml" hash="8fff0e05a9b454ba561a094beafd2145"/></dir><dir name="template"><dir name="basket"><file name="basket.phtml" hash="aef3be2de25f53cb5566bf5794981e9f"/></dir><dir name="page"><dir name="template"><file name="links.phtml" hash="5503290adf40c6ee8489e198f3b42f25"/><file name="linksblock.phtml" hash="1f597dfe4f0439e256f3dcf11bbc029b"/><file name="links_1.phtml" hash="5dc17d5bd68e59f1a75e6914b6dd44fa"/></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="WebspeaksBasket_Basket.xml" hash="641fd02f2bfbb05c2a06a9256579ae32"/></dir></target><target name="magelocal"><dir name="WebspeaksBasket"><dir name="Basket"><dir name="Block"><file name="Basket.php" hash="eb70cd710207c4a78ba72d0f4cddc255"/></dir><dir name="controllers"><file name="IndexController.php" hash="b2ac17584abbcff2d636b8f541c34bf0"/><dir name="Adminhtml"><file name="BasketController.php" hash="a07f6411fd997175ff82ab569782c79c"/></dir></dir><dir name="etc"><file name="config.xml" hash="33a4300bce836c111d7c5874ed5a68c5"/></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

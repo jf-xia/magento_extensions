@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+     
+    <acl>
+        <resources>
+            <all>
+              <title>Allow Everything</title>
+            </all>
+             
+        </resources>
+    </acl>
+</config>

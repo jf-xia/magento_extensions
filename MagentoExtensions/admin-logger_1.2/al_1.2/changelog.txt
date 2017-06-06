@@ -1,0 +1,9 @@
+
+ - Add : Admin log on Customer, Order, User, product pages that display main informatoion of changed value.
+ - New : enhanced displayed logs, color on every action, popup on modified object like product name etc..
+
+-----------------------------------------------------------------------------------------
+
+v 1.1
+
+ - first release :)

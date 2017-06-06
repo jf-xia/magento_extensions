@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<config>
+      <modules>
+        <Topbuy_Newsletternotify>
+          <version>0.1.0</version>
+        </Topbuy_Newsletternotify>
+      </modules>
+	  <frontend>
+      <routers>
+        <newsletternotify>
+          <use>standard</use>
+         <args>
+           <module>Topbuy_Newsletternotify</module>
+           <frontName>newsletternotify</frontName>
+         </args>
+        </newsletternotify>
+      </routers>
+	  <layout>
+          <updates>
+              <newsletternotify>
+                  <file>newsletternotify.xml</file>
+              </newsletternotify>
+          </updates>
+      </layout>
+    </frontend>
+   <global>
+
+   
+   
+      <helpers>
+       <newsletternotify>
+           <class>Topbuy_Newsletternotify_Helper</class>
+       </newsletternotify>
+      </helpers>   
+
+	  <blocks><newsletternotify><class>Topbuy_Newsletternotify_Block</class></newsletternotify></blocks>
+	         <models>
+            <newsletternotify>
+                <class>Topbuy_Newsletternotify_Model</class>
+                <resourceModel>newsletternotify_mysql4</resourceModel>
+            </newsletternotify>
+            <newsletternotify_mysql4>
+                <class>Topbuy_Newsletternotify_Model_Mysql4</class>
+                <entities>
+                    <notify>
+                        <table>tb_newsletter</table>
+                    </notify>
+                </entities>
+                <entities>
+                    <newsletterheader>
+                        <table>tb_newsletterheader</table>
+                    </newsletterheader>
+                </entities>
+                <entities>
+                    <newsletterrecord>
+                        <table>tb_newsletterrecord</table>
+                    </newsletterrecord>
+                </entities>
+                <entities>
+                    <emailsendbuffer>
+                        <table>tb_emailsendbuffer</table>
+                    </emailsendbuffer>
+                </entities>
+            </newsletternotify_mysql4>
+        </models>
+        <resources>
+            <newsletternotify_setup>
+                <setup>
+                    <module>Topbuy_Newsletternotify</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </newsletternotify_setup>
+            <newsletternotify_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </newsletternotify_write>
+            <newsletternotify_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </newsletternotify_read>
+			
+        </resources>
+	 
+   </global> 
+   
+
+</config> 

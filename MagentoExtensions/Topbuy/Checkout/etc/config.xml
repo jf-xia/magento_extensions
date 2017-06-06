@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Topbuy_Checkout>
+            <version>0.1.0</version>
+        </Topbuy_Checkout>
+    </modules> 
+    <frontend> 
+        <routers>
+            <checkout>
+				<use>standard</use>
+                <args>
+                    <modules>
+                        <topbuy_checkout before="Mage_Checkout">Topbuy_Checkout</topbuy_checkout>
+                    </modules>
+                </args>
+            </checkout>
+        </routers>
+    </frontend> 
+</config>

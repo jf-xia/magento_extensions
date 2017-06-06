@@ -1,0 +1,121 @@
+<?php
+/**
+ * Magpleasure Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE-CE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magpleasure.com/LICENSE-CE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * Magpleasure does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * Magpleasure does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   Magpleasure
+ * @package    Magpleasure_Guestbook
+ * @version    1.1
+ * @copyright  Copyright (c) 2012-2013 Magpleasure Ltd. (http://www.magpleasure.com)
+ * @license    http://www.magpleasure.com/LICENSE-CE.txt
+ */
+?>
+<?php if ($this->canPost()): ?>
+    <?php if ($this->isReply()): ?>
+        <h3><?php echo $this->__('Leave a Reply'); ?></h3>
+    <?php else: ?>
+        <h3><?php echo $this->__('Leave a Comment'); ?></h3>
+    <?php endif; ?>
+    <?php if ($this->getIsAjax()): ?>
+        <?php echo $this->getMessageBlockHtml(); ?>
+    <?php endif; ?>
+    <form id="mp-guestbook-form" onsubmit="guestbookComments.submitForm(); return false;">
+        <fieldset>
+            <div class="comment-form-field">
+                <label title="<?php echo $this->__('Name') ?>" for="name_field"<?php if ($this->htmlEscape($this->getFormData()->getName() ? $this->getFormData()->getName() : $this->getCustomerName())): ?> style="display: none;"<?php endif; ?>>
+                    <?php echo $this->__('Name') ?>
+                    <span class="mp-required"><?php echo $this->__("(required)"); ?></span>
+                </label>
+                <div class="comment-form-input">
+                    <input type="text" name="name" id="name_field" title="<?php echo $this->__('Name') ?>" class="required-entry" value="<?php echo $this->htmlEscape($this->getFormData()->getName() ? $this->getFormData()->getName() : $this->getCustomerName()) ?>" />
+                </div>
+            </div>
+            <?php if (!$this->isLoggedId()): ?>
+            <div class="comment-form-field">
+                <label title="<?php echo $this->__('Email') ?>" for="email_field"<?php if ($this->htmlEscape($this->getFormData()->getEmail())): ?> style="display: none;"<?php endif; ?>>
+                    <?php echo $this->__('Email') ?>
+                    <span class="mp-required"><?php echo $this->__("(required)"); ?></span>
+                    <span class="mp-private"><?php echo $this->__("(Not published)"); ?></span>
+                </label>
+                <div class="comment-form-input">
+                    <input type="text" name="email" id="email_field" class="required-entry validate-email" title="<?php echo $this->__('Email') ?>" value="<?php echo $this->htmlEscape($this->getFormData()->getEmail()) ?>" />
+                </div>
+            </div>
+            <?php else: ?>
+            <input type="hidden" name="email" value="<?php echo $this->getCustomerEmail(); ?>" />
+            <input type="hidden" name="customer_id" value="<?php echo $this->getCustomerId(); ?>" />
+            <?php endif; ?>
+            <?php if (!$this->isReply()): ?>
+            <div class="comment-form-field">
+                <label title="<?php echo $this->__('Subject') ?>" for="subject"<?php if ($this->htmlEscape($this->getFormData()->getSubject() ? $this->getFormData()->getSubject() : '')): ?> style="display: none;"<?php endif; ?>>
+                    <?php echo $this->__('Subject') ?>
+                    <span class="mp-required"><?php echo $this->__("(required)"); ?></span>
+                </label>
+                <div class="comment-form-input">
+                    <input type="text" name="subject" id="subject" title="<?php echo $this->__('Subject') ?>" class="required-entry" value="<?php echo $this->htmlEscape($this->getFormData()->getSubject() ? $this->getFormData()->getSubject() : '') ?>" />
+                </div>
+            </div>
+            <?php endif; ?>
+            <div class="comment-form-field">
+                <?php if ($this->isReply()): ?>
+                <label for="message_field" class="required"<?php if ($this->htmlEscape($this->getFormData()->getMessage())): ?> style="display: none;"<?php endif; ?>><?php echo $this->__('Enter your reply here...') ?></label>
+                <?php else: ?>
+                <label for="message_field" class="required"<?php if ($this->htmlEscape($this->getFormData()->getMessage())): ?> style="display: none;"<?php endif; ?>><?php echo $this->__('Enter your comment here...') ?></label>
+                <?php endif; ?>
+                <div class="comment-form-input">
+                    <textarea name="message" id="message_field" cols="5" rows="3" title="<?php echo $this->isReply() ? $this->__('Reply') : $this->__('Comment'); ?>" class="required-entry"><?php echo $this->htmlEscape($this->getFormData()->getMessage()) ?></textarea>
+                </div>
+            </div>
+            <input type="hidden" name="secure_code" value="<?php echo $this->getSecureCode(); ?>" />
+            <input type="hidden" name="reply_to" value="<?php echo $this->getReplyTo(); ?>" />
+            <input type="hidden" name="session_id" value="<?php echo $this->getSessionId(); ?>" />
+            <div class="mp-form-footer">
+                <button type="submit"><?php echo $this->__("Submit"); ?></button>
+            </div>
+        </fieldset>
+    </form>
+    <script type="text/javascript">
+        guestbookComments.form = new VarienForm('mp-guestbook-form');
+        $$('#mp-guestbook-form .comment-form-field label').each(function(element){
+            $(element.htmlFor).observe('focus', (function(e){
+                if (element.style.display !== 'none'){
+                    Effect.Fade(element, {duration: 0.5});
+                }
+            }).bind(element));
+            $(element.htmlFor).observe('blur', (function(e){
+                if (!$(element.htmlFor).getValue()){
+                    Effect.Appear(element, {duration: 0.5});
+                }
+            }).bind(element));
+        });
+        $('message_field').focus();
+    </script>
+<?php else: ?>
+    <?php if ($this->getIsAjax()): ?>
+        <?php echo $this->getMessageBlockHtml(); ?>
+    <?php endif; ?>
+    <?php if ($this->isReply()): ?>
+        <p><?php echo $this->__("Please <a href=\'%s\'>login</a> to reply.", $this->getLoginUrl()); ?></p>
+    <?php else: ?>
+        <p><?php echo $this->__("Please <a href=\'%s\'>login</a> to comment.", $this->getLoginUrl()); ?></p>
+    <?php endif; ?>
+    <p><?php echo $this->__("Don't have an account?"); ?></p>
+    <p><?php echo $this->__("<a href=\'%s\'>Register here</a>!", $this->getRegisterUrl()); ?></p>
+<?php endif; ?>
+

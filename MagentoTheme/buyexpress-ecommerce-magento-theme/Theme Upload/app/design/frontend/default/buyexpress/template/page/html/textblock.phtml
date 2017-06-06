@@ -1,0 +1,15 @@
+<?php 
+$home = new Mage_Page_Block_Html_Header();
+	  if ($home->getIsHomePage()): 
+ $textBlock = Mage::getStoreConfig('buyexpress_options/text_block');
+ $mediaUrl = Mage::getBaseUrl('media') . 'images/';
+ //var_dump($textBlock);
+ if(array_filter($textBlock)):
+?> 
+ <div class="textBlock">
+    <img src="<?php echo $mediaUrl . $textBlock["block_logo"] ?>" width="153" height="35" class="logoImg" />
+    <img src="<?php echo $mediaUrl . $textBlock["block_img"] ?>" width="196" height="125" />
+    <?php echo $textBlock["block_text"]; ?>
+</div>
+<?php endif; endif; ?>
+

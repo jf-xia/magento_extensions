@@ -1,0 +1,60 @@
+/********** < Navigation */
+
+@media only screen and (min-width: 1023px)  {
+
+#nav li { float:left; }
+#nav li { text-align:left;}
+#nav a,
+#nav a:hover { display:block; line-height:1.3em; text-decoration:none;  }
+#nav span { display:inline-block;  }
+#nav li ul li a {}
+
+/* 2nd Level */
+#nav  ul { top: 46px; left:-10000px;  background:#FFF;box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);-moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);}
+#nav li ul li { width: 200px; margin:0 20px 0 0; }
+#nav ul.level0 { position:absolute; z-index: 1501; padding: 20px 32px 15px 32px; }
+
+
+
+/********** Navigation > */
+/* ======================================================================================= */
+
+/* Default Navigation ***********/
+
+.default-container #nav {  float:left; /*padding:0px 0px 0px 14px;*/ position: relative;text-transform:capitalize;}
+.default-container #nav a {  }
+.default-container #nav li{}
+.default-container #nav li:hover{}
+.default-container #nav li, .default-container #nav li:hover{padding:0px;position: relative;margin-right:21px;margin-left:21px;}
+.default-container #nav a{position:relative;z-index:99;font-size:16px;padding-bottom:11px;text-shadow:0px 1px 0px rgba(95, 95, 95, 0.5);}
+.default-container #nav li a.over{/*background:#5F5F5F;*/color:#F07318;}
+.default-container #nav a:hover{/*background:#5F5F5F;*/color:#F07318;}
+.default-container #nav li.level0.active a.level-top{/*background:#5F5F5F;*/color:#F07318;}
+
+/* 2nd Level */
+.default-container #nav ul,
+.default-container #nav div { position:absolute; width:200px; top:28px; left:-10000px;  }
+.default-container #nav div ul { position:static; width:auto;  }
+
+.default-container #nav li ul li a{font-size:13px;display:block;border: 1px solid transparent;box-shadow: 0 0 5px transparent;padding:0 15px 0 5px;text-shadow:0px 0px 0px transparent;}
+.default-container #nav li ul li a span.errow{font-family: 'FontAwesome';}
+.default-container #nav li ul li a.over{text-shadow:0px 0px 0px transparent;color:#F07318;text-decoration:none;background: #EFEFEF;border: 1px solid #DCDCDC;box-shadow: 0 0 5px rgba(0, 0, 0, 0.10);padding:0 15px 0 5px;}
+.default-container #nav li ul li a:hover{text-shadow:0px 0px 0px transparent;color:#F07318;text-decoration:none;background: #EFEFEF;border: 1px solid #DCDCDC;box-shadow: 0 0 5px rgba(0, 0, 0, 0.10);padding:0 15px 0 5px;}
+.default-container #nav li ul li ,.default-container #nav li ul li:hover{border:none;margin:0px;}
+.default-container #nav li ul li a span{}
+
+
+
+/*/* 3rd+ Level */
+.default-container #nav ul ul,
+.default-container #nav ul div { top:0px; }
+.default-container #nav ul span,
+.default-container #nav ul li.last li span { padding:7px 0px 7px 10px;}
+.default-container #nav li ul li ul.shown-sub {left:202px;padding-top:0;padding-bottom:0;}
+.default-container #nav li ul.shown-sub, #nav li .shown-sub {left:0px;padding:0px;}
+.default-container #nav li ul.shown-sub {padding-top:20px;padding-bottom:20px;}
+
+
+/* ======================================================================================= */
+
+ }

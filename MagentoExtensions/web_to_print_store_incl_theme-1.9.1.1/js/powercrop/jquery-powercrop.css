@@ -1,0 +1,99 @@
+div.powercrop-container {
+  background-color: #fff;
+  position: relative;
+}
+
+img.powercrop-image {
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=30);
+  opacity: .3;
+}
+
+div.powercrop-container.simple img.powercrop-image,
+div.powercrop-container.simple img.powercrop-image-top {
+  border: 1px solid transparent;
+}
+
+div.powercrop-container.no-resizing-action .ui-draggable {
+  cursor: pointer;
+}
+
+div.powercrop-viewport {
+  position: absolute;
+  border: 1px dashed black;
+}
+
+div.powercrop-viewport.no-moving-action div.powercrop-viewport-handle {
+  display: none !important;
+}
+
+div.powercrop-viewport-inner {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+div.powercrop-viewport-handle {
+  background: url('images/cursor-move.png') no-repeat center;
+  width: 33px;
+  height: 33px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -16px 0px 0px -16px;
+  display: none;
+}
+
+div.powercrop-viewport:hover div.powercrop-viewport-handle,
+div.powercrop-viewport.ui-resizable-resizing div.powercrop-viewport-handle {
+  display: block;
+}
+
+img.powercrop-image-top {
+  position: absolute;
+}
+
+/* jQuery UI styles */
+div.powercrop-container .ui-wrapper {
+  overflow: visible !important;
+  border: 1px solid #204a87;
+}
+
+div.powercrop-container .ui-resizable-handle {
+  background-color: #fff;
+  position: absolute;
+  width: 7px !important;
+  height: 7px !important;
+  border: 1px solid #204a87;
+  *width: 9px;
+  *height: 9px;
+}
+
+div.powercrop-viewport > .ui-resizable-handle {
+  background-color: #93b4df;
+  border-color: #fff;
+}
+
+div.powercrop-container .ui-resizable-nw {
+  top: -4px;
+  left: -4px;
+  cursor: nw-resize;
+}
+
+div.powercrop-container .ui-resizable-ne {
+  top: -4px;
+  right: -4px;
+  cursor: ne-resize;
+}
+
+div.powercrop-container .ui-resizable-se {
+  bottom: -4px;
+  right: -4px;
+  cursor: se-resize;
+}
+
+div.powercrop-container .ui-resizable-sw {
+  bottom: -4px;
+  left: -4px;
+  cursor: sw-resize;
+}

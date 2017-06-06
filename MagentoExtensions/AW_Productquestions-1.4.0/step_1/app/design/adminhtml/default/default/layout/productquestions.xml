@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<productquestions_admin_adminhtml_index_index>
+		<reference name="content">
+			<block type="productquestions/adminhtml_productquestions" name="productquestions" />
+		</reference>
+	</productquestions_admin_adminhtml_index_index>
+</layout>

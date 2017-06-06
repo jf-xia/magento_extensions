@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <awadvancedsearch_admin_adminhtml_manageindexes_index>
+        <reference name="content">
+            <block type="awadvancedsearch/adminhtml_indexes" name="awas.indexes.grid" />
+        </reference>
+    </awadvancedsearch_admin_adminhtml_manageindexes_index>
+    <awadvancedsearch_admin_adminhtml_manageindexes_edit>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>aw_advancedsearch/js/indexes.js</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="awadvancedsearch/adminhtml_indexes_edit" name="awas.indexes.edit" />
+        </reference>
+    </awadvancedsearch_admin_adminhtml_manageindexes_edit>
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>aw_advancedsearch/js/config.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>aw_advancedsearch/css/style.css</name>
+            </action>
+        </reference>
+    </adminhtml_system_config_edit>
+</layout>

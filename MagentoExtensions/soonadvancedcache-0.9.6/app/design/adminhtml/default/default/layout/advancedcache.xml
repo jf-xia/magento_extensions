@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Agence Soon
+ *
+ *
+ * @category    adminhtml design
+ * @package     base_default
+ * @copyright   Copyright (c) 2011 Agence Soon. (http://www.agence-soon.fr)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @author      Hervé G. ()
+ */
+-->
+<layout version="0.1.0">
+    <adminhtml_cache_index>
+        <reference name="content">
+            <block type="advancedcache/adminhtml_expire" name="cache.expire" template="advancedcache/expire.phtml"></block>
+        </reference>
+    </adminhtml_cache_index>
+    
+    <adminhtml_advancedcache_blocks_index>
+        <reference name="content">
+            <block type="core/template" name="advancedcache.blocks.notice" template="advancedcache/blocks/notice.phtml"/>
+            <block type="advancedcache/adminhtml_blocks" name="advancedcache.blocks"></block>
+        </reference>
+    </adminhtml_advancedcache_blocks_index>
+    
+    <adminhtml_advancedcache_blocks_new>
+        <update handle="adminhtml_advancedcache_blocks_edit" />
+    </adminhtml_advancedcache_blocks_new>
+
+    <adminhtml_advancedcache_blocks_edit>
+        <reference name="content">
+            <block type="advancedcache/adminhtml_blocks_edit" name="advancedcache_block_edit"></block>
+        </reference>
+    </adminhtml_advancedcache_blocks_edit>    
+    
+    <adminhtml_advancedcache_exception_index>
+        <reference name="content">
+            <block type="advancedcache/adminhtml_exception" name="advancedcache.exception"></block>
+        </reference>
+    </adminhtml_advancedcache_exception_index>
+    
+    <adminhtml_advancedcache_exception_new>
+        <update handle="advancedcache_adminhtml_exception_edit" />
+    </adminhtml_advancedcache_exception_new>
+
+    <adminhtml_advancedcache_exception_edit>
+        <reference name="content">
+            <block type="advancedcache/adminhtml_exception_edit" name="advancedcache_exception_edit"></block>
+        </reference>
+    </adminhtml_advancedcache_exception_edit>
+    
+    <adminhtml_advancedcache_symlink_index>
+        <reference name="content">
+            <block type="advancedcache/adminhtml_symlink" name="advancedcache.symlink" template="advancedcache/symlink.phtml"/>
+        </reference>
+    </adminhtml_advancedcache_symlink_index>
+</layout>

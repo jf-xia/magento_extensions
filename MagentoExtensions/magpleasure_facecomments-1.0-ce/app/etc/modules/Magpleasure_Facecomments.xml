@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Magpleasure_Facecomments>
+            <active>true</active>
+            <codePool>local</codePool>
+        <edition>CE</edition><license>YTozOntzOjM6ImNpZCI7czo0OiIxODYxIjtzOjM6ImVpZCI7czoxOiIxIjtzOjM6InBpZCI7czoyOiIxMSI7fQ,,</license></Magpleasure_Facecomments>
+    </modules>
+</config>

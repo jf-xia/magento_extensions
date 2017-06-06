@@ -1,0 +1,62 @@
+<config>
+    <sections>
+        <mdlajaxcheckout translate="label comment" module="mdlajaxcheckout">
+            <tab>Mdlext</tab>
+            <label>Mdl Ajaxcart</label>
+            <frontend_type>text</frontend_type>
+            <sort_order>11</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <default translate="label comment" module="mdlajaxcheckout">
+                    <label>Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <mdl_ajax_cart_loading_size translate="label">
+                            <label>Loading box size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Loading box size. e.g.: 260x50]]></comment>
+                        </mdl_ajax_cart_loading_size>
+                        <mdl_ajax_cart_confirm_size translate="label">
+                            <label>Confirm box size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Confirm box size. e.g.: 260x134]]></comment>
+                        </mdl_ajax_cart_confirm_size>
+                        <mdl_ajax_cart_image_size translate="label">
+                            <label>Image product size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Confirm box size. e.g.: 55x55]]></comment>
+                        </mdl_ajax_cart_image_size>
+                        <mdl_ajax_cart_show_popup translate="label">
+                            <label>Show Popup</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Show popup when product is added.]]></comment>
+                        </mdl_ajax_cart_show_popup>                        
+                    </fields>
+                </default>
+            </groups>
+        </mdlajaxcheckout>
+    </sections>
+</config>

@@ -1,0 +1,53 @@
+/**
+ * EM MegaMenuPro
+ *
+ * @license commercial software
+ * @copyright (c) 2012 Codespot Software JSC - EMThemes.com. (http://www.emthemes.com)
+ */
+
+#container { 
+	
+}
+
+
+
+#sidebar { width:300px; float:left }
+#main { margin-left:320px; }
+
+#canvas .dropzone { min-height:500px }
+
+.dropzone, .dragzone { background:#eee; min-height:50px; padding:1em }
+
+.menu-item { margin:0 0 5px 0; padding:5px; width:250px; cursor:move }
+.menu-item.ui-sortable-placeholder { border:1px dashed #666; visibility:visible !important; background:transparent; }
+.menu-item-transport .menu-item:first-child { margin-top:15px }
+.menu-item-depth-1 { margin-left:30px }
+.menu-item-depth-2 { margin-left:60px }
+.menu-item-depth-3 { margin-left:90px }
+.menu-item-depth-4 { margin-left:120px }
+.menu-item-depth-5 { margin-left:150px }
+.menu-item-depth-6 { margin-left:180px }
+.menu-item-depth-7 { margin-left:210px }
+.menu-item-depth-8 { margin-left:240px }
+.menu-item-depth-9 { margin-left:270px }
+.menu-item-header { margin-bottom:5px; padding:2px 5px; }
+.menu-item-header .ui-icon { float:right }
+
+
+/* form elements */
+#sidebar .form-list td.label, 
+#canvas .form-list td.label { width:85px }
+#sidebar .form-list td.label label, 
+#canvas .form-list td.label label { width:70px }
+#sidebar .form-list td.value input.input-text,
+#canvas .form-list td.value input.input-text { width:135px }
+#sidebar .form-list td.value textarea,
+#canvas .form-list td.value textarea { width:230px }
+
+
+#container:after { content:'.';display:block;height:0;visibility:hidden;overflow:hidden;clear:both; }
+.ui-button-text-only .ui-button-text{display:inline-block;}
+tbody td .ui-state-default{clear:both; float:left; margin-left:0; *margin-top:1px}
+tfoot td .ui-state-default{*float:left; }
+.dropzone tfoot td .ui-state-default:first-child{*margin-left:0; }
+.dropzone tfoot td{position:relative; overflow:hidden}

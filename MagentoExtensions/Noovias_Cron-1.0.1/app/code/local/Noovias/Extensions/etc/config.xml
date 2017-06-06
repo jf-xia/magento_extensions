@@ -1,0 +1,106 @@
+<?xml version="1.0"?><!--
+/**
+ * Noovias_Extensions
+ *
+ * NOTICE OF LICENSE
+ * 
+ * Noovias_Extensions is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * Noovias_Extensions is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Noovias_Extensions. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Noovias_Extensions to newer
+ * versions in the future. If you wish to customize Noovias_Extensions for your
+ * needs please refer to http://www.noovias.com for more information.
+ *
+ * @category    Noovias
+ * @package     Noovias_Extensions
+ * @copyright   Copyright (c) 2010 <info@noovias.com> - noovias.com
+ * @license     <http://www.gnu.org/licenses/> 
+ * 			    GNU General Public License (GPL 3)
+ * @link	    http://www.noovias.com
+ */
+-->
+<config>
+	<modules>
+		<Noovias_Extensions>
+			<version>0.1.1</version>
+		</Noovias_Extensions>
+	</modules>
+	<admin>
+		<routers>
+			<noovias_extensions>
+				<use>admin</use>
+				<args>
+					<module>Noovias_Extensions</module>
+					<frontName>noovias_extensions</frontName>
+				</args>
+			</noovias_extensions>
+		</routers>
+	</admin>
+	<adminhtml>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<noovias_extensions>
+											<title>Noovias - Extensions</title>
+										</noovias_extensions>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<extensions>
+					<file>noovias/extensions.xml</file>
+				</extensions>
+			</updates>
+		</layout>
+
+		<translate>
+			<modules>
+				<Noovias_Extensions>
+					<files>
+						<default>Noovias_Extensions.csv</default>
+					</files>
+				</Noovias_Extensions>
+			</modules>
+		</translate>
+	</adminhtml>
+	<global>
+		<blocks>
+			<noovias_extensions>
+				<class>Noovias_Extensions_Block</class>
+			</noovias_extensions>
+		</blocks>
+        <models>
+            <noovias_extensions>
+                <class>Noovias_Extensions_Model</class>
+            </noovias_extensions>
+        </models>
+		<helpers>
+			<noovias_extensions>
+				<class>Noovias_Extensions_Helper</class>
+			</noovias_extensions>
+		</helpers>
+	</global>
+</config>

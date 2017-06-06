@@ -1,0 +1,13 @@
+<?php  //add the category name to the header   ?>
+
+<?php if(Mage::registry('current_category')):?>
+
+        <?php
+            $_helper    = $this->helper('catalog/output');
+            $_category  = $this->getCurrentCategory(); ?>
+            
+<!--      <div class="page-title">
+            <h2 class="medium"><?php echo $_category->getName() ?> </h1>
+        </div>-->
+        
+<?php endif; ?>

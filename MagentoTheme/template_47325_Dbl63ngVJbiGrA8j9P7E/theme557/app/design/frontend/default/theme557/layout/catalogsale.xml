@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/carousel.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/catalogsale.css</name>
+                <params/>
+            </action>
+        </reference>
+    </default>
+    <catalogsale_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="catalogsale/layer" name="catalogsale.leftnav" after="currency" template="catalog/layer/view.phtml"/>
+        </reference>
+        <reference name="footer_links">
+            <action method="addLink" translate="label title" module="catalogsale">
+                <label>Sale Items</label>
+                <url helper="catalogsale/getCatalogSaleUrl"/>
+                <title>Sale Items</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="catalogsale/view" name="categorysale.products" template="catalog/product/sale.phtml">
+                <block type="catalog/product_list" name="sale_product_list" template="catalog/product/list.phtml">
+                    <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                        <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                        <!-- The following code shows how to set your own pager increments -->
+
+                        <!--
+                        <action method="setDefaultListPerPage"><limit>4</limit></action>
+                        <action method="setDefaultGridPerPage"><limit>9</limit></action>
+                        <action method="addPagerLimit"><mode>list</mode><limit>2</limit></action>
+                        <action method="addPagerLimit"><mode>list</mode><limit>4</limit></action>
+                        <action method="addPagerLimit"><mode>list</mode><limit>6</limit></action>
+                        <action method="addPagerLimit"><mode>list</mode><limit>8</limit></action>
+                        <action method="addPagerLimit" translate="label"><mode>list</mode><limit>all</limit><label>All</label></action>
+                        -->
+                    </block>
+					<action method="setProductsCount"><count>6</count></action>
+                    <action method="addColumnCountLayoutDepend">
+                        <layout>empty</layout>
+                        <count>6</count>
+                    </action>
+                    <action method="addColumnCountLayoutDepend">
+                        <layout>one_column</layout>
+                        <count>5</count>
+                    </action>
+                    <action method="addColumnCountLayoutDepend">
+                        <layout>two_columns_left</layout>
+                        <count>4</count>
+                    </action>
+                    <action method="addColumnCountLayoutDepend">
+                        <layout>two_columns_right</layout>
+                        <count>4</count>
+                    </action>
+                    <action method="addColumnCountLayoutDepend">
+                        <layout>three_columns</layout>
+                        <count>3</count>
+                    </action>
+                    <action method="setToolbarBlockName">
+                        <name>product_list_toolbar</name>
+                    </action>
+                </block>
+                <action method="setListCollection"/>
+            </block>
+        </reference>
+    </catalogsale_index_index>
+</layout>

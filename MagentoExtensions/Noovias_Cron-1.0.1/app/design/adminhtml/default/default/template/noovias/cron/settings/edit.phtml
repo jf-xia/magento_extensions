@@ -1,0 +1,460 @@
+<?php
+/** @var $this Noovias_Cron_Block_Adminhtml_Settings_Edit */
+/** @var $helper Noovias_Cron_Helper_Data */
+$helper = $this->helperCron();
+/** @var $config Noovias_Cron_Model_Schedule_Config */
+$config = $this->getScheduleConfig();
+$cronExpr = $config->getCronExpr();
+$dataObject = $config->getDataObject();
+$dataObjectSet = ($dataObject === null) ? false : true;
+$optionEvery = Noovias_Cron_Data_CronExpression::OPTION_EVERY;
+$optionEveryX = Noovias_Cron_Data_CronExpression::OPTION_EVERYX;
+$optionSpecify = Noovias_Cron_Data_CronExpression::OPTION_SPECIFY;
+$optionFromTo = Noovias_Cron_Data_CronExpression::OPTION_FROMTO;
+?>
+<div class="content-header">
+    <?php echo $this->getHeaderHtml() ?>
+    <p class="form-buttons"><?php echo $this->getButtonsHtml('header') ?></p>
+</div>
+
+<form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="settings_edit_form"
+      enctype="multipart/form-data">
+<div class="entry-edit">
+    <div class="entry-edit">
+        <div><input name="form_key" type="hidden" value="<?php echo $this->getFormKey()?>"></div>
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $helper->__('General Settings')?></h4>
+
+            <div class="form-buttons"></div>
+        </div>
+        <div class="fieldset " id="general">
+            <div class="hor-scroll">
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                    <tr>
+                        <td colspan="2" class="hidden"><input id="job_code" name="job_code"
+                                                              value="<?php echo $config->getJobCode()?>"
+                                                              type="hidden"></td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?php echo $helper->__('Job Code')?></td>
+                        <td class="value">
+                            <?php echo $config->getJobCode()?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?php echo $helper->__('Created')?></td>
+                        <td class="value">
+                            <?php if($config->getCreated() !== null) :
+                                        echo $this->formatDate($config->getCreated(), Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM, true);
+                                endif; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?php echo $helper->__('Created by (User Id)')?></td>
+                        <td class="value">
+                            <?php echo $config->getCreatedBy()?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?php echo $helper->__('Updated')?></td>
+                        <td class="value">
+                            <?php if($config->getUpdated() !== null) :
+                                echo $this->formatDate($config->getUpdated(), Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM, true);
+                             endif; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?php echo $helper->__('Updated by (User Id)')?></td>
+                        <td class="value">
+                            <?php echo $config->getUpdatedBy()?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><label for="status"><?php echo $helper->__('Status')?></label></td>
+                        <td class="value">
+                            <select id="status" name="status" title="Status" class=" select">
+                                <option value="enabled"<?php echo $config->isStatusEnabled() ? ' selected="selected"' : '' ?>><?php echo $helper->__('enabled')?></option>
+                                <option value="disabled"<?php echo $config->isStatusDisabled() ? ' selected="selected"' : '' ?>><?php echo $helper->__('disabled')?></option>
+                            </select></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="box-left">
+<div class="entry-edit">
+<div class="entry-edit-head">
+    <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $helper->__('Cron Expression Settings') ?></h4>
+</div>
+
+
+<div class="fieldset " id="cronexprsettings">
+<div class="hor-scroll">
+<table cellspacing="0" class="form-list">
+<tbody>
+
+<tr>
+    <td class="label"><label for="expert_mode"><?php echo $helper->__('Expert Mode')?></label></td>
+    <td class="value"><input type="checkbox" id="expert_mode" name="expert_mode" onclick="checkExpertMode();">
+    </td>
+</tr>
+
+<tr class="hideonexpert">
+    <td class="label"><label for="minuteOption"><?php echo $helper->__('Minute')?></label></td>
+    <td style="padding-bottom:10px;">
+        <select name="minuteOption" id="minuteOption" onchange="showMinutes(this);" style="margin-bottom:5px;" class=" select">
+            <option value="every" <?php echo ($this->getMinuteOption() === $optionEvery) ? 'selected' : ''?>><?php echo $helper->__('Every')?></option>
+            <option value="everyx" <?php echo ($this->getMinuteOption()  === $optionEveryX) ? 'selected' : ''?>><?php echo $helper->__('Every x minutes, x:')?></option>
+            <option value="specify" <?php echo ($this->getMinuteOption()  === $optionSpecify) ? 'selected' : ''?>><?php echo $helper->__('Specify')?></option>
+            <option value="fromto" <?php echo ($this->getMinuteOption()  === $optionFromTo) ? 'selected' : ''?>><?php echo $helper->__('From - To')?></option>
+        </select>
+        <br>
+
+        <div id="everyXMinutesDiv"
+             style="<?php echo ($this->getMinuteOption() === $optionEveryX) ? '' : 'display:none;';?>">
+            <select id="everyXMinutes" name="everyXMinutes"">
+            <?php
+            $eachMinuteArray = $helper->getEachMinuteArray();
+            foreach ($eachMinuteArray as $value) : ?>
+                <option value="<?php echo $value?>"
+                    <?php echo ($dataObjectSet && $dataObject->getEveryXMinutes() == $value) ? ' selected' : ''; ?>>
+                    <?php echo $value?></option>
+                <?php endforeach;?>
+            </select>
+        </div>
+
+        <div id="specifyMinutesDiv"
+             style="<?php echo ($this->getMinuteOption() === $optionSpecify) ? '' : 'display:none;';?>">
+            <select id="specifyMinutes" name="specifyMinutes[]" multiple="multiple"
+                    style="width:70px; height:80px;"
+                <?php if($this->getMinuteOption() === $optionSpecify) :
+                    echo 'class="validate-select"';
+                 endif;?>>
+                <?php
+                $minuteArray = ($dataObjectSet && $dataObject->getSpecifyMinutes() !== null) ? $dataObject->getSpecifyMinutes() : array();
+                for ($i = 0; $i <= 59; $i++) :?>
+                    <option value="<?php echo $i?>"
+                        <?php echo (in_array((string)$i, $minuteArray)) ? ' selected' : ''?>>
+                        <?php echo $i?> </option>
+                    <?php endfor;?>
+            </select><br>
+        </div>
+
+        <div id="fromToMinuteDiv"
+             style="<?php echo ($this->getMinuteOption()  === $optionFromTo) ? '' : 'display:none;';?>">
+            <label for="fromMinute"><?php echo $helper->__('From:')?></label>
+            <select name="fromMinute" id="fromMinute">
+                <?php
+                $fromMinute = ($dataObjectSet && $dataObject->getFromMinute() !== null) ? $dataObject->getFromMinute() : '';
+                for ($i = 0; $i <= 59; $i++) :?>
+                    <option value="<?php echo $i?>"
+                        <?php echo ($fromMinute == $i) ? ' selected' : '';?>>
+                        <?php echo $i?></option>
+                    <?php endfor;?>
+            </select>
+            &nbsp;
+            <label for="toMinute"><?php echo $helper->__('To:')?></label>
+            <select name="toMinute" id="toMinute">
+                <?php
+                $toMinute = ($dataObjectSet && $dataObject->getToMinute() !== null) ? $dataObject->getToMinute() : '';
+                for ($i = 0; $i <= 59; $i++) : ?>
+                    <option value="<?php echo $i ?>"
+                        <?php echo ($toMinute == $i) ? ' selected' : '';?>>
+                        <?php echo $i ?></option>
+                    <?php endfor;?>
+            </select>
+            <p class="note"><span><?php echo $helper->__('The left value must be less than the right value, otherwise use \'specify\' option or expert mode.')?></span></p>
+        </div>
+
+    </td>
+</tr>
+
+<tr class="hideonexpert">
+    <td class="label"><label for="hourOption"><?php echo $helper->__('Hour')?></label></td>
+    <td style="padding-bottom:10px;">
+        <select name="hourOption" id="hourOption" onchange="showHours(this);" style="margin-bottom:5px;" class=" select">
+            <option value="every" <?php echo ($this->getHourOption() === $optionEvery) ? 'selected' : ''?>><?php echo $helper->__('Every')?></option>
+            <option value="everyx" <?php echo ($this->getHourOption() === $optionEveryX) ? 'selected' : ''?>><?php echo $helper->__('Every x hours, x:')?></option>
+            <option value="specify" <?php echo ($this->getHourOption() === $optionSpecify) ? 'selected' : ''?>><?php echo $helper->__('Specify')?></option>
+            <option value="fromto" <?php echo ($this->getHourOption() === $optionFromTo) ? 'selected' : ''?>><?php echo $helper->__('From - To')?></option>
+        </select>
+        <br>
+
+        <div id="everyXHoursDiv"
+             style="<?php echo ($this->getHourOption() === $optionEveryX) ? '' : 'display:none;';?>">
+            <select id="everyXHours" name="everyXHours"">
+            <?php
+            $eachHourArray = $helper->getEachHourArray();
+            foreach ($eachHourArray as $value) : ?>
+                <option value="<?php echo $value?>"
+                    <?php echo ($dataObjectSet && $dataObject->getEveryXHours() == $value) ? ' selected' : ''; ?>>
+                    <?php echo $value?></option>
+                <?php endforeach;?>
+            </select><br>
+        </div>
+
+        <div id="specifyHoursDiv"
+             style="<?php echo ($this->getHourOption() === $optionSpecify) ? '' : 'display:none;';?>">
+            <select id="specifyHours" name="specifyHours[]" multiple="multiple"
+                    style="width:70px; height:80px;"
+                <?php if($this->getHourOption() === $optionSpecify) :
+                        echo 'class="validate-select"';
+                     endif;?>>
+                <?php
+                $hourArray = ($dataObjectSet && $dataObject->getSpecifyHours() !== null) ? $dataObject->getSpecifyHours() : array();
+                for ($i = 0; $i <= 23; $i++) :?>
+                    <option value="<?php echo $i?>"
+                        <?php echo (in_array((string)$i, $hourArray)) ? ' selected' : ''?>>
+                        <?php echo $i?> </option>
+                    <?php endfor;?>
+            </select><br>
+        </div>
+
+        <div id="fromToHourDiv"
+             style="<?php echo ($this->getHourOption() === $optionFromTo) ? '' : 'display:none;';?>">
+            <label for="fromHour"><?php echo $helper->__('From:')?></label>
+            <select name="fromHour" id="fromHour">
+                <?php
+                $fromHour = ($dataObjectSet && $dataObject->getFromHour() !== null) ? $dataObject->getFromHour() : '';
+                for ($i = 0; $i <= 23; $i++) :?>
+                    <option value="<?php echo $i?>"
+                        <?php echo ($fromHour == $i) ? ' selected' : '';?>>
+                        <?php echo $i?></option>
+                    <?php endfor;?>
+            </select>
+            &nbsp;
+            <label for="toHour"><?php echo $helper->__('To:')?></label>
+            <select name="toHour" id="toHour">
+                <?php
+                $toHour = ($dataObjectSet && $dataObject->getToHour() !== null) ? $dataObject->getToHour() : '';
+                for ($i = 0; $i <= 23; $i++) : ?>
+                    <option value="<?php echo $i ?>"
+                        <?php echo ($toHour == $i) ? ' selected' : '';?>>
+                        <?php echo $i ?></option>
+                    <?php endfor;?>
+            </select>
+            <p class="note"><span><?php echo $helper->__('The left value must be less than the right value, otherwise use \'specify\' option or expert mode.')?></span></p>
+        </div>
+
+    </td>
+</tr>
+
+<tr class="hideonexpert">
+    <td class="label"><label for="dayOfMonthOption"><?php echo $helper->__('Day of month')?></label></td>
+    <td style="padding-bottom:10px;">
+        <select name="dayOfMonthOption" id="dayOfMonthOption" onchange="showDayOfMonth(this);" style="margin-bottom:5px;" class=" select">
+            <option value="every" <?php echo ($this->getDayOfMonthOption() === $optionEvery) ? 'selected' : ''?>><?php echo $helper->__('Every')?></option>
+            <option value="specify" <?php echo ($this->getDayOfMonthOption() === $optionSpecify) ? 'selected' : ''?>><?php echo $helper->__('Specify')?></option>
+            <option value="fromto" <?php echo ($this->getDayOfMonthOption() === $optionFromTo) ? 'selected' : ''?>><?php echo $helper->__('From - To')?></option>
+        </select>
+        <br>
+
+        <div id="specifyDayOfMonthDiv"
+             style="<?php echo ($this->getDayOfMonthOption() === $optionSpecify) ? '' : 'display:none;';?>">
+            <select id="specifyDayOfMonth" name="specifyDayOfMonth[]" multiple="multiple"
+                    style="width:70px; height:80px;"
+                <?php if($this->getDayOfMonthOption() === $optionSpecify) :
+                         echo 'class="validate-select"';
+                     endif;?>>
+                <?php
+                $dayofmonthArray = ($dataObjectSet && $dataObject->getSpecifyDayOfMonth() !== null) ? $dataObject->getSpecifyDayOfMonth() : array();
+                for ($i = 1; $i <= 31; $i++) :?>
+                    <option value="<?php echo $i?>"
+                        <?php echo (in_array((string)$i, $dayofmonthArray)) ? ' selected' : ''?>>
+                        <?php echo $i?> </option>
+                    <?php endfor;?>
+            </select><br>
+        </div>
+
+        <div id="fromToDayOfMonthDiv"
+             style="<?php echo ($this->getDayOfMonthOption() === $optionFromTo) ? '' : 'display:none;';?>">
+            <label for="fromDayOfMonth"><?php echo $helper->__('From:')?></label>
+            <select name="fromDayOfMonth" id="fromDayOfMonth">
+                <?php
+                $fromDayOfMonth = ($dataObjectSet && $dataObject->getFromDayOfMonth() !== null) ? $dataObject->getFromDayOfMonth() : '';
+                for ($i = 1; $i <= 31; $i++) :?>
+                    <option value="<?php echo $i?>"
+                        <?php echo ($fromDayOfMonth == $i) ? ' selected' : '';?>>
+                        <?php echo $i?></option>
+                    <?php endfor;?>
+            </select>
+            &nbsp;
+            <label for="toDayOfMonth"><?php echo $helper->__('To:')?></label>
+            <select name="toDayOfMonth" id="toDayOfMonth">
+                <?php
+                $toDayOfMonth = ($dataObjectSet && $dataObject->getToDayOfMonth() !== null) ? $dataObject->getToDayOfMonth() : '';
+                for ($i = 1; $i <= 31; $i++) : ?>
+                    <option value="<?php echo $i ?>"
+                        <?php echo ($toDayOfMonth == $i) ? ' selected' : '';?>>
+                        <?php echo $i ?></option>
+                    <?php endfor;?>
+            </select>
+            <p class="note"><span><?php echo $helper->__('The left value must be less than the right value, otherwise use \'specify\' option or expert mode.')?></span></p>
+        </div>
+
+    </td>
+</tr>
+
+
+<tr class="hideonexpert">
+    <td class="label"><label for="monthOption"><?php echo $helper->__('Month')?></label></td>
+    <td style="padding-bottom:10px;">
+        <select name="monthOption" id="monthOption" onchange="showMonth(this);" style="margin-bottom:5px;" class=" select">
+            <option value="every" <?php echo ($this->getMonthOption() === $optionEvery) ? 'selected' : ''?>><?php echo $helper->__('Every')?></option>
+            <option value="specify" <?php echo ($this->getMonthOption() === $optionSpecify) ? 'selected' : ''?>><?php echo $helper->__('Specify')?></option>
+            <option value="fromto" <?php echo ($this->getMonthOption() === $optionFromTo) ? 'selected' : ''?>><?php echo $helper->__('From - To')?></option>
+        </select>
+        <br>
+
+        <div id="specifyMonthDiv"
+             style="<?php echo ($this->getMonthOption() === $optionSpecify) ? '' : 'display:none;';?>">
+            <select id="specifyMonth" name="specifyMonth[]" multiple="multiple"
+                    style="width:70px; height:80px;"
+                <?php if($this->getMonthOption() === $optionSpecify) :
+                        echo 'class="validate-select"';
+                     endif;?>>
+                <?php
+                $monthArray = ($dataObjectSet && $dataObject->getSpecifyMonth() !== null) ? $dataObject->getSpecifyMonth() : array();
+                $availibleMonths = $helper->getCronMonthArray();
+                foreach ($availibleMonths as $i) :?>
+                    <option value="<?php echo $i?>"
+                        <?php echo (in_array($i, $monthArray)) ? ' selected' : ''?>>
+                        <?php echo $i?> </option>
+                    <?php endforeach;?>
+            </select><br>
+        </div>
+
+        <div id="fromToMonthDiv"
+             style="<?php echo ($this->getMonthOption() === $optionFromTo) ? '' : 'display:none;';?>">
+            <label for="fromMonth"><?php echo $helper->__('From:')?></label>
+            <select name="fromMonth" id="fromMonth">
+                <?php
+                $fromMonth = ($dataObjectSet && $dataObject->getFromMonth() !== null) ? $dataObject->getFromMonth() : '';
+                foreach ($availibleMonths as $i) :?>
+                    <option value="<?php echo $i?>"
+                        <?php echo ($fromMonth == $i) ? ' selected' : '';?>>
+                        <?php echo $i?></option>
+                    <?php endforeach;?>
+            </select>
+            &nbsp;
+            <label for="toMonth"><?php echo $helper->__('To:')?></label>
+            <select name="toMonth" id="toMonth">
+                <?php
+                $toMonth = ($dataObjectSet && $dataObject->getToMonth() !== null) ? $dataObject->getToMonth() : '';
+                foreach ($availibleMonths as $i) : ?>
+                    <option value="<?php echo $i ?>"
+                        <?php echo ($toMonth == $i) ? ' selected' : '';?>>
+                        <?php echo $i ?></option>
+                    <?php endforeach;?>
+            </select>
+            <p class="note"><span><?php echo $helper->__('The left value must be less than the right value (JAN=1, DEC=12), otherwise use \'specify\' option or expert mode.')?></span></p>
+        </div>
+
+    </td>
+</tr>
+
+
+<tr class="hideonexpert">
+    <td class="label"><label for="dayOfWeekOption"><?php echo $helper->__('Day of week')?></label></td>
+    <td style="padding-bottom:10px;">
+        <select name="dayOfWeekOption" id="dayOfWeekOption" onchange="showDayOfWeek(this);" style="margin-bottom:5px;" class=" select">
+            <option value="every" <?php echo ($this->getDayOfWeekOption() === $optionEvery) ? 'selected' : ''?>><?php echo $helper->__('Every')?></option>
+            <option value="specify" <?php echo ($this->getDayOfWeekOption()  === $optionSpecify) ? 'selected' : ''?>><?php echo $helper->__('Specify')?></option>
+            <option value="fromto" <?php echo ($this->getDayOfWeekOption()  === $optionFromTo) ? 'selected' : ''?>><?php echo $helper->__('From - To')?></option>
+        </select>
+        <br>
+
+        <div id="specifyDayOfWeekDiv"
+             style="<?php echo ($this->getDayOfWeekOption()  === $optionSpecify) ? '' : 'display:none;';?>">
+            <select id="specifyDayOfWeek" name="specifyDayOfWeek[]" multiple="multiple"
+                    style="width:70px; height:80px;"
+                 <?php if($this->getDayOfWeekOption()  === $optionSpecify) :
+                            echo 'class="validate-select"';
+                       endif;?>>
+                <?php
+                $dayofweekArray = ($dataObjectSet && $dataObject->getSpecifyDayOfWeek() !== null) ? $dataObject->getSpecifyDayOfWeek() : array();
+                $availibleWeekdays = $helper->getCronDayArray();
+                foreach ($availibleWeekdays as $i) :?>
+                    <option value="<?php echo $i?>"
+                        <?php echo (in_array($i, $dayofweekArray)) ? ' selected' : ''?>>
+                        <?php echo $i?> </option>
+                    <?php endforeach;?>
+            </select><br>
+        </div>
+
+        <div id="fromToDayOfWeekDiv"
+             style="<?php echo ($this->getDayOfWeekOption()  === $optionFromTo) ? '' : 'display:none;';?>">
+            <label for="fromDayOfWeek"><?php echo $helper->__('From:')?></label>
+            <select name="fromDayOfWeek" id="fromDayOfWeek">
+                <?php
+                $fromDayOfWeek = ($dataObjectSet && $dataObject->getFromDayOfWeek() !== null) ? $dataObject->getFromDayOfWeek() : '';
+                foreach ($availibleWeekdays as $i):?>
+                    <option value="<?php echo $i?>"
+                        <?php echo ($fromDayOfWeek == $i) ? ' selected' : '';?>>
+                        <?php echo $i?></option>
+                    <?php endforeach;?>
+            </select>
+            &nbsp;
+            <label for="toDayOfWeek"><?php echo $helper->__('To:')?></label>
+            <select name="toDayOfWeek" id="toDayOfWeek">
+                <?php
+                $toDayOfWeek = ($dataObjectSet && $dataObject->getToDayOfWeek() !== null) ?$dataObject->getToDayOfWeek() : '';
+                foreach ($availibleWeekdays as $i) :?>
+                    <option value="<?php echo $i ?>"
+                        <?php echo ($toDayOfWeek == $i) ? ' selected' : '';?>>
+                        <?php echo $i ?></option>
+                    <?php endforeach;?>
+            </select>
+            <p class="note"><span><?php echo $helper->__('The left value must be less than the right value (SUN=0, SAT=6), otherwise use \'specify\' option or expert mode.')?></span></p>
+        </div>
+
+    </td>
+</tr>
+
+<tr id="showonexpert" style="display:none;">
+    <td class="label">
+        <label for="cron_expr"><?php echo $helper->__('Cron Expression');?></label>
+    </td>
+    <td class="value">
+        <input type="text" name="cron_expr" value="<?php echo $config->getCronExpr();?>" id="cron_expr" size="50">
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+</div>
+</div>
+</form>
+
+<div class="box-right">
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $helper->__('Information about Cron Expressions') ?></h4>
+        </div>
+
+
+        <div class="fieldset ">
+            <div class="hor-scroll">
+                <p><?php echo $helper->__('If you want to find out more about Cron Expressions, please refer to this Wikipedia article: ');?> <a
+                    href="http://en.wikipedia.org/wiki/Cron_job" target="_blank">cron</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    //<![CDATA[
+    var editForm = new varienForm('settings_edit_form');
+    <?php
+    if (!$config->isCronExpressionPresentable()) : ?>
+    setExpertModeOn();
+        <?php endif; ?>
+    //]]>
+</script>

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Luxe corp.
+ * BestSellers module 
+ *
+ * @category   Luxe
+ * @package    Luxe_BestSellers
+ * @copyright  Copyright (c) 2008 Luxe Corp.
+ * @license    http://www.opensource.org/licenses/gpl-3.0.html GNU General Public License version 3
+ */
+-->
+
+<config>
+    <modules>
+        <Luxe_Bestsellers>
+            <version>0.1.7</version>
+        </Luxe_Bestsellers>
+    </modules>
+    <global>
+        <models>
+            <bestsellers>
+                <class>Luxe_Bestsellers_Model</class>
+            </bestsellers>
+                        <catalog_resource_eav_mysql4>
+                                <rewrite>
+                                        <product>Luxe_Bestsellers_Model_Resource_Eav_Mysql4_Product</product>
+                                </rewrite>
+                        </catalog_resource_eav_mysql4>
+        </models>
+        <blocks>
+            <bestsellers>
+                <class>Luxe_Bestsellers_Block</class>
+            </bestsellers>
+        </blocks>
+        <helpers>
+            <bestsellers>
+                <class>Luxe_Bestsellers_Helper</class>
+            </bestsellers>
+        </helpers>
+    </global>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <bestsellers>
+                                            <title>Bestsellers</title>
+                                        </bestsellers>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <default>
+        <bestsellers>
+            <bestsellers>
+                <num_displayed_products>9</num_displayed_products>
+            </bestsellers>
+        </bestsellers>
+    </default>
+</config> 

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<config>
+      <modules>
+        <Topbuy_Customercare>
+          <version>0.1.0</version>
+        </Topbuy_Customercare>
+      </modules>
+	  <frontend>
+      <routers>
+        <customercare>
+          <use>standard</use>
+         <args>
+           <module>Topbuy_Customercare</module>
+           <frontName>customercare</frontName>
+         </args>
+        </customercare>
+      </routers>
+        <secure_url>
+            <customercare>/customercare</customercare>
+        </secure_url>
+	  <layout>
+          <updates>
+              <customercare>
+                  <file>customercare.xml</file>
+              </customercare>
+          </updates>
+      </layout>
+    </frontend>
+   <global>
+
+   
+   
+      <helpers>
+       <customercare>
+           <class>Topbuy_Customercare_Helper</class>
+       </customercare>
+      </helpers>   
+
+	  <blocks><customercare><class>Topbuy_Customercare_Block</class></customercare></blocks>
+	         <models>
+            <customercare>
+                <class>Topbuy_Customercare_Model</class>
+                <resourceModel>customercare_mysql4</resourceModel>
+            </customercare>
+            <customercare_mysql4>
+                <class>Topbuy_Customercare_Model_Mysql4</class>
+                <entities>
+                    <pccomments>
+                        <table>tb_pccomments</table>
+                    </pccomments>
+                </entities>
+                <entities>
+                    <pcftypes>
+                        <table>tb_pcftypes</table>
+                    </pcftypes>
+                </entities>
+                <entities>
+                    <pcfstatus>
+                        <table>tb_pcfstatus</table>
+                    </pcfstatus>
+                </entities>
+                <entities>
+                    <pcpriority>
+                        <table>tb_pcpriority</table>
+                    </pcpriority>
+                </entities>
+                <entities>
+                    <pccommentsrank>
+                        <table>tb_pccomments_rank</table>
+                    </pccommentsrank>
+                </entities>
+            </customercare_mysql4>
+        </models>
+        <resources>
+            <customercare_setup>
+                <setup>
+                    <module>Topbuy_Customercare</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </customercare_setup>
+            <customercare_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </customercare_write>
+            <customercare_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </customercare_read>
+			
+        </resources>
+	 
+   </global> 
+   
+
+</config> 

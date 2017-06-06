@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Webizmu_Buyexpress>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Webizmu_Buyexpress>
+    </modules>
+</config>       

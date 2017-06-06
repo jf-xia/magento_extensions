@@ -1,0 +1,103 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>" />
+<title><?php echo $this->getTitle() ?></title>
+<meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+<meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
+<meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
+<meta name="viewport" content="initial-scale=1">
+<?php 
+	  $headerOp = Mage::getStoreConfig('buyexpress_options/style');
+	  $mediaUrl = Mage::getBaseUrl('media') . 'images/';
+	  $slideAuto = Mage::getStoreConfig('buyexpress_options/slide_settings/slide_auto');
+	  $slideFx = Mage::getStoreConfig('buyexpress_options/slide_settings/slide_fx');
+	  $catAmt = Mage::getStoreConfig('buyexpress_options/cat_cms/cat_amt');
+	  $moreText = Mage::getStoreConfig('buyexpress_options/cat_cms/more_text');
+?>
+<link rel="icon" href="<?php echo $mediaUrl . $headerOp["fav_upload"]; ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo $mediaUrl . $headerOp["fav_upload"]; ?>" type="image/x-icon" />
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
+    var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
+//]]>
+</script>
+<![endif]-->
+<?php echo $this->getCssJsHtml() ?>
+<?php echo $this->getChildHtml() ?>
+<?php echo $this->helper('core/js')->getTranslatorScript() ?>
+<?php echo $this->getIncludes() ?>
+<script type="text/javascript">
+//<![CDATA[
+    <?php if($slideAuto==1): ?>
+    	var slide_auto = 3000;
+    <?php else: ?>
+		var slide_auto = 0;
+    <?php endif; ?>
+	
+	<?php if($slideFx == 1): ?>
+		var slideFx = "scrollVert";
+		var reV = 1;
+	<?php else: ?>
+		var slideFx = "scrollHorz";
+		var reV = 0;
+	<?php endif; ?>
+	<?php if($catAmt): ?>
+		var catAmt = <?php echo $catAmt; ?>-1;
+	<?php endif; ?>
+	<?php if($moreText): ?>
+		var moreTxt = '<?php echo $moreText; ?>';
+	<?php endif; ?>
+//]]>
+</script>
+<?php 
+	$colorScheme = Mage::getStoreConfig('buyexpress_options/color_scheme'); 
+	$mediaUrl = Mage::getBaseUrl('media') . 'images/';
+?>
+<style type="text/css">
+	<?php if($colorScheme['bgcolor'] == 1 && $colorScheme['bg_img']): ?>
+		body{background:url(<?php echo $mediaUrl . $colorScheme['bg_img'] ?>) 
+			<?php 
+				if($colorScheme['bg_repeat']==2) { 
+					echo "no-repeat center";
+				 }
+			?>}
+	<?php elseif($colorScheme['bgcolor'] == 2): ?>
+		body{background:#<?php echo $colorScheme['bg_color']; ?>}		
+	<?php endif; ?>
+	
+	
+	<?php if($colorScheme['default_color']): ?>
+		ul#nav{background:<?php echo '#' . $colorScheme['default_color'];?>}
+		.promoTop a strong,.mini-products-list span.price,.price-box span,.price-box span,.copyright .powered a,.slideTab li.activeSlide .tabContent a,.block-product h2 strong,.sidebar dt,.cart .discount h2, .cart .shipping h2{color:<?php echo '#' . $colorScheme['default_color'];?>}
+		.block-product ul.products li .promo,.product-img-box .pager a.activeSlide,.opc .active .step-title .number{background:<?php echo '#' . $colorScheme['default_color'];?>}
+	<?php endif; ?>
+	<?php if($colorScheme['btn_color']): ?>
+	.products-list button[type="button"], .btn-cart, .form-add .form-list button, .box-tags button, .buttons-set button, button,.searchForm input[type="submit"],.footer button[type="submit"]{background:<?php echo '#' . $colorScheme['btn_color']; ?> url(<?php  echo "'" . Mage::getDesign()->getSkinUrl('images/btnBg.png') . "'" ?>) bottom repeat-x; border-color:<?php echo '#' . $colorScheme['btn_color']; ?>;color:<?php echo '#' . $colorScheme['btn_text_color']; ?>}
+	<?php endif; ?>
+</style>

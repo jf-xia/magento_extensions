@@ -1,0 +1,119 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Advancedsearch
+ * @version    1.3.0
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?>
+<?php
+?>
+<?php
+$_element = $this->getElement();
+$_htmlId    = $this->getElement()->getHtmlId();
+$_htmlClass = $this->getElement()->getClass();
+$_htmlName  = $this->getElement()->getName();
+$values = $this->getValues();
+$selectedAttributes = $values instanceof Varien_Object && $values->getData('attributes') ? $values->getData('attributes') : array();
+?>
+<?php $attributes = $this->getData('index_attributes') ? $this->getData('index_attributes') : array() ?>
+<?php if ($_element->getFieldsetContainerId()): ?>
+<div id="<?php echo $_element->getFieldsetContainerId(); ?>">
+<?php endif; ?>
+<?php if ($_element->getLegend()): ?>
+<div class="entry-edit-head">
+    <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $_element->getLegend() ?></h4>
+    <div class="form-buttons"><?php echo $_element->getHeaderBar() ?></div>
+</div>
+<?php endif; ?>
+<?php if (!$_element->getNoContainer()): ?>
+    <div class="fieldset <?php echo $_element->getClass() ?>" id="<?php echo $_element->getHtmlId() ?>">
+<?php endif; ?>
+    <div class="hor-scroll grid tier">
+        <?php if ($_element->getComment()): ?>
+            <p class="comment"><?php echo $this->escapeHtml($_element->getComment()) ?></p>
+        <?php endif; ?>
+        <?php if ($_element->hasHtmlContent()): ?>
+            <?php echo $_element->getHtmlContent(); ?>
+        <?php else: ?>
+        <table cellspacing="0" class="data border">
+            <thead>
+                <tr class="headings">
+                    <th><?php echo $this->__('Attribute') ?></th>
+                    <th><?php echo $this->__('Weight') ?></th>
+                    <th />
+                </tr>
+                <tr id="<?php echo $_htmlId ?>_add_template" class="template no-display">
+                    <td class="no-br">
+                        <select disabled="no-template" class="<?php echo $_htmlClass ?> custgroup" name="<?php echo $_htmlName ?>[__index__][attribute]" id="attributes_row___index___attribute">
+                            <?php foreach($attributes as $k => $v) : ?>
+                            <option value="<?php echo $k ?>"><?php echo $v ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </td>
+                    <td class="no-br">
+                        <input disabled="no-template" class="<?php echo $_htmlClass ?> required-entry validate-number validate-digits validate-greater-than-zero" type="text" name="<?php echo $_htmlName ?>[__index__][weight]" value="#{weight}" id="attributes_row___index___weight" />
+                    </td>
+                    <td class="last"><input type="hidden" name="<?php echo $_htmlName ?>[__index__][delete]" class="delete" disabled="no-template" value="" /><button title="Delete attribute" class="scalable delete icon-btn delete-product-option" onclick="attributesControl.deleteItem(event);return false"><span>Delete</span></button></td>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td colspan="3" class="a-right">
+                        <button style="" onclick="attributesControl.addItem()" class="scalable add" type="button"><span>Add attribute</span></button>
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody id="<?php echo $_htmlId ?>_container">
+                <?php $_index = 0 ?>
+                <?php foreach($selectedAttributes as $sa) : ?>
+                <tr id="<?php echo $_htmlId ?>_add_template" class="template">
+                    <td class="no-br">
+                        <select class="<?php echo $_htmlClass ?> custgroup" name="<?php echo $_htmlName ?>[<?php echo $_index ?>][attribute]" id="attributes_row_<?php echo $_index ?>_attribute">
+                            <?php foreach($attributes as $k => $v) : ?>
+                            <option value="<?php echo $k ?>"<?php if($sa['attribute'] == $k) : ?> selected="selected"<?php endif ?>><?php echo $v ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </td>
+                    <td class="no-br">
+                        <input class="<?php echo $_htmlClass ?> required-entry validate-number validate-digits validate-greater-than-zero" type="text" name="<?php echo $_htmlName ?>[<?php echo $_index ?>][weight]" value="<?php echo $sa['weight'] ?>" id="attributes_row_<?php echo $_index ?>_weight" />
+                    </td>
+                    <td class="last"><input type="hidden" name="<?php echo $_htmlName ?>[<?php echo $_index ?>][delete]" class="delete" value="" /><button title="Delete attribute" class="scalable delete icon-btn delete-product-option" onclick="attributesControl.deleteItem(event);return false"><span>Delete</span></button></td>
+                </tr>
+                <?php $_index++ ?>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+        <?php endif; ?>
+    </div>
+    <?php echo $_element->getSubFieldsetHtml() ?>
+<?php if (!$_element->getNoContainer()): ?>
+    </div>
+<?php endif; ?>
+<?php if ($_element->getFieldsetContainerId()): ?>
+</div>
+<?php endif; ?>
+<script type="text/javascript">
+    attributesControl.setCount(<?php echo $_index ?>);
+</script>

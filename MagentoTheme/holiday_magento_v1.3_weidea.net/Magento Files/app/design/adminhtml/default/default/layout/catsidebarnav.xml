@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <catsidebarnav_adminhtml_catsidebarnav_edit>
+		<update handle="editor"/>
+    </catsidebarnav_adminhtml_catsidebarnav_edit>
+    <catsidebarnav_adminhtml_catsidebarnav_index>
+		<update handle="editor"/>
+        <reference name="content">
+            <block type="catsidebarnav/adminhtml_catsidebarnav" name="catsidebarnav" />
+        </reference>
+    </catsidebarnav_adminhtml_catsidebarnav_index>
+</layout>

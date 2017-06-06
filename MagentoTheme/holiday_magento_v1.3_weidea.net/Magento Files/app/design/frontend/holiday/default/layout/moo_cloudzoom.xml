@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<layout>    
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addCss" ifconfig="moo_cloudzoom/general/enabled">
+                <stylesheet>cloud-zoom/css/cloud-zoom.css</stylesheet>
+            </action>
+            <!--<action method="addItem">
+                <type>skin_js</type>
+                <name>cloud-zoom/js/jquery.js</name>
+            </action>-->
+            <action method="addItem" ifconfig="moo_cloudzoom/general/enabled">
+                <type>skin_js</type>
+                <name>cloud-zoom/js/cloud-zoom.1.0.2.min.js</name>
+            </action>
+        </reference>
+		
+        <reference name="product.info.media">
+            <action method="setTemplate" ifconfig="moo_cloudzoom/general/enabled">
+                <template>moo/catalog/product/view/media.phtml</template>
+            </action>
+        </reference>
+    </catalog_product_view>
+    
+    <review_product_list translate="label">
+        <reference name="head">
+            <action method="addJs" ifconfig="moo_cloudzoom/general/enabled"><script>varien/product.js</script></action>
+            <action method="addCss" ifconfig="moo_cloudzoom/general/enabled">
+                <stylesheet>css/cloud-zoom.css</stylesheet>
+            </action>
+            <!--<action method="addItem">
+                <type>skin_js</type>
+                <name>js/jquery.js</name>
+            </action>-->
+            <action method="addItem" ifconfig="moo_cloudzoom/general/enabled">
+                <type>skin_js</type>
+                <name>js/cloud-zoom.1.0.2.min.js</name>
+            </action>
+        </reference>
+ 
+        <reference name="product.info.media">
+            <action method="setTemplate" ifconfig="moo_cloudzoom/general/enabled">
+                <template>moo/catalog/product/view/media.phtml</template>
+            </action>
+        </reference>
+    </review_product_list>
+</layout>

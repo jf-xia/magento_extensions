@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+    <name>Baobaz_OrdersCancel</name>
+    <version>0.1.2</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension automatically cancel old orders that are not payed.</summary>
+    <description>This extension automatically cancel old orders that are not payed.
+
+You can define which statuses for which orders should be deleted. You can also choose expiration time (in days).
+
+This extension uses Magento cron. So be sure that cron.php file is actually correctly added to your cron tab.</description>
+    <notes>Adding possibility of setting expiration time in hours our minutes</notes>
+    <authors><author><name>Laurent Clouet</name><user>auto-converted</user><email>laurent.clouet@baobaz.com</email></author><author><name>Dominik Andruszak</name><user>auto-converted</user><email>dominik.andruszak@baobaz.com</email></author><author><name>Baobaz</name><user>auto-converted</user><email>magentoconnect@baobaz.com</email></author></authors>
+    <date>2010-06-16</date>
+    <time>15:37:38</time>
+    <contents><target name="magecommunity"><dir name="Baobaz"><dir name="OrdersCancel"><dir name="etc"><file name="config.xml" hash="fe5a8e22040e48770fd66d7c9a7a4a1b"/><file name="system.xml" hash="3caf5372aa9f726d8ac81d8d2939d718"/></dir><dir name="Model"><dir name="Order"><file name="Statuses.php" hash="4a7c4e44a45f3eeb73844be5c9b478bf"/></dir><file name="Observer.php" hash="e2e2be6dd6a6cbf6ed0a76a182f6732c"/></dir></dir></dir></target><target name="magelocale"><dir name="en_US"><file name="Baobaz_OrdersCancel.csv" hash="c2380e946e0e933815871f2f2e6d47ce"/></dir><dir name="fr_FR"><file name="Baobaz_OrdersCancel.csv" hash="a1da642ef870ca5e66cda1fd980131a0"/></dir></target><target name="mageetc"><dir name="modules"><file name="Baobaz_OrdersCancel.xml" hash="521d3b1c5cb736bc94d37926223309c2"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

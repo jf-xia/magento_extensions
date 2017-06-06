@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * Anais_Breadcrumbs extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   Anais
+ * @package    Anais_Breadcrumbs
+ * @copyright  Copyright (c) 2011 Anais Software Services
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */ 
+ /**
+ * @category   Anais
+ * @package    Anais_Breadcrumbs
+ * @author     Marius Strajeru <marius.strajeru@anais-it.com>
+ */ 
+ -->
+ <config>
+	<tabs>
+        <anais translate="label" module="breadcrumbs">
+            <label>AnaisIT Extensions</label>
+            <sort_order>2000</sort_order>
+        </anais>
+    </tabs>
+    <sections>
+        <breadcrumbs translate="label" module="breadcrumbs">
+            <class>separator-top</class>
+            <label>Account breadcrumbs</label>
+            <tab>anais</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>500</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <settings translate="label" module="breadcrumbs">
+                    <label>Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<enable_all translate="label" module="breadcrumbs">
+                            <label>Enable for all available pages</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_all>
+                        <enable_specific translate="label" module="breadcrumbs">
+                        	<label>Enable for specific pages</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>breadcrumbs/adminhtml_system_config_source_breadcrumb_pages</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_specific>
+                        <enable_home translate="label" module="breadcrumbs">
+                            <label>Add hopemage breadcrumb</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_home>
+                   	</fields>
+				</settings>
+			</groups>
+		</breadcrumbs>
+	</sections>
+</config>

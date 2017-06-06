@@ -1,0 +1,373 @@
+<?php
+/**
+*
+* Copyright CKApps.com
+* email: app@ckapps.com
+*
+*/
+
+
+class CKApps_SinaLogin_Model_Login extends Mage_Payment_Model_Method_Abstract
+{
+	protected $_code  = 'sinalogin_login';
+
+
+	/**
+	* Set API URLS
+	*/
+	/**
+	* @ignore
+	*/
+	function accessTokenURL()  { return 'http://api.t.sina.com.cn/oauth/access_token'; }
+	/*
+	*API SHOW_USER URL
+	*/
+
+	function showusersURL()  { return 'http://api.t.sina.com.cn/users/show.xml'; }
+	/**
+	* @ignore
+	*/
+	function authenticateURL() { return 'http://api.t.sina.com.cn/oauth/authenticate'; }
+	/**
+	* @ignore
+	*/
+	function authorizeURL()    { return 'http://api.t.sina.com.cn/oauth/authorize'; }
+	/**
+	* @ignore
+	*/
+	function requestTokenURL() { return 'http://api.t.sina.com.cn/oauth/request_token'; }
+	/*
+	*Get Retunrn url
+	*/
+	public function getReturnURL()
+	{
+		return Mage::getUrl('sinalogin/login/return');
+	}
+
+	/*
+	*Get Home url
+	*/
+
+	public function getHomeUrl()
+	{
+		return Mage::getUrl('');
+	}
+	/*
+	*Get APP_KEY
+	*/
+
+	public function getKey()
+
+	{
+		return $sina_consumer_key=$this->getConfigData('app_key');
+	}
+	/*
+	*Get APP SECRET
+	*/
+
+	public function getSecret()
+
+	{
+		return $sina_consumer_secret=$this->getConfigData('app_secret');
+	}
+
+	/*
+	*Get HTTP METHOD
+	*/
+
+	public function getHTTPMethod()
+	{
+		return 'GET';
+	}
+
+	/*
+	*Rediect to the page by its $url
+	*/
+
+	public function toRediect($url)
+	{
+		echo "<script type='text/javascript'>";
+		echo "window.location.href='$url'";
+		echo "</script>";
+	}
+
+
+	/*
+	*Set customer information if not exists
+	*Make a login of this customer
+	*/
+	public function addCustomer($cfirstname,$clastname,$cemail,$cpassword)
+	{
+		$customer = Mage::getModel('customer/customer');
+		$password = $cpassword;
+		$email = $cemail;
+		$firstname  = $cfirstname;
+		$lastname = $clastname;
+
+		$customer->setWebsiteId(Mage::app()->getWebsite()->getId());
+		$customer->loadByEmail($email);
+		if(!$customer->getId()) {
+
+			$customer->setEmail($email);
+			$customer->setFirstname($firstname);
+			$customer->setLastname($lastname);
+			$customer->setPassword($password);
+		}
+
+		try {
+			$customer->save();
+			$customer->setConfirmation(null);
+			$customer->save();
+
+			//Make a "login" of new customer
+			Mage::getSingleton('customer/session')->loginById($customer->getId());
+		}
+
+		catch (Exception $e) {
+			//Zend_Debug::dump($ex->getMessage());
+			Mage::logException($e);
+		}
+	}
+
+	/*
+	*CREATE REQUEST STRING BY BASE_PARAMS
+	*/
+
+	public function createRequestURL($oauth_token=NULL,$oauth_token_secret=NULL,$oauth_verifier=NULL,$user_id=NULL)
+	{
+		$parameters = array("oauth_version" => '1.0',
+		"oauth_nonce" => md5(microtime().mt_rand()),
+		"oauth_timestamp" => time(),
+		"oauth_consumer_key" =>$this->getKey(),
+		"oauth_signature_method"=>'HMAC-SHA1',
+		"oauth_token"=>$oauth_token,
+		"oauth_token_secret"=>$oauth_token_secret,
+		"oauth_verifier"=>$oauth_verifier,
+		"user_id"=>$user_id
+		);
+		$string=$this->getString($parameters);
+		return $string;
+	}
+
+	/*
+	*RMOVE DATAS FROM A ARRAY WHERE VALUE IS NULL
+	*/
+
+	function paraFilter($para) {
+		$para_filter = array();
+		while (list ($key, $val) = each ($para)) {
+			if($val == "")continue;
+			else	$para_filter[$key] = $para[$key];
+		}
+		return $para_filter;
+	}
+
+	/*
+	*CREATE A STRING FROM A ARRAY
+	*/
+
+	public function getString($parameters)
+	{
+		$arg='';
+		$parameters=$this->paraFilter($parameters);
+		$parameters=$this->arg_sort($parameters);
+		while (list ($key, $val) =each($parameters)) {
+			$arg.=$key."=".$val."&";
+		}
+		$arg = substr($arg,0,count($arg)-2);
+		if(get_magic_quotes_gpc()){$arg = stripslashes($arg);}
+		return $arg;
+	}
+
+	/*
+	*SORT ARRAY
+	*/
+
+	public function arg_sort($array) {
+
+		ksort($array);
+		reset($array);
+		return $array;
+	}
+	/*
+	*CERATE THE BASE_STRING USEED TO SIGNATURE
+	*/
+
+	public function createBaseString($url)
+	{
+		$link=urlencode('&'.$url);
+		$method=$this->getHTTPMethod();
+		$callback=$this->getReturnURL();
+		$requestTokenURL=$this->requestTokenURL();
+		$str=str_replace("=","%3D",$link);
+		$string=str_replace("&","%26",$str);
+		return $basdestring=$method.'&'.urlencode($requestTokenURL).'&'.urlencode('oauth_callback='.urlencode($callback)).$string;
+	}
+
+	/*
+	*Get SIGNATURE BY BASE_STRING
+	*/
+
+	public function build_signature($base_string,$key) {/*{{{*/
+
+
+		$base_encode=base64_encode( hash_hmac('sha1', $base_string, $key, true));
+		return (str_replace("=","%3D",str_replace("+","%2B",urlencode($base_encode))));
+	}
+	/*
+	*GET QUERRY  URL FOR REQUEST_TOKEN
+	*/
+
+	public function getQuerryUrl()
+	{  $string=$this->createRequestURL();
+		$key=$key=$this->getSecret().'&';
+		$base_string=$this->createBaseString($string);
+		$oauth_signature=$this->build_signature($base_string,$key);
+		$requestTokenURL=$this->requestTokenURL();
+		$callback=$this->getReturnURL();
+		return $requestTokenURL.'?'.'oauth_callback='.urlencode($callback).'&'.$string.'&oauth_signature='.$oauth_signature;
+	}
+	/*
+	*Get REQUEST_TOKEN
+	*/
+
+	public function getRequesttoken()
+	{
+		$querryurl=$this->getQuerryUrl();
+		$requestToken=$this->getHttpResponse($querryurl);
+		$session = Mage::getSingleton('customer/session');
+		$session['sina_request_oauth_token_secret']=$requestToken['oauth_token_secret'];
+		return $requestToken;
+	}
+	/*
+	*GET HTTP RESPONSE_INFO BY A URL
+	*/
+
+	public function response($querryurl,$timeout='60')
+	{
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $querryurl);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,$timeout);
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		return $output = curl_exec($ch);
+		curl_close($ch);
+
+	}
+	/*
+	*CHANGE RESPONSE_INFO TO A ARRAY
+	*/
+
+	public function getHttpResponse($querryurl)
+	{ $output=$this->response($querryurl);
+		foreach(explode("&",$output) as $value)
+		{
+			$c = explode("=",$value);
+			$a[] = $c[0];
+			$b[] = $c[1];
+		}
+		$request=array_combine($a,$b);
+		return $request;
+	}
+	/*
+	*Get AUTHORIZE URL
+	*/
+
+	function getAuthorizeURL($sign_in_with_Weibo = TRUE ) {
+		$url=$this->getReturnURL();
+		$token=$this->getRequesttoken();
+		if (is_array($token)) {
+			$token = $token['oauth_token'];
+		}
+		if (empty($sign_in_with_Weibo)) {
+			return $this->authorizeURL() . "?oauth_token={$token}&oauth_callback=" . urlencode($url);
+		} else {
+			return $this->authenticateURL() . "?oauth_token={$token}&oauth_callback=". urlencode($url);
+		}
+	}
+	/*
+	*Get ACCESS_TOKEN
+	*/
+
+	public function getAccesstoken($oauth_token,$oauth_verifier)
+	{  
+		$session = Mage::getSingleton('customer/session');
+		$token_secret=$session['sina_request_oauth_token_secret'];
+		$requeststring=$this->createRequestURL($oauth_token,$token_secret,$oauth_verifier);
+		$base_string=$this->create_access_base_string($requeststring);
+		$key=$this->getSecret().'&'.$token_secret;
+		$oauth_signature=$this->build_signature($base_string,$key);
+		$accessTokenURL=$this->accessTokenURL().'?'.$requeststring.'&oauth_signature='.$oauth_signature;
+		return $assessToken=$this->getHttpResponse($accessTokenURL);
+	}
+
+	/*
+	*CREATE BASE_STRING USED TO GET SIGNATURE
+	*/
+
+	public function create_access_base_string($url)
+	{
+		$link=urlencode($url);
+		$method=$this->getHTTPMethod();
+		$accessTokenURL=$this->accessTokenURL();
+		$str=str_replace("=","%3D",$link);
+		$string=str_replace("&","%26",$str);
+		return $basdestring=$method.'&'.urlencode($accessTokenURL).'&'.$string;
+	}
+
+	/*
+	*CREATE BASE_STRING USED TO GET SIGNATURE
+	*/
+	public function create_get_base_string($url)
+	{
+		$link=urlencode($url);
+		$method=$this->getHTTPMethod();
+		$showURL=$this->showusersURL();
+		$str=str_replace("=","%3D",$link);
+		$string=str_replace("&","%26",$str);
+		return $basdestring=$method.'&'.urlencode($showURL).'&'.$string;
+	}
+	/*
+	*GET USR_INFO
+	*/
+	public function getSinauser($access_oauth_token,$access_token_secret,$user_id)
+	{
+		$requeststring=$this->createRequestURL($access_oauth_token,NULL,NULL,$user_id);
+		$base_string=$this->create_get_base_string($requeststring);
+		$key=$this->getSecret().'&'.$access_token_secret;
+		$oauth_signature=$this->build_signature($base_string,$key);
+		$showURL=$this->showusersURL().'?'.$requeststring.'&oauth_signature='.$oauth_signature;
+		$informations=$this->response($showURL);
+		$infoarray=$this->resolveXML($informations);
+		return $infoarray;
+	}
+	/*
+	*CHANGE A XMLDATA TO ARRAY
+	*/
+	public function resolveXML($xmldata)
+	{
+		$parser=xml_parser_create('UTF-8');
+		$data=array();
+		xml_parse_into_struct($parser,$xmldata,$data);
+		$info=array();
+		foreach($data as $value)
+		{
+			if(is_array($value))
+			{ $newkey='';
+				$newvalue='';
+				foreach($value as $key => $values)
+				if($key=='tag')
+				{
+					$newkey=$values;
+				}
+				if($key=='value')
+				{
+					$newvalue=$values;
+				}
+				$info[$newkey]=$newvalue;
+			}
+		}
+		return $info;
+		xml_parser_free($parser);
+	}
+}

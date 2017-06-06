@@ -1,0 +1,181 @@
+div.zetaprints-image-edit {
+  font-family: Arial;
+  font-size: 12px;
+  background-color: #93B4DF;
+  text-align: left;
+  zoom: 1;
+}
+
+div.zetaprints-image-edit div.zetaprints-buttons-row {
+  background-color: white;
+  padding: 5px 0px;
+}
+
+ul.zetaprints-image-edit-menu {
+  float: left;
+  padding: 5px 15px;
+  margin: 0;
+  text-align: center;
+  list-style-image: none;
+  list-style-type: none;
+  font-weight: bold;
+  color: white;
+}
+
+ul.zetaprints-image-edit-menu li {
+  background: transparent url(../images/image-edit/line.png) no-repeat bottom;
+  margin-top: 8px;
+  padding: 0px 0px 14px 0px;
+}
+
+ul.zetaprints-image-edit-menu li.last {
+  padding-bottom: 0px;
+  background-image: none;
+}
+
+ul.zetaprints-image-edit-menu li.hidden {
+  display: none;
+}
+
+ul.zetaprints-image-edit-menu div.button {
+  cursor: pointer;
+  padding: 26px 0px 0px 0px;
+  background: transparent no-repeat top;
+}
+
+div.zetaprints-image-edit-wrapper {
+  float: left;
+}
+
+div.zetaprints-image-edit-container {
+  width: 602px;
+  height: 452px;
+  background-color: white;
+  padding: 5px;
+  overflow: hidden;
+  border-top: 10px solid white;
+  border-right: 5px solid white;
+}
+
+#zetaprints-image-edit-user-image {
+  margin: 1px 0px 0px 1px;
+}
+
+#zetaprints-image-edit-user-image.zetaprints-hidden {
+  display: none !important;
+}
+
+#fit-to-field-button {
+  background-image: url(../images/image-edit/fit-to-field-crop-icon.png);
+}
+
+#rotate-right-button {
+  background-image: url(../images/image-edit/rotate_r.png);
+}
+
+#rotate-left-button {
+  background-image: url(../images/image-edit/rotate_l.png);
+}
+
+#crop-button {
+  background-image: url(../images/image-edit/crop.png);
+}
+
+#undo-button {
+  background-image: url(../images/image-edit/restore.png);
+}
+
+#delete-button {
+  background-image: url(../images/image-edit/delete.png);
+}
+
+div.info-bar {
+  font: bold 8pt tahoma;
+  line-height: 1.5em;
+  color: #204a87;
+  padding: 1px 5px;
+  width: 607px;
+}
+
+div.info-bar div.icon {
+  background: transparent url(../images/image-edit/status-bar-sprite.png) no-repeat;
+}
+
+div.info-bar div.outer {
+  display: table;
+}
+
+div.info-bar div.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+div.info-bar.small-image-warning div.numbers div.current,
+div.info-bar.low-cropped-resolution-warning div.numbers div.current,
+div.info-bar.low-full-resolution-warning div.numbers div.current {
+  color: #db0d0d;
+}
+
+div.info-bar.low-cropped-resolution-warning div.notice-switchers div.current div.question-sign,
+iv.info-bar.low-full-resolution-warning div.notice-switchers div.current div.question-sign,
+div.info-bar.small-image-warning div.notice-switchers div.current div.question-sign {
+  background-position: -28px 0px;
+}
+
+div.info-bar.cropped-state div.titles span.cropped-title,
+div.info-bar.low-cropped-resolution-warning span.low-cropped-resolution-notice,
+div.info-bar.low-full-resolution-warning span.low-full-resolution-notice,
+div.info-bar.small-image-warning span.small-image-notice,
+div.column.notices span.default-notice {
+  display: inline;
+}
+
+div.info-bar .cropped-title, div.info-bar.cropped-state .uploaded-title,
+div.info-bar.low-cropped-resolution-warning span.default-notice,
+div.info-bar.low-full-resolution-warning span.default-notice,
+div.info-bar.small-image-warning span.default-notice,
+div.column.notices span {
+  display: none;
+}
+
+div.info-bar.cropped-state div.notice-switchers div.cropped-title {
+  display: block;
+}
+
+div.info-bar div.column {
+  float: left;
+  margin-right: 5px;
+  text-align: right;
+  overflow: hidden;
+}
+
+div.info-bar div.column.numbers {
+  color: white;
+}
+
+div.info-bar div.column.left-text-position {
+  text-align: left;
+}
+
+div.info-bar div.column.last {
+  float: none;
+}
+
+div.info-bar div.reset {
+  clear: both;
+}
+
+div.info-bar div.row {
+  padding: 1px 0px;
+  height: 1.5em;
+}
+
+div.info-bar div.question-sign {
+  width: 12px;
+  height: 12px;
+  background-position: -28px -17px;
+}
+
+div.info-bar div.question-sign:hover {
+  background-position: -28px 0px;
+}

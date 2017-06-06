@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <magpleasure_seo_pagination>
+        <reference name="head">
+            <block type="seopagination/wrapper" name="mp.seo.pagination.wrapper" as="mp_seo_pagination_wrapper" template="seopagination/wrapper.phtml" />
+        </reference>
+    </magpleasure_seo_pagination>
+    <catalog_category_view>
+        <update handle="magpleasure_seo_pagination" />
+    </catalog_category_view>
+    <catalog_category_default>
+        <update handle="magpleasure_seo_pagination" />
+    </catalog_category_default>
+    <catalog_category_layered>
+        <update handle="magpleasure_seo_pagination" />
+    </catalog_category_layered>
+</layout>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   NeedTool
+ * @package    NeedTool_Paymentstub
+ * @copyright  NeedTool.com
+ */
+-->
+<config>
+    <modules>
+        <NeedTool_Paymentstub>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Sales />
+            </depends>
+        </NeedTool_Paymentstub>
+    </modules>
+</config>

@@ -1,0 +1,104 @@
+﻿Testing in 1.5.0.1
+(This list was laid down for Magento developers, but it also could be useful for those who use translation)
+(This list is far from complete...)
+
+1. Original (en_US) Mage_Sales.csv lacks following phrases:
+* There are no recurring profiles yet.
+
+
+2. Original (en_US) Mage_Catalog.csv lacks following phrases:
+
+* Please specify the product's option(s).
+* Display Settings
+
+
+3. In app\design\adminhtml\default\default\template\tax\importExport.phtml (45, 61) some phrases don't use translation at all. You can fix this by replacing
+
+45: from <?php echo $this->getButtonHtml('Import Tax Rates', "this.form.submit()") ?>
+    to   <?php echo $this->getButtonHtml(Mage::helper('tax')->__('Import Tax Rates'), "this.form.submit()") ?>
+
+61: from <?php echo $this->getButtonHtml('Export Tax Rates', "this.form.submit()") ?>
+    to   <?php echo $this->getButtonHtml(Mage::helper('tax')->__('Export Tax Rates'), "this.form.submit()") ?>
+
+4. To enable translations for Index Management Page insert following code in /app/code/core/Mage/Index/etc/config.xml after line 143
+
+<translate>
+	<modules>
+		<Mage_Index>
+			<files>
+				<default>Mage_Index.csv</default>
+			</files>
+		</Mage_Index>
+	</modules>
+</translate>
+
+5. There is no possibility to translate category attributes
+
+6. There is no possibility to translate customer attributes
+
+7. Original (en_US) Mage_Adminhtml.csv lacks phrases:
+* "Last updated: %s. To refresh last day's <a href=""%s"">statistics</a>, click <a href=""%s"">here</a>."
+
+8. To enable translations for Magento Connect - Package Extensions page add following code to /app/code/core/Mage/Connect/etc/config.xml after line 64
+
+<translate>
+	<modules>
+		<Mage_Connect>
+			<files>
+				<default>Mage_Connect.csv</default>
+			</files>
+		</Mage_Connect>
+	</modules>
+</translate>
+
+9. To enable translations of review statuses in list of reviews change line 77 in app\code\core\Mage\Adminhtml\Block\Review\Grid.php
+
+	$tmpArr[$status['value']] = $status['label'];
+to
+	$tmpArr[$status['value']] = $this->__($status['label']);
+
+that will make Magento to take statuses from Mage_Customer.csv
+
+10. Statuses of price rules have no translations. You can see that code doesn't provide for such possibility
+	app\code\core\Mage\Adminhtml\Block\Promo\Catalog\Grid.php (93)
+
+11. There is no translation for editor because of some code peculiarities. Like, there are possibilities for translation, but there is a check, if object which manages translations is extended from Varien_Object. In this case such object is Mage_Core_Helper_Abstract which does not extend Varien_Object and translations are not taken.
+
+	lib\Varien\Data\Form\Element\Editor.php (line 345)
+	if ($this->getConfig('translator') instanceof Varien_Object)
+
+Theoretically you can just comment this check out, but we don't know if it affects something else. However we had no problems for now and translation works fine.
+
+12. No translation for phrase "Display On"
+app\design\adminhtml\default\default\template\widget\instance\edit\layout.phtml (43)
+
+13. No translations for Import, Export, Product, Customer on the export/import profiles list
+	app\code\core\Mage\Adminhtml\Block\System\Convert\Gui\Grid.php (69, 76)
+
+14. Run Profile tab: no translation for "select a file"
+	app\design\adminhtml\default\default\template\system\convert\profile\run.phtml (49)
+
+15. No translations for stability statuses
+	app\code\core\Mage\Adminhtml\Model\Extension.php (328)
+
+
+16. No translations for roles
+	app\code\core\Mage\Adminhtml\Model\Extension.php (251)
+
+============ reported ================
+============= new =================
+
+17. Original (en_US) Mage_Adminhtml.csv misses the following phrases
+* "Alphanumeric, dash and underscore characters are recommended for filenames. Improper characters are replaced with '_'."
+
+There is a phrase "Alphanumeric, dash and underscore characters are recommended for filenames. Improper characters are replaced with \'_\'.", but it is'n being used
+
+18. There is no possibility to translate parameter group comments in configuration in admin.
+
+To solve this problem you should change app\code\core\Mage\Adminhtml\Block\System\Config\Form.php (183):
+Replace the following string
+$fieldsetConfig['comment'] = (string)$group->comment;
+with
+$fieldsetConfig['comment'] = Mage::helper($helperName)->__((string)$group->comment);
+
+It is used in System - Configuration - Inventory - Product Stock Options

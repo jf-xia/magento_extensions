@@ -1,0 +1,15 @@
+<?php if ($this->getMethod()->getPayimgurl()): ?>
+<img src="<?php echo $this->getSkinUrl($this->getMethod()->getPayimgurl()) ?>" alt="<?php echo $this->htmlEscape($this->getMethod()->getTitle()) ?>" /><br />
+<?php endif; ?>
+<fieldset class="form-list">
+	<?php $_code=$this->getMethodCode() ?>
+	<ul id="payment_form_<?php echo $_code ?>" style="display:none">
+		<li>
+			  <div class="input-box">
+            <?php if ($this->getMethod()->getPayinfo()): ?>
+                <?php echo $this->getMethod()->getPayinfo() ?><br />
+            <?php endif; ?>
+        </div>
+		</li>
+	</ul>
+</fieldset>

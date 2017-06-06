@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<layout version="0.1.0">
+	<cms_index_index>
+		<reference name="left">
+			<block type="fblikebox/box"  name="fblikebox.box.left" before="." template="fblikebox/box.phtml"/>
+		</reference>
+		<reference name="right">
+			<block type="fblikebox/box"  name="fblikebox.box.right" before="cart_sidebar" template="fblikebox/box.phtml"/>
+		</reference>
+		<reference name="after_body_start">
+            <block type="fblikebox/script"  name="fblikebox.script" before="." template="fblikebox/script.phtml"/>
+        </reference>
+	</cms_index_index>
+</layout>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Edev_Priceformat</name>
+    <version>1.0.5</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/afl-3.0.php">AFL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Change your price format the way You like!</summary>
+    <description>Change price format the way You like!</description>
+    <notes>Fixed formatting for configurable product</notes>
+    <authors><author><name>Elvis</name><user>Elvis</user><email>elviszunde@gmail.com</email></author></authors>
+    <date>2011-07-02</date>
+    <time>12:51:09</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Edev_Priceformat.xml" hash="f93513ef12915672570e13bd6818b9f8"/></dir></target><target name="magecommunity"><dir name="Edev"><dir name="Priceformat"><dir name="etc"><file name="config.xml" hash="f4e2114dc67582c9b1912007ae3187bf"/><file name="system.xml" hash="e4f0d66d0b9c298aab78c1d37ddcc407"/><file name="adminhtml.xml" hash="65347c01a1312e6b25e65574b9ea60a2"/></dir><dir name="Model"><file name="Formater.php" hash="241fac13d9fcde8f2658a4aa6d0fa393"/><file name="Positions.php" hash="d803e012d7092eafd5cfaf216076f417"/><file name="Type.php" hash="4e4d1870834b4bf1c0291148165a64a7"/></dir><dir name="controllers"><file name="PriceController.php" hash="26d6adbbb38ba9d84745e3b64148737e"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="priceformat.xml" hash="c0e92631cae2683a1d70a981efb9a5a6"/></dir><dir name="template"><dir name="edev"><file name="priceformat.phtml" hash="094ad0de2e013121a27f98d900f30057"/></dir></dir></dir></dir></dir></target><target name="mage"><dir name="js"><dir name="edev"><file name="priceformat.js" hash="bba1412f1b8603d971eb8e2d9bbd6f68"/></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="css"><dir name="edev"><file name="priceformat.css" hash="a317b9e5eca37658344225a28e99bb99"/></dir></dir><dir name="images"><dir name="edev"><file name="ajax-loader.gif" hash="72aff86069680b8b950adb3ea72939b0"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

@@ -1,0 +1,34 @@
+<config>
+        <translate>
+            <modules>
+                <amfbreview>
+                    <files>
+                        <default>Amasty_Fbreview.csv</default>
+                    </files>
+                </amfbreview>
+            </modules>
+        </translate>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <amfbreview translate="title">
+                                            <title>Facebook Reviews</title>
+                                            <sort_order>333</sort_order>
+                                        </amfbreview>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+</config>

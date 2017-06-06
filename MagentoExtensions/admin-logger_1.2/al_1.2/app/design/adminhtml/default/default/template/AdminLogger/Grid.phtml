@@ -1,0 +1,17 @@
+<div class="entry-edit">
+
+<div class="content-header">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3><?php echo $this->__('Admin Logger')?></h3></td>
+            <td align="right">
+                <button onclick="document.location.href='<?php echo $this->getPruneUrl(); ?>'" class="scalable" type="button"><span><?php echo $this->__('Prune logs')?></span></button>            
+                <button onclick="document.location.href='<?php echo $this->getClearUrl(); ?>'" class="scalable" type="button"><span><?php echo $this->__('Clear logs')?></span></button>            
+            </td>
+        </tr>
+    </table>
+</div>
+
+<?php echo $this->getGridParentHtml() ?>
+
+</div>

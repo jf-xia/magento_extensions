@@ -1,0 +1,34 @@
+/* Slider */
+.metro-banner
+{
+	color:#a5a5a5;
+}
+
+.metro-banner-slide .text .title
+{
+	color:#898989;
+}
+
+.no-touch .metro-banner-slide:hover .text,
+.no-touch .metro-banner-slide:hover .text .title
+{
+	color:#ffffff;
+}
+.metorDis{
+	width:100%;
+	position:absolute;
+	left:0;
+	bottom:0;
+	padding:10px 0;
+	display:none;
+	z-index:1500;
+}
+.metorDis h2 {
+    display: inline-block;
+    font-size: 22px;
+    margin: 0;
+    padding: 5px 0;
+    text-align: center;
+    width: 100%;
+}
+.metorDis p{display:inline-block; text-align:center; padding:10px 15px;}

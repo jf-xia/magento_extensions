@@ -1,0 +1,51 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Advancedsearch
+ * @version    1.3.0
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?>
+<?php
+?>
+<div class="awas-kbase-post-list">
+    <?php echo $this->getPager() ?>
+    <ul class="awas-kbase-articles">
+    <?php foreach($this->getResults() as $article) : ?>
+        <li>
+            <div class="title">
+                <a href="<?php echo $this->getArticleUrl($article) ?>"><?php echo $article->getData('article_title') ?></a>
+            </div>
+            <?php if(($articleContent = $this->getArticleContent($article))) : ?>
+            <div class="short_content">
+                <?php echo $articleContent ?>
+            </div>
+            <div class="more_link">
+                <a href="<?php echo $this->getArticleUrl($article) ?>"><?php echo $this->__('Read More') ?></a>
+            </div>
+            <?php endif ?>
+        </li>
+    <?php endforeach ?>
+    </ul>
+    <?php echo $this->getPager() ?>
+</div>

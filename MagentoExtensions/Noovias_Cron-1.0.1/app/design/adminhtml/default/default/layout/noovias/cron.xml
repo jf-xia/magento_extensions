@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<layout version="1.0.1">
+    <noovias_cron_adminhtml_settings_index>
+        <reference name="content">
+            <block type="noovias_cron/adminhtml_settings" name="noovias.cron.adminhtml.settings"/>
+        </reference>
+    </noovias_cron_adminhtml_settings_index>
+    <noovias_cron_adminhtml_settings_edit>
+        <reference name="content">
+            <block type="noovias_cron/adminhtml_settings_edit" name="noovias.cron.adminhtml.settings.edit">
+                <action method="setTemplate"><template>noovias/cron/settings/edit.phtml</template></action>
+            </block>
+        </reference>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><script>noovias/js/cron.js</script></action>
+        </reference>
+    </noovias_cron_adminhtml_settings_edit>
+
+    <noovias_cron_adminhtml_schedule_index>
+        <reference name="content">
+            <block type="noovias_cron/adminhtml_schedule" name="noovias.cron.adminhtml.schedule"/>
+        </reference>
+    </noovias_cron_adminhtml_schedule_index>
+    <noovias_cron_adminhtml_schedule_edit>
+        <reference name="content">
+            <block type="noovias_cron/adminhtml_schedule_edit" name="noovias.cron.adminhtml.schedule.edit">
+                <action method="setTemplate"><template>noovias/cron/schedule/edit.phtml</template></action>
+            </block>
+        </reference>
+    </noovias_cron_adminhtml_schedule_edit>
+    <noovias_cron_adminhtml_schedule_new>
+        <reference name="content">
+            <block type="noovias_cron/adminhtml_schedule_new" name="noovias.cron.adminhtml.schedule.new">
+                <action method="setTemplate"><template>noovias/cron/schedule/new.phtml</template></action>
+            </block>
+        </reference>
+    </noovias_cron_adminhtml_schedule_new>
+
+    <noovias_cron_adminhtml_history_index>
+        <reference name="content">
+            <block type="noovias_cron/adminhtml_history" name="noovias.cron.adminhtml.history"/>
+        </reference>
+    </noovias_cron_adminhtml_history_index>
+</layout>

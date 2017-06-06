@@ -1,0 +1,32 @@
+<?php $headerOp = Mage::getStoreConfig('buyexpress_options/cat_cms'); ?>
+<div class="fooLinks">
+    <div class="heading"><?php echo $this->__('CMS Pages') ?></div>
+        <ul>
+        <?php
+            $store = Mage::app()->getStore();   
+            $cms_pages = Mage::getModel('cms/page')->getCollection();
+            $cms_pages->getSelect()->where('is_active = 1')->order('page_id desc');
+            
+                $last = count($cms_pages);
+                $lastText = '';
+                $ctr = 0;
+                foreach($cms_pages as $_page){
+                    $data = $_page->getData();
+					$pageID = $headerOp["page_id"];//Get Page ID
+					$excludePage = explode(',',$pageID);
+					if(!in_array($data['page_id'],$excludePage)){
+						if($data['identifier']=='no-route' || $data['identifier']=='home')
+							continue;            
+						if(Mage::helper('core/url')->getCurrentUrl()== Mage::getURL('').''.$data['identifier']) {
+							$str_active_class    =    "active";
+						} else {
+							$str_active_class    =    "";
+						}            
+						if($ctr++ == $last)
+							$lastText = ' last';
+						echo '<li class="level1'.$lastText.' '.$str_active_class.' '.$data['title'].' " ><a href="'.Mage::getURL('').''.$data['identifier'].'"><span>'.$data['title'].'</span></a></li>'."\n";
+					 }
+				}
+        ?> 
+        </ul>
+</div>

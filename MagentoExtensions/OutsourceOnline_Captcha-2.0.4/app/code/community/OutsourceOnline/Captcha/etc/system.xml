@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Outsource Online Captcha Extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   OutsourceOnline
+ * @package    OutsourceOnline_Captcha
+ * @author     Sreekanth Dayanand
+ * @copyright  Copyright (c) 2010 Outsource Online. (http://www.outsource-online.net)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <tabs>
+        <outsourceOnline_extensions translate="label" module="outsourceonline_captcha">
+            <label>Outsource Online Extensions</label>
+            <sort_order>1000000</sort_order> 
+        </outsourceOnline_extensions>
+    </tabs>
+    <sections>        
+        <OutsourceOnline_Captcha>
+            <label>Captcha</label>
+            <tab>outsourceOnline_extensions</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>999999</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <setup translate="label">
+                    <label>Captcha Setup</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        
+                        <image_function translate="label">
+                            <label>Image function</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>OutsourceOnline_Captcha/source_Captchaimage</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </image_function>
+						<characters_allowed translate="label">
+                            <label>Characters allowed</label>
+                            <frontend_type>text</frontend_type>
+							<value>ABCDEFGHJKLMNPQRTWXY346789</value>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                            
+                        </characters_allowed>
+						<letter_size translate="label">
+                            <label>Letter Size</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>OutsourceOnline_Captcha/source_Captchafontsize</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </letter_size>
+						<font_ttf translate="label">
+                            <label>Font</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>OutsourceOnline_Captcha/source_Captchafonts</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </font_ttf>
+						
+                        <!--<language translate="label">
+                            <label>Language</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>OutsourceOnline_Captcha/source_captchalanguage</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </language>-->
+                        <background_color translate="label">
+                            <label>Background color</label>
+                            <frontend_type>text</frontend_type>
+							<value>#2C8007</value>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                            
+                        </background_color>
+						<text_color translate="label">
+                            <label>Text color</label>
+                            <frontend_type>text</frontend_type>
+							<value>#FFFFFF</value>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </text_color>
+						<noise_in_bg translate="label">
+                            <label>Noise in BG</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>OutsourceOnline_Captcha/source_Captchanoise</source_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </noise_in_bg>
+						<noise_in_text translate="label">
+                            <label>Noise in text</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>OutsourceOnline_Captcha/source_Captchanoise</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </noise_in_text>
+						
+                    </fields>
+                </setup>
+                <captcha translate="label">
+                    <label>Captcha Controls</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <when_loggedin translate="label">
+                            <label>Hide for Logged-in Customers</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </when_loggedin>
+                        <sendfriend translate="label">
+                            <label>Email to a Friend Form</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sendfriend>
+                        <contacts translate="label">
+                            <label>Contact Us Form</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </contacts>
+                        <customer translate="label">
+                            <label>Account Creation Form</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </customer>
+                        <review translate="label">
+                            <label>Product Review Form</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </review>
+                    </fields>
+                </captcha>
+				<botscout translate="label">
+                    <label>Botscout.com options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>6</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <botscout_api_key translate="label">
+                            <label>Botscout API key</label>
+                            <frontend_type>text</frontend_type>
+							<value></value>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                            
+                        </botscout_api_key>
+                        <botscout_report_email translate="label">
+                            <label>Report -ve results from botsout ip verification</label>
+                            <frontend_type>text</frontend_type>
+							<value></value>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </botscout_report_email>
+                        
+                        
+                    </fields>
+                </botscout>
+               
+            </groups>
+        </OutsourceOnline_Captcha>
+    </sections>
+</config>

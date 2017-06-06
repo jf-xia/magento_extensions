@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<config>
+    <api>
+        <resources>
+            <homepage_tbdatasync translate="title" module="homepage">
+                <title>My Custom Homepage API</title>
+				<!--<acl>catalog/category</acl>-->
+				<acl>topbuy/homepage</acl>
+                <model>homepage/tbdata_api</model>
+                <methods>
+                    <createBanner translate="title" module="homepage">
+                        <title>Create/Update Topbuy FrontBanner</title>
+						<method>createBanner</method>
+                        <acl>topbuy/homepage/allaccess</acl>
+                    </createBanner>
+					<deleteBanner translate="title" module="homepage">
+                        <title>Delete Topbuy FrontBanner</title>
+						<method>deleteBanner</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+                        <!--<acl>frontbanner_tbdata/create</acl>-->
+                    </deleteBanner>
+					<createCategoryspecial translate="title" module="homepage">
+                        <title>Create/Update Topbuy Category Special</title>
+						<method>createCategoryspecial</method>
+                        <acl>topbuy/homepage/allaccess</acl>
+                    </createCategoryspecial>
+					<deleteCategoryspecial translate="title" module="homepage">
+                        <title>Delete Topbuy Category Special</title>
+						<method>deleteCategoryspecial</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+                        <!--<acl>frontbanner_tbdata/create</acl>-->
+                    </deleteCategoryspecial>
+					<createTestimonial translate="title" module="homepage">
+                        <title>Create / Update Topbuy Testimonial</title>
+						<method>createTestimonial</method>
+                        <acl>topbuy/homepage/allaccess</acl>
+                    </createTestimonial>
+					<deleteTestimonial translate="title" module="homepage">
+                        <title>Delete Topbuy Testimonial</title>
+						<method>deleteTestimonial</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+                        <!--<acl>frontbanner_tbdata/create</acl>-->
+                    </deleteTestimonial>
+					<tbUpdateProducts translate="title" module="homepage">
+					 	<title>Update Product in Batch</title>
+						<method>tbUpdateProducts</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+					</tbUpdateProducts>
+					<updateRewardpoints translate="title" module="homepage">
+					 	<title>Update Product in Batch</title>
+						<method>updateRewardpoints</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+					</updateRewardpoints>
+					<getNewsletterList translate="title" module="homepage">
+					 	<title>Retrieve Newsletter list</title>
+						<method>getNewsletterList</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+					</getNewsletterList>
+					<syncOrderStatus translate="title" module="homepage">
+					 	<title>Sync Status Back</title>
+						<method>syncOrderStatus</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+					</syncOrderStatus>
+					<syncAttribute translate="title" module="homepage">
+					 	<title>Sync Product Attribute Group</title>
+						<method>syncAttribute</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+					</syncAttribute>
+					<syncAttributeProduct translate="title" module="homepage">
+					 	<title>Sync Product Attribute Value</title>
+						<method>syncAttributeProduct</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+					</syncAttributeProduct>
+					<syncAttributeCategory translate="title" module="homepage">
+					 	<title>Sync Attribute Category</title>
+						<method>syncAttributeCategory</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+					</syncAttributeCategory>
+					<syncDailySteal translate="title" module="homepage">
+					 	<title>Sync Daily Steal of the day / small fish/ small steal</title>
+						<method>syncDailySteal</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+					</syncDailySteal> 
+					<syncCrossSaleGroup translate="title" module="homepage">
+					 	<title>Sync Crossing sale Group</title>
+						<method>syncCrossSaleGroup</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+					</syncCrossSaleGroup>					
+					<syncCrossSaleGroupProduct translate="title" module="homepage">
+					 	<title>Sync Crossing sale Group Product</title>
+						<method>syncCrossSaleGroupProduct</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+					</syncCrossSaleGroupProduct>
+                  <syncCrossSaleProductMap translate="title" module="homepage">
+					 	<title>Sync Crossing sale Group Mapped Product</title>
+						<method>syncCrossSaleProductMap</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+					</syncCrossSaleProductMap>	
+					<syncMessageAttribute translate="title" module="homepage">
+					 	<title>Sync Message Attribute</title>
+						<method>syncMessageAttribute</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+					</syncMessageAttribute>	
+					<syncMessageFromTopBuy translate="title" module="homepage">
+					 	<title>Sync Message</title>
+						<method>syncMessageFromTopBuy</method>
+						<acl>topbuy/homepage/owneraccess</acl>
+					</syncMessageFromTopBuy>
+                  <syncMessageFromMagento translate="title" module="homepage">
+                    <title>Sync Message</title>
+                    <method>syncMessageFromMagento</method>
+                    <acl>topbuy/homepage/owneraccess</acl>
+                  </syncMessageFromMagento>
+				  <syncMessageRankFromMagento translate="title" module="homepage">
+                    <title>Sync Message Rank</title>
+                    <method>syncMessageRankFromMagento</method>
+                    <acl>topbuy/homepage/owneraccess</acl>
+                  </syncMessageRankFromMagento>
+				  <syncNewsletter translate="title" module="homepage">
+                    <title>Sync Newsletter</title>
+                    <method>syncNewsletter</method>
+                    <acl>topbuy/homepage/owneraccess</acl>
+                  </syncNewsletter>
+				  <syncCategoryMap translate="title" module="homepage">
+                    <title>Sync Category Map</title>
+                    <method>syncCategoryMap</method>
+                    <acl>topbuy/homepage/owneraccess</acl>
+                  </syncCategoryMap>
+				  <syncCustomerMap translate="title" module="homepage">
+                    <title>Sync Customer Map</title>
+                    <method>syncCustomerMap</method>
+                    <acl>topbuy/homepage/owneraccess</acl>
+                  </syncCustomerMap>
+				  <syncOrderMap translate="title" module="homepage">
+                    <title>Sync Customer Map</title>
+                    <method>syncOrderMap</method>
+                    <acl>topbuy/homepage/owneraccess</acl>
+                  </syncOrderMap>
+				  <createProductBatch translate="title" module="homepage">
+                    <title>Create Product in Batch</title>
+                    <method>createProductBatch</method>
+                    <acl>topbuy/homepage/owneraccess</acl>
+                  </createProductBatch>
+				  <updateCategoryProductBatch translate="title" module="homepage">
+                    <title>Create Product in Batch</title>
+                    <method>updateCategoryProductBatch</method>
+                    <acl>topbuy/homepage/owneraccess</acl>
+                  </updateCategoryProductBatch>
+				  <updateCustomerPassword translate="title" module="homepage">
+                    <title>Update Customer Password</title>
+                    <method>updateCustomerPassword</method>
+                    <acl>topbuy/homepage/owneraccess</acl>
+                  </updateCustomerPassword>
+				  <updateCategoryExtraInfor translate="title" module="homepage">
+                    <title>updateCategoryExtraInfor</title>
+                    <method>updateCategoryExtraInfor</method>
+                    <acl>topbuy/homepage/owneraccess</acl>
+                  </updateCategoryExtraInfor>
+				  <updateOrderHistory translate="title" module="homepage">
+                    <title>Update Order History</title>
+                    <method>updateOrderHistory</method>
+                    <acl>topbuy/homepage/owneraccess</acl>
+                  </updateOrderHistory>
+				  <syncEmailSendBuffer translate="title" module="homepage">
+                    <title>sync Email Send Buffer</title>
+                    <method>syncEmailSendBuffer</method>
+                    <acl>topbuy/homepage/owneraccess</acl>
+                  </syncEmailSendBuffer> 
+				  <syncProductUpdates translate="title" module="homepage">
+                    <title>sync products update table</title>
+                    <method>syncProductUpdates</method>
+                    <acl>topbuy/homepage/owneraccess</acl>
+                  </syncProductUpdates>  
+				  <syncPromotionCrossSale translate="title" module="homepage">
+                    <title>sync products update table</title>
+                    <method>syncPromotionCrossSale</method>
+                    <acl>topbuy/homepage/owneraccess</acl>
+                  </syncPromotionCrossSale> 
+				  <syncProductReview translate="title" module="homepage">
+					<title>Sync Products Review</title>
+					<method>syncProductReview</method>
+					<acl>topbuy/homepage/owneraccess</acl>
+				  </syncProductReview>
+				  <syncProductReviewFromMag translate="title" module="homepage">
+					<title>Sync Products Review From Mag</title>
+					<method>syncProductReviewFromMag</method>
+					<acl>topbuy/homepage/owneraccess</acl>
+				  </syncProductReviewFromMag>		
+				  <syncOrderPaymentInfo translate="title" module="homepage">
+					<title>Sync Order Payment information for Paypal / eWay</title>
+					<method>syncOrderPaymentInfo</method>
+					<acl>topbuy/homepage/owneraccess</acl>
+				  </syncOrderPaymentInfo>
+				  <syncWarrantyMap translate="title" module="homepage">
+					<title>Sync Warranty Map</title>
+					<method>syncWarrantyMap</method>
+					<acl>topbuy/homepage/owneraccess</acl>
+				  </syncWarrantyMap>
+				  <syncWarrantyRegisterRecord translate="title" module="homepage">
+					<title>Sync Warranty Register Record</title>
+					<method>syncWarrantyRegisterRecord</method>
+					<acl>topbuy/homepage/owneraccess</acl>
+				  </syncWarrantyRegisterRecord>
+                </methods>
+				<faults module="homepage">
+					<tb_data_invalid>
+						<code>tb100</code>
+						<message>Invalid input data </message>
+					</tb_data_invalid>					
+					<tb_not_exists>
+						<code>tb101</code>
+						<message>Can not locate front banner row </message>
+					</tb_not_exists>
+					<tb_not_delete>
+						<code>tb103</code>
+						<message>Can not remove front banner for some reason</message>
+					</tb_not_delete> 
+				</faults>
+            </homepage_tbdatasync>    
+        </resources>
+        <resources_alias>
+            <homepagetbdatasync>homepage_tbdatasync</homepagetbdatasync>
+        </resources_alias>
+        <v2>
+            <resources_function_prefix>
+                <homepagetbdatasync>homepageTbdatasync</homepagetbdatasync>
+            </resources_function_prefix>
+        </v2> 
+		<acl>
+            <resources>
+                    <topbuy translate="title" module="homepage">
+                         <title>Topbuy</title> 
+						 <sort_order>100</sort_order>						 
+						 <homepage translate="title" module="homepage">
+							 <title>HomePage</title> 
+							 <sort_order>100</sort_order>
+							 	<allaccess translate="title" module="homepage">
+									<title>API - banner sync required by all user</title>
+									<sort_order>10</sort_order>
+								</allaccess>
+								<owneraccess translate="title" module="homepage">
+									<title>API- banner sync required by Owner only </title>
+									<sort_order>50</sort_order>
+								</owneraccess> 
+						 </homepage>        
+                    </topbuy>
+            </resources>
+        </acl>
+	 
+    </api>
+</config>

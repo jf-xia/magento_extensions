@@ -1,0 +1,108 @@
+<?xml version="1.0"?><!--
+/**
+ * Noovias_TransportOrder
+ *
+ * NOTICE OF LICENSE
+ *
+ * Noovias_TransportOrder is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Noovias_TransportOrder is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Noovias_TransportOrder. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Noovias_TransportOrder to newer
+ * versions in the future. If you wish to customize Noovias_TransportOrder for your
+ * needs please refer to http://www.noovias.com for more information.
+ *
+ * @category    Noovias
+ * @package     Noovias_TransportOrder
+ * @copyright   Copyright (c) 2010 <info@noovias.com> - noovias.com
+ * @license     <http://www.gnu.org/licenses/>
+ * 			    GNU General Public License (GPL 3)
+ * @link	    http://www.noovias.com
+ */
+-->
+<config>
+    <menu>
+        <system>
+            <children>
+                <noovias_cron translate="title" module="noovias_cron">
+                    <title>Noovias - Cronjobs</title>
+                    <children>
+                        <schedule translate="title" module="noovias_cron">
+                            <title>Schedule</title>
+                            <action>noovias_cron/adminhtml_schedule</action>
+                        </schedule>
+                        <history translate="title" module="noovias_cron">
+                            <title>History</title>
+                            <action>noovias_cron/adminhtml_history</action>
+                        </history>
+                        <settings translate="title" module="noovias_cron">
+                            <title>Settings</title>
+                            <action>noovias_cron/adminhtml_settings</action>
+                        </settings>
+                    </children>
+                </noovias_cron>
+            </children>
+        </system>
+    </menu>
+
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <noovias_cron>
+                                        <title>Noovias - Cronjobs</title>
+                                    </noovias_cron>
+                                </children>
+                            </config>
+                            <noovias_cron>
+                                <title>Noovias - Cronjobs</title>
+                                <children>
+                                    <schedule>
+                                        <title>Schedule</title>
+                                        <children>
+                                            <actions translate="title">
+                                                <title>Actions</title>
+                                                <children>
+                                                    <edit translate="title"><title>Edit</title></edit>
+                                                </children>
+                                            </actions>
+                                        </children>
+                                    </schedule>
+                                    <history>
+                                        <title>History</title>
+                                    </history>
+                                    <settings>
+                                        <title>Settings</title>
+                                        <children>
+                                            <actions translate="title">
+                                                <title>Actions</title>
+                                                <children>
+                                                    <edit translate="title"><title>Edit</title></edit>
+                                                </children>
+                                            </actions>
+                                        </children>
+                                    </settings>
+                                </children>
+                            </noovias_cron>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

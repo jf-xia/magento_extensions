@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<widgets>
+    <catalogsale_list type="catalogsale/widget_list">
+        <name>Catalog Sale Product List</name>
+        <description>Catalog sale items</description>
+        <parameters>
+            <products_count translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <label>Number of Products to Display</label>
+                <type>text</type>
+                <value>5</value>
+            </products_count>
+            <template>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>catalog/product/widget/sale/sale_default_list.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>catalog/product/widget/sale/sale_default_list.phtml</value>
+                        <label>Sidebar</label>
+                    </default>
+                </values>
+            </template>
+        </parameters>
+    </catalogsale_list>
+    <catalogsale_carousel type="catalogsale/widget_carousel">
+        <name>Catalog Sale Product Carousel</name>
+        <description>Displays the products on sale in a rotating carousel (Prototype)</description>
+        <parameters>
+            <products_count translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <label>Number of Products to Display</label>
+                <type>text</type>
+                <value>5</value>
+            </products_count>
+            <template>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>catalog/product/widget/sale/sale_carousel_list.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>catalog/product/widget/sale/sale_carousel_list.phtml</value>
+                        <label>Carousel</label>
+                    </default>
+                </values>
+            </template>
+        </parameters>
+    </catalogsale_carousel>
+</widgets>

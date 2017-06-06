@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <priceformat translate="label">
+            <label>Edev</label>
+            <sort_order>10</sort_order>
+        </priceformat>
+    </tabs>
+  <sections>
+    <priceformat translate="label">
+      <label>Price formatter</label>
+      <tab>priceformat</tab>
+      <frontend_type>text</frontend_type>
+      <sort_order>1000</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+
+        <format translate="label">
+          <label>Format options</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>100</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+
+            <enabled translate="label comment">
+              <label>Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>10</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </enabled>
+			
+            <allow_admin translate="label comment">
+              <label>Enable for backend</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>11</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </allow_admin>
+
+            <price_postfix translate="label comment">
+              <label>Price postfix</label>
+              <comment>
+                <![CDATA[Example: ",-"<br /> Or you can use <span class="notice">html</span>.]]>
+              </comment>
+              <frontend_type>text</frontend_type>
+              <sort_order>12</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </price_postfix>
+
+            <position translate="label comment">
+              <label>Position</label>
+			  <comment>
+                <![CDATA[Right: 100<span class="notice">,-</span> <br/> Left: <span class="notice">-</span>100]]>
+              </comment>
+              <frontend_type>select</frontend_type>
+			  <source_model>Edev_Priceformat_Model_Positions</source_model>
+              <sort_order>13</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </position>
+			
+            <keep_symbol translate="label comment">
+              <label>Keep currency symbol</label>
+			  <comment>
+                <![CDATA[Yes: 100,-<span class="notice">$</span> <br/> No: 100,-]]>
+              </comment>
+              <frontend_type>select</frontend_type>
+			  <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>14</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </keep_symbol>
+			
+            <only_round_sum translate="label comment">
+              <label>Use only for round price</label>
+			  <comment>
+                <![CDATA[No: 100.<span class="notice">99</span> => 100.99,- <br/> Yes: 100.<span class="notice">00</span> => 100,-]]>
+              </comment>
+              <frontend_type>select</frontend_type>
+			  <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>15</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </only_round_sum>
+			
+            <change_precision translate="label comment">
+              <label>Keep precision</label>
+			  <comment>
+                <![CDATA[No: 100.00 => 100.<span class="notice">00</span>,- <br/> Yes: 100.00 => 100,-]]>
+              </comment>
+              <frontend_type>select</frontend_type>
+			  <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>16</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </change_precision>
+			
+            <use_long_name translate="label comment">
+              <label>Currency description</label>
+			  <comment>
+                <![CDATA[Symbol: 100,- <span class="notice">$</span> <br/> Short name: 100,- <span class="notice">USD</span> <br/> Long name: 100,- <span class="notice">US Dollar</span>]]>
+              </comment>
+              <frontend_type>select</frontend_type>
+			  <source_model>Edev_Priceformat_Model_Type</source_model>
+              <sort_order>17</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </use_long_name>
+			
+            <wrap translate="label comment">
+              <label>Wrap currency symbol for styling(CSS)</label>
+			  <comment>
+                <![CDATA[Yes: Currency symbol wrapped with span]]>
+              </comment>
+              <frontend_type>select</frontend_type>
+			  <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>18</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </wrap>
+			
+          </fields>
+        </format>
+      </groups>
+    </priceformat>
+  </sections>
+</config>

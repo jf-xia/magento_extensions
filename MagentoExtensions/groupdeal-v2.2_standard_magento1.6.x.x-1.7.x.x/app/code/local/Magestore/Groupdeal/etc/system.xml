@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <magestore translate="label">
+            <label>Magestore Extension</label>
+            <sort_order>400</sort_order>
+        </magestore>
+    </tabs>
+	<sections>
+        <groupdeal translate="label" module="groupdeal">
+            <class>separator-top</class>
+            <label>Groupdeal</label>
+            <tab>magestore</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>300</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+				<general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+						<newsletter_in_sidebar>
+							<label>Show Deal Newsletter Form in the right sidebar</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+						</newsletter_in_sidebar>
+						<newest_deals_in_sidebar>
+							<label>Show Latest Deal(s) in the right sidebar</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+						</newest_deals_in_sidebar>
+						<number_of_deal_in_sidebar>
+							<label>Number of Deals shown in the right sidebar</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+						</number_of_deal_in_sidebar>				
+						<what_happen translate="label">
+                            <label>How to complete purchase in Group Deal?</label>
+                            <frontend_type>editor</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </what_happen>
+						<target_not_met translate="label">
+                            <label>Label for deal that has not obtained needed number of customers</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </target_not_met>
+						<target_meet translate="label">
+                            <label>Label for deal that has obtained needed number of customers</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </target_meet>						
+					</fields>
+				</general>
+				<show_productlist>
+					<label>Products in Deal</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>					
+						<is_show translate="label">
+                            <label>Show product(s) in deal</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </is_show>
+						<title translate="label">
+                            <label>Block Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </title>
+						<description translate="label">
+                            <label>Description</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </description>
+					</fields>
+				</show_productlist>				
+				<email translate="label">
+                    <label>Email Template</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>						
+						<buy_waiting_deal_template translate="label">
+                            <label>Email template to customer when buying a waiting deal</label>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </buy_waiting_deal_template>
+						<buy_on_deal_template translate="label">
+                            <label>Email template to customer when buying target-reaching deal</label>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </buy_on_deal_template>
+						<on_deal_template translate="label">
+                            <label>Email template to customer on the waiting list when deal is on</label>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </on_deal_template>
+						<cancel_deal_template translate="label">
+                            <label>Email template to customer when deal is cancelled</label>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </cancel_deal_template>						
+						<opened_deal_template translate="label">
+                            <label>Email template to subscriber when deal is opened</label>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                        </opened_deal_template>
+					</fields>
+				</email>
+            </groups>
+        </groupdeal>  
+    </sections>
+</config>

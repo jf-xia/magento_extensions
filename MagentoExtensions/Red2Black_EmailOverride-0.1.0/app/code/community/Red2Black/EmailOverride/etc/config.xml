@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Red2Black EmailOverride
+ *
+ * Magento extension
+ *
+ * NOTICE OF LICENSE
+ * Magento is subject to the Open Software License (OSL 3.0)
+ *
+ * @author      Andre Nickatina<andre@r2bconcepts.com>
+ * @category    Red2Black
+ * @package     Red2Black_EmailOverride
+ * @copyright   R2Bconcepts.com 2011
+ * @link        http://www.r2bconcepts.com Red2Black Concepts
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @version     0.1.0
+ */
+ -->
+<config>
+    <modules>
+        <Red2Black_EmailOverride>
+            <version>0.1.0</version>
+        </Red2Black_EmailOverride>
+    </modules>
+    <global>
+        <!-- These are the email templates we're overriding -->
+        <template>
+            <email>
+               <sales_email_order_template>
+                   <file>sales/r2b-order_new.html</file>
+               </sales_email_order_template>
+               <sales_email_order_guest_template>
+                   <file>sales/r2b-order_new_guest.html</file>
+               </sales_email_order_guest_template>
+               <sales_email_order_comment_template>
+                   <file>sales/r2b-order_update.html</file>
+               </sales_email_order_comment_template>
+               <sales_email_order_comment_guest_template>
+                   <file>sales/r2b-order_update_guest.html</file>
+               </sales_email_order_comment_guest_template>
+               <sales_email_invoice_template>
+                   <file>sales/r2b-invoice_new.html</file>
+               </sales_email_invoice_template>
+               <sales_email_invoice_guest_template>
+                   <file>sales/r2b-invoice_new_guest.html</file>
+               </sales_email_invoice_guest_template>
+               <sales_email_invoice_comment_template>
+                   <file>sales/r2b-invoice_update.html</file>
+               </sales_email_invoice_comment_template>
+               <sales_email_invoice_comment_guest_template>
+                   <file>sales/r2b-invoice_update_guest.html</file>
+               </sales_email_invoice_comment_guest_template>
+               <sales_email_creditmemo_template>
+                   <file>sales/r2b-creditmemo_new.html</file>
+               </sales_email_creditmemo_template>
+               <sales_email_creditmemo_guest_template>
+                   <file>sales/r2b-creditmemo_new_guest.html</file>
+               </sales_email_creditmemo_guest_template>
+               <sales_email_creditmemo_comment_template>
+                   <file>sales/r2b-creditmemo_update.html</file>
+               </sales_email_creditmemo_comment_template>
+               <sales_email_creditmemo_comment_guest_template>
+                   <file>sales/r2b-creditmemo_update_guest.html</file>
+               </sales_email_creditmemo_comment_guest_template>
+               <sales_email_shipment_template>
+                   <file>sales/r2b-shipment_new.html</file>
+               </sales_email_shipment_template>
+               <sales_email_shipment_guest_template>
+                   <file>sales/r2b-shipment_new_guest.html</file>
+               </sales_email_shipment_guest_template>
+               <sales_email_shipment_comment_template>
+                   <file>sales/r2b-shipment_update.html</file>
+               </sales_email_shipment_comment_template>
+               <sales_email_shipment_comment_guest_template>
+                   <file>sales/r2b-shipment_update_guest.html</file>
+               </sales_email_shipment_comment_guest_template>
+               <customer_create_account_email_template>
+                   <file>r2b-account_new.html</file>
+               </customer_create_account_email_template>
+               <customer_create_account_email_confirmation_template>
+                   <file>r2b-account_new_confirmation.html</file>
+               </customer_create_account_email_confirmation_template>
+               <customer_create_account_email_confirmed_template>
+                   <file>r2b-account_new_confirmed.html</file>
+               </customer_create_account_email_confirmed_template>
+               <customer_password_forgot_email_template>
+                   <file>r2b-password_new.html</file>
+                </customer_password_forgot_email_template>
+                <admin_emails_forgot_email_template>
+                    <file>r2b-admin_password_new.html</file>
+                </admin_emails_forgot_email_template>
+                <newsletter_subscription_confirm_email_template>
+                    <file>r2b-newsletter_subscr_confirm.html</file>
+                </newsletter_subscription_confirm_email_template>
+            </email>
+        </template>
+    </global>
+</config>

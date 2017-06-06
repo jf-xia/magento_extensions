@@ -1,0 +1,60 @@
+<?php
+/**
+ * Template for Blueknow_Recommender_Block_Product_Tracker.
+ * 
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Blueknow Recommender
+ * extension to newer versions in the future. If you wish to customize it for
+ * your needs please save your changes before upgrading.
+ * 
+ * @category	design
+ * @copyright	Copyright (c) 2010 Blueknow, S.L. (http://www.blueknow.com)
+ * @license		GNU General Public License
+ * @author		<a href="mailto:santi.ameller@blueknow.com">Santiago Ameller</a>
+ * @since		1.0.0
+ * 
+ */
+?>
+<?php $bConfiguration = $this->getConfig(); ?>
+
+<?php $bProduct = $this->getProduct(); ?>
+
+<script src="<?php echo $bConfiguration->getBaseURL() ?>/bk.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	var tracker = Blueknow.getTracker('<?php echo $bConfiguration->getBKNumber() ?>');
+	tracker.setCurrency('<?php echo $bConfiguration->getCurrentCurrency()->getCode() ?>');
+	tracker.setLanguage('<?php echo $bConfiguration->getLanguage() ?>');
+</script>
+
+<?php if ($this->getProduct()->isSaleable()) { ?>
+
+	<script type="text/javascript">
+		var properties = new Object();
+		<?php
+		$level = 1;
+		foreach ($bProduct->getCategories() as $bCategory) {
+			echo 'properties.cat_L' . $level . '_id = "' . $bCategory['id'] . '"; ';
+			echo 'properties.cat_L' . $level . '_name = "' . $bCategory['name'] . '"; ';
+			$level++;
+		}
+		?>
+		tracker.trackVisited(
+			'<?php echo $bProduct->getIdentifier() ?>',
+			'<?php echo $bProduct->getName() ?>',
+			'<?php echo $bProduct->getDescription() ?>',
+			'<?php echo $bProduct->getUrl() ?>',
+			'<?php echo $bProduct->getImageUrl() ?>',
+			'<?php echo $bProduct->getPrice() ?>',
+			properties
+		);
+	</script>
+
+<?php } else { ?>
+	
+	<script type="text/javascript">
+		tracker.trackDiscontinued('<?php echo $this->getProduct()->getIdentifier() ?>');
+	</script>
+	
+<?php } ?>

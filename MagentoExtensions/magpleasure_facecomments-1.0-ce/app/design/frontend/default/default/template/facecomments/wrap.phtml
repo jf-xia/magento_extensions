@@ -1,0 +1,37 @@
+<?php
+/**
+ * Magpleasure Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE-CE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magpleasure.com/LICENSE-CE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * Magpleasure does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * Magpleasure does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   Magpleasure
+ * @package    Magpleasure_Facecomments
+ * @version    1.0
+ * @copyright  Copyright (c) 2011 Magpleasure Ltd. (http://www.magpleasure.com)
+ * @license    http://www.magpleasure.com/LICENSE-CE.txt
+ */
+/** @var Magpleasure_Facecomments_Block_Wrap $this */
+?>
+<?php if ($this->canShow()): ?>
+<meta property="og:url" content="<?php echo $this->getCanonicalUrl(); ?>" />
+<meta property="og:type" content="product" />
+<meta property="og:title" content="<?php echo $this->getTitle(); ?>" />
+
+<?php endif; ?>
+
+

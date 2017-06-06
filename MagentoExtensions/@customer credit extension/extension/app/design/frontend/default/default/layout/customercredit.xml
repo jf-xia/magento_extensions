@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@mageworx.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ * or send an email to sales@mageworx.com
+ *
+ * @category   design_default
+ * @package    MageWorx_CustomerCredit
+ * @copyright  Copyright (c) 2010 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+ 
+/**
+ * Customer Credit extension
+ *
+ * @category   design_default
+ * @package    MageWorx_CustomerCredit
+ * @author     MageWorx Dev Team <dev@mageworx.com>
+ */
+-->
+
+<layout version="0.1.0">
+    <customer_account>
+        <!-- MageWorx_CustomerCredit -->
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="customercredit" ifconfig="mageworx_customers/customercredit_credit/enable_credit">
+                <name>customercredit</name>
+                <path>customercredit/</path>
+                <label>My Credit</label>
+            </action>
+        </reference>
+    </customer_account>
+        
+    <customercredit_index_index>
+        <update handle="customer_account"/>
+        <reference name="content">
+            <block type="customercredit/customer_view" name="customercredit.customer.view">
+                <block type="customercredit/customer_view_credit" name="customercredit.customer.view.credit" template="customercredit/customer/view/credit.phtml" />
+                <block type="customercredit/customer_view_recent" name="customercredit.customer.view.recent" template="customercredit/customer/view/recent.phtml" />
+            </block>
+        </reference>
+    </customercredit_index_index>
+
+    <customercredit_index_log>
+        <update handle="customer_account"/>
+        <reference name="customer_account_navigation">
+            <action method="setActive"><path>customercredit</path></action>
+        </reference>
+        <reference name="content">
+            <block type="customercredit/customer_log" name="customercredit.customer.log" />
+            <block type="customer/account_dashboard" name="customer.account.link.back" template="customer/account/link/back.phtml"/>
+        </reference>
+    </customercredit_index_log>
+
+    <sales_order_view>
+        <reference name="order_totals">
+            <block type="customercredit/sales_order_totals_customercredit" name="customercredtit"></block>
+        </reference>
+    </sales_order_view>
+    <sales_order_print>
+        <reference name="order_totals">
+            <block type="customercredit/sales_order_totals_customercredit" name="customercredtit"></block>
+        </reference>
+    </sales_order_print>
+    <sales_email_order_items>
+        <reference name="order_totals">
+            <block type="customercredit/sales_order_totals_customercredit" name="customercredtit"></block>
+        </reference>
+    </sales_email_order_items>
+    
+    <sales_order_invoice>
+        <reference name="invoice_totals">
+            <block type="customercredit/sales_order_totals_customercredit" name="customercredtit"></block>
+        </reference>
+    </sales_order_invoice>
+    <sales_order_printinvoice>
+        <reference name="invoice_totals">
+            <block type="customercredit/sales_order_totals_customercredit" name="customercredtit"></block>
+        </reference>
+    </sales_order_printinvoice>
+    <sales_email_order_invoice_items>
+        <reference name="invoice_totals">
+            <block type="customercredit/sales_order_totals_customercredit" name="customercredtit"></block>
+        </reference>
+    </sales_email_order_invoice_items>
+    
+    <sales_order_creditmemo>
+        <reference name="creditmemo_totals">
+            <block type="customercredit/sales_order_totals_customercredit" name="customercredtit"></block>
+        </reference>
+    </sales_order_creditmemo>
+    <sales_order_printcreditmemo>
+        <reference name="creditmemo_totals">
+            <block type="customercredit/sales_order_totals_customercredit" name="customercredtit"></block>
+        </reference>
+    </sales_order_printcreditmemo>
+    <sales_email_order_creditmemo_items>
+        <reference name="creditmemo_totals">
+            <block type="customercredit/sales_order_totals_customercredit" name="customercredtit"></block>
+        </reference>
+    </sales_email_order_creditmemo_items>
+    
+    <checkout_cart_index>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/customercredit.css</stylesheet></action>
+        </reference>
+        <reference name="checkout.cart">
+            <action method="chooseTemplate"/>
+            <block type="customercredit/checkout_cart_credit" name="checkout.cart.credit" as="cart_credit" template="customercredit/checkout/cart_credit.phtml" />
+        </reference>
+    </checkout_cart_index>
+    
+    <checkout_onepage_index>
+        <reference name="checkout.payment.methods">
+            <action method="setTemplate"><template>customercredit/checkout/onepage_payment_methods.phtml</template></action>
+        </reference>
+    </checkout_onepage_index>
+    
+    <checkout_onepage_paymentmethod>
+        <reference name="root">
+            <action method="setTemplate"><template>customercredit/checkout/onepage_payment_methods.phtml</template></action>
+        </reference>
+    </checkout_onepage_paymentmethod>
+</layout>

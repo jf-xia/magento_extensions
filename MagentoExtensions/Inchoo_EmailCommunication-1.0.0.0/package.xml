@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Inchoo_EmailCommunication</name>
+    <version>1.0.0.0</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Adds support for custom SMTP server like GMail, and logs all outgoing emails.</summary>
+    <description>Extension does two things. It adds support for using any (custom) SMTP server. Meaning you are not bound to config of PHP ini file, you can configure it from Magento admin. For example, you can use your GMail account for all outgoing email operations in Magento. Additionally, extension saves some basic log info under the "System &gt; Tools &gt; Inchoo Email Communication" section so you can check which email went out successfully and which failed and when.</description>
+    <notes>First stable release.</notes>
+    <authors><author><name>inchoo</name><user>inchoo</user><email>web@inchoo.net</email></author></authors>
+    <date>2011-11-08</date>
+    <time>12:19:30</time>
+    <contents><target name="magecommunity"><dir name="Inchoo"><dir name="EmailCommunication"><dir name="Block"><dir name="Adminhtml"><dir name="Log"><file name="Container.php" hash="5c945cda472d46bb7d89e73337a374cd"/><file name="Grid.php" hash="2cf250c9de28c57ebad4ec7d81576bb1"/><dir name="Renderer"><file name="Body.php" hash="df4ed0d4f5bb3c44271059761f4a0bf8"/></dir></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="56c0283ff1e279fe17ae6fe39c9bfd98"/></dir><dir name="Model"><dir name="Core"><dir name="Email"><file name="Template.php" hash="a4372eac37415c98146cf96cb968efbf"/></dir></dir><file name="Log.php" hash="b00e7683fbc5761af52f46cca1ad6c72"/><dir name="Resource"><dir name="Log"><file name="Collection.php" hash="a83c950a7215d82df8522171352b1023"/></dir><file name="Log.php" hash="60a166576636bd5375b0f8d082acd454"/><file name="Setup.php" hash="fc29b3f13d951a2ebffd7445d838869c"/></dir><dir name="System"><dir name="Config"><dir name="Source"><file name="Auth.php" hash="c696d4da8ac95cc8e715d5afb3fb4a35"/><file name="Ssl.php" hash="c9433adf4e5d908703eefed101f7b2a5"/></dir></dir></dir></dir><dir name="controllers"><dir name="Adminhtml"><dir name="Email"><dir name="Communication"><file name="LogController.php" hash="0431c9a5141e3ff259d33d231ec0b681"/></dir></dir></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="a50b5101eeb7837a4e394f307d1813ff"/><file name="config.xml" hash="b273b13283b39e03bb6e95aa69ecd27e"/><file name="system.xml" hash="aa04e853a69fc9e512f16c593e720f8a"/></dir><dir name="sql"><dir name="inchoo_email_communication_setup"><file name="install-1.0.0.0.php" hash="6a8a962378851b6b7f347badb1e02831"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Inchoo_EmailCommunication.xml" hash="34577eebe1f2a9c24eacaaf8fc9021f6"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="before_body_end">
+            <block type="core/template" name="wee_fpc.identifier" template="wee_fpc/identifier.phtml"/>
+        </reference>
+        <reference name="cart_sidebar">
+            <action method="setTemplate"><template>wee_fpc/cart/sidebar.phtml</template></action>
+        </reference>
+        <reference name="catalog.compare.sidebar">
+            <action method="setTemplate"><template>wee_fpc/catalog/product/compare/sidebar.phtml</template></action>
+        </reference>
+        <reference name="right.reports.product.viewed">
+            <action method="setTemplate"><template>wee_fpc/reports/product_viewed.phtml</template></action>
+        </reference>
+        
+    </default>
+    
+    <customer_logged_out>
+        <reference name="top.links">
+            <action method="removeLinkByUrl" module="customer"><url helper="customer/getLoginUrl"/></action>
+            <action method="addLink" translate="label title" module="customer"><label>Log In</label><url helper="customer/getLoginUrl"/><title>Log In</title><prepare/><urlParams/><position>100</position><liParams /><aParams /><beforeText helper="wee_fpc/getStartPattern"><key>log_in_out_link</key></beforeText><afterText helper="wee_fpc/getEndPattern"><key>log_in_out_link</key></afterText></action>
+        </reference>
+        <remove name="wishlist_sidebar"></remove>
+        <remove name="reorder"></remove>
+    </customer_logged_out>
+
+    <customer_logged_in>
+        <reference name="top.links">
+            <action method="removeLinkByUrl" module="customer"><url helper="customer/getLogoutUrl"/></action>
+            <action method="addLink" translate="label title" module="customer"><label>Log Out</label><url helper="customer/getLogoutUrl"/><title>Log Out</title><prepare/><urlParams/><position>100</position><liParams /><aParams /><beforeText helper="wee_fpc/getStartPattern"><key>log_in_out_link</key></beforeText><afterText helper="wee_fpc/getEndPattern"><key>log_in_out_link</key></afterText></action>
+        </reference>
+    </customer_logged_in>
+</layout>

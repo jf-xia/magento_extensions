@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * ECGiken_Price
+ *
+ * Copyright (c) 2011, EC-GIKEN Inc.
+ * All rights reserved.
+-->
+<config>
+    <sections>
+        <currency>
+            <groups>
+                <format_options translate="label">
+                    <label>Currency Format Options</label>
+                    <sort_order>31</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <precision translate="label comment">
+                            <label>Precision</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </precision>
+                        <symbol translate="label comment">
+                            <label>Symbol</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </symbol>
+                        <symbol_position translate="label comment">
+                            <label>Symbol Placement Option</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>ecgprice/option_position</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </symbol_position>
+                    </fields>
+                </format_options>
+            </groups>
+        </currency>
+    </sections>
+</config>

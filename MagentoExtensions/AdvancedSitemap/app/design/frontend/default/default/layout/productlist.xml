@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<reference name="footer_links">
+			<action method="addLink" translate="label title" module="productlist"><label>Show all products</label><url>productlist</url><title>Product List</title><prepare>true</prepare><urlParams /><position>1</position></action>
+		</reference>
+	</default>
+
+	<productlist_index>
+		<reference name="content">
+			<block type="page/template_container" name="productlist.container" template="catalog/product/productlist/container.phtml">
+				<block type="page/template_links" name="productlist.links" as="links" template="page/template/links.phtml"/>
+				<block type="page/html_pager" name="productlist.pager" as="pager_top" template="page/html/pager.phtml"/>
+			</block>
+		</reference>
+	</productlist_index>
+
+	<productlist_index_index>
+		<update handle="productlist_index" />
+		<reference name="productlist.links">
+			<action method="addLink" translate="label title" module="productlist"><label>Category Sitemap</label><url>productlist/index/category</url><title>Category Sitemap</title><prepare>true</prepare></action>
+		</reference>
+		<reference name="productlist.container">
+			<block type="productlist/list_all" name="productlist.list.all" as="productlist" after="pager_top" template="catalog/product/productlist/list.phtml">
+				<action method="bindPager"><pager>productlist.pager</pager></action>
+			</block>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+	</productlist_index_index>
+
+	<productlist_index_category>
+		<update handle="productlist_index" />
+		<reference name="productlist.links">
+			<action method="addLink" translate="label title" module="productlist"><label>Product Sitemap</label><url>productlist/index/index</url><title>Product Sitemap</title><prepare>true</prepare></action>
+		</reference>
+		<reference name="productlist.container">
+			<block type="productlist/list_category" name="productlist.list.category" as="productlist" after="pager_top" template="catalog/product/productlist/category.phtml">
+				<action method="bindPager"><pager>productlist.pager</pager></action>
+			</block>
+		</reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+	</productlist_index_category>
+</layout>

@@ -1,0 +1,18 @@
+<?php $point_spent = $this->getOrderDetails();?>
+
+<?php if ($point_spent):?>
+<table cellspacing="0" width="100%">
+    <col />
+    <col width="1" />
+    <tbody>
+        <tr>
+            <td class="label">
+                <?php echo $this->__('Points used');?>
+            </td>
+            <td>
+                <span class="price"><strong><?php echo $point_spent;?></strong></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<?php endif;?>

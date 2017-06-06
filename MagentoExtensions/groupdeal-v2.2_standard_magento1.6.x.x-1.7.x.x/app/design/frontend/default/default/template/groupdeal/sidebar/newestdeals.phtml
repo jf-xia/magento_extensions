@@ -1,0 +1,29 @@
+<?php if($this->isShowNewestDealsInSidebar()){?>
+<div class="block block-related">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Latest Deals') ?></span></strong>
+    </div>
+    <?php $deals = $this->getNewestDeals()?>
+    <?php //print_r(($categories));die();?>
+    <div class="block-content">
+        <ol class="mini-products-list" id="mini-deals-list">
+        <?php foreach($deals as $deal){?>
+            <?php $product = $deal->getDealProduct()?>
+            <li class="item">
+                <h4><a href="<?php echo $deal->getDealUrl()?>"><?php echo $deal->getDealTitle() ?></a></h4>
+                <a href="<?php echo $deal->getDealUrl()?>" title="<?php echo $this->htmlEscape($deal->getDealTitle()) ?>" class="product-image">
+                    <img src="<?php echo  $this->helper('catalog/image')->init($product, 'small_image')->resize(90, 54) ?>" width="90" height="54" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" />
+                </a>
+                <div class="deal-info-price">
+                    <div class="deal-price"><?php echo $deal->getPriceHtml() ?></div>
+                    <div class="deal-value"><?php echo $deal->getValueHtml() ?></div>
+                </div>
+            </li>
+        <?php }?>
+        </ol>
+    </div>
+    <script type="text/javascript">
+        decorateList('mini-deals-list', 'none-recursive')
+    </script>
+</div>
+<?php }?>

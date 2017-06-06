@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+    <name>Fooman_SameOrderInvoiceNumber</name>
+    <version>2.0.7</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Use the order number as invoice, shipment and creditmemo number.</summary>
+    <description>&lt;p&gt;Use the order number as invoice,shipment and creditmemo number.&lt;/p&gt;
+
+&lt;p&gt;By default Magento keeps separate counts for order and invoice numbers. This extension ensures that when an invoice is created it uses the related order number as invoice number.&lt;/p&gt;</description>
+    <notes>listen on global events to increase compatibility with other extensions</notes>
+    <authors><author><name>Kristof Ringleff</name><user>auto-converted</user><email>kristof@fooman.co.nz</email></author></authors>
+    <date>2012-07-12</date>
+    <time>17:13:25</time>
+    <contents><target name="mage"><dir name="app"><dir name="etc"><dir name="modules"><file name="Fooman_SameOrderInvoiceNumber.xml" hash="9c647ab0671752cda14b95db99dd7805"/></dir></dir></dir></target><target name="magecommunity"><dir name="Fooman"><dir name="SameOrderInvoiceNumber"><dir name="etc"><file name="config.xml" hash="07119779651bc1a81a374f3300fb908f"/><file name="system.xml" hash="902bc08c44d3473fa86fbbc8968a7f26"/></dir><dir name="Helper"><file name="Data.php" hash="2902afb6f8362656b9e1212091d04550"/></dir><dir name="Model"><file name="Observer.php" hash="9fe79ff9d71a0b91440afece4b5f5fe5"/></dir><file name="LICENSE.txt" hash="59563e7be45096d0833dade102989042"/><file name="LICENSE_AFL.txt" hash="45a399f2095030865fb962263ccd7506"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

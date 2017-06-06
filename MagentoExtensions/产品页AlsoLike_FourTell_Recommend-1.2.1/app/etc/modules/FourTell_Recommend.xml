@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<config>
+
+	<modules>
+
+		<FourTell_Recommend>
+
+			<active>true</active>
+			<codePool>local</codePool>
+			
+		</FourTell_Recommend>
+
+	</modules>
+
+</config>

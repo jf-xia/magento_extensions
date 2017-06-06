@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Moo_Catalog>
+            <version>1.0.0</version>
+        </Moo_Catalog>
+    </modules>
+    <global>
+        <blocks>
+            <catalog>
+                <rewrite>
+                    <product_view_media>Moo_Catalog_Block_Product_View_Media</product_view_media>
+                </rewrite>
+            </catalog>
+            <moo>
+                <class>Moo_Catalog_Block</class>
+            </moo>
+        </blocks>
+        <models>
+            <moo>
+                <class>Moo_Catalog_Model</class>
+            </moo>
+        </models>
+        <helpers>
+            <moo_catalog>
+                <class>Moo_Catalog_Helper</class>
+            </moo_catalog>
+        </helpers>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <moo_cloudzoom>
+                    <file>moo_cloudzoom.xml</file>
+                </moo_cloudzoom>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <moo_cloudzoom translate="title" module="moo_catalog">
+                                            <title>Moo Product Gallery "ClouldZoom"</title>
+                                            <sort_order>50</sort_order>
+                                        </moo_cloudzoom>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+    <default>
+        <moo_cloudzoom>
+            <general>
+                <enabled>1</enabled>
+            </general>
+            <zoomImage>
+                <position>inside</position>
+            </zoomImage>
+        </moo_cloudzoom>
+    </default>
+</config>

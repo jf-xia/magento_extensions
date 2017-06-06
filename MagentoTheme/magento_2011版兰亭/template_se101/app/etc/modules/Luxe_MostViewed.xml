@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Luxe corp.
+ * MostViewed module
+ *
+ * @category   Luxe 
+ * @package    Luxe_MostViewed
+ * @copyright  Copyright (c) 2008 Luxe Corp.
+ * @license    http://www.opensource.org/licenses/gpl-3.0.html GNU General Public License version 3
+ */
+-->
+<config>
+    <modules>
+        <Luxe_MostViewed>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Catalog />
+            </depends>
+            <version>0.1.0</version>
+        </Luxe_MostViewed>
+    </modules>
+</config>
+

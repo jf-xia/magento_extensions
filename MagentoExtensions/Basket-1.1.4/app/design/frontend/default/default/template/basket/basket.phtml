@@ -1,0 +1,163 @@
+<style>
+div.tooltip th{ background:#666; font-size:12px; font-weight:bold; color:#FFF; margin:3px 3px 5px 3px; padding:2px;}
+div.tooltip tr{color:#FFF;}
+div.tooltip tr{margin:5px 0 10px 0; padding:5px 0 10px 0}
+div.tooltip img{border:none; padding:3px;}
+div.tooltip a{text-decoration:none; color:#FFF;}
+div.tooltip a:hover{text-decoration:underline;}
+div.tooltip .remove{padding-top:10px;}
+div.tooltip a.remove:hover{color:#F00;}
+div.tooltip #status{ background:#FC0; color:#000; padding:3px; text-align:center; display:none; width:200px; position:fixed; margin-left:165px;}
+div.tooltip .separator{ border-bottom:#CCC thin dotted;}
+div.tooltip .button{ margin:5px;}
+</style>
+<?php
+$totItems = Mage::helper('checkout/cart')->getCart()->getSummaryQty();
+?>
+<div id="status"></div>
+<table align="center" cellpadding="1" cellspacing="1" border="0" width="100%" style="background:#000; padding:5px 5px 5px 5px;" id="main">
+	<tr>
+		<td style="padding:3px;"><b><a href="<?php echo Mage::getUrl().'checkout/cart/'?>" title="Go to Shopping Cart">Shopping Cart <?php echo ($totItems>0)?('('.$totItems.')'):('('. 0 .')') ?></a></b></td>
+		<td style="text-align:right;"><a id='closebasket' href="#" title="Close">Close</a></td>
+	</tr>
+	<?php
+if(Mage::getSingleton('customer/session')->isLoggedIn())
+{
+	if($totItems > 0)
+	{
+	?>
+	<tr>
+		<td colspan="3">
+			<table cellpadding="1" cellspacing="1" border="0" width="100%">
+				<tr>
+					<th style="width:10px;">&nbsp;</th>
+					<th style="width:90px;">&nbsp;</th>
+					<th style="width:200px;">Product Name</th>
+					<th style="text-align:right;width:100px;">Unit Price</th>
+					<th style="text-align:right;width:50px;">Qty</th>
+					<th style="text-align:right;width:100px;">Subtotal</th>
+				</tr>
+				
+				<?php
+					$subtotal = 0;
+					$cart = Mage::helper('checkout/cart')->getCart()->getQuote()->getAllItems();
+					foreach($cart as $item)
+					{
+						$product = Mage::getModel('catalog/product')->load($item->getProductId());
+						$imagepath = Mage::helper('catalog/image')->init($product, 'image')->resize(75, 75);
+					?>
+					<tr>
+						<td class="separator"><a href="#" id="<?php echo $item->getProductId() ?>" title="Remove item" class="remove"><b>x</b></a></td>
+						<td class="separator"><?php echo '<a href="'.Mage::getUrl().$product->getUrlPath().'"><img src="'.$imagepath.'"</a>' ?></td>
+						<td class="separator"><?php echo '<a href="'.Mage::getUrl().$product->getUrlPath().'">'.$item->getName().'</a>' ?></td>
+						<td class="separator" style="text-align:right;"><?php echo $this->helper('checkout')->formatPrice($item->getBaseCalculationPrice()) ?></td>
+						<td class="separator" style="text-align:right;"><?php echo $item->getQty() ?></td>
+						<td class="separator" style="text-align:right;"><?php echo $this->helper('checkout')->formatPrice($item->getQty()*$item->getBaseCalculationPrice()) ?></td>
+					</tr>
+				<?php
+						$subtotal += ($item->getQty()*$item->getBaseCalculationPrice());
+					}
+				?>
+				<tr>
+					<td colspan="2"><button onclick="gotoCheckout()" class="button" title="Checkout" type="button"><span><span>Checkout</span></span></button></td>
+					<td colspan="3" style="text-align:right;"><b>Grand Total</b></td>
+					<td style="text-align:right;" id="total"><b><?php echo $this->helper('checkout')->formatPrice(Mage::helper('checkout/cart')->getQuote()->getGrandTotal()); ?></b></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<?php
+	}
+	else
+	{
+	?>
+	<tr>
+		<td colspan="3" style="text-align:center">You have no items in your shopping cart.<br />Click <a href="<?php Mage::getUrl() ?>">here</a> to continue shopping.</td>
+	</tr>
+	<?php
+	}
+}
+else
+{
+	?>
+	<tr>
+		<td colspan="3" style="text-align:center">Please login to view your cart details.</td>
+	</tr>
+<?php
+}
+?>
+
+</table>
+
+<script language="javascript">
+$(document).ready(function(){
+	
+	if(navigator.appName == 'Microsoft Internet Explorer')
+	{	$('#main').css('width','97%');	}
+	else	{	$('#main').css('width','100%');	}
+
+	$('a.remove').hover(function(){
+		$(this).css('color','#F00');
+	}, function(){
+		$(this).css('color','#FFF');
+	});
+	var baseUrl = '<?php echo Mage::getUrl() ?>';
+
+	$('#closebasket').click(function(){
+		$('div.tooltip').remove();
+	});
+
+	$('.remove').click(function(){
+		var con = confirm('Are you sure to remove this item from your cart?');
+		if(con === false)
+			return false;
+		var id = $(this).attr('id');
+		var par = $(this).parent().parent();
+		
+		par.children().css('background-color','#F75D59').animate({opacity:0.4}, 'slow');
+
+		$.ajax({
+			type: "POST",
+			url: baseUrl+"basket/index/removeitem?id="+id,
+			cache: false,
+			beforeSend: function(){
+				$('#status').empty().show('slow').html('Removing item...');
+			},
+			success: function(a){
+				$('#status').empty().html(a);
+				par.slideUp('slow');
+				updatetotal();
+			},
+			error: function(){
+				$('#status').empty().show('slow').html('Oops! Some error occurred!');
+			}
+		});
+	});
+	
+	function updatetotal()
+	{
+		$.ajax({
+			type: "POST",
+			url: baseUrl+"basket/index/updatetotal",
+			cache: false,
+			beforeSend: function(){
+				$('#status').empty().show('slow').html('Updating cart total...');
+				$('#total').empty();
+			},
+			success: function(a){
+				$('#status').empty().hide();
+				$('#total').empty().html(a);
+			},
+			error: function(){
+				$('#status').empty().show('slow').html('Oops! Some error occurred!');
+			}
+		});
+	}
+
+});
+
+function gotoCheckout()
+{
+	window.location.href = '<?php echo Mage::getUrl().'checkout/'?>';	
+}
+</script>

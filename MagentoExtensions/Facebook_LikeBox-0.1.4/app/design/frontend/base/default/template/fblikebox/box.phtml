@@ -1,0 +1,14 @@
+<?php if( $this->_helper->getBoxActive() ): ?>
+<div class="block block-fblikebox">
+	<div class="block-title">
+		<strong><span><?php echo $this->__('Facebook') ?></span></strong>
+	</div>
+	<div class="block-content" style="padding: 0;">
+<?php if( $this->_helper->getBoxMode() ): ?>
+		<fb:fan profile_id="<?php echo $this->_helper->getPageId() ?>" width="<?php echo $this->_helper->getBoxWidth() ?>" height="<?php echo $this->_helper->getBoxHeight() ?>" connections="<?php echo $this->_helper->getConnections() ?>" stream="<?php echo $this->_helper->getShowStream() ?>" header="<?php echo $this->_helper->getShowHeader() ?>"<?php echo $this->_helper->getCss(); ?>></fb:fan>
+<?php else: ?>
+		<iframe src="http://www.facebook.com/plugins/fan.php?id=<?php echo $this->_helper->getPageId() ?>&amp;locale=<?PHP echo $this->_helper->getLanguage() ?>&amp;width=<?php echo $this->_helper->getBoxWidth() ?>&amp;connections=<?php echo $this->_helper->getConnections() ?>&amp;stream=<?php echo $this->_helper->getShowStream() ?>&amp;header=<?php echo $this->_helper->getShowHeader() ?>&amp;height=<?php echo $this->_helper->getBoxHeight() ?><?php echo $this->_helper->getCss(); ?>" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:<?php echo $this->_helper->getBoxWidth() ?>px; height:<?php echo $this->_helper->getBoxHeight() ?>px;" allowTransparency="true"></iframe>
+<?php endif; ?>
+    </div>
+</div>
+<?php endif; ?>

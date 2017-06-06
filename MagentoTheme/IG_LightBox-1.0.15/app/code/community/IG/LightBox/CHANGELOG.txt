@@ -1,0 +1,20 @@
+1.0.15:
+- Fixed "split" bug
+
+1.0.14:
+- Fixed missing toolbar :)
+
+1.0.13:
+- Fixed "flashing" buttons on pre-load
+
+1.0.12:
+- Fixed control buttons on small images
+
+1.0.11:
+- Fixed missing loader <div>
+
+1.0.10:
+- Fixed image resize problem when the product has only a single image
+- Fixed resizing problem on Chrome
+- Added automatic preloading function
+- Added loader gif

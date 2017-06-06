@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    ActiveCodeline
+ * @package     ActiveCodeline_ActionLogger
+ * @author      Branko Ajzele (http://activecodeline.net)
+ * @copyright   Copyright (c) Branko Ajzele
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <menu>
+        <system>
+            <children>
+                        <admin_logs translate="title" module="activecodeline_actionlogger">
+                            <title>Check logs for recorded Admin actions</title>
+                            <sort_order>5</sort_order>
+                            <action>adminhtml/ActionLogger_Admin_Grid/index</action>
+                        </admin_logs>
+            </children>
+        </system>
+    </menu>
+</config>

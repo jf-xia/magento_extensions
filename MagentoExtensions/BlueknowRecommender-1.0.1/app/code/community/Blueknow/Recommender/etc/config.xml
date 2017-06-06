@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Module configuration file.
+ * 
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Blueknow Recommender
+ * extension to newer versions in the future. If you wish to customize it for
+ * your needs please save your changes before upgrading.
+ * 
+ * @category	Blueknow
+ * @copyright	Copyright (c) 2010 Blueknow, S.L. (http://www.blueknow.com)
+ * @license		GNU General Public License
+ * @author		<a href="mailto:santi.ameller@blueknow.com">Santiago Ameller</a>
+ * @since		1.0.0
+ * 
+ */
+-->
+<config>
+	<modules>
+		<Blueknow_Recommender>
+			<version>1.0.1</version>
+		</Blueknow_Recommender>
+	</modules>
+	<global>
+		<models>
+            <blueknow_recommender>
+            	<class>Blueknow_Recommender_Model</class>
+            </blueknow_recommender>
+        </models>
+		<blocks>
+			<blueknow_recommender>
+				<class>Blueknow_Recommender_Block</class>
+			</blueknow_recommender>
+		</blocks>
+		<helpers>
+			<blueknow_recommender>
+				<class>Blueknow_Recommender_Helper</class>
+			</blueknow_recommender>
+		</helpers>
+	</global>
+	<default>
+		<blueknow>
+			<recommender>
+				<enabled>1</enabled>
+			</recommender>
+			<item_to_item>
+				<enabled>1</enabled>
+				<nor>4</nor>
+			</item_to_item>
+			<item_to_basket>
+				<enabled>1</enabled>
+				<nor>7</nor>
+			</item_to_basket>
+		</blueknow>
+	</default>
+	<frontend>
+		<layout>
+			<updates>
+				<blueknow_recommender>
+					<file>blueknow_recommender.xml</file>
+				</blueknow_recommender>		
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<blueknow_recommender>
+					<files>
+						<default>Blueknow_Recommender.csv</default>
+					</files>
+				</blueknow_recommender>
+			</modules>
+		</translate>
+		<events>
+			<customer_login>
+				<observers>
+					<blueknow_recommender_customer_login>
+						<type>model</type>
+						<class>Blueknow_Recommender_Model_Observer</class>
+						<method>setNewLoginWhenCustomerLogIn</method>
+					</blueknow_recommender_customer_login>
+				</observers>
+			</customer_login>
+			<customer_login_tracked>
+				<observers>
+					<blueknow_recommender_customer_login_tracker>
+						<type>model</type>
+						<class>Blueknow_Recommender_Model_Observer</class>
+						<method>unsetNewLoginAfterTracking</method>
+					</blueknow_recommender_customer_login_tracker>
+				</observers>
+			</customer_login_tracked>
+		</events>
+	</frontend>
+	<adminhtml>
+		<acl>
+	        <resources>
+	            <admin>
+	                <children>
+	                    <system>
+	                        <children>
+	                            <config>
+	                                <children>
+	                                    <blueknow module="blueknow_recommender">
+	                                        <title>Blueknow Recommender</title>
+	                                    </blueknow>
+	                                </children>
+	                            </config>
+	                        </children>
+	                    </system>
+	                </children>
+	            </admin>
+	        </resources>
+	    </acl>
+	    <translate>
+            <modules>
+                <blueknow_recommender>
+                    <files>
+                        <default>Blueknow_Recommender.csv</default>
+                    </files>
+                </blueknow_recommender>
+            </modules>
+        </translate>
+        <layout>
+			<updates>
+				<blueknow_recommender>
+					<file>blueknow_recommender.xml</file>
+				</blueknow_recommender>
+			</updates>
+		</layout>
+	</adminhtml>
+</config>

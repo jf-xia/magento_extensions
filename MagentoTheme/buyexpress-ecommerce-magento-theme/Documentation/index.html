@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Template Documentation Template</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+		code{border:1px solid #ccc; padding:5px 10px;display:block;}
+		code pre{margin:0;}
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;BuyExpress Magento Theme&rdquo; Documentation by &ldquo;raviG&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;BuyExpress Magento Theme&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Share by: BuzzTheme<br>
+					<a href="http://buzztheme.net">www.BuzzTheme.net</a><br>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0"><a href="http://buzztheme.net"><img src="http://buzztheme.net/wp-content/uploads/2013/10/logo.png"></a></p>
+			</div>
+		</div><!-- end div .borderTop -->		
+	  <hr>		
+    <h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+		  <li><a href="#upload">Uploading & Installing the theme</a> </li>		
+          <li><a href="#config">Theme Configuration</a>
+            <ul>
+                <li><a href="#logo">Logo & Favicon</a></li>
+                <li><a href="#social">Social Links</a></li>
+                <li><a href="#headerP">Header Promotion Text</a></li>
+                <li><a href="#cat">Categories & CMS Pages Config</a></li>
+                <li><a href="#hbanner">Header Banner (3 Image Blocks)</a></li>
+                <li><a href="#slideshow">Homepage Slideshow</a></li>
+                <li><a href="#hText">Homepage Text Block</a></li>
+                <li><a href="#hpblock">Products block Settings (Latest, Featured, Bestseller, Special)</a></li>
+                <li><a href="#promoBanner">Promotional Banners</a></li>
+                <li><a href="#fBox">Footer 3 Boxes</a></li>
+                <li><a href="#color">Change Color Scheme</a></li>
+            </ul>
+          </li>	
+          <li><a href="#credits">Credits</a></li>
+    </ol>
+		
+		<hr>		
+	  <h3 id="upload"><strong>A)(i) Uploading and installing the theme</strong> - <a href="#toc">top</a></h3>
+		<p>1. Upload the folders found in the folder named &quot;Theme Upload&quot; to your magento folder on the server. Make sure Magento Cache is <strong>disabled</strong>.</p>
+<p>2. Once done, go to admin &raquo; system &raquo; design. Click on <strong>"ADD DESIGN CHANGE"</strong> and select <strong>&quot;buyexpress&quot;</strong> for the custom design and click save.</p>
+<p>For the admin configuration,  log out and log back in and go to system &raquo; configuration.. You will find the configuration options on top. See picture below:</p>  
+<img src="assets/images/module.jpg" width="345" height="316" alt="featured" />
+<p>Change the homepage layout to 1 column. Go to admin &raquo; cms &raquo; pages and edit &quot;Home page&quot;. Click the &quot;design&quot; tab on the left and change the layout to &quot;1column&quot;. See image below:</p>
+<p><img src="assets/images/home.jpg" width="345" height="316" alt="featured" /></p>
+        <hr>
+        
+      <h3 id="module"><strong>A)(ii) Adding a Featured Attribute</strong> - <a href="#toc">top</a></h3>
+         <ol>
+       	   <li>Go to admin &raquo; catalog &raquo; attributes &raquo; manage attributes</li>
+            <li>Click Add new attribute</li>
+            <li>Fill the text boxes like below:
+            	<ul>
+                	<li>Attribute code: featured</li>
+                    <li>Scope : Store View</li>
+                    <li>Catalog Input Type for Store Owner: YES/NO</li>
+                    <li>Apply To: All product types</li>
+                    <li>Use In Layered Navigation: No</li>
+                    <li>Use In Search Results Layered Navigation: No</li>
+                    <li>Visible on Product View Page on Front-end: Yes</li>
+                    <li>Used in Product Listing: Yes</li>
+                    <li>Used for Sorting in Product Listing: No</li>               
+	            </ul>
+            </li>
+            <li>Save the attribute and Go to catalog->attributes->manage attributes sets</li>
+            <li>Click on Default and drag the featured attribute from the "Unassigned Attributes" under General. See picture below.
+            	<img src="assets/images/featured.jpg" width="345" height="336" alt="featured" />
+            </li>
+            <li>Save Attribute set and add a new product. You should see a dropdown with YES/NO.
+		    Selecting &quot;YES&quot; will show the product as featured.</li>
+      </ol>
+<hr>
+      <h3 id="config"><strong>B) Theme Configuration</strong> - <a href="#toc">top</a></h3>
+		<p>The theme's configuration are done from the &quot;BuyExpress Theme Options&quot; from the admin panel..</p>
+			<ol>
+            	<li>Go to admin &raquo; system &raquo; configuration and you should see all the options.</li>
+            </ol>
+      <img src="assets/images/module.jpg"  width="794" height="316" />
+        <hr>
+       
+        <h3 id="logo"><strong>B)(ii) Logo & Favicon</strong> <strong>Configuration</strong> - <a href="#toc">top</a></h3>
+<p>Go to admin &raquo; system &raquo; configuration and click the<strong> First </strong>tab and add your content. The first 4 options consists of Favicon., logo, alt text for logo and the Welcome Message. Just upload and add your content. Don't forget to hit the &quot;Save Config&quot; button (top right button).</p>
+        <p><img src="assets/images/logo.jpg" width="794" height="315" />        </p>
+        <hr>
+
+      <h3 id="social"><strong>B)(iii) Social Icon Links </strong> - <a href="#toc">top</a></h3>
+      <p>Add your social links in fields. If you leave any of the input blank, the corresponding icon will not show up.</p>
+      <p><img src="assets/images/bh.jpg" width="794" height="315" /></p>
+      
+      <hr>
+
+      <h3 id="headerP"><strong>B)(iv) Header Promotion Text &amp; Small Image</strong> - <a href="#toc">top</a></h3>
+      <p>See image below:      </p>
+      <p><img src="assets/images/bh2.jpg" width="794" height="315" /></p>
+      <p>The configuration for this part is in the first configuration tab. You can upload the image and the promotional text.See image below:</p>
+      <p><img src="assets/images/bh3.jpg" width="794" height="315" /></p>
+      <hr>
+      
+      <h3 id="cat"><strong>B)(v) Top Categories and CMS Pages Configuration Tab</strong> - <a href="#toc">top</a></h3>
+      <p>From this tab you can set the number of top level categories to show and to exclude cms pages links to appear in header section:</p>
+      <p>See image below:</p>
+      <p><img src="assets/images/bh4.jpg" width="794" height="315" /></p>
+      <p>For the "Number of Top level Categories..", if you set "5", only 5 top level categories will show up. The rest will go under the "More +" tag in the category menu.</p>
+      <p>For the Exclude CMS Pages, you will have to add the page IDs. To get the page ID of each of the cms page you want to exclude, just go to admin &raquo; CMS &raquo; Pages and click any cms page. Once on the page, look at the URL and look for "page_id/". See image below:</p>
+      <p><img src="assets/images/bh5.jpg" width="794" height="315" /></p>
+      <hr>
+      
+      <h3 id="hbanner"><strong>B)(vi) Header Banner</strong> - <a href="#toc">top</a></h3>
+<p><img src="assets/images/bh6.jpg" width="794" height="315" /></p>
+      <p>Those are uploaded from the "Header Banners" tab on the admin configuration page. You can upload your banners and add a link for each of them. See image below:</p>
+      <p><img src="assets/images/bh7.jpg" width="794" height="315" /></p>
+      <hr>
+      
+      <h3 id="slideshow"><strong>B)(vii) Homepage Slideshow</strong> - <a href="#toc">top</a></h3>
+<p><img src="assets/images/bh8.jpg" width="794" height="315" /></p>
+      <p>The slideshow is configured from the "Slideshow Options" tab where you can upload, add HTML or Video. The Title and Sub Text also are added from there. See Image below</p>
+      <p><img src="assets/images/bh9.jpg" width="794" height="315" /></p>
+      
+      <p>For the slideshow setting, it is under the "Slideshow Settins" tab where you can set the slideshow to auto slide and change the slideshow animation to either slide horizontally or vertically. See Image below:</p>
+      <p><img src="assets/images/bh10.jpg" width="794" height="315" /></p>
+      <hr>
+    
+
+<h3 id="hText"><strong>B)(viii) Homepage Text Block</strong> - <a href="#toc">top</a></h3>
+<p><img src="assets/images/bh11.jpg" width="794" height="315" /></p>
+      <p>See image below for the settings of each of the field:</p>
+      <p><img src="assets/images/bh12.jpg" width="794" height="315" /></p>
+      <hr>
+      
+      <h3 id="hpblock"><strong>B)(ix) Homepage Products Settings (Latest, Special, Bestseller, Featured)</strong> - <a href="#toc">top</a></h3>
+      <p>See Image below:</p>
+<p><img src="assets/images/bh13.jpg" width="794" height="315" /></p>
+<p>Set the heading for each of the product block and limit the number of products to display.</p>
+      <hr>
+      
+      <h3 id="promoBanner"><strong>B) Promotional Banners</strong> - <a href="#toc">top</a></h3>
+      <img src="assets/images/pbanner.jpg" width="236" height="198" />
+<p>Go to admin > CMS > Static Blocks and create a new static block.  See image for the settings:</p>
+<p>The block <strong>Identifier</strong> should be<strong> &quot;promobanner&quot;</strong> and the content should be within UL LI tags.</p>
+        <p><img src="assets/images/staticB.jpg" width="1050" height="443" />        </p>
+        
+        <hr>
+      
+       <h3 id="fBox"><strong>B)(ix) Footer 3 Boxes</strong> - <a href="#toc">top</a></h3>
+<p><img src="assets/images/bh14.jpg" width="794" height="315" /></p>
+<p>The settings for the 3 blocks in under "Footer Block (3 blocks)" in the configuration options.</p>
+<p>You can upload images, text and link for each block.</p>
+<p><img src="assets/images/bh15.jpg" width="794" height="315" /></p>
+<p>You can also set the 3 blocks to show on the homepage only or on all pages of the site. See image below:</p>
+<p><img src="assets/images/bh16.jpg" width="794" height="315" /></p>
+      <hr>
+      
+      <h3 id="color"><strong>B)(x) Color Scheme</strong> - <a href="#toc">top</a></h3>
+<p>Change the color scheme of the theme easily from the admin options. Click on each input fields to select the color you like. </p>
+<p><img src="assets/images/bh17.jpg" width="794" height="315" /></p>
+
+ <hr>
+
+ 
+ <h3>That's it! Do not forget to hit the "Save Config" button <small>(top right)</small> when you are done with the settings. :)</h3>
+ 
+ <hr>
+  
+ <h3 id="credits"><strong>B)(x) Credits</strong> - <a href="#toc">top</a></h3>
+<ul>
+	<li><a href="jquery.com">jQuery</a></li>
+    <li><a href="http://jquery.malsup.com/cycle/">Cycle Plugin</a></li>
+    <li><a href="http://jamesflorentino.github.io/nanoScrollerJS/">nanoScrollerJS</a></li>
+    <li><a href="http://dimsemenov.com/plugins/magnific-popup/">Magnific Popup</a></li>
+</ul>
+
+<hr>
+        
+  <p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>raviG</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

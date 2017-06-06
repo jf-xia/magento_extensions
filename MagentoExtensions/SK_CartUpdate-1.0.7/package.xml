@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>SK_CartUpdate</name>
+    <version>1.0.7</version>
+    <stability>stable</stability>
+    <license>AFL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Ajaxed shopping cart quantity update</summary>
+    <description>Update cart item quantity without page reload</description>
+    <notes>Ajax cart quantity update</notes>
+    <authors><author><name>Elvis</name><user>auto-converted</user><email>elvis.zunde@gmail.com</email></author></authors>
+    <date>2011-07-05</date>
+    <time>09:35:21</time>
+    <contents><target name="mageskin"><dir name="frontend"><dir name="default"><dir name="default"><dir name="css"><file name="sk_updatecart.css" hash="e262ff2607c940ee4cfe64a12e67dd10"/></dir><dir name="images"><dir name="sk_updatecart"><file name="loader.gif" hash="1700caaed8195197167e7038fccf60d2"/><file name="qty.gif" hash="ca36aa529ab9e47c8e71b9518754bdd4"/><file name="Thumbs.db" hash="2ae63e415107364de437a6bdb6553ecb"/></dir></dir><dir name="js"><dir name="j2t"><file name="ajax_cart.js" hash="455a840227f856638f2f221a125ed736"/></dir><file name="sk_updatecart.js" hash="1938c4a2c7e5a8088c873eb870d624d9"/><file name="sk_updatecart.orig.js" hash="1b86dd374a35540c4dd538c260a25554"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="sk_cartupdate.xml" hash="4ebb761491ea39a203aca3ba0521501a"/></dir><dir name="template"><dir name="page"><file name="cartupdate.phtml" hash="e7f1ec3cc226479d3a5afca2b29f874b"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="SK_CartUpdate.xml" hash="3ba9137e8e4d4e86c6b80103fe2c48ac"/></dir></target><target name="magelocal"><dir name="SK"><dir name="CartUpdate"><dir name="controllers"><file name="AjaxController.php" hash="343c5a613c3971e0fca45b4192412503"/></dir><dir name="etc"><file name="adminhtml.xml" hash="ef4e41e19d7825dfb866306a06e28ab6"/><file name="config.xml" hash="3a98b92f8548ddfe724ce3f0540d4946"/></dir><dir name="helper"><file name="Data.php" hash="0948a9bd0314a9c28c87a3d903e860c3"/></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

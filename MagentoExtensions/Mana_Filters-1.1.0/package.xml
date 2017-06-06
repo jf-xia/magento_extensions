@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Mana_Filters</name>
+    <version>1.1.0</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">Open Software License (OSL 3.0)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Advanced layered navigation</summary>
+    <description>Add multiple selection features for attribute and price filters in Magento layered navigation</description>
+    <notes>Release notes for users and developers</notes>
+    <authors><author><name>Mana Team</name><user>auto-converted</user><email>team@manadev.com</email></author></authors>
+    <date>2011-05-25</date>
+    <time>15:27:34</time>
+    <contents><target name="magelocale"><dir name="en_US"><file name="Mana_Filters.csv" hash="7cbfd6ded4829ef8559c5bf7247d49cf"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="mana_filters.xml" hash="12018b1fce14f58fd454dcfbca70c0f7"/></dir><dir name="template"><dir name="mana"><dir name="filters"><dir name="items"><file name="list.phtml" hash="b9687285113279f922353a07b21ffca0"/></dir></dir></dir></dir></dir></dir></dir></target><target name="magelocal"><dir name="Mana"><dir name="Filters"><dir name="Block"><dir name="Filter"><file name="Attribute.php" hash="19afbe32ec264c1147df9e545406c99a"/><file name="Category.php" hash="f08b3e39f583e1705dc2bda82d44f8ba"/><file name="Decimal.php" hash="c2406a87202a54dfcd789440287e4e62"/><file name="Price.php" hash="96bdb9f2282d78d987c859b4bbd2d466"/><dir name="Attribute"><file name="Search.php" hash="bea74954f81e1f7c0fdeaa26177f56c6"/></dir></dir><dir name="View"><file name="Category.php" hash="54a2b62e7177994d45324b2b718a979e"/><file name="Search.php" hash="054b82a37b566ad6394d6d36decd195a"/></dir></dir><dir name="etc"><file name="config.xml" hash="10a9c36fd45ab1a60c2ce07ede46fdd6"/></dir><dir name="Helper"><file name="Data.php" hash="f6a2bfdcdc84c52503f3b2efb367b3c8"/><file name="Extended.php" hash="9a8bb6e655ed7054787f4ac8b45803fd"/></dir><dir name="Model"><file name="Item.php" hash="078f13d0040fa506119eaa312b730458"/><dir name="Filter"><file name="Attribute.php" hash="9183b3616743a320ac4ed019fa0ac026"/><file name="Category.php" hash="165b9e9ea332ab2db8608f0bc2aa3ae6"/><file name="Price.php" hash="9ed25dca2fdbf08c20ccb0b56a6efea9"/><dir name="Attribute"><file name="Search.php" hash="eb8ecb0ac2cd035b25124ee68828ff3a"/></dir></dir></dir><dir name="Resource"><dir name="Filter"><file name="Attribute.php" hash="eded20fdd1e50a22e770b5828acf3048"/><file name="Price.php" hash="14321ed677abc35a7b2560f22f1c49ce"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Mana_Filters.xml" hash="262a99d3ab3e0c929317cdb2193393fb"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

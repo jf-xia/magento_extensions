@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+		<reference name="top.links">	
+			<action method="addLink" translate="label title" module="artist"><label>Artist Login/Logout</label><url helper="artist/getArtisturl"/><title>Artist Login/Logout</title><prepare/><urlParams/><position>5</position></action>
+		</reference>
+    </default>
+
+	<artist_index_index>
+			 <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="artist/login" name="artist_login" template="artist/login.phtml" />
+        </reference>
+    </artist_index_index>
+	
+	<artist_index_create>
+			 <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="artist/register" name="artist_register" template="artist/register.phtml">
+
+			</block>
+        </reference>
+    </artist_index_create>
+	
+		<artist_index_artwork>
+
+		<reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="left">
+            <block type="artist/link" name="artist_link" before="_" template="artist/link.phtml" />
+        </reference>
+        <reference name="content">
+            <block type="artist/artwork" name="artist_artwork" template="artist/artwork.phtml" />
+        </reference>
+    </artist_index_artwork>
+    
+    
+        <artist_index_artist>
+
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="left">
+            <block type="artist/link" name="artist_link" before="_" template="artist/link.phtml" />
+        </reference>
+        <reference name="content">
+            <block type="artist/artist" name="artist_artwork" template="artist/artist.phtml" />
+        </reference>
+    </artist_index_artist>    
+		
+		
+		
+		
+
+    
+
+</layout> 

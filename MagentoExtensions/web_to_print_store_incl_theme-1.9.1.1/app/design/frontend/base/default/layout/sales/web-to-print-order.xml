@@ -1,0 +1,13 @@
+<layout version="0.1.0">
+  <sales_order_view>
+    <reference name="head">
+      <action method="addJs"><script>jquery/jquery-min.js</script></action>
+      <action method="addJs"><script>fancybox/jquery-fancybox.js</script></action>
+      <action method="addJs"><script>fancybox/fancybox-resizing.js</script></action>
+
+      <action method="addItem"><type>js_css</type><name>fancybox/jquery-fancybox.css</name></action>
+      <action method="addItem"><type>js_css</type><name>fancybox/fancybox-resizing.css</name></action>
+      <action method="addItem"><type>skin_css</type><name>css/zp-style.css</name></action>
+    </reference>
+  </sales_order_view>
+</layout>

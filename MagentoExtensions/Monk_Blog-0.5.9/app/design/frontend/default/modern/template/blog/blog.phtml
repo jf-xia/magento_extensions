@@ -1,0 +1,21 @@
+<div class="padder">
+	<?php $posts = $this->getPosts(); ?>
+	<?php foreach ($posts as $post): ?>
+	<div class="postWrapper">
+		<div class="postTitle">
+			<h2><a href="<?php echo $post->getAddress(); ?>" ><?php echo $post->getTitle();?></a></h2>
+			<h3><?php echo $post->getCreatedTime(); ?></h3>
+		</div>
+		<div class="postContent"><?php echo $post->getPostContent(); ?></div>
+		<?php echo $this->getBookmarkHtml($post) ?>
+		<div class="postDetails">
+			<?php if($this->getCommentsEnabled()): ?>
+			<?php echo $post->getCommentCount(); ?> <a href="<?php echo $post->getAddress(); ?>#commentBox" >Comments</a> | 
+			<?php endif; ?>
+			<?php echo Mage::helper('blog')->__('Posted in');?><?php foreach($post->getCats() as $title=>$url): ?>
+			<a href="<?php echo $url; ?>"><?php echo $title; ?></a> 
+			<?php endforeach; ?> By <?php echo $post->getUser(); ?></div>
+	</div>
+	<?php endforeach; ?>
+	<?php $this->getPages(); ?>
+</div>

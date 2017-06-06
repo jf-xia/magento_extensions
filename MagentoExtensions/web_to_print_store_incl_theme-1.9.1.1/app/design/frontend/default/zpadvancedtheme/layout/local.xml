@@ -1,0 +1,8 @@
+<layout version="0.1.0">
+  <catalog_product_view>
+    <reference name="head">
+      <action method="addItem"><type>skin_js</type><name>js/zp-in-preview-edit.js</name></action>
+      <action method="addItem"><type>skin_css</type><name>css/zp-in-preview-edit.css</name></action>>
+    </reference>
+  </catalog_product_view>
+</layout>

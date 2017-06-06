@@ -1,0 +1,80 @@
+<?php
+/**
+ * Magpleasure Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE-CE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magpleasure.com/LICENSE-CE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * Magpleasure does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * Magpleasure does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   Magpleasure
+ * @package    Magpleasure_Common
+ * @version    0.6.11
+ * @copyright  Copyright (c) 2012-2013 Magpleasure Ltd. (http://www.magpleasure.com)
+ * @license    http://www.magpleasure.com/LICENSE-CE.txt
+ */
+?>
+<?php
+if(Mage::app()->getRequest()->getControllerName() == 'catalog_product_action_attribute') {
+    $attributeName = "attributes[{$this->getName()}]";
+} else {
+    $attributeName = $this->getName();
+}
+?>
+
+<script type="text/javascript">
+
+    angular.module('magplesure.common.form.file_image.<?php echo $this->getHtmlId(); ?>', [])
+        .factory('savedData', function () {
+            var data = <?php echo $this->getSavedDataJson(); ?>;
+            return data;
+        })
+        .factory('controlId', function () {
+            return '<?php echo $this->getHtmlId(); ?>';
+        })
+        ;
+
+</script>
+<div id="<?php echo $this->getHtmlId(); ?>_angularjs_container">
+    <div class="mp-file-image-container" ng-controller="FileImageCtrl">
+        <input id="<?php echo $this->getHtmlId(); ?>" class="input-file<?php if ($this->getRequired()): ?> required-entry<?php endif; ?>" ng-disabled="data.has_thumbnail" type="file" name="<?php echo $attributeName; ?>_file" id="<?php echo $this->getHtmlId(); ?>" />
+        <input type="hidden" name="<?php echo $attributeName; ?>" value="{{value}}" />
+        <input type="hidden" name="<?php echo $attributeName; ?>_delete[]" value="{{d_value}}"  ng-repeat="d_value in delete" />
+
+        <div class="mp-file-progress-container" ng-show="loading">
+            <div class="mp-file-progress-bar" style="width: {{loading_percent}}%;"></div>
+        </div>
+
+        <div class="mp-file-error-container" ng-show="error_message">
+            <div style="" class="validation-advice">{{error_message}}</div>
+        </div>
+
+        <div class="mp-file-thumbnail" ng-show="data.has_thumbnail">
+            <a href="{{data.image_url}}" target="_blank">
+                <img src="{{data.thumbnail_url}}" />
+            </a>
+            <?php echo $this->getRemoveButtonHtml(); ?>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    angular.element(document).ready(function() {
+        var doc = document.getElementById('<?php echo $this->getHtmlId(); ?>_angularjs_container');
+        if (doc && !$(doc).hasClassName('ng-scope')){
+            angular.bootstrap(doc, ['magplesure.common.form.file_image.<?php echo $this->getHtmlId(); ?>']);
+        }
+    });
+
+</script>

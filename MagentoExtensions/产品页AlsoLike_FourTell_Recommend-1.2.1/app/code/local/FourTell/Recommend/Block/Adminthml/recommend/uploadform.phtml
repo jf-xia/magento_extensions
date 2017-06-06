@@ -1,0 +1,299 @@
+<?php 
+$ex = Mage::getSingleton('FourTell_Recommend_Model_Upload')->load();
+$attrs = Mage::getSingleton('FourTell_Recommend_Model_Upload')->getProductAttributes();
+
+$cfgLink = Mage::helper("adminhtml")->getUrl("admin/system_config/edit/section/recommend");
+$cfgLink = str_replace("//system", "/admin/system", $cfgLink);
+
+$comps = array(
+	'eq'		=> 'Equal To',
+	'neq'		=> 'Not Equal To',
+	'lt'		=> 'Less Than',
+	'lteq'		=> 'Less Than or Equal To',
+	'gt'		=> 'Greater Than',
+	'gteq'		=> 'Greater Than or Equal To',
+	'like'		=> 'Contains',
+	'nlike'		=> 'Does Not Contain',
+	'null'		=> 'Is Null',
+	'notnull'	=> 'Is Not Null',
+	'in'		=> 'In',
+	'nin'		=> 'Not In'
+);
+
+$options = array(
+	'upload_sales_data' 		=> 'Upload Sales Data',
+	'upload_product_data' 		=> 'Upload Product Data',
+	'upload_replacement_data' 	=> 'Upload Replacement Data',
+	'upload_exclusion_data' 	=> 'Upload Exclusion Data'
+);
+?>
+
+<form id="edit_form" name="edit_form" method="post" action="<?=$this->getUrl('*/*/post')?>">
+	<input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+	<input type="hidden" id="what_data" name="what_data" value="" />
+
+	<div class="content-headerx" style="padding-bottom: 20px;">
+	    <table cellspacing="0" class="grid-header">
+	        <tr>
+	            <td><h3>4-Tell Recommend Upload Settings</h3></td>
+	        </tr>
+			<tr>
+				<td>
+					Select the data to be uploaded and the press the <b>Upload Data</b> button.
+					If this is your first upload, select "All" sales data.
+		        </td>
+			</tr>
+			<tr>
+				<td>
+					<a href="<?php echo $cfgLink; ?>">Go to 4-Tell System Configuration</a>
+		        </td>
+			</tr>
+		</table>
+	</div>
+
+
+	<div class="content-header">
+	    <table cellspacing="0" class="grid-header">
+	        <tr>
+	            <td><h3>Upload Options</h3></td>
+		        <td class="a-right">
+					<button onclick="$('what_data').setAttribute('value', 'save_settings'); editForm.submit();" class="scalable" type="button" value="save settings"><span>Save Settings</span></button>
+		            <button onclick="$('what_data').setAttribute('value', 'upload_data'); editForm.submit();" class="scalable" type="button" value="upload_data"><span>Upload Data</span></button>
+		            <!--<button onclick="$('what_data').setAttribute('value', 'upload_new'); editForm.submit();" class="scalable" type="button" value="upload_new"><span>Upload New Sales</span></button>-->
+		        </td>
+	        </tr>
+		</table>
+	</div>
+
+
+	<div class="content-header">
+	    <table cellspacing="0" class="grid-header" id="sales_options">
+	    	<tbody>
+				<tr>
+					<td style="width: 200px; white-space: nowrap;"><h3>Upload Sales Data</h3></td>
+					<td>
+						<select name="upload_sales_data" style="width: 80px;">
+							<option value="All" 	<?php if (trim($ex['upload_sales_data']) == "All") 	{ echo 'selected="selected"'; } ?>>All</option>
+							<option value="New" 	<?php if (trim($ex['upload_sales_data']) == "New") 	{ echo 'selected="selected"'; } ?>>New</option>
+							<option value="None"  	<?php if (trim($ex['upload_sales_data']) == "None") { echo 'selected="selected"'; } ?>>None</option>
+						</select>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+
+				<tr>
+					<td style="width: 200px; white-space: nowrap;"><h3>Upload Product Data</h3></td>
+					<td>
+						<select name="upload_product_data" style="width: 80px;">
+							<option value="Yes" <?php if (trim($ex['upload_product_data']) == "Yes") { echo 'selected="selected"'; } ?>>Yes</option>
+							<option value="No"  <?php if (trim($ex['upload_product_data']) == "No")  { echo 'selected="selected"'; } ?>>No</option>
+						</select>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+	        </tbody>
+		</table>
+	</div>
+
+
+	<div class="content-header" style="margin-top: 40px;">
+	    <table cellspacing="0" class="grid-header" id="exclude_options">
+	    	<tbody>
+				<tr>
+					<td style="width: 200px; white-space: nowrap;"><h3>Upload Exclusion Data</h3></td>
+					<td>
+						<select name="upload_exclusion_data" id="upload_exclusion_data" style="width: 80px;">
+							<option value="No"  <?php if (trim($ex['upload_exclusion_data']) == "No")  { echo 'selected="selected"'; } ?>>No</option>
+							<option value="Yes" <?php if (trim($ex['upload_exclusion_data']) == "Yes") { echo 'selected="selected"'; } ?>>Yes</option>
+						</select>
+					</td>
+				</tr>
+
+		        <tr <?php if (trim($ex['upload_exclusion_data']) == "No") { ?> style="display: none;"  <?php } ?>>
+		        	<td colspan="2"><h3>Exclude Options</h3></td>
+		        </tr>
+	        </tbody>
+		</table>
+	</div>
+	<div class="content-header" <?php if (trim($ex['upload_exclusion_data']) == "No") { ?> style="display: none;"  <?php } ?>>
+	    <table cellspacing="0" class="grid-header" id="exclude_table">
+	    	<tbody>
+		        <tr>
+		            <td><h3>Field</h3></td>
+		            <td><h3>Comparison</h3></td>
+		            <td><h3>Value</h3></td>
+					<td>&nbsp;</td>
+		        </tr>
+		        
+		        <?php
+		        	$idx = 1;
+		        	foreach ($ex['exclude_options'] as $o) {
+		        ?>
+			        <tr class="excludeRow" id="excludeRow_<?php echo $idx; ?>">
+			        	<td><input name="excludeField_Name_<?php echo $idx; ?>" type="text" size="40" value="<?php echo $o->field; ?>" /></td>
+			        	<td>
+			        		<select name="excludeField_Compare_<?php echo $idx; ?>" style="width: 180px;">
+			        			<?php
+			        				foreach ($comps as $k => $v) 
+			        				{
+			        					$selected = "";
+			        					if ($k == $o->compare) 
+			        					{
+			        						$selected = "selected";
+			        					}
+			        			?>
+			        				<option value="<?php echo $k; ?>" <?php if ($selected != "") { ?>selected="selected"<?php } ?>><?php echo $v; ?></option>
+			        			<?php 
+									} 
+								?>
+			        		</select>
+			        	</td>
+			        	<td><input name="excludeField_Value_<?php echo $idx; ?>" type="text" size="40" value="<?php echo $o->value; ?>" /></td>
+			        	<td class="a-right">
+							<button onclick="javascript:removeRow(<?php echo $idx; ?>);" class="scalable" type="button" value=" x "><span> x </span></button>
+			        	</td>
+			        </tr>
+		        <?php
+		        		$idx++; 
+					} 
+				?>
+	        </tbody>
+		</table>
+	</div>
+
+
+	<div class="content-header" style="margin-top: 40px;">
+	    <table cellspacing="0" class="grid-header" id="replacement_options">
+	    	<tbody>
+				<tr>
+					<td style="width: 200px; white-space: nowrap;"><h3>Upload Replacement Data</h3></td>
+					<td>
+						<select name="upload_replacement_data" style="width: 80px;">
+							<option value="No"  <?php if (trim($ex['upload_replacement_data']) == "No")  { echo 'selected="selected"'; } ?>>No</option>
+							<option value="Yes" <?php if (trim($ex['upload_replacement_data']) == "Yes") { echo 'selected="selected"'; } ?>>Yes</option>
+						</select>
+					</td>
+				</tr>
+				
+		        <tr class="excludeRow" <?php if (trim($ex['upload_replacement_data']) == "No") { ?> style="display: none;"  <?php } ?>>
+		        	<td colspan="2"><h3>Replacement Options</h3></td>
+		        </tr>
+	        </tbody>
+		</table>
+	</div>
+	<div class="content-header" <?php if (trim($ex['upload_replacement_data']) == "No") { ?> style="display: none;"  <?php } ?>>
+	    <table cellspacing="0" class="grid-header" id="replacement_table">
+	        <tr class="excludeRow" id="replacement_header">
+	        	<td><h3>Old Field</h3></td>
+	        	<td><h3>New Field</h3></td>
+	        	<td>&nbsp;</td>
+	        </tr>
+	        <tr class="excludeRow" id="replacement_data">
+	        	<td style="padding-right: 20px;"><input name="replace_old_field" type="text" size="40" value="<?php echo $ex['replace_old_field']; ?>" /></td>
+	        	<td style="padding-right: 20px;"><input name="replace_new_field" type="text" size="40" value="<?php echo $ex['replace_new_field']; ?>" /></td>
+	        	<td style="width: 100%;">&nbsp;</td>
+	        </tr>
+<!--
+	        <tr class="excludeRow" id="excludeRow_<?php echo $idx; ?>">
+	        	<td style="padding-right: 20px;">
+	        		<select name="replace_old_field2">
+	        			<option value=""></option>
+				        <?php
+				        	$idx = 1;
+				        	foreach ($attrs as $attr) {
+				        ?>
+						        <option value="<?php echo $attr['name']; ?>" <?php if ($ex['replace_old_field'] == $attr['name']) {?> selected="selected" <?php } ?>><?php echo $attr['label'] != "" ? $attr['label'] : $attr['name'] ; ?></option>
+	        			<?php 
+							} 
+						?>
+	        		</select>
+	        	</td>
+
+	        	<td style="padding-right: 20px;">
+	        		<select name="replace_new_field2">
+	        			<option value=""></option>
+				        <?php
+				        	$idx = 1;
+				        	foreach ($attrs as $attr) {
+				        ?>
+						        <option value="<?php echo $attr['name']; ?>" <?php if ($ex['replace_new_field'] == $attr['name']) {?> selected="selected" <?php } ?>><?php echo $attr['label'] != "" ? $attr['label'] : $attr['name'] ; ?></option>
+	        			<?php 
+							} 
+						?>
+	        		</select>
+	        	</td>
+
+	        	<td style="width: 100%;">&nbsp;</td>
+	        </tr>
+-->
+		</table>
+	</div>
+</form>
+
+
+<script type="text/javascript">
+    var editForm = new varienForm('edit_form');
+    var numRows = <?php echo $idx-1; ?>;
+    
+    function removeRow(row) {
+    	var rowEl = $$('#excludeRow_'+row);
+    	rowEl.each(function(el) {
+    		el.remove();
+    	});
+    }
+    
+	function makeSelect(id) {
+		var sel = new Element('select', {'name': 'excludeField_Compare_'+id, 'style': 'width: 180px'});
+		
+		<?php
+			foreach ($comps as $k => $v) {
+		?>
+			sel.insert(new Element('option', {'value': '<?php echo $k; ?>', text: '<?php echo $v; ?>'}).update('<?php echo $v; ?>'));
+		<?php } ?>
+
+		return sel;
+	}
+	
+	function makeButton(id) {
+		var js = 'javascript:addRow(true)';
+		var but = new Element('button', {'id': 'excludeFieldButton_'+id, 'onclick': js, 'class': 'scalable', 'type': 'button', 'value': ' + '});
+		
+		but.insert(new Element('span').update(' + '));
+		
+		return but;
+	}
+	
+	function swapButton(id) {
+		var buts = $$('#excludeFieldButton_'+id);
+		buts.each(function(but) {
+			but.down().update(' x ');
+			but.setAttribute('onclick', 'javascript:removeRow('+id+');');
+		});
+	}
+	
+	function addRow(doSwap) {
+		numRows++;
+		
+		$$('#exclude_table tbody').each(function(tbl) {
+			var tr = new Element('tr', {'id': 'excludeRow_' + numRows, 'class': 'excludeRow'});
+			tr.insert(new Element('td').update(new Element('input', {'type': 'text', 'id': 'excludeField_Name_'+numRows, 'name': 'excludeField_Name_'+numRows, 'size': '40' })));
+			tr.insert(new Element('td').update(makeSelect(numRows)));
+			tr.insert(new Element('td').update(new Element('input', {'type': 'text', 'id': 'excludeField_Value_'+numRows, 'name': 'excludeField_Value_'+numRows, 'size': '40' })));
+			tr.insert(new Element('td', {'class': 'a-right'}).update(makeButton(numRows)));
+			
+			tbl.insert(tr);
+			
+			if (doSwap==true) {
+				swapButton(numRows-1);
+			}
+		}); 
+	}
+    
+    document.observe("dom:loaded", function() {
+	    addRow(false);
+	});
+
+	Event.observe($('upload_exclusion_data'), 'change', function(event) {
+		
+	});
+</script>

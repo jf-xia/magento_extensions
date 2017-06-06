@@ -1,0 +1,117 @@
+Тестирование в 1.5.0.1. 
+(Этот список составлялся для разработчиков Magento, но может пригодится и использующим перевод.)
+(Это далеко не полный список проблем...)
+
+1. В оригинальном (en_US) файле Mage_Sales.csv отсутствуют фразы
+* There are no recurring profiles yet.
+
+2. В оригинальном (en_US) файле Mage_Catalog.csv отсутствуют фразы
+* Please specify the product's option(s).
+* Display Settings
+
+3. В шаблоне app\design\adminhtml\default\default\template\tax\importExport.phtml (45, 61)
+Фразы вызываются без перевода
+45: from <?php echo $this->getButtonHtml('Import Tax Rates', "this.form.submit()") ?>
+    to   <?php echo $this->getButtonHtml(Mage::helper('tax')->__('Import Tax Rates'), "this.form.submit()") ?>
+
+61: from <?php echo $this->getButtonHtml('Export Tax Rates', "this.form.submit()") ?>
+    to   <?php echo $this->getButtonHtml(Mage::helper('tax')->__('Export Tax Rates'), "this.form.submit()") ?>
+
+
+4.  Чтобы в панели администрирования перевелась страница Index Managament добавить в файл
+	/app/code/core/Mage/Index/etc/config.xml
+после 143 строки
+<translate>
+	<modules>
+		<Mage_Index>
+			<files>
+				<default>Mage_Index.csv</default>
+			</files>
+		</Mage_Index>
+	</modules>
+</translate>
+
+Проблема описана тут: http://www.magentocommerce.com/bug-tracking/issue?issue=9218
+
+5. Нет возможности перевести атрибуты категорий.
+
+6. Нет возможности перевести атрибуты клиентов.
+
+7. В оригинальном (en_US) файле Mage_Adminhtml.csv отсутствуют фразы
+* "Last updated: %s. To refresh last day's <a href=""%s"">statistics</a>, click <a href=""%s"">here</a>.","Последнее обновление: %s. Чтобы обновить <a href=""%s"">статистику</a> последних дней, нажмите <a href=""%s"">сюда</a>."
+
+8. Чтобы в панели администрирования перевелась страница Magento Connect - Package Extensions добавить в файл
+	/app/code/core/Mage/Connect/etc/config.xml
+после 64 строки
+<translate>
+	<modules>
+		<Mage_Connect>
+			<files>
+				<default>Mage_Connect.csv</default>
+			</files>
+		</Mage_Connect>
+	</modules>
+</translate>
+
+9. Статусы отзывов в спике отзывов. (в коде движка не предусмотрен перевод)
+чтобы переводилось надо изменить в файле 
+	app\code\core\Mage\Adminhtml\Block\Review\Grid.php
+строку 77
+	$tmpArr[$status['value']] = $status['label'];
+на строку
+	$tmpArr[$status['value']] = $this->__($status['label']);
+
+в этом случае перевод статусов берётся из файла Mage_Customer.csv
+
+10. Состояния ценовых правиял в списке правил не переводится. В коде вообще не предусмотрен перевод.
+	app\code\core\Mage\Adminhtml\Block\Promo\Catalog\Grid.php (93)
+
+11. Не переводится редактор из-за особенностей кода. Вроде как всё для перевода подготовлено, но идёт проверка, является ли класс, отвечающий за перевод наследованным от Varien_Object и если нет, то не переводит. 
+
+В этом случае Mage_Core_Helper_Abstract не является таким классом и потому не много чего не переводится.
+
+	lib\Varien\Data\Form\Element\Editor.php 
+строка 345
+	if ($this->getConfig('translator') instanceof Varien_Object)
+по идее можно просто убрать сравнение, но не изместно на что ещё повлияет. Хотя мы проблем не нашли и перевод работал.
+
+12. Не переводится фраза "Display On"
+app\design\adminhtml\default\default\template\widget\instance\edit\layout.phtml (43)
+
+13. Не переводятся фразы Import, Export, Product, Customer в списке профилей экспорта/импорта
+	app\code\core\Mage\Adminhtml\Block\System\Convert\Gui\Grid.php (69, 76)
+
+14. Закладка Выполнить профиль импорта/экспорта. Не переведена фраза "select a file"
+	app\design\adminhtml\default\default\template\system\convert\profile\run.phtml (49)
+
+15. Нет переводов статусов стабильности
+файл
+	app\code\core\Mage\Adminhtml\Model\Extension.php (328)
+
+
+16. Нет переводов ролей участников
+файл
+	app\code\core\Mage\Adminhtml\Model\Extension.php (251)
+
+============ reported ================
+============= new =================
+
+17. В оригинальном (en_US) файле Mage_Adminhtml.csv отсутствуют фразы
+* "Alphanumeric, dash and underscore characters are recommended for filenames. Improper characters are replaced with '_'."
+
+Есть фраза "Alphanumeric, dash and underscore characters are recommended for filenames. Improper characters are replaced with \'_\'.", но она не переводится.
+
+18. В панели администрирования в конфигурации не переводятся комментарии для групп параметров.
+
+Для решения проблемы надо изменить в файле
+	app\code\core\Mage\Adminhtml\Block\System\Config\Form.php (183)
+183 строку 
+	$fieldsetConfig['comment'] = (string)$group->comment;
+на строку
+	$fieldsetConfig['comment'] = Mage::helper($helperName)->__((string)$group->comment);
+
+используется в System - Configuration - Inventory - Product Stock Options
+
+
+
+

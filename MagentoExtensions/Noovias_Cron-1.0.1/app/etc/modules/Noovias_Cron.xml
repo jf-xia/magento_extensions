@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Noovias_Cron>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Cron />
+                <Noovias_Extensions />
+            </depends>
+        </Noovias_Cron>
+    </modules>
+</config> 

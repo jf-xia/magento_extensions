@@ -1,0 +1,75 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Relatedproducts
+ * @version    1.4.0
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ */
+?>
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ *
+ * @category   AW
+ * @package    AW_Relatedproducts
+ * @copyright  Copyright (c) 2008-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ *
+ * @var $this AW_Relatedproducts_Block_Relatedproducts
+ */
+?>
+<?php if($this->getEnabled() && count($this->getRelatedProductsCollection())): ?>
+<div class="aw-box aw-base-mini aw-mini-related-items aw-mini-related-cart block">
+    <div class="head">
+        <h4><?php echo $this->__('Customers Who Bought This Also Bought') ?></h4>
+    </div>
+    <div class="aw-content" <?php if (Mage::helper('relatedproducts')->checkVersion('1.4.1.0')) { echo "id=\"after1400\""; }?>>
+        <ol>
+            <?php foreach($this->getRelatedProductsCollection() as $_item): ?>
+            <li<?php if($_item->isComposite() || !$_item->isSaleable()): ?> class="super-products"<?php endif; ?>>
+                <div class="product-images">
+                    <a href="<?php echo $_item->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(50) ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" width="50" height="50" /></a>
+                </div>
+                <div class="product-details">
+                    <a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a>
+                    <?php echo $this->getPriceHtml($_item, true); ?>
+                    <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                    <a href="<?php echo $this->getAddToWishlistUrl($_item) ?>" class="aw-link-cart"><?php echo $this->__('Add to Wishlist') ?></a>
+                    <?php endif; ?>
+                    <div>
+                        <a class="aw-link-cart" href="#" onclick="setLocation('<?php echo $this->getAddToCartUrl($_item) ?>'); return false;"><?php echo $this->__('Add to Cart') ?></a>
+                    </div>
+                </div>
+            </li>
+            <?php endforeach ?>
+        </ol>
+    </div>
+</div>
+<?php endif ?>

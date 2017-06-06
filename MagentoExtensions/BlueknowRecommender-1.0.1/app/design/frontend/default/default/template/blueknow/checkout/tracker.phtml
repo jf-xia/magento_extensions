@@ -1,0 +1,45 @@
+<?php
+/**
+ * Template for Blueknow_Recommender_Block_Checkout_Tracker.
+ * 
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Blueknow Recommender
+ * extension to newer versions in the future. If you wish to customize it for
+ * your needs please save your changes before upgrading.
+ * 
+ * @category	design
+ * @copyright	Copyright (c) 2010 Blueknow, S.L. (http://www.blueknow.com)
+ * @license		GNU General Public License
+ * @author		<a href="mailto:santi.ameller@blueknow.com">Santiago Ameller</a>
+ * @since		1.0.0
+ * 
+ */
+?>
+<?php $bConfiguration = $this->getConfig(); ?>
+
+<?php $bOrders = $this->getCheckout()->getOrders(); ?>
+
+<script src="<?php echo $bConfiguration->getBaseURL() ?>/bk.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	var tracker = Blueknow.getTracker('<?php echo $bConfiguration->getBKNumber() ?>');
+	tracker.setCurrency('<?php echo $bConfiguration->getDefaultCurrency()->getCode() ?>');
+	tracker.setLanguage('<?php echo $bConfiguration->getLanguage() ?>');
+</script>
+
+<script type="text/javascript">
+
+	<?php foreach ($bOrders as $bOrder) { ?>
+		<?php $bProducts = $bOrder->getProducts(); ?>
+		<?php if (empty($bProducts)) continue; ?>
+		<?php foreach ($bProducts as $bProduct) { ?>
+			tracker.addItem('<?php echo $bProduct->getId() ?>', '<?php echo $bProduct->getPrice() ?>', '<?php echo $bProduct->getQuantity() ?>');
+			<?php if (!$bProduct->isSaleable()) { ?>
+				tracker.trackDiscontinued('<?php echo $bProduct->getId() ?>');
+			<?php } ?>
+		<?php } ?>
+		tracker.trackPurchased('<?php echo $bOrder->getId() ?>', '<?php echo $bOrder->getTotal() ?>', '<?php echo $bOrder->getTax() ?>', '<?php echo $bOrder->getShipping() ?>');
+	<?php } ?>
+
+</script>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <blog_manage_blog_index>
+        <reference name="content">
+            <block type="blog/manage_blog" name="blog" />
+        </reference>
+    </blog_manage_blog_index>
+	<blog_manage_comment_index>
+        <reference name="content">
+            <block type="blog/manage_comment" name="comment" />
+        </reference>
+    </blog_manage_comment_index>
+	<blog_manage_cat_index>
+        <reference name="content">
+            <block type="blog/manage_cat" name="cat" />
+        </reference>
+    </blog_manage_cat_index>
+	<blog_manage_blog_upgrade>
+        <reference name="content">
+            <block type="adminhtml/template" name="upgrade" template="blog/upgrade.phtml"/>
+        </reference>
+    </blog_manage_blog_upgrade>
+</layout>

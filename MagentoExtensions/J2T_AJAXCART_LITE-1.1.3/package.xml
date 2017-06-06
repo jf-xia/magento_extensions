@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>J2T_AJAXCART_LITE</name>
+    <version>1.1.3</version>
+    <stability>stable</stability>
+    <license>OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Add to cart in AJAX</summary>
+    <description>Lite version of the J2T Ajax Add to cart extension</description>
+    <notes>no</notes>
+    <authors><author><name>Jonathan Techer</name><user>auto-converted</user><email>jon.techer@gmail.com</email></author></authors>
+    <date>2010-09-24</date>
+    <time>16:26:15</time>
+    <contents><target name="mageskin"><dir name="frontend"><dir name="default"><dir name="default"><dir name="css"><dir name="j2t"><file name="ajax_cart.css" hash="b3b2465ba562c0688435d0a8004c7379"/><file name="ajax_cart_template_rounded.css" hash="56cf196067cfdc4587dbf32113a4da23"/></dir></dir><dir name="images"><dir name="j2t"><file name="ajax-loader.gif" hash="9a9cfbeae93874aa92295baf21ace29c"/><file name="box-template-rounded.png" hash="9ebc72ca79531d83d4987024446bb32d"/><file name="j2t-button-gray-left.gif" hash="bdc6018987fb4d4079fdbeeab8437822"/><file name="j2t-button-gray-left.psd" hash="d7f107e2217719e6653ef4c02e623220"/><file name="j2t-button-gray-right.gif" hash="8120b3adcbd391cdb266dee3ed6f8f2a"/><file name="j2t-button-gray-right.psd" hash="33a79ab580aba9438a7ce8ea803a5757"/><file name="j2t-button-green-left.gif" hash="b7641e278a2f5d73eef37dc25c7aadd2"/><file name="j2t-button-green-right.gif" hash="3ce3a61c6177d5214d910ba000fcd09a"/></dir></dir><dir name="js"><dir name="j2t"><file name="ajax_cart.js" hash="455a840227f856638f2f221a125ed736"/></dir></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="j2tajaxcheckout.xml" hash="20f0ccd28807e6ffec585369f0a7dcdc"/></dir><dir name="template"><dir name="j2tajaxcheckout"><file name="ajaxcart.phtml" hash="f2b593b7d7d5dc31d2b745e8f806b086"/><file name="ajax_wrapper.phtml" hash="31ac53cdc70e7fe06b204e77edc37e9e"/></dir></dir></dir></dir></dir></target><target name="magelocale"><dir name="fr_FR"><file name="j2t_ajaxcheckout.csv" hash="ed378bbf125ae31c20c7c30b1a332339"/></dir></target><target name="magecommunity"><dir name="J2t"><dir name="Ajaxcheckout"><dir name="Block"><file name="Cart.php" hash="68ca800830e8649034279fb104edab4b"/><file name="Cartdelete.php" hash="ef722743db95c8b26cf75e088e5d7875"/></dir><dir name="controllers"><file name="IndexController.php" hash="a46b4215c8b04c4695946c492fd69450"/></dir><dir name="etc"><file name="config.xml" hash="a648e69897e4e1f25bbd09dff2eda196"/><file name="system.xml" hash="37b87aedcd0a2b927acc6ffd136a0b4c"/></dir><dir name="Helper"><file name="Data.php" hash="0bb133f8381b1600b5063a4d47eb6cac"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="J2t_Ajaxcheckout.xml" hash="37edde91ab4ad4efa8c22004cc056851"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

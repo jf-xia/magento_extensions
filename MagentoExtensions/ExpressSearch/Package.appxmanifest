@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="eoe.22970D16268A3" Publisher="CN=290772C7-A618-4DEF-875B-423924825D0D" Version="1.0.0.4" />
+  <Properties>
+    <DisplayName>快递查询大全</DisplayName>
+    <PublisherDisplayName>北京易联致远无线技术有限公司</PublisherDisplayName>
+    <Logo>Assets\50.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="ExpressSearch.App">
+      <VisualElements DisplayName="快递查询大全" Logo="Assets\Logo.png" SmallLogo="Assets\30.png" Description="快递查询大全，是一个方便查询快递单号的查询软件，目前支持90来家快递公司。" ForegroundText="light" BackgroundColor="#16874F">
+        <DefaultTile ShowName="allLogos" WideLogo="Assets\SmallLogo.png" />
+        <SplashScreen Image="Assets\loading.png" BackgroundColor="#16874F" />
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

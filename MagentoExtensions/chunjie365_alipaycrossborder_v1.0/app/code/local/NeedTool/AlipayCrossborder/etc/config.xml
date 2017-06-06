@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <NeedTool_AlipayCrossborder>
+            <version>1.0.0</version>
+        </NeedTool_AlipayCrossborder>
+    </modules>
+    <global>
+		<helpers>
+           <alipaycrossborder><class>NeedTool_AlipayCrossborder_Helper</class></alipaycrossborder>
+        </helpers> 
+        <models>
+            <alipaycrossborder>
+                <class>NeedTool_AlipayCrossborder_Model</class>
+                <resourceModel>alipaycrossborder_mysql4</resourceModel>
+            </alipaycrossborder>
+        </models>
+<!--
+        <resources>
+            <alipaycrossborder_setup>
+                <setup>
+                    <module>NeedTool_AlipayCrossborder</module>
+                    <class>NeedTool_AlipayCrossborder_Model_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </alipaycrossborder_setup>
+            <alipaycrossborder_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </alipaycrossborder_write>
+            <alipaycrossborder_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </alipaycrossborder_read>
+        </resources>
+-->
+        <blocks>
+            <alipaycrossborder><class>NeedTool_AlipayCrossborder_Block</class></alipaycrossborder>
+    	  </blocks>
+
+    </global>
+    <frontend>
+        <secure_url>
+            <alipaycrossborder_payment>/alipaycrossborder/payment</alipaycrossborder_payment>
+        </secure_url>
+        <routers>
+            <alipaycrossborder>
+                <use>standard</use>
+                <args>
+                    <module>NeedTool_AlipayCrossborder</module>
+                    <frontName>alipaycrossborder</frontName>
+                </args>
+            </alipaycrossborder>
+        </routers>
+        <translate>
+            <modules>
+                <NeedTool_AlipayCrossborder>
+                    <files>
+                        <default>NeedTool_AlipayCrossborder.csv</default>
+                    </files>
+                </NeedTool_AlipayCrossborder>
+            </modules>
+        </translate>
+<!--
+        <layout>
+            <updates>
+                <alipaycrossborder>
+                    <file>alipaycrossborder.xml</file>
+                </alipaycrossborder>
+            </updates>
+        </layout>
+-->
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <NeedTool_AlipayCrossborder>
+                    <files>
+                        <default>NeedTool_AlipayCrossborder.csv</default>
+                    </files>
+                </NeedTool_AlipayCrossborder>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <payment>
+            <alipaycrossborder_payment>
+                  <model>alipaycrossborder/payment</model>
+                  <title>支付宝 Alipay</title>
+                  <gateway>www.alipay.com/cooperate/gateway.do?</gateway>
+<!--
+                  <gateway>www.alipay.net/cooperate/gateway.do?</gateway>
+-->
+                	<order_status>pending</order_status>
+                	<order_status_payment_accepted>processing</order_status_payment_accepted>
+                	<order_status_payment_refused>pending</order_status_payment_refused>
+                  <allowspecific>1</allowspecific>
+                	<specificcountry>CN</specificcountry>
+                	<settlementcurrency>GBP</settlementcurrency>
+<!--
+                  <transaction_type>O</transaction_type>
+-->
+            </alipaycrossborder_payment>
+        </payment>
+    </default>
+</config>

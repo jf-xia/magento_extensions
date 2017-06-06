@@ -1,0 +1,28 @@
+<div class="collateral-box">
+    <div class="head">
+    <h4><?php echo $this->__('Questions and Answers') ?></h4>
+    </div>
+    <div class="collateral-box" id="product-q-a">
+        <p><strong><a href="#question-form" id="add-question"><?php echo $this->__('add your question'); ?></strong></a></p>
+            <?php $entries = $this->getEntries(); ?>
+	        <?php if(!$entries->getSize()): ?>
+	        <p><strong><?php echo $this->__('There are no entries.') ?></strong></p> 
+	        <?php else: ?>	 
+	        <?php echo $this->getPagerHtml(); ?>      
+	        <?php foreach($entries as $entry): ?>
+	        <div class="question-entry">
+		        <div class="entry-comment"><strong><?php echo $this->__('Q'); ?>: </strong><?php echo $this->htmlEscape($entry->getQuestion()); ?></div>
+		        <p>
+		            <small class="added-on"><?php echo $this->__('Posted On: '); ?><?php echo $this->formatDate($entry->getCreatedOn()); ?></small>
+		            <small class="added-on"><?php echo $this->__('By: '); ?><?php echo $entry->getName(); ?></small>
+		        </p>
+		        <div class="entry-answer"><strong><?php echo $this->__('A'); ?>: </strong><?php echo $this->htmlEscape($entry->getAnswer()); ?></div>
+	        </div>
+	        <?php endforeach; ?>	        
+	        <?php endif; ?>	   
+	        <br />     
+	        <?php echo $this->getChildHtml('questionForm'); ?>
+    </div>
+</div>    
+
+

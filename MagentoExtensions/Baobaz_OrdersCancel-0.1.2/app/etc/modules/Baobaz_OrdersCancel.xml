@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Baobaz_OrdersCancel>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Baobaz_OrdersCancel>
+    </modules>
+</config>

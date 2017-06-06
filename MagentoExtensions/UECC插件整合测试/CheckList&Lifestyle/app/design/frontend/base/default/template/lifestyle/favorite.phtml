@@ -1,0 +1,39 @@
+<h1>Favorite</h1>
+<br/>
+	<?php 
+	
+		$customerId = Mage::getSingleton('customer/session')->getCustomer()->getId();
+		$wpFavorite = Mage::getModel('lifestyle/favorite')->getCollection()->addFieldToFilter('customer_id',$customerId)->setOrder('lifestyle_favorite_id', 'DESC');
+		echo '<ol>';
+		foreach ($wpFavorite->getItems() as $_item){
+			echo '<li>';
+				echo "<a href='".$_item->getUrl()."'>".$_item->getTitle()."</a>";
+			echo '</li>';
+		}
+		echo '</ol>';
+		?>
+
+<h1>Checknote</h1>
+<br/>
+	<?php 
+	
+		//$customerId = Mage::getSingleton('customer/session')->getCustomer()->getId();
+		$wpChecknote = Mage::getModel('checklist/checknote')->getCollection()->addFieldToFilter('customer_id',$customerId)->setOrder('checklist_checknote_id', 'DESC');
+		$homeUrl = Mage::app()->getStore()->getBaseUrl();
+		?>
+	<?php $characterCount = $this->getCharacterCount(); ?>
+	<div id='checknote'>
+	
+<form name="input" action="<?php echo $homeUrl; ?>/checklist/addlist" method="get">
+		<label for='checknote'><?php echo $this->__(Mage::helper('checklist')->getFrontendLabel()) ?><?php if ($characterCount !== false): ?> ( max <?php echo $characterCount ?> characters ) <?php endif; ?></label><br />
+		<textarea id='checknote' name='checknote' style="width:600px;height:500px" class="input-text<?php if ($characterCount !== false): ?> validate-length maximum-length-<?php echo $characterCount ?> <?php endif; ?>">
+			 <?php  
+					foreach ($wpChecknote->getItems() as $_item) {
+						echo $_item->getChecknote();
+						break;
+					}
+			 ?>
+			</textarea><br />
+		<input type="submit" value="Add Note" />
+</form> 
+	</div>

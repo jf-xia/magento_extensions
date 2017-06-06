@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<CommerceStack_CsApiClient>
+			<version>1.0</version>
+		</CommerceStack_CsApiClient>
+	</modules>
+	
+	<global>
+		<models>
+			<csapiclient>
+				<class>CommerceStack_CsApiClient_Model</class>
+			</csapiclient>
+		</models>
+	</global>
+	
+    <default>
+    	<csapiclient>
+    		<api>
+   				<base_uri>https://api.commercestack.com/</base_uri>
+                <!--<base_uri>http://127.0.0.1/recommender/public/</base_uri>-->
+                <create_account_uri>account/</create_account_uri>
+            </api>
+     </csapiclient>
+ </default>
+</config>

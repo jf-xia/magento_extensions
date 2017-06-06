@@ -1,0 +1,19 @@
+<?php
+ /*
+ * Arcanum Dev AwardPoints
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to arcanumdev@wafunotamago.com so we can send you a copy immediately.
+ *
+ * @category   Magento Sale Extension
+ * @package    AwardPoints
+ * @copyright  Copyright (c) 2012 Arcanum Dev. Y.K. (http://arcanumdev.wafunotamago.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ class Arcanumdev_Awardpoints_Model_Rule extends Mage_SalesRule_Model_Rule{public function validate(Varien_Object $object){if(substr($this->getCouponCode(),0,6) != 'points'){return parent::validate($object);}$customerId=Mage::getModel('customer/session')->getCustomerId();$award_model=Mage::getModel('awardpoints/stats');$current=$award_model->getPointsCurrent($customerId, Mage::app()->getStore()->getId());if($current < $this->getPointsAmt()){Mage::getSingleton('checkout/session')->addError('Not enough points available.');return false;}$step_apply=Mage::getStoreConfig('awardpoints/default/step_apply',Mage::app()->getStore()->getId());$step=Mage::getStoreConfig('awardpoints/default/step_value',Mage::app()->getStore()->getId());if($step > $this->getPointsAmt() && $step_apply){Mage::getSingleton('checkout/session')->addError('The minimum required points is not reached.');return false;}if($step_apply){if(($this->getPointsAmt() % $step) != 0){Mage::getSingleton('checkout/session')->addError('Amount of points wrongly used.');return false;}}return true;}public function getDiscountAmount(){if(substr($this->getCouponCode(),0,6) == 'points'){$step=Mage::getStoreConfig('awardpoints/default/points_money',Mage::app()->getStore()->getId());return ($this->getPointsAmt() / $step);}$test=new Mage_SalesRule_Model_Rule();if(method_exists($test,'getDiscountAmount'))return parent::getDiscountAmount();if($this->discount_amount){return $this->discount_amount;}}public function getPointsOnOrder(){$cartHelper=Mage::helper('checkout/cart');$items=$cartHelper->getCart()->getItems();$awardPoints=0;$cart_amount=0;foreach ($items as $_item){$_product=Mage::getModel('catalog/product')->load($_item->getProductId());$catalog_points=Mage::getModel('awardpoints/catalogpointrules')->getAllCatalogRulePointsGathered($_product);if($catalog_points===false){continue;}else{$awardPoints+=(int)$catalog_points*$_item->getQty();}$product_points=$_product->getData('award_points');if($product_points > 0){if($_item->getQty() > 0){$awardPoints+=(int)$product_points*$_item->getQty();}}else{$price=$_item->getRowTotal()+$_item->getTaxAmount() - $_item->getDiscountAmount();$awardPoints+=(int)Mage::getStoreConfig('awardpoints/default/money_points',Mage::app()->getStore()->getId())*$price;}$cart_amount+=$_item->getRowTotal()+$_item->getTaxAmount() - $_item->getDiscountAmount();}$points_rules=Mage::getModel('awardpoints/pointrules')->getAllRulePointsGathered();if($points_rules===false){return 0;}$awardPoints+=(int)$points_rules;$awardPoints=Mage::helper('awardpoints/data')->processMathValue($awardPoints);if(Mage::getStoreConfig('awardpoints/default/max_point_collect_order',Mage::app()->getStore()->getId())){if((int)Mage::getStoreConfig('awardpoints/default/max_point_collect_order',Mage::app()->getStore()->getId()) < $awardPoints){$awardPoints=Mage::getStoreConfig('awardpoints/default/max_point_collect_order',Mage::app()->getStore()->getId());}}return $awardPoints;}}

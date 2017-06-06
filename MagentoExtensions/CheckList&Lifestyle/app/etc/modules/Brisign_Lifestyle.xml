@@ -1,0 +1,10 @@
+<?xml version='1.0'?>
+
+<config>
+    <modules>
+        <Brisign_Lifestyle>
+            <active>true</active> 
+            <codePool>local</codePool> 
+        </Brisign_Lifestyle>
+    </modules>
+</config>

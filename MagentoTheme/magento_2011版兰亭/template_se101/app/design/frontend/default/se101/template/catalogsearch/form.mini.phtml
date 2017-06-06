@@ -1,0 +1,77 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_default
+ * @package	Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license	http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ *
+ *
+ * @version Edmonds Commerce Quick Search with Top Level Categories
+ *
+ */
+$category = Mage::getModel('catalog/category');
+if(is_object(Mage::registry('current_category'))){
+	$current_category_path=Mage::registry('current_category')->getPathIds();
+}else{
+	$current_category_path = array();
+}
+$category->load(Mage::app()->getStore()->getRootCategoryId());
+$children_string = $category->getChildren();
+$children = explode(',',$children_string);
+$extra_options='';
+foreach($children as $c){
+	$selected = (in_array($c, $current_category_path))?'SELECTED':'';
+	$extra_options.= '<option class="parent-cat" value="' . $c . '" ' . $selected . '>' . $category->load($c)->getName() . '</option>' . "\n";
+}
+?>
+<form id="search_mini_form" action="<?php echo $this->helper('catalogSearch')->getResultUrl() ?>" method="get">
+	<fieldset>
+	   <table height="33" cellspacing="0" cellpadding="0" border="0" width="472">
+	        <tbody>
+		  <tr>
+
+		    <td id="nav-search-field" align="left" width="260"> <input id="search" type="text" class="input-live-search" name="<?php echo $this->helper('catalogSearch')->getQueryParamName() ?>" value="<?php echo $this->helper('catalogSearch')->getEscapedQueryText() ?>" /></td>
+		   <td class="category_search_select" width="90">
+		    <select name="cat" id="cat" >
+			<option value=""><?php echo $this->__('All Categories') ?></option>
+			<?= $extra_options ?>
+		    </select>
+		    </td>
+		   
+		   <td align="center" width="45" style="text-align:center">
+		      <input type="image" style="margin-top:1px;" src="<?php echo $this->getSkinUrl('images/nav_searchbar_submit.gif') ?>" alt="search" />
+		   </td>
+		    <td align="center" width:="77">
+			<a href="<?php echo $this->getUrl('catalogsearch/advanced') ?>"><?php echo $this->__('Advanced') ?></a>
+		   </td>
+			<div id="search_autocomplete" class="search-autocomplete"></div>
+			<script type="text/javascript">
+			//<![CDATA[
+				var searchForm = new Varien.searchForm('search_mini_form', 'search', '<?php echo $this->__('search site...') ?>');
+				searchForm.initAutocomplete('<?php echo $this->helper('catalogSearch')->getSuggestUrl() ?>', 'search_autocomplete');
+			//]]>
+			</script>
+			</div>
+		  </tr>
+		</tbody>
+	    </table>
+	</fieldset>
+</form>

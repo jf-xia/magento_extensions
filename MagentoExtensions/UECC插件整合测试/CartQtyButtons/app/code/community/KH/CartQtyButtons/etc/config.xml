@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * KH_CartQtyButtons config.xml
+ * 
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ */
+
+/**
+ * @category KH
+ * @package KH_CartQtyButtons
+ * @author KevinHorst IT <info@kevinhorst.de>
+ * @copyright Copyright (c) 2011 <info@kevinhorst.de> - KevinHorst IT
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software 
+ */
+-->
+<config>
+    <modules>
+        <KH_CartQtyButtons>
+            <version>0.3.0</version>
+        </KH_CartQtyButtons>
+    </modules>
+    <global>
+        <models>
+            <CartQtyButtonsAdmin>
+            	<class>KH_CartQtyButtons_Model_Admin</class>
+            </CartQtyButtonsAdmin>
+        </models>
+        <helpers>
+            <CartQtyButtons>
+                <class>KH_CartQtyButtons_Helper</class>
+            </CartQtyButtons>
+        </helpers>
+    </global>
+    <frontend>
+        <translate>
+            <modules>
+                <KH_CartQtyButtons>
+                    <files>
+                        <default>KH_CartQtyButtons.csv</default>
+                    </files>
+                </KH_CartQtyButtons>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <cartqtybuttons>
+                    <file>cartqtybuttons.xml</file>
+                </cartqtybuttons>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <KH_CartQtyButtons>
+                    <files>
+                        <default>KH_CartQtyButtons.csv</default>
+                    </files>
+                </KH_CartQtyButtons>
+            </modules>
+        </translate>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <cartqtybuttons translate="title" module="CartQtyButtons">
+                                            <title>KH CartQtyButtons Settings</title>
+                                        </cartqtybuttons>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <default>
+        <cartqtybuttons>
+            <settings>
+                <js_selector>#shopping-cart-table tbody tr td input.qty</js_selector>
+                <button_position>both_right</button_position>
+                <null_behavior>0</null_behavior>
+                <increase_step>1</increase_step>
+                <increase_decimal_step>0.1</increase_decimal_step>
+            </settings>
+        </cartqtybuttons>
+    </default>
+</config> 

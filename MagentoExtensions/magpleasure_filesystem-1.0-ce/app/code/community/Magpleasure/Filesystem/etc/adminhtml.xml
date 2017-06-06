@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <system>
+            <children>
+                <filesystem module="filesystem">
+                    <title>Filesystem</title>
+                    <sort_order>70</sort_order>               
+                    <children>
+                        <edit module="filesystem">
+                            <title>IDE</title>
+                            <sort_order>10</sort_order>
+                            <action>filesystem/adminhtml_filesystem</action>
+                        </edit>
+<!--                            <config module="filesystem">
+                            <title>Configuration</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/system_config/edit/section/filesystem</action>
+                        </config>-->
+                    </children>
+                </filesystem>                    
+            </children>
+        </system>
+
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <filesystem>
+                                <title>File System</title>
+                                <sort_order>10</sort_order> 
+                                <children>
+                                    <edit>
+                                        <title>IDE</title>
+                                        <sort_order>10</sort_order>                                             
+                                    </edit>
+<!--                                        <config>
+                                        <title>Configuration</title>
+                                        <sort_order>20</sort_order>                                             
+                                    </config>-->
+                                </children>
+                            </filesystem> 
+                            <config>
+                                <children>
+                                    <filesystem>
+                                        <title>MagPleasure - File System Configuration</title>
+                                    </filesystem>
+                                </children>
+                            </config>                                
+                        </children> 
+                    </system>
+
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <layout>
+        <updates>
+            <filesystem>
+                <file>filesystem.xml</file>
+            </filesystem>
+        </updates>
+    </layout>
+</config>

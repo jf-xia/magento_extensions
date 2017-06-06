@@ -1,0 +1,75 @@
+<?php
+/**
+ * Magpleasure Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE-CE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magpleasure.com/LICENSE-CE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * Magpleasure does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * Magpleasure does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   Magpleasure
+ * @package    Magpleasure_Guestbook
+ * @version    1.1
+ * @copyright  Copyright (c) 2012-2013 Magpleasure Ltd. (http://www.magpleasure.com)
+ * @license    http://www.magpleasure.com/LICENSE-CE.txt
+ */
+
+/** @var Magpleasure_Guestbook_Block_Comments $this  */
+/** @var Magpleasure_Guestbook_Model_Mysql4_Message_Collection $collection  */
+$collection = $this->getCollection();
+?>
+<div class="mp-guestbook">
+    <div class="messages-header">
+        <h1 class="mp-guestbook-header"><?php echo $this->escapeHtml($this->getHeader()); ?></h1>
+        <button class="leave-a-comment" value="<?php echo $this->__("Leave a Сomment"); ?>" onclick="guestbookComments.getForm('form', 0); return false;"><?php echo $this->__("Leave a Сomment"); ?></button>
+        <div class="fixed"></div>
+    </div>
+    <div class="guestbook-messages-livestream" id="livestream">
+        <?php if ($this->getSortType() == Varien_Db_Select::SQL_DESC): ?>
+        <div class="mp-comment-form" id="form" style="display: none;"></div>
+        <?php endif; ?>
+        <?php if ($collection->getSize()): ?>
+            <?php foreach ($collection as $message): ?>
+                <?php echo $this->getMessageHtml($message); ?>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <div class="no-comments" id="no_comments">
+            <?php echo $this->__("There are no comments."); ?>
+            </div>
+        <?php endif; ?>
+        <?php if ($this->getSortType() == Varien_Db_Select::SQL_ASC): ?>
+        <div class="mp-comment-form" id="form" style="display: none;"></div>
+        <?php endif; ?>
+    </div>
+    <div id="guestbook_loader_container" style="display: none;">
+        <div class="mp-blog-loader"></div>
+    </div>
+    <div class="messages-footer">
+        <button class="leave-a-comment" value="<?php echo $this->__("Leave a Сomment"); ?>" onclick="guestbookComments.getForm('form', 0); return false;"><?php echo $this->__("Leave a Сomment"); ?></button>
+        <div class="fixed"></div>
+    </div>
+    <?php echo $this->getToolbarHtml(); ?>
+    <script type="text/javascript">
+        var guestbookComments = new MpGuestbookComments({
+            form_selector: '.mp-comment-form',
+            loader_container: 'guestbook_loader_container',
+            form_url: '<?php echo $this->getFormUrl() ?>',
+            post_url: '<?php echo $this->getPostUrl() ?>',
+            messages_counter: 'messages_counter',
+            no_comments: 'no_comments'
+        });
+    </script>
+
+</div>

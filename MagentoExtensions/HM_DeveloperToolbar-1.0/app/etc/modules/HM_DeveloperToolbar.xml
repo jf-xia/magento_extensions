@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <HM_DeveloperToolbar>
+            <active>true</active>
+            <codePool>community</codePool>
+        </HM_DeveloperToolbar>
+    </modules>
+</config>

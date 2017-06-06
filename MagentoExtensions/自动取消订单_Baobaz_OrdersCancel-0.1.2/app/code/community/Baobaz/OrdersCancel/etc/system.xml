@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<config>
+
+    <sections>
+        <sales>
+            <groups>
+                <orderscancel translate="label">
+                    <label>Automatic Order Cancel</label>
+                    <sort_order>600</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <status_to_cancel translate="label comment">
+                            <label>Statuses to cancel</label>
+                            <comment>Orders with these statuses will be automatically cancelled after the given time period</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>orderscancel/order_statuses</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </status_to_cancel>
+                        <expiration_days translate="label comment">
+                            <label>Expiration time (days)</label>
+                            <comment>Order expiration time in days</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </expiration_days>
+                        <expiration_hours translate="label comment">
+                            <label>Expiration time (hours)</label>
+                            <comment>Order expiration time in hours</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </expiration_hours>
+                        <expiration_minutes translate="label comment">
+                            <label>Expiration time (minutes)</label>
+                            <comment>Order expiration time in minutes</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </expiration_minutes>
+                    </fields>
+                </orderscancel>
+            </groups>
+        </sales>
+    </sections>
+</config>

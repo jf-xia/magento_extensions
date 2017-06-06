@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   MagePsycho
+ * @package    MagePsycho_Tellafriend
+ * @author     magepsycho@gmail.com
+ * @website    http://www.magepsycho.com 
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <MagePsycho_Tellafriend>
+            <version>0.1.0</version>
+        </MagePsycho_Tellafriend>
+    </modules>
+    <global>
+        <models>
+            <tellafriend>
+                <class>MagePsycho_Tellafriend_Model</class>
+            </tellafriend>            
+        </models>        
+        <blocks>
+            <tellafriend>
+                <class>MagePsycho_Tellafriend_Block</class>
+            </tellafriend>
+        </blocks>
+        <helpers>
+            <tellafriend>
+                <class>MagePsycho_Tellafriend_Helper</class>
+            </tellafriend>
+        </helpers>
+        <template>
+            <email>
+                <tellafriend_email_email_template translate="label" module="tellafriend">
+                    <label>Tell A Friend Template</label>
+                    <file>tellafriend/tellafriend.html</file>
+                    <type>html</type>
+                </tellafriend_email_email_template>
+            </email>
+        </template>
+    </global>
+    <frontend>
+        <routers>
+            <tellafriend>
+                <use>standard</use>
+                <args>
+                    <module>MagePsycho_Tellafriend</module>
+                    <frontName>tellafriend</frontName>
+                </args>
+            </tellafriend>
+        </routers>
+	<layout>
+            <updates>
+                <tellafriend>
+                    <file>tellafriend.xml</file>
+                </tellafriend>
+            </updates>
+        </layout>
+    </frontend>      
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <magepychoinfo>
+                                            <title>MagePsycho - Area</title>
+                                        </magepychoinfo>
+                                        <tellafriend>
+                                            <title>Tell A Friend</title>
+                                        </tellafriend>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml> 
+    <default>
+        <tellafriend>
+            <option>
+                <active>1</active>               	
+            </option>
+            <email>
+                <email_sender>general</email_sender>
+                <email_template>tellafriend_email_email_template</email_template>
+            </email>
+        </tellafriend>
+    </default>	    
+</config>

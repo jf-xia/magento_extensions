@@ -1,0 +1,164 @@
+.nav-container{
+    margin-left:80px;
+    float:left;
+}
+#custommenu {
+    z-index: 999;
+}
+div.menu {
+    float: left;
+    position:relative;
+}
+div.menu.act {
+    /*background-color:#FF0F0F;*/
+}
+
+div.menu.active {
+    /*background-color:#FF0F0F;*/
+    height:31PX;
+}
+.header.fixed div.wp-custom-menu-popup{
+    top:51px !important;
+}
+div.menu.act a, div.menu.active a, div.menu .parentMenu a:hover{
+    
+    color:#F07318;
+    
+}
+div.menu.active a{
+    border-bottom:2px solid;
+}
+div.menu.active span.errow{
+    border-bottom:8px solid #F07318;
+    border-left:8px solid transparent;
+    border-right:8px solid transparent;
+    width:0;
+    height:0;
+    margin: 0 auto;
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    display:none;
+}
+div.wp-custom-menu-popup {
+    position:absolute;
+    z-index:3000;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+    display: none;
+    background-color:#FFF;
+    border-bottom:3px solid;
+    border-bottom-color:#F07318;
+    text-align:left;
+    padding:15px 30px 6px 30px;
+    max-width:1140px !important;
+    left:205px !important;
+    
+}
+
+div.menu, div.wp-custom-menu-popup {
+    /*padding: 15px 21px 16px 21px;*/
+}
+div.menu a{
+    position: relative;
+    z-index: 99;
+    font-size: 16px;
+    height:29px;
+    text-shadow: 0px 1px 0px rgba(95, 95, 95, 0.5);
+    margin-right: 21px;
+    margin-left: 21px;
+}
+
+div.menu a, div.wp-custom-menu-popup a {
+    text-decoration: none;
+    display:block;
+    
+}
+div.wp-custom-menu-popup a{
+    text-transform:capitalize;
+}
+div.wp-custom-menu-popup .itemMenu{
+    width:165px;
+}
+div.wp-custom-menu-popup a.itemMenuName{
+    font-size:15px;
+    /*border:1px solid #DCDCDC;*/
+    background:#EFEFEF;
+    box-shadow:0 0 3px rgba(0, 0, 0, 0.10);
+    /*width:147px;*/
+    margin-bottom:10px;
+    padding:5px 10px;
+    /*font-family:'helvetica_bold';*/
+}
+div.wp-custom-menu-popup a.itemMenuName:hover,
+div.wp-custom-menu-popup a.actParent,
+div.wp-custom-menu-popup a.act{
+    color:#F07318;
+    /*background:#F07318;*/
+}
+div.wp-custom-menu-popup .itemSubMenu a.itemMenuName{
+    font-size:13px;
+    border-bottom:none;
+    margin-bottom:0px;
+    box-shadow:0 0 5px transparent;
+    background:none;
+    padding-bottom:0px;
+    display:block;
+    padding: 0 10px 0 10px;
+    border: 1px solid transparent;
+    /*width:127px;*/
+    font-family:'helvetica';
+}
+div.wp-custom-menu-popup .itemSubMenu a.itemMenuName:hover{
+    color: #F07318;
+    text-decoration: none;
+    background: #EFEFEF;
+    border: 1px solid #DCDCDC;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.10);
+}
+/*div.wp-custom-menu-popup .itemSubMenu a.itemMenuName span{*/
+/*    padding-left:10px;*/
+/*}*/
+
+
+div.column {
+    /*width:137px; *//* column width */
+    padding-right:27px;
+    display:inline-table;
+   
+}
+div.column.last{
+    padding-right:0px;
+}
+div.column:nth-of-type(5n) {
+    padding-right:0px;
+}
+div.itemSubMenu {
+    line-height:2;
+    padding-bottom:20px;
+}
+/*header-fixed*/
+.header2.fixed div.wp-custom-menu-popup{max-width: 1132px !important;}
+.header2.fixed div.column{padding-right:48px;}
+.header2.fixed div.column.last{padding-right:0px;}
+/*end header-fixed*/
+
+.clearBoth {
+    clear:both;
+}
+#custommenu.rtl .menu {
+    float: right;
+}
+#custommenu.rtl div.column {
+    text-align: right;
+}
+.menu_customlinks{margin-bottom:20px;border-top:1px solid #DFDFDF;padding-top:10px;}
+.menu_customlinks li{display:inline-block;line-height:2;}
+.menu_customlinks li a{padding:0px 8px;border: 1px solid transparent;box-shadow: 0 0 5px transparent;}
+.menu_customlinks li a:hover{color: #F07318;text-decoration: none;background: #EFEFEF;border: 1px solid #DCDCDC;box-shadow: 0 0 5px rgba(0, 0, 0, 0.10);}
+.menu-block{float:right;max-width:47%;}
+.menu-block p{line-height:1.5em;}
+.menu-img{max-width:47%;float:left;margin-bottom:20px;}
+.menu-img img{max-width:100%;}

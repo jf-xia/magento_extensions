@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Admin_Login_Locale_Selector</name>
+    <version>0.2.0</version>
+    <stability>stable</stability>
+    <license>OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Locale Selector is the module which helps admin user to select the locale of their choice during login.This tool becomes handy in case when you have multiple admin users from different localities. Also when if you are customizing the magento for the store owner of different locality.</summary>
+    <description>Locale Selector is the module which helps admin user to select the locale of their choice during login.This tool becomes handy in case when you have multiple admin users from different localities. Also when if you are customizing the magento for the store owner of different locality.</description>
+    <notes>Locale Selector is the module which helps admin user to select the locale of their choice during login.This tool becomes handy in case when you have multiple admin users from different localities. Also when if you are customizing the magento for the store owner of different locality.</notes>
+    <authors><author><name>Raj K B</name><user>auto-converted</user><email>rajen_k_bhtt@gmail.com</email></author></authors>
+    <date>2011-03-04</date>
+    <time>05:06:24</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="MagePsycho_Localeselector.xml" hash="1f319779a257f6cfbe5adfe7cfb04811"/></dir></target><target name="magelocal"><dir name="MagePsycho"><dir name="Localeselector"><dir name="Block"><dir name="System"><dir name="Config"><file name="Info.php" hash="4674dd93c478f6bd6ba3f490d755a93f"/></dir></dir><file name="Localeselector.php" hash="d5ffb0a5460f6c50a94c9988797cc167"/></dir><dir name="Helper"><file name="Data.php" hash="50320f3fdab2cf2b2f39f036d3c827c6"/></dir><dir name="Model"><file name="Localeselector.php" hash="50123c52e96fd35ba98bbeba4df9cdb8"/><file name="Observer.php" hash="12c97d8372e0809f48ebf19ae303bf6e"/></dir><dir name="controllers"><file name="IndexController.php" hash="4a6d960d2c11e79cbd6920b269e13b58"/></dir><dir name="etc"><file name="config.xml" hash="c685e2ca0cd4423ecfd13041a752cbbf"/><file name="system.xml" hash="dd8d399ac749d2c386fa35a788fb375a"/></dir></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="localeselector"><file name="login.phtml" hash="5964f08b2585430de6b03ce2d3b2bdf0"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

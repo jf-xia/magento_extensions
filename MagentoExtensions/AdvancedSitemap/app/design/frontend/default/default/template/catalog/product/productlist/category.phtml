@@ -1,0 +1,24 @@
+<?php $_categoryCollection=$this->getCollection() ?>
+<?php if(!count($_categoryCollection)){ ?>
+<div class="note-msg">
+	<?php echo $this->__('There are no products matching the selection.') ?>
+</div>
+<?php } else { ?>
+<?php echo $this->getToolbarHtml() ?>
+<div class="listing-type-list catalog-listing">
+<?php foreach ($_categoryCollection as $_category){ ?>
+	<div style="padding:15px; border-top:1px #F7F7F7 solid; background-color: #666666;">
+	<?php // Category data ?>
+		<h5>
+			<a style="color:#F7F7F7; text-decoration:none" href="<?php echo $_category->getUrl() ?>" title="<?php echo $this->htmlEscape($_category->getName()) ?>">
+				<?php echo $this->htmlEscape($_category->getName())?>
+			</a>
+			<?php if($_category->getParentCategory()->getName() && $_category->getLevel() > 2) { ?>
+				(<?php echo $_category->getParentCategory()->getName() ?>)
+			<?php } ?>
+		</h5>
+	</div>
+<?php } ?>
+</div>
+<?php echo $this->getToolbarHtml() ?>
+<?php } ?>

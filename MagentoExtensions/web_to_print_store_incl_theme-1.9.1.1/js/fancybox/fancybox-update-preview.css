@@ -1,0 +1,77 @@
+#zp-update-preview-button {
+  display: block;
+  position: absolute;
+  right: 36px;
+  top: -15px;
+  color: white;
+  text-decoration: none;
+  cursor: default;
+  z-index: 1103;
+  font: bold 8pt arial;
+}
+
+#zp-update-preview-button.no-middle {
+  right: 15px;
+}
+
+.modified #zp-update-preview-button {
+  cursor: pointer;
+}
+
+#zp-update-preview-button .icon {
+  display: block;
+  background: url("images/zp-update-preview-button-sprite.png") no-repeat;
+}
+
+#zp-update-preview-button .icon.left-part {
+  float: left;
+  background-position: -27px -2px;
+  width: 21px;
+  height: 30px;
+  position: relative; /* For absolute positioning of arrows icon*/
+}
+
+.modified #zp-update-preview-button .icon.left-part {
+  background-position: 0px -2px;
+}
+
+#zp-update-preview-button .icon.arrows {
+  background-position: -1px -36px;
+  width: 12px;
+  height: 10px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -7px;
+}
+
+.preview-updating #zp-update-preview-button .icon.arrows {
+  background: url("images/zp-update-preview-button-rotating-arrows.gif") no-repeat 0 0;
+  width: 16px;
+  height: 16px;
+  right: -2px;
+  margin-top: -10px;
+}
+
+#zp-update-preview-button .text {
+  display: block;
+  float: right;
+  background: url("images/zp-update-preview-button-x.png") repeat-x 0px -31px;
+  height: 30px;
+  *float: none;
+}
+
+.modified #zp-update-preview-button .text {
+  background-position: 0px 0px;
+}
+
+#zp-update-preview-button .text span {
+  display: block;
+  margin: 4px 4px 0px 5px;
+  height: 18px;
+  line-height: 18px;
+}
+
+#fancybox-outer.zp-hide-shapes .zetaprints-field-shape.bottom {
+  visibility: hidden !important;
+}

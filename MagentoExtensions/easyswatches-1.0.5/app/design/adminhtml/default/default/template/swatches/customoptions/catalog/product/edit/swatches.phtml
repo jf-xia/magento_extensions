@@ -1,0 +1,55 @@
+<div>
+    <ul class="messages">
+        <li class="notice-msg" style="margin-top:11px;">
+            <ul>
+                <li><?php echo $this->__("Save product changes before uploading images.") ?></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<form method="post" id="swatches-customoptions-upload" enctype="multipart/form-data" action="<?php echo $this->getSubmitUrl(); ?>">
+    <?php echo $this->getBlockHtml('formkey')?> 
+    <div class="entry-edit custom-options product-custom-options">
+        <div class="entry-edit-head">
+            <h4><?php echo $this->__('Custom Options Images') ?></h4>
+            <div class="right"><?php echo $this->getUploadImagesButtonHtml() ?></div>
+        </div>
+        
+        <div id="swatches_customoptions_product_options_container" class="box">
+            <?php foreach($this->getOptionsCollection() as $option): ?>
+            <div class="option-box">
+                <table cellspacing="5">
+                <tr>
+                    <th width="200"><?php echo $option->getTitle() ?></th>
+                    <th width="10"></th>
+                    <th><?php echo $this->__('Upload image') ?></th>
+                    <th width="10"></th>
+                    <th><?php echo $this->__('Preview') ?></th>
+                    <th width="10"></th>
+                    <th><?php echo $this->__('Delete') ?></th>
+                </tr>
+                <?php foreach ($option->getValues() as $value): ?>
+                <tr>
+                    <td><?php echo $value->getTitle(); ?></td>
+                    <td></td>
+                    <td><input type="file" name="customoptions_swatches[<?php echo $value->getData('option_type_id'); ?>]"></td>
+                    <td></td>
+                    <td align="left">
+                        <?php if ($value->getImage()): ?>
+                            <?php $iconUrl = $this->helper('swatches_customoptions')
+                                    ->getResizedUrl($value->getImage()); ?>
+                            <img src="<?php echo $iconUrl; ?>" /><br />
+                        <?php else: ?>
+                            <?php echo $this->__('[none]') ?>
+                        <?php endif; ?>
+                    </td>
+                    <td></td>
+                    <td align="center"><input type="checkbox" value="1" name="customoptions_swatches_delete[<?php echo $value->getData('option_type_id'); ?>]"></td>
+                </tr>    
+                <?php endforeach; ?>
+                </table>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</form>

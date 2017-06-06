@@ -1,0 +1,2 @@
+app\code\local\Idev\OneStepCheckout\Helper/Checkout.php文件
+app\code\local\Idev\OneStepCheckout\etc/system.xml文件

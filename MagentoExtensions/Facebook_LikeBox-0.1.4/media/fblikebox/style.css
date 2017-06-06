@@ -1,0 +1,47 @@
+.fan_box a:hover
+{
+	text-decoration: none;
+}
+
+.fan_box .full_widget
+{
+	height: 500px !important;
+	border: 0 !important;
+	background: none !important;
+	position: relative;
+}
+
+.fan_box .connections
+{
+	padding-top: 5px !important;
+	padding-left: 10px !important;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+span.total
+{
+	padding-top: 3px !important;
+	padding-bottom: 3px !important;
+	padding-left: 7px !important;
+	color: #C30;
+	font-weight: normal;
+}
+
+.fan_box .connections .connections_grid 
+{
+	padding-top: 5px !important;
+	padding-left: 7px !important;
+}
+
+.fan_box .connections_grid .grid_item
+{
+	padding: 0 15px 10px 0 !important;
+}
+
+.fan_box .connections_grid .grid_item .name
+{
+	font-weight: normal;
+	color: #666 !important;
+	padding-top: 1px !important;
+}

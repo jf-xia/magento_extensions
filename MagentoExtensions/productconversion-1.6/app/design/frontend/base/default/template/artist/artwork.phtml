@@ -1,0 +1,33 @@
+<?php $id = $this->getRequest()->getParam('id'); ?>
+<h1><?php echo $this->__('Artwork Image Upload') ?></h1>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<form name="artform" id="artform" method="post" action="<?php echo $this->getSaveUrl(); ?>" enctype="multipart/form-data">
+<div class="fieldset">
+<input type="hidden" name="artist_id" id="artist_id" value = "<?php echo $id; ?>" />
+	<ul class="form-list">
+    	<li class="fields">
+        	<label for="title" class="required"><em>*</em><?php echo $this->__('Title') ?></label>
+            <div class="input-box">
+                <input type="text" name="title" id="title" title="<?php echo $this->__('Title') ?>" class="input-text required-entry" value = "" />
+				
+            </div>
+   		</li>
+    	<li class="fields">
+        	<label for="imagename" class="required"><em>*</em> <?php echo $this->__('File') ?></label>
+            <div class="input-box">
+                <input type="file" name="imagename" id="imagename" title="<?php echo $this->__('File') ?>" class="required-entry" />            
+			</div>
+   		</li>
+						
+	</ul>
+	<div class="buttons-set">
+		<p class="required"><?php echo $this->__('* Required Fields') ?></p>
+		<button type="submit" title="<?php echo $this->__('Submit') ?>" class="button"><span><span><?php echo $this->__('Submit') ?></span></span></button>
+	</div>	
+</div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('artform', true);
+//]]>
+</script>

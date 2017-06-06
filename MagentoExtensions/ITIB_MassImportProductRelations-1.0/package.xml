@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>ITIB_MassImportProductRelations</name>
+ <channel>connect.magentocommerce.com/community</channel>
+ <summary>This module can be used to assign/update/remove product links by reading data from csv file.</summary>
+ <description>This module makes use of product link API&apos;s to assign/update/remove product links by reading data from csv file.</description>
+ <lead>
+  <name>andreas</name>
+  <user>Res 55</user>
+  <email>andreas.gross@swiss-ecommerce.net</email>
+  <active>yes</active>
+ </lead>
+ <developer>
+  <name>andreas</name>
+  <user>Res 55</user>
+  <email>andreas.gross@swiss-ecommerce.net</email>
+  <active>yes</active>
+ </developer>
+ <date>2010-02-08</date>
+ <time>10:59:33</time>
+ <version>
+  <release>1.0</release>
+  <api>1.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license>GPL</license>
+ <notes>This module makes use of product link API&apos;s to assign/update/remove product links by reading data from csv file.</notes>
+ <contents>
+  <dir name="/">
+   <dir name="app">
+    <dir name="code">
+     <dir name="community">
+      <dir name="Mage">
+       <dir name="Itib">
+        <dir name="MassImportProductRelations\Model\Convert\Adapter">
+         <file md5sum="a9ea5b90e2107eb2da4ab1eef675771b" name="Productimport.php" role="mage" />
+        </dir> <!-- //app/code/community/Mage/Itib/MassImportProductRelations\Model\Convert\Adapter -->
+       </dir> <!-- //app/code/community/Mage/Itib -->
+      </dir> <!-- //app/code/community/Mage -->
+     </dir> <!-- //app/code/community -->
+    </dir> <!-- //app/code -->
+   </dir> <!-- //app -->
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.0</min>
+    <max>6.0</max>
+   </php>
+   <pearinstaller>
+    <min>1.6.2</min>
+   </pearinstaller>
+  </required>
+  <optional>
+   <package>
+    <name>Mage_Core_Modules</name>
+    <channel>connect.magentocommerce.com/community</channel>
+    <min>1.0</min>
+    <max>1.3.2.5</max>
+    <recommended>1.3.2.4</recommended>
+   </package>
+  </optional>
+ </dependencies>
+ <phprelease />
+</package>

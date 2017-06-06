@@ -1,0 +1,43 @@
+<?php echo 'jkdnfkdsnm';?>
+
+<?php if (Mage::getStoreConfig('facebooklb/general/enabled')) : ?>
+    <?php if (!Mage::getStoreConfig('facebooklb/opengraph/enabled_op')) :
+    $facebookUrl = 'http://www.facebook.com/plugins/like.php?' .
+        'api_key = ' . Mage::getStoreConfig('facebooklb/general/appkey') .
+        '&href=' .  $this->helper('core/url')->getCurrentUrl() .
+        '&layout=' . Mage::getStoreConfig('facebooklb/general/layout') .
+        '&node_type=link&sdk=joey' .
+        '&show_faces=' . Mage::getStoreConfig('facebooklb/general/showfaces') .
+        '&action=' . Mage::getStoreConfig('facebooklb/general/verb') .
+        '&font=' . Mage::getStoreConfig('facebooklb/general/font') .
+        '&colorscheme="' . Mage::getStoreConfig('facebooklb/general/color') . '" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:' . Mage::getStoreConfig('facebooklb/general/width') . 'px; height:' . Mage::getStoreConfig('facebooklb/general/height') . 'px">'
+        ;
+    ?>
+
+    <iframe src="<?php echo $facebookUrl; ?>" </iframe>
+
+    <?php else: ?>
+
+    <div id="fb-root"></div>
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+          appId  : <?php echo Mage::getStoreConfig('facebooklb/general/appid'); ?>,
+          status : true,
+          cookie : true,
+          xfbml  : true
+        });
+    };
+
+    (function() {
+        var e = document.createElement('script');
+        e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+        e.async = true;
+        document.getElementById('fb-root').appendChild(e);
+    }());
+    </script>
+    <div><fb:like expr:href=' <?php echo Mage::helper('core/url')->getCurrentUrl(); ?> '/></div>
+
+    <?php endif; ?>
+
+<?php endif; ?>

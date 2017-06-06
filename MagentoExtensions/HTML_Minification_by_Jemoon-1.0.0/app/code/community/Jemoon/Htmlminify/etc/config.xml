@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *  Jemoon_Htmlminify_Model_Observer
+ *
+ * @category   Jemoon
+ * @package    Jemoon_Htmlminify
+ * @author     Marcin Jędrzejewski <marcin.jedrzejewski85@gmail.com>
+ * @copyright  Copyright (c) 2012 Marcin Jędrzejewski
+ * @license    http://framework.zend.com/license   BSD License
+ * @version    $id$
+ * @since      0.1.0
+ */
+-->
+
+<config>
+    <modules>
+        <Jemoon_Htmlminify>
+            <version>1.0.0</version>
+        </Jemoon_Htmlminify>
+    </modules>
+    <frontend>
+        <events>
+            <controller_action_postdispatch>
+                <observers>
+                    <Jemoon_Htmlminify_Model_Observer>
+                        <type>singleton</type>
+                        <class>Jemoon_Htmlminify_Model_Observer</class>
+                        <method>HtmlMinify</method>
+                    </Jemoon_Htmlminify_Model_Observer>
+                </observers>
+            </controller_action_postdispatch>
+        </events>
+    </frontend>
+</config>

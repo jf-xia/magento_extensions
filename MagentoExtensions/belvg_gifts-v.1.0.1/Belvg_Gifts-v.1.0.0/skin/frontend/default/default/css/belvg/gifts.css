@@ -1,0 +1,12 @@
+.gifts-link-wrapper { margin:3px 0 0; text-align:right; }
+.gifts-link { font-size:11px; text-transform:uppercase; }
+.gifts-products-wrapper { overflow-x:hidden; overflow-y:auto; max-height:310px; }
+.gifts-products-wrapper .products-list { overflow:hidden; border-bottom:1px solid #D9DDD3; }
+.gifts-products-wrapper .products-list:last-child { border-bottom:none; }
+.gifts-products-wrapper .products-list .item { width:200px; float:left; border-bottom:none; }
+.gifts-products-wrapper .products-list .product-image { width:50px; height:auto; float:left; }
+.gifts-products-wrapper .products-list .product-details { margin-left:60px; }
+.gifts-popup-wrapper { position:fixed; left:50%; top:30%; z-index:1001; margin-left:-340px; width:680px; padding:20px; background:#fff; border:2px solid #ccc; box-shadow:0 0 10px rgba(0,0,0,0.4); }
+.gifts-popup-overlay { background:#ccc; background:rgba(0,0,0,0.3); position:fixed; top:0; left: 0; width:100%; height:100%; z-index:1000; }
+.gifts-popup-close { position:absolute; right:6px; top:4px; text-decoration:none; font-size:16px; font-weight:bold; line-height:1; color:#888; }
+.gifts-popup-close:hover { color:#444; }

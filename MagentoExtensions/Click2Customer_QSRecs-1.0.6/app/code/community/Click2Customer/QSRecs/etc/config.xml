@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Click2Customer_QSRecs>
+            <version>1.0</version>
+        </Click2Customer_QSRecs>
+    </modules>
+    <global>
+        <blocks>
+            <click2customer_qsrecs>
+                <class>Click2Customer_QSRecs_Block</class>
+            </click2customer_qsrecs>
+        </blocks>
+        <helpers>
+            <click2customer_qsrecs>
+                <class>Click2Customer_QSRecs_Helper</class>
+            </click2customer_qsrecs>
+        </helpers>
+    </global>
+</config>

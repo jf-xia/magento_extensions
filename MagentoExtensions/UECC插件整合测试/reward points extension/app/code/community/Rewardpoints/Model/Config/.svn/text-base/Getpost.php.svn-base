@@ -1,0 +1,14 @@
+<?php
+
+class J2t_Smsgateway_Model_Config_Getpost {
+    
+
+    public function toOptionArray()
+    {
+        return array(
+            array('value' => 'get', 'label'=>Mage::helper('j2tsmsgateway')->__('Get')),
+            array('value' => 'post', 'label'=>Mage::helper('j2tsmsgateway')->__('Post')),
+        );
+    }
+
+}

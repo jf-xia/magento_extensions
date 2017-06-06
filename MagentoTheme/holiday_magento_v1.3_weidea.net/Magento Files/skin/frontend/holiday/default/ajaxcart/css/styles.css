@@ -1,0 +1,134 @@
+DIV.ajaxcartpro_progress{
+	border: 0px;
+	display: block;
+	position: fixed;
+	text-align: center;
+	padding: 10px 5px;
+	padding-top: 20px;
+	width: 214px;
+	height: 90px;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	background-color:#EFEFEF;
+	z-index: 10010;
+	font-weight: bold;
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.70);
+	-moz-box-shadow:    0px 0px 10px rgba(0, 0, 0, 0.70);
+	box-shadow:         0px 0px 10px rgba(0, 0, 0, 0.70);
+	top: expression(
+    	document.getElementsByTagName( 'body' )[0].scrollTop + "px");
+
+}
+
+DIV.ajaxcartpro_progress img,
+DIV.ajaxcartpro_progress1 img{margin: 0 auto; width: 47px !important; height: 32px; display: block;}
+
+
+DIV.ajaxcartpro_progress1{
+	border: 0px;
+	display: block;
+	position: absolute;
+	text-align: center;
+	padding: 10px 5px;
+	padding-top: 20px;
+	width: 214px;
+	height: 90px;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	background-color:#EFEFEF;
+	z-index: 10010;
+	font-weight: bold;
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.70);
+	-moz-box-shadow:    0px 0px 10px rgba(0, 0, 0, 0.70);
+	box-shadow:         0px 0px 10px rgba(0, 0, 0, 0.70);
+	top: expression(
+    	document.getElementsByTagName( 'body' )[0].scrollTop + "px");
+
+}
+
+DIV.ajaxcartpro_progress div, DIV.ajaxcartpro_progress p,
+DIV.ajaxcartpro_progress1 div, DIV.ajaxcartpro_progress1 p{
+	padding: 10px 5px;
+	margin:0px;
+}
+
+DIV.ajaxcartpro_progress div,
+DIV.ajaxcartpro_progress1 div{
+	font-weight: normal;
+	padding-top: 0px;
+}
+
+
+div.alert {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	display: block;
+	padding: 10px 10px 10px 10px;
+	text-align: center;
+	width: 402px;
+	background-color: #F07318;
+	z-index: 10010;
+	-moz-box-shadow: 0 0px 7px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0px 7px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: 0 0px 7px rgba(0, 0, 0, 0.6);
+	color:#FFF;
+}
+div.alert span{
+	float: left;
+	font-size: 20px;
+	font-family: 'FontAwesome';
+	margin-top: -2px;
+}
+div.alert p{
+	float: left;
+	padding: 0px 10px;
+	max-width: 340px;
+	width:100%;
+}
+div.alert p strong{font-family:'helvetica';}
+div.alert button{
+	float: right;
+	margin-top: -1px;
+	font-size: 20px;
+	font-family: 'FontAwesome';
+	background: none;
+	border: none;
+	z-index: 9999;
+	cursor:pointer;
+	color:#FFF;
+}
+div.alert a{
+	font-family: 'helvetica_bold';
+	font-size: 12px;
+	background: #EFEFEF;
+	border: 1px solid #DCDCDC;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.10);
+	/*color: #FFF;*/
+	/*border-radius:3px;*/
+	padding: 6px 10px;
+	float:right;
+	text-decoration: none;
+	margin: 5px 0px 0px 15px;
+	cursor:pointer;
+}
+div.alert a:hover{text-decoration:underline;}
+
+
+
+
+
+
+
+
+
+
+

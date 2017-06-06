@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+		<groupdeal module="groupdeal">
+			<title>Groupdeal</title>
+			<sort_order>71</sort_order>               
+			<children>
+				<deal module="groupdeal">
+					<title>Manage Deals</title>
+					<sort_order>0</sort_order>
+					<action>groupdeal/adminhtml_deal</action>
+				</deal>
+				<subscriber module="groupdeal">
+					<title>Manage Subscribers</title>
+					<sort_order>10</sort_order>
+					<action>groupdeal/adminhtml_subscriber</action>
+				</subscriber>
+				<settings module="groupdeal">
+					<title>Settings</title>
+					<sort_order>20</sort_order>
+					<action>adminhtml/system_config/edit/section/groupdeal</action>
+				</settings>				
+			</children>
+		</groupdeal>
+	</menu>
+	<acl>
+		<resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+			<admin>
+				<children>		
+					<system>
+						<children>
+							<config>
+								<children>
+									<groupdeal translate="title" module="groupdeal">
+										<title>Groupdeal</title>
+										<sort_order>50</sort_order>									
+									</groupdeal>								
+								</children>
+							</config>
+						</children>
+					</system>	
+					<groupdeal module="groupdeal">
+						<title>Groupdeal</title>
+						<sort_order>71</sort_order>               
+						<children>
+							<deal module="groupdeal">
+								<title>Manage Deals</title>
+								<sort_order>0</sort_order>
+								<action>groupdeal/adminhtml_deal</action>
+							</deal>
+							<subscriber module="groupdeal">
+								<title>Manage Subscribers</title>
+								<sort_order>10</sort_order>
+								<action>groupdeal/adminhtml_subscriber</action>
+							</subscriber>
+							<settings module="groupdeal">
+								<title>Settings</title>
+								<sort_order>20</sort_order>
+								<action>adminhtml/system_config/edit/section/groupdeal</action>
+							</settings>								
+						</children>
+					</groupdeal>					
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

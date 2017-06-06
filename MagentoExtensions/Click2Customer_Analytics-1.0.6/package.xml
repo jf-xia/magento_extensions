@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+    <name>Click2Customer_Analytics</name>
+    <version>1.0.6</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/mit-license.php">MIT License</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Click2Customer Core/Analytics Package</summary>
+    <description>Base module for Click2Customer suite.  This module is needed for all other Click2Customer modules.</description>
+    <notes>v1.0.2 ========== 2011-08-04&#xD;
+Fixed a bug that was showing up in magento's system.log file&#xD;
+&#xD;
+v1.0.1 ========== 2011-05-11&#xD;
+Changed module to use minified versions of c2c JavaScript files.&#xD;
+&#xD;
+v1.0.0 ==========&#xD;
+Initial Release</notes>
+    <authors><author><name>Click2Customer</name><user>auto-converted</user><email>info@click-2-customer.com</email></author></authors>
+    <date>2011-08-05</date>
+    <time>22:01:06</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Click2Customer_Analytics.xml" hash="7b9167fa1227be8982f20f3bd9855c97"/></dir></target><target name="magecommunity"><dir name="Click2Customer"><dir name="Analytics"><dir name="Block"><dir name="Html"><file name="Head.php" hash="baf08cfc2e0d78f59474ef82da75c40d"/></dir><file name="Analytics.php" hash="98933dbfebdf956365880331b091437e"/></dir><dir name="Helper"><file name="Data.php" hash="0de412569b8b0a8bdafa26ec308da9d0"/></dir><dir name="Model"><dir name="C2cproducts"><file name="Api.php" hash="d9a476829f98b9b0470e7448c2e4750b"/></dir><file name="Config.php" hash="98e39178751ba936c0ac00e20f5cc29c"/><file name="Page.php" hash="ee753bf41683ce32ca31b18c4b3a70ad"/></dir><dir name="etc"><file name="api.xml" hash="35ab820903c5ad6b91981b0b8203cf90"/><file name="config.xml" hash="0de1cb86d561ff4d22bb08930e06cd9f"/><file name="system.xml" hash="3cd4a3600527cfa028091fbb96c260d7"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="click2customer_analytics.xml" hash="767ef3680d69d6d6fc77c09dbe1618b5"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

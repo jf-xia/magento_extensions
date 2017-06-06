@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+ /***************************************
+ *         MAGENTO EDITION USAGE NOTICE *
+ *****************************************/
+ /* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+ /***************************************
+ *         DISCLAIMER   *
+ *****************************************/
+ /* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ *****************************************************
+ * @category   Belvg
+ * @package    Belvg_FacebookFree
+ * @copyright  Copyright (c) 2010 - 2011 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+-->
+<config>
+    <modules>
+        <Belvg_FacebookFree>
+            <version>1.0.7</version>
+        </Belvg_FacebookFree>
+    </modules>
+    <frontend>
+        <routers>
+            <facebookfree>
+                <use>standard</use>
+                <args>
+                    <module>Belvg_FacebookFree</module>
+                    <frontName>facebookfree</frontName>
+                </args>
+            </facebookfree>
+        </routers>
+        <layout>
+            <updates>
+                <facebookfree>
+                    <file>facebookfree.xml</file>
+                </facebookfree>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <models>
+            <facebookfree>
+                <class>Belvg_FacebookFree_Model</class>
+                <resourceModel>facebookfree_mysql4</resourceModel>
+            </facebookfree>
+            <facebookfree_mysql4>
+                <class>Belvg_FacebookFree_Model</class>
+                <entities>
+                    <facebookfree>
+                        <table>belvg_facebook_customer</table>
+                    </facebookfree>
+                </entities>
+            </facebookfree_mysql4>
+        </models>
+        <resources>
+            <facebookfree_setup>
+                <setup>
+                    <module>Belvg_FacebookFree</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </facebookfree_setup>
+            <facebookfree_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </facebookfree_write>
+            <facebookfree_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </facebookfree_read>
+        </resources>
+        <blocks>
+            <facebookfree>
+                <class>Belvg_FacebookFree_Block</class>
+            </facebookfree>
+        </blocks>
+        <helpers>
+            <facebookfree>
+                <class>Belvg_FacebookFree_Helper</class>
+            </facebookfree>
+        </helpers>
+    </global>
+    <default>
+        <facebookfree>
+            <like>
+                <enabled>0</enabled>
+                <faces>0</faces>
+                <width>450</width>
+                <color>light</color>
+                <layout>standart</layout>
+                <enabled>0</enabled>
+            </like>
+            <activity>
+                <enabled>0</enabled>
+                <width>200</width>
+                <height>300</height>  
+                <header>1</header>                        
+                <color>light</color>     
+                <recommendations>1</recommendations> 
+                <maxage>0</maxage>                
+            </activity>            
+        </facebookfree>
+    </default>
+</config>

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<config>
+
+    <modules>
+        <Olegnax_Gfont>
+            <version>0.1.0</version>
+        </Olegnax_Gfont>
+    </modules>
+    
+	<adminhtml>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+			                <children>
+			                    <config>
+			                        <children>
+			                            <gfont>
+			                                <title>Olegnax Google Fonts</title>
+			                            </gfont>
+			                        </children>
+			                    </config>
+			                </children>
+			            </system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+    </adminhtml>
+    
+	<global>
+        <blocks>
+            <gfont>
+                <class>Olegnax_Gfont_Block</class>
+            </gfont>
+        </blocks>
+        <helpers>
+            <gfont>
+                <class>Olegnax_Gfont_Helper</class>
+            </gfont>
+        </helpers>
+		<models>
+            <gfont>
+                <class>Olegnax_Gfont_Model</class>
+            </gfont>
+        </models>
+    </global>
+    
+	<default>
+		<gfont>
+			<gfont_config>
+				<font>Segoe UI Regular</font>
+				<font1>Segoe UI Regular</font1>
+			</gfont_config>
+		</gfont>
+	</default>
+    
+</config>

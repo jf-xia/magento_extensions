@@ -1,0 +1,5 @@
+<?php if ($this->helper('facebookfree')->isActive()):?>
+<a href="#" onclick="return fblogin();">
+    <img src="<?php echo $this->getImage() ?>" alt="<?php echo $this->__('Connect with Facebook') ?>" />
+</a>
+<?php endif?>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@mageworx.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ * or send an email to sales@mageworx.com
+ *
+ * @category   MageWorx
+ * @package    MageWorx_CustomerCredit
+ * @copyright  Copyright (c) 2010 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+ 
+/**
+ * Customer Credit extension
+ *
+ * @category   MageWorx
+ * @package    MageWorx_CustomerCredit
+ * @author     MageWorx Dev Team <dev@mageworx.com>
+ */
+-->
+<config>
+    <sections>				
+        <mageworx_customers translate="label" module="mageworx">
+            <label>Customers</label>
+            <tab>mageworx</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            
+            <groups>
+                <customercredit_credit translate="label" module="customercredit">
+                    <label>Customer Credit - General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>250</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <enable_credit translate="label comment">
+                            <label>Enable Customer Credit</label>
+                            <comment></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable_credit>
+                        <enable_recharge_codes translate="label comment">
+                            <label>Enable Recharge Codes</label>
+                            <comment>Customer Credit should be enabled</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable_recharge_codes>
+                        <enable_partial_credit_payment>
+                            <label>Enable Partial Credit Payment</label>
+                            <comment>Customer Credit should be enabled</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable_partial_credit_payment>
+                    </fields>
+                </customercredit_credit>
+                <customercredit_recharge_codes translate="label" module="customercredit">
+                    <label>Customer Credit - Recharge Codes Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>251</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <code_length translate="label comment">
+                            <label>Code Length</label>
+                            <comment>excluding separators, prefix and suffix</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-digits validate-greater-than-zero</validate>
+                        </code_length>
+                        <group_length translate="label comment">
+                            <label>Character Group Length</label>
+                            <comment>groups not used if empty</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-digits validate-not-negative-number</validate>
+                        </group_length>
+                        <group_separator translate="label comment">
+                            <label>Character Group Separator</label>
+                            <comment>groups not used if empty</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </group_separator>
+                        <code_format translate="label comment">
+                            <label>Code Format</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mageworx/system_config_source_customercredit_code_format</source_model>  Numeric, Alphanumeric, Alphabetical 
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </code_format>
+                        <!--<code_prefix translate="label comment">
+                            <label>Code Prefix</label>
+                            <comment>joins without separator</comment>
+                            <frontend_type>text</frontend_type>
+                            <source_model></source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </code_prefix>
+                        <code_suffix translate="label comment">
+                            <label>Code Suffix</label>
+                            <comment>joins without separator</comment>
+                            <frontend_type>text</frontend_type>
+                            <source_model></source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </code_suffix>
+                        <use_incremental_id translate="label comment">
+                            <label>Use Incremental Code ID as Suffix</label>
+                            <comment><![CDATA['Code Suffix' ignored if 'Yes'; fills with zero sign up to character group length; joins with group separator]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </use_incremental_id>-->
+                    </fields>
+                </customercredit_recharge_codes>
+            </groups>
+        </mageworx_customers>
+        <mageworx_sales>
+            <label>Sales</label>
+            <tab>mageworx</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+            </groups>
+        </mageworx_sales>
+        <sales>
+            <groups>
+                <totals_sort>
+                    <fields>
+                        <customercredit module="customercredit" translate="label">
+                            <label>Internal Credit</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </customercredit>
+                    </fields>
+                </totals_sort>
+            </groups>
+        </sales>
+    </sections>
+</config>

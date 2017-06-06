@@ -1,0 +1,6 @@
+id1:
+ part_of_query: 'in(1, 2, 3, 4)'
+ result: true
+id2:
+ part_of_query: 'in(1, 2, 3, 4)'
+ result: false

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * MagPleasure Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magpleasure.com/LICENSE.txt
+ *
+ * @category   Magpleasure
+ * @package    Magpleasure_Facecomments
+ * @copyright  Copyright (c) 2011 Magpleasure Co. (http://www.magpleasure.com)
+ * @license    http://www.magpleasure.com/LICENSE.txt
+ */
+-->
+<config>
+    <modules>
+        <Magpleasure_Facecomments>
+            <version>1.0</version>
+        </Magpleasure_Facecomments>
+    </modules>
+    <global>
+        <models>
+            <facecomments>
+                <class>Magpleasure_Facecomments_Model</class>
+            </facecomments>
+        </models>
+        <blocks>
+            <facecomments>
+                <class>Magpleasure_Facecomments_Block</class>
+            </facecomments>
+        </blocks>
+        <helpers>
+            <facecomments>
+                <class>Magpleasure_Facecomments_Helper</class>
+            </facecomments>
+        </helpers>
+        <resources>
+            <facecomments_setup>
+                <setup>
+                    <module>Magpleasure_Facecomments</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </facecomments_setup>
+            <facecomments_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </facecomments_write>
+            <facecomments_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </facecomments_read>
+        </resources>
+		<layout>
+			<updates>
+				<facecomments>
+					<file>facecomments.xml</file>
+				</facecomments>
+			</updates>
+		</layout>
+    </global>
+    <frontend>
+        <routers>
+            <facecomments>
+                <use>standard</use>
+                <args>
+                    <module>Magpeasure_Vkomments</module>
+                    <frontName>facecomments</frontName>
+                </args>
+            </facecomments>
+        </routers>
+		<layout>
+			<updates>
+				<facecomments>
+					<file>facecomments.xml</file>
+				</facecomments>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Magpleasure_Facecomments>
+					<files>
+						<default>Magpleasure_Facecomments.csv</default>
+					</files>
+				</Magpleasure_Facecomments>
+			</modules>
+		</translate>
+    </frontend>
+    <adminhtml>
+		<translate>
+			<modules>
+				<Magpleasure_Facecomments>
+					<files>
+						<default>Magpleasure_Facecomments.csv</default>
+					</files>
+				</Magpleasure_Facecomments>
+			</modules>
+		</translate>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <facecomments>
+                                            <title>Vkontakte Comments</title>
+                                        </facecomments>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+    </adminhtml>
+    <default>
+        <facecomments>
+            <general>
+                <width>500</width>
+                <limit>15</limit>
+            </general>
+        </facecomments>
+    </default>
+</config>

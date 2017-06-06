@@ -1,0 +1,3 @@
+"created_at","review_title","review_detail","nickname","customer_id","store_id_review_is_from","product_id","entity_type","status_code","reviews_count","rating_summary","rating_options","store_ids"
+"2010-06-15 22:37:29","Rock solid","Great little magento extension and I cant say enough about the author. Took time out of his day to personally make sure the extension was properly installed and working correctly. The problem ended up being an SSL cert issue on my end that he figured out.  Thanks again.","Adam","","1","167","product","Approved","2","90","1:5,3:5,2:5,","0,1"
+"2011-02-08 00:53:09","what a great test review","test review detail text","Scott","","0","167","product","Approved","2","90","1:5,3:4,2:3,","0,1"

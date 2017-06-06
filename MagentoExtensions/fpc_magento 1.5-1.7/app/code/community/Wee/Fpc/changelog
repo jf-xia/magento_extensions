@@ -1,0 +1,39 @@
+1.2.0.3 Stefan Wieczorek <stefan.wieczorek@mgt-commerce.com>
+Fixed typo
+
+1.2.0.2 Stefan Wieczorek <stefan.wieczorek@mgt-commerce.com>
+Fixed small bug in processors
+
+1.2.0.1 Stefan Wieczorek <stefan.wieczorek@mgt-commerce.com>
+add design package name and theme to cache key
+
+1.2.0.0 Stefan Wieczorek <stefan.wieczorek@mgt-commerce.com>
+add processor for recently viewed products
+check if apc is enabled
+
+1.1.0.3 Stefan Wieczorek <stefan.wieczorek@mgt-commerce.com>
+Fixed license check
+
+1.1.0.2 Stefan Wieczorek <stefan.wieczorek@mgt-commerce.com>
+add customer group id to cache key
+
+1.1.0.1 Stefan Wieczorek <stefan.wieczorek@mgt-commerce.com>
+Refactoring
+
+1.1.0.0 Stefan Wieczorek <stefan.wieczorek@mgt-commerce.com>
+Refactoring
+
+1.0.0.5 Stefan Wieczorek <stefan.wieczorek@mgt-commerce.com>
+Fixed bug in cart sidebar
+
+1.0.0.4 Stefan Wieczorek <stefan.wieczorek@mgt-commerce.com>
+Add processor for wishlist
+
+1.0.0.3 Stefan Wieczorek <stefan.wieczorek@mgt-commerce.com>
+Add processor for "compare products"
+
+1.0.0.2 Stefan Wieczorek <stefan.wieczorek@mgt-commerce.com>
+Fix routing problems.
+Mage_Core_Model_App->run
+add this method before cache processors starts
+-  $this->loadAreaPart(Mage_Core_Model_App_Area::AREA_GLOBAL, Mage_Core_Model_App_Area::PART_EVENTS);

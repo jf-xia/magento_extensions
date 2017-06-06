@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!-- Create a Artist module with the Namespace Thylak 
+    Here active = true to enable the module and codepool = local 
+    for notify that it was custom module created in local.-->
+
+<config>
+    <modules>
+        <Thylak_Artist>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Thylak_Artist>
+    </modules>
+</config> 

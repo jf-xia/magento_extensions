@@ -1,0 +1,150 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+
+
+
+<?php if($this->getCollection()->getSize()): ?>
+<div class="toolbar">
+   
+    <?php if( $this->isExpanded() ): ?>
+    <div class="sorter">
+        
+	
+	<?php if( $this->isEnabledViewSwitcher() ): ?>
+        <div class="view-mode">
+            <?php $_modes = $this->getModes(); ?>
+            <?php if($_modes && count($_modes)>1): ?>
+            <label><?php echo $this->__('View as') ?>:</label>
+            <?php foreach ($this->getModes() as $_code=>$_label): ?>
+                <?php if($this->isModeActive($_code)): ?>
+					<?php if($_code=="grid"): ?>
+                    <a title="<?php echo $_label ?>" class="<?php echo strtolower($_code); ?> grid-mode-active"><?php // echo $_label ?></a>
+					<?php else: ?>
+                    <a title="<?php echo $_label ?>" class="<?php echo strtolower($_code); ?> list-mode-active"><?php // echo $_label ?></a>
+                	<?php endif; ?>
+                <?php else: ?>
+                    <a href="<?php echo $this->getModeUrl($_code) ?>" title="<?php echo $_label ?>" class="<?php echo strtolower($_code); ?>"><?php //echo $_label ?></a>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+        <?php endif; ?>
+	
+	<script type="text/javascript">
+	jQuery(function() {
+		jQuery(".sort_box").hover(function() {
+			jQuery(this).addClass('active');
+			jQuery(".sort_detail").stop(true, true).slideDown(200, "easeInSine");
+			},  
+			function() {
+			jQuery(this).removeClass('active');
+			jQuery(".sort_detail").stop(true, true).fadeOut(200, "easeInSine");
+			});
+
+	});
+	</script>
+	
+        <div class="sort-by sort_box">
+            <label class="x-small"><?php echo $this->__('Sort By') ?></label>
+            <div class="sort_pan">
+                <span class="small">
+		    <?php foreach($this->getAvailableOrders() as $_key=>$_order):
+		    if($this->isOrderCurrent($_key)){
+		    echo $this->__($_order);}
+		     endforeach;  ?>
+		</span>
+	    </div>
+            <div class="sort_detail small" onchange="setLocation(this.value)">
+		<div class="sort_detail_arrow"></div>
+		<?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
+		    <a href="<?php echo $this->getOrderUrl($_key, 'asc') ?>" class="sort_icon <?php if($this->isOrderCurrent($_key)): ?>selected<?php endif; ?>">
+			<?php echo $this->__($_order) ?>
+		    </a>
+		<?php endforeach; ?>
+	    </div>
+        </div>
+        
+        <script type="text/javascript">
+	jQuery(function() {
+		jQuery(".show_box").hover(function() {
+			jQuery(this).addClass('active');
+			jQuery(".show_detail").stop(true, true).slideDown(200, "easeInSine");
+			},  
+			function() {
+			jQuery(this).removeClass('active');
+			jQuery(".show_detail").stop(true, true).fadeOut(200, "easeInSine");
+			});
+
+	});
+	</script>
+        
+        <div class="limiter show_box">
+            <label class="x-small"><?php echo $this->__('Show') ?></label>
+            <div class="show_pan">
+                <span class="small">
+		    <?php foreach ($this->getAvailableLimit() as  $_key=>$_limit):
+		    if($this->isLimitCurrent($_key)){
+		    echo $_key . ' ' . 'Items';}
+		     endforeach;  ?>
+		</span>
+	    </div>
+            <div class="show_detail small" onchange="setLocation(this.value)">
+		<div class="show_detail_arrow"></div>
+            <?php foreach ($this->getAvailableLimit() as  $_key=>$_limit): ?>
+                <a href="<?php echo $this->getLimitUrl($_key) ?>" class="show_icon <?php if($this->isLimitCurrent($_key)): ?>selected<?php endif ?>">
+                    <?php echo $_limit . ' ' . 'Items'; ?>
+                </a>
+            <?php endforeach; ?>
+            </div> <label><?php echo $this->__('per page') ?></label>
+        </div>
+
+        
+	<div class="pager small">
+		<p class="amount">
+		    <?php if($this->getLastPageNum()>1): ?>
+			<?php echo $this->__('Items %s to %s of %s total', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?>
+		    <?php else: ?>
+			<strong class="small"><?php echo $this->__('%s Item(s)', $this->getTotalNum()) ?></strong>
+		    <?php endif; ?>
+		</p>
+	
+		<?php echo $this->getPagerHtml() ?>
+
+	</div>
+        
+        
+    </div>
+    <?php endif; ?>
+    
+    
+     
+
+    
+    
+</div>
+<?php endif ?>

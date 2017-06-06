@@ -1,0 +1,108 @@
+/*
+ * Style taken from jquery example in ui demos and added
+ * ui themes css for bandwidth reasons
+ */
+
+.zp-combobox-input-wrapper {
+  margin-right: 19px;
+}
+
+.zp-combobox-button {
+  width: 19px; /* Same as right margin of .zp-combobox-input-wrapper */
+  background-color: #f2f2f2;
+  border: 1px solid #B6B6B6; /*#d3d3d3;*/
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  cursor: pointer;
+}
+
+.highlighted .zp-combobox-button {
+  border-color: #f18200;
+}
+
+.zp-combobox-button-icon {
+  background: url('images/zp-combobox-field/sprites.gif') no-repeat 0px 0px;
+  width: 7px;
+  height: 4px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin: -2px 0 0 -3px;
+  *margin-left: -4px;
+}
+
+.zp-combobox-icon-wrapper {
+  height: 100%;
+  *height: auto;
+}
+
+.zp-combobox-button:hover {
+  border-color: #888888;
+}
+
+.zp-combobox-button:hover .zp-combobox-button-icon {
+  background-position: 0px -10px
+}
+
+.zp-combobox-button.opened .zp-combobox-button-icon {
+  background-position: -13px 0px
+}
+
+.zp-combobox-button.opened:hover .zp-combobox-button-icon {
+  background-position: -13px -10px
+}
+
+.ui-autocomplete {
+  max-height: 100px;
+  overflow-y: auto;
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
+  /* add padding to account for vertical scrollbar */
+  position: absolute;
+  cursor: default;
+  width: 100% !important;
+  left: -1px !important;
+}
+
+/* IE 6 doesn't support max-height
+ * we use height instead, but this forces the menu to always be this tall
+ */
+* html .ui-autocomplete {
+  height: 100px;
+  width: 1px;
+}
+
+.ui-menu {
+  list-style: none;
+  margin: 0;
+  display: block;
+  float: left;
+  border: 1px solid #B6B6B6;
+  border-top: 0 none;
+  background-color: white;
+}
+
+.ui-menu .ui-menu-item {
+  display: block;
+  margin: 0;
+  padding: 0;
+  /*zoom: 1;
+  float: left;
+  clear: left;
+  width: 100%;*/
+}
+
+.ui-menu .ui-menu-item a {
+  color: #222222;
+  text-decoration: none;
+  display: block;
+  padding: 2px 4px;
+  /*zoom:1;*/
+}
+
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active {
+  background-color: #f2f2f2;
+}

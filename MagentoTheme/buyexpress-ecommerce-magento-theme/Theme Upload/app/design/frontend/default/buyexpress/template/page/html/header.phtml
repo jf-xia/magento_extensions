@@ -1,0 +1,139 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+    	<?php 
+			  $headerOp = Mage::getStoreConfig('buyexpress_options/style');
+			  $mediaUrl = Mage::getBaseUrl('media') . 'images/';
+				$helper = Mage::helper("customer"); 
+				$regUrl = $helper->getRegisterUrl();
+				$logUrl = $helper->getLoginUrl();	
+		?>
+<div class="header-container">
+    <div class="topHeader">
+    <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+    	<p class="welcome-msg"><?php echo $this->getWelcome() ?></p>
+		<?php elseif(!Mage::getSingleton('customer/session')->isLoggedIn() && !empty($headerOp["welcome_message"])): ?>
+              <p class="welcome-msg"><?php echo $headerOp["welcome_message"]; ?> <?php echo $this->getAdditionalHtml() ?></p>
+        <?php else: ?>
+       	<p class="welcome-msg"><?php echo $this->getWelcome() ?></p>
+    <?php endif; ?>
+    	  <?php echo $this->getChildHtml('store_language'); ?>
+          <?php echo $this->getChildHtml('currency'); ?>
+          <div class="social">
+                <ul>
+                	<li class="follow"><p><?php echo $this->__('Follow Us:') ?></p></li>
+                    <?php if($headerOp["fb_link"]): ?>
+                		<li class="fb"><a href="<?php echo $headerOp["fb_link"]; ?>" title="facebook">Facebook</a></li>
+                    <?php endif; ?>
+                    <?php if($headerOp["tw_link"]): ?>
+                   		<li class="tw"><a href="<?php echo $headerOp["tw_link"]; ?>" title="Twitter">Twitter</a></li>
+                    <?php endif; ?>
+                    <?php if($headerOp["pin_link"]): ?>
+                    	<li class="pin"><a href="<?php echo $headerOp["pin_link"]; ?>" title="Pinterest">Pinterest</a></li>
+                    <?php endif; ?>
+                </ul>
+          </div>
+          <div class="promoTop">
+          		<img src="<?php echo $mediaUrl . $headerOp["promo_img"]; ?>" />
+                <a href="<?php echo $headerOp["promo_link"]; ?>"><?php echo $headerOp["promo_info"]; ?></a>
+          </div>
+          <div class="loginForm">
+            <ul>
+            	<li class="login">
+                	<?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+                    	<a href="javascript:void(0);"><?php echo $this->__('My Account'); ?></a>
+                    	<?php echo $this->getChildHtml('topLinks') ?>
+                    <?php else: ?>
+                        <a href="javascript:void(0);"><?php echo $this->__('My Account'); ?></a>
+                        <ul>
+                            <li><?php echo $this->getChildHtml('mini_login') ?></li>
+                        </ul>
+                    <?php endif; ?>
+                </li>
+            </ul>
+			
+          </div>
+          <div class="clear"></div>
+    </div>
+    <div class="header">
+        <?php if ($this->getIsHomePage()):?>
+        <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $headerOp["logo_alt"]; ?>" class="logo"><img src="<?php echo $mediaUrl . $headerOp["logo_upload"]; ?>" alt="<?php echo $headerOp['logo_alt']; ?>" width="137" /></a></h1>
+        <?php else:?>
+        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $headerOp["logo_alt"]; ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $mediaUrl . $headerOp["logo_upload"] ?>" alt="<?php echo $headerOp['logo_alt']; ?>" width="137" /></a>
+        <?php endif?>
+        <div class="quick-access">
+            <?php echo $this->getChildHtml('topSearch'); ?>
+        </div>
+        <?php echo $this->getChildHtml('cart_sidebar'); ?>
+        <?php echo $this->getChildHtml('topContainer'); ?>
+        <div class="clear"></div>
+    </div>
+</div>
+<?php echo $this->getChildHtml('topMenu') ?>
+<?php echo $this->getChildHtml('cmspages') ?>
+
+<?php 
+	  $banners = Mage::getStoreConfig('buyexpress_options/banner');
+	  $mediaUrl = Mage::getBaseUrl('media') . 'images/';
+	  $bannerView = Mage::getStoreConfig('buyexpress_options/banner/banner_view');
+	  if(array_filter($banners)):
+?>
+
+<?php 
+	if($bannerView == 1): 
+	$home = new Mage_Page_Block_Html_Header();
+	if ($home->getIsHomePage()): 
+?>
+    <div class="banners">
+        <div class="banner1 banner">
+            <a href="<?php echo $banners["banner_upload_link1"]; ?>"><img src="<?php echo $mediaUrl . $banners["banner_upload1"] ?>" width="311" height="51" /></a>
+        </div>
+        <div class="banner2 banner">
+            <a href="<?php echo $banners["banner_upload_link2"]; ?>"><img src="<?php echo $mediaUrl . $banners["banner_upload2"] ?>" width="311" height="51" /></a>
+        </div>
+        <div class="banner3 banner">
+            <a href="<?php echo $banners["banner_upload_link3"]; ?>"><img src="<?php echo $mediaUrl . $banners["banner_upload3"] ?>" width="311" height="51" /></a>
+        </div>
+        <div class="clear"></div>
+    </div>
+	<?php endif; ?>
+    <?php else: ?>
+    <div class="banners">
+        <div class="banner1 banner">
+            <a href="<?php echo $banners["banner_upload_link1"]; ?>"><img src="<?php echo $mediaUrl . $banners["banner_upload1"] ?>" width="311" height="51" /></a>
+        </div>
+        <div class="banner2 banner">
+            <a href="<?php echo $banners["banner_upload_link2"]; ?>"><img src="<?php echo $mediaUrl . $banners["banner_upload2"] ?>" width="311" height="51" /></a>
+        </div>
+        <div class="banner3 banner">
+            <a href="<?php echo $banners["banner_upload_link3"]; ?>"><img src="<?php echo $mediaUrl . $banners["banner_upload3"] ?>" width="311" height="51" /></a>
+        </div>
+        <div class="clear"></div>
+    </div>
+<?php endif; endif; ?>

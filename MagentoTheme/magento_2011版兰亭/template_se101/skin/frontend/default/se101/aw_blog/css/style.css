@@ -1,0 +1,152 @@
+.postWrapper {
+	padding-bottom: 25px;
+	clear:both;
+}
+.postTitle {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #DDDDDD;
+	margin-bottom: 15px;
+}
+.postTitle h2 {
+	font-size: 20px;
+	font-weight: normal;
+	margin: 0px;
+	padding: 0px;
+}
+.postTitle h3 {
+	font-size: 10px;
+	margin: 0px;
+	padding-top: 2px;
+	padding-right: 0px;
+	padding-bottom: 2px;
+	padding-left: 0px;
+}
+.postContent {
+	padding-bottom: 10px;
+}
+.postDetails {
+	
+}
+.postBookmarks {
+	padding-bottom: 10px;
+}
+.postBookmarks h4 {
+	
+	font-size: 12px;
+	font-weight: bold;
+}
+.commentWrapper {
+	padding-bottom: 15px;
+}
+.commentContent {
+	padding-bottom: 0px;
+}
+.commentDetails  {
+	margin-bottom:5px;
+	padding: 0px;
+}
+.commentDetails  h4.username{
+	display:inline;
+}
+
+.postError {
+	font-size: 16px;
+}
+
+.tags{
+	font-weight:bold;
+	padding-bottom: 10px;
+}
+.tags UL{
+	display:inline;
+}
+.tags UL LI{
+font-weight:normal;
+	display:inline;
+	padding-right:6px;
+}
+
+
+.tags h4 {
+font-size:12px;
+font-weight:bold;
+}
+
+.menu-tags, .menu-categories, .menu-recent{
+	margin:5px 3px 15px 3px;
+}
+
+.blog .menu-tags UL LI{
+	display:inline;
+	padding:2px;
+	margin-left:10px;
+	
+}
+.blog .menu-categories UL LI{
+	margin-left:10px;
+}
+
+.blog .menu-recent UL{margin-left:10px;}
+.blog .menu-recent UL LI{
+	margin-left:10px;
+	list-style:disc;
+}
+
+.tagcloud{
+	/* text-align:center; */ 
+}
+.tag-count-1{
+	font-size:1em;
+}
+.tag-count-2{
+	font-size:1.2em;
+}
+.tag-count-3{
+	font-size:1.4em;
+}
+.tag-count-4{
+	font-size:1.6em;
+}
+.tag-count-5{
+	font-size:1.8em;
+}
+.tag-count-6{
+	font-size:2em;
+}
+.tag-count-7{
+	font-size:2em;
+}
+.tag-count-8{
+	font-size:2em;
+}
+.tag-count-9{
+	font-size:2em;
+}
+.tag-count-10{
+	font-size:2em;
+}
+
+.blog .head h4{
+padding-left: 20px;
+}
+
+.blog .head h4 {
+background-image:url(../images/icon_blog.png);
+background-repeat:no-repeat;
+font-weight:normal;
+}
+
+.postWrapper .poster{
+	display:inline;
+	font-size:12px;
+}
+
+
+.blog-index-index .postTitle, .blog-cat-view .postTitle, .blog-post-view .postTitle{border-bottom:2px solid #be0000;}
+.blog-index-index .postTitle h2,  .blog-post-view .postTitle h2,  .blog-cat-view .postTitle h2{font-size:14px; font-weight:bold;}
+.blog h5{margin-left:10px;}
+
+.cms-home .menu-categories{display:none;}
+
+

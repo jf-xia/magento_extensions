@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   ASPerience
+ * @package    Asperience_Addresscomplete
+ * @author     ASPerience - www.asperience.fr
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+   <modules>
+      <Asperience_Addresscomplete>
+         <version>0.2.4</version>
+      </Asperience_Addresscomplete>
+   </modules>
+
+   <global>
+
+		<blocks>
+			<customer>
+				<rewrite>
+					<address_form>Asperience_Addresscomplete_Block_Address_Edit</address_form>
+				</rewrite>
+			</customer>
+			<addresscomplete>
+                <class>Asperience_Addresscomplete_Block</class>
+            </addresscomplete>
+		</blocks>
+		
+		<helpers>
+            <addresscomplete>
+                <class>Asperience_Addresscomplete_Helper</class>
+            </addresscomplete>
+        </helpers>
+
+		<models>
+			<addresscomplete>
+				<class>Asperience_Addresscomplete_Model</class>
+				<resourceModel>addresscomplete_mysql4</resourceModel>
+			</addresscomplete>
+			
+			<addresscomplete_mysql4>
+                <class>Asperience_Addresscomplete_Model_Mysql4</class>
+                <entities>
+                    <city>
+                        <table>directory_country_city</table>
+                    </city>
+                </entities>
+       		</addresscomplete_mysql4>
+      	</models>
+      	
+		<resources>
+		    <addresscomplete_setup>
+		       <setup>
+		          <module>Asperience_Addresscomplete</module>
+		          <class>Mage_Customer_Model_Entity_Setup</class>
+		       </setup>
+		       <connection>
+		          <use>core_setup</use>
+		       </connection>
+		    </addresscomplete_setup>
+
+		    <addresscomplete_write>
+		       <connection>
+		          <use>core_write</use>
+		       </connection>
+		    </addresscomplete_write>
+
+		    <addresscomplete_read>
+		       <connection>
+		          <use>core_read</use>
+		       </connection>
+		    </addresscomplete_read>
+		</resources>
+	</global>
+
+	<frontend>
+    	<routers>
+            <Asperience_Addresscomplete>
+                <use>standard</use>
+                <args>
+                    <module>Asperience_Addresscomplete</module>
+                    <frontName>addresscomplete</frontName>
+                </args>
+            </Asperience_Addresscomplete>
+        </routers>
+
+		<layout>
+		    <updates>
+		        <addresscomplete module="Asperience_Addresscomplete">
+		            <file>addresscomplete.xml</file>
+		        </addresscomplete>
+		    </updates>
+		</layout>
+		
+		<translate>
+            <modules>
+                <Asperience_Addresscomplete>
+                    <files>
+                        <default>Asperience_Addresscomplete.csv</default>
+                    </files>
+                </Asperience_Addresscomplete>
+            </modules>
+        </translate>
+    </frontend>
+
+</config>

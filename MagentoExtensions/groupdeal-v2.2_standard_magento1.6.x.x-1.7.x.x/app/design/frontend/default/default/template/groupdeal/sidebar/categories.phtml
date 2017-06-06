@@ -1,0 +1,18 @@
+<?php $categories = $this->getCategories()?>
+<?php if(count($categories)){?>
+<div class="block block-related categories">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Deal Category') ?></span></strong>
+    </div>
+    <div class="block-content">
+        <ol class="mini-products-list">
+        <?php foreach($categories as $category){?>
+            <li class="item">
+               <a href="<?php echo $this->getCategoryUrl($category->getId())?>"><?php echo $category->getName() ?></a> 
+               <!--(<?php echo $this->countDealInCategory($category) ?>)-->
+            </li>
+        <?php }?>
+        </ol>
+    </div>
+</div>
+<?php }?>

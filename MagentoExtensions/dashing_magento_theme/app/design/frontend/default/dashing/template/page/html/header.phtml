@@ -1,0 +1,190 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_dashing
+ * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div id="wrapper">
+  <div id="main-container" class="clearfix">
+    <div id="header" class="clearfix">
+      <div class="container_12">
+        <div class="grid_1">
+          <h1 id="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+        </div>
+        <div class="prefix_1" id="topLinks">
+          <div class="top-cart">
+              <div> <?php echo $this->__('My Cart') ?>
+	  <?php if(Mage::getSingleton('checkout/session')->getQuote()->getItemsSummaryQty() > 0) { ?>
+            (<?php echo __(Mage::getSingleton('checkout/session')->getQuote()->getItemsSummaryQty()); ?>)
+          <?php } ?> </div>
+              <div class="mini-cart"><?php echo $this->getChildHtml('cart_header')?></div>
+          </div>
+          <div class="top-cart">
+              <div> <?php echo $this->__('My WishList'); $wishCount=Mage::helper('wishlist/data')->getItemCount(); ?>
+	  <?php if($wishCount>0): ?>
+            <?php echo $this->__('<small>(%d)</small>', $wishCount) ?>
+      <?php endif ?> </div>
+             	<?php echo $this->getChildHtml('wishlist')?>
+	  <?php if(!($wishCount>0)): ?>
+  				<div class="mini-cart">
+					<p class="empty"><?php echo $this->__('You have no items in your WishList.') ?></p>
+				</div>
+      <?php endif ?>
+		  </div>
+        <div class="top-cart">
+              <div> <?php echo $this->__('My CheckList') ?></div>
+				  <div class="mini-cart">
+						<?php 
+						
+							$customerId = Mage::getSingleton('customer/session')->getCustomer()->getId();
+							$wpChecknote = Mage::getModel('checklist/checknote')->getCollection()->addFieldToFilter('customer_id',$customerId)->setOrder('checklist_checknote_id', 'DESC');
+							$homeUrl = Mage::app()->getStore()->getBaseUrl();
+							?>
+						<?php $characterCount = $this->getCharacterCount(); ?>
+					<div id='checknote'>
+						<form name="input" action="<?php echo $homeUrl; ?>/checklist/addlist" method="get">
+								<label for='checknote'><?php echo $this->__(Mage::helper('checklist')->getFrontendLabel()) ?><?php if ($characterCount !== false): ?> ( max <?php echo $characterCount ?> characters ) <?php endif; ?></label><br />
+								<textarea id='checknote' name='checknote' style="width:250px;height:200px" class="input-text<?php if ($characterCount !== false): ?> validate-length maximum-length-<?php echo $characterCount ?> <?php endif; ?>"><?php foreach ($wpChecknote->getItems() as $_item) {echo $_item->getChecknote();break;}?></textarea><br />
+								
+								<input type="submit" value="Save Note" />
+						</form> 
+					</div>
+				</div>
+		  </div>
+        <div class="top-cart">
+              <div> <?php echo $this->__('Fast Login') ?></div>
+				  <div class="mini-cart">
+						
+						
+						
+						
+						
+						
+						
+<div class="account-login">
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <form action="<?php echo $this->getPostActionUrl() ?>" onsubmit="return validate();" method="post" id="login-form">
+                <div class="content">
+                    <ul class="form-list">
+                        <li>
+                            <label for="email" class="required"><em>*</em><?php echo Mage::helper('customer')->__('Email/Mobile') ?></label>
+                            <div class="input-box">
+                                <input type="text" name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" id="email" class="input-text required-entry" title="<?php echo Mage::helper('customer')->__('Email/Username/Mobile') ?>" />
+                            </div>
+                        </li>
+                        <li>
+                            <label for="pass" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
+                            <div class="input-box">
+                                <input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
+                            </div>
+                        </li>
+                        <li> 
+                        <?php 
+	$this->codeSession = Mage::getSingleton('customer/session')->setCaptcha($orderId);
+        $captcha = new Zend_Captcha_Image(array('font'=>'media/verdanaz.ttf', //字体文件路径
+               'fontsize'=>16, //字号
+               'imgdir'=>'media/captcha/', //验证码图片存放位置
+               'session'=>$this->codeSession, //验证码session值
+               'width'=>100, //图片宽
+               'height'=>30,   //图片高
+               'wordlen'=>4 )); //字母数
+      $captcha->setDotNoiseLevel(5);  //设置验证码背景图片中的混淆点个数，默认为100
+      $captcha->setGcFreq(3); //设置删除生成的旧的验证码图片的随机几率
+      $captcha->generate(); //生成图片
+      $imgDir=$this->view->ImgDir = $captcha->getImgDir();
+      $captchaId=$this->view->captchaId = $captcha->getId(); //获取文件名，md5编码
+      $this->codeSession->code=$captcha->getWord(); //获取当前生成的验证字符串
+      $code= $this->codeSession->code;//得到的是验证码中的数字
+      //echo $captchaId."<br/>";
+	  $url=substr(Mage::getBaseUrl(),0,-10);
+?>
+					<img src="<?php echo $url."media/captcha/".$captchaId.".png" ?>"></img><a href="" onclick="location.reload();" >Reload</a><br />
+                        <input type="text" name="captcha" id="captcha" class="input-text required-entry" title="captcha" />
+                        </li>
+ 						<script language="javascript" type="text/javascript">
+						      function validate()
+						     {
+							       var inputCode = document.getElementById("captcha").value;
+							       if(inputCode == "<?php echo $code;?>" )
+							       {
+							    	   return true;
+							       } else {
+							    	   alert("captcha Error!");
+							    	   return false;
+							    	   location.reload();
+								   }
+						     }
+						</script>
+                    </ul>
+                    <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+                </div>
+                <div class="buttons-set">
+                    <button type="submit" class="button" title="<?php echo $this->__('Login') ?>" name="send" id="send2"><span><span><?php echo $this->__('Login') ?></span></span></button>
+                    <br />
+                </div>
+                <div class="buttons-set">
+                    <button type="button"  title="<?php echo $this->__('Login as sinausers') ?>" class="button" onclick="location='<?php echo $this->getUrl('sinalogin/login/connecttosina') ; ?>'">
+                    	<span><span><?php echo $this->__('SinaWeiBo') ?></span></span></button>
+                    <br />
+                </div>
+                <div class="buttons-set">
+                    <button type="button" title="<?php echo $this->__('Create an Account') ?>" class="button" onclick="window.location='<?php echo $this->getCreateAccountUrl() ?>';"><span><span><?php echo $this->__('Create an Account') ?></span></span></button>
+                </div>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var dataForm = new VarienForm('login-form', true);
+    //]]>
+    </script>
+</div>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						  	
+					</div>
+			  </div>
+          <?php echo $this->getChildHtml('accountLinks') ?>
+          <span class="welcome-msg"><?php echo $this->getWelcome()?></span>
+        </div>
+      </div>
+    </div>
+    <div id="navigation" class="clearfix">
+      <div class="container_12">
+        <div class="grid_1 right">
+		  <div class="searchbtn"><div class="a-right"><img src="<?php echo $this->getSkinUrl('images/i_search.png')?>" alt="" /></div><?php echo $this->getChildHtml('topSearch') ?></div>
+		</div>
+        <div class="suffix_1">
+          <div>
+            <ul id="nav">
+              <?php echo $this->getChildHtml('topMenu') ?>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>

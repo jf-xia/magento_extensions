@@ -1,0 +1,681 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title> Installation Manual :: Magento Themes &amp; Magento Templates Home :: BestMagento.com</title>
+<style type="text/css">
+body {
+	-x-system-font:none;
+	background:#fff;
+	color:#2F2F2F;
+	font-family: helvetica, verdana, sans-serif;
+	font-size:11px;
+	line-height:1.55em;
+	padding-boblockquoteom: 50px;	
+}
+
+html {
+	min-height:100%;
+}
+
+form, input {
+	margin: 0px;
+	padding: 0px;
+	display: inline;
+}
+td , p,  a, span, div, li {
+	font: 12px Tahoma,  Helvetica, sans-serif;
+	line-height:20px;
+}
+a {
+	text-decoration: none;
+	color: #0B75A7;
+	outline: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a img {
+	border: none;
+}
+
+blockquote{
+	background: #c5e0ec;
+	padding: 4px 10px;
+	border: 1px dotted #1d87b7;
+	display: block;
+}
+
+textarea{
+	background: none;
+	border: none;
+	width: 100%;
+	font: 11px Tahoma, Verdana, Helvetica, sans-serif;	
+}
+
+p {
+	font: 12px Tahoma, Verdana, Helvetica, sans-serif;
+	padding: 0px;
+	
+}
+h1, h2, h3, h4, h6 {
+	padding: 0px;	
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+h1 {font-size: 19px; color: #5184B6;}
+h2 {font-size: 17px;  color: #fff; padding:5px;  background:#cc0000; width:100%;}
+h3 {font-size: 15px; color: #fff; padding:5px;  background:#2a2a2a; width:100%;}
+h4, h5, h6 {font-size: 12px;}
+.catalog-product-view #maincolumn h4 {background:transparent url(../images/hline.gif) repeat-x scroll left boblockquoteom; color: #5FA2CB; margin-top: 10px !important; line-height: 18px;}
+
+ul, li {
+	margin: 5px 30px;;
+	padding: 0px;
+}
+
+.footerc, .footerl{
+	padding: 5px;
+	text-align: right;
+}
+
+.footerc, .footerl, .footerc *, .footerl *{
+	color: #fff;
+}
+
+.footerc{
+	width: 180px;
+	float: left;
+}
+
+.footerl{
+	width: 380px;
+	float: right;
+}
+.headerc{
+	color: #ffffff;
+	font-size:13px;
+	line-height: 24px;
+	padding: 5px;	
+}
+
+.fright{
+	float: right;
+	font-weight: bold;
+}
+
+
+</style>
+</head>
+<body>
+<table align="center" bgcolor="#ffffff" border="0" cellpadding="1" cellspacing="0" width="800"><tbody>
+	<tr>
+		<td>
+			<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="800"><tbody>
+				<tr>
+					<td>
+						<a href="http://www.bestmagento.com/"><img src="images/logo.gif" border="0"></a>
+					</td>
+				</tr>
+				<tr>
+					<td  bgcolor="#0B75A7">
+						<div class="headerc">Magento Themes &amp; Magento Templates Home :: #1 Source for Magento Themes &amp; Magento Templates</div>
+					</td>
+				</tr>
+			</tbody></table><br>
+		</td>
+	</tr>
+</tbody></table>
+
+<table align="center" bgcolor="#ffffff" border="0" cellpadding="1" cellspacing="0" width="800"><tbody>
+	<tr>
+		<td>
+			<table align="center"><tbody>
+				<tr>
+					<td>
+
+<p>谢谢你购买我们的模板，下面是安装说明，本模板适用于Magento 1.6.x, 1.7.x 版本。</p>
+
+<h2>快捷安装(安装方法1)</h2>
+1. 从官方网站下载Magento 安装文件并上传到网站空间。<br/>
+2. 把本模板文件夹 with_samples 下的全部文件拷贝到Magento目录。<br/>
+3. 用phpMySql或者其他工具导入示例产品数据库(with_sample/database/database.sql 。<br/>
+4. 用浏览器访问你的网站，按照屏幕提示进行安装。<br/>
+5. 如需使用其他颜色模板，在  Admin -> System -> Configuration -> Design tab -> Themes->Skin(Images/CSS) 中填入其他颜色模板名称，如 'se105_red', 就是蓝色的模板。</br>
+6. 刷新一下cache，重新索引一下 index。<br/>
+7. 完成。<br/>
+
+
+<h2>纯净安装(只安装模板，没有示例产品数据)(安装方法2)</h2>
+<h3># 文件拷贝</h3>
+
+<p>把template_se105下的文件全部拷贝到Magento安装目录</p>
+
+<h3># 把Magento的cache暂时关闭:</h3>
+
+<p>在 Admin -> System -> Manage Cache 去暂时关闭cache功能，等模板安装测试成功再打开cache.</p>
+
+<h3># 设置 WISIWYG 编辑器选项:</h3>
+
+<p>去 Admin -> System -> Configuration > Content managment 然后设置 WISIWYG 编辑器至 "disabled by default mode".</p>
+
+
+<h3># 首页安装:</h3>
+
+<p>在后台 -> CMS -> Pages -> Homepage.</p>
+
+<ul>
+<li><p>点击左边content 选项，把下面代码加入 content 区域:</p>
+<p>******************************************************************************</p>
+
+<blockquote><textarea rows="15">
+
+<div class="top-banners">
+<div id="slider">
+<div class="slidercontrolwr">
+     <div class="slidercontrol">
+          <a title="Slide 1" href="#section1">1</a>
+          <a title="Slide 2" href="#section2">2</a> 
+         <a title="Slide 3" href="#section3">3</a>
+     </div>
+</div>
+<div class="scroller">
+    <div class="content">
+    <div id="section1" class="sectionslide"><a href="{{store direct_url="#"}}"><img src="{{skin url="images/slider/slider1.jpg"}}" alt="" /></a></div>
+    <div id="section2" class="sectionslide"><a href="{{store direct_url="#"}}"><img src="{{skin url="images/slider/slider2.jpg"}}" alt="" /></a></div>
+     <div id="section3" class="sectionslide"><a href="{{store direct_url="#"}}"><img src="{{skin url="images/slider/slider3.jpg"}}" alt="" /></a></div>
+  </div>
+</div>
+</div>
+<script type="text/javascript">// <![CDATA[
+    var my_glider = new Glider('slider', {duration:0.5, autoGlide: true, frequency: 4, initialSection: 'section1'});
+ 
+// ]]></script>
+</div>
+
+ {{block type="bmproducts/product_special" name="homepage.special" title="Special  Products"  productsCount="6" template="bmproducts/product/special.phtml"}}
+
+
+</textarea></blockquote></li>
+
+<li><p>选择左边的 Design tab， 选择layout为： '2 columns with left bar'</p></li>
+<li><p>然后在 Layout Update XML 里面加入下面代码：</p>
+
+<blockquote><textarea rows="15">
+
+<reference name="left">
+<block type="bmproducts/review_new" name="recent_review" template="bmproducts/review/list.phtml">
+      <action method="setTitle"><title>Recent Review Items</title></action>
+    <action method="setProductsCount"><count>10</count></action>
+  </block>
+</reference>
+
+
+<reference name="content">
+<block type="featuredcategories/display" template="sfc_featuredcategories/display.phtml" />
+
+  <block type="bmproducts/product_latest" name="product_latest" template="bmproducts/product/latest.phtml">
+    <action method="setTitle"><title>Latest Products</title></action>
+    <action method="setProductsCount"><count>10</count></action>
+  </block>
+
+  <block type="bmproducts/product_featured" name="product_Featured" template="bmproducts/product/featured.phtml">
+    <action method="setCategoryId"><category_id>12</category_id></action>
+    <action method="setTitle"><title>Featured Products</title></action>
+    <action method="setProductsCount"><count>10</count></action>
+  
+  </block>
+ <block type="bmproducts/product_popular" name="product_popular" template="bmproducts/product/popular.phtml">
+    <action method="setTitle"><title>Popular Products</title></action>
+    <action method="setProductsCount"><count>5</count></action>
+  </block>
+
+
+</reference>
+
+
+
+
+		
+</textarea></blockquote></li>
+
+<li><p>最后选择 save page 按钮存储该页面</P></li>
+ 
+ 
+ <li><p>在首页代码中 href="{{store direct_url="#"}}" 可以填入产品或者分类的url，比如是浏览器看到某页面url是http://www.yourdomain.com/electronics/computers.html，则代码href="{{store direct_url="electronics/computers.html"}}"就是该页面的链接。</p></li>
+<li><p>Featured category是推荐分类列表，这块功能采用了免费插件，插件地址：http://www.magentocommerce.com/magento-connect/sfc-featuredcategories.html， 具体使用方法可以参考附带的文档 SFC_Featured_Categories_Extension_Users_Manual.pdf </p></li>
+<li><p>首页Special Product 是显示打折的商品，如果网站有特价商品，就会在这里显示，可以去后台 CMS->pages->home -> content 去设置该块显示产品个数。</p></li>
+<li><p>首页Latest Products 是最新更新过的产品，这个是动态自动生成，可以去后台 CMS->pages->home -> Design -> Layout Update XML去设置该块显示产品个数。 </p></li>
+<li><p>首页Featured Products 是显示的某个分类里的产品，需要修改首页代码中的 category_id="22" ID值, 可以去后台 CMS->pages->home -> Design -> Layout Update XML 去设置该块category_id。</p></li>
+<li><p>Popular Products是客户浏览最多的产品列表，这个是动态自动生成，可以去后台 CMS->pages->home -> Design -> Layout Update XML field 去设置该块显示产品个数。</p></li>
+<li><p>Bestsellers 是卖的最好的产品列表，这个是动态自动生成。可以去后台 CMS->pages->home -> Design -> Layout Update XML field 去设置该块显示产品个数。</p></li>
+<li><p>首页产品广告轮换图片存放在 skin/frontend/default/se105/images/slider 目录下, 可以用你自己的图片替换，替换时要注意每个图片的尺寸要和原来的图片相同。</p></li>
+</ul>
+
+
+<h3># 添加首页外的其他页面:</h3>
+<p style="color:red">在加入新页面时，一定要注意 URL key 要和本安装说明中的一模一样，Magento就是用这个key 去调用相应的页面的</p>
+<h4>1. 添加 New Arrivals 页面</h4>
+<p>打开 CMS ->Pages 然后按 Add New Page 按钮， 添加下面页面：</p>
+<ul>
+   <li>Page Title:New Arrivals</li>
+   <li>URL Key:new_arrivals</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>然后在左边选择Content tab， 在右边框内添加下面内容：</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="5">
+
+ {{block type="bmproducts/product_latest" name="cms.latest" title="Latest 60 Products"  productsCount="60" template="bmproducts/product/listcms.phtml"}}
+
+</textarea></blockquote></li>
+<li><p>然后在左边选择Design tab， Layout 选 1 Column。</p>
+
+<li><p>然后点击 Save Page 按钮存储该页面</p></li>
+
+<li><p>这个页面显示最新的60个产品。</p></li>
+    
+</ul>
+
+<h4>2. 添加 Bestsellers 页面</h4>
+<p>打开 CMS ->Pages 然后按 Add New Page 按钮， 添加下面页面：</p>
+<ul>
+   <li>Page Title:Bestsellers</li>
+   <li>URL Key:bestsellers</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>然后在左边选择Content tab， 在右边框内添加下面内容：</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="5">
+
+ {{block type="bmproducts/product_bestseller" name="cms.bestsellers" title="10 Bestsellers"  productsCount="10" template="bmproducts/product/listcms.phtml"}}
+
+</textarea></blockquote></li>
+<li><p>然后在左边选择Design tab， Layout 选 1 Column。</p>
+
+<li><p>然后点击 Save Page 按钮存储该页面</p></li>
+
+<li><p>这个页面显示热卖的10个产品。</p></li>
+    
+</ul>
+
+<h4>3. 添加 Special 页面</h4>
+<p>打开 CMS ->Pages 然后按 Add New Page 按钮， 添加下面页面：</p>
+<ul>
+   <li>Page Title:Special</li>
+   <li>URL Key:special</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>然后在左边选择Content tab， 在右边框内添加下面内容：</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="5">
+
+ {{block type="bmproducts/product_special" name="cms.special" title="10 Special"  productsCount="10" template="bmproducts/product/listcms.phtml"}}
+
+</textarea></blockquote></li>
+<li><p>然后在左边选择Design tab， Layout 选 1 Column。</p>
+
+<li><p>然后点击 Save Page 按钮存储该页面</p></li>
+
+<li><p>这个页面显示10个特价产品。</p></li>
+    
+</ul>
+
+<h4>4. 添加 Popular 页面</h4>
+<p>打开 CMS ->Pages 然后按 Add New Page 按钮， 添加下面页面：</p>
+<ul>
+   <li>Page Title:Popular Products</li>
+   <li>URL Key:popular</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>然后在左边选择Content tab， 在右边框内添加下面内容：</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="5">
+
+ {{block type="bmproducts/product_popular" name="cms.latest" title="20 Popular Products"  productsCount="20" template="bmproducts/product/listcms.phtml"}}
+
+</textarea></blockquote></li>
+<li><p>然后在左边选择Design tab， Layout 选 1 Column。</p>
+
+<li><p>然后点击 Save Page 按钮存储该页面</p></li>
+
+<li><p>这个页面显示20个客户浏览最多的产品。</p></li>
+    
+</ul>
+
+<h4>4. 添加 Featured 页面</h4>
+<p>打开 CMS ->Pages 然后按 Add New Page 按钮， 添加下面页面：</p>
+<ul>
+   <li>Page Title:Featured Products</li>
+   <li>URL Key:featured</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>然后在左边选择Content tab， 在右边框内添加下面内容：</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="5">
+
+ {{block type="bmproducts/product_featured" name="cms.latest" title="Featured Products"  productsCount="20" categoryId="12" template="bmproducts/product/listcms.phtml"}}
+
+</textarea></blockquote></li>
+<li><p>然后在左边选择Design tab， Layout 选 1 Column。</p>
+
+<li><p>然后点击 Save Page 按钮存储该页面</p></li>
+
+<li><p>这个页面显示20个推荐商品。</p></li>
+    
+</ul>
+    
+
+
+
+
+
+<h3># 在后台加入静态块代码:</h3>
+<p style="color:red">在加入静态块时，一定要注意 Identifier 要和本安装说明中的一模一样，Magento就是用这个id 去调用相应的静态块的</p>
+<h4>静态块1</h4>
+<p>打开 CMS ->Static Blocks 加入下面静态块</p>
+<ul>
+   <li>Block Title:Community Block</li>
+   <li>Identifier:community-block</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>在Content里面添加下列代码：</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="10">
+
+<div class="community-block">
+<ul>
+    <li class="community-title"><span>Join our community :</span></li>
+    <li class="i-facebook"><a href="http://www.facebook.com"><span>facebook</span></a></li>
+    <li class="i-twitter"><a href="http://www.twitter.com"><span>twitter</span></a></li>
+    <li class="i-youtube"><a href="http://www.youtube.com"><span>youtube</span></a></li>
+    <li class="i-flickr"><a href="http://www.flickr.com"><span>flckr</span></a></li>
+    <li class="i-rss"><a href="{{store direct_url="rss"}}" ><span>RSS feed</span></a></li>
+</ul> 
+</div>
+
+</textarea></blockquote></li>
+<li><p>可以加入一些facebook 等的链接。</p></li>
+    
+</ul>
+
+
+<h4>静态块2</h4>
+<p>打开 CMS ->Static Blocks 加入下面静态块</p>
+<ul>
+   <li>Block Title:Footer CMS Links</li>
+   <li>Identifier:footer_cms_links</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>在Content里面添加下列代码：</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="25">
+
+<div class="footer_block">
+<ul class="mar_t2">
+      <li><span>Company Info</span>
+        <ul class="mar_t1">
+          <li><a href="{{store direct_url="#"}}">About Us</a></li>
+          <li><a href="{{store direct_url="#"}}">Location & Working Hours</a></li>
+          <li><a href="{{store direct_url="#"}}">Testimonials</a></li>
+          <li><a href="{{store direct_url="#"}}">Our Guarantee</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="mar_t2">
+      <li><span>Customer Service</span>
+        <ul class="mar_t1">
+          <li><a href="{{store direct_url="contacts"}}">Contact Us</a></li>
+          <li><a href="{{store direct_url="#"}}">FAQs</a></li>
+          <li><a href="{{store direct_url="#"}}">Jobs</a></li>
+          <li><a href="{{store direct_url="#"}}">Buying Guides</a></li>
+          <li><a href="{{store direct_url="#"}}">Help and Knowledge Base</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="mar_t2">
+      <li><span>Shipping & Returns</span>
+        <ul class="mar_t1">
+          <li><a href="{{store direct_url="#"}}">Shipping Method Guide</a></li>
+          <li><a href="{{store direct_url="#"}}">Return Policy</a></li>
+          <li><a href="{{store direct_url="#"}}">Locations We Ship  to</a></li>
+          <li><a href="{{store direct_url="#"}}">Estimate Delivery Time</a></li>
+        </ul>
+      </li>
+    </ul>
+   <ul class="mar_t2">
+      <li><span>Customer Service</span>
+        <ul class="mar_t1">
+          <li><a href="{{store direct_url="contacts"}}">Contact Us</a></li>
+          <li><a href="{{store direct_url="#"}}">FAQs</a></li>
+          <li><a href="{{store direct_url="#"}}">Jobs</a></li>
+          <li><a href="{{store direct_url="#"}}">Buying Guides</a></li>
+          <li><a href="{{store direct_url="#"}}">Help and Knowledge Base</a></li>
+        </ul>
+      </li>
+    </ul>
+     <div class="clear"></div>
+</div>
+
+
+</textarea></blockquote></li>
+<li><p>可以加入一些外部链接，或者CMS页面。</p></li>
+    
+</ul>
+
+<h4>静态块3</h4>
+<p>打开 CMS ->Static Blocks 加入下面静态块</p>
+<ul>
+   <li>Block Title: Share This</li>
+   <li>Identifier:sharethis</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>在Content里面添加下列代码：</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="10">
+
+<span class='st_sharethis_hcount' displayText='ShareThis'></span>
+<span class='st_facebook_hcount' displayText='Facebook'></span>
+<span class='st_twitter_hcount' displayText='Tweet'></span>
+<span class='st_email_hcount' displayText='Email'></span>
+
+<script type="text/javascript">var switchTo5x=false;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "ur-e3fe28e0-16b7-4aad-e2d7-70ec8be36e5"}); </script>
+
+</textarea></blockquote></li>
+<li><p>这个是在产品细节页面的添加社交，共享按钮， 是使用了 http://sharethis.com/ 这个网站的一些ShareThis 服务 </p></li>    
+</ul>
+
+<h4>静态块4(导航图片广告)</h4>
+<p>打开 CMS ->Static Blocks 加入下面静态块</p>
+<ul>
+   <li>Block Title: Left Menu Banner 1</li>
+   <li>Identifier:wp_custom_menu_35 (这里数字35是要加广告图片的一级分类的category ID)</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>Content代码如下，一定要先点击 ”show/hide Editor“ 按钮隐含html编辑器。</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="5">
+
+<div class="banner-block">
+<a href="{{store direct_url="electronics/cell-phones/sony-ericsson-w810i.html"}}"><img src="{{skin url='images/navigation_banner.jpg'}}" alt=""/></a>
+</div>
+
+
+</textarea></blockquote></li>
+   
+</ul>
+
+<h4>静态块5(左侧你要求加的块)</h4>
+<p>打开 CMS ->Static Blocks 加入下面静态块</p>
+<ul>
+   <li>Block Title: Left CMS Block</li>
+   <li>Identifier:left-cms-block5 (这里数字35是要加广告图片的一级分类的category ID)</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>Content代码如下，一定要先点击 ”show/hide Editor“ 按钮隐含html编辑器。</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="5">
+
+<div class="left-cms-block">
+      <img src="{{skin url='images/left-banner.jpg'}}" border="0"  />
+      <p>add you text here</p>
+</div>
+
+
+</textarea></blockquote></li>
+   
+</ul>
+
+
+
+<h4>静态块6(顶部cms 链接)</h4>
+<p>打开 CMS ->Static Blocks 加入下面静态块</p>
+<ul>
+   <li>Block Title: Top CMS</li>
+   <li>Identifier:top-cms</li>
+   <li>Store View: All Store Views </li>
+   <li>Status: Enabled</li>
+</ul>
+
+<ul>
+<li><p>Content代码如下，一定要先点击 ”show/hide Editor“ 按钮隐含html编辑器。</p>
+<p>******************************************************************************</p>
+
+
+<blockquote><textarea rows="10">
+
+<ul>
+<li class="top-link1"><a href="{{store direct_url="new_arrivals"}}"><span>New Arrivals</span></a></li>
+<li class="top-link2"><a href="{{store direct_url="bestsellers"}}"><span>Best Sellers</span></a></li>
+<li class="top-link3"><a href="{{store direct_url="special"}}"><span>Special Products</span></a></li>
+<li class="top-link4"><a href="{{store direct_url="faq"}}"><span>F.A.Q</span></a></li>
+<li class="top-link5"><a href="{{store direct_url="news"}}"><span>Exclusive News</span></a></li>
+<li class="top-link6"><a href="{{store direct_url="about-magento-demo-store"}}"><span>About Us</span></a></li>
+<li class="last"><a href="{{store direct_url="customer-service"}}"><span>Customer Service</span></a></li>
+</ul>
+
+
+</textarea></blockquote></li>
+   
+</ul>
+
+
+<h3>#关于news</h3>
+
+<p>本模板已经集成了news 插件,在登陆Magento后台后可以看到News的菜单项，具体使用和问题可以参考官方的文档：News by CommerceLab - User Guide.pdf，该文档已经包括在文件夹里面。
+</p>
+
+
+<h3>#关于产品页面 tabs</h3>
+
+<p>本模板已经集成了easytab 插件,插件地址：http://www.magentocommerce.com/magento-connect/magento-easytabs.html， tab插件的选项如下：
+
+<p>General:</p>
+<ul>
+   <li>Enable easytabs: Yes</li>
+   <li>Enable Description tab :Yes</li>
+   <li>Enable additional info tab: Yes </li>
+   <li>Enable upsell products tab: Yes</li>
+   <li>Enable related products tab :No</li>
+   <li>Enable tags products tab: Yes </li>
+</ul>
+<p>Custom Tabs</p>
+<p>不用修改，用默认值</p>
+<p>Additional CMS Tabs</p>
+<p>用默认值，不用修改</p>
+
+
+</p>
+
+
+ 
+
+<h3># 在后台选择模板:</h3>
+<p>在  Admin -> System -> Configuration -> Design -> Themes 中 'Default' 中填入
+<strong>se105</strong></p>， 然后选 Save Config 按钮。
+
+<h3># 使用其他颜色模板:</h3>
+<p>在  Admin -> System -> Configuration -> Design tab -> Themes：</br>
+Skin(Images/CSS) :  <strong>se105_red</strong> </br>
+Default : <strong>se105</strong></p>
+
+
+
+<h3># reindex 和刷新cache后，安装完成.</h3>
+请务必在 system -> index Management 下 reindex全部项目， 然后去 system -> cache management 刷新全部项目。
+
+<p>如果有什么问题可以联系我们 <a href="http://www.bestmagento.com/contacts/">gizmocn@gmail.com</a> 我们会尽快回复你</p>
+
+<p class="fright">谢谢</p>
+				
+					
+					</td>
+				</tr>
+			</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+
+<table align="center" bgcolor="#ffffff" border="0" cellpadding="1" cellspacing="0" width="800"><tbody>
+	<tr>
+		<td  bgcolor="#0B75A7">
+			<div class="footerc">Copyright 2012 <a href="http://www.bestmagento.com/">Bestmagento.com</a></div>
+			<div class="footerl">
+				<a href="http://www.bestmagento.com/">Bestmagento.com</a>&nbsp;|&nbsp;
+				<a href="http://www.bestmagento.com/contacts/">Contact us</a>
+			</div>
+		</td>
+	</tr>
+</tbody></table>
+
+</body>
+</html>

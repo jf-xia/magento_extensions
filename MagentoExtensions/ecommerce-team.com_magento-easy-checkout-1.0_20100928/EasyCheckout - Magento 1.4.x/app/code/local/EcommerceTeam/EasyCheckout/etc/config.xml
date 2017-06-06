@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+/*
+ * Magento EsayCheckout Extension
+ *
+ * @copyright:	EcommerceTeam (http://www.ecommerce-team.com)
+ * @version:	1.0
+ *
+ */
+
+ -->
+<config>
+    <modules>
+        <EcommerceTeam_EasyCheckout>
+            <version>1.0</version>
+        </EcommerceTeam_EasyCheckout>
+    </modules>
+    <global>
+    	<blocks>
+	        <ecommerceteam_echeckout><class>EcommerceTeam_EasyCheckout_Block</class></ecommerceteam_echeckout>
+	    </blocks>
+	    <models>
+            <ecommerceteam_echeckout><class>EcommerceTeam_EasyCheckout_Model</class></ecommerceteam_echeckout>
+            <checkout>
+            	<rewrite>
+            		<type_onepage>EcommerceTeam_EasyCheckout_Model_Type_Onepage</type_onepage>
+            	</rewrite>
+            </checkout>
+        </models>
+        <resources>
+            <ecommerceteam_echeckout_setup>
+                <setup>
+                    <module>EcommerceTeam_EasyCheckout</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ecommerceteam_echeckout_setup>   
+            <ecommerceteam_echeckout_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ecommerceteam_echeckout_write>
+            <ecommerceteam_echeckout_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ecommerceteam_echeckout_read>
+		</resources>
+    	<helpers>
+			<ecommerceteam_echeckout><class>EcommerceTeam_EasyCheckout_Helper</class></ecommerceteam_echeckout>
+		</helpers>
+		
+		<rewrite>
+            <ecommerceteam_echeckout_onepage_index>
+                <from><![CDATA[#^/checkout/onepage(.*)#]]></from>
+                <to>/ecommerceteam_echeckout/onepage$1</to>
+            </ecommerceteam_echeckout_onepage_index>
+        </rewrite>
+        
+	</global>
+	<frontend>
+		<routers>
+			<ecommerceteam_echeckout>
+				<use>standard</use>
+	            <args>
+	               <module>EcommerceTeam_EasyCheckout</module>
+	               <frontName>ecommerceteam_echeckout</frontName>
+	            </args>
+	        </ecommerceteam_echeckout>
+		</routers>
+		<layout>
+            <updates>
+                <ecommerceteam_echeckout module="ecommerceteam_echeckout">
+                    <file>ecommerceteam-echeckout.xml</file>
+                </ecommerceteam_echeckout>
+            </updates>
+        </layout>
+        <translate>
+			<modules>
+				<EcommerceTeam_EasyCheckout>
+					<files>
+						<default>EcommerceTeam_EasyCheckout.csv</default>
+					</files>
+				</EcommerceTeam_EasyCheckout>
+			</modules>
+        </translate>
+        <events>
+        	<easycheckout_controller_onepage_save_order>
+                <observers>
+                    <giftmessage>
+                        <type>model</type>
+                        <class>giftmessage/observer</class>
+                        <method>checkoutEventCreateGiftMessage</method>
+                    </giftmessage>
+                </observers>
+            </easycheckout_controller_onepage_save_order>
+        </events>
+	</frontend>
+	<default>
+		<ecommerceteam_echeckout>
+			<general>
+				<title>EasyCheckout extension by EcommerceTeam</title>
+				<different_shipping_enabled>1</different_shipping_enabled>
+			</general>
+		</ecommerceteam_echeckout>
+		<checkout>
+			<options>
+				<title>Checkout</title>
+				<different_shipping_enabled>1</different_shipping_enabled>
+			</options>
+		</checkout>
+	</default>
+</config>

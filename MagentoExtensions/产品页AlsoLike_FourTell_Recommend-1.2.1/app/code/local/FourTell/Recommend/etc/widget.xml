@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<widgets>
+    <fourtell_widget type="recommend/widget">
+        <name>4-Tell: Recommendation Widget</name>
+        <description type="desc">Adds Recommendation Products</description>
+		<is_email_compatible>1</is_email_compatible>
+		
+        <parameters>
+            <recommendation_type>
+            	<required>1</required>
+                <visible>1</visible>
+                <label>Type of Recommendtions</label>
+                <description>Type of Recommendtion products to retrieve from 4-Tell Recommendation Service</description>
+                <type>select</type>
+				
+                <values>
+                    <one translate="label">
+                        <value>topsellers</value>
+                        <label>Top Sellers</label>
+                    </one>
+                    <two translate="label">
+                        <value>Personalized</value>
+                        <label>Personalized</label>
+                    </two>
+                    <three translate="label">
+                        <value>crosssell</value>
+                        <label>Cross Sell</label>
+                    </three>
+                </values>
+            </recommendation_type>
+			
+            <num_recommendations>
+            	<required>1</required>
+                <visible>1</visible>
+                <label>Number of Products</label>
+                <description>Number of products to retrieve from 4-Tell Recommendation Service</description>
+                <type>text</type>
+            </num_recommendations>
+			
+            <heading>
+            	<required>0</required>
+                <visible>1</visible>
+                <label>Heading for Products</label>
+                <description>Heading to display above products</description>
+                <type>text</type>
+            </heading>
+			
+            <cssclass>
+            	<required>0</required>
+                <visible>1</visible>
+                <label>Widget CSS Class</label>
+                <description>Override default css class with your own</description>
+                <type>text</type>
+            </cssclass>
+			
+            <gafunction>
+            	<required>0</required>
+                <visible>1</visible>
+                <label>Google Analytics Function</label>
+                <description>The JavaScript function for Google Analytics tracking</description>
+                <type>text</type>
+            </gafunction>
+            
+            <template>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>catalog/product/widget/new/content/new_grid.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>catalog/product/widget/new/content/new_grid.phtml</value>
+                        <label>New Products Grid Template</label>
+                    </default>
+                    <list translate="label">
+                        <value>catalog/product/widget/new/content/new_list.phtml</value>
+                        <label>New Products List Template</label>
+                    </list>
+                </values>
+            </template>
+            
+        </parameters>
+    </fourtell_widget>
+</widgets>

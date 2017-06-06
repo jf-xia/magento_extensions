@@ -1,0 +1,58 @@
+<?php if (($_products = $this->getProductCollection()) && $_collectionSize = $_products->getSize()): ?>
+<div class="special-box home-box">
+<script type="text/javascript">
+
+// Credits: Robert Penners easing equations (http://www.robertpenner.com/easing/).
+jQuery.easing['BounceEaseOut'] = function(p, t, b, c, d) {
+	if ((t/=d) < (1/2.75)) {
+		return c*(7.5625*t*t) + b;
+	} else if (t < (2/2.75)) {
+		return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+	} else if (t < (2.5/2.75)) {
+		return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+	} else {
+		return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+	}
+};
+
+jQuery(document).ready(function() {
+    jQuery('#mycarousel').jcarousel({
+        easing: 'BounceEaseOut',
+		scroll:1,
+        animation: 1000
+    });
+});
+
+</script>
+
+
+
+
+    <div class="head"><span><?php echo $this->__($this->getTitle()) ?></span></div>
+
+    <ul id="mycarousel" class="jcarousel-skin-tango">
+    <?php foreach ($_products->getItems() as $_product): ?>
+
+        <li>
+		   <div class="home-product-img">
+			   <a width="155" height="120" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>)">
+				<img class="product-image" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(155,120) ?>"  alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+			   </a>
+            </div>
+			<div class="other-info">
+  
+		      <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>)"><?php echo $this->htmlEscape($_product->getName()) ?></a></h2>
+		      <?php echo $this->getPriceHtml($_product, true, $this->getPriceSuffix()) ?>
+            </div>
+	   </li>
+
+    <?php endforeach; ?>
+    </ul>
+   <div class="dealsoff">
+    	
+        <a class="Morebuy" id="buyLinks" href="<?php echo $this->getAddToCartUrl($_product) ?>"></a>
+        <div class="clear"></div>
+  </div>
+
+</div>
+<?php endif; ?>

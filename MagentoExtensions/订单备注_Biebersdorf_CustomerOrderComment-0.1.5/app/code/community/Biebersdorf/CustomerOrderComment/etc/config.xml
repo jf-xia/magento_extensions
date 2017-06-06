@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Biebersdorf_CustomerOrderComment>
+      <version>0.1.5</version>
+    </Biebersdorf_CustomerOrderComment>
+  </modules>
+  
+  <global>
+	<helpers>
+        <biebersdorfcustomerordercomment>
+            <class>Biebersdorf_CustomerOrderComment_Helper</class>
+        </biebersdorfcustomerordercomment>
+    </helpers>    
+  
+    <resources>
+      <customerordercomment_setup>
+        <setup>
+          <module>Biebersdorf_CustomerOrderComment</module>
+          <class>Mage_Sales_Model_Mysql4_Setup</class>
+        </setup>
+        <connection>
+          <use>core_setup</use>
+        </connection>
+      </customerordercomment_setup>
+    </resources>
+  </global>  
+  
+  <adminhtml>       
+    <translate>
+        <modules>
+            <Biebersdorf_CustomerOrderComment>
+                <files>
+                    <default>Biebersdorf_CustomerOrderComment.csv</default>
+                </files>
+            </Biebersdorf_CustomerOrderComment>
+        </modules>
+    </translate>    
+  </adminhtml>       
+  
+  <frontend>    
+    <translate>
+      <modules>
+        <Biebersdorf_CustomerOrderComment>
+          <files>
+            <default>Biebersdorf_CustomerOrderComment.csv</default>
+          </files>
+        </Biebersdorf_CustomerOrderComment>
+      </modules>
+    </translate>    
+    <events>
+      <checkout_type_onepage_save_order>
+        <observers>
+          <biebersdorfcuorco_set_customerordercommentOnepage>
+            <type>model</type>
+            <class>Biebersdorf_CustomerOrderComment_Helper_Data</class>
+            <method>setCustomerOrderComment</method>
+          </biebersdorfcuorco_set_customerordercommentOnepage>
+        </observers>
+      </checkout_type_onepage_save_order>
+      <checkout_type_multishipping_create_orders_single>
+        <observers>
+          <biebersdorfcuorco_set_customerordercommentMulti>
+            <type>model</type>
+            <class>Biebersdorf_CustomerOrderComment_Helper_Data</class>
+            <method>setCustomerOrderComment</method>
+          </biebersdorfcuorco_set_customerordercommentMulti>
+        </observers>
+      </checkout_type_multishipping_create_orders_single>
+    </events>
+  </frontend>  
+</config>

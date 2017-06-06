@@ -1,0 +1,45 @@
+/* Id of resizing icons container, used for placing purposes */
+#fancybox-resize {
+  position: absolute;
+  right: 14px;
+  top: -15px;
+  z-index: 1103;
+}
+
+/* Both maximize and restore icons use same dimensions
+   and display options */
+#fancybox-resize a {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  cursor: pointer; /* Might be redundant, added for just in case! */
+
+  /* Bellow background declarations should be updated with actual
+     file paths depending on installation. */
+  background: url("images/fancybox.png") no-repeat transparent;
+}
+
+#fancybox-resize .maximize {
+  /* this shows close icon, have to update it */
+  background-position: -40px -200px;
+}
+
+#fancybox-resize .restore {
+  background-position: -40px -233px;
+}
+
+#fancybox-close.resizer-tweaks {
+  background: url("images/fancybox.png") no-repeat transparent -68px -200px;
+}
+
+#fancybox-resize.middle-position a {
+  width: 22px;
+}
+
+#fancybox-resize.middle-position .maximize {
+  background-position: -44px -305px;
+}
+
+#fancybox-resize.middle-position .restore {
+  background-position: -44px -271px;
+}

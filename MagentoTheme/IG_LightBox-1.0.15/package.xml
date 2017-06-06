@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package>
+    <name>IG_LightBox</name>
+    <version>1.0.15</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>IDEALIAGroup LightBox for Magento</summary>
+    <description>This extension will install a wonderful and ready-to-use LightBox widget in your Magento store.
+
+Installation is very easy and no coding experience is required.
+
+IDEALIAGroup LightBox is UPDATE SAFE since no system files are replaced. You can enable or disable it in a click.
+
+For advanced users:
+You can change colors, effect, fonts or image sizes directly FROM MAGENTO BACK-END.
+IDEALIAGroup LightBox is fully integrated in Magento system configuration.</description>
+    <notes>Enjoy it ;)</notes>
+    <authors><author><name>Riccardo Tempesta</name><user>auto-converted</user><email>tempesta@idealiagroup.com</email></author><author><name>Marco Giorgetti</name><user>auto-converted</user><email>giorgetti@idealiagroup.com</email></author><author><name>Maria Chiara Luongo</name><user>auto-converted</user><email>sunlight10@hotmail.it</email></author></authors>
+    <date>2011-05-06</date>
+    <time>08:29:42</time>
+    <contents><target name="magelocale"><dir name="de_DE"><file name="IG_LightBox.csv" hash="0ba5aeb54e9ed302fa26773a36ef3ab5"/></dir><dir name="en_US"><file name="IG_LightBox.csv" hash="d0e240588dab13a1ed211586334ca8d1"/></dir><dir name="it_IT"><file name="IG_LightBox.csv" hash="461be43e55b6b407637d2b6ef4079ac2"/></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="css"><file name="ig_lightbox.css" hash="90013fca813ded63dcfa451fba4becee"/></dir><dir name="images"><dir name="ig_lightbox"><file name="close.png" hash="d27820a6f000dc575004e5b2e00152fb"/><file name="loader.gif" hash="3d97df91cb14210546102f0ddb775db0"/><file name="next.png" hash="ef678358e90669e00dad3d50137a9dfa"/><file name="prev.png" hash="9c0b22c4237e51b5be3447ee53eca339"/></dir></dir><dir name="js"><file name="ig_effects.js" hash="8433b39a8e7c93a0ed56e467e251f84b"/><file name="ig_lightbox.js" hash="7c3ce6ac85de6968f28a39e1ace7ce42"/></dir></dir></dir><dir name="default"><dir name="default"><dir name="css"><file name="ig_lightbox.css" hash="90013fca813ded63dcfa451fba4becee"/></dir><dir name="images"><dir name="ig_lightbox"><file name="close.png" hash="d27820a6f000dc575004e5b2e00152fb"/><file name="loader.gif" hash="3d97df91cb14210546102f0ddb775db0"/><file name="next.png" hash="ef678358e90669e00dad3d50137a9dfa"/><file name="prev.png" hash="9c0b22c4237e51b5be3447ee53eca339"/></dir></dir><dir name="js"><file name="ig_effects.js" hash="8433b39a8e7c93a0ed56e467e251f84b"/><file name="ig_lightbox.js" hash="7c3ce6ac85de6968f28a39e1ace7ce42"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="ig_lightbox.xml" hash="8ae77032c53744338128c6cb63dd9938"/></dir><dir name="template"><dir name="ig_lightbox"><file name="media.phtml" hash="e3da7cb7fa9fe615aedbacf24183cad9"/></dir></dir></dir></dir><dir name="default"><dir name="default"><dir name="layout"><file name="ig_lightbox.xml" hash="8ae77032c53744338128c6cb63dd9938"/></dir><dir name="template"><dir name="ig_lightbox"><file name="media.phtml" hash="7435e44464d896324b99e73ce48171de"/></dir></dir></dir></dir></dir></target><target name="magecommunity"><dir name="IG"><dir name="LightBox"><dir name="Block"><file name="Media.php" hash="8c4355ac2f8b8fb72d485171625d6459"/></dir><dir name="etc"><file name="config.xml" hash="a3cf892bfc1f1af702656b4d142c6c36"/><file name="system.xml" hash="a083627cd216f73bbd0ed318f3f50b2a"/></dir><dir name="Helper"><file name="Data.php" hash="28a54a1190969c7023ddc67c3f242b34"/></dir><dir name="sql"><dir name="ig_lightbox_setup"><file name="mysql4-install-1.0.3.php" hash="f7cf810260f5e96cd6fa6ff314bd5330"/><file name="mysql4-install-1.0.4.php" hash="f7cf810260f5e96cd6fa6ff314bd5330"/></dir></dir><file name="CHANGELOG.txt" hash="9708c78505b441f1503886fb77822c5a"/><file name="LICENSE.txt" hash="b7870fbc716085862b4cba9b4629a24e"/></dir></dir></target><target name="mageetc"><dir name="modules"><file name="IG_LightBox.xml" hash="5d8f136255066de4f378d5c9bfe6edaf"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

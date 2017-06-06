@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <magpleasure translate="label" module="facecomments">
+            <label>Magpleasure Extensions</label>
+            <sort_order>210</sort_order>
+        </magpleasure>
+    </tabs>
+	<sections>
+		<facecomments module="facecomments" translate="label">
+			<label>Facebook Comments</label>
+			<tab>magpleasure</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>120</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general>
+					<label>General</label>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<sort_order>10</sort_order>
+					<fields>
+						<enabled translate="label">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</enabled>
+						<display_in_additional translate="label">
+							<label>Display in Additional Data</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</display_in_additional>
+						<width translate="label">
+							<label>Width</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</width>
+						<limit translate="label">
+							<label>Limit</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</limit>
+					</fields>
+				</general>
+			</groups>
+		</facecomments>
+	</sections>
+</config>

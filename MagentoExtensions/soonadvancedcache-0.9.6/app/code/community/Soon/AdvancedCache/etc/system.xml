@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Agence Soon
+ *
+ *
+ * @category    Soon
+ * @package     Soon_AdvancedCache
+ * @copyright   Copyright (c) 2011 Agence Soon. (http://www.agence-soon.fr)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @author      Hervé G.
+ */
+-->
+<config>
+    <sections>
+        <advancedcache translate="label" module="advancedcache">
+            <label>Advanced Cache</label>
+            <tab>soon</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            
+            <groups>
+                <hint>
+                    <frontend_model>advancedcache/adminhtml_system_config_fieldset_hint</frontend_model>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </hint>
+            </groups>
+        </advancedcache>
+    </sections>
+</config>

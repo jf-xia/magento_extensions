@@ -1,0 +1,100 @@
+<?php
+    $_helper = $this->helper('catalog/output');
+    $_product = $this->getProduct();
+?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+ <div class="quickview">
+  <div class="clearfix">
+  
+    <h2>Quick View</h2>
+      <form target="_parent" action="<?php echo $this->getAddToCartUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif ?>>
+         <div class="no-display">
+           <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+           <input type="hidden" name="related_product" id="related-products-field" value="" />
+         </div>
+         <div class="col-left">
+           <?php echo $this->getChildHtml('media') ?>
+           <div class="clear"></div>
+           <?php echo $this->getChildHtml('related_products') ?>
+         </div>
+         <div class="col-right">
+           <script type="text/javascript">
+             jQuery.noConflict();
+			 jQuery(function(){
+					jQuery("div.tabs").tabs();
+			 });
+           </script>
+           <div class="tabs">
+             <ul>
+               <li><a href="#product-overview">Overview</a></li>
+               <li><a href="#product-description">Description</a></li>
+             </ul>
+             <div class="clear"></div>
+             <div class="tab-content" id="product-overview">
+               <h1>
+                 <?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+                 <?php 
+                  $current_date = date("Y-m-d",strtotime(Mage::app()->getLocale()->date()->toString(Varien_Date::DATETIME_INTERNAL_FORMAT))); 
+                  $from_date = date("Y-m-d",strtotime($_product->getResource()->getAttribute('news_from_date')->getFrontend()->getValue($_product)));
+                  $to_date = date("Y-m-d",strtotime($_product->getResource()->getAttribute('news_to_date')->getFrontend()->getValue($_product))); 
+                  if ($current_date >= $from_date && $current_date <= $to_date):?>
+		          <span class="new">New!</span>
+		          <?php endif;?>
+               </h1>
+               <?php echo $this->getChildHtml('alert_urls') ?>
+               <?php echo $this->getReviewsSummaryHtml($_product, false, true) ?>
+               <?php echo $this->getTierPriceHtml() ?>
+               <?php echo $this->getPriceHtml($_product, true) ?>
+               <?php if (!$this->hasOptions()): ?>
+                    <?php if ($_product->isSaleable()): ?>
+						   <?php echo $this->getChildHtml('availability') ?>
+                           <?php echo $this->getChildHtml('addtocart') ?>
+                    <?php endif ?>
+                <?php else: ?>
+                        <?php echo $this->getChildHtml('bundleprices') ?>
+                        <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+                                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                                <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+                        <?php endif ?>
+                <?php endif ?>
+             </div> 
+             <div class="tab-content" id="product-description">
+               <h1>
+                 <?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+                 <?php 
+                  $current_date = date("Y-m-d",strtotime(Mage::app()->getLocale()->date()->toString(Varien_Date::DATETIME_INTERNAL_FORMAT))); 
+                  $from_date = date("Y-m-d",strtotime($_product->getResource()->getAttribute('news_from_date')->getFrontend()->getValue($_product)));
+                  $to_date = date("Y-m-d",strtotime($_product->getResource()->getAttribute('news_to_date')->getFrontend()->getValue($_product))); 
+                  if ($current_date >= $from_date && $current_date <= $to_date):?>
+		          <span class="new">New!</span>
+		          <?php endif;?>
+               </h1>
+               <?php echo $this->getReviewsSummaryHtml($_product, false, true) ?>
+               <?php echo $this->getTierPriceHtml() ?>
+               <?php echo $this->getPriceHtml($_product, true) ?>
+               <?php if ($_product->getDescription()): ?>
+                 <div class="description">
+				   <?php //echo nl2br($this->htmlEscape($_product->getShortDescription())) ?> 
+				   <?php echo $_helper->productAttribute($_product, nl2br($_product->getDescription()), 'description') ?> 
+				 </div>
+               <?php endif ?>
+             </div> 
+           
+           </div>
+         </div>
+        </form>
+        <script type="text/javascript">
+        //<![CDATA[
+            var productAddToCartForm = new VarienForm('product_addtocart_form');
+            productAddToCartForm.submit = function(){
+                if (this.validator.validate()) {
+                    this.form.submit();
+                }
+            }.bind(productAddToCartForm);
+        //]]>
+        </script>
+	<div class="clear"></div>
+  </div>
+ </div>

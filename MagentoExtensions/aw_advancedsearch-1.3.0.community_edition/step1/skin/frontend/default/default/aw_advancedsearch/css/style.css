@@ -1,0 +1,58 @@
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ *
+ * @category   AW
+ * @package    AW_Advancedsearch
+ * @copyright  Copyright (c) 2011-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ */
+
+ul.aw-indexes-list li {
+    float: left;
+    padding: 0 20px 20px 0;
+}
+
+ul.aw-indexes-list {
+    font-weight: bold;
+    font-size: 110%;
+}
+
+div.results-view div.clear {
+    clear: both;
+}
+
+ul.awas-cms-pages div.title,
+ul.awas-blog-posts div.title {
+    font-weight: bold;
+    font-size: 120%;
+    padding: 10px 0;
+}
+
+ul.awas-blog-posts>li {
+    padding-bottom: 30px;
+}
+
+
+ul.awas-kbase-articles{
+    padding: 10px;
+}
+
+ul.awas-kbase-articles div.title{
+    font-weight: bold;
+    font-size: 120%;
+}
+
+ul.awas-kbase-articles li{
+    padding-bottom: 5px;
+}
+
+ul.awas-kbase-articles>li{
+    padding-bottom: 0px;
+}

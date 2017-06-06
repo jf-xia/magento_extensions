@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Topbuy_Core>
+            <version>0.1.0</version>
+        </Topbuy_Core>
+    </modules> 
+    <global> 
+        <blocks>
+            <core>
+				<rewrite>
+                     <messages>Topbuy_Core_Block_Messages</messages>
+                </rewrite>
+            </core>
+        </blocks>
+    </global> 
+</config>

@@ -1,0 +1,1209 @@
+<config>
+    <tabs>
+        <themeconfig translate="label" module="buyexpress">
+            <label>BuyExpress Theme Config</label>
+            <sort_order>1</sort_order> 
+        </themeconfig>
+    </tabs> 	
+	
+	<sections>	
+	<buyexpress_options translate="label" module="buyexpress">
+            <label>BuyExpress Theme Options</label>
+            <tab>themeconfig</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>  
+			<groups>
+				<style translate="label">
+					<label>Header: Logo, Welcome Text, Promo Banner, Social Links, etc</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+						<!-- Favicon UPLOAD -->
+							<fields>
+								<fav_upload>						
+									<label>Upload Favicon</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG,GIF,PNG</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>
+									<sort_order>0</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 			   					          
+								</fav_upload>
+							</fields> 							
+							<!-- LOGO UPLOAD -->
+							<fields>
+								<logo_upload>						
+									<label>Upload your Logo</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG,GIF,PNG</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>
+									<sort_order>1</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 			   					          
+								</logo_upload>
+							</fields> 
+							<!-- Logo Alt -->
+							<fields>
+								<logo_alt>
+									<label>Alternate text for logo</label>
+									<frontend_type>text</frontend_type>								
+									<comment>Logo description</comment>
+									<sort_order>2</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>                    
+								</logo_alt>
+							</fields>			
+							<!-- Welcome Message -->
+							<fields>
+								<welcome_message>
+									<label>Welcome Message</label>
+									<frontend_type>text</frontend_type>	
+									<sort_order>3</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>                    
+								</welcome_message>
+							</fields> 	
+							<!-- Facebook -->
+							<fields>
+								<fb_link>
+									<label>Facebook Link</label>
+									<frontend_type>text</frontend_type>	
+									<comment>http://facebook.com/yourpage</comment>
+									<sort_order>4</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>                    
+								</fb_link>
+							</fields> 
+							<!-- Twitter -->
+							<fields>
+								<tw_link>
+									<label>Twitter Link</label>
+									<frontend_type>text</frontend_type>	
+									<comment>http://twitter.com/yourprofile</comment>
+									<sort_order>5</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>                    
+								</tw_link>
+							</fields>
+							<!-- Pinterest -->
+							<fields>
+								<pin_link>
+									<label>Pinterest Link</label>
+									<frontend_type>text</frontend_type>	
+									<comment>http://pinterest.com/yourprofile</comment>
+									<sort_order>6</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>                    
+								</pin_link>
+							</fields>   		
+							<!-- Upload Promo Image -->
+							<fields>
+								<promo_info>
+										<label>Promo Information Text (Next to Social Links)</label>
+										<frontend_type>text</frontend_type>	
+										<sort_order>8</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</promo_info>
+							</fields>	  	
+							<fields>
+								<promo_link>
+										<label>Promo Information URL</label>
+										<frontend_type>text</frontend_type>	
+										<comment>http://yoursite.com/page</comment>
+										<sort_order>9</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</promo_link>
+							</fields>	  	
+							<fields>
+								<promo_img>
+									<label>Promo Small Image</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG,GIF,PNG</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>
+									<sort_order>10</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 	                  
+								</promo_img>
+							</fields>	
+				</style>
+				
+				<cat_cms translate="label">
+					<label>Top Categories and CMS Pages</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>  
+							<fields>
+								<cat_amt>
+										<label>Number of Top Level Categories to show in Menu</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: 5. The rest of the categories will go under "More".</comment>
+										<sort_order>11</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</cat_amt>
+							</fields>	
+							<fields>
+								<more_text>
+										<label>Change "More" Text</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: More Categories.</comment>
+										<sort_order>12</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</more_text>
+							</fields>
+							<fields>
+								<page_id>
+										<label>Exclude CMS Pages</label>
+										<frontend_type>text</frontend_type>	
+										<comment>The page ID. You can add multiple page IDs to exlude from the menu. Ex: 2,5,7. See the documentation file on how to find the ID for each CMS page.</comment>
+										<sort_order>13</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</page_id>
+							</fields>
+				</cat_cms>
+				
+				<!-- Header Banner -->
+				<banner translate="label">
+					<label>Header Banners</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>    
+						<fields>
+							<banner_upload1>						
+									<label>Image 1</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG, GIF, PNG. Width=311px</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>
+									<sort_order>1</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 					   					          
+							</banner_upload1>
+						</fields>
+						<fields>
+								<banner_upload_link1>
+										<label>URL for Image 1</label>
+										<frontend_type>text</frontend_type>	
+										<comment>http://yoursite.com/page</comment>
+										<sort_order>2</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</banner_upload_link1>
+							</fields>	
+							<!-- Second Banner Image -->
+						<fields>
+								<banner_upload2>						
+									<label>Image 2</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG, GIF, PNG. Width=311p</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>
+									<sort_order>3</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 					   					          
+							</banner_upload2>
+						</fields>
+						<fields>
+								<banner_upload_link2>
+										<label>URL for Image 2</label>
+										<frontend_type>text</frontend_type>	
+										<comment>http://yoursite.com/page</comment>
+										<sort_order>4</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</banner_upload_link2>
+							</fields>	
+								<!-- Third Banner Image -->
+						<fields>
+								<banner_upload3>						
+									<label>Image 3</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG, GIF, PNG. Width=311p</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>
+									<sort_order>5</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 					   					          
+							</banner_upload3>
+						</fields>
+						<fields>
+								<banner_upload_link3>
+										<label>URL for Image 3</label>
+										<frontend_type>text</frontend_type>	
+										<comment>http://yoursite.com/page</comment>
+										<sort_order>6</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</banner_upload_link3>
+							</fields>
+							<fields>
+								<banner_view>
+										<label>Banner View</label>
+										<frontend_type>select</frontend_type>	
+										<source_model>buyexpress/banners</source_model> 
+										<comment>Show the banners throughout the site or on the Homepage only</comment>
+										<sort_order>7</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</banner_view>
+							</fields>	
+				</banner>
+				
+				
+				
+				<slides translate="label">
+					<label>Slideshow Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>4</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>    
+						<fields>
+						<!-- First Slider Image -->
+								<slide_title1>
+										<label><![CDATA[<b style="color:#f33">Title for Slide 1</b>]]></label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: Weekly Deals</comment>
+										<sort_order>1</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_title1>
+							</fields>
+							<fields>
+								<slide_subtitle1>
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;Sub title for Slide 1</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: Rolling out mac laren stollers</comment>
+										<sort_order>2</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_subtitle1>
+							</fields>
+							<fields>
+								<slide_url1>
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;URL</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: http://yoursite.com/page</comment>
+										<sort_order>3</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_url1>
+							</fields>
+							<fields>
+								<slide_type1>						
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;Slide 1 Content</label>
+										<frontend_type>select</frontend_type>			
+										<source_model>buyexpress/slideshow</source_model>    		
+										<sort_order>4</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>							   					          
+								</slide_type1>
+							</fields>
+							<fields>
+								<slide_image1>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Upload Image</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG, GIF, PNG. Dimensions: 723x387px.</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>			
+									<sort_order>5</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 
+									<depends><slide_type1>2</slide_type1></depends>                      
+								</slide_image1>
+							</fields>
+							<fields>
+								<slide_video1>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Add Video code</label>
+									<frontend_type>textarea</frontend_type>
+									<comment>Copy and paste video code from youtube, vimeo, etc</comment>							
+									<sort_order>6</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>    
+									<depends><slide_type1>3</slide_type1></depends>                 
+								</slide_video1>
+							</fields>
+							<fields>
+								<slide_html1>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Add HTML</label>
+									<frontend_type>textarea</frontend_type>
+									<comment>Add your HTML code</comment>							
+									<sort_order>7</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>    
+									<depends><slide_type1>4</slide_type1></depends>                 
+								</slide_html1>
+							</fields>
+							
+							
+							<fields>						
+								<slide_title2>
+										<label><![CDATA[<b style="color:#f33">Title for Slide 2</b>]]></label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: Weekly Deals</comment>
+										<sort_order>8</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_title2>
+							</fields>
+							<fields>
+								<slide_subtitle2>
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;Sub title for Slide 2</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: Rolling out mac laren stollers</comment>
+										<sort_order>9</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_subtitle2>
+							</fields>
+							<fields>
+								<slide_url2>
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;URL</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: http://yoursite.com/page</comment>
+										<sort_order>10</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_url2>
+							</fields>
+							<fields>
+								<slide_type2>						
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;Slide 2 Content</label>
+										<frontend_type>select</frontend_type>			
+										<source_model>buyexpress/slideshow</source_model>    		
+										<sort_order>11</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>							   					          
+								</slide_type2>
+							</fields>
+							<fields>
+								<slide_image2>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Upload Image</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG, GIF, PNG. Dimensions: 723x387px.</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>			
+									<sort_order>12</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 
+									<depends><slide_type2>2</slide_type2></depends>                      
+								</slide_image2>
+							</fields>
+							<fields>
+								<slide_video2>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Add Video code</label>
+									<frontend_type>textarea</frontend_type>
+									<comment>Copy and paste video code from youtube, vimeo, etc</comment>							
+									<sort_order>13</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>    
+									<depends><slide_type2>3</slide_type2></depends>                 
+								</slide_video2>
+							</fields>
+							<fields>
+								<slide_html2>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Add HTML</label>
+									<frontend_type>textarea</frontend_type>
+									<comment>Add your HTML code</comment>							
+									<sort_order>14</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>    
+									<depends><slide_type2>4</slide_type2></depends>                 
+								</slide_html2>
+							</fields>
+							
+							
+							
+							<fields>						
+								<slide_title3>
+										<label><![CDATA[<b style="color:#f33">Title for Slide 3</b>]]></label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: Weekly Deals</comment>
+										<sort_order>15</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_title3>
+							</fields>
+							<fields>
+								<slide_subtitle3>
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;Sub title for Slide 3</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: Rolling out mac laren stollers</comment>
+										<sort_order>16</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_subtitle3>
+							</fields>
+							<fields>
+								<slide_url3>
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;URL</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: http://yoursite.com/page</comment>
+										<sort_order>17</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_url3>
+							</fields>
+							<fields>
+								<slide_type3>						
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;Slide 3 Content</label>
+										<frontend_type>select</frontend_type>			
+										<source_model>buyexpress/slideshow</source_model>    		
+										<sort_order>18</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>							   					          
+								</slide_type3>
+							</fields>
+							<fields>
+								<slide_image3>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Upload Image</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG, GIF, PNG. Dimensions: 723x387px.</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>			
+									<sort_order>19</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 
+									<depends><slide_type3>2</slide_type3></depends>                      
+								</slide_image3>
+							</fields>
+							<fields>
+								<slide_video3>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Add Video code</label>
+									<frontend_type>textarea</frontend_type>
+									<comment>Copy and paste video code from youtube, vimeo, etc</comment>							
+									<sort_order>20</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>    
+									<depends><slide_type3>3</slide_type3></depends>                 
+								</slide_video3>
+							</fields>
+							<fields>
+								<slide_html3>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Add HTML</label>
+									<frontend_type>textarea</frontend_type>
+									<comment>Add your HTML code</comment>							
+									<sort_order>21</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>    
+									<depends><slide_type3>4</slide_type3></depends>                 
+								</slide_html3>
+							</fields>
+							
+							
+							<fields>
+								<slide_title4>
+										<label><![CDATA[<b style="color:#f33">Title for Slide 4</b>]]></label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: Weekly Deals</comment>
+										<sort_order>22</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_title4>
+							</fields>
+							<fields>
+								<slide_subtitle4>
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;Sub title for Slide 4</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: Rolling out mac laren stollers</comment>
+										<sort_order>23</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_subtitle4>
+							</fields>
+							<fields>
+								<slide_url4>
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;URL</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: http://yoursite.com/page</comment>
+										<sort_order>24</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_url4>
+							</fields>
+							<fields>
+								<slide_type4>						
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;Slide 4 Content</label>
+										<frontend_type>select</frontend_type>			
+										<source_model>buyexpress/slideshow</source_model>    		
+										<sort_order>25</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>							   					          
+								</slide_type4>
+							</fields>
+							<fields>
+								<slide_image4>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Upload Image</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG, GIF, PNG. Dimensions: 723x387px.</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>			
+									<sort_order>26</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 
+									<depends><slide_type4>2</slide_type4></depends>                      
+								</slide_image4>
+							</fields>
+							<fields>
+								<slide_video4>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Add Video code</label>
+									<frontend_type>textarea</frontend_type>
+									<comment>Copy and paste video code from youtube, vimeo, etc</comment>							
+									<sort_order>27</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>    
+									<depends><slide_type4>3</slide_type4></depends>                 
+								</slide_video4>
+							</fields>
+							<fields>
+								<slide_html4>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Add HTML</label>
+									<frontend_type>textarea</frontend_type>
+									<comment>Add your HTML code</comment>							
+									<sort_order>28</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>    
+									<depends><slide_type4>4</slide_type4></depends>                 
+								</slide_html4>
+							</fields>
+							
+							
+							<fields>
+							<!-- First Slider Image -->
+								<slide_title5>
+										<label><![CDATA[<b style="color:#f33">Title for Slide 5</b>]]></label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: Weekly Deals</comment>
+										<sort_order>29</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_title5>
+							</fields>
+							<fields>
+								<slide_subtitle5>
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;Sub title for Slide 5</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: Rolling out mac laren stollers</comment>
+										<sort_order>30</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_subtitle5>
+							</fields>
+							<fields>
+								<slide_url5>
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;URL</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: http://yoursite.com/page</comment>
+										<sort_order>31</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_url5>
+							</fields>
+							<fields>
+								<slide_type5>						
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;Slide 5 Content</label>
+										<frontend_type>select</frontend_type>			
+										<source_model>buyexpress/slideshow</source_model>    		
+										<sort_order>32</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>							   					          
+								</slide_type5>
+							</fields>
+							<fields>
+								<slide_image5>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Upload Image</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG, GIF, PNG. Dimensions: 723x387px.</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>			
+									<sort_order>33</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 
+									<depends><slide_type5>2</slide_type5></depends>                      
+								</slide_image5>
+							</fields>
+							<fields>
+								<slide_video5>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Add Video code</label>
+									<frontend_type>textarea</frontend_type>
+									<comment>Copy and paste video code from youtube, vimeo, etc</comment>							
+									<sort_order>34</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>    
+									<depends><slide_type5>3</slide_type5></depends>                 
+								</slide_video5>
+							</fields>
+							<fields>
+								<slide_html5>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Add HTML</label>
+									<frontend_type>textarea</frontend_type>
+									<comment>Add your HTML code</comment>							
+									<sort_order>35</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>    
+									<depends><slide_type5>4</slide_type5></depends>                 
+								</slide_html5>
+							</fields>
+							
+							
+							<fields>
+								<slide_title6>
+										<label><![CDATA[<b style="color:#f33">Title for Slide 6</b>]]></label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: Weekly Deals</comment>
+										<sort_order>36</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_title6>
+							</fields>
+							<fields>
+								<slide_subtitle6>
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;Sub title for Slide 6</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: Rolling out mac laren stollers</comment>
+										<sort_order>37</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_subtitle6>
+							</fields>
+							<fields>
+								<slide_url6>
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;URL</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Ex: http://yoursite.com/page</comment>
+										<sort_order>38</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</slide_url6>
+							</fields>
+							<fields>
+								<slide_type6>						
+										<label>&#160;&#160;&#160;&#160;&#160;&#160;Slide 6 Content</label>
+										<frontend_type>select</frontend_type>			
+										<source_model>buyexpress/slideshow</source_model>    		
+										<sort_order>39</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>							   					          
+								</slide_type6>
+							</fields>
+							<fields>
+								<slide_image6>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Upload Image</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG, GIF, PNG. Dimensions: 723x387px.</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>			
+									<sort_order>40</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 
+									<depends><slide_type6>2</slide_type6></depends>                      
+								</slide_image6>
+							</fields>
+							<fields>
+								<slide_video6>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Add Video code</label>
+									<frontend_type>textarea</frontend_type>
+									<comment>Copy and paste video code from youtube, vimeo, etc</comment>							
+									<sort_order>41</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>    
+									<depends><slide_type6>3</slide_type6></depends>                 
+								</slide_video6>
+							</fields>
+							<fields>
+								<slide_html6>
+									<label>&#160;&#160;&#160;&#160;&#160;&#160;Add HTML</label>
+									<frontend_type>textarea</frontend_type>
+									<comment>Add your HTML code</comment>							
+									<sort_order>42</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store>    
+									<depends><slide_type6>4</slide_type6></depends>                 
+								</slide_html6>
+							</fields>
+					</slides>
+					
+					
+					
+					<slide_settings>
+						<label>Slideshow Settings</label>
+						<frontend_type>text</frontend_type>
+						<sort_order>5</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store> 	
+					<fields>
+						<slide_auto translate="label">
+							<label>Auto Slide</label>
+							<frontend_type>select</frontend_type>	
+							<source_model>buyexpress/slidesetting</source_model>    		
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>		            
+					   </slide_auto>
+					</fields>
+					<fields>
+						<slide_fx translate="label">
+							<label>Slide FX</label>
+							<frontend_type>select</frontend_type>	
+							<source_model>buyexpress/slidefx</source_model>    		
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>		            
+					   </slide_fx>
+					</fields>	
+					</slide_settings>
+					
+					<text_block>
+						<label>Homepage Text Block Right</label>
+						<frontend_type>text</frontend_type>
+						<sort_order>6</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store> 	
+						<fields>
+							<block_logo translate="label">
+								<label>Upload Logo/Image</label>
+								<frontend_type>image</frontend_type>
+								<comment>JPG, GIF, PNG. Dimensions: 153x35px.</comment>
+								<backend_model>adminhtml/system_config_backend_image</backend_model>
+								<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+								<base_url type="media" scope_info="1">images</base_url>			
+								<sort_order>1</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>     		            
+						   </block_logo>
+						</fields>
+						<fields>
+							<block_img translate="label">
+								<label>Upload 2nd Image</label>
+								<frontend_type>image</frontend_type>
+								<comment>JPG, GIF, PNG. Dimensions: 196x125px.</comment>
+								<backend_model>adminhtml/system_config_backend_image</backend_model>
+								<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+								<base_url type="media" scope_info="1">images</base_url>			
+								<sort_order>2</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>     		            
+						   </block_img>
+						</fields>
+						<fields>
+							<block_text translate="label">
+								<label>Block Text</label>
+								<frontend_type>textarea</frontend_type>
+								<comment>Add your Text or HTML code</comment>							
+								<sort_order>3</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>                
+						   </block_text>
+						</fields>
+					</text_block>
+					
+					<products_block>
+						<label>Homepage Limit Products</label>
+						<frontend_type>text</frontend_type>
+						<sort_order>7</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store> 	
+						<fields>
+							<special_block>
+										<label>Special Products Block</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Add the number of products you want to show. Ex: 8</comment>
+										<sort_order>1</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</special_block>
+						</fields>
+						<fields>
+							<latest_block>
+										<label>Latest Products Block</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Add the number of products you want to show. Ex: 12</comment>
+										<sort_order>2</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</latest_block>
+						</fields>
+						<fields>
+							<featured_block>
+										<label>Featured Products Block</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Add the number of products you want to show. Ex: 12</comment>
+										<sort_order>3</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</featured_block>
+						</fields>
+						<fields>
+							<bestseller_block>
+										<label>Bestseller Products Block</label>
+										<frontend_type>text</frontend_type>	
+										<comment>Add the number of products you want to show. Ex: 8</comment>
+										<sort_order>4</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>                
+								</bestseller_block>
+						</fields>
+					</products_block>
+					
+					<footerbanner translate="label">
+						<label>Footer Block (3 blocks)</label>
+						<frontend_type>text</frontend_type>
+						<sort_order>8</sort_order>
+						<show_in_default>1</show_in_default>
+						<show_in_website>1</show_in_website>
+						<show_in_store>1</show_in_store>    
+							<fields>
+								<footer_upload1>						
+										<label><![CDATA[<b style="color:#f33">Footer Block 1</b>]]> - Image</label>
+										<frontend_type>image</frontend_type>
+										<comment>JPG, GIF, PNG. Dimension: 308x125px</comment>
+										<backend_model>adminhtml/system_config_backend_image</backend_model>
+										<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+										<base_url type="media" scope_info="1">images</base_url>
+										<sort_order>1</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store> 					   					          
+								</footer_upload1>
+							</fields>	
+								<fields>
+									<footer_block_link1>
+											<label>&#160;&#160;&#160;&#160;&#160;&#160;URL</label>
+											<frontend_type>text</frontend_type>	
+											<sort_order>2</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store>                
+									</footer_block_link1>
+								</fields>
+							<fields>
+									<footer_block_text1>
+											<label>&#160;&#160;&#160;&#160;&#160;&#160;Text</label>
+											<frontend_type>text</frontend_type>	
+											<sort_order>3</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store>                
+									</footer_block_text1>
+								</fields>
+								<fields>
+									<footer_block_link_text1>
+											<label>&#160;&#160;&#160;&#160;&#160;&#160;Link Text</label>
+											<frontend_type>text</frontend_type>	
+											<sort_order>4</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store>                
+									</footer_block_link_text1>
+								</fields>	
+								
+								
+								<fields>
+								<footer_upload2>						
+										<label><![CDATA[<b style="color:#f33">Footer Block 2</b>]]> - Image</label>
+										<frontend_type>image</frontend_type>
+										<comment>JPG, GIF, PNG. Dimension: 308x125px</comment>
+										<backend_model>adminhtml/system_config_backend_image</backend_model>
+										<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+										<base_url type="media" scope_info="1">images</base_url>
+										<sort_order>5</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store> 					   					          
+								</footer_upload2>
+							</fields>	
+								<fields>
+									<footer_block_link2>
+											<label>&#160;&#160;&#160;&#160;&#160;&#160;URL</label>
+											<frontend_type>text</frontend_type>	
+											<sort_order>6</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store>                
+									</footer_block_link2>
+								</fields>
+							<fields>
+									<footer_block_text2>
+											<label>&#160;&#160;&#160;&#160;&#160;&#160;Text</label>
+											<frontend_type>text</frontend_type>	
+											<sort_order>7</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store>                
+									</footer_block_text2>
+								</fields>
+								<fields>
+									<footer_block_link_text2>
+											<label>&#160;&#160;&#160;&#160;&#160;&#160;Link Text</label>
+											<frontend_type>text</frontend_type>	
+											<sort_order>8</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store>                
+									</footer_block_link_text2>
+								</fields>	
+								
+								
+								<fields>
+								<footer_upload3>						
+										<label><![CDATA[<b style="color:#f33">Footer Block 3</b>]]> - Image</label>
+										<frontend_type>image</frontend_type>
+										<comment>JPG, GIF, PNG. Dimension: 308x125px</comment>
+										<backend_model>adminhtml/system_config_backend_image</backend_model>
+										<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+										<base_url type="media" scope_info="1">images</base_url>
+										<sort_order>9</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store> 					   					          
+								</footer_upload3>
+							</fields>	
+								<fields>
+									<footer_block_link3>
+											<label>&#160;&#160;&#160;&#160;&#160;&#160;URL</label>
+											<frontend_type>text</frontend_type>	
+											<sort_order>10</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store>                
+									</footer_block_link3>
+								</fields>
+							<fields>
+									<footer_block_text3>
+											<label>&#160;&#160;&#160;&#160;&#160;&#160;Text</label>
+											<frontend_type>text</frontend_type>	
+											<sort_order>11</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store>                
+									</footer_block_text3>
+								</fields>
+								<fields>
+									<footer_block_link_text3>
+											<label>&#160;&#160;&#160;&#160;&#160;&#160;Link Text</label>
+											<frontend_type>text</frontend_type>	
+											<sort_order>12</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store>                
+									</footer_block_link_text3>
+								</fields>
+								<fields>
+									<footer_block_view>
+											<label>Footer Block View</label>
+											<frontend_type>select</frontend_type>
+											<source_model>buyexpress/banners</source_model> 
+											<comment>Show the blocks throughout the site or on the Homepage only</comment>	
+											<sort_order>13</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store>                
+									</footer_block_view>
+								</fields>	
+					</footerbanner>
+					
+					<color_scheme translate="label">
+						
+						   <label>Color Scheme</label>
+						   <frontend_type>text</frontend_type>
+						  
+						   <sort_order>9</sort_order>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						   <show_in_store>1</show_in_store>
+						   <fields>
+							   <bgcolor>
+								<label>Background</label>
+											<frontend_type>select</frontend_type>	
+											<source_model>buyexpress/background</source_model> 
+											<comment>Background image/Background color</comment>
+											<sort_order>0</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store>  
+								</bgcolor>
+						   </fields>
+						   <fields>
+							   <bg_color>
+							   <label>Background Color</label>
+											<frontend_type>text</frontend_type>	
+											<sort_order>1</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store> 
+											<validate>color {required:false}</validate>
+										   	<comment>Default is white.</comment>
+											<depends><bgcolor>2</bgcolor></depends>
+							</bg_color>
+							</fields>
+							<fields>
+								<bg_img>						
+									<label>Upload Background Image</label>
+									<frontend_type>image</frontend_type>
+									<comment>JPG,GIF,PNG</comment>
+									<backend_model>adminhtml/system_config_backend_image</backend_model>
+									<upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+									<base_url type="media" scope_info="1">images</base_url>
+									<sort_order>2</sort_order>
+									<show_in_default>1</show_in_default>
+									<show_in_website>1</show_in_website>
+									<show_in_store>1</show_in_store> 	
+									<depends><bgcolor>1</bgcolor></depends>		   					          
+								</bg_img>
+							</fields>
+							<fields>
+								<bg_repeat>
+							   <label>Background Repeat</label>
+											<frontend_type>select</frontend_type>	
+											<source_model>buyexpress/bgrepeat</source_model> 
+											<sort_order>3</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store> 
+											<depends><bgcolor>1</bgcolor></depends>
+							</bg_repeat>
+							</fields>
+							<fields>
+							<default_color>
+							   <label>General Color Scheme Color</label>
+											<frontend_type>text</frontend_type>	
+											<sort_order>4</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store> 
+											<validate>color {required:false}</validate>
+										   	<comment>Default is red.</comment>
+							</default_color>
+							</fields>
+							<fields>
+							<btn_color>
+							   <label>Buttons Color</label>
+											<frontend_type>text</frontend_type>	
+											<sort_order>5</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store> 
+											<validate>color {required:false}</validate>
+										   	<comment>Default is yellow.</comment>
+							</btn_color>
+							</fields>
+							<fields>
+							<btn_text_color>
+							   <label>Buttons Text Color</label>
+											<frontend_type>text</frontend_type>	
+											<sort_order>6</sort_order>
+											<show_in_default>1</show_in_default>
+											<show_in_website>1</show_in_website>
+											<show_in_store>1</show_in_store> 
+											<validate>color {required:false}</validate>
+							</btn_text_color>
+							</fields>
+						</color_scheme>
+					
+									
+				</groups>                  
+        </buyexpress_options>
+    </sections>     
+</config>

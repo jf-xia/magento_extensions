@@ -1,0 +1,48 @@
+<?php
+/**
+ * Agence Soon
+ *
+ * @category    Soon
+ * @package     Soon_AdvancedCache
+ * @copyright   Copyright (c) 2011 Agence Soon. (http://www.agence-soon.fr)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author      Hervé G. ()
+ */
+?>
+<br/>
+<form name="cache-expire" action="<?php echo $this->getSaveExpirationUrl(); ?>">
+    <div class="content-header">
+        <table cellspacing="0">
+            <tr>
+                <td><h3><?php echo Mage::helper('advancedcache')->__('Expiration Management') ?></h3></td><td class="form-buttons"></td>
+                <td class="form-buttons">
+                    <button id="cache_expire_save" type="submit" class="scalable save"><span><?php echo Mage::helper('advancedcache')->__('Save') ?></span></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <table class="form-list">
+        <tr>
+            <td class="label">
+                <label for="cms_expire" id="label-cms_expire"><?php echo Mage::helper('advancedcache')->__('CMS pages and blocks') ?></label>
+            </td>
+            <td class="value">
+                <input id="cms_expire" name="tags[cms]" value="<?php echo $this->getExpire('cms'); ?>" title="<?php echo Mage::helper('advancedcache')->__('CMS pages and blocks') ?>" type="text" class="input-text" style="width: 50px"/>
+            </td>
+            <td class="scope-label">
+                <?php echo Mage::helper('advancedcache')->__('seconds.') ?>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">
+                <label for="catalog_expire" id="label-catalog_expire"><?php echo Mage::helper('advancedcache')->__('Catalog (products and categories)') ?></label>
+            </td>
+            <td class="value">
+                <input id="catalog_expire" name="tags[catalog]" value="<?php echo $this->getExpire('catalog'); ?>" title="<?php echo Mage::helper('advancedcache')->__('Catalog (products and categories)') ?>" type="text" class="input-text" style="width: 50px"/>
+            </td>
+            <td class="scope-label">
+                <?php echo Mage::helper('advancedcache')->__('seconds.') ?>
+            </td>
+        </tr>
+    </table>
+</form>

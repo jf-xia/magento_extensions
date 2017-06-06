@@ -1,0 +1,163 @@
+<?php
+class Monk_Blog_Block_Post extends Mage_Core_Block_Template
+{
+    public function getPost()
+   	{
+        if (!$this->hasData('post')) {
+            if ($this->getPostId()) {
+                $post = Mage::getModel('blog/post')
+					->setStoreId(Mage::app()->getStore()->getId())
+                    ->load($this->getPostId(), 'post_id');
+            } else {
+                $post = Mage::getSingleton('blog/post');
+            }
+			$cat = Mage::getSingleton('blog/cat')->load($this->getRequest()->getParam('cat'), "identifier");
+			$route = Mage::getStoreConfig('blog/blog/route');
+			if ($route == "")
+			{
+				$route = "blog";
+			}
+			$route = Mage::getUrl($route);
+			if ($cat->getIdentifier() != null)
+			{
+				$post->setAddress($route . 'cat/' . $cat->getIdentifier() ."/post/" . $post->getIdentifier());
+				$post->setIdentifier('cat/' . $cat->getIdentifier() ."/post/" . $post->getIdentifier());
+			}
+			else
+			{
+				$post->setAddress($route . $post->getIdentifier());
+				$post->setIdentifier($post->getIdentifier());
+			}
+			$post->setCreatedTime($this->formatTime($post->getCreatedTime(),Mage::getStoreConfig('blog/blog/dateformat'), true));
+			$post->setUpdateTime($this->formatTime($post->getUpdateTime(),Mage::getStoreConfig('blog/blog/dateformat'), true));
+			
+			$cats = Mage::getModel('blog/cat')->getCollection()
+			->addPostFilter($post->getPostId());
+			$catUrls = array();
+			foreach($cats as $cat)
+			{
+				$catUrls[$cat->getTitle()] = $route . "cat/" . $cat->getIdentifier();
+			}
+			$post->setCats($catUrls);
+			
+            $this->setData('post', $post);
+        }
+        return $this->getData('post');
+    }
+	
+	public function getBookmarkHtml($post)
+	{
+		if (Mage::getStoreConfig('blog/blog/bookmarkspost'))
+		{
+			$this->setTemplate('blog/bookmark.phtml');
+			$this->setPost($post);
+			return $this->toHtml();
+		}
+		return;
+	}
+	
+	public function getComment()
+   	{
+		$post = $this->getPost();
+		
+        $collection = Mage::getModel('blog/comment')->getCollection()
+		->addPostFilter($post->getPostId())
+		->setOrder('created_time ', 'asc')
+		->addApproveFilter(2); 
+
+		return $collection;
+
+    }
+	
+	public function getCommentTotalString($comments)
+	{
+		$comment_count = count($comments);
+		if ($comment_count == 1) {
+			$comment_string = $comment_count . " " . Mage::helper('blog')->__('Comment');
+		}
+		else {
+			$comment_string = $comment_count . " " . Mage::helper('blog')->__('Comments');
+		}
+		return $comment_string;
+	}
+	
+	public function getCommentsEnabled()
+   	{
+		return Mage::getStoreConfig('blog/comments/enabled');
+	}
+	
+	public function getLoginRequired()
+   	{
+		return Mage::getStoreConfig('blog/comments/login');
+	}
+	
+	public function getFormAction()
+    {
+        return $this->getUrl('*/*/post');
+    }
+	
+	public function getFormData()
+	{
+		return $this->getRequest();
+	}
+	
+	protected function _prepareLayout()
+    {
+        $post = $this->getPost();
+		$cat = Mage::getSingleton('blog/cat')->load($this->getRequest()->getParam('cat'), "identifier");
+		$route = Mage::getStoreConfig('blog/blog/route');
+		if ($route == "")
+		{
+			$route = "blog";
+		}
+        // show breadcrumbs
+        if (Mage::getStoreConfig('blog/blog/blogcrumbs') && ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs'))){
+			$breadcrumbs->addCrumb('home', array('label'=>Mage::helper('blog')->__('Home'), 'title'=>Mage::helper('blog')->__('Go to Home Page'), 'link'=>Mage::getBaseUrl()));;
+			$breadcrumbs->addCrumb('blog', array('label'=>Mage::getStoreConfig('blog/blog/title'), 'title'=>Mage::helper('blog')->__('Return to ' .Mage::getStoreConfig('blog/blog/title')), 'link'=>Mage::getUrl($route)));
+			if ($cat->getTitle() != "")
+			{
+				$breadcrumbs->addCrumb('cat', array('label'=>$cat->getTitle(), 'title'=>Mage::helper('blog')->__('Return to ' .$cat->getTitle()), 'link'=>Mage::getUrl($route . '/cat') . $cat->getIdentifier()));
+			}
+			$breadcrumbs->addCrumb('blog_page', array('label'=>$post->getTitle(), 'title'=>$post->getTitle()));
+        }
+
+		if ($head = $this->getLayout()->getBlock('head')) {
+            $head->setTitle($post->getTitle());
+            $head->setKeywords($post->getMetaKeywords());
+            $head->setDescription($post->getMetaDescription());
+        }
+    }
+	
+	public function setCommentDetails($name, $email, $comment)
+    {
+    	$this->_data['commentName'] = $name;
+        $this->_data['commentEmail'] = $email;
+		$this->_data['commentComment'] = $comment;
+        return $this;
+    }
+
+    public function getCommentText()
+    {
+       	if (!empty($this->_data['commentComment'])) {
+            return $this->_data['commentComment'];
+        }
+        return;
+    }
+	
+	public function getCommentEmail()
+    {
+       	if (!empty($this->_data['commentEmail'])) {
+            return $this->_data['commentEmail'];
+        }
+        return;
+    }
+	
+	public function getCommentName()
+    {
+       	if (!empty($this->_data['commentName'])) {
+            return $this->_data['commentName'];
+        }
+        return;
+    }
+
+}

@@ -1,0 +1,35 @@
+=====================================
+This file describes changes between versions of module ET_RussianLanguage for Magento.
+
+Legend:
+* bug fix
++ added functionality
+- removed functionality
+
+=====================================
+TODO: 
+
+
+=====================================
+
+ver. 1.1.0
++ Добавлены переводы фраз, появившихся в версии 1.6.1.0
++ Добавлены шаблоны писем, появившихся в версии 1.6.1.0
+* исправлены опечатки
+
+
+ver. 1.0.2
+* Mage_Sales.csv - Изменён перевод фраз (Items Invoiced, Items Refunded, Items Refunded), так как у сущьностей, куда входят эти товары, есть статусы. И не совсем корректно переводить Items Invoiced как Оплаченные позиции, если данный счёт отменён. Потому переведено как Позиции счёта и т.п.
+* Убраны лишние кавычки в некоторых шаблонах писем
++ Добавлены фразы, появившиеся в версии Magento 1.6.0.0.
+
+
+ver. 1.0.1
+* Исправлена пара фраз в Mage_Wishlist.csv (Configured price, Options Details)
+* Исправлена пара фраз в Mage_Bundle.csv (To, Price as configured)
+* Исправлена пара фраз в Mage_Adminhtml.csv
+* Tax Class изменён с "Класс налога" на "Налоговый класс"
+
+
+ver. 1.0.0
++ stable release

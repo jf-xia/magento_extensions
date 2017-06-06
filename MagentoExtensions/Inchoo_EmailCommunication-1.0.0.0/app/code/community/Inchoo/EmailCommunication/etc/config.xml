@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * INCHOO's FREE EXTENSION DISCLAIMER
+ *
+ * Please do not edit or add to this file if you wish to upgrade Magento
+ * or this extension to newer versions in the future.
+ *
+ * Inchoo developers (Inchooer's) give their best to conform to
+ * "non-obtrusive, best Magento practices" style of coding.
+ * However, Inchoo does not guarantee functional accuracy of specific
+ * extension behavior. Additionally we take no responsibility for any
+ * possible issue(s) resulting from extension usage.
+ *
+ * We reserve the full right not to provide any kind of support for our free extensions.
+ *
+ * You are encouraged to report a bug, if you spot any,
+ * via sending an email to bugreport@inchoo.net. However we do not guaranty
+ * fix will be released in any reasonable time, if ever,
+ * or that it will actually fix any issue resulting from it.
+ *
+ * Thank you for your understanding.
+ */
+
+/**
+ * @category Inchoo
+ * @package Inchoo_EmailCommunication
+ * @author Branko Ajzele <ajzele@gmail.com>
+ * @copyright Inchoo <http://inchoo.net>
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Inchoo_EmailCommunication>
+             <version>1.0.0.0</version>
+        </Inchoo_EmailCommunication>
+    </modules>
+    
+    <global>
+        <models>
+            <inchoo_email_communication>
+                <class>Inchoo_EmailCommunication_Model</class>
+                <resourceModel>inchoo_email_communication_resource</resourceModel>
+            </inchoo_email_communication>
+            <inchoo_email_communication_resource>
+                <class>Inchoo_EmailCommunication_Model_Resource</class>
+                <!-- deprecatedNode>inchoo_email_communication_log_mysql4</deprecatedNode -->
+                <entities>
+                    <log>
+                        <table>inchoo_email_communication_log</table>
+                    </log>
+                </entities>
+            </inchoo_email_communication_resource>
+            <core>
+                <rewrite>
+                    <email_template>Inchoo_EmailCommunication_Model_Core_Email_Template</email_template>
+                </rewrite>
+            </core>
+        </models>
+        <blocks>
+            <inchoo_email_communication>
+                <class>Inchoo_EmailCommunication_Block</class>
+            </inchoo_email_communication>
+        </blocks>
+        <helpers>
+            <inchoo_email_communication>
+                <class>Inchoo_EmailCommunication_Helper</class>
+            </inchoo_email_communication>
+        </helpers>
+        <resources>
+            <inchoo_email_communication_setup>
+                <setup>
+                    <module>Inchoo_EmailCommunication</module>
+                    <class>Inchoo_EmailCommunication_Model_Resource_Setup</class>
+                </setup>
+            </inchoo_email_communication_setup>
+        </resources>
+        <helpers>
+			<inchoo_email_communication>
+                <class>Inchoo_EmailCommunication_Helper</class>
+            </inchoo_email_communication>
+        </helpers>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <inchoo_email_communication after="Mage_Adminhtml">Inchoo_EmailCommunication_Adminhtml</inchoo_email_communication>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

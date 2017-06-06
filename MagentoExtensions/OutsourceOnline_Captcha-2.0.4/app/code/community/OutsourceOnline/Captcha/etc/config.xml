@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Outsource Online Captcha Extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Outsource Online
+ * @package    OutsourceOnline_Captcha
+ * @author     Sreekanth Dayanand
+ * @copyright  Copyright (c) 2010 Outsource Online. (http://www.outsource-online.net)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <OutsourceOnline_Captcha>
+            <version>2.0.0</version>
+        </OutsourceOnline_Captcha>
+    </modules>
+	
+		
+	
+    <global>
+        <routers>
+            <contacts>
+                <rewrite>
+                    <index>
+                        <to>captcha/contacts</to>
+                    </index>
+                </rewrite>
+            </contacts>
+        
+            
+        </routers>
+		<!--<rewrite>
+            <OutsourceOnline_Captcha>
+                <from><![CDATA[#^/checkout/onepage/saveBilling/#]]></from>
+                <to>/captcha/onepage/saveBilling/</to>
+            </OutsourceOnline_Captcha>
+        </rewrite>-->
+        <rewrite>
+            <OutsourceOnline_Captcha>
+                <from><![CDATA[#^/customer/account/createpost/#]]></from>
+                <to>/captcha/account/createpost/</to>
+            </OutsourceOnline_Captcha>
+        </rewrite>
+        <rewrite>
+            <OutsourceOnline_Captcha2>
+                <from><![CDATA[#^/sendfriend/product/sendmail/#]]></from>
+                <to>/captcha/product/sendmail/</to>
+            </OutsourceOnline_Captcha2>
+        </rewrite>
+        <rewrite>
+            <OutsourceOnline_Captcha3>
+                <from><![CDATA[#^/review/product/post/#]]></from>
+                <to>/captcha/review/post/</to>
+            </OutsourceOnline_Captcha3>
+        </rewrite>
+        <models>
+            <OutsourceOnline_Captcha>
+                <class>OutsourceOnline_Captcha_Model</class>
+            </OutsourceOnline_Captcha>
+        </models>
+        <blocks>
+            <review>
+                <rewrite>
+                    <form>OutsourceOnline_Captcha_Block_Review_Form</form>
+                </rewrite>
+            </review>
+        </blocks>
+		
+		<blocks>
+            <checkout>
+                <rewrite>
+                    <onepage_billing>OutsourceOnline_Captcha_Block_Checkout_Onepage_Billing</onepage_billing>
+                </rewrite>
+            </checkout>
+        </blocks>
+		<controllers>
+            <checkout>
+                <rewrite>
+                    <onepage>OutsourceOnline_Captcha_OnepageController</onepage>
+                </rewrite>
+            </checkout>
+        </controllers>
+        <helpers>
+            <outsourceonline_captcha>
+                <class>OutsourceOnline_Captcha_Helper</class>
+            </outsourceonline_captcha>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <OutsourceOnline_Captcha>
+                <use>standard</use>
+                <args>
+                    <module>OutsourceOnline_Captcha</module>
+                    <frontName>captcha</frontName>
+                </args>
+            </OutsourceOnline_Captcha>
+			<!-- new additional tag for one page checkout -->
+				<checkout>
+					<args>
+						<modules>
+							 <OutsourceOnline_Captcha before="Mage_Checkout">OutsourceOnline_Captcha</OutsourceOnline_Captcha>
+						</modules>
+					</args>
+				</checkout>
+			<!-- new additional tag for one page checkout ends here -->
+        </routers>
+		<translate>
+            <modules>
+                <OutsourceOnline_Captcha>
+                    <files>
+                        <default>OutsourceOnline_Captcha.csv</default>
+                    </files>
+                </OutsourceOnline_Captcha>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <OutsourceOnline_Captcha module="OutsourceOnline_Captcha">
+                    <file>OutsourceOnline_Captcha.xml</file>
+                </OutsourceOnline_Captcha>
+            </updates>
+        </layout>
+    </frontend>
+    <default>
+        <OutsourceOnline_Captcha>
+            <setup>
+				<image_function>Adv</image_function>
+				<letter_size>24</letter_size>
+				<font_ttf>AdLibBT.TTF</font_ttf>
+                <background_color>#2C8007</background_color>
+                <text_color>#FFFFFF</text_color>
+				<characters_allowed>ABCDEFGHJKLMNPQRTWXY346789</characters_allowed>
+				<noise_in_bg>0</noise_in_bg>
+				<noise_in_text>0</noise_in_text>                
+                <language>en</language>
+               
+            </setup>
+            <captcha>
+                <when_loggedin>1</when_loggedin>
+                <sendfriend>1</sendfriend>
+                <contacts>1</contacts>
+                <customer>1</customer>
+                <review>1</review>
+            </captcha>
+            
+        </OutsourceOnline_Captcha>
+    </default>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <OutsourceOnline_Captcha>
+                                            <title>Captcha</title>
+                                        </OutsourceOnline_Captcha>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

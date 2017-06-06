@@ -1,0 +1,33 @@
+<?php
+
+class NeedTool_OfflineM1_Model_Payment extends Mage_Payment_Model_Method_Abstract
+{
+    protected $_code  = 'offlinem1_payment';
+    protected $_formBlockType = 'offlinem1/form';
+
+    protected $_order = null;
+    
+    public function getPayimgurl()
+    {
+        return $this->getConfigData('payimgurl');
+    }
+    
+    public function getPayinfo()
+    {
+        return $this->getConfigData('payinfo');
+    }
+    
+    public function isAvailable($quote=null)
+    {
+    	Mage::log("offlinem1_payment payment isAvailable");
+        if (is_null($quote)) {
+           return false;
+        }
+Mage::log($quote);
+        if (Mage::app()->getStore()->roundPrice($quote->getGrandTotal()) == 0) {
+            return true;
+        }
+        return false;
+    }
+
+}

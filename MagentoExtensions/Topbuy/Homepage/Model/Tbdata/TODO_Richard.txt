@@ -1,0 +1,7 @@
+TODO List:
+1. set up permission control for new API called defined in Topbuy/Frontbanner/etc/api.xml] (Done)
+2. set up error handle in above api.xml (Done)
+3. pressure test on full sync (Done)
+4. set up differencial sync rules for TopBuy - Magento Done
+5. check sync data with Jack to make sure result is fit to new system. specially check on datetime type. Done
+  

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   ASPerience
+ * @package    Asperience_Addresscomplete
+ * @author     ASPerience - www.asperience.fr
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+
+<layout version="0.1.0">
+
+	<default>
+		<reference name="head">
+			<action method="addCss"><stylesheet>css/asperience/addresscomplete.css</stylesheet></action>
+			<action method="addJs"><script>asperience/addresscomplete.js</script></action>
+		</reference>
+	</default>
+	
+    <customer_address_form>
+        <reference name="my.account.wrapper">
+            <block type="customer/address_edit" name="customer_address_edit" template="addresscomplete/customer/address/edit.phtml"/>
+        </reference>
+    </customer_address_form>
+    
+    <customer_account_create>
+        <reference name="customer_form_register">
+            <block type="customer/form_register" name="customer_form_register" template="addresscomplete/customer/form/register.phtml">
+                <block type="page/html_wrapper" name="customer.form.register.fields.before" as="form_fields_before"/>
+            </block>
+        </reference>
+    </customer_account_create>
+    
+    <checkout_onepage_index>
+        <reference name="checkout.onepage">
+           <block type="checkout/onepage_billing" name="checkout.onepage.billing" as="billing" template="addresscomplete/checkout/onepage/billing.phtml"/>
+           <block type="checkout/onepage_shipping" name="checkout.onepage.shipping" as="shipping" template="addresscomplete/checkout/onepage/shipping.phtml"/>
+        </reference>
+    </checkout_onepage_index>
+    
+    <checkout_cart_index>
+        <reference name="checkout.cart">
+            <block type="checkout/cart_shipping" name="checkout.cart.shipping" as="shipping" template="addresscomplete/checkout/cart/shipping.phtml"/>
+        </reference>
+    </checkout_cart_index>
+    
+</layout>

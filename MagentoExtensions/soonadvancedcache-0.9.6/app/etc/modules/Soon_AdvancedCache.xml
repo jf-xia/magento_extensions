@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Soon_AdvancedCache>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Soon_AdvancedCache>
+    </modules>
+</config>

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * Copyright CKApps.com
+ * email: app@ckapps.com
+ *
+ */
+ -->
+<config>
+   <sections>
+        <payment>
+            <groups>
+                <taobaologin_login module="sinalogin">
+                    <label>CKApps TaobaoLogin</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <switch translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </switch>
+                          <security_key translate="label">
+                            <label>Security Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </security_key>
+                        <security_code translate="label">
+                            <label>Security Code</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </security_code>
+                          <transport translate="label">
+                            <label>Transport</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sinalogin/source_transport</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </transport> 
+                    </fields>
+                </taobaologin_login>
+            </groups>
+        </payment>
+    </sections>
+</config>

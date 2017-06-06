@@ -1,0 +1,72 @@
+<?php
+	$data = $this->getMegamenupro();
+	$menu	=	$data['content'];
+	//echo '<pre>';print_r($menu);
+	
+	$container_css = '';
+?>
+<div class="em_nav">
+<?php if (!empty($menu)): ?>
+	<ul class="<?php if($data['type'] == 1) echo 'vnav';else echo 'hnav'; ?>">
+	<?php $close_tags = array() ?>
+	<?php foreach ($menu as $i => $item): ?>
+		<?php $is_parent = ($i < count($menu) - 1) && $menu[$i+1]['depth'] > $item['depth'] ?>
+		<?php echo $this->open_tag($close_tags, $item['depth'], $container_css) ?>
+
+		<?php echo $this->close_tags($close_tags, $item['depth']) ?>
+
+		<?php /* ---------- Menu Item: LINK ---------- */ ?>
+		<?php if ($item['type'] == 'link'): ?>
+			<li class="menu-item-link menu-item-depth-<?php echo $item['depth'] ?> <?php echo $item['css_class'] ?> <?php echo $is_parent ? 'menu-item-parent' : '' ?>">
+				<a href="<?php echo $this->getBaseUrl().htmlspecialchars($item['url']) ?>" 
+					<?php if ($item['target']): ?>
+						target="<?php echo htmlspecialchars($item['target']) ?>"
+					<?php endif ?>
+				><span><?php echo $item['label'] ?></span>
+					<?php if ($item['sublabel']): ?>
+						<small><?php echo $item['sublabel'] ?></small>
+					<?php endif ?>
+				</a>
+			<?php $close_tags[ $item['depth'] ] = "</li>" ?>
+			
+		<?php endif ?>
+
+
+		<?php /* ---------- Menu Item: TEXT ---------- */ ?>
+		<?php if ($item['type'] == 'text'): ?>
+			<li class="menu-item-text menu-item-depth-<?php echo $item['depth'] ?> <?php echo $item['css_class'] ?> <?php echo $is_parent ? 'menu-item-parent' : '' ?>">
+				<?php echo $item['text'] ?>
+			<?php $close_tags[ $item['depth'] ] = "</li>" ?>
+		<?php endif ?>
+	
+
+		<?php /* ---------- Menu Item: HBOX ---------- */ ?>
+		<?php if ($item['type'] == 'hbox'): ?>
+			<li class="menu-item-hbox menu-item-depth-<?php echo $item['depth'] ?> <?php echo $item['css_class'] ?> <?php echo $is_parent ? 'menu-item-parent' : '' ?>" style="<?php 
+					echo $item['width'] ? 'width:'.$item['width'].'px;' : '';
+					echo $item['height'] ? 'height:'.$item['height'].'px;' : '';
+					echo $item['spacing'] ? 'padding:'.$item['spacing'].'px;' : '';
+				?>">
+			<?php $close_tags[ $item['depth'] ] = "</li>" ?>
+		<?php endif ?>
+	
+	
+		<?php /* ---------- Menu Item: VBOX ---------- */ ?>
+		<?php if ($item['type'] == 'vbox'): ?>
+			<li class="menu-item-vbox menu-item-depth-<?php echo $item['depth'] ?> <?php echo $item['css_class'] ?> <?php echo $is_parent ? 'menu-item-parent' : '' ?>" style="<?php 
+					echo $item['width'] ? 'width:'.$item['width'].'px;' : '';
+					echo $item['height'] ? 'height:'.$item['height'].'px;' : '';
+					echo $item['spacing'] ? 'padding:'.$item['spacing'].'px;' : '';
+				?>">
+			<?php $close_tags[ $item['depth'] ] = "</li>" ?>
+		<?php endif ?>
+
+		<?php $container_css = $item['container_css'] ?>
+	<?php endforeach ?>
+
+	<?php echo $this->close_tags($close_tags, 0); ?>
+	</ul>
+
+<?php endif ?>
+
+</div>

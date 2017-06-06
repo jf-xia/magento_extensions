@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:typens="urn:{{var wsdl.name}}" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/"
+    name="{{var wsdl.name}}" targetNamespace="urn:{{var wsdl.name}}">
+	<!--
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Magento">
+            <import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/" />
+			<complexType name="topbuyHomepageType">
+                <all>
+                    <element name="rowid" type="string" minOccurs="0" /> 
+                    <element name="imageurl" type="string" minOccurs="0" />
+                    <element name="linkurl" type="string" minOccurs="0" />
+                    <element name="alttext" type="string" minOccurs="0" />
+                    <element name="displayfrom" type="typens:ArrayOfString" minOccurs="0" />
+                    <element name="displayto" type="typens:ArrayOfString" minOccurs="0" />
+                    <element name="positiontype" type="string" minOccurs="0" />
+                    <element name="displaytitle" type="string" minOccurs="0" />
+                    <element name="displaycontent" type="string" minOccurs="0" /> 
+                </all>
+            </complexType>
+			<complexType name="topbuyHomepageArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:topbuyHomepageType[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+        </schema>
+    </types> 
+	-->
+	<types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Magento">
+            <import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/" />
+			 <complexType name="tbNewsletterType">
+                <sequence>
+                    <element name="email" type="string" minOccurs="0" /> 
+                    <element name="customerid" type="string" minOccurs="0" /> 
+					<element name="subscribetype" type="string" minOccurs="0" /> 
+					<element name="subscribestatus" type="string" minOccurs="0" /> 
+					<element name="rowid" type="string" minOccurs="0" /> 
+					<element name="storeid" type="string" minOccurs="0" />  
+               </sequence>
+            </complexType> 
+			<complexType name="tbNewsletterArray">
+                <sequence>
+                    <element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbNewsletterType" />
+                </sequence>
+            </complexType> 
+			<complexType name="tbAttributeOptionType">
+                <sequence>
+					<element name="option_name" type="string" minOccurs="0" />  
+                    <element name="option_position" type="string" minOccurs="0" /> 
+               </sequence>
+            </complexType> 		
+			<complexType name="tbAttributeOptions">
+                <sequence>
+                    <element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbAttributeOptionType" />
+                </sequence>
+            </complexType> 	
+			<complexType name="tbAttributeType">
+                <sequence>
+					<element name="attribute_code" type="string" minOccurs="0" /> 
+                    <element name="attribute_name" type="string" minOccurs="0" />
+					<element name="options" type="typens:tbAttributeOptions" minOccurs="0" />  
+               </sequence>
+            </complexType> 
+			 <complexType name="tbAttributeArray">
+                <sequence>
+                    <element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbAttributeType" />
+                </sequence>
+            </complexType>
+			<complexType name="tbAttributeCategoryUnitType">
+                <sequence> 
+                    <element name="attribute_name" type="string" minOccurs="0" /> 
+               </sequence>
+            </complexType> 
+			 <complexType name="tbAttributeCategoryUnitArray">
+                <sequence>
+                    <element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbAttributeCategoryUnitType" />
+                </sequence>
+            </complexType> 
+			<complexType name="tbAttributeCategoryType">
+                <sequence> 
+                    <element name="idcategory" type="string" minOccurs="0" /> 
+					<element name="attributes" type="typens:tbAttributeCategoryUnitArray" minOccurs="0" />   
+               </sequence>
+            </complexType>
+			 <complexType name="tbAttributeCategoryArray">
+                <sequence>
+                    <element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbAttributeCategoryType" />
+                </sequence>
+            </complexType> 
+			<complexType name="tbproductType">
+                <all>
+                    <element name="idproduct" type="string" minOccurs="0" /> 
+                    <element name="price" type="string" minOccurs="0" />
+					<element name="listprice" type="string" minOccurs="0" /> 
+					<element name="stock" type="string" minOccurs="0" /> 
+					<element name="is_in_stock" type="string" minOccurs="0" /> 
+					<element name="freeshipping" type="boolean" minOccurs="0" /> 
+					<element name="fixshippingfee" type="string" minOccurs="0" /> 
+					<element name="capshippingfee" type="string" minOccurs="0" /> 
+					<element name="shippingtype" type="string" minOccurs="0" /> 
+                </all>
+            </complexType>
+			<complexType name="tbproductArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:tbproductType[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+			<complexType name="tbProductsOrderedType">
+                <sequence>
+				   <element name="idproductordered" type="int" minOccurs="0" /> 
+                   <element name="idproduct" type="int" minOccurs="0" /> 
+                   <element name="idorder" type="int" minOccurs="0" /> 
+				   <element name="idtbproduct" type="int" minOccurs="0" /> 
+                   <element name="idtborder" type="int" minOccurs="0" /> 
+				   <element name="unitprice" type="string" minOccurs="0" /> 
+				   <element name="quantity" type="int" minOccurs="0" />  
+				   <element name="options" type="string" minOccurs="0" />  
+				   <element name="tracking_number" type="string" minOccurs="0" />  
+				   <element name="serials_number" type="string" minOccurs="0" />
+				   <element name="is_shipped" type="boolean" minOccurs="0" />
+				   <element name="is_processed" type="boolean" minOccurs="0" /> 
+				   <element name="is_cancelled" type="boolean" minOccurs="0" />  
+				   <element name="process_step" type="int" minOccurs="0" />   
+				   <element name="dfdropshipflag" type="int" minOccurs="0" /> 
+				   <element name="instockflag" type="int" minOccurs="0" />   
+				   <element name="shipping_type" type="int" minOccurs="0" />  
+				   <element name="carrier" type="string" minOccurs="0" />  
+               </sequence>
+            </complexType> 
+			 <complexType name="tbProductsOrderedArray">
+                <sequence>
+                    <element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbProductsOrderedType" />
+                </sequence>
+            </complexType>   
+			<complexType name="tbOrderType">
+                <sequence>
+                    <element name="idorder" type="int" minOccurs="0" /> 
+					<element name="idtborder" type="int" minOccurs="0" />
+					<element name="idcustomer" type="int" minOccurs="0" /> 
+					<element name="idtbcustomer" type="int" minOccurs="0" />  
+                    <element name="order_total" type="string" minOccurs="0" /> 
+					<element name="gst" type="string" minOccurs="0" /> 
+					<element name="discount_amount" type="string" minOccurs="0" /> 
+					<element name="shippingfee" type="string" minOccurs="0" /> 
+					<element name="payment_status" type="int" minOccurs="0" /> 
+					<element name="order_status" type="int" minOccurs="0" /> 
+					<element name="payment_receive_date" type="string" minOccurs="0" />
+					<element name="shipped_date" type="string" minOccurs="0" /> 
+					<element name="billing_firstname" type="string" minOccurs="0" /> 
+					<element name="billing_lastname" type="string" minOccurs="0" /> 
+					<element name="billing_company" type="string" minOccurs="0" /> 
+					<element name="billing_phone" type="string" minOccurs="0" /> 
+					<element name="billing_address" type="string" minOccurs="0" /> 
+					<element name="billing_address1" type="string" minOccurs="0" /> 
+					<element name="billing_suburb" type="string" minOccurs="0" /> 
+					<element name="billing_state" type="string" minOccurs="0" /> 
+					<element name="billing_postcode" type="string" minOccurs="0" /> 
+					<element name="billing_countrycode" type="string" minOccurs="0" /> 
+					<element name="Shipping_fullname" type="string" minOccurs="0" /> 
+					<element name="shipping_companyname" type="string" minOccurs="0" />
+					<element name="shipping_phone" type="string" minOccurs="0" />  
+					<element name="shipping_address" type="string" minOccurs="0" />  
+					<element name="shipping_address1" type="string" minOccurs="0" />  
+					<element name="shipping_suburb" type="string" minOccurs="0" />  
+					<element name="shipping_state" type="string" minOccurs="0" />  
+					<element name="shipping_postcode" type="string" minOccurs="0" />  
+					<element name="shipping_countrycode" type="string" minOccurs="0" />  
+					<element name="order_tracking" type="string" minOccurs="0" /> 
+					<element name="totalproductsordered" type="int" minOccurs="0" /> 
+					<element name="productsordered" type="typens:tbProductsOrderedArray" minOccurs="0" />   
+               </sequence>
+            </complexType> 
+			 <complexType name="tbOrderArray">
+                <sequence>
+                    <element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbOrderType" />
+                </sequence>
+            </complexType>
+			
+        </schema>
+    </types> 
+ 	<message name="homepageTbdatasyncCreateBannerRequest">
+        <part name="sessionId" type="string" />
+        <part name="rowid" type="int" />  
+		<part name="imageurl" type="string" />
+		<part name="linkurl" type="string" />
+		<part name="alttext" type="string" />
+		<part name="displayfrom" type="string" />
+		<part name="displayto" type="string" />
+		<part name="positiontype" type="string" />
+		<part name="displaytitle" type="string" />
+		<part name="displaycontent" type="string" />
+    </message>
+    <message name="homepageTbdatasyncCreateBannerResponse">
+        <part name="result" type="boolean" />
+    </message>
+ 	<message name="homepageTbdatasyncDeleteBannerRequest">
+        <part name="sessionId" type="string" />
+        <part name="rowid" type="int" />  
+    </message>
+    <message name="homepageTbdatasyncDeleteBannerResponse">
+        <part name="result" type="boolean" />
+    </message>	 
+	<message name="homepageTbdatasyncCreateCategoryspecialRequest">
+        <part name="sessionId" type="string" />
+        <part name="rowid" type="int" />  
+		<part name="idparentcategory" type="string" />
+		<part name="linkname" type="string" />
+		<part name="linkhref" type="string" /> 
+		<part name="linkflag" type="string" />
+		<part name="linkstatus" type="string" />
+		<part name="sortby" type="string" />
+		<part name="linenumber" type="string" /> 
+    </message>
+    <message name="homepageTbdatasyncCreateCategoryspecialResponse">
+        <part name="result" type="boolean" />
+    </message>
+ 	<message name="homepageTbdatasyncDeleteCategoryspecialRequest">
+        <part name="sessionId" type="string" />
+        <part name="rowid" type="int" />  
+    </message>
+    <message name="homepageTbdatasyncDeleteCategoryspecialResponse">
+        <part name="result" type="boolean" />
+    </message>	
+	
+	 <message name="homepageTbdatasyncCreateTestimonialRequest">
+        <part name="sessionId" type="string" />
+        <part name="idtestimonial" type="int" />  
+		<part name="subject" type="string" />
+		<part name="contentbody" type="string" />
+		<part name="senddate" type="string" />
+		<part name="staffid" type="string" />
+		<part name="fromstate" type="string" />
+		<part name="fromname" type="string" />
+		<part name="idstore" type="int" /> 
+    </message>
+    <message name="homepageTbdatasyncCreateTestimonialResponse">
+        <part name="result" type="boolean" />
+    </message>
+ 	<message name="homepageTbdatasyncDeleteTestimonialRequest">
+        <part name="sessionId" type="string" />
+        <part name="idtestimonial" type="int" />  
+    </message>
+    <message name="homepageTbdatasyncDeleteTestimonialResponse">
+        <part name="result" type="boolean" />
+    </message>	
+	
+ 	<message name="homepageTbdatasyncTbUpdateProductsRequest">
+        <part name="sessionId" type="string" />
+        <part name="products" type="typens:tbproductArray" />  
+    </message>
+    <message name="homepageTbdatasyncTbUpdateProductsResponse">
+        <part name="result" type="string" />
+    </message>	
+	<message name="homepageTbdatasyncGetNewsletterListRequest">
+        <part name="sessionId" type="string" />
+		<part name="houroffset" type="int" />  
+    </message>
+    <message name="homepageTbdatasyncGetNewsletterListResponse">
+         <part name="newsletters" type="typens:tbNewsletterArray" />  
+    </message>	 
+	<message name="homepageTbdatasyncSyncOrderStatusRequest">
+        <part name="sessionId" type="string" />
+		<part name="orders" type="typens:tbOrderArray" />  
+    </message>
+    <message name="homepageTbdatasyncSyncOrderStatusResponse">
+         <part name="result" type="string" />  
+    </message>	
+	<message name="homepageTbdatasyncSyncAttributeRequest">
+        <part name="sessionId" type="string" />
+		<part name="attributes" type="typens:tbAttributeArray" />  
+    </message>
+    <message name="homepageTbdatasyncSyncAttributeResponse">
+         <part name="result" type="string" />  
+    </message>	
+	<message name="homepageTbdatasyncSyncAttributeProductRequest">
+        <part name="sessionId" type="string" />
+		<part name="productattributes" type="typens:tbAttributeProductArray" />  
+    </message>
+    <message name="homepageTbdatasyncSyncAttributeProductResponse">
+         <part name="result" type="string" />  
+    </message>	
+	<message name="homepageTbdatasyncSyncAttributeCategoryRequest">
+        <part name="sessionId" type="string" />
+		<part name="categoryattributes" type="typens:tbAttributeCategoryArray" />  
+    </message>
+    <message name="homepageTbdatasyncSyncAttributeCategoryResponse">
+         <part name="result" type="string" />  
+    </message>
+    <portType name="{{var wsdl.handler}}PortType">
+        <operation name="homepageTbdatasyncCreateBanner">
+            <documentation>Insert New Front Banner For TopBuy</documentation>
+            <input message="typens:homepageTbdatasyncCreateBannerRequest" />
+            <output message="typens:homepageTbdatasyncCreateBannerResponse" />
+        </operation>
+		<operation name="homepageTbdatasyncDeleteBanner">
+            <documentation>Delete Front Banner For TopBuy</documentation>
+            <input message="typens:homepageTbdatasyncDeleteBannerRequest" />
+            <output message="typens:homepageTbdatasyncDeleteBannerResponse" />
+        </operation>
+		<operation name="homepageTbdatasyncCreateCategoryspecial">
+            <documentation>Insert New Special Category For TopBuy</documentation>
+            <input message="typens:homepageTbdatasyncCreateCategoryspecialRequest" />
+            <output message="typens:homepageTbdatasyncCreateCategoryspecialResponse" />
+        </operation>
+		<operation name="homepageTbdatasyncDeleteCategoryspecial">
+            <documentation>Delete Speical category For TopBuy</documentation>
+            <input message="typens:homepageTbdatasyncDeleteCategoryspecialRequest" />
+            <output message="typens:homepageTbdatasyncDeleteCategoryspecialResponse" />
+        </operation>
+	    <operation name="homepageTbdatasyncCreateTestimonial">
+            <documentation>Insert New Testimonial For TopBuy</documentation>
+            <input message="typens:homepageTbdatasyncCreateTestimonialRequest" />
+            <output message="typens:homepageTbdatasyncCreateTestimonialResponse" />
+        </operation>
+		<operation name="homepageTbdatasyncDeleteTestimonial">
+            <documentation>Delete Testimonial For TopBuy</documentation>
+            <input message="typens:homepageTbdatasyncDeleteTestimonialRequest" />
+            <output message="typens:homepageTbdatasyncDeleteTestimonialResponse" />
+        </operation>
+	    <operation name="homepageTbdatasyncTbUpdateProducts">
+            <documentation>Update Products in Batch</documentation>
+            <input message="typens:homepageTbdatasyncTbUpdateProductsRequest" />
+            <output message="typens:homepageTbdatasyncTbUpdateProductsResponse" />
+        </operation>
+	    <operation name="homepageTbdatasyncTbGetNewsletterList">
+            <documentation>Get Newsletter List</documentation>
+            <input message="typens:homepageTbdatasyncGetNewsletterListRequest" />
+            <output message="typens:homepageTbdatasyncGetNewsletterListResponse" />
+        </operation>	
+	    <operation name="homepageTbdatasyncTbSyncOrderStatus">
+            <documentation>Sync Order Status From Backend</documentation>
+            <input message="typens:homepageTbdatasyncSyncOrderStatusRequest" />
+            <output message="typens:homepageTbdatasyncSyncOrderStatusResponse" />
+        </operation>	
+		<operation name="homepageTbdatasyncTbSyncAttribute">
+            <documentation>Sync Attribute Sets</documentation>
+            <input message="typens:homepageTbdatasyncSyncAttributeRequest" />
+            <output message="typens:homepageTbdatasyncSyncAttributeResponse" />
+        </operation>		
+		<operation name="homepageTbdatasyncTbSyncAttributeProduct">
+            <documentation>Sync Attribute Product</documentation>
+            <input message="typens:homepageTbdatasyncSyncAttributeProductRequest" />
+            <output message="typens:homepageTbdatasyncSyncAttributeProductResponse" />
+        </operation>	
+		<operation name="homepageTbdatasyncTbSyncAttributeCategory">
+            <documentation>Sync Attribute Category</documentation>
+            <input message="typens:homepageTbdatasyncSyncAttributeCategoryRequest" />
+            <output message="typens:homepageTbdatasyncSyncAttributeCategoryResponse" />
+        </operation>	 
+    </portType>
+	<binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="homepageTbdatasyncCreateBanner">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+		<operation name="homepageTbdatasyncDeleteBanner">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="homepageTbdatasyncCreateCategoryspecial">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+		<operation name="homepageTbdatasyncDeleteCategoryspecial">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="homepageTbdatasyncCreateTestimonial">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+		<operation name="homepageTbdatasyncDeleteTestimonial">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>		
+		<operation name="homepageTbdatasyncTbUpdateProducts">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>										
+		<operation name="homepageTbdatasyncGetNewsletterList">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+		<operation name="homepageTbdatasyncSyncOrderStatus">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+		<operation name="homepageTbdatasyncSyncAttribute">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+		<operation name="homepageTbdatasyncSyncAttributeProduct">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+		<operation name="homepageTbdatasyncSyncAttributeCategory">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+    </binding>
+    <service name="{{var wsdl.name}}Service">
+        <port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+            <soap:address location="{{var wsdl.url}}" />
+        </port>
+    </service>
+</definitions>

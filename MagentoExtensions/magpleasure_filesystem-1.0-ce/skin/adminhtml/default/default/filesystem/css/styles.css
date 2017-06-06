@@ -1,0 +1,52 @@
+/*
+ MagPleasure Co.
+ 
+ NOTICE OF LICENSE
+ 
+ This source file is subject to the EULA
+ that is bundled with this package in the file LICENSE.txt.
+ It is also available through the world-wide-web at this URL:
+ http://www.magpleasure.com/LICENSE.txt
+
+ @category   Magpleasure
+ @package    Magpleasure_Filesystem
+ @copyright  Copyright (c) 2011 Magpleasure Co. (http://www.magpleasure.com)
+ @license    http://www.magpleasure.com/LICENSE.txt
+*/
+
+div.ide {
+    position: relative;
+    
+}
+
+.ide div.tree {
+    width: 20%;
+    float: left;
+    
+}
+
+.ide div.editor {
+    width: 80%;
+    float: right;
+    
+}
+
+.editor .path {
+    width: 100%;
+    height: 30px;
+}
+
+.ide textarea {
+    width: 100%;
+    height: 600px;
+}
+
+.ide .file-tree-wrapper {
+    height: 619px;
+    width: 95%;
+    border: 1px solid #888888;
+    padding: 3px;
+    margin-top: -9px;
+    
+    overflow:auto;	
+}

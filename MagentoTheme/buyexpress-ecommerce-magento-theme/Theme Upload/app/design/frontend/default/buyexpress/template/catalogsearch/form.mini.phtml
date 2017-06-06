@@ -1,0 +1,46 @@
+<?php 
+$category = Mage::getModel('catalog/category');
+	if(is_object(Mage::registry('current_category'))){
+		$current_category_path=Mage::registry('current_category')->getPathIds();
+	}else{
+		$current_category_path = array();
+	}
+$category->load(Mage::app()->getStore()->getRootCategoryId());
+$children_string = $category->getChildren();
+$children = explode(',',$children_string);
+$mainCat='';
+$catID = '';
+$excludeCat = explode(',',$catID);
+	foreach($children as $cat){
+		if(in_array($cat, $excludeCat)){
+			continue;
+		}
+	$selected = (in_array($cat, $current_category_path)) ? 'SELECTED' : '';
+	$mainCat.= '<li class="' . $cat . '" ' . '><a href="javascript:void(0);">' . $category->load($cat)->getName() . '</a></li>' . "\n";
+}
+?>
+<form id="searchCat" action="<?php echo $this->helper('catalogSearch')->getResultUrl() ?>" method="get"> 
+	<div class="searchForm">   
+    	<div class="searchWrap">
+            <input id="searchform" type="text" class="input-text" name="<?php echo $this->helper('catalogSearch')->getQueryParamName() ?>" value="<?php echo $this->helper('catalogSearch')->getEscapedQueryText() ?>" />
+             <ul class="selectCat">
+                    <li><a href="javascript:void(0);"><?php echo $this->__('All Categories') ?></a>
+                        <ul class="searchCat">
+                        	<li class=""><a href="javascript:void(0);"><?php echo $this->__('All Categories') ?></a>
+                            <?php echo preg_replace('/&(?![A-Za-z0-9#]{1,7};)/','&amp;',$mainCat); ?>
+                        </ul>
+                    </li>
+            </ul>
+            <input id="select-cat" type="hidden" name="cat" value="" />
+            <div class="clear"></div>
+    	</div> 
+    <input type="submit" value="Search" class="go" />
+    </div>
+    <div id="Fsearch_autocomplete" class="search-autocomplete"></div>
+    <script type="text/javascript">
+       //<![CDATA[	   
+       var searchForm = new Varien.searchForm('searchCat', 'searchform', '<?php echo $this->__('Search the site...') ?>');
+      searchForm.initAutocomplete('<?php echo $this->helper('catalogSearch')->getSuggestUrl() ?>', 'Fsearch_autocomplete');
+      //]]>
+    </script>
+</form>

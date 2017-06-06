@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * MagPleasure Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magpleasure.com/LICENSE.txt
+ *
+ * @category   Magpleasure
+ * @package    Magpleasure_Pinterest
+ * @copyright  Copyright (c) 2012 Magpleasure Co. (http://www.magpleasure.com)
+ * @license    http://www.magpleasure.com/LICENSE.txt
+ */
+-->
+<config>
+    <modules>
+        <Magpleasure_Pinterest>
+            <version>1.0.4</version>
+        </Magpleasure_Pinterest>
+    </modules>
+    <global>
+        <models>
+            <mppinterest>
+                <class>Magpleasure_Pinterest_Model</class>
+            </mppinterest>
+        </models>
+        <blocks>
+            <mppinterest>
+                <class>Magpleasure_Pinterest_Block</class>
+            </mppinterest>
+        </blocks>
+        <helpers>
+            <mppinterest>
+                <class>Magpleasure_Pinterest_Helper</class>
+            </mppinterest>
+        </helpers>
+        <resources>
+            <mppinterest_setup>
+                <setup>
+                    <module>Magpleasure_Pinterest</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </mppinterest_setup>
+            <mppinterest_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </mppinterest_write>
+            <mppinterest_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </mppinterest_read>
+        </resources>
+		<layout>
+			<updates>
+				<mppinterest>
+					<file>mppinterest.xml</file>
+				</mppinterest>
+			</updates>
+		</layout>
+    </global>
+    <frontend>
+        <routers>
+            <mppinterest>
+                <use>standard</use>
+                <args>
+                    <module>Magpeasure_Pinterest</module>
+                    <frontName>mppinterest</frontName>
+                </args>
+            </mppinterest>
+        </routers>
+		<layout>
+			<updates>
+				<mppinterest>
+					<file>mppinterest.xml</file>
+				</mppinterest>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Magpleasure_Pinterest>
+					<files>
+						<default>Magpleasure_Pinterest.csv</default>
+					</files>
+				</Magpleasure_Pinterest>
+			</modules>
+		</translate>
+    </frontend>
+    <adminhtml>
+		<translate>
+			<modules>
+				<Magpleasure_Pinterest>
+					<files>
+						<default>Magpleasure_Pinterest.csv</default>
+					</files>
+				</Magpleasure_Pinterest>
+			</modules>
+		</translate>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <mppinterest>
+                                            <title>Pinterest Integration</title>
+                                        </mppinterest>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+    </adminhtml>
+    <default>
+        <mppinterest>
+            <general>
+                <enabled>1</enabled>
+                <display_in_other>1</display_in_other>
+                <button_type>horizontal</button_type>
+                <add_price>1</add_price>
+            </general>
+        </mppinterest>
+    </default>
+</config>

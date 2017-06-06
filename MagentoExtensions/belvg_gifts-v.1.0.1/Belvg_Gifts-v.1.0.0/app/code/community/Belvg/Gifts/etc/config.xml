@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+ /***************************************
+ *         MAGENTO EDITION USAGE NOTICE *
+ *****************************************/
+ /* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+ /***************************************
+ *         DISCLAIMER   *
+ *****************************************/
+ /* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ *****************************************************
+ * @category   Belvg
+ * @package    Belvg_Gifts
+ * @copyright  Copyright (c) 2010 - 2012 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+-->
+<config>
+	<modules>
+		<Belvg_Gifts>
+			<version>1.0.0</version>
+		</Belvg_Gifts>
+	</modules>
+	<frontend>
+		<routers>
+			<gifts>
+				<use>standard</use>
+				<args>
+					<module>Belvg_Gifts</module>
+					<frontName>gifts</frontName>
+				</args>
+			</gifts>
+		</routers>
+		<layout>
+			<updates>
+				<gifts>
+					<file>gifts.xml</file>
+				</gifts>
+			</updates>
+		</layout>
+        <translate>
+            <modules>
+                <Belvg_Gifts>
+                    <files>
+                        <default>Belvg_Gifts.csv</default>
+                    </files>
+                </Belvg_Gifts>
+            </modules>
+        </translate>        
+	</frontend>
+	<admin>
+		<routers>
+			<gifts>
+				<use>admin</use>
+				<args>
+					<module>Belvg_Gifts</module>
+					<frontName>gifts</frontName>
+				</args>
+			</gifts>
+		</routers>
+	</admin>
+	<adminhtml>
+		<menu>
+			<gifts module="gifts">
+				<title>Gifts</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="gifts">
+						<title>Manage Rules</title>
+						<sort_order>0</sort_order>
+						<action>gifts/adminhtml_gifts</action>
+					</items>
+				</children>
+			</gifts>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Belvg_Gifts>
+							<title>Gifts Module</title>
+							<sort_order>10</sort_order>
+						</Belvg_Gifts>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<gifts>
+					<file>gifts.xml</file>
+				</gifts>
+			</updates>
+		</layout>
+	</adminhtml>   
+	<global>
+		<resources>
+			<gifts_setup>
+				<setup>
+					<module>Belvg_Gifts</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</gifts_setup>
+			<gifts_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</gifts_write>
+			<gifts_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</gifts_read>
+		</resources>
+		<blocks>
+			<gifts><class>Belvg_Gifts_Block</class></gifts>
+		</blocks>
+		<models>
+			<gifts>
+				<class>Belvg_Gifts_Model</class>
+				<resourceModel>gifts_mysql4</resourceModel>
+			</gifts>
+			<gifts_mysql4>
+				<class>Belvg_Gifts_Model_Mysql4</class>
+				<entities>
+					<gifts>
+						<table>belvg_gifts</table>
+					</gifts>
+					<product>
+						<table>belvg_gifts_product</table>
+					</product>
+				</entities>
+			</gifts_mysql4>
+		</models> 
+		<helpers>
+			<gifts>
+				<class>Belvg_Gifts_Helper</class>
+			</gifts>
+		</helpers>
+		<events>
+			<sales_quote_save_after>
+                <observers>
+                    <gifts>
+                        <type>singleton</type>
+                        <class>gifts/observer</class>
+                        <method>checkGiftQty</method>
+                    </gifts>
+                </observers>
+            </sales_quote_save_after>
+            <!--checkout_cart_update_items_after>
+                <observers>
+                    <gifts>
+                        <type>singleton</type>
+                        <class>gifts/observer</class>
+                        <method>checkGiftQty</method>
+                    </gifts>
+                </observers>
+            </checkout_cart_update_items_after-->
+            <!--sales_quote_remove_item>
+                <observers>
+                    <gifts>
+                        <type>singleton</type>
+                        <class>gifts/observer</class>
+                        <method>checkRemoveItem</method>
+                    </gifts>
+                </observers>
+            </sales_quote_remove_item-->
+        </events>
+	</global>
+</config>

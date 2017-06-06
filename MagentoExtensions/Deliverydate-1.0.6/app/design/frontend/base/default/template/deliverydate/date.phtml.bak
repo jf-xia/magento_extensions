@@ -1,0 +1,7 @@
+<?php if ($this->canShow()): ?>
+	<?php $characterCount = $this->getCharacterCount(); ?>
+	<div id='deliverydate'>
+		<label for='deliverydate-date'><?php echo $this->__(Mage::helper('deliverydate')->getFrontendLabel()) ?><?php if ($characterCount !== false): ?> ( max <?php echo $characterCount ?> characters ) <?php endif; ?></label>
+		<textarea id='deliverydate-date' name='deliverydate-date' class="input-text<?php if ($characterCount !== false): ?> validate-length maximum-length-<?php echo $characterCount ?> <?php endif; ?>"></textarea>
+	</div>
+<?php endif; ?>

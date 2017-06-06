@@ -1,0 +1,371 @@
+<?php $_product = $this->getProduct() ?>
+
+<?php echo Mage::helper('rewardpoints/data')->getProductPointsText($_product, false, false);?>
+<script type="text/javascript">
+    function checkJ2tPoints(){
+        var points = $('j2t-pts').innerHTML;
+        if (points > 0){
+            $$('.j2t-loyalty-points').invoke('show');
+        } else {
+            $$('.j2t-loyalty-points').invoke('hide');
+        }
+    }
+</script>
+
+<?php if (Mage::getConfig()->getModuleConfig('Mage_Downloadable')->is('active', 'true')):?>
+<?php if($_product->getTypeId() == Mage_Downloadable_Model_Product_Type::TYPE_DOWNLOADABLE):?>
+<script type="text/javascript">
+    var json_credit_downloadable = <?php echo $this->getJsDownloadable($_product) ?>;
+    
+    document.observe("dom:loaded", function() { 
+        var product_downloadable   = $$('.product-downloadable-link');
+        if (product_downloadable.length > 0){
+            product_downloadable.each(function(element){
+                Event.observe(element, 'change', function() {
+                    //$('j2t-pts').innerHTML = j2t_points + ;
+                    if (this.checked){
+                        $('j2t-pts').innerHTML = j2t_points + parseFloat(json_credit_downloadable[this.value]) + j2t_options;
+                    } else {
+                        $('j2t-pts').innerHTML = j2t_points + j2t_options;
+                    }
+                    checkJ2tPoints();
+                    //alert(this.value);
+                });
+            });
+        }
+    });
+    
+</script>
+<?php endif;?>
+<?php endif;?>
+
+<?php if($_product->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_GROUPED):?>
+<script type="text/javascript">
+    var json_credit_grouped = <?php echo $this->getJsGrouped($_product);?>;
+    document.observe("dom:loaded", function() {
+        $$('#super-product-table .qty').each(function(element){
+            Event.observe(element, 'keyup', function() {
+                process_bundle_credit();
+            });
+        });
+        process_bundle_credit();
+    });
+    
+    function process_bundle_credit(){
+        var points_bundle = 0;
+        var qty_bundle = 0;
+        $$('#super-product-table .qty').each(function(element){ 
+            element.name.sub(/[0-9]+/, function(match){
+                optionId = match[0];
+            });
+            
+            if (isNaN(parseFloat(element.value))) {
+                qty_bundle = 0;
+            } else {
+                qty_bundle = parseFloat(element.value);
+            }
+            if (qty_bundle > 0){
+                points_bundle += (qty_bundle * json_credit_grouped[optionId]);
+            }
+        });
+        
+        $('j2t-pts').innerHTML = points_bundle + j2t_options;
+        checkJ2tPoints();
+    }
+    
+    
+</script>
+<?php ?>
+<?php endif;?>
+
+<?php if($_product->getTypeId() != Mage_Catalog_Model_Product_Type::TYPE_BUNDLE):?>
+<?php //$this->getConfigurableProducts($_product);?>
+<script type="text/javascript">
+    var j2t_points = <?php echo Mage::helper('rewardpoints/data')->getProductPoints($_product, true) ?>;
+    var j2t_options = 0;
+
+    var j2t_product_id = <?php echo $_product->getId();?>;
+    document.observe("dom:loaded", function() {
+        if ($('qty')){
+            Event.observe($('qty'), 'keyup', function(){ if (!isNaN($('qty').value)) {$('j2t-pts').innerHTML = j2t_math_points($('qty').value, j2t_points); } checkJ2tPoints();});
+        }
+
+
+        <?php if (!Mage::helper('rewardpoints/data')->isCustomProductPoints($_product)):?>
+
+        var product_settings   = $$('.super-attribute-select');
+        if (product_settings.length > 0){
+                product_settings.each(function(element){
+                Event.observe(element, 'change', function() {
+                    if (element.value != ''){
+                        var concat_val = '';
+                        var dont_process_it = false;
+                        j2t_points = 0;
+                        $$('.super-attribute-select').each(function(el){
+                            if(el.value == ''){
+                                dont_process_it = true;
+                            }
+                            if (concat_val != ''){
+                                concat_val += '|'+el.value;
+                            } else {
+                                concat_val = el.value;
+                            }
+                        });
+                        if (!dont_process_it && concat_val != ''){
+                            //load points in ajax according to attributes
+                            if (json_credit[concat_val] != undefined){
+                                j2t_points = json_credit[concat_val];
+                                $('j2t-pts').innerHTML = j2t_math_points($('qty').value, j2t_points);
+                                checkJ2tPoints();
+                            }
+                        } 
+                    }
+                });
+            });
+            var json_credit = <?php echo $this->getJsPoints($_product) ?>;
+        }
+        <?php endif;?>
+    });
+
+    function j2t_math_points(qty, pts_changed){
+        var val_return = 0;
+        if (isNaN(parseFloat(qty))) {
+            qty = 1;
+        }
+        if(qty > 0){
+            val_return = (pts_changed + j2t_options) * qty;
+        } else if(pts_changed > 0) {
+            val_return = pts_changed + j2t_options;
+        }
+        
+        return Math.ceil(val_return);
+    }
+
+</script>
+<?php else:?>
+
+<?php //echo $this->getJsBundlePoints($_product);?>
+
+<script type="text/javascript">
+    function j2t_math_points(qty, pts_changed){
+        var val_return = 0;
+        if (isNaN(parseFloat(qty))) {
+            qty = 1;
+        }
+        if(qty > 0){
+            val_return = (pts_changed + j2t_options) * qty;
+        } else if(j2t_points > 0) {
+            val_return = pts_changed + j2t_options;
+        }
+
+
+        return Math.ceil(val_return);
+    }
+
+    var j2t_points = <?php echo Mage::helper('rewardpoints/data')->getProductPoints($_product, true) ?>;
+    var j2t_options = 0;
+    var j2t_product_id = <?php echo $_product->getId();?>;
+    
+    var json_credit_bundle = <?php echo $this->getJsBundlePoints($_product) ?>;
+    function j2t_points_bundle(){
+        
+        var pts = 0;
+        bundle_select.each(function(element){
+            var el_val_temp = $F(element.id);
+
+            if (el_val_temp.constructor.toString().indexOf("Array") != -1){
+                //multiple
+                var el_array = el_val_temp;
+                if (el_array.length > 0){
+                    for (var k=0; k < el_array.length; k++) {
+                        var el_val = el_array[k];
+                        if (el_val != ''){
+                            var qty = 1;
+                            var id_qty = 'bundle-option-'+json_credit_bundle[el_val]['optionId']+'-qty-input';
+                            if ($(id_qty)){
+                                if ($(id_qty).value > 0){
+                                    qty = $(id_qty).value;
+                                }
+                            }
+                            pts += json_credit_bundle[el_val]['points'] * qty;
+                        }
+                    }
+                }
+
+            } else {
+                //normal
+                var el_val = el_val_temp;
+                if (el_val != ''){
+                    var qty = 1;
+                    var id_qty = 'bundle-option-'+json_credit_bundle[el_val]['optionId']+'-qty-input';
+                    if ($(id_qty)){
+                        if ($(id_qty).value > 0){
+                            qty = $(id_qty).value;
+                        }
+                    }
+                    pts += json_credit_bundle[el_val]['points'] * qty;
+                }
+            }
+
+            
+            
+        });
+
+        bundle_radio.each(function(element){
+            if (element.checked){
+                var qty = 1;
+                var id_qty = 'bundle-option-'+json_credit_bundle[element.value]['optionId']+'-qty-input';
+                if ($(id_qty)){
+                    if ($(id_qty).value > 0){
+                        qty = $(id_qty).value;
+                    }
+                }
+                pts += json_credit_bundle[element.value]['points'] * qty;
+            }
+        });
+
+        bundle_checkbox.each(function(element){
+            if (element.checked){
+                var qty = 1;
+                var id_qty = 'bundle-option-'+json_credit_bundle[element.value]['optionId']+'-qty-input';
+                if ($(id_qty)){
+                    if ($(id_qty).value > 0){
+                        qty = $(id_qty).value;
+                    }
+                }
+                pts += json_credit_bundle[element.value]['points']  * qty;
+            }
+        });
+
+        pts_changed = pts+j2t_points;
+
+
+        $('j2t-pts').innerHTML = j2t_math_points($('qty').value, pts_changed);
+        checkJ2tPoints();
+
+    }
+
+    var bundle_select, bundle_radio, bundle_checkbox;
+
+    document.observe("dom:loaded", function() {
+        bundle_select   = $$('.bundle-option-select');
+
+        if (bundle_select.length > 0){
+            bundle_select.each(function(element){
+                Event.observe(element, 'change', function() {
+                    j2t_points_bundle();
+                });
+            });
+        }
+
+        bundle_radio   = $$('.product-options .radio');
+        if (bundle_radio.length > 0){
+            bundle_radio.each(function(element){
+                Event.observe(element, 'change', function() {
+                    j2t_points_bundle();
+                });
+            });
+        }
+
+        bundle_checkbox   = $$('.product-options .checkbox');
+        if (bundle_checkbox.length > 0){
+            bundle_checkbox.each(function(element){
+                Event.observe(element, 'change', function() {
+                    j2t_points_bundle();
+                });
+            });
+        }
+
+        var qties = $$('.qty');
+        if (qties.length > 0){
+            qties.each(function(element){
+                Event.observe(element, 'keyup', function() {
+                    j2t_points_bundle();
+                });
+            });
+        }
+
+    });
+
+    
+</script>
+<?php endif;?>
+
+
+
+<script type="text/javascript">
+
+    var json_option_credit = <?php echo $this->getJsOptions($_product) ?>;
+
+    document.observe("dom:loaded", function() {
+        option_select   = $$('.product-custom-option');
+
+        if (option_select.length > 0){
+            option_select.each(function(element){
+                Event.observe(element, 'change', function() {
+                    j2t_options = reloadCreditOption();
+                    $('j2t-pts').innerHTML = j2t_math_points($('qty').value, j2t_points);
+                    checkJ2tPoints();
+                });
+            });
+        }
+    });
+
+    
+
+    function reloadCreditOption(){
+        var optionPts = 0;
+
+
+        <?php if ($_product->getTypeInstance(true)->hasOptions($_product) && !Mage::helper('rewardpoints/data')->isCustomProductPoints($_product)):?>
+
+
+
+        config = json_option_credit;
+        skipIds = [];
+        $$('.product-custom-option').each(function(element){
+            var optionId = 0;
+            element.name.sub(/[0-9]+/, function(match){
+                optionId = match[0];
+            });
+            if (config[optionId]) {
+                if (element.type == 'checkbox' || element.type == 'radio') {
+                    if (element.checked) {
+                        if (config[optionId][element.getValue()]) {
+                            optionPts += parseFloat(config[optionId][element.getValue()]);
+                        }
+                    }
+                } else if(element.hasClassName('datetime-picker') && !skipIds.include(optionId)) {
+                    dateSelected = true;
+                    $$('.product-custom-option[id^="options_' + optionId + '"]').each(function(dt){
+                        if (dt.getValue() == '') {
+                            dateSelected = false;
+                        }
+                    });
+                    if (dateSelected) {
+                        optionPts += parseFloat(config[optionId]);
+                        skipIds[optionId] = optionId;
+                    }
+                } else if(element.type == 'select-one' || element.type == 'select-multiple') {
+                    if (element.options) {
+                        $A(element.options).each(function(selectOption){
+                            if (selectOption.selected) {
+                                if (config[optionId][selectOption.value]) {
+                                    optionPts += parseFloat(config[optionId][selectOption.value]);
+                                }
+                            }
+                        });
+                    }
+                } else {
+                    if (element.getValue().strip() != '') {
+                        optionPts += parseFloat(config[optionId]);
+                    }
+                }
+            }
+        });
+
+        <?php endif;?>
+
+        return optionPts;
+    }
+</script>

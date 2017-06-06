@@ -1,0 +1,6 @@
+"Country","Region/State","City","Zip/Postal Code","Zip to","Item >=","Item <=","Shipping Price","Delivery Type"
+"GBR","*","*","*","*",0,1,3,"Standard"
+"GBR","*","*","*","*",2,2,4,"Standard"
+"GBR","*","*","*","*",3,3,5,"Standard"
+"GBR","*","*","*","*",4,4,6,"Standard"
+"GBR","*","*","*","*",5,100000,7,"Standard"

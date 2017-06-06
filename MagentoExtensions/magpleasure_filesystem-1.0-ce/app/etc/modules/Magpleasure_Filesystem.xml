@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Magpleasure_Filesystem>
+            <active>true</active>
+            <codePool>community</codePool>
+        <edition>CE</edition><license>YTozOntzOjM6ImNpZCI7czo0OiIxODYxIjtzOjM6ImVpZCI7czoxOiIxIjtzOjM6InBpZCI7czoxOiI2Ijt9</license></Magpleasure_Filesystem>
+    </modules>
+</config>

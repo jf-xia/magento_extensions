@@ -1,0 +1,47 @@
+<config>    
+    <modules>
+        <Webizmu_Buyexpress>
+            <version>1.0</version>
+        </Webizmu_Buyexpress>
+    </modules>			
+	<global>			
+		<helpers>
+			<buyexpress>
+				<class>Webizmu_Buyexpress_Helper</class>
+			</buyexpress>
+		</helpers>
+		  <models>
+			<buyexpress>
+				<class>Webizmu_Buyexpress_Model</class>
+			</buyexpress>   
+  		  </models>
+	</global>
+	<adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <buyexpress_options>
+                                            <title>Buyexpress Module</title>
+                                        </buyexpress_options>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+		<layout>
+   <updates>
+    <basket>
+     <file>Webizmu_Buyexpress.xml</file>
+    </basket>
+   </updates>
+  </layout>
+    </adminhtml>
+</config>  

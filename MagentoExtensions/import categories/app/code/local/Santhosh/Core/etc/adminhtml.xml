@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+		<santhosh_core translate="title" module="santhosh_core">
+			<title>Santhosh</title>
+			<sort_order>71</sort_order>
+		</santhosh_core>
+	</menu>
+
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<santhosh_core translate="title" module="santhosh_core">
+						<title>Santhosh</title>
+					</santhosh_core>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

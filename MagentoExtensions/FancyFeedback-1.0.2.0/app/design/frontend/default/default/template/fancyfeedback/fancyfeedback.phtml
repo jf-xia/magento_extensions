@@ -1,0 +1,295 @@
+<?php
+if(Mage::getStoreConfig('fancyfeedbackconfig/fancyfeedback_group/fancyfeedback_enabled'))
+{
+?>
+<style>
+#feedback_holder{
+position: fixed;
+display:none;
+top: 300px;
+cursor:pointer;
+}
+#feedback{
+width: 362px;
+padding: 10px 0px 10px 10px;
+/*position: absolute;
+top: 100px;
+display: block;*/
+}
+#feedback #formdiv{
+position: fixed;
+width: 300px;
+float: left;
+background-color: #6f115c;
+padding: 0px 5px 5px 5px;
+-moz-border-radius-bottomright: 6px;
+-moz-border-radius-bottomleft: 6px;
+border-bottom-right-radius:6px;
+border-bottom-left-radius:6px;
+min-height:100px;
+display:none;
+}
+#feedback label{
+font:bold 11px arial;
+color: #febaf9;
+}
+#feedback textarea{
+width: 290px;
+height: 100px;
+color: #fcd1f2;
+font: normal 11px verdana;
+border: none;
+padding: 5px;
+background-color: #943080;
+-moz-box-shadow: inset 1px 1px 1px #4c0b3f;
+-webkit-box-shadow: inset 1px 1px 1px #4c0b3f;
+resize: none; /* disable extending textarea in chrome */
+}
+#feedback input[type="text"]{
+color: #606060;
+font: normal 11px verdana;
+padding: 3px;
+width: 200px;
+height: 25px;
+border: none;
+color: #fcd1f2;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+background-color: #943080;
+-moz-box-shadow: inset 1px 1px 1px #4c0b3f;
+-webkit-box-shadow: inset 1px 1px 1px #4c0b3f;
+}
+#feedback input[type="submit"]{
+background-color: #ffaffa;
+border: none;
+color: #6f115c;
+font:bold 11px arial;
+padding: 2px 6px;
+-moz-border-radius: 8px;
+-webkit-border-radius: 8px;
+cursor: pointer;
+}
+#feedback .left_btn,#feedback .right_btn{
+width: 26px;
+height: 100px;
+float: left;
+cursor: pointer;
+}
+
+#feedback .feed_close{
+cursor: pointer;
+margin:0px 0px 0px 0px;
+float:right;
+}
+#feedback .feed_close a{
+color:#FCD1F2;
+font-size:9px;
+text-decoration:none;
+}
+#feedback .feed_close a:hover{
+text-decoration:underline;
+}
+#feedback .feed_close img{
+height:15px; width:16px;
+}
+#error{
+color:#fff;
+padding:4px;
+font-size:11px;
+font-weight:bold;
+}
+.feedback-logo{
+-webkit-transform: rotate(-90deg); 
+-moz-transform: rotate(-90deg);	
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+writing-mode: tb-rl;
+right:-45px;
+font-size: 14px;
+font-family:Verdana;
+font-weight:900;
+letter-spacing:2px;
+padding: 3px;
+width: 100px;
+height: 30px;
+color: #FCD1F2;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+background-color: #6f115c;
+float:right;
+text-align:center;
+}
+</style>
+
+<!-- Feedback Area // START -->
+<div id="feedback_holder" class="feedback-logo">
+	<span>FEEDBACK</span> 
+</div>
+<div id="feedback">
+	<div id="formdiv" class="formdiv" style="position: fixed; right:0px; float:right; top: 265px;">
+
+		<div id="feedback-side-logo" class="feedback-logo" style="float:left; right:265px; position:absolute; top: 40px; height:20px;">
+			<span>FEEDBACK</span> 
+		</div>
+		<div id="feed_close" class="feed_close">
+			<a href="javascript:void(0);">Close</a>
+		</div>
+		
+		<div class="box">
+			<table border="0"> 
+			<tr>
+				<td><label>Name:</label><br/><input type="text" name="name" id="name"/> </td>
+				<td valign="middle" align="right"></td>
+			</tr> 
+			<tr>
+				<td colspan="2"><label>Email:</label><br/><input type="text" name="email" id="email"/></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<label>Message: </label><br/>
+					<textarea rows="5" cols="16" name="msg" id="msg"></textarea>
+					<input type="hidden" id="url" value="<?php echo Mage::getUrl().'fancyfeedback/'; ?>">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input id="submit_btn" type="submit" value="Submit"/><span id="error"></span></td>
+			</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="form_submit"></div>
+<!-- Feedback Area // END -->
+
+<script type="text/javascript">
+function getIEVersion()
+{
+	var ver='';
+	if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){ //test for MSIE x.x;
+	 var ieversion=new Number(RegExp.$1) // capture x.x portion and store as a number
+	 if (ieversion>=8)
+		ver=8;
+	 else if (ieversion>=7)
+		ver=7;
+	 else if (ieversion>=6)
+		ver=6;
+	 else if (ieversion>=5)
+		ver=5;
+	}
+	else
+	 ver=0;
+	 
+	 return ver;
+}
+
+var fbh = document.getElementById('feedback_holder');
+var fbsl = document.getElementById('feedback-side-logo');
+var fd = document.getElementById('formdiv');
+
+if(navigator.appName == "Microsoft Internet Explorer")
+{
+	fbh.style.position = 'absolute';
+	fbh.style.width = '25px';
+	fbh.style.right = '0px';
+
+	fbsl.style.width = '20px';
+	fbsl.style.right = '310px';
+	fbsl.style.top = '0px';
+
+	fd.style.position = 'absolute';
+	fd.style.top = '300px';
+	
+	if(getIEVersion() > 6 && getIEVersion()!=0 && getIEVersion()!='')
+	{
+		fbh.style.height = '100px';
+		fbsl.style.height = '100px';
+		fbsl.style.right = '305px';
+	}
+}
+fbh.style.display = 'block';
+fbh.onclick = showForm;
+document.getElementById('feed_close').onclick = hideForm;
+document.getElementById('submit_btn').onclick = submitForm;
+
+function showForm(e)
+{
+	if (!e) var e = window.event;
+	fbh.style.display = 'none';
+	fd.style.display = 'block';
+	document.getElementById('name').value = '';
+	document.getElementById('email').value = '';
+	document.getElementById('msg').value = '';
+	document.getElementById('submit_btn').removeAttribute('disabled');
+	document.getElementById('error').innerHTML = '';
+}
+
+function hideForm(e)
+{
+	if (!e) var e = window.event;
+	fbh.style.display = 'block';
+	document.getElementById('formdiv').style.display = 'none';
+}
+function submitForm(e)
+{
+	var path = document.getElementById('url').value;
+	var name = document.getElementById('name').value;
+	var email = document.getElementById('email').value;
+	var msg = document.getElementById('msg').value;
+	if(name.length>0 && email.length>0 && msg.length>0)
+	{
+		if(validate_email(email))
+		{
+			document.getElementById('submit_btn').setAttribute('disabled', 'disabled');
+			document.getElementById('error').innerHTML = 'Submitting your feedback...';
+			
+			var xhr; 
+				try {  xhr = new ActiveXObject('Msxml2.XMLHTTP');   }
+				catch (e) 
+				{
+					try {   xhr = new ActiveXObject('Microsoft.XMLHTTP');    }
+					catch (e2) 
+					{
+					  try {  xhr = new XMLHttpRequest();     }
+					  catch (e3) {  xhr = false;   }
+					}
+				 }
+			  
+				xhr.onreadystatechange  = function()
+				{ 
+					 if(xhr.readyState  == 4)
+					 {
+						  if(xhr.status  == 200)
+						  {
+							document.getElementById('error').innerHTML = xhr.responseText;
+						  }
+						  else 
+						  {
+							document.getElementById('error').innerHTML = xhr.status;
+						  }
+					 }
+				}; 
+
+			   xhr.open("POST", path+"?name="+name+"&email="+email+"&msg="+msg,  true); 
+			   xhr.send(null); 
+		}
+		else
+		{
+			document.getElementById('error').innerHTML = '<span style="color:red">Your email seems to be invalid!</span>';
+		}
+	}
+	else
+	{
+		document.getElementById('error').innerHTML = 'Please enter some thing.';
+		document.getElementById('submit_btn').removeAttribute('disabled');
+	}
+	return false;
+
+}
+function validate_email(str)
+{
+	return /^([\w-_.]+)(\.[\w-_.]+)*@([\w\-]+)(\.[\w]{2,7})(\.[a-z]{2})?$/i.test(str);
+}
+</script>
+
+<?php
+}
+?>

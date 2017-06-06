@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+ /***************************************
+ *         MAGENTO EDITION USAGE NOTICE *
+ *****************************************/
+ /* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+ /***************************************
+ *         DISCLAIMER   *
+ *****************************************/
+ /* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ *****************************************************
+ * @category   Belvg
+ * @package    Belvg_Mailguests
+ * @copyright  Copyright (c) 2010 - 2011 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+-->
+
+<config>
+
+  <modules>
+
+      <Belvg_Mailguests>
+
+          <version>0.1.0</version>
+
+      </Belvg_Mailguests>
+
+  </modules>
+
+  <frontend>
+
+      <routers>
+
+          <mailguests>
+
+              <use>standard</use>
+
+              <args>
+
+                  <module>Belvg_Mailguests</module>
+
+                  <frontName>mailguests</frontName>
+
+              </args>
+
+          </mailguests>
+
+      </routers>
+
+      <layout>
+
+          <updates>
+
+              <mailguests>
+
+                  <file>mailguests.xml</file>
+
+              </mailguests>
+
+          </updates>
+
+      </layout>
+
+  </frontend>
+
+  <admin>
+
+      <routers>
+
+          <mailguests>
+
+              <use>admin</use>
+
+              <args>
+
+                  <module>Belvg_Mailguests</module>
+
+                  <frontName>mailguests</frontName>
+
+              </args>
+
+          </mailguests>
+
+      </routers>
+
+  </admin>
+
+  <adminhtml>
+
+      <menu>
+
+      
+      
+			<customer>
+			    <children>
+			        <mailguests_adminform translate="title" module="mailguests">
+			            <title>Guests</title>
+			            <action>mailguests/adminhtml_mailguests</action>
+			        </mailguests_adminform>
+			    </children>
+			</customer>
+      
+      
+      
+      <!--
+          <mailguests module="mailguests">
+
+              <title>Mailguests</title>
+
+              <sort_order>71</sort_order>               
+
+              <children>
+
+                  <items module="mailguests">
+
+                      <title>Manage Items</title>
+
+                      <sort_order>0</sort_order>
+
+                      <action>mailguests/adminhtml_mailguests</action>
+
+                  </items>
+
+              </children>
+
+          </mailguests>
+          
+          -->
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      </menu>
+
+      <acl>
+
+          <resources>
+
+              <all>
+
+                  <title>Allow Everything</title>
+
+              </all>
+
+              <admin>
+
+                  <children>
+
+                      <mailguests>
+
+                          <title>Belvg Mailguests</title>
+
+                          <sort_order>200</sort_order>
+
+                      </mailguests>
+
+                  </children>
+
+              </admin>
+
+          </resources>   
+
+      </acl>
+
+      <layout>
+
+          <updates>
+
+              <mailguests>
+
+                  <file>mailguests.xml</file>
+
+              </mailguests>
+
+          </updates>
+
+      </layout>
+
+  </adminhtml>   
+
+  <global>
+
+      <models>
+
+          <mailguests>
+
+              <class>Belvg_Mailguests_Model</class>
+
+              <resourceModel>mailguests_mysql4</resourceModel>
+
+          </mailguests>
+
+          <mailguests_mysql4>
+
+              <class>Belvg_Mailguests_Model_Mysql4</class>
+
+              <entities>
+
+                  <mailguests>
+                      <table>sales_flat_order</table>
+                  </mailguests>
+
+              </entities>
+
+          </mailguests_mysql4>
+
+      </models>
+
+      <resources>
+
+          <mailguests_setup>
+
+              <setup>
+
+                  <module>Belvg_Mailguests</module>
+
+              </setup>
+
+              <connection>
+
+                  <use>core_setup</use>
+
+              </connection>
+
+          </mailguests_setup>
+
+          <mailguests_write>
+
+              <connection>
+
+                  <use>core_write</use>
+
+              </connection>
+
+
+
+
+
+          </mailguests_write>
+
+          <mailguests_read>
+
+              <connection>
+
+                  <use>core_read</use>
+
+              </connection>
+
+          </mailguests_read>
+
+      </resources>
+
+      <blocks>
+
+          <mailguests>
+
+              <class>Belvg_Mailguests_Block</class>
+
+          </mailguests>
+
+      </blocks>
+
+      <helpers>
+
+          <mailguests>
+
+              <class>Belvg_Mailguests_Helper</class>
+
+          </mailguests>
+
+      </helpers>
+
+  </global>
+
+</config>

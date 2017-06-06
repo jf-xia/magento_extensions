@@ -1,0 +1,97 @@
+<style>
+div.tooltip {
+background-color:#000000;
+color:#FFFFFF;
+position: fixed;
+padding 10px;
+z-index: 2;
+border: 3px solid #ccc;
+width:530px;
+overflow-x: hidden;
+overflow-y: auto;
+}
+* html div.tooltip { 
+   height: expression( this.scrollHeight < 334 ? "333px" : "auto" ); /* sets min-height for IE */
+}
+div.tooltip { 
+   min-height: 333px; /* sets min-height value for all standards-compliant browsers */
+}
+* html div.tooltip { 
+   height: expression( this.scrollHeight > 500 ? "501px" : "auto" ); /* sets max-height for IE */
+}
+div.tooltip {
+   max-height: 501px; /* sets max-height value for all standards-compliant browsers */
+}
+</style>
+
+
+<li<?php if($this->getIsFirst()||$this->getIsLast()): ?> class="<?php if($this->getIsFirst()): ?>first<?php endif; ?><?php if($this->getIsLast()): ?> last<?php endif; ?>"<?php endif; ?> <?php echo $this->getLiParams() ?>><?php echo $this->getBeforeText() ?><a href="<?php echo $this->getLinkUrl() ?>" title="<?php echo $this->getTitle() ?>" <?php echo $this->getAParams() ?>><?php echo $this->getLabel() ?></a><?php echo $this->getAfterText() ?></li>
+
+
+
+<script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script language="javascript">
+$(document).ready(function(){
+
+	var basketText = $('ul.links li a.top-link-cart').text().replace("My Cart", "Basket");
+	$('ul.links li a.top-link-cart').text(basketText);
+
+	var baseUrl = '<?php echo Mage::getUrl(); ?>';
+
+	var positionTooltip = function(event)
+	{
+		var tPosX = event.pageY + 100;
+		var tPosY = event.pageY + 20;
+
+		$('div.tooltip').css({top: tPosY, right: tPosX});
+	};
+
+	var showTooltip = function(event)
+	{
+		$('div.tooltip').remove();  /* Remove previous tooltip to avoid flicker */
+		var text = $(this).text();
+		$('<div class="tooltip">Click to see : '+text+' </div>').appendTo('body');
+		$('.tooltip').css({'opacity':'0.9'}); /* Set the opacity */
+		positionTooltip(event);
+		
+		loadCart();
+	};
+
+	var hideTooltip = function()
+	{
+		$('div.tooltip').remove();
+	};
+
+	$('ul.links li a.top-link-cart').click(showTooltip);
+
+	$('ul.links li a.top-link-cart').click(function(e){
+		e.preventDefault();
+	});
+	
+	$('#closebasket').click(hideTooltip);
+	
+	function loadCart()
+	{
+		$.ajax({
+			type:"POST",
+			url: baseUrl+"basket/index/getcart",
+			cache: true,
+			data: "id=1",
+			beforeSend: function(){
+				$('.tooltip').empty().html('<div align="center" style="text-align:center;"><img src="http://www.loadinfo.net/images/preview/18_clock_five_24.gif?1200916238" alt="Loading..." title="Loading..."><br />Loading...<br />Click <a href="<?php echo Mage::getUrl().'checkout/cart/';?>">here</a> to go to your cart page.</div>');
+			},
+			success: function(a){
+				$('.tooltip').empty().html(a);
+			},
+			error: function(){
+				$('div.tooltip').remove();
+			}
+		});
+	}
+	
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+});
+</script>

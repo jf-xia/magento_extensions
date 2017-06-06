@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+      <Topbuy_Cmspage>
+        <version>0.1.0</version>
+      </Topbuy_Cmspage>
+    </modules>	  
+   <global>
+	  <page>
+	   <layouts>
+	    <custom_page_home>
+	     <label>Home</label>
+	     <template>page/home.phtml</template>
+	     <layout_handle>page_home</layout_handle>
+	    </custom_page_home>
+	    <custom_page_static>
+	     <label>Static Page</label>
+	     <template>page/staticpage.phtml</template>
+	     <layout_handle>page_static</layout_handle>
+	    </custom_page_static>
+	   </layouts>
+	  </page>	  
+   </global> 
+</config> 

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MdlList_ExtraConfig>
+            <version>1.0.0</version>
+            <depends>
+            <!-- no dependencies -->
+            </depends>
+        </MdlList_ExtraConfig>
+    </modules>
+	<global>
+		<models>
+            <!-- ... -->
+            <ExtraConfig>
+                <class>MdlList_ExtraConfig_Model</class>
+            </ExtraConfig>   
+            <!-- ... -->
+        </models>
+		<helpers>
+			<ExtraConfig>
+				<class>MdlList_ExtraConfig_Helper</class>
+			</ExtraConfig>
+		</helpers>
+	    <resources />
+	    <extraconfig />
+	    <blocks>
+            <mdlmagic><class>MdlList_ExtraConfig_Block</class></mdlmagic>
+		</blocks>
+	</global>
+	<!---->
+	<default>
+		<mdlmagic>
+            <product_list>
+				<column_count>3</column_count>
+            </product_list>
+		</mdlmagic>
+	</default>
+	<!---->
+</config>

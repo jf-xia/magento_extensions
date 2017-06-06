@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <FourTell_Recommend>
+            <version>1.2.1</version>
+        </FourTell_Recommend>
+    </modules>
+    
+    <global>
+        <models>
+            <recommend>
+                <class>FourTell_Recommend_Model</class>
+                <resourceModel>recommend_mysql4</resourceModel>
+            </recommend>
+
+            <recommend_mysql4>
+                <class>FourTell_Recommend_Model_Mysql4</class>
+            </recommend_mysql4>
+        </models>
+        
+        <blocks>
+            <recommend>
+                <class>FourTell_Recommend_Block</class>
+            </recommend>
+
+			<!-- Community Edition -->
+			<catalog>
+				<rewrite>
+					<product_list_related>FourTell_Recommend_Block_Catalog_Product_List_Related</product_list_related>
+				</rewrite>
+			</catalog>
+
+			<catalog>
+				<rewrite>
+					<product_list_upsell>FourTell_Recommend_Block_Catalog_Product_List_Upsell</product_list_upsell>
+				</rewrite>
+			</catalog>
+
+			<checkout>
+				<rewrite>
+					<cart_crosssell>FourTell_Recommend_Block_Checkout_Cart_Crosssellcommunity</cart_crosssell>
+				</rewrite>
+			</checkout>
+
+			<!-- Enterprise Edition -->
+			<enterprise_targetrule>
+				<rewrite>
+					<catalog_product_list_related>FourTell_Recommend_Block_Catalog_Product_List_Related</catalog_product_list_related>
+				</rewrite>
+			</enterprise_targetrule>
+
+			<enterprise_targetrule>
+				<rewrite>
+					<catalog_product_list_upsell>FourTell_Recommend_Block_Catalog_Product_List_Upsell</catalog_product_list_upsell>
+				</rewrite>
+			</enterprise_targetrule>
+
+			<enterprise_targetrule>
+				<rewrite>
+					<checkout_cart_crosssell>FourTell_Recommend_Block_Checkout_Cart_Crosssellenterprise</checkout_cart_crosssell>
+				</rewrite>
+			</enterprise_targetrule>
+        </blocks>
+        
+        <helpers>
+            <recommend>
+                <class>FourTell_Recommend_Helper</class>
+            </recommend>  
+        </helpers>
+
+		<!--
+		<events>
+            <sales_order_save_after>
+                <observers>
+                    <recommend>
+                        <type>singleton</type>
+                        <class>recommend/observer</class>
+                        <method>salesOrderPlaceAfter</method>
+                    </recommend>
+                </observers>                
+            </sales_order_save_after>
+       </events>
+		-->
+    </global>
+    
+    <admin>
+        <routers>
+            <recommend>
+                <use>admin</use>
+                <args>
+                    <module>FourTell_Recommend</module>
+                    <frontName>recommend</frontName>
+                </args>
+            </recommend>
+        </routers>
+    </admin>
+    
+    <adminhtml>
+        <translate>
+            <modules>
+                <mage_adminhtml>
+                    <files>
+                        <recommend>FourTell_Recommend.csv</recommend>
+                    </files>
+                </mage_adminhtml>
+            </modules>
+        </translate>
+        
+        <menu>
+            <catalog>
+                <children>
+                    <recommend_adminform translate="title" module="recommend">
+                        <title>4-Tell Recommendations</title>
+                        <action>recommend/adminhtml_uploadform</action>
+                    </recommend_adminform>
+                </children>
+            </catalog>
+        </menu>
+        
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <catalog>
+                            <children>
+                                <recommend_adminform>
+                                    <title>4-Tell Recommendations</title>
+                                </recommend_adminform>
+                            </children>
+                        </catalog>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <recommend>
+                                            <title>4-Tell Recommendation Service</title>
+                                        </recommend>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+
+        <layout>
+            <updates>
+                <recommend>
+                    <file>recommend.xml</file>
+                </recommend>
+            </updates>
+        </layout>
+    </adminhtml>
+
+	<crontab>
+		<jobs>
+			<recommend_uploader>
+				<schedule><cron_expr>0 1 * * *</cron_expr></schedule>
+				<run><model>recommend/observer::uploadData</model></run>
+			</recommend_uploader>
+		</jobs>
+    </crontab>
+    
+    <default>
+		<recommend>
+			<config>
+				<enabled>1</enabled>
+				<minlikelihood>3</minlikelihood>
+				<mincommon>2</mincommon>
+				<maxsalesdataageinmonths>18</maxsalesdataageinmonths>
+			</config>
+
+			<display_recommendation>
+				<numupsell>3</numupsell>
+				<numcrosssell>3</numcrosssell>
+				<numrelated>3</numrelated>
+			</display_recommendation>
+		</recommend>
+	</default>
+	
+</config>

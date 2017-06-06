@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* CSS Document */
+
+.mainContainer{margin:10px; padding:20px;}
+h1.logo{text-align:center;}
+.logo img{display:inline-block;}
+.alert{padding: 15px 15px 15px 75px; border:1px solid #FC0; background: url(../images/alert.png) no-repeat 10px center #ffe58b;}
+.heading{color:#fff; padding:10px; background:#3a3a3a; margin-bottom:10px;}
+ul li {
+    background: url("../images/arrow.png") no-repeat scroll 0 2px transparent;
+    padding-left: 35px;
+}
+.pageIndex{width:100%; display:inline-block; margin:15px 0;}
+.rowCommon{margin:1px 0 0 0; padding:8px 0; display:inline-block; width:100%; background:url(../images/dot.jpg) repeat-x left center #f1f1f1;}
+.rowCommon a {
+    background: none repeat scroll 0 0 #F1F1F1;
+    color: #000000;
+    float: left;
+    margin: 0;
+    padding: 5px 15px;
+    text-align: left;
+}
+.rowCommon span {
+    background: none repeat scroll 0 0 #F1F1F1;
+    color: #000000;
+    float: right;
+    margin: 0;
+    padding: 5px 15px;
+}
+.highlight{color:#060;}
+pre {
+    background-color: #F4F4F4;
+    background-image: -moz-linear-gradient(#F4F4F4 50%, #E7E7E7 50%);
+    background-size: 38px 38px;
+    border: 1px solid #C7C7C7;
+    display: block;
+    line-height: 19px;
+    margin-bottom: 10px;
+    overflow-x: visible;
+    overflow-y: hidden;
+    padding:10px 0;
+}
+.bactTop{color:#fff; background:#000; position:fixed; right:10px; bottom:15px; padding:8px;}
+.rowCommon.active {
+    background: url("../images/dot.jpg") repeat-x scroll left center #58BAE9;
+}
+.rowCommon.active a {
+    background: none repeat scroll 0 0 #58BAE9;
+    color: #FFFFFF;
+}
+.rowCommon.active span {
+    background: none repeat scroll 0 0 #58BAE9;
+    color: #fff;
+}

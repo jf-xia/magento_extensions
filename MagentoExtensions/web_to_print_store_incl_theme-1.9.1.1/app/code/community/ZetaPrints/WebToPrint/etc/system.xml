@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+
+<config>
+   <sections>
+      <webtoprint translate="label">
+        <label>ZetaPrints Web-to-print</label>
+        <tab>catalog</tab>
+        <frontend_type>text</frontend_type>
+
+        <show_in_default>1</show_in_default>
+        <show_in_website>1</show_in_website>
+        <show_in_store>0</show_in_store>
+
+        <sort_order>200</sort_order>
+
+        <groups>
+          <settings translate="label">
+            <label>Settings</label>
+            <frontend_type>text</frontend_type>
+
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>0</show_in_store>
+
+            <comment>
+              <![CDATA[<a href="http://www.zetaprints.com/magentohelp/zetaprints-synchronization-settings/" target="_blank" title="Web-to-print settings help">About ZetaPrints Web-to-print settings</a>]]>
+            </comment>
+
+            <fields>
+              <!--<enabled translate="label">
+                <label>Enabled</label>
+                <frontend_type>select</frontend_type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>0</show_in_store>
+
+                <comment>
+                  <![CDATA[<a href="http://www.zetaprints.com/help/zetaprints-synchronization-settings/" target="_blank" title="Synchronization settings help">About ZetaPrints Sync settings</a>]]>
+                </comment>
+              </enabled>-->
+
+              <url translate="label">
+                <label>ZetaPrints URL</label>
+                <frontend_type>text</frontend_type>
+                <backend_model>ZetaPrints_WebToPrint_Model_System_Config_Backend_ZetaPrintsUrl</backend_model>
+
+                <sort_order>1</sort_order>
+
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>0</show_in_store>
+                <validate>validate-url</validate>
+
+                <comment>
+                  <![CDATA[Example: <b>http://orders.example.com/</b>]]>
+                </comment>
+              </url>
+
+              <key translate="label">
+                <label>ZetaPrints API Key</label>
+                <frontend_type>text</frontend_type>
+
+                <sort_order>2</sort_order>
+
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>0</show_in_store>
+
+                <comment>
+                  <![CDATA[Example: <b>617eca11-49fd-4ff7-bfa5-3d49391923ba</b>]]>
+                </comment>
+              </key>
+
+              <refresh-templates translate="label">
+                <label>Refresh All Templates</label>
+                <frontend_type>select</frontend_type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+
+                <sort_order>3</sort_order>
+
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>0</show_in_store>
+
+                <comment>
+                  <![CDATA[Choose <b>No</b>. Read help before choosing <b>Yes</b>]]>
+                </comment>
+              </refresh-templates>
+
+              <templates-removing-behaviour>
+                <label>For Deleted Templates</label>
+                <frontend_type>select</frontend_type>
+                <source_model>ZetaPrints_WebToPrint_Model_System_Config_Source_TemplateDeletingBehaviour</source_model>
+
+                <sort_order>4</sort_order>
+
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>0</show_in_store>
+              </templates-removing-behaviour>
+
+              <products-populate-defaults>
+                <label>Set Defaults For Created Products</label>
+                <frontend_type>select</frontend_type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+
+                <sort_order>5</sort_order>
+
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>0</show_in_store>
+
+                <comment>
+                  <![CDATA[<a href="http://www.zetaprints.com/magentohelp/create-simple-web-to-print-products/">About default settings for created products</a>]]>
+                </comment>
+              </products-populate-defaults>
+
+              <uploading-length-limit>
+                <label>File Uploading Limit</label>
+                <frontend_type>label</frontend_type>
+                <backend_model>ZetaPrints_WebToPrint_Model_System_Config_Backend_FileUploadingLimit</backend_model>
+
+                <sort_order>6</sort_order>
+
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>0</show_in_store>
+
+                <comment>
+                  <![CDATA[Edit values for <b>upload_max_filesize</b> and <b>post_max_size</b> settings in php.ini to increase file size limit.]]>
+                </comment>
+              </uploading-length-limit>
+            </fields>
+          </settings>
+        </groups>
+    </webtoprint>
+  </sections>
+</config>

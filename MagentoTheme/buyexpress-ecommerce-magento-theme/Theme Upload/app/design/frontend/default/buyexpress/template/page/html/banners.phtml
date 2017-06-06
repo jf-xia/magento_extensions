@@ -1,0 +1,18 @@
+<?php 
+$home = new Mage_Page_Block_Html_Header();
+	  if ($home->getIsHomePage()): 
+?>   
+
+<div class="promo-banners">
+<?php $block = Mage::getModel('cms/block')->load('promobanner'); ?>
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('promobanner')->toHtml(); ?>
+    <div class="block-title">
+    	<?php echo $block->getTitle(); ?>
+    </div>
+    <ul class="slideBtn">
+        <li class="prev"><a href="javascript:void(0);">Prev</a></li>
+        <li class="next"><a href="javascript:void(0);">Next</a></li>
+    </ul>
+</div>
+
+<?php endif; ?>

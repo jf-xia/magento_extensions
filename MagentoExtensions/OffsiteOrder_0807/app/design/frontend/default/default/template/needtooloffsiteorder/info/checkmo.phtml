@@ -1,0 +1,13 @@
+
+<p><?php echo $this->getMethod()->getTitle() ?>
+<?php if($this->getInfo()->getAdditionalData()): ?>
+    <?php if($this->getPayableTo()): ?><br /><?php echo $this->__('Make Check payable to: %s', $this->htmlEscape($this->getPayableTo())) ?><?php endif; ?>
+    <?php if($this->getMailingAddress()): ?>
+        <br /><?php echo Mage::helper('payment')->__('Send Check to:') ?>
+        <br />
+        <span class="checkmo-mailing-address">
+            <?php echo nl2br($this->htmlEscape($this->getMailingAddress())) ?>
+        </span>
+    <?php endif; ?>
+<?php endif; ?>
+</p>

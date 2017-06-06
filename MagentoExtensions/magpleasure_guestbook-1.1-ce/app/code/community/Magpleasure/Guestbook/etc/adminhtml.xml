@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <catalog>
+            <children>
+                <guestbook module="guestbook">
+                    <title>Guest Book</title>
+                    <sort_order>100</sort_order>
+                    <children>
+                        <message module="guestbook">
+                            <title>Comments</title>
+                            <sort_order>10</sort_order>
+                            <action>guestbook_admin/adminhtml_message</action>
+                        </message>
+                        <config module="guestbook">
+                            <title>Configuration</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/system_config/edit/section/guestbook/</action>
+                        </config>
+                    </children>
+                </guestbook>
+            </children>
+        </catalog>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <guestbook>
+                                        <title>MagPleasure - Guest Book</title>
+                                    </guestbook>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <catalog>
+                        <children>
+                            <guestbook module="guestbook">
+                                <title>MagPleasure - Guest Book</title>
+                                <sort_order>100</sort_order>
+                                <children>
+                                    <message module="guestbook">
+                                        <title>Comments</title>
+                                        <sort_order>10</sort_order>
+                                    </message>
+                                </children>
+                            </guestbook>
+                        </children>
+                    </catalog>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <layout>
+        <updates>
+            <guestbook>
+                <file>guestbook.xml</file>
+            </guestbook>
+        </updates>
+    </layout>
+    <translate>
+        <modules>
+            <Magpleasure_Guestbook>
+                <files>
+                    <default>Magpleasure_Guestbook.csv</default>
+                </files>
+            </Magpleasure_Guestbook>
+        </modules>
+    </translate>
+</config>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<catalog_category_default>
+		 <reference name="head">
+        	<action method="addItem"><type>skin_css</type><name>css/magicat.css</name></action>
+        </reference>
+	 	<reference name="left">
+            <block type="magicat/navigation" name="catalog.magicat" template="magicat/left.phtml" before="-" />
+        </reference>
+		<reference name="right">
+            <block type="magicat/navigation" name="catalog.magicat" template="magicat/left.phtml" before="-" />
+        </reference>
+	 </catalog_category_default>
+	 <catalog_category_layered>
+	 	<reference name="head">
+        	<action method="addItem"><type>skin_css</type><name>css/magicat.css</name></action>
+        </reference>
+		 <reference name="left">
+			 <block type="magicat/navigation" name="catalog.magicat" template="magicat/left.phtml" before="-" />
+		 </reference>
+		  <reference name="right">
+			 <block type="magicat/navigation" name="catalog.magicat" template="magicat/left.phtml" before="-" />
+		 </reference>
+	 </catalog_category_layered>
+</layout>

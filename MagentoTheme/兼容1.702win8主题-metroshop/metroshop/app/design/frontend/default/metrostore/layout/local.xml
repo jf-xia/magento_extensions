@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+<default>
+	 	<reference name="head">
+		 <action method="addItem"><type>skin_js</type><name>js/jquery.mousewheel.min.js</name><params/></action>
+		 <action method="addItem"><type>skin_js</type><name>js/jquery.tweet.js</name><params/></action>
+		 <action method="addItem"><type>skin_js</type><name>js/superfish.js</name><params/></action>
+		 <action method="addItem"><type>skin_js</type><name>js/supersubs.js</name><params/></action>
+		 <action method="addCss"><stylesheet>css/mix.css</stylesheet></action>
+  	  </reference>
+        <!-- Mage_Poll -->
+        <reference name="left">
+            <block type="poll/activePoll" name="right.poll">
+                <action method="setPollTemplate"><template>poll/active.phtml</template><type>poll</type></action>
+                <action method="setPollTemplate"><template>poll/result.phtml</template><type>results</type></action>
+            </block>
+			 <remove name="right.reports.product.viewed"/>
+        </reference>
+		<reference name="header">
+            <block type="directory/currency" name="currency" template="directory/currency.phtml"/>
+			<block type="catalog/product_compare_sidebar" name="catalog.product.compare.sidebar" template="catalog/product/compare/compare_sidebar.phtml"/>
+        </reference>
+		 <reference name="top.links">
+    <action method="addLink" translate="label title" module="customer"><label>My Account</label><url helper="customer/getAccountUrl"/><title>My Account</title><prepare/><urlParams/><position>20</position><a>class="myaccount"</a></action>
+<action method="addLink" translate="label title" module="contacts" ifconfig="contacts/contacts/enabled"><label>Contact Us</label><url>contacts</url><title>Contact Us</title><prepare>true</prepare><aParams/><position>10</position><li/><a>class="contact"</a></action>
+		 </reference>
+    </default>
+<catalogsearch_result_index translate="label">
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+		<reference name="left">
+			<block type="cms/block" after="-" name="left-staic-block">
+			  <action method="setBlockId"><block_id>left-static-block</block_id></action>
+			</block>
+        </reference>
+		<reference name="head">
+			 <action method="addItem"><type>skin_js</type><name>js/light_box.js</name><params/></action>
+			 <action method="addItem"><type>skin_js</type><name>js/lightmini.js</name><params/></action>
+			 <action method="addItem"><type>skin_js</type><name>js/jquery.selectbox-0.2.js</name><params/></action>
+			 <action method="addCss"><stylesheet>css/light_box.css</stylesheet></action>
+			 <action method="addCss"><stylesheet>css/jquery.selectbox.css</stylesheet></action>
+			 <action method="addItem"><type>skin_js</type><name>js/mdl/ajax_cart.js</name></action>
+			 <action method="addCss"><stylesheet>css/mdl/ajax_cart.css</stylesheet></action>
+		</reference>
+</catalogsearch_result_index>
+
+
+<catalog_product_view>	
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><name>js/jquery.jcarousel.min.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/light_box.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/mdl/ajax_cart.js</name></action>
+			<action method="addCss"><stylesheet>css/light_box.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/mdl/ajax_cart.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/skin.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/mix.css</stylesheet></action>
+  	  </reference>
+	  <reference name="content">
+	  	   <block type="catalog/product_list_upsell" name="catalog.product.upsell" as="upsell_products" template="catalog/product/list/upsell.phtml"/>
+		   <block type="catalog/product_list_related" name="catalog.product.related" after="-" template="catalog/product/list/related.phtml"/>
+      </reference>
+	  <reference name="product.info">
+		<block type="catalog/product_view_tabs" name="product.info.tabs" as="info_tabs" template="catalog/product/view/tabs.phtml" >
+			   <action method="addTab" translate="title" module="catalog"><alias>description</alias><title>Product Description</title><block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template></action>	
+				 <action method="addTab" translate="title" module="catalog"><alias>additional</alias><title>Additional Information</title><block>catalog/product_view_attributes</block><template>catalog/product/view/attributes.phtml</template></action>
+				<action method="addTab" translate="title" module="tag"><alias>productTags</alias><title>Product Tags</title><block>tag/product_list</block><template>tag/list.phtml</template></action>
+				<action method="addTab" translate="title" module="catalog"><alias>tabreviews</alias><title>Reviews</title><block>review/product_view_list</block><template>review/product/view/list.phtml</template></action>
+			</block>
+		</reference> 
+		<reference name="tabreviews">
+			<block type="review/form" name="product.review.form" as="review_form">
+				<block type="page/html_wrapper" name="product.review.form.fields.before" as="form_fields_before" translate="label">
+					<label>Review Form Fields Before</label>
+					<action method="setMayBeInvisible"><value>1</value></action>
+				</block>
+			</block>
+
+        </reference>
+		<reference name="product.info.tabs">
+            <action method="addTab" translate="title" module="catalog">
+                <alias>CustomTab</alias>
+                <title>CustomTab</title>
+                <block>catalog/product_view</block>
+                <template>catalog/product/view/custom_tab.phtml</template>
+            </action>            
+        </reference>
+	</catalog_product_view>
+	
+	<catalog_category_default>
+        <reference name="left">
+            <block type="paypal/logo" name="paypal.partner.right.logo" template="paypal/partner/logo.phtml"/>
+			
+			<block type="cms/block" before="paypal.partner.right.logo" name="left-staic-block-category-1">
+			  <action method="setBlockId"><block_id>left-static-block-category-1</block_id></action>
+			</block>
+			<block type="cms/block" after="left-staic-block-category-1" name="left-staic-block-category-2">
+			  <action method="setBlockId"><block_id>left-static-block-category-2</block_id></action>
+			</block>
+			<block type="cms/block" after="left-staic-block-category-2" name="left-staic-block-category-3">
+			  <action method="setBlockId"><block_id>left-static-block-category-3</block_id></action>
+			</block>
+			<block type="cms/block" after="left-staic-block-category-3" name="left-staic-block-category-4">
+			  <action method="setBlockId"><block_id>left-static-block-category-4</block_id></action>
+			</block>
+			<block type="cms/block" after="left-staic-block-category-4" name="left-staic-block-category-5">
+			  <action method="setBlockId"><block_id>left-static-block-category-5</block_id></action>
+			</block>
+        </reference>
+		<reference name="right">
+			<block type="paypal/logo" name="paypal.partner.right.logo" template="paypal/partner/logo.phtml"/>
+			<block type="cms/block" before="paypal.partner.right.logo" name="right-staic-block-category-1">
+			  <action method="setBlockId"><block_id>right-static-block-category-1</block_id></action>
+			</block>
+			<block type="cms/block" after="right-staic-block-category-1" name="right-staic-block-category-2">
+			  <action method="setBlockId"><block_id>right-static-block-category-2</block_id></action>
+			</block>
+			<block type="cms/block" after="right-staic-block-category-2" name="right-staic-block-category-3">
+			  <action method="setBlockId"><block_id>right-static-block-category-3</block_id></action>
+			</block>
+			<block type="cms/block" after="right-staic-block-category-3" name="right-staic-block-category-4">
+			  <action method="setBlockId"><block_id>right-static-block-category-4</block_id></action>
+			</block>
+			<block type="cms/block" after="right-staic-block-category-4" name="right-staic-block-category-5">
+			  <action method="setBlockId"><block_id>right-static-block-category-5</block_id></action>
+			</block>
+        </reference>
+		<reference name="head">
+		 <action method="addItem"><type>skin_js</type><name>js/light_box.js</name><params/></action>
+		 <action method="addItem"><type>skin_js</type><name>js/lightmini.js</name><params/></action>
+		 <action method="addItem"><type>skin_js</type><name>js/jquery.selectbox-0.2.js</name><params/></action>
+		 <action method="addCss"><stylesheet>css/light_box.css</stylesheet></action>
+		 <action method="addCss"><stylesheet>css/jquery.selectbox.css</stylesheet></action>
+		 <action method="addItem"><type>skin_js</type><name>js/mdl/ajax_cart.js</name></action>
+		 <action method="addCss"><stylesheet>css/mdl/ajax_cart.css</stylesheet></action>
+  	  </reference>
+    </catalog_category_default>
+
+    <catalog_category_layered>
+        <update handle="SHORTCUT_popup" />
+        <reference name="left">
+            <block type="paypal/logo" name="paypal.partner.right.logo" template="paypal/partner/logo.phtml"/>
+			
+			<block type="cms/block" before="paypal.partner.right.logo" name="left-staic-block-category-1">
+			  <action method="setBlockId"><block_id>left-static-block-category-1</block_id></action>
+			</block>
+			<block type="cms/block" after="left-staic-block-category-1" name="left-staic-block-category-2">
+			  <action method="setBlockId"><block_id>left-static-block-category-2</block_id></action>
+			</block>
+			<block type="cms/block" after="left-staic-block-category-2" name="left-staic-block-category-3">
+			  <action method="setBlockId"><block_id>left-static-block-category-3</block_id></action>
+			</block>
+			<block type="cms/block" after="left-staic-block-category-3" name="left-staic-block-category-4">
+			  <action method="setBlockId"><block_id>left-static-block-category-4</block_id></action>
+			</block>
+			<block type="cms/block" after="left-staic-block-category-4" name="left-staic-block-category-5">
+			  <action method="setBlockId"><block_id>left-static-block-category-5</block_id></action>
+			</block>
+        </reference>
+		<reference name="right">
+			<block type="paypal/logo" name="paypal.partner.right.logo" template="paypal/partner/logo.phtml"/>
+			
+			<block type="cms/block" before="paypal.partner.right.logo" name="left-staic-block-category-1">
+			  <action method="setBlockId"><block_id>left-static-block-category-1</block_id></action>
+			</block>
+			<block type="cms/block" after="left-staic-block-category-1" name="left-staic-block-category-2">
+			  <action method="setBlockId"><block_id>left-static-block-category-2</block_id></action>
+			</block>
+			<block type="cms/block" after="left-staic-block-category-2" name="left-staic-block-category-3">
+			  <action method="setBlockId"><block_id>left-static-block-category-3</block_id></action>
+			</block>
+			<block type="cms/block" after="left-staic-block-category-3" name="left-staic-block-category-4">
+			  <action method="setBlockId"><block_id>left-static-block-category-4</block_id></action>
+			</block>
+			<block type="cms/block" after="left-staic-block-category-4" name="left-staic-block-category-5">
+			  <action method="setBlockId"><block_id>left-static-block-category-5</block_id></action>
+			</block>
+        </reference>
+		<reference name="head">
+		 <action method="addItem"><type>skin_js</type><name>js/light_box.js</name><params/></action>
+		 <action method="addItem"><type>skin_js</type><name>js/lightmini.js</name><params/></action>
+		 <action method="addItem"><type>skin_js</type><name>js/jquery.selectbox-0.2.js</name><params/></action>
+		 <action method="addCss"><stylesheet>css/light_box.css</stylesheet></action>
+		 <action method="addItem"><type>skin_js</type><name>js/mdl/ajax_cart.js</name></action>
+		 <action method="addCss"><stylesheet>css/mdl/ajax_cart.css</stylesheet></action>
+		 <action method="addCss"><stylesheet>css/jquery.selectbox.css</stylesheet></action>
+  	  </reference>
+    </catalog_category_layered>
+		
+	<catalogsearch_result_index translate="label">
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><name>js/light_box.js</name><params/></action>
+			 <action method="addItem"><type>skin_js</type><name>js/lightmini.js</name><params/></action>
+			 <action method="addItem"><type>skin_js</type><name>js/jquery.selectbox-0.2.js</name><params/></action>
+			 <action method="addCss"><stylesheet>css/light_box.css</stylesheet></action>
+			 <action method="addCss"><stylesheet>css/jquery.selectbox.css</stylesheet></action>
+			 <action method="addItem"><type>skin_js</type><name>js/mdl/ajax_cart.js</name></action>
+			 <action method="addCss"><stylesheet>css/mdl/ajax_cart.css</stylesheet></action>
+		</reference>
+	</catalogsearch_result_index>
+	
+	<catalogsearch_advanced_index translate="label">
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><name>js/light_box.js</name><params/></action>
+			 <action method="addItem"><type>skin_js</type><name>js/lightmini.js</name><params/></action>
+			 <action method="addItem"><type>skin_js</type><name>js/jquery.selectbox-0.2.js</name><params/></action>
+			 <action method="addCss"><stylesheet>css/light_box.css</stylesheet></action>
+			 <action method="addCss"><stylesheet>css/jquery.selectbox.css</stylesheet></action>
+			 <action method="addItem"><type>skin_js</type><name>js/mdl/ajax_cart.js</name></action>
+			 <action method="addCss"><stylesheet>css/mdl/ajax_cart.css</stylesheet></action>
+		</reference>
+	</catalogsearch_advanced_index>
+	
+	<catalogsearch_advanced_result translate="label">
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><name>js/light_box.js</name><params/></action>
+			 <action method="addItem"><type>skin_js</type><name>js/lightmini.js</name><params/></action>
+			 <action method="addItem"><type>skin_js</type><name>js/jquery.selectbox-0.2.js</name><params/></action>
+			 <action method="addCss"><stylesheet>css/light_box.css</stylesheet></action>
+			 <action method="addCss"><stylesheet>css/jquery.selectbox.css</stylesheet></action>
+			 <action method="addItem"><type>skin_js</type><name>js/mdl/ajax_cart.js</name></action>
+			 <action method="addCss"><stylesheet>css/mdl/ajax_cart.css</stylesheet></action>
+		</reference>
+	</catalogsearch_advanced_result>
+	
+	<catalogsearch_term_popular translate="label">
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><name>js/light_box.js</name><params/></action>
+			 <action method="addItem"><type>skin_js</type><name>js/lightmini.js</name><params/></action>
+			 <action method="addItem"><type>skin_js</type><name>js/jquery.selectbox-0.2.js</name><params/></action>
+			 <action method="addCss"><stylesheet>css/light_box.css</stylesheet></action>
+			 <action method="addCss"><stylesheet>css/jquery.selectbox.css</stylesheet></action>
+			 <action method="addItem"><type>skin_js</type><name>js/mdl/ajax_cart.js</name></action>
+			 <action method="addCss"><stylesheet>css/mdl/ajax_cart.css</stylesheet></action>
+		</reference>
+	</catalogsearch_term_popular>
+	<checkout_cart_index translate="label">
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><name>js/jquery.carouFredSel-6.1.0-packed.js</name><params/></action>
+			<action method="addCss"><stylesheet>css/mix.css</stylesheet></action>
+		</reference>
+	</checkout_cart_index>
+	 <review_product_list translate="label">
+	 	<reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><name>js/jquery.jcarousel.min.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/light_box.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/mdl/ajax_cart.js</name></action>
+			<action method="addCss"><stylesheet>css/light_box.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/mdl/ajax_cart.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/skin.css</stylesheet></action>
+  	  </reference>
+	  <reference name="content">
+		   <block type="review/product_view_list" name="product.info.product_additional_data" as="reviews" template="review/product/view/list.phtml"/> 
+			<block type="review/form" name="product.review.form" as="review_form">
+				<block type="page/html_wrapper" name="product.review.form.fields.before" as="form_fields_before" translate="label">
+					<label>Review Form Fields Before</label>
+					<action method="setMayBeInvisible"><value>1</value></action>
+				</block>
+			</block>
+        </reference>
+	 </review_product_list>
+	 <cms_page translate="label">
+		 <reference name="left">
+			<block type="cms/block" after="-" name="home-page-block">
+			  <action method="setBlockId"><block_id>left_promo</block_id></action>
+			</block>
+        </reference>
+    </cms_page>
+	<contacts_index_index translate="label">
+		<reference name="breadcrumbs">
+            <action method="addCrumb">
+                <crumbName>Home</crumbName>
+                <crumbInfo><label>Home</label><title>Home</title><link>/</link></crumbInfo>
+            </action>
+            <action method="addCrumb">
+                <crumbName>Contacts</crumbName>
+                <crumbInfo><label>Contact</label><title>Contact Us</title></crumbInfo>
+            </action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+    </contacts_index_index>
+	
+	<catalogsearch_result_index translate="label">
+        <reference name="root">
+           <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+    </catalogsearch_result_index>
+	
+	<catalogsearch_advanced_index translate="label">
+		<reference name="root">
+           <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference>
+	</catalogsearch_advanced_index>
+	 <catalogsearch_advanced_result translate="label">
+	 	<reference name="root">
+           <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+	 </catalogsearch_advanced_result>
+	 <contacts_index_index translate="label">
+        <reference name="head">
+            <action method="setTitle" translate="title" module="contacts"><title>Contact Us</title></action>
+        </reference>
+    </contacts_index_index>
+	
+	 <checkout_onepage_success translate="label">
+        <reference name="left">
+			<block type="cms/block" before="-" name="home-page-block">
+			  <action method="setBlockId"><block_id>left_promo_success</block_id></action>
+			</block>
+        </reference>
+    </checkout_onepage_success>
+
+</layout>

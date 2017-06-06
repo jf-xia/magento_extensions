@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!--
+  /**
+  * @category ZetaPrints
+  * @package ZetaPrints_Ordercomments
+  * @author Petar Dzhambazov
+  * @license http://opensource.org/licenses/osl-3.0.php Open Software License(OSL 3.0)
+  */
+   -->
+<config>
+  <modules>
+    <ZetaPrints_Ordercomments>
+      <version>0.1.0</version>
+    </ZetaPrints_Ordercomments>
+  </modules>
+  <frontend>
+    <layout>
+      <updates>
+        <ordercomments>
+          <file>ordercomments.xml</file>
+        </ordercomments>
+      </updates>
+    </layout>
+    <routers>
+      <ordercomments>
+        <use>standard</use>
+        <args>
+          <module>ZetaPrints_Ordercomments</module>
+          <frontName>ordercomments</frontName>
+        </args>
+      </ordercomments>
+    </routers>
+  </frontend>
+  <adminhtml>
+    <layout>
+      <updates>
+        <ordercomments>
+          <file>ordercomments.xml</file>
+        </ordercomments>
+      </updates>
+    </layout>
+  </adminhtml>
+  <global>
+    <models>
+      <ordercomments>
+        <class>ZetaPrints_Ordercomments_Model</class>
+        <resourceModel>ordercomments_mysql4</resourceModel>
+      </ordercomments>
+      <ordercomments_mysql4>
+        <class>ZetaPrints_Ordercomments_Model_Mysql4</class>
+        <entities>
+          <customer_comments>
+            <table>customer_comments</table>
+          </customer_comments>
+        </entities>
+      </ordercomments_mysql4>
+      <sales>
+        <rewrite>
+          <order_status_history>ZetaPrints_Ordercomments_Model_History</order_status_history>
+        </rewrite>
+      </sales>
+    </models>
+    <resources>
+      <ordercomments_setup>
+        <setup>
+          <module>ZetaPrints_Ordercomments</module>
+          <class>ZetaPrints_Ordercomments_Model_Resource_Setup</class>
+        </setup>
+        <connection>
+          <use>core_setup</use>
+        </connection>
+      </ordercomments_setup>
+      <ordercomments_write>
+        <connection>
+          <use>core_write</use>
+        </connection>
+      </ordercomments_write>
+      <ordercomments_read>
+        <connection>
+          <use>core_read</use>
+        </connection>
+      </ordercomments_read>
+    </resources>
+    <blocks>
+      <ordercomments>
+        <class>ZetaPrints_Ordercomments_Block</class>
+      </ordercomments>
+    </blocks>
+    <helpers>
+      <ordercomments>
+        <class>ZetaPrints_Ordercomments_Helper</class>
+      </ordercomments>
+    </helpers>
+    <rewrite>
+      <ordercomments_front_addcomment>
+        <from><![CDATA[#^/sales/order/addComment/#]]></from>
+        <to>/ordercomments/index/addComment/</to>
+      </ordercomments_front_addcomment>
+    </rewrite>
+    <template>
+      <email>
+        <customer_order_comment module = "ZetaPrints_Ordercomments">
+          <label>Ordercomments Customer Comment</label>
+          <file>customer_order_template.html</file>
+          <type>html</type>
+        </customer_order_comment>
+        <zp_email_order_comment_template translate="label" module="ZetaPrints_Ordercomments">
+           <label>Order Comment Update</label>
+           <file>sales/zp_order_update.html</file>
+           <type>html</type>
+        </zp_email_order_comment_template>
+        <zp_email_order_comment_guest_template translate="label" module="ZetaPrints_Ordercomments">
+           <label>Order Comment Update for Guest</label>
+           <file>sales/zp_order_update_guest.html</file>
+           <type>html</type>
+        </zp_email_order_comment_guest_template>
+      </email>
+    </template>
+  </global>
+  <default>
+    <sales_email>
+      <order_comment>
+        <enabled>1</enabled>
+        <template>zp_email_order_comment_template</template>
+        <guest_template>zp_email_order_comment_guest_template</guest_template>
+        <identity>sales</identity>
+        <copy_method>bcc</copy_method>
+      </order_comment>
+    </sales_email>
+  </default>
+</config>

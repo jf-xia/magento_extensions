@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Moii_Pinterest>
+            <version>1.0.0.0</version>
+        </Moii_Pinterest>
+    </modules>
+    <global>
+        <blocks>
+            <Moii_Pinterest>
+                <class>Moii_Pinterest_Block</class>
+            </Moii_Pinterest>
+        </blocks>
+		<helpers>
+			<Moii_Pinterest>
+				<class>Moii_Pinterest_Helper</class>
+			</Moii_Pinterest>
+		</helpers>
+        <models>
+            <Moii_Pinterest>
+                <class>Moii_Pinterest_Model</class>
+            </Moii_Pinterest>   
+        </models>		
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <Moii_Pinterest>
+                    <file>moii/pinterest.xml</file>
+                </Moii_Pinterest>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <Moii_Pinterest_Config>
+                                            <title>Pinterest Configuration</title>
+                                        </Moii_Pinterest_Config>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>	
+</config>

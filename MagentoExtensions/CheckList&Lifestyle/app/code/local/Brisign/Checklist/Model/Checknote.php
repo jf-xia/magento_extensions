@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Checklist Model Checknote
+ *
+ * @category	Brisign
+ * @package		Brisign_Checklist
+ * @author		Drew Hunter <drewdhunter@gmail.com>
+ * @version		0.1.0
+ */
+class Brisign_Checklist_Model_Checknote extends Mage_Core_Model_Abstract
+{
+    protected function _construct()
+    {
+        $this->_init('checklist/checknote');
+    }
+}

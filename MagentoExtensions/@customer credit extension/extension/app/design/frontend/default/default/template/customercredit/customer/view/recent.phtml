@@ -1,0 +1,73 @@
+<?php
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@mageworx.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ * or send an email to sales@mageworx.com
+ *
+ * @category   design_default
+ * @package    MageWorx_CustomerCredit
+ * @copyright  Copyright (c) 2010 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+
+/**
+ * Customer Credit extension
+ *
+ * @category   design_default
+ * @package    MageWorx_CustomerCredit
+ * @author     MageWorx Dev Team <dev@mageworx.com>
+ */
+?>
+<?php $_items = $this->getLogItems(); ?>
+<?php if($_items->getSize()): ?>
+<div class="account-box">
+    <div class="head">
+        <h4><?php echo $this->__('Recent Actions') ?></h4>
+        <a href="<?php echo $this->getViewAllUrl()?>"><?php echo Mage::helper('customercredit')->__('View All') ?></a>
+    </div>
+    <table cellspacing="0" class="data-table" id="my-credit-log-table">
+        <col width="50" />
+        <col width="50" />
+        <col width="150" />
+        <col width="50" />
+        <col />
+        <thead>
+            <tr>
+                <th><?php echo $this->__('Credit Balance') ?></th>
+                <th><?php echo $this->__('Added/Deducted') ?></th>
+                <th><?php echo $this->__('Modified On') ?></th>
+                <th><?php echo $this->__('Action') ?></th>
+                <th><?php echo $this->__('Comment') ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($_items as $_item): ?>
+                <tr>
+                    <td><?php echo Mage::helper('core')->currency($_item->getValue())?></td>
+                    <td><?php echo Mage::helper('core')->currency($_item->getValueChange())?></td>
+                    <td><?php echo $_item->getActionDate()?></td>
+                    <td><?php echo $this->getActionTypeLabel($_item->getActionType())?></td>
+                    <td><?php echo $_item->getComment()?></td>
+                </tr>
+            <?php endforeach;?>
+        </tbody>
+    </table>
+    <script type="text/javascript">decorateTable('my-credit-log-table')</script>
+</div>
+<?php endif ?>

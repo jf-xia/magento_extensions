@@ -1,0 +1,57 @@
+<?php $this->setNewsleterUrl()?>
+<!--<div class="page-title"><h1><?php echo $this->__('Checkout') ?></h1></div>-->
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="subscribe-box opc">
+	<form action="<?php echo $this->getUrl('groupdeal/index/newsletter')?>" id="newsletter-box" method="post" class="active">
+    	<div class="step-title"><span class="number">&nbsp;</span><h2><?php echo $this->__('Subscribe') ?></h2></div>
+        <ul class="form-list step">
+        	<li class="control">
+            	<input type="checkbox" name="unsubscribe" value="1"/>
+                <label><?php echo $this->__('Unsubscribe') ?></label>
+            </li>
+        	<li class="wide">
+            	<label><?php echo $this->__('Select categories') ?></label>
+                <div class="input-box">
+                    <select name="category_ids[]" multiple="multiple" size="15">
+                    <?php foreach ($this->getStoreCategories() as $_category){?>
+                        <option value="<?php echo $_category->getId() ?>" selected="selected">
+                            <?php echo $this->htmlEscape($_category->getName()) ?></option>
+                        <?php $output = $this->drawChildren($_category); echo  $output; ?>
+                    <?php }?>
+                    </select>
+				</div>
+			</li>
+            <li class="wide">
+                <label><?php echo $this->__('Price From') ?></label>
+                <div class="input-box">
+                	<input class="input-text" type="text" name="price_from" />
+                </div>
+            </li>
+            <li class="wide">
+                <label><?php echo $this->__('Price To') ?></label>
+                <div class="input-box">
+                	<input class="input-text" type="text" name="price_to" />
+                </div>
+            </li>
+            <li class="wide">
+                <label class="required"><em>*</em><?php echo $this->__('Email') ?></label>
+                <div class="input-box">
+                	<input class="input-text required-entry validate-email" type="text" name="email" value="<?php echo $this->getEmail() ?>"/>
+				</div>
+            </li>			
+            <li class="actions block-compare">
+                <button class="button" title="<?php echo $this->__('Subscribe') ?>" type="submit">
+                    <span><span><?php echo $this->__('Subscribe')?></span></span>
+                </button>
+            </li>
+        </ul>
+        
+	</form>
+    <script type="text/javascript">
+	var newsletterForm = new VarienForm('newsletter-box');
+	</script>
+</div>
+<div class="right-sidebar">
+    <?php echo $this->getLayout()->createBlock('groupdeal/sidebar')->setTemplate('groupdeal/sidebar/categories.phtml')->toHtml(); ?>
+    <?php echo $this->getLayout()->createBlock('groupdeal/sidebar')->setTemplate('groupdeal/sidebar/newestdeals.phtml')->toHtml(); ?>
+</div>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+    <name>MageMods_OrderMonitor</name>
+    <version>1.1.2</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/gpl-license.php">GPL v3</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Removes the need to manually cancel the unfinished orders.</summary>
+    <description>From time to time orders remain as unfinished for a long period. This usually happens when the customer did not completed on-line payment for some reason. This extension allows your customers to cancel unwanted orders manually as well as automatically after given period.&#xD;
+&#xD;
+KEY FEATURES&#xD;
+Automatically cancels unfinished orders.&#xD;
+Allows to set custom status for canceled orders.&#xD;
+Easy to install and use.&#xD;
+Meets Magento coding standard.&#xD;
+100% open source.</description>
+    <notes>Repackage due to MagentoConnect bug</notes>
+    <authors><author><name>MageMods</name><user>magemods</user><email>sales@magemods.co</email></author></authors>
+    <date>2011-10-29</date>
+    <time>19:26:49</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="MageMods_OrderMonitor.xml" hash="2cb4afc931ec4f14b8639250553d4c01"/></dir></target><target name="magecommunity"><dir name="MageMods"><dir name="OrderMonitor"><dir name="Helper"><file name="Customer.php" hash="a94912f5900c6b4454fbbb911f988e91"/><file name="Data.php" hash="9474a2c832efe0a964c1034fc4e1a8e0"/></dir><dir name="Model"><file name="Cron.php" hash="78bb80d31589ef04557267a6653c6191"/><dir name="System"><dir name="Config"><dir name="Source"><dir name="Order"><dir name="Status"><file name="Canceled.php" hash="2bbdbfe5601ed6df02ab90dacd807c12"/></dir></dir></dir></dir></dir></dir><dir name="controllers"><file name="OrderController.php" hash="dad9dec325e317c5efafc3766359486b"/></dir><dir name="etc"><file name="config.xml" hash="af23801968aed884d9856908324514d3"/><file name="system.xml" hash="92f5625016d3e0d0286480b7ff41728f"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="magemods_ordermonitor.xml" hash="7ed0097ffddd1d596e43c3ff8eb7240b"/></dir><dir name="template"><dir name="magemods"><dir name="ordermonitor"><file name="buttons.phtml" hash="fc70125bbecfb7095970248b3d1e1903"/><file name="history.phtml" hash="3d42f6bbbfdc0d334db774e065a54b76"/><file name="recent.phtml" hash="9fc031b082a2ebf9a83a0c38b9b18529"/></dir></dir></dir></dir></dir></dir></target><target name="magelocale"><dir name="en_US"><file name="MageMods_OrderMonitor.csv" hash="df02c97ac8dfd9f4bc32bd466dcd43c8"/></dir></target><target name="mageskin"><dir name="frontend"><dir name="default"><dir name="default"><dir name="css"><dir name="ordermonitor"><file name="styles.css" hash="1b78560ff3ed2a1f80e0b6ede746ae8d"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

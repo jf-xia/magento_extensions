@@ -1,0 +1,849 @@
+/**/
+div.zetaprints-image-tabs {
+  display: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+/**/
+div.zetaprints-image-tabs ul {
+  overflow:hidden;
+  margin-bottom: 5px;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+}
+
+/**/
+div.zetaprints-image-tabs ul li {
+  width: 100px;
+  float: left;
+  margin-right: 15px;
+  border: 1px solid transparent;
+  padding: 9px;
+  cursor: pointer;
+  text-align: center;
+  min-height: 100px;
+}
+
+/**/
+div.zetaprints-image-tabs ul li.selected {
+  border-color: #F18200 !important;
+  cursor: default;
+}
+
+/**/
+div.zetaprints-image-tabs ul li:hover {
+  border-color: #C4C6C8;
+}
+
+/**/
+div.zetaprints-image-tabs ul li img {
+  max-height: 100px;
+  max-width: 100px;
+}
+
+a.zetaprints-template-preview img {
+  max-width: 265px;
+  cursor: pointer;
+}
+
+/**/
+.zetaprints-text-field-wrapper .input-text,
+.zetaprints-text-field-wrapper textarea {
+  border: none;
+  padding: 0;
+  width: 100%;
+}
+
+.zetaprints-text-field-wrapper .input-text:focus,
+.zetaprints-text-field-wrapper textarea:focus {
+  background: none;
+}
+
+.zetaprints-text-field-wrapper textarea {
+  height: 100%;
+  resize: none;
+}
+
+.zetaprints-text-field-wrapper input[readonly],
+.zetaprints-text-field-wrapper textarea[readonly] {
+  color: gray;
+}
+
+.zetaprints-text-field-wrapper {
+  border: 1px solid #B6B6B6;
+  background-color: white;
+  padding: 1px 4px;
+  zoom: 1;
+  line-height: 1.5;
+}
+
+div.zetaprints-page-input-fields .zetaprints-text-field-wrapper:focus {
+  background-color: #EDF7FD;
+}
+
+/**/
+div.zetaprints-page-color-pickers {
+  display: none;
+}
+
+/**/
+div.product-shop dl {
+  margin-bottom: 5px;
+}
+
+/**/
+div.zetaprints-preview-button {
+  display: none;
+  float: left;
+  margin-top: 25px;
+}
+
+/**/
+div.zetaprints-preview-button span.text {
+  display: none;
+  margin-left: 10px;
+  font-size: 85%;
+}
+
+div.zetaprints-next-page-button {
+  display: none;
+  float: left;
+  margin: 25px 0px 0px 10px;
+}
+
+/**/
+img.ajax-loader {
+  vertical-align: middle;
+  margin-left: 10px;
+  display: none;
+}
+
+div.save-order {
+  background: none;
+}
+
+div.save-order div.inner {
+  float: right;
+}
+
+button.disable {
+  cursor: default;
+}
+
+button.disable span {
+  background-color: #bbb;
+  border-color: #909090;
+}
+
+div.save-order span {
+  margin-right: 10px;
+  font-size: 85%;
+}
+
+div.save-order img.ajax-loader {
+  vertical-align: middle;
+  margin-right: 10px;
+  display: none;
+}
+
+div.images-scroller {
+  overflow-x: auto;
+  position: relative;
+  overflow-y: hidden;
+}
+
+div.images-scroller table {
+  border: 0;
+  border-spacing: 0;
+  margin-bottom: 2px;
+  *margin-bottom: 19px;
+}
+
+div.images-scroller table tr {
+  margin: 0px;
+  padding: 0px;
+}
+
+div.images-scroller table td {
+  padding: 0px 10px;
+}
+
+div.images-scroller input {
+  display: block;
+}
+
+div.images-scroller img {
+  max-height: 100px;
+}
+
+div.images-scroller a.edit-dialog {
+  position: relative;
+  display: block;
+  min-height: 21px;
+  text-decoration:none;
+}
+
+div.images-scroller div.buttons-row {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+div.images-scroller .button {
+  cursor: pointer;
+  float: right;
+  margin-left: 5px;
+  height: 15px;
+  line-height: 15px;
+  background: #5284C2;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+div.images-scroller .button.edit {
+  padding: 0 4px;
+}
+
+div.images-scroller .button.delete {
+  width: 17px;
+  color: transparent;
+  background: url(../images/images-selector-sprites.png) -222px -22px no-repeat;
+  font-size: 0; /* IE do not understand 'color: transparent' rule above */
+}
+
+div.zetaprints-images-selector {
+  margin-bottom: 5px; /* Same as div.product-shop dl*/
+  border: none;
+  background-color: #ffffff;
+}
+
+div.zetaprints-images-selector.expanded {
+  position: relative;
+  z-index: 1; /* Used to place expanded box upper than preview image */
+}
+
+div.zetaprints-images-selector input {
+  padding: 0px;
+  margin: 0px;
+}
+
+div.zetaprints-images-selector a.image {
+  display: block;
+  text-decoration: none;
+}
+
+div.zetaprints-images-selector div.icon span, div.selector-content div.icon span {
+  display: none;
+}
+
+div.zetaprints-images-selector div.head {
+  border: 1px solid #b6b6b6;
+  margin: 0px;
+  text-align: left;
+  cursor: pointer;
+  padding: 2px 9px;
+}
+
+div.zetaprints-images-selector div.head div.icon {
+  height: 13px;
+  width: 13px;
+  float: left;
+  background: transparent url('../images/images-selector-sprites.png') 0px -19px no-repeat;
+  margin: 2px 9px 0px 0px;
+}
+
+div.zetaprints-images-selector.no-value div.head div.icon {
+  background-position: 0px 0px;
+}
+
+div.zetaprints-images-selector div.head div.title label {
+  cursor: inherit;
+}
+
+div.zetaprints-images-selector div.head a.image {
+  float: right;
+  background: url('../images/images-selector-sprites.png') no-repeat;
+  margin-left: 6px;
+  margin-top: 4px;
+  height: 9px;
+}
+
+div.zetaprints-images-selector div.head a.image span {
+  display: none;
+}
+
+div.zetaprints-images-selector div.head a.image.up-down {
+  background-position: -76px 2px;
+  width: 15px;
+}
+
+div.zetaprints-images-selector div.head a.image.up-down:hover {
+  background-position: -76px -12px;
+}
+
+div.zetaprints-images-selector.minimized div.head a.image.up-down {
+  background-position: -61px 2px;
+}
+
+div.zetaprints-images-selector.minimized div.head a.image.up-down:hover {
+  background-position: -61px -12px;
+}
+
+div.zetaprints-images-selector div.head a.image.collapse-expand {
+  background-position: -39px 0px;
+  width: 17px;
+}
+
+div.zetaprints-images-selector div.head a.image.collapse-expand:hover {
+  background-position: -39px -16px;
+}
+
+div.zetaprints-images-selector.expanded div.head a.image.collapse-expand {
+  background-position: -18px 0px;
+}
+
+div.zetaprints-images-selector.expanded div.head a.image.collapse-expand:hover {
+  background-position: -18px -16px;
+}
+
+div.selector-content {
+  height: 135px;
+  background-color: #ffffff;
+}
+
+div.zetaprints-images-selector.minimized div.selector-content {
+  display: none;
+}
+
+div.selector-content div.clear {
+  clear: both;
+}
+
+div.selector-content input[type=radio] {
+  *height: 13px;
+  *width: 13px;
+}
+
+div.selector-content ul.tab-buttons div.icon {
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin-right: 2px;
+}
+
+div.selector-content ul.tab-buttons a {
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+
+div.selector-content ul.tab-buttons div.icon.upload {
+  background: url('../images/images-selector-sprites.png') -90px 4px no-repeat;
+}
+
+div.selector-content ul.tab-buttons div.icon.user-images {
+  background: url('../images/images-selector-sprites.png') -90px -15px no-repeat;
+}
+
+div.selector-content ul.tab-buttons div.icon.stock-images {
+  background: url('../images/images-selector-sprites.png') -90px -33px no-repeat;
+}
+
+div.selector-content ul.tab-buttons div.icon.color-picker {
+  background: url('../images/images-selector-sprites.png') -90px -55px no-repeat;
+}
+
+div.selector-content ul.tab-buttons {
+  height: 100%;
+  overflow: hidden;
+  float: left;
+  width: 10em;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+div.selector-content ul.tab-buttons li {
+  border: 1px solid #b6b6b6;
+  border-top: none;
+  padding: 3px 4px 3px 8px;
+  background-color: #f8f9fa;
+  height: 20px;
+  line-height: 20px;
+  font-size: 90%;
+  vertical-align: bottom;
+}
+
+div.selector-content ul.tab-buttons li.hidden {
+  display: none;
+}
+
+div.selector-content ul.tab-buttons li.ui-tabs-selected {
+  background-color: transparent;
+  border-right: none;
+}
+
+div.selector-content ul.tab-buttons li.last {
+  border-bottom: none;
+  border-left: none;
+  height: 100%;
+  background-color: transparent;
+  font-weight: normal;
+}
+
+div.selector-content ul.tab-buttons li.last label input {
+  margin-right: 1px;
+}
+
+div.selector-content ul.tab-buttons li.last label.leave-blank-value {
+  margin-right: 5px;
+}
+
+div.selector-content div.tabs-wrapper {
+  height: 100%;
+  padding: 0px 2px;
+  border: 1px solid #b6b6b6;
+  border-left: none;
+  border-top: none;
+  margin-left: 10em;
+}
+
+div.selector-content div.tabs-wrapper div.tab {
+  padding-top: 2px;
+  font-size: 90%;
+}
+
+div.selector-content div.tabs-wrapper div.tab.ui-tabs-hide {
+  position: absolute;
+  left: -100000px;
+}
+
+div.selector-content div.tabs-wrapper div.color-picker {
+  padding-left: 20px;
+}
+
+div.selector-content div.tabs-wrapper div.color-picker input {
+  margin-bottom: 10px;
+  *margin-bottom: 11px;
+}
+
+div.selector-content div.tabs-wrapper div.color-picker div.color-sample {
+  width: 100px;
+  height: 70px;
+  border: 1px solid #b6b6b6;
+  margin-bottom: 2px;
+}
+
+div.selector-content div.tabs-wrapper div.upload {
+  padding-left: 6px;
+  position: relative;
+  *height: 98%;
+}
+
+div.selector-content div.tabs-wrapper div.upload div.recommended-size-notice {
+  position: absolute;
+  bottom: 0px;
+  line-height: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #909090;
+  font-size: 90%;
+}
+
+div.selector-content div.tabs-wrapper div.upload div.recommended-size-notice div.zetaprints-icon {
+  margin-right: 1px;
+  margin-left: -2px;
+}
+
+div.zetaprints-images-selector.expanded div.selector-content div.tabs-wrapper div.upload {
+  padding-left: 26px;
+}
+
+div.selector-content div.tabs-wrapper div.upload div.column {
+  float: left;
+  width: 49%;
+  margin-top: 24px;
+  *margin-top: 23px;
+}
+
+div.selector-content div.tabs-wrapper div.upload input.file-name {
+  border: none;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+
+div.selector-content div.tabs-wrapper div.upload .zetaprints-text-field-wrapper {
+  margin: 0 4px 5px 0;
+}
+
+div.selector-content div.tabs-wrapper div.upload label {
+  font-weight: normal;
+}
+
+div.selector-content div.tabs-wrapper div.upload div.button {
+  float: left;
+  margin: 0px 6px 6px 0px;
+  width: 78px;
+  height: 22px;
+  cursor: pointer;
+}
+
+div.selector-content div.tabs-wrapper div.upload div.button span {
+  display: none;
+}
+
+div.selector-content div.tabs-wrapper div.upload div.button.disabled {
+  cursor: default;
+}
+
+div.selector-content div.tabs-wrapper div.upload div.button.choose-file {
+  background: url('../images/images-selector-sprites.png') -115px -28px no-repeat;
+}
+
+div.selector-content div.tabs-wrapper div.upload div.button.choose-file.disabled {
+  background: url('../images/images-selector-sprites.png') -115px 0px no-repeat;
+}
+
+div.selector-content div.tabs-wrapper div.upload div.button.cancel-upload {
+  background: url('../images/images-selector-sprites.png') -115px -84px no-repeat;
+}
+
+div.selector-content div.tabs-wrapper div.upload div.button.cancel-upload.disabled {
+  background: url('../images/images-selector-sprites.png') -115px -56px no-repeat;
+}
+
+div.selector-content div.tabs-wrapper div.upload img.ajax-loader {
+  margin: 2px 0px 0px 0px;
+}
+
+a.all-order-previews {
+  float: right;
+  margin-top: -2em;
+}
+
+a.all-order-previews span.show-title {
+  display: none;
+}
+
+a.all-order-previews.hide-all span.hide-title {
+  display: none;
+}
+
+a.all-order-previews.hide-all span.show-title {
+  display: inline;
+}
+
+.data-table tbody.odd tr.border.zetaprints-previews td,
+.data-table tbody.even tr.border.zetaprints-previews td {
+  border-bottom-width: 4px;
+}
+
+div.zetaprints-previews-box div.title {
+  margin-bottom: 5px;
+}
+
+div.zetaprints-previews-box div.title a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+div.zetaprints-previews-box div.title a span {
+  text-decoration: underline;
+}
+
+div.zetaprints-previews-box div.title a.show-title {
+  display: none;
+}
+
+div.zetaprints-previews-box div.content {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 0 20px 0;
+}
+
+div.zetaprints-previews-box div.content ul {
+  overflow: hidden;
+}
+
+div.zetaprints-previews-box div.content ul li {
+  float: left;
+  margin-left: 5px;
+}
+
+div.zetaprints-previews-box.hide div.content {
+  display: none;
+}
+
+div.zetaprints-previews-box.hide div.title a.hide-title {
+  display: none;
+}
+
+div.zetaprints-previews-box.hide div.title a.show-title {
+  display: inline;
+}
+
+span.zetaprints-share-link input {
+  display: none;
+}
+
+.add-to-links span.zetaprints-share-link.empty a {
+  color: gray !important;
+  cursor: default;
+}
+
+span.zetaprints-share-link.show a {
+  display: none;
+}
+
+span.zetaprints-share-link.show input {
+  display: inline;
+}
+
+div.zetaprints-preview-placeholder {
+  width: 100%;
+  height: 200px;
+}
+
+div.zetaprints-preview-placeholder.hidden {
+  display: none;
+}
+
+div.zetaprints-big-spinner {
+  background: url('../images/big-spinner.gif') center no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+div.zetaprints-big-spinner.zetaprints-over-image-spinner {
+  position: absolute;
+  top: 0px;
+}
+
+/* CSS rules for different notices */
+.zetaprints-notice.hidden {
+  display: none;
+}
+
+/* Warning for fake Add to cart button */
+.zetaprints-notice.to-update-preview {
+  color: #fd0039;
+  clear: both;
+  float: right;
+  *float: left;
+}
+
+/* Fancybox tweaks */
+
+/* Move right arrow area to the right */
+a#fancybox-right {
+  right: -40px;
+}
+
+/* Move left arrow area to the left */
+a#fancybox-left {
+  left: -40px;
+}
+
+/*a#fancybox-right, a#fancybox-left {
+  visibility: visible; /* IE6 */
+/*}*/
+
+/* Make left arrow icon always visible */
+a#fancybox-left span {
+  left: 20px;
+}
+
+/* Make right arrow icon always visible */
+a#fancybox-right span {
+  left: auto;
+  right: 20px;
+}
+
+/* Extracted from js code of image_edit branch */
+div.thumbCropedAreaToolSet {
+  position: relative;
+  background-color: black;
+  opacity: .7;
+}
+
+div.thumbCropedAreaToolSet div {
+  position: absolute;
+  overflow: hidden;
+  opacity: 1;
+  backgroud-color: white;
+  width: 100%;
+}
+
+div.thumbCropedAreaToolSet div img {
+  position: absolute;
+  opacity: 1;
+}
+
+.zetaprints-page-input-fields .ui-resizable {
+  position: relative;
+}
+
+/* ZetaPrints text field resizer */
+.zetaprints-page-input-fields .ui-resizable-handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  bottom: -1px;
+}
+
+.zetaprints-page-input-fields .ui-resizable-w,
+.zetaprints-page-input-fields .ui-resizable-sw {
+  background: url('../../../../../js/zetaprints/images/zp-text-field-resizer/left-handle.gif') center no-repeat;
+  left: -1px;
+  cursor: sw-resize;
+  /* display: none !important; /* Uncomment it to switch to right
+                                  position of a resizing handler */
+}
+
+.zetaprints-page-input-fields .ui-resizable-e,
+.zetaprints-page-input-fields .ui-resizable-se {
+  background: url('../../../../../js/zetaprints/images/zp-text-field-resizer/right-handle.gif') center no-repeat;
+  right: -1px;
+  cursor: se-resize;
+  display: none !important; /* Comment it to switch to right
+                               position of a resizing handler */
+}
+
+/* Common CSS rules for icons */
+div.zetaprints-icon {
+  display: block;
+  float: left;
+  height: 16px;
+  width: 16px;
+  background-repeat: no-repeat;
+  background-image: url('../images/images-selector-sprites.png');
+}
+
+div.zetaprints-icon.attention {
+  background-position: -89px -80px;
+}
+
+/* Common CSS rules for button with icon and its container */
+div.zetaprints-buttons-row .zetaprints-button {
+  float: left;
+  margin: 0px 2px;
+}
+
+div.zetaprints-buttons-row div.reset {
+  clear: both;
+}
+
+div.zetaprints-buttons-row div.row-part {
+  width: 50%;
+  float: left;
+}
+
+div.zetaprints-buttons-row div.row-part.first .zetaprints-button {
+  float: right;
+}
+
+.zetaprints-button {
+  display: block;
+  cursor: pointer;
+  height: 22px;
+  padding-left: 5px;
+  background-color: #93b4df;
+  border: 1px solid #7192bf;
+}
+
+.zetaprints-button.zetaprints-hidden {
+  visibility: hidden;
+}
+
+.zetaprints-button div.icon {
+  display: block;
+  float: left;
+  height: 22px;
+  width: 16px;
+  background-repeat: no-repeat;
+  background-image: url('../images/images-selector-sprites.png');
+}
+
+.zetaprints-button span {
+  margin: 0px 8px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.zetaprints-button.save-action div.icon {
+  background-position: -222px -41px;
+}
+
+.zetaprints-button.restore-action div.icon {
+  width: 13px;
+  background-position: -222px -61px;
+}
+
+.zp-hidden {
+  display: none;
+}
+
+.zp-clear {
+  clear: both;
+  float: none;
+  width: 0;
+  height: 0;
+}
+
+/* Image container must have same size as images in it.
+   So no margin and padding for child element */
+#zetaprints-preview-image-container .product-image {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.zetaprints-page-input-fields dd {
+ position: relative; /* Workaround for Opera 10 */
+ *position: static; /* Return back static positioning for IE7 */
+}
+
+.zetaprints-page-stock-images {
+  margin-top: 15px;
+}
+
+/* Page size tables styles */
+.zetaprints-page-size-table {
+  margin: 10px 0px;
+}
+
+.zetaprints-page-size-table table {
+  border: 1px solid #dfdfdf;
+  border-collapse: collapse;
+}
+
+.zetaprints-page-size-table td {
+  border: 1px solid #dfdfdf;
+  font-size: 8pt;
+  padding: 0 4px;
+  text-align: center;
+}
+
+.zetaprints-page-size-table .page-size-table-head td {
+  color: #636363;
+  font-weight: bold;
+}
+
+.zetaprints-page-size-table .page-size-table-icon {
+  background-color: #f3f8fe;
+  vertical-align: middle;
+}
+
+.z-index-1 {
+  z-index: 1;
+}

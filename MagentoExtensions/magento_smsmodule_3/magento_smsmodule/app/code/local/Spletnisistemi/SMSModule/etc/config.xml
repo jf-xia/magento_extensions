@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <spletnisistemi_smsmodule>
+            <version>1.0</version>
+        </spletnisistemi_smsmodule>
+    </modules>
+    <global>
+        <models>
+            <smsmodule>
+                 <class>Spletnisistemi_SMSModule_Model</class>
+            </smsmodule>
+        </models>
+        <helpers>
+            <smsmodule>
+                <class>Spletnisistemi_SMSModule_Helper</class>
+            </smsmodule>
+        </helpers>    
+        <template>
+            <email>
+                <sms_error_email_template translate="label" module="smsmodule">
+                    <label>SMS Module error email</label>
+                    <file>sms_error.html</file>
+                    <type>html</type>
+                </sms_error_email_template>
+            </email>
+        </template>
+        <events>
+            <checkout_type_onepage_save_order_after>
+                <observers>
+                    <spletnisistemi_smsmodule_model_observer>
+                        <class>Spletnisistemi_SMSModule_Model_Observer</class>
+                        <method>onPlaceOrder</method>
+                    </spletnisistemi_smsmodule_model_observer>
+                </observers>
+            </checkout_type_onepage_save_order_after>
+            <order_cancel_after>
+                <observers>
+                    <spletnisistemi_smsmodule_model_observer>
+                        <class>Spletnisistemi_SMSModule_Model_Observer</class>
+                        <method>onOrderCancled</method>
+                    </spletnisistemi_smsmodule_model_observer>
+                </observers>
+            </order_cancel_after>
+            <sales_order_invoice_pay>
+                <observers>
+                    <spletnisistemi_smsmodule_model_observer>
+                        <class>Spletnisistemi_SMSModule_Model_Observer</class>
+                        <method>onInvoiceSent</method>
+                    </spletnisistemi_smsmodule_model_observer>
+                </observers>
+            </sales_order_invoice_pay>
+        </events>
+    </global>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <smsmodule>
+                                            <title>SMS Module Section</title>
+                                        </smsmodule>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <translate>
+            <modules>
+                <spletnisistemi_smsmodule>
+                    <files>
+                        <default>Spletnisistemi_Smsmodule.csv</default>
+                    </files>
+                </spletnisistemi_smsmodule>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <smsmodule>
+            <settings>
+                <smsprovider>SMSAPI</smsprovider>
+                <send_sms_on_place_order_text>Hello, we would like to thank you for your order and inform you, that your order has been received.</send_sms_on_place_order_text>
+                <send_sms_on_invoice_sent_text>Hello, we would like to thank you for your order and inform you, that your order has been received.</send_sms_on_invoice_sent_text>
+                <send_sms_on_order_cancled_text>Hello, we would like to tell you that your order has been cancled.</send_sms_on_order_cancled_text>
+            </settings>
+        </smsmodule>
+    </default>
+</config> 

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<package>
+    <name>soonadvancedcache</name>
+    <version>0.9.6</version>
+    <stability>beta</stability>
+    <license uri="http://opensource.org/licenses/AFL-3.0">AFL 3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Soon_AdvancedCache extends native Magento caching features in order to increase your shop speed.&#xD;
+&#xD;
+======&#xD;
+&#xD;
+Soon_AdvancedCache &#xE9;tend les fonctionnalit&#xE9;s de caching de Magento afin de rendre votre boutique beaucoup plus rapide.</summary>
+    <description>Soon_AdvancedCache offers several features aiming at : &#xD;
+&#xD;
+&#x2022;	really lower pageload times&#xD;
+&#x2022;	while decreasing the use of server resources by reducing the PHP calculation and MySQL requests count.&#xD;
+&#xD;
+Items cached by Soon_AdvancedCache are :&#xD;
+&#xD;
+&#x2022;	Homepage&#xD;
+&#x2022;	CMS pages&#xD;
+&#x2022;	CMS blocks&#xD;
+&#x2022;	Breadcrumbs&#xD;
+&#x2022;	Category page and product listings&#xD;
+&#x2022;	Layered navigaion&#xD;
+&#x2022;	Product view&#xD;
+&#x2022;	Popular tags&#xD;
+&#x2022;	Contact page and form&#xD;
+&#x2022;	... and any other layout block by adjusting the extension configuration and/or creating tiny bits of code.&#xD;
+&#xD;
+======&#xD;
+&#xD;
+Soon_AdvancedCache offre diff&#xE9;rentes fonctionnalit&#xE9;s dont l'objectif est double :&#xD;
+&#xD;
+&#x2022;	acc&#xE9;l&#xE9;rer sensiblement l'affichage des pages des boutiques Magento&#xD;
+&#x2022;	tout en all&#xE9;geant les sollicitations au serveur qui effectue ainsi moins de calculs PHP et de requ&#xEA;tes MySQL.&#xD;
+&#xD;
+El&#xE9;ments mis en cache par Soon_AdvancedCache :&#xD;
+&#xD;
+&#x2022;	Page d&#x2019;accueil&#xD;
+&#x2022;	Pages CMS&#xD;
+&#x2022;	Blocs CMS&#xD;
+&#x2022;	Fil d&#x2019;ariane&#xD;
+&#x2022;	Page cat&#xE9;gorie et listings produits&#xD;
+&#x2022;	Navigation par filtre&#xD;
+&#x2022;	Fiche produit&#xD;
+&#x2022;	Tags populaires&#xD;
+&#x2022;	Formulaire de contact&#xD;
+&#x2022;	... et tout autre bloc du layout moyennant quelques configurations voire quelques l&#xE9;gers d&#xE9;veloppements.</description>
+    <notes>Fixed beginner's bug : module was set to active false in declaration xml!</notes>
+    <authors><author><name>Herv&#xE9; G.</name><user>auto-converted</user><email>contact@agence-soon.fr</email></author></authors>
+    <date>2012-04-12</date>
+    <time>09:08:44</time>
+    <contents><target name="magecommunity"><dir name="Soon"><dir name="AdvancedCache"><dir name="Block"><dir name="Adminhtml"><dir name="Blocks"><dir name="Edit"><file name="Form.php" hash="115e7f10e84e8604298ab22c5918dd89"/></dir><file name="Edit.php" hash="b74e4a78da3dbf4cc1c679771ce11c23"/><file name="Grid.php" hash="329d51f998ce5bb3f0b6f77ef6ae8149"/></dir><dir name="Exception"><dir name="Edit"><file name="Form.php" hash="ced98f5224ea4c50d0acd7805e9d3d61"/></dir><file name="Edit.php" hash="26ef905e67eacebf93966f1615fc0780"/><file name="Grid.php" hash="b78008f7fcde68d24f793b75c6f1b629"/></dir><dir name="System"><dir name="Config"><dir name="Fieldset"><file name="Hint.php" hash="b656491d9f236492a8efa6e5e97a2ec3"/></dir></dir></dir><file name="Blocks.php" hash="5b4d2699ac632f20e475ba0eea1430f2"/><file name="Exception.php" hash="160fd68029d400befea52c27bf624309"/><file name="Expire.php" hash="d29e758d5cf5676a21057192885d697f"/><file name="Symlink.php" hash="f0e3ccf42912eceffd457c6c88a3e45c"/></dir></dir><dir name="Helper"><file name="Data.php" hash="f0137f13b696278459171d9a848a1d4e"/><file name="Symlink.php" hash="f43e6441ed68c3355555eef420ed1630"/></dir><dir name="Model"><dir name="Mysql4"><dir name="Blocks"><file name="Collection.php" hash="3b2d6c9cfca7c8ac92232e70abbe9e80"/></dir><dir name="Exception"><file name="Collection.php" hash="3aa07e2733378c66f3637f3c4fa846d9"/></dir><file name="Blocks.php" hash="4d3ec6aa978a4cd219337cd7ad602d42"/><file name="Exception.php" hash="2d8b0f7b8162262ce405763382c4f3bf"/></dir><dir name="Project"><file name="Add.php" hash="d10a497bf010d94d77b078497338145d"/><file name="Clean.php" hash="7440e160b1c500311a6e922e8fed383a"/></dir><file name="Abstract.php" hash="e9dd4acdd49d002f0190898c616697a8"/><file name="Add.php" hash="4f87725fad1dddc1c0b589479f75c715"/><file name="Blocks.php" hash="713514b4e5c25b479ed489879e730f52"/><file name="Clean.php" hash="51361826da7f08f550f6ab0937a17057"/><file name="Config.php" hash="b0b12c4ac934738739c706d1541e2394"/><file name="Exception.php" hash="06acd3274522e29ccaa9d8fe1e4f5a7b"/><file name="Symlink.php" hash="d65ae3e31a64627af14ec26454458f2d"/></dir><dir name="controllers"><dir name="Adminhtml"><dir name="Advancedcache"><file name="BlocksController.php" hash="9f5ae46bdd0f04b56e3a7be24f3800e9"/><file name="ExceptionController.php" hash="3822b3c8e9ee1fbef3204aa214b81587"/><file name="ExpireController.php" hash="dc74937a998e5d23693293fd0d52c309"/><file name="SymlinkController.php" hash="cf214783ce6c08716568bed1a09e77f4"/></dir></dir></dir><dir name="etc"><file name="config.xml" hash="94b79ee7ed6c8e77164a1fe94cd70648"/><file name="system.xml" hash="8e11df1d8f9fcffe104769ff43447a02"/></dir><dir name="sql"><dir name="advancedcache_setup"><file name="mysql4-install-0.9.6.php" hash="d9bd773a590b139bad0deca344acb30d"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="advancedcache.xml" hash="867b51d83adb25850f1b0bc1f9673f62"/></dir><dir name="template"><dir name="advancedcache"><dir name="blocks"><file name="notice.phtml" hash="b9e6c85fa1a2085255effcd11fd98063"/></dir><dir name="system"><dir name="config"><dir name="fieldset"><file name="hint.phtml" hash="f626deea924089854bad26e5984bd991"/></dir></dir></dir><file name="expire.phtml" hash="51277917f97faf21a14a4bcf2dff7e94"/><file name="symlink.phtml" hash="2b12e9763dd0334f2da25958f79ce55a"/></dir></dir></dir></dir></dir><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="advancedcache.xml" hash="bf012ea4424e4cdbeaadeb659ed42137"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Soon_AdvancedCache.xml" hash="8895119521b8cb27e75938d380549246"/></dir></target><target name="magelocale"><dir name="fr_FR"><file name="Soon_AdvancedCache.csv" hash="50db7108c91f3f2304b9321a8bf9fe45"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><package><name>soonall</name><channel>community</channel><min>0.1.0</min><max>100.0.0</max></package></required></dependencies>
+</package>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <magpleasure translate="label" module="guestbook">
+            <label>MagPleasure Extensions</label>
+            <sort_order>300</sort_order>
+        </magpleasure>
+    </tabs>
+    <sections>
+        <guestbook module="guestbook" translate="label">
+            <label>Guest Book</label>
+            <tab>magpleasure</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>670</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <menu>
+                    <label>Menu Integration</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <sort_order>10</sort_order>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <label translate="label">
+                            <label>Label</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </label>
+                        <position translate="label">
+                            <label>Position</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </position>
+                    </fields>
+                </menu>
+                <messages>
+                    <label>Message Configuration</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <sort_order>40</sort_order>
+                    <fields>
+                        <autoapprove translate="label">
+                            <label>Automatical Approving</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </autoapprove>
+                        <allow_guests translate="label">
+                            <label>Allow Guests</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allow_guests>
+                        <record_per_page translate="label">
+                            <label>Records per Page</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </record_per_page>
+                        <sort_order translate="label">
+                            <label>Sort Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magpleasure/system_config_source_sorttype</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                    </fields>
+                </messages>
+                <notify_admin_new_comment>
+                    <label>New Pending Comment Notification</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <sort_order>100</sort_order>
+                    <fields>
+                        <receiver translate="label">
+                            <label>Recipient</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>This will be used in the "To" field. If you use multiple separate by comma.</comment>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </receiver>
+                        <sender translate="label">
+                            <label>Sender</label>
+                            <comment>This will be used as "From"</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sender>
+                        <email_template translate="label">
+                            <label>New Comment Notification</label>
+                            <comment>This email template will be used to sent a notification about new coupon requests</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_template>
+                    </fields>
+                </notify_admin_new_comment>
+            </groups>
+        </guestbook>
+    </sections>
+</config>

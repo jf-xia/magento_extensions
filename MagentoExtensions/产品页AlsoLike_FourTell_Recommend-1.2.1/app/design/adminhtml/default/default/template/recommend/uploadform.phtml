@@ -1,0 +1,545 @@
+<?php 
+$ex = Mage::getSingleton('FourTell_Recommend_Model_Upload')->load();
+
+$attrs = Mage::getSingleton('FourTell_Recommend_Model_Upload')->getProductAttributes();
+
+$cfgLink = Mage::helper("adminhtml")->getUrl("admin/system_config/edit/section/recommend");
+$cfgLink = str_replace("//system", "/admin/system", $cfgLink);
+
+$comps = array(
+	'eq'		=> 'Equal To',
+	'neq'		=> 'Not Equal To',
+	'lt'		=> 'Less Than',
+	'lteq'		=> 'Less Than or Equal To',
+	'gt'		=> 'Greater Than',
+	'gteq'		=> 'Greater Than or Equal To',
+	'like'		=> 'Contains',
+	'nlike'		=> 'Does Not Contain',
+	'null'		=> 'Is Null',
+	'notnull'	=> 'Is Not Null',
+	'in'		=> 'In',
+	'nin'		=> 'Not In'
+);
+
+$options = array(
+	'upload_sales_data' 		=> 'Upload Sales Data',
+	'upload_product_data' 		=> 'Upload Product Data',
+	'upload_replacement_data' 	=> 'Upload Replacement Data',
+	'upload_exclusion_data' 	=> 'Upload Exclusion Data'
+);
+
+$rowIdx = 1;
+?>
+
+
+<form id="edit_form" name="edit_form" method="post" action="">
+	<input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+	<input type="hidden" id="what_data" name="what_data" value="" />
+
+	<div class="content-headerx" style="padding-bottom: 20px;">
+	    <table cellspacing="0" class="grid-header">
+	        <tr>
+	            <td><h3>4-Tell Recommend</h3></td>
+	        </tr>
+			<tr>
+				<td>
+					Select the data to be uploaded and the press the <b>Upload Data</b> button.
+					If this is your first upload, select "All" sales data.
+		        </td>
+			</tr>
+			<tr>
+				<td>
+					<a href="<?php echo $cfgLink; ?>">Go to 4-Tell System Configuration</a>
+		        </td>
+			</tr>
+		</table>
+	</div>
+
+
+	<div class="content-header">
+	    <table cellspacing="0" class="grid-header">
+	        <tr>
+	            <td><h3>Upload Options</h3></td>
+		        <td class="a-right">
+					<button id="saveButton" onclick="$('what_data').setAttribute('value', 'save_settings'); editForm.submit();" class="scalable" type="button" value="save settings" style="display: none;"><span>Save Settings</span></button>
+		        	<?php if (Mage::getStoreConfig('recommend/config/enabled') == 1) { ?>
+			            <button id="uploadButton" onclick="$('what_data').setAttribute('value', 'upload_data'); editForm.submit();" class="scalable" type="button" value="upload_data" style="display: none;"><span>Upload Data</span></button>
+		            <?php } ?>
+					<button id="ajaxButton" onclick="javascript:ajaxUpload(0);" class="scalable" type="button" value="Upload Data" style="display: none;"><span>Upload Data</span></button>
+		        </td>
+	        </tr>
+		</table>
+	</div>
+	<div class="content-header" style="border: 0px !important;">
+	    <table cellspacing="0" class="grid-header" id="sales_options">
+	    	<tbody>
+				<tr>
+					<td style="width: 200px; white-space: nowrap;"><h3>Upload Sales Data</h3></td>
+					<td>
+						<select id="upload_sales_data" name="upload_sales_data" style="width: 120px;">
+							<option value="All" 	<?php if (trim($ex['upload_sales_data']) == "All") 	{ echo 'selected="selected"'; } ?>>All</option>
+							<option value="New" 	<?php if (trim($ex['upload_sales_data']) == "New") 	{ echo 'selected="selected"'; } ?>>New</option>
+							<option value="None"  	<?php if (trim($ex['upload_sales_data']) == "None") { echo 'selected="selected"'; } ?>>None</option>
+						</select>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+
+				<tr>
+					<td style="width: 200px; white-space: nowrap;"><h3>Upload Catalog Data</h3></td>
+					<td>
+						<select id="upload_product_data" name="upload_product_data" style="width: 120px;">
+							<option value="Yes" <?php if (trim($ex['upload_product_data']) == "Yes") { echo 'selected="selected"'; } ?>>Yes</option>
+							<option value="No"  <?php if (trim($ex['upload_product_data']) == "No")  { echo 'selected="selected"'; } ?>>No</option>
+						</select>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+
+				<tr>
+					<td style="width: 200px; white-space: nowrap;"><h3>Enable Exclusion Data</h3></td>
+					<td>
+						<select name="upload_exclusion_data" id="upload_exclusion_data" style="width: 120px;">
+							<option value="No"  <?php if (trim($ex['upload_exclusion_data']) == "No")  { echo 'selected="selected"'; } ?>>No</option>
+							<option value="Yes" <?php if (trim($ex['upload_exclusion_data']) == "Yes") { echo 'selected="selected"'; } ?>>Yes</option>
+						</select>
+						
+						<div class="content-header" id="exclude_table_container" <?php if (trim($ex['upload_exclusion_data']) == "No") { ?> style="display: none;" <?php } ?>>
+						    <table cellspacing="0" class="grid-header" id="exclude_table">
+						    	<tbody>
+							        <tr>
+							            <td><h3>Field</h3></td>
+							            <td><h3>Comparison</h3></td>
+							            <td><h3>Value</h3></td>
+										<td>&nbsp;</td>
+							        </tr>
+							        
+							        <?php
+							        	$rowIdx = 1;
+							        	foreach ($ex['exclude_options'] as $o) {
+							        ?>
+								        <tr class="excludeRow" id="excludeRow_<?php echo $rowIdx; ?>">
+								        	<td><input name="excludeField_Name_<?php echo $rowIdx; ?>" type="text" size="40" value="<?php echo $o->field; ?>" /></td>
+								        	<td>
+								        		<select name="excludeField_Compare_<?php echo $rowIdx; ?>" style="width: 180px;">
+								        			<?php
+								        				foreach ($comps as $k => $v) 
+								        				{
+								        					$selected = "";
+								        					if ($k == $o->compare) 
+								        					{
+								        						$selected = "selected";
+								        					}
+								        			?>
+								        				<option value="<?php echo $k; ?>" <?php if ($selected != "") { ?>selected="selected"<?php } ?>><?php echo $v; ?></option>
+								        			<?php 
+														} 
+													?>
+								        		</select>
+								        	</td>
+								        	<td><input name="excludeField_Value_<?php echo $rowIdx; ?>" type="text" size="40" value="<?php echo $o->value; ?>" /></td>
+								        	<td class="a-right">
+												<button onclick="javascript:removeExcludeRow(<?php echo $rowIdx; ?>);" class="scalable" type="button" value=" x "><span> x </span></button>
+								        	</td>
+								        </tr>
+							        <?php
+							        		$rowIdx++; 
+										} 
+									?>
+						        </tbody>
+							</table>
+						</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="width: 200px; white-space: nowrap;"><h3>Enable Replacement Data</h3></td>
+					<td>
+						<select name="upload_replacement_data" id="upload_replacement_data" style="width: 120px;">
+							<option value="None"  				<?php if (trim($ex['upload_replacement_data']) == "None")  				{ echo 'selected="selected"'; } ?>>None</option>
+							<option value="Entire Catalog" 		<?php if (trim($ex['upload_replacement_data']) == "Entire Catalog") 	{ echo 'selected="selected"'; } ?>>Entire Catalog</option>
+							<option value="Individual Items" 	<?php if (trim($ex['upload_replacement_data']) == "Individual Items") 	{ echo 'selected="selected"'; } ?>>Individual Items</option>
+						</select>
+
+						<div class="content-header" id="replacement_catalog_table_container" <?php if (trim($ex['upload_replacement_data']) != "Entire Catalog") { ?> style="display: none;" <?php } ?>>
+						    <table cellspacing="0" class="grid-header" id="replacement_table">
+						        <tr class="excludeRow" id="replacement_header">
+						        	<td><h3>Old Field</h3></td>
+						        	<td><h3>New Field</h3></td>
+						        	<td>&nbsp;</td>
+						        </tr>
+						        <tr class="excludeRow" id="replacement_data">
+						        	<td style="padding-right: 20px;"><input name="replace_catalog_old_field" type="text" size="40" value="<?php echo $ex['replace_catalog_old_field']; ?>" /></td>
+						        	<td style="padding-right: 20px;"><input name="replace_catalog_new_field" type="text" size="40" value="<?php echo $ex['replace_catalog_new_field']; ?>" /></td>
+						        	<td style="width: 100%;">&nbsp;</td>
+						        </tr>
+							</table>
+						</div>
+
+						<div class="content-header" id="replacement_item_table_container" <?php if (trim($ex['upload_replacement_data']) != "Individual Items") { ?> style="display: none;" <?php } ?>>
+						    <table cellspacing="0" class="grid-header" id="replace_table">
+						    	<tbody>
+							        <tr>
+							            <td><h3>Old ID</h3></td>
+							            <td><h3>New ID</h3></td>
+										<td>&nbsp;</td>
+							        </tr>
+							        
+							        <?php
+							        	$repIdx = 1;
+							        	foreach ($ex['replace_options'] as $o) {
+							        ?>
+								        <tr class="replaceRow" id="replaceRow_<?php echo $repIdx; ?>">
+								        	<td><input name="replaceField_oldid_<?php echo $repIdx; ?>" type="text" size="40" value="<?php echo $o->oldid; ?>" /></td>
+								        	<td><input name="replaceField_newid_<?php echo $repIdx; ?>" type="text" size="40" value="<?php echo $o->newid; ?>" /></td>
+								        	<td class="a-right">
+												<button onclick="javascript:removeReplaceRow(<?php echo $repIdx; ?>);" class="scalable" type="button" value=" x "><span> x </span></button>
+								        	</td>
+								        </tr>
+							        <?php
+							        		$repIdx++; 
+										} 
+									?>
+						        </tbody>
+							</table>
+						</div>
+
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="width: 200px; white-space: nowrap;"><h3>Show Upload Details</h3></td>
+					<td>
+						<select name="showUploadDetails" id="showUploadDetails" style="width: 120px;">
+							<option value="No"  <?php if (trim($ex['showUploadDetails']) == "No")  { echo 'selected="selected"'; } ?>>No</option>
+							<option value="Yes" <?php if (trim($ex['showUploadDetails']) == "Yes") { echo 'selected="selected"'; } ?>>Yes</option>
+						</select>
+					</td>
+				</tr>
+	        </tbody>
+		</table>
+	</div>
+</form>
+
+
+<div id="loading-mask" style="display:none">
+    <p class="loader" id="loading_mask_loader">
+    	<img src="/skin/adminhtml/default/enterprise/images/ajax-loader-tr.gif" alt="Loading..."/>
+    	<span id="loading-msg">Uploading data, please wait...</span>
+    </p>
+</div>
+
+
+<script type="text/javascript">
+    var editForm = new varienForm('edit_form');
+    var numExs = <?php echo count($ex['exclude_options']); ?>;
+
+    function removeExcludeRow(row) {
+    	var rowEl = $$('#excludeRow_'+row);
+    	rowEl.each(function(el) {
+    		el.remove();
+    	});
+		
+		setSaveButton('block');
+    }
+    
+	function makeExcludeSelect(id) {
+		var sel = new Element('select', {'style': 'width: 180px'});
+		sel.writeAttribute('name', 'excludeField_Compare_'+id);
+		
+		<?php
+			foreach ($comps as $k => $v) {
+		?>
+			sel.insert(new Element('option', {'value': '<?php echo $k; ?>', text: '<?php echo $v; ?>'}).update('<?php echo $v; ?>'));
+		<?php } ?>
+		
+		return sel;
+	}
+	
+	function makeExcludeButton(id) {
+		var js = 'javascript:addExcludeRow(true); setSaveButton("block");';
+		var but = new Element('button', {'id': 'excludeFieldButton_'+id, 'onclick': js, 'class': 'scalable', 'type': 'button', 'value': ' + '});
+		
+		but.insert(new Element('span').update(' + '));
+		
+		return but;
+	}
+	
+	function swapExcludeButton(id) {
+		var buts = $$('#excludeFieldButton_'+id);
+		buts.each(function(but) {
+			but.down().update(' x ');
+			but.setAttribute('onclick', 'javascript:removeExcludeRow('+id+');');
+		});
+	}
+	
+	function addExcludeRow(doSwap) {
+		numExs++;
+		
+		$$('#exclude_table tbody').each(function(tbl) {
+			var tr = new Element('tr', {'id': 'excludeRow_' + numExs, 'class': 'excludeRow'});
+			
+			var newEl = new Element('input', {'type': 'text', 'size': '40' });
+			newEl.writeAttribute('id', 'excludeField_Name_'+numExs);
+			newEl.writeAttribute('name', 'excludeField_Name_'+numExs);
+			tr.insert(new Element('td').update(newEl));
+			
+			tr.insert(new Element('td').update(makeExcludeSelect(numExs)));
+			
+			var newEl = new Element('input', {'type': 'text', 'size': '40' });
+			newEl.writeAttribute('id', 'excludeField_Value_'+numExs);
+			newEl.writeAttribute('name', 'excludeField_Value_'+numExs);
+			tr.insert(new Element('td').update(newEl));
+			
+			tr.insert(new Element('td', {'class': 'a-right'}).update(makeExcludeButton(numExs)));
+			
+			tbl.insert(tr);
+			
+			if (doSwap==true) {
+				swapExcludeButton(numExs-1);
+			}
+		}); 
+	}
+
+
+
+
+
+    var numReps = <?php echo count($ex['replace_options']); ?>;
+    
+    function removeReplaceRow(row) {
+    	var rowEl = $$('#replaceRow_'+row);
+    	rowEl.each(function(el) {
+    		el.remove();
+    	});
+		
+		setSaveButton('block');
+     }
+
+	function makeReplaceButton(id) {
+		var js = 'javascript:addReplaceRow(true); setSaveButton("block");';
+		var but = new Element('button', {'id': 'replaceFieldButton_'+id, 'onclick': js, 'class': 'scalable', 'type': 'button', 'value': ' + '});
+		
+		but.insert(new Element('span').update(' + '));
+		
+		return but;
+	}
+	
+	function swapReplaceButton(id) {
+		var buts = $$('#replaceFieldButton_'+id);
+		buts.each(function(but) {
+			but.down().update(' x ');
+			but.setAttribute('onclick', 'javascript:removeReplaceRow('+id+');');
+		});
+	}
+	
+	function addReplaceRow(doSwap) {
+		numReps++;
+		
+		$$('#replace_table tbody').each(function(tbl) {
+			var tr = new Element('tr', {'id': 'replaceRow_' + numReps, 'class': 'replaceRow'});
+			
+			var newEl = new Element('input', {'type': 'text', 'size': '40' });
+			newEl.writeAttribute('id', 'replaceField_oldid_'+numReps);
+			newEl.writeAttribute('name', 'replaceField_oldid_'+numReps);
+			tr.insert(new Element('td').update(newEl));
+			
+			var newEl = new Element('input', {'type': 'text', 'size': '40' });
+			newEl.writeAttribute('id', 'replaceField_newid_'+numReps);
+			newEl.writeAttribute('name', 'replaceField_newid_'+numReps);
+			tr.insert(new Element('td').update(newEl));
+
+			tr.insert(new Element('td', {'class': 'a-right', 'style': 'text-align: right !important;'}).update(makeReplaceButton(numReps)));
+			
+			tbl.insert(tr);
+			
+			if (doSwap==true) {
+				swapReplaceButton(numReps-1);
+			}
+		}); 
+	}
+
+
+
+
+    
+    document.observe("dom:loaded", function() {
+	    addExcludeRow(false);
+	    addReplaceRow(false);
+	    
+    	var ub = $('uploadButton');
+    	var ab = $('ajaxButton');
+    	
+    	ub.setStyle({display: 'none'});
+    	ab.setStyle({display: 'block'});
+	});
+	
+	Event.observe($('upload_exclusion_data'), 'change', function(event) {
+		var sel = $('upload_exclusion_data').getValue();
+		if (sel == "No") {
+			$('exclude_table_container').setStyle({'display': 'none'});
+		} else {
+			$('exclude_table_container').setStyle({'display': 'block'});
+		}
+		
+		setSaveButton('block');
+	});
+	
+	Event.observe($('upload_replacement_data'), 'change', function(event) {
+		var sel = $('upload_replacement_data').getValue();
+		if (sel == "None") {
+			$('replacement_catalog_table_container').setStyle({'display': 'none'});
+			$('replacement_item_table_container').setStyle({'display': 'none'});
+			
+		} else if (sel == "Entire Catalog") {
+			$('replacement_catalog_table_container').setStyle({'display': 'block'});
+			$('replacement_item_table_container').setStyle({'display': 'none'});
+			
+		} else if (sel == "Individual Items") {
+			$('replacement_catalog_table_container').setStyle({'display': 'none'});
+			$('replacement_item_table_container').setStyle({'display': 'block'});
+			
+		}
+		
+		setSaveButton('block');
+	});
+	
+	Event.observe($('upload_sales_data'), 'change', function(event) {
+		setSaveButton('block');
+	});
+	
+	Event.observe($('upload_product_data'), 'change', function(event) {
+		setSaveButton('block');
+	});
+	
+	Event.observe($('showUploadDetails'), 'change', function(event) {
+		setSaveButton('block');
+	});
+	
+	
+	
+	function setSaveButton(status) {
+		$('saveButton').setStyle({'display': status});
+		if (status == 'block') {
+			setUploadButton('none');
+		} else {
+			setUploadButton('block');
+		}
+	}
+	
+	function setUploadButton(status) {
+		$('uploadButton').setStyle({'display': status});
+		$('ajaxButton').setStyle({'display': status});
+	}
+	
+	function getUrlKeyValue(str, key) {
+		var sub = "(/"+key+"/)(.*?/)";
+		var re = new RegExp(sub, "g");
+		var ret = str.match(re);
+		
+		if (ret && ret.length) {
+			var vals = ret[0].split('/');
+			if (vals && vals.length > 1) {
+				var out = vals[2];
+				return out;
+			}
+		}
+		
+		return null;
+	}
+	
+    function ajaxUpload(pos, gourl) {
+    	Element.show('loading-mask');
+    	
+    	var dt = '<?php echo date("Y-m"); ?>';
+    	var files = new Array(
+    		{upload:	1,																				key: 'configboost', 	name: 'Uploading<br />Configuration',	command: 'ucb', field: null, value: null},
+    		{upload:	1,																				key: 'categories', 		name: 'Uploading<br />Categories', 		command: 'ucd', field: null, value: null},
+    		{upload:	<?php echo strtolower($ex['upload_exclusion_data']) 	!= "no" 	? 1 : 0 ?>,	key: 'exclusions', 		name: 'Uploading<br />Exclusions', 		command: 'ued', field: null, value: null},
+    		{upload:	<?php echo strtolower($ex['upload_replacement_data']) 	!= "none" 	? 1 : 0 ?>,	key: 'replacements', 	name: 'Uploading<br />Replacements',	command: 'urd', field: null, value: null},
+    		{upload:	<?php echo strtolower($ex['upload_product_data']) 		!= "no" 	? 1 : 0 ?>,	key: 'products', 		name: 'Uploading<br />Products', 		command: 'upd', field: null, value: null},
+    		{upload:	<?php echo strtolower($ex['upload_sales_data']) 		!= "none" 	? 1 : 0 ?>,	key: 'sales', 			name: 'Uploading<br />Sales', 			command: 'usf/ym/' + dt + '/p/0/isajax/true', field: 'status', value: 'completed'},
+    		{upload:	1,																				key: 'generate', 		name: 'Starting<br />Generate', 		command: 'gen', field: null, value: null}
+    	);
+    	
+    	var doUpload = false;
+    	
+    	for (var uf=pos; uf<files.length; uf++) {
+    		if (files[uf].upload==1) {
+    			doUpload = true;
+    			pos = uf;
+    			break;
+    		}
+    	}
+
+		if (doUpload) {
+			var reloadurl = document.location.href.substr(0, document.location.href.indexOf('/key/'))	+
+					    		'/key/' 	+ getUrlKeyValue(document.location.href, 'key')				+
+					    		'/cmd/'		+ files[pos].command;
+
+			reloadurl = reloadurl.replace(document.location.origin, '');
+			
+			Element.show('loading-mask');
+			
+			if (gourl != undefined) {
+				reloadurl = gourl;
+			}
+	
+			var name = files[pos].name;
+			if (pos == 5) {
+				var m = getUrlKeyValue(reloadurl, 'ym');
+				if (m) {
+					name = name + ' for ' + m;
+				}
+				
+				var page = getUrlKeyValue(reloadurl, 'p');			
+				if (page) {
+					name = name + ' Page: ' + (parseInt(page)+1);
+				}
+			}
+			
+			Element.update('loading-msg', '<br />' + name + '<br />Please Wait...');
+			
+			new Ajax.Request(reloadurl, {
+				method: 'get',
+				//asynchronous: false,
+				onComplete: function(transport) {
+					Element.hide('loading-mask');
+					
+					$('loading-mask').setStyle({display: 'none'});
+					
+					var tmp = transport.responseText.replace(new RegExp("[\r\n ]", "gmi"), "");
+					var res = tmp.replace(new RegExp("<!DOCTYPE.*", "gmi"), "");
+					
+					if (res != "") {
+						var comp=res.evalJSON();
+						
+						if (comp.status != "completed" && comp.month != "" && comp.month != "") {
+					    	reloadurl = document.location.href.substr(0, document.location.href.indexOf('/key/'))	+
+					    				'/key/' 		+ getUrlKeyValue(document.location.href, 'key')				+
+					    				'/cmd/usf'	 				 												+
+					    				'/ym/'			+ comp.month												+
+					    				'/p/'			+ comp.page													+
+					    				'/isajax/true'	;
+					    	
+							ajaxUpload(pos, reloadurl);
+						} else {
+							pos++;
+							if (pos < files.length) {
+								ajaxUpload(pos);
+							}
+						}
+					} else {
+						pos++;
+						if (pos < files.length) {
+							ajaxUpload(pos);
+						}
+					}
+			
+				}
+			});
+			
+		}
+	}
+</script>

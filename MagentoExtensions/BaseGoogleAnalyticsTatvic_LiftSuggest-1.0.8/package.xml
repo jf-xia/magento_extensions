@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Tatvic_LiftSuggest</name>
+    <version>1.0.8</version>
+    <stability>beta</stability>
+    <license>GPLv3</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Liftsuggest is a product recommendation based on your Google analytics data</summary>
+    <description>Liftsuggest is a product recommendation tool that helps generate recommended products for the user based on the products they are viewing or adding to the shopping cart.</description>
+    <notes>Updated module code</notes>
+    <authors><author><name>Sachin</name><user>auto-converted</user><email>sachin@tatvic.com</email></author></authors>
+    <date>2011-10-19</date>
+    <time>13:12:47</time>
+    <contents><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="liftsuggest.xml" hash="f4a01bfbf0a9852d513ddd97b260e713"/></dir><dir name="template"><dir name="tatvic"><dir name="liftsuggest"><file name="html_head_liftsuggest.phtml" hash="3ae9fc744858e3103370a5c1b5d4905d"/><file name="view.phtml" hash="1b7a64ebe46ee3ac33d43c49a9de443b"/></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Tatvic_LiftSuggest.xml" hash="520c7f802f8f36e74d87737de35a15a7"/></dir></target><target name="magelocal"><dir name="Tatvic"><dir name="LiftSuggest"><dir name="Block"><file name="View.php" hash="4619e2e82573abd57a024618e631fbb8"/></dir><dir name="etc"><file name="config.xml" hash="07a12292d1314ed03e413b5c569f9ddc"/><file name="system.xml" hash="37195d545645a45881335bc5888d49e4"/></dir><dir name="Helper"><file name="Data.php" hash="cf590e6de755b17643962b32214c6d30"/></dir><dir name="Model"><dir name="System"><dir name="Config"><dir name="Source"><file name="Yesno.php" hash="b7527d73e8e4f421cf1ed38fa606c1db"/></dir></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

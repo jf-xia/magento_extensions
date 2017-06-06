@@ -1,0 +1,70 @@
+<?php 
+$home = new Mage_Page_Block_Html_Header();
+$limit = Mage::getStoreConfig('buyexpress_options/products_block/bestseller_block');
+	  if ($home->getIsHomePage()): ?> 
+<?php  
+$visibility = array(
+                      Mage_Catalog_Model_Product_Visibility::VISIBILITY_BOTH,
+                      Mage_Catalog_Model_Product_Visibility::VISIBILITY_IN_CATALOG
+                  );
+
+$_productCollection = Mage::getResourceModel('reports/product_collection')
+                              ->addAttributeToSelect('*')
+                              ->addOrderedQty()
+                              ->addAttributeToFilter('visibility', $visibility)
+                              ->setOrder('ordered_qty', 'desc');
+							  
+$heading = Mage::getStoreConfig('buyexpress_options/products_block');
+if (count($_productCollection) > 0):	
+?>
+<div class="bestseller block-product">
+<h2>
+		<?php 
+			if($heading['bestseller_block_text']) { 
+				echo $heading['bestseller_block_text']; 
+			} else { 
+				echo $this->__('Top Selling Products');
+			}
+   		?>
+    </h2>
+  <ul class="products">    
+    <?php $i=0;  foreach($_productCollection as $_product): $i++;  ?>  
+            <li>
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(218,150)->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(TRUE) ?>" width="218" height="150" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" /></a>
+                <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php if(strlen($this->htmlEscape($_product->getName())) > 35){ 
+						echo substr($this->htmlEscape($_product->getName(), 'name'),0,35).'...';
+					}else{
+						echo $_product->getName();} ?> </a></h3>
+                <?php echo $this->getPriceHtml($_product, true, '-new') ?>    
+                
+					<?php if(($_product->special_price != null)): ?>
+                    <div class="promo">
+						<?php 
+                            $oldPrice = $_product->getPrice();
+                            $specialPrice = $_product->getSpecialPrice();
+                            $percent = ($oldPrice-$specialPrice)/$oldPrice*100;
+                        ?>
+                        
+                        <p>
+                        	<strong><?php echo round($percent); ?><sup>%</sup></strong>
+                            <span>OFF</span>
+                        </p>
+                    </div> 
+					<?php endif; ?>   
+                  
+            </li>
+        <?php 
+			if($limit && $i==$limit){ break; }
+			 endforeach; 
+		 ?>      
+      
+</ul> 
+<div class="clear"></div>
+<?php if($i > 4): ?>
+    <ul class="slideBtn">
+        <li class="prev"><a href="javascript:void(0);">Prev</a></li>
+        <li class="next"><a href="javascript:void(0);">Next</a></li>
+    </ul>
+<?php endif; ?>
+</div>
+<?php endif;endif; ?>

@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+		<ig translate="label" module="ig_lightbox">
+            <label>IdealiaGroup</label>
+            <sort_order>200</sort_order>
+		</ig>
+    </tabs>
+    <sections>
+		<ig_lightbox translate="label" module="ig_lightbox">
+			<label>IG LightBox</label>
+			<tab>ig</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>10</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general translate="label">
+					<label>General</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enabled translate="label">
+							<label>Enable LightBox</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enabled>
+						<bigImageSize translate="label comment">
+							<label>Maximum size of big image</label>
+							<comment>Size in pixels (e.g.: 800x600)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bigImageSize>
+						
+						<mainImageSize translate="label comment">
+							<label>Maximum size of base image</label>
+							<comment>Size in pixels (e.g.: 256x256)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</mainImageSize>
+						<thumbnailImageSize translate="label comment">
+							<label>Maximum size of thumbnails</label>
+							<comment>Size in pixels (e.g.: 60x60)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</thumbnailImageSize>
+						<wrapImages translate="label comment">
+							<label>Wrap images</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</wrapImages>
+					</fields>
+				</general>
+				
+				<effects translate="label">
+					<label>Effects</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<fadeIn translate="label comment">
+							<label>Fade-in duration</label>
+							<comment>Value in seconds (e.g.: 1.5)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</fadeIn>
+						<fadeOut translate="label comment">
+							<label>Fade-out duration</label>
+							<comment>Value in seconds (e.g.: 1.5)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</fadeOut>
+						<imageResize translate="label comment">
+							<label>Image resize duration</label>
+							<comment>Value in seconds (e.g.: 1.5)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</imageResize>
+						<imageSwap translate="label comment">
+							<label>Image swap duration</label>
+							<comment>Value in seconds (e.g.: 1.5)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</imageSwap>
+					</fields>
+				</effects>
+				
+				<display translate="label">
+					<label>Display</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>30</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<backgroundOpacity translate="label comment">
+							<label>Background opacity</label>
+							<comment>Value between 0.0 and 1.0</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</backgroundOpacity>
+						<backgroundColor translate="label comment">
+							<label>Background color</label>
+							<comment>HTML color format (e.g.: #000000)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>25</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</backgroundColor>
+						
+
+						<imageboxOpacity translate="label comment">
+							<label>Image box opacity</label>
+							<comment>Value between 0.0 and 1.0</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</imageboxOpacity>
+						<imageboxColor translate="label comment">
+							<label>Image box color</label>
+							<comment>HTML color format (e.g.: #000000)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>35</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</imageboxColor>
+
+						<toolbarOpacity translate="label comment">
+							<label>Toolbar opacity</label>
+							<comment>Value between 0.0 and 1.0</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</toolbarOpacity>
+						<toolbarColor translate="label comment">
+							<label>Toolbar color</label>
+							<comment>HTML color format (e.g.: #000000)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>45</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</toolbarColor>
+						<toolbarTextColor translate="label comment">
+							<label>Toolbar text color</label>
+							<comment>HTML color format (e.g.: #000000)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>46</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</toolbarTextColor>
+						<toolbarTextFont translate="label comment">
+							<label>Toolbar text font</label>
+							<comment>Font name (e.g.: Verdana)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>47</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</toolbarTextFont>
+						<toolbarTextSize translate="label comment">
+							<label>Toolbar text size</label>
+							<comment>Text size in pixels (e.g: 12)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>48</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</toolbarTextSize>
+
+						<paddingSize translate="label comment">
+							<label>Padding size</label>
+							<comment>Size in pixels (e.g.: 10)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</paddingSize>
+						
+						<borderSize translate="label comment">
+							<label>Outer border size</label>
+							<comment>Size in pixels (e.g.: 1)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</borderSize>
+						<borderColor translate="label comment">
+							<label>Outer border color</label>
+							<comment>HTML color format (e.g.: #909090)</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>65</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</borderColor>
+					</fields>
+				</display>
+				
+			</groups>
+        </ig_lightbox>
+    </sections>
+</config>

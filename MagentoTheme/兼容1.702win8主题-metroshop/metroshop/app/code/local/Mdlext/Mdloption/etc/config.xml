@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mdlext_Mdloption>
+            <version>0.1.0</version>
+        </Mdlext_Mdloption>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <mdloption>
+                    <file>mdlext/mdloption.xml</file>
+                </mdloption>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <mdloption>
+                <use>admin</use>
+                <args>
+                    <module>Mdlext_Mdloption</module>
+                    <frontName>mdloption</frontName>
+                </args>
+            </mdloption>
+        </routers>
+    </admin>            
+	<adminhtml>
+        <layout>
+            <updates>
+                <mdloption>
+                    <file>mdlext/mdloption.xml</file>
+                </mdloption>
+            </updates>
+        </layout>
+        
+		<translate>
+		     <modules>
+		         <mdlext>
+		             <files>
+		                 <default>Mdlext_Mdloption.csv</default>
+		             </files>
+		         </mdlext>
+		     </modules>
+		 </translate>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+			                <children>
+			                    <config>
+			                        <children>
+			                            <mdloption>
+			                                <title>Magic Theme Settings</title>
+			                            </mdloption>
+			                        </children>
+			                    </config>
+			                </children>
+			            </system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+    </adminhtml>
+	<global>
+        <blocks>
+            <mdloption>
+                <class>Mdlext_Mdloption_Block</class>
+            </mdloption>
+        </blocks>
+        <helpers>
+            <mdloption>
+                <class>Mdlext_Mdloption_Helper</class>
+            </mdloption>
+        </helpers>
+		<models>
+            <mdloption>
+                <class>Mdlext_Mdloption_Model</class>
+            </mdloption>
+        </models>
+        <resources>
+            <mdloption_setup>
+                <setup>
+                    <module>Mdlext_Mdloption</module>
+	                <class>Mdlext_Mdloption_Model_Resource_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </mdloption_setup>
+            <mdloption_write>
+                <connection>
+                  <use>core_write</use>
+                </connection>
+            </mdloption_write>
+            <mdloption_read>
+               <connection>
+                <use>core_read</use>
+              </connection>
+            </mdloption_read>
+        </resources>
+    </global>
+	<default>
+		<mdloption>
+			<homepage>
+				<home-page-option>1</home-page-option>
+				<home-page-content>1</home-page-content>
+			</homepage>
+			
+			<homeproducts>
+				<featuredsetting>1</featuredsetting>
+				<featured>99</featured>
+				<featuredItem>4</featuredItem>
+			</homeproducts>
+			
+			<home_bestseller>
+				<bannersetting>1</bannersetting>
+				<bestseller>99</bestseller>
+				<bestsellerItem>4</bestsellerItem>
+			</home_bestseller>
+			
+			<newproducts>
+				<newProductS>99</newProductS>
+				<newItemId>99</newItemId>
+				<newItem>8</newItem>
+				<rowPro>4</rowPro>
+			</newproducts>
+			
+			<aboutusrow>
+				<footertop>1</footertop>
+			</aboutusrow>
+			
+			<twittersetting>
+				<twitteruser>envato</twitteruser>
+				<twitter-count>3</twitter-count>
+				<twitter-refresh>500</twitter-refresh>
+			</twittersetting>
+			
+			<facebooksetting>
+				<facebookuser>themeforest</facebookuser>
+			</facebooksetting>
+			
+			<googleMap>
+				<enable_map>1</enable_map>
+				<latitude>-37.784135</latitude>
+				<longitude>144.951547</longitude>
+				<description_map>1</description_map>
+				<mapheading>Metrostore store</mapheading>
+				<mapdescription>Here you can add heading, description about your store and enable or disable from admin.</mapdescription>
+				<map-height>400</map-height>
+			</googleMap>
+			     
+		</mdloption>
+	</default>
+</config>

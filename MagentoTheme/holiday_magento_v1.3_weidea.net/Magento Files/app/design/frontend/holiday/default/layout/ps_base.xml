@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<layout version="1.0.0">
+	<default>
+		<reference name="head">
+			<action method="addCss" ifconfig="psbase/quickimages/desable"><stylesheet>css/pascalsystem/base.css</stylesheet></action>
+			<action method="addJs" ifconfig="psbase/quickimages/desable"><script>pascalsystem/base.js</script></action>
+		</reference>
+	</default>
+
+	<catalog_category_default>
+		<reference name="content">
+			<block type="psbase/headerjs" name="psbase.headerjs" as="psbaseheaderjs" />
+		</reference>
+	</catalog_category_default>
+
+	<catalog_category_layered>
+		<reference name="content">
+			<block type="psbase/headerjs" name="psbase.headerjs" as="psbaseheaderjs" />
+		</reference>
+	</catalog_category_layered>
+
+	<catalog_category_layered_nochildren>
+		<reference name="content">
+			<block type="psbase/headerjs" name="psbase.headerjs" as="psbaseheaderjs" />
+		</reference>
+	</catalog_category_layered_nochildren>
+</layout>

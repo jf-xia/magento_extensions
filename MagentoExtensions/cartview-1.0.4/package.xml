@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+    <name>cartview</name>
+    <version>1.0.4</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Link to 'My Cart' which displays a box with a summary of the shopping cart items on mouseover.</summary>
+    <description>You can use it as a replacement for the 'My Cart' link in the header or as an individual block element. The extension uses the sidebar cart for rendering the summary. Everything can be easily styled by css.&#xD;
+&#xD;
+This extension will not overwrite any core, template or css files. The javascript effect uses prototype which is part of magento. No other framework is needed.</description>
+    <notes>Tested in 3 live shops with base, modern and custom themes.</notes>
+    <authors><author><name>Christian Ducrot</name><user>Vitalityshop</user><email>christian@ducrot.de</email></author></authors>
+    <date>2011-05-27</date>
+    <time>09:20:43</time>
+    <contents><target name="magecommunity"><dir><dir name="Websolutions"><dir name="Cartview"><dir name="Block"><file name="View.php" hash="7bce60b1c30beb6edf288b4f777ced21"/></dir><dir name="etc"><file name="config.xml" hash="14a85ba561d4d2a5ca82e641b268a6a7"/></dir></dir></dir></dir></target><target name="mageetc"><dir><dir name="modules"><file name="Websolutions_Cartview.xml" hash="09f3068aa1d3e4acc9d8589a5ad4c79e"/></dir></dir></target><target name="magedesign"><dir><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="cartview.xml" hash="84d20520f8d407e4e8c11bcf9339c18d"/></dir><dir name="template"><dir name="cartview"><file name="link.phtml" hash="d9acfe655801a405bc3fadc736b296b9"/><file name="toplink.phtml" hash="2c99d8bed55e1bb4fddb2c319cc5b855"/></dir></dir></dir></dir></dir></dir></target><target name="mage"><dir><dir name="js"><dir name="websolutions"><file name="cartview.js" hash="98842d739b9a11333cbbc380dc4825c2"/></dir></dir></dir></target><target name="mageskin"><dir><dir name="frontend"><dir name="default"><dir name="default"><dir name="css"><file name="cartview.css" hash="c95dc28e609794871f94402c4904a900"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

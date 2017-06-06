@@ -1,0 +1,124 @@
+<?php
+	
+/*
+ * Magento EsayCheckout Extension
+ *
+ * @copyright:	EcommerceTeam (http://www.ecommerce-team.com)
+ * @version:	1.0
+ *
+ */
+	
+?>
+<script type="text/javascript">
+	//<![CDATA[
+	var countryRegions			= <?php echo $this->helper('directory')->getRegionJson(); ?>;
+	
+	var checkoutDefaultUrl		= '<?php echo $this->getUrl('*/onepage/ajax', array('action'=>'methods'));?>';
+	<?php if($this->helper->differentShippingEnabled()):?>
+	var checkoutBillingUrl		= '<?php echo $this->getUrl('*/onepage/ajax', array('action'=>'payment'));?>';
+	var checkoutShippingUrl		= '<?php echo $this->getUrl('*/onepage/ajax', array('action'=>'shipping'));?>';
+	<?php else:?>
+	var checkoutBillingUrl		= '<?php echo $this->getUrl('*/onepage/ajax', array('action'=>'methods'));?>';
+	<?php endif;?>
+	var checkoutTotalsUrl		= '<?php echo $this->getUrl('*/onepage/ajax', array('action'=>'review'));?>';
+	var checkoutCouponUrl		= '<?php echo $this->getUrl('*/onepage/ajax', array('action'=>'coupon'));?>';
+	
+	
+	var loginFormHtml = '<div id="elogin-message" class="a-left"></div>'+
+		'<ul class="form-list">'+
+            '<li>'+
+                '<label class="required" for="elogin-email"><em>*</em><?php echo $this->__('Email Address');?></label>'+
+                '<div class="input-box"><input type="text" title="<?php echo $this->__('Email Address');?>" class="input-text" id="elogin-email" /></div>'+
+            '</li>'+
+            '<li>'+
+                '<label class="required" for="elogin-password"><em>*</em><?php echo $this->__('Password');?></label>'+
+                '<div class="input-box"><input type="password" title="<?php echo $this->__('Password');?>" class="input-text" id="elogin-password"/></div>'+
+            '</li>'+
+        '</ul>'+
+        '<div class="actions">'+
+        	'<div id="elogin-buttons">'+
+	        	'<div class="left">'+
+	        		'<a href="<?php echo $this->getUrl('customer/account/forgotpassword')?>"><?php echo $this->__('Forgot Your Password?')?></a>'+
+	        	'</div>'+
+	        	'<div class="right">'+
+	        		'<button class="button" onclick="TINY.box.hide();return false;"><span><span><?php echo $this->__('Cancel');?></span></span></button>'+
+	        		'<button style="margin-left:5px;" class="button" onclick="elogin($(\'elogin-email\').value, $(\'elogin-password\').value, \'<?php echo $this->getUrl('*/onepage/ajax', array('action'=>'login'));?>\');return false;"><span><span><?php echo $this->__('Login');?></span></span></button>'+
+	        	'</div>'+
+	        '</div>'+
+        	'<div id="elogin-loading" style="display:none;"><?php echo $this->__('loading please wait...');?></div>'+
+        '</div>';
+	
+	
+	//]]>
+</script>
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+<div class="easycheckout-onepage-wrap" id="easycheckout-form-wrap">
+	
+	<div id="load-info-overlay">&nbsp;</div>
+	
+	<?php echo $this->getCmsBlockHtml();?>
+	
+	<?php if((bool)$this->getCustomer()->getId() == false):?>
+	
+	<p><a href="<?php echo $this->getUrl('customer/account/login');?>" onclick="TINY.box.show(loginFormHtml,0,260,0,0);return false"><?php echo $this->__('Already registered? Click here to login.');?></a></p>
+	
+	<?php endif;?>
+	
+	<form action="<?php echo $this->getUrl('*/*/save');?>" method="post" id="easycheckout-form">
+		
+		
+		<?php echo $this->getChildHtml('billing_address');?>
+		
+		<?php if(!$this->getQuote()->isVirtual()):?>
+		
+		<?php echo $this->getChildHtml('shipping_address');?>
+		
+		<?php endif;?>
+		
+		<table id="easycheckout-shipping-payment-step">
+			<tbody>
+			<tr>
+				<?php if(!$this->getQuote()->isVirtual()):?>
+				<td class="shipping-method"><?php echo $this->getChildHtml('shipping_method');?></td>
+				<td class="methods-separator">&nbsp;</td>
+				<?php endif;?>
+				<td class="payment-method"><?php echo $this->getChildHtml('payment_method');?></td>
+			</tr>
+			</tbody>
+		</table>
+		
+		<?php echo $this->getChildHtml('review');?>
+		
+		<?php if($this->helper->couponEnabled()):?>
+		
+		<div id="easycheckout-coupon" class="easy-step">
+			<?php echo $this->getChildHtml('echeckout_coupon');?>
+		</div>
+		
+		<?php endif;?>
+		
+		<div class="button-set">
+			
+			<?php if($this->helper->showSubscribe()):?>
+			
+			<p><label><input type="checkbox" name="subscribe" value="1"/> <?php echo $this->__('Subscribe to newsletter');?></label></p>
+			
+			<?php endif;?>
+			
+			
+			<button id="submit-btn" type="submit" title="<?php echo $this->__('Place Order') ?>" class="button btn-checkout"><span><span><?php echo $this->__('Place Order') ?></span></span></button>
+			
+			
+		</div>
+		
+	</form>
+</div>
+	
+	
+<script type="text/javascript">
+	//<![CDATA[
+	var checkoutForm = new VarienForm('easycheckout-form');
+	//]]>
+</script>

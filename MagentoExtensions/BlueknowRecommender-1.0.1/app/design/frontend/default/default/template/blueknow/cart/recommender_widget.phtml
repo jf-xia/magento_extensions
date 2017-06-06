@@ -1,0 +1,83 @@
+<?php
+/**
+ * Template for Blueknow_Recommender_Block_Cart_Recommmender.
+ * 
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Blueknow Recommender
+ * extension to newer versions in the future. If you wish to customize it for
+ * your needs please save your changes before upgrading.
+ * 
+ * @category	design
+ * @copyright	Copyright (c) 2010 Blueknow, S.L. (http://www.blueknow.com)
+ * @license		GNU General Public License
+ * @author		<a href="mailto:santi.ameller@blueknow.com">Santiago Ameller</a>
+ * @since		1.0.0
+ * 
+ */
+?>
+<style type="text/css">
+
+	#blueknow-widget {
+		margin-top: 20px;
+	}
+	
+	#blueknow-widget h2 {
+		font-weight: bold;
+		font-size: 15px;
+		color: #e26703;
+	}
+
+	.blueknow-products-grid {
+		float: left;
+		width: 126px !important;
+		height: 235px;
+		background-color: #fafaec;
+		border: 1px solid #e5dcc3;
+	}
+	
+	.blueknow-product {
+		padding: 10px;
+	}
+	
+	.blueknow-product-image {
+		width: 110px !important;
+		height: 110px !important;
+	}
+	
+	.blueknow-product img {
+		border:1px solid #e5dcc3;
+	}
+	
+</style>
+
+<div id="blueknow-widget"></div>
+
+<?php $bConfiguration = $this->getConfig(); ?>
+
+<div id="blueknow-header" style="display: none; clear: both;">
+	<div><h2><?php echo $this->__('Customers who bought these products also bought') ?></h2></div>
+</div>
+
+<?php
+//[2011-03-14] Issue MAGPLUGIN-3: Unexpected page loading whenever widget is rendered.
+//			   Header mark of any string-to-replace has been changed from "#" to "$".
+//			   Additionally, <img /> tag has been changed to avoid unexpected requests ("src" was replaced by "source").
+?>
+<div id="blueknow-template" style="display: none; clear: both;">
+	<div class="products-grid blueknow-products-grid">
+		<div class="blueknow-product">
+			<a href="$url" title="$name" class="product-image blueknow-product-image">
+				<img source="$image" alt="$name" title="$name" width="100" height="100" hspace="0" vspace="0" border="0" />
+			</a>
+			<h3 class="product-name"><a href="$url" title="$name">$name</a></h3>
+			<div class="price-box">
+				<span class="regular-price">
+					<span class="price">$price <?php echo $bConfiguration->getCurrentCurrency()->getSymbol() ?></span>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php echo $this->getChildHtml('cart_recommender_widget_footer') ?>

@@ -1,0 +1,12 @@
+<layout version="0.1.0">
+    <catalog_product_view>
+        <reference name="before_body_end">
+            <block type="click2customer_reviews/reviews_product" after="-" name="click2customer_reviews" as="click2customer_reviews"/>
+        </reference>
+    </catalog_product_view>
+    <catalog_category_default>
+        <reference name="before_body_end">
+            <block type="click2customer_reviews/reviews_category" after="-" name="click2customer_reviews" as="click2customer_reviews"/>
+        </reference>
+    </catalog_category_default>
+</layout>

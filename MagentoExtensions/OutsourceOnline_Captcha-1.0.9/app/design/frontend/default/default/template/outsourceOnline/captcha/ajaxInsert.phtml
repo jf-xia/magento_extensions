@@ -1,0 +1,101 @@
+<?php
+/**
+ * Outsource Online Captcha Extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Outsource Online
+ * @package    OutsourceOnline_Captcha
+ * @author     Sreekanth Dayanand
+ * @copyright  Copyright (c) 2010 Outsource Online. (http://www.outsource-online.net)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+$osolCaptchaLoadFromSSL = $_SERVER['SERVER_PORT']==443?true:false;
+?>
+<script src="<?php echo $this->getJsUrl() ?>mage/adminhtml/loader.js" type="text/javascript"></script>
+<div id="loadingmask" style="display: none;">
+<div class="loader" id="loading-mask-loader"><img src="<?php echo str_replace("index.php/","",$this->getUrl('', array('_secure'=>$osolCaptchaLoadFromSSL))) ?>skin/adminhtml/default/default/images/ajax-loader-tr.gif" alt="<?php echo $this->__('Loading...') ?>"/><?php echo $this->__('Loading...') ?></div>
+<div id="loading-mask"></div>
+</div>
+<script language="javascript" type="text/javascript">
+	
+	/*Please note that the URL is created in reloadurl. Also see that the response text will be echoed in div with id=output-div*/
+	function checkOSOLCaptcha(varienForm)
+	{
+	//alert('checkOSOLCaptcha');
+		formInst = varienForm.form
+		if(!(varienForm.validator && varienForm.validator.validate()))return;
+		
+		var reloadurl = '<?php echo $this->getUrl('captcha/ajax/validateCaptcha/firstParam/sreekanth', array('_secure'=>$osolCaptchaLoadFromSSL)) ?>';
+			Element.show('loadingmask');
+			new Ajax.Request(reloadurl, {
+				method: 'post',
+				parameters: 'osolCatchaTxt='+formInst.osolCatchaTxt.value+'&form_key=<?php echo Mage::getSingleton('core/session')->getFormKey();?>',//form_key is a mandatory field,without which the ajax post wont work
+				onComplete: function(transport) {
+				Element.hide('loadingmask');
+				
+				//alert(transport.responseText);alert(document.getElementById("co-billing-form"));
+				if( transport.responseText == 'correct')
+				{
+					//alert(typeof billing);
+					if(typeof billing !='object')//!document.getElementById("co-billing-form"))//(!billing)
+					{
+						
+						formInst.submit();
+						
+					}
+					else
+					{
+						billing.save()
+					}
+				}
+				else
+				{
+					alert('<?php echo Mage::helper("outsourceonline_captcha")->__('Your CAPTCHA entry is incorrect. Please try again.') ?>');
+				}
+				//formInst.submit();
+			}
+		});
+		return false;
+	}
+</script>
+<?php /*<a href="#" onclick="checkOSOLCaptcha(contactForm);return false;">123</a>
+<!--<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey();?>" />-->*/ ?>
+<div class="osolCaptchaBlock">
+					<label for="osolCatchaTxt1"><span class="required"><?php echo Mage::helper("outsourceonline_captcha")->__('Enter security code') ?></span></label> <br />
+
+
+ 			
+
+			<a href="http://www.outsource-online.net/custom-magento-ajax-captcha-module-from-outsource-online.html" target="blank" style="font-size:10px" >
+	<img id="captchaCode1" src="<?php echo $this->getUrl('captcha/ajax/freshcaptcha?instanceNo=1', array('_secure'=>$osolCaptchaLoadFromSSL));?>&time=<?php echo time();?>" alt="Custom magento captcha module from Outsource Online" /> 
+	</a><br/>
+    <script language="javascript" type="text/javascript">
+		if(!FORM_KEY)
+		{
+			var FORM_KEY='test';
+		}
+			function reloadCapthcha(instanceNo)
+			{
+				var captchaSrc = "<?php echo $this->getUrl('captcha/ajax/freshcaptcha?instanceNo=1', array('_secure'=>$osolCaptchaLoadFromSSL));?>"+"&amp;time="+ new Date().getTime();
+				//alert(captachaSrc);
+				//alert(document.getElementById('captchaCode'+instanceNo));
+				document.getElementById('captchaCode'+instanceNo).src = captchaSrc ;
+				//alert(document.getElementById('captchaCode'+instanceNo).src);
+			}
+			</script>
+			<label>
+       <a href="#" onclick="reloadCapthcha(1);return false;" ><?php echo Mage::helper("outsourceonline_captcha")->__('Refresh captcha') ?></a>
+    </label><br />
+    <input type="text" name="osolCatchaTxt" id="osolCatchaTxt1"  class="required-entry input-text" />&nbsp;
+	<input type="hidden" name="osolCatchaTxtInst" id="osolCatchaTxtInst"  value="1"   /><br/>
+</div>
+

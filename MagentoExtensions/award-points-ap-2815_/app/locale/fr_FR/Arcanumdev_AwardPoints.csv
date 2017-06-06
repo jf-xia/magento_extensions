@@ -1,0 +1,129 @@
+﻿Product Points,Points de produit
+Shopping Points,Points de Shopping
+Friends Referral,Renvoi amis
+You must Log In for use the Shopping points,Vous devez Log in pour en utiliser les points commerciaux
+Total Cart Points,Points Total des panier
+Your Total Points,Vos Total Points
+Your Points Balance,Votre solde de points
+To get a discount you need at least %d points.,Pour pouvoir bénéficier d'une remise, vous avez besoin d'un minimum de %d points.
+Please Select the quantity of points you want to use.,S'il vous plaît Choisir la quantité de points que vous souhaitez utiliser.
+Maximum amount of points allowed for this order,Le montant maximum de points autorisés pour cette commande
+Please input the quantity of points you want to use.,S'il vous plaît entrer la quantité de points que vous souhaitez utiliser.
+Apply Points,Utilisez vos points
+Remove Points,Ne plus utiliser vos points 
+%d points,%d Points
+You are currently using all your available points!,Vous utilisez actuellement tous vos points disponibles!
+You are currently using %d points,Vous utilisez actuellement %d points
+Points Details,Points Détails
+Your Available Points,Vos points disponibles
+Total Accumulated Points,Total des points accumulés
+Total Points Spent,Total des points utilisés
+Points waiting for validation,Points en attente de validation
+Your Shopping Points History,Votre Panier Points Histoire
+Type of point,Type de point
+Points added,Points acquis
+Points used,Points utilisés
+Obtention date,Date obtention
+Valid until,Date limite de validité
+You dont have any recorded points.,Vous n'avez pas points enregistrés.
+Points Information,Information de Points
+For any first valid order placed by a referred friend you will earn: <strong>%s points</strong>,Pour tout première commande valide passée par votre filleul vous remportez: <strong>%s points</strong>
+For any first valid order placed by a referred friend he will earn: <strong>%s extra points!</strong>,Pour tout première commande valide passée par votre filleul celui-ci remporte: <strong>%s points</strong>
+Your Permanent Link,Vos Lien permanent
+Share the following link with your friends,Partagez le lien suivant avec vos amis
+Share Referring link,Partagez le lien de référencement
+Title,Titre
+Great deals here!,Bonnes affaires ici!
+Comment,commenter
+Visit this for great deals!,Veuillez suivre ce lien pour faire de bonnes affaires!
+Refer a Friend,Reportez-vous un ami
+Your Referral History,Votre Parrainage histoire
+Full Name,Nom complet
+Email,Email
+Registered,Enregistré
+First Order,Permier achat
+You did not made any friends referral yet.,Vous n'avez pas fait référence d'amis encore.
+
+
+--- ERRORS ---
+
+
+Not enough points available.,Nombre de points disponible insuffisant.
+The minimum required points is not reached,Le minimum de points nécessaire n'est pas atteint
+Amount of points wrongly used,Quantité de points utilisé de manière incorrecte
+yes,oui
+no,non
+Please enter a valid email address,Veuillez entrer une adresse email valide
+Please enter your friend name,Veuillez entrer le nom du filleul
+This email has been already submitted,Cet email est déjà utlisé
+There was a problem with the invitation,Probléme lors de l'invitation
+This email was successfully invited,L'email a bien été envoyé
+
+
+--- BACK END ---
+
+
+Statistics,Statistiques
+Award Points,Points fidélité
+Customer full name,Client
+Customer email,Email client
+Add New,Ajout de points
+Action Type,Type d'action
+Rule Title,Titre de la régle
+Type of action,Type d'action
+Check Order Points,Vérification des points acquis sur commandes
+Refresh customer points,Rafraichir les points clients
+Defaults,Configuration par défaut
+
+
+--- ADDITIONAL BACK END ---
+
+Customer Points,Customer Points
+Points Configuration (Powered by Arcanum Dev.),Points Configuration (Powered by Arcanum Dev.)
+General,General
+Extension Release,Extension Release
+About Us,About Us
+Factor Money to Point,Factor Money to Point
+Points gathered for 1 unit of money spent. (e.g. if set to 0.01, the client will obtain 1 point for each 100yen spent. If set to 1 the client will obtain 1 point for each yen spent).,Points gathered for 1 unit of money spent. (e.g. if set to 0.01, the client will obtain 1 point for each 100yen spent. If set to 1 the client will obtain 1 point for each yen spent).
+Factor Point to Money,Factor Point to Money
+Amount of points required to obtain a discount.(e.g. if set to 1, 1 point will equal to 1 yen discount. If set to 10, 10 point will equal to 1 yen discount),Amount of points required to obtain a discount.(e.g. if set to 1, 1 point will equal to 1 yen discount. If set to 10, 10 point will equal to 1 yen discount)
+Points Expiration,Points Expiration
+Points expiration days (use 0 for unlimited).,Points expiration days (use 0 for unlimited).
+Maximum points collected per order,Maximum points collected per order
+Maximum amount of points that can be collected per order (use 0 for unlimited).,Maximum amount of points that can be collected per order (use 0 for unlimited).
+Maximum points used per order,Maximum points used per order
+Maximum amount of points that can be used per order (use 0 for unlimited).,Maximum amount of points that can be used per order (use 0 for unlimited).
+Minimum Subtotal,Minimum Subtotal
+Minimum Subtotal value in which the points cannot be applied (if set to 0 the system will allow to apply points until reaching a subtotal of 0),Minimum Subtotal value in which the points cannot be applied (if set to 0 the system will allow to apply points until reaching a subtotal of 0)
+Automatic use of points,Automatic use of points
+The maximum amount of point for the cart will be apply to the order automatically.,The maximum amount of point for the cart will be apply to the order automatically.
+Apply points by step,Apply points by step
+Apply the points using a step by step method (Dropdown box),Apply the points using a step by step method (Dropdown box)
+Step value,Step value
+The amount of money for each step. e.g. 100, 200, 500, etc.,The amount of money for each step. e.g. 100, 200, 500, etc.
+Use max amount of points,Use max amount of points
+Apply the maximum amount of point to the order,Apply the maximum amount of point to the order
+Calculation Method,Calculation Method
+Type of Calculation method which will be used when converting money to points,Type of Calculation method which will be used when converting money to points
+Disable Coupon codes,Disable Coupon codes
+If enabled, the customers will not be able to use coupon codes and award points at the same time within an order.,If enabled, the customers will not be able to use coupon codes and award points at the same time within an order.
+Use store scope,Use store scope
+If enabled, the points collected will be available only for the same store in which the points were earned.,If enabled, the points collected will be available only for the same store in which the points were earned.
+Registration and Referral Points,Registration and Referral Points
+Registration Points,Registration Points
+Amount of points earned upon customer registration.,Amount of points earned upon customer registration.
+Review Points,Review Points
+Amount of points the customer will earn when his review is approved.,Amount of points the customer will earn when his review is approved.
+Enable Referral Points,Enable Referral Points
+Enable the Referral Points System on user account Navigation Panel,Enable the Referral Points System on user account Navigation Panel
+Referral Points,Referral Points
+Amount of points earned by the customer for a referred friend orders.,Amount of points earned by the customer for a referred friend orders.
+Referral child Points,Referral child Points
+Amount of points earned by referred friend for their first order.,Amount of points earned by referred friend for their first order.
+Show referral permanent link,Show referral permanent link
+This will allow customers to share permanently their permanent link to refer friends.
+Share with addthis,Share with addthis
+Allow the customers to share their permanent link using addthis.,Allow the customers to share their permanent link using addthis.
+addthis account name,addthis account name
+Store Owner addthis account name. Visit addthis.com to create an account.,Store Owner addthis account name. Visit addthis.com to create an account.
+Select email template (Referral subscribe),Select email template (Referral subscribe)

@@ -1,0 +1,13 @@
+<!--@subject New Product Question for {{var product_name}} @-->
+
+<style type="text/css">
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+</style>
+
+<div style="font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;">
+    <p>A new was question posted on {{var date_posted}} regarding product {{var product_name}} .</p>
+    <p>
+        <strong>Question: </strong><br />
+        {{htmlescape var=$question}}
+    </p>
+</div>

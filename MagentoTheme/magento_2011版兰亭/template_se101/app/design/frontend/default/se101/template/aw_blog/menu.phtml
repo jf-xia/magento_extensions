@@ -1,0 +1,35 @@
+<?php $route= Mage::helper('blog')->getRoute(); ?>
+
+<div class="block blog">
+    <div class="blog-title">
+        <a class="blog-title-picture" href="<?php echo $this->getUrl("$route") ?>"  >
+	      <?php echo Mage::getStoreConfig('blog/blog/title'); ?>
+	</a>
+    </div>
+<div class="block-content">
+<?php if ($posts = $this->getRecent()): ?>
+	<div class="menu-recent">
+		<h5><?php echo Mage::helper('blog')->__('Recent Posts');?></h5>
+		<ul>
+		<?php foreach ($posts as $post): ?>
+			<li><a href="<?php echo $post->getAddress(); ?>" ><?php echo $post->getTitle();?></a></li>
+		<?php endforeach; ?>
+       	</ul>
+	</div>	
+<?php endif; ?>
+
+<?php if($this->getCategories()->count() && Mage::getStoreConfig('blog/menu/category')): ?>  
+	<div class="menu-categories">
+        <h5><?php echo Mage::helper('blog')->__('Categories');?></h5>
+        <ul>
+<?php $cats = $this->getCategories(); ?>
+<?php foreach ($cats as $cat): ?>
+		<li><a href="<?php echo $cat->getAddress(); ?>" ><?php echo $cat->getTitle();?></a></li>
+<?php endforeach; ?>
+    	</ul>
+	</div>	
+<?php endif;?>
+		
+		<?php echo $this->getChildHtml('blog_tags');?>
+	</div>
+</div>

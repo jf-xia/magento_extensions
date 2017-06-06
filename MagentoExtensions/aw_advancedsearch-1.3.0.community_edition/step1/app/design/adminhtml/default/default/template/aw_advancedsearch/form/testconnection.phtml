@@ -1,0 +1,125 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Advancedsearch
+ * @version    1.3.0
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?>
+<div id="test_connection_container">
+    <div>
+        <button onclick="testConnection();" class="scalable" type="button" id="test_gateway_connection">
+            <span>
+                <?php echo $this->__('Test connection'); ?>
+            </span>
+        </button>
+        &nbsp;<span id="aw_script_answer"></span>
+
+        <script type="text/javascript">
+            var states = new Array();
+  
+            states[0] = '<strong style="color: red;"><?php echo $this->__('Connection failed'); ?></strong>';
+            states[1] = '<strong style="color: green;"><?php echo $this->__('Connection successful'); ?></strong>';
+
+
+            var callInProgress = function(xmlhttp) {
+                switch (xmlhttp.readyState) {
+                    case 1:
+                    case 2:
+                    case 3:
+                        return true;
+                        break;
+                    // Case 4 and 0
+                default:
+                    return false;
+                    break;
+            }
+        }
+
+        var testConnection = function() {
+
+            var loader_id = 'loading-mask';
+            var aw_as_dest = $('aw_script_answer');
+            
+            var aw_as_server = $('awadvancedsearch_sphinx_server_addr').value;
+            var aw_as_port = $('awadvancedsearch_sphinx_server_port').value;
+    
+            var params_str = 'server_addr='+encodeURIComponent(aw_as_server) 
+                + '&server_port='+encodeURIComponent(aw_as_port) ;
+   
+            var ajaxUrl = '<?php echo $this->getUrl('awadvancedsearch_admin/adminhtml_sphinx/testconnection/'); ?>';
+    
+            ajaxUrl = ajaxUrl.replace(/^http[s]{0,1}/, window.location.href.replace(/:[^:].*$/i, ''));
+
+            Ajax.Responders.register({
+                onCreate: function(request) {
+                    request['awTimeoutId'] = window.setTimeout(
+                    function() {
+                        if (callInProgress(request.transport)) {
+                            request.transport.abort();
+                            if (request.options['onFailure']) {
+                                request.options['onFailure'](request.transport, request.json);
+                            }
+                        }
+                    },
+                    10000  //Ten seconds
+                );
+                },
+                onComplete: function(request) {
+                    window.clearTimeout(request['awTimeoutId']);
+                }
+            });
+
+    
+            new Ajax.Request(ajaxUrl + (ajaxUrl.match(new RegExp('\\?')) ? '&ajax=true' : '?ajax=true' ), {
+                method:'post',
+                parameters: params_str,
+                onCreate: function(obj) {
+                    Element.show(loader_id);
+                    aw_as_dest.innerHTML = '';
+                },
+                onFailure: function () {
+                    aw_as_dest.innerHTML = states[0];
+                },
+                onComplete: function () {
+                    Element.hide(loader_id);
+                },
+                onSuccess: function(transport) {
+                    try {
+                        if (transport.responseText.isJSON()) {
+                            var response = transport.responseText.evalJSON()
+                            if (response.state === true) {
+                                aw_as_dest.innerHTML = states[1];
+                            }else{
+                                aw_as_dest.innerHTML = states[0];
+                            }
+                        }
+                    }
+                    catch (e) {
+                    }
+                }
+            });
+        }
+        </script>
+    </div>
+</div>

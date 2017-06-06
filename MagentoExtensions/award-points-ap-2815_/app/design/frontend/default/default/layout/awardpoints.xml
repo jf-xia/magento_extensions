@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+ /*
+ * Arcanum Dev AwardPoints
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to arcanumdev@wafunotamago.com so we can send you a copy immediately.
+ *
+ * @category   Magento Sale Extension
+ * @package    AwardPoints
+ * @copyright  Copyright (c) 2012 Arcanum Dev. Y.K. (http://arcanumdev.wafunotamago.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<layout><customer_account_index><reference name="customer_account_dashboard"><action method="setTemplate"><template>awardpoints/my_dashboard.phtml</template></action><block type="awardpoints/dashboard" name="customer_account_points" as="points" template="awardpoints/dashboard_points.phtml"/></reference></customer_account_index><checkout_cart_index><reference name="checkout.cart.coupon"><action method="setTemplate"><template>awardpoints/coupons.phtml</template></action><block type="awardpoints/coupon" name="checkout_cart_coupon_normal" as="coupon_points" template="awardpoints/award_coupon.phtml"><block type="checkout/cart_coupon" name="checkout_cart_coupon_award" as="coupon_original" template="checkout/cart/coupon.phtml"/></block></reference></checkout_cart_index><catalog_product_view><reference name="product.info.addtocart"><action method="setTemplate"><template>awardpoints/addtocart_wrapper.phtml</template></action><block type="awardpoints/productpoints" name="points_product" as="points_product" template="awardpoints/addtocart.phtml"/><block type="catalog/product_view" name="original_addtocart" as="original_addtocart" template="catalog/product/view/addtocart.phtml"/></reference></catalog_product_view><customer_account><reference name="customer_account_navigation"><action method="addLink" translate="label" module="customer" ifconfig="awardpoints/registration/referral_show"><name>referral</name><path>awardpoints/index/referral/</path><label>Friends Referral</label></action><action method="addLink" translate="label" module="customer"><name>awardpoints</name><path>awardpoints/index/points/</path><label>Shopping Points</label></action></reference></customer_account><awardpoints_index_points><update handle="customer_account"/><reference name="content"><block type="awardpoints/points" name="awardpoints" template="awardpoints/points.phtml" /><block type="customer/account_dashboard" name="customer.account.link.back" template="customer/account/link/back.phtml"/></reference></awardpoints_index_points><awardpoints_index_referral><reference name="before_body_end"><block type="awardpoints/arcanumhead" name="arcanumhead" as="arcanumhead"></block></reference><update handle="customer_account"/><reference name="content"><block type="awardpoints/referral" name="referral" template="awardpoints/referral.phtml" /><block type="customer/account_dashboard" name="customer.account.link.back" template="customer/account/link/back.phtml"/></reference></awardpoints_index_referral>	</layout>

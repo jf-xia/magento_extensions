@@ -1,0 +1,66 @@
+/**
+ * MagPleasure Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magpleasure.com/LICENSE.txt
+ *
+ * @category   Magpleasure
+ * @package    Magpleasure_Common
+ * @copyright  Copyright (c) 2012-2013 MagPleasure Ltd. (http://www.magpleasure.com)
+ * @license    http://www.magpleasure.com/LICENSE.txt
+ */
+
+
+.mp-file-progress-container {
+    border-color: #AAAAAA #C8C8C8 #C8C8C8 #AAAAAA;
+    border-style: solid;
+    border-width: 1px;
+
+    width: 215px;
+    height: 5px;
+    margin-top: 5px;
+
+    overflow: hidden;
+
+}
+
+.mp-file-progress-container .mp-file-progress-bar {
+    background: url("../../../../images/btn_bg.gif") repeat-x scroll 0 50% #FFAC47;;
+    height: 5px;
+
+    -transition-property: width;
+    -transition-duration: 1s;
+    -transition-timing-function: ease;
+    -webkit-transition-property: width;
+    -webkit-transition-duration: 1s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-property: width;
+    -moz-transition-duration: 1s;
+    -moz-transition-timing-function: ease;
+}
+
+.mp-file-thumbnail img {
+
+    margin-top: 5px;
+
+    border: 2px solid #BEBEBE;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    float: left;
+}
+
+.mp-file-thumbnail button.scalable {
+    float: left;
+    margin-top: 6px;
+    margin-left: 5px;
+}
+
+div.fixed {
+    clear: both;
+}

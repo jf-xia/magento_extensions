@@ -1,0 +1,94 @@
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/*---------------MBT's Custom Like Box Start--------------*/
+.fan_box a:hover{
+  text-decoration: none;
+}
+
+.fan_box .full_widget{
+  height: 200px;
+  border: 0 !important;
+  background: none !important;
+  position: relative;
+}
+
+.fan_box .connect_top{
+  background: none !important;
+  padding: 0 !important;
+}
+
+.fan_box .profileimage, .fan_box .name_block{
+  display: none;
+}
+
+.fan_box .connect_action{
+  padding: 0 !important;
+}
+
+.fan_box .connections{
+  padding: 0 !important;
+  border: 0 !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: #666;
+}
+
+span.total{
+  color: #0080ff;
+  font-weight: bold;
+}
+
+.fan_box .connections .connections_grid {
+  padding-top: 10px !important;
+}
+
+.fan_box .connections_grid .grid_item{
+  padding: 0 10px 10px 0 !important;
+}
+
+.fan_box .connections_grid .grid_item .name{
+  font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+  font-weight: normal;
+  color: #289728 !important;
+  padding-top: 1px !important;
+}
+
+.fan_box .connect_widget{
+position: absolute;
+bottom: 0;
+left: 0px;
+margin: 0 !important;
+}
+
+.fan_box .connect_widget .connect_widget_interactive_area {
+margin: 0 !important;
+}
+
+.fan_box .connect_widget td.connect_widget_vertical_center {
+padding: 0 !important;
+}
+
+/*---------------MBT's Custom Like Box End--------------*/

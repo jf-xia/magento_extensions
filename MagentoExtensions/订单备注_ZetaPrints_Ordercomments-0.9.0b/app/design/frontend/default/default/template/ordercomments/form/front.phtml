@@ -1,0 +1,63 @@
+<?php
+/**
+ * @var ZetaPrints_Ordercomments_Block_Form_Front $this
+ */
+
+$_helper = Mage::helper('ordercomments');
+?>
+<div id="order_comment_block">
+  <?php if ($this->canAddComment()):?>
+  <div id="comment_form" class="order-comment-form">
+    <div><h2 class="sub-title"><?php echo $_helper->__('Add Comment') ?></h2></div>
+    <form action="<?php echo $this->getSubmitUrl();?>" method="post" id="order_comment_front_form">
+    <span class="field-row">
+        <label id="comment-label" class="hidden" for="comment"><?php echo $_helper->__('Posting comment') ?></label>
+        <textarea name="comment" rows="10" cols="5" style="height:6em; width:99%;" id="comment"></textarea>
+    </span>
+
+    <div class="f-right buttons-set">
+      <button type="submit" title="<?php echo $_helper->__('Submit Comment') ?>" class="button">
+        <span><span><?php echo $_helper->__('Submit Comment') ?></span></span></button>
+    </div>
+    </form>
+    <div class="clear"></div>
+  </div>
+  <script type="text/javascript">
+    $('order_comment_front_form').observe('submit', function(e){
+      Event.stop(e);
+      var lbl = $('comment-label').removeClassName('hidden');
+      $(this).request({
+        onComplete: function(response){
+          var result;
+          try{
+            result = response.responseText.evalJSON();
+            var commentsStack = $$('.order-comments dl.order-about');
+            var dl;
+            if(commentsStack.size() == 0){ // no order comments for this order
+              var commentdiv = '<?php echo $this->getOrderHistoryHtml();?>';
+              if($$('.order-gift-message').size()){ // there might be gift messages, we have to be after them
+                $$('.order-gift-message')[0].insert({after: commentdiv});
+              }else{
+                $('my-orders-table').insert({after: commentdiv});
+              }
+              dl = $$('.order-comments dl.order-about')[0]; // now we should get it.
+            }else{
+              dl = commentsStack[0];
+            }
+            var comment_date = new Element('dt').update(result.created);
+            var comment_text = result.comment.escapeHTML().split('\n').join('<br/>');
+            var comment = new Element('dd', {'class': 'customer-comment'}).update("<strong>You:</strong><br/> " + comment_text);
+                              // Wrap customer comments in span to style them
+            dl.insert({top: comment}).insert({top: comment_date});
+            comment_date.scrollTo();
+            $('comment').clear();
+            lbl.addClassName('hidden');
+          }catch(e){
+            lbl.update('Comment post failed. Contact site owner via email.');
+          }
+        }
+      });
+    });
+  </script>
+  <?php endif;?>
+</div>

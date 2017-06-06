@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+	<catalog_product_comparesidebar>
+		<block type="checklist/checknote" name="checklist" output="toHtml" template="checklist/checknote.phtml" after='-' />
+	</catalog_product_comparesidebar>
+</layout>

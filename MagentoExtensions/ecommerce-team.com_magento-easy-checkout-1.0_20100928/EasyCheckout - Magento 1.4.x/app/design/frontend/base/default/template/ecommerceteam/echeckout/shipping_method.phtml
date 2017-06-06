@@ -1,0 +1,27 @@
+<?php
+	
+/*
+ * Magento EsayCheckout Extension
+ *
+ * @copyright:	EcommerceTeam (http://www.ecommerce-team.com)
+ * @version:	1.0
+ *
+ */
+	
+?><div class="easy-step" id="easycheckout-shippingmethod">
+	
+	<h2><?php echo $this->__('Shipping method');?>:</h2>
+	
+	<div class="available" id="easycheckout-shippingmethod-available">
+		
+		<?php echo $this->getChildHtml('available') ?>
+		
+	</div>
+	
+	<div class="additional" id="easycheckout-shippingmethod-additional">
+		
+		<?php echo $this->getChildHtml('additional') ?>
+		
+	</div>
+	
+</div>

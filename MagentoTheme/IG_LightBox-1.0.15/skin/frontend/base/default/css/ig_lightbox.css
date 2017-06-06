@@ -1,0 +1,70 @@
+#ig-lightbox-image
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 100px;
+	height: 100px;
+
+	z-index: 1000;
+/* 	opacity: 0; */
+}
+
+#ig-lightbox-back
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 900;
+/* 	opacity: 0; */
+}
+
+#ig-lightbox-image-src
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	z-index: 1050;
+/* 	opacity: 0; */
+}
+
+#ig-lightbox-image-commands
+{
+	position: absolute;
+	text-align: center;
+	z-index: 1100;
+	visibility: hidden;
+/* 	opacity: 0; */
+}
+
+#image-label
+{
+	text-align: center;
+}
+
+#ig-lightbox-image-commands td
+{
+	vertical-align: middle;
+}
+
+#ig-lightbox-image-close
+{
+	position: absolute;
+	left : -1000px;
+	top : -1000px;
+	z-index: 2000;
+}
+
+#ig-lightbox-loading
+{
+	position: absolute;
+	background: #000000 url(../images/ig_lightbox/loader.gif) no-repeat center center;
+	border: 1px solid #8e8e8e;
+	z-index: 2100;
+	width: 200px;
+	height: 200px;
+	visibility: hidden;
+}
+

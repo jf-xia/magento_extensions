@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package>
+    <name>Moii_Pinterest</name>
+    <version>1.0.2</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension is the easiest way to add a Pinterest Pin it button to your product page! &#xD;
+Pinterest is becoming a significant source of traffic for retailers, more than Google+ </summary>
+    <description>This extension is the easiest way to add a Pinterest Pin it button to your product page! &#xD;
+Pinterest is becoming a significant source of traffic for retailers, more than Google+ &#xD;
+Features:&#xD;
+&#xD;
+&#xD;
+Enable/Disable Extension&#xD;
+Horizontal, vertical pin count or button only&#xD;
+Display Price for pinterest gifts&#xD;
+Uses Products Description for the Pin Description&#xD;
+Uses the Products Base Image for the Pin image&#xD;
+Pin the Product URL&#xD;
+Show with other social network buttons</description>
+    <notes>- Fixed some bugs.&#xD;
+- Added support for Magento Connect 1&#xD;
+- Added the possibility to have the price only when the item is on special price.&#xD;
+- If no description is on the product, only the product name will appear.&#xD;
+- Fixed a bug where the image was not working on all Magento version.</notes>
+    <authors><author><name>Fr&#xE9;d&#xE9;rick Lebel</name><user>flebel</user><email>flebel@moii.ca</email></author><author><name>Jean-Francois Parent</name><user>moii</user><email>magento@moii.ca</email></author></authors>
+    <date>2012-02-16</date>
+    <time>04:52:34</time>
+    <contents><target name="magecommunity"><dir name="Moii"><dir name="Pinterest"><dir name="Block"><file name="PinterestButton.php" hash="05dc27dd353048c703b5b1dbaec08590"/></dir><dir name="Helper"><file name="Data.php" hash="bf9533e3afd1f49fdd5fea12ecfa4073"/></dir><dir name="Model"><file name="Enable.php" hash="6f52f2cdf36bdf12b2011e815ea7c7c0"/><file name="Pincount.php" hash="9669113e6ffcc2abf02fe4771bec1753"/><file name="Price.php" hash="956dc4d897cff4cd197e0e0990efac04"/></dir><dir name="etc"><file name="config.xml" hash="e4bc53a7cdbc9adadf3a2c9dc12b1e5b"/><file name="system.xml" hash="57eaa253988973ee2dce137bf33122b9"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Moii_Pinterest.xml" hash="a7c5113cba5d7d6478722a15cbf85715"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="moii"><file name="pinterest_button.phtml" hash="1d73fdaa064bae94e3002d6bfb20dc34"/></dir></dir><dir name="layout"><dir name="moii"><file name="pinterest.xml" hash="73674e831495740c4413953ce2fab753"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

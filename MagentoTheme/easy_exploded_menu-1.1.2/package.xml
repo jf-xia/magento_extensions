@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+    <name>easy_exploded_menu</name>
+    <version>1.1.2</version>
+    <stability>stable</stability>
+    <license>OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Easy Exploded Menu will provide you easy to install exploded menu with just one click installation.</summary>
+    <description>Easy Exploded Menu will be installed in just one click and your current magento menu will be automatically converted into user friendly exploded menu.You can also customize CSS easily to achieve rounded corner exploded navigation.Its Fully open source and anyone can edit and use it.Please provide feecback and Reviews to us for this extension.</description>
+    <notes>Stable Version for V1.3, 1.5 and 1.6&#xD;
+For 1.4 minor CSS changes required for installation</notes>
+    <authors><author><name>Pollence IT Services</name><user>Ruchir</user><email>info@pollence.com</email></author></authors>
+    <date>2011-09-30</date>
+    <time>05:35:14</time>
+    <contents><target name="mage"><dir name="app"><dir name="code"><dir name="community"><dir name="Pollence"><dir name="Easyexploded"><dir><dir name="Block"><dir name="Adminhtml"><dir name="Easyexploded"><dir name="Edit"><file name="Form.php" hash="b3f0247a7e754f075146a3d2f1ec8a1a"/><dir name="Tab"><file name="Form.php" hash="62a9320c3f1af87a9b79b8e346a74c8e"/></dir><file name="Tabs.php" hash="fd25eff58d53ca37a5958633c59b3dc7"/></dir><file name="Edit.php" hash="6ef219134098388059ffe4a589f2eb9c"/><file name="Grid.php" hash="09755a6e8f98544841380abb744a70fc"/></dir><file name="Easyexploded.php" hash="2c6c5452c9885d5d4bc0d473d796eeff"/></dir><file name="Easyexploded.php" hash="ec81224b7a00aa3a0b70366ce580dd9d"/></dir><dir name="Helper"><file name="Data.php" hash="0cb327ad68666d57efc12a6c40bed4f4"/></dir><dir name="Model"><file name="Easyexploded.php" hash="5830c654fe1e56c39f5dad024354954d"/><dir name="Mysql4"><dir name="Easyexploded"><file name="Collection.php" hash="48a5b66cf4d86cd84cc8df2fd93de89e"/></dir><file name="Easyexploded.php" hash="eec1be90b41408695e08e27d7776befd"/></dir><file name="Status.php" hash="4c74bb069e703e0ddef6205b2edb8f36"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="EasyexplodedController.php" hash="922c5e203f99996c0b7ad7c34218c220"/></dir><file name="IndexController.php" hash="46bd45a43ebaabf669bb3eae4ff2bf04"/></dir><dir name="etc"><file name="config.xml" hash="49f94a393c8d34ebce5516597cffef34"/></dir><dir name="sql"><dir name="easyexploded_setup"><file name="mysql4-install-0.1.0.php" hash="51ea11ee68e1ce94eab6400571e12113"/></dir></dir></dir></dir></dir></dir></dir><dir name="design"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="easyexploded.xml" hash="5a1fe49376c6c01112817738a274221b"/></dir><dir name="template"><dir name="easyexploded"><file name="easyexploded.phtml" hash="a3a33c32ea7427d0d8b6e4bcb3d73f74"/></dir></dir></dir></dir></dir></dir><dir name="etc"><dir name="modules"><file name="Pollence_Easyexploded.xml" hash="a9893055985b0fcce6e9c00a72980555"/></dir></dir></dir><dir name="js"><dir name="mynav"><file name="jquery_pol.js" hash="1e5389d096ff70677a5055d98c19691b"/><file name="script.js" hash="275b0c727192dc870c3ed4294556ce9a"/></dir></dir><dir name="skin"><dir name="frontend"><dir name="default"><dir name="default"><dir name="css"><file name="style-nav.css" hash="6336e0969d268fbd962dc142ba87d441"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

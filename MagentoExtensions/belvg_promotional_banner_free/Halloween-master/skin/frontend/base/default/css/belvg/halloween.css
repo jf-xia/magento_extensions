@@ -1,0 +1,109 @@
+/* Default */
+.belvg-promo-wrapper * { padding:0; margin:0; border:0; background:none; }
+.belvg-promo-wrapper { position:fixed; top:50px; z-index:10000; }
+.belvg-promo-close { position:absolute; z-index:2; opacity:0.8; filter:alpha(opacity=80); }
+.belvg-promo-close:hover { opacity:1; filter:alpha(opacity=100); }
+.belvg-promo-close span { display:none; }
+.belvg-promo-products { border-collapse:collapse; border-spacing:0; font:12px/1.3 Roboto, 'Helvetica Neue', 'HelveticaNeue', Helvetica, FreeSans, 'Liberation Sans', 'Nimbus Sans L', sans-serif; }
+.belvg-promo-products td { vertical-align:middle; padding:6px 5px; }
+.belvg-promo-products .product-image { display:block; font:0/0 a; }
+.belvg-promo-products .product-name { font-size:14px; line-height:1.2; margin:0 0 4px; max-height:35px; overflow:hidden; }
+.belvg-promo-products .product-name a { color:#000; text-decoration:none; }
+.belvg-promo-products .product-name a:hover { text-decoration:underline; }
+.belvg-promo-products .price-box {}
+.belvg-promo-products .price-box .price { color:#000; }
+.belvg-promo-products .price-box .regular-price .price,
+.belvg-promo-products .price-box .special-price .price { font-size:14px; font-weight:bold; }
+.belvg-promo-products .price-box .old-price .price { font-size:11px; font-weight:normal; text-decoration:line-through; }
+.belvg-promo-products .price-box .price-label { display:none; }
+
+/* Cyber Day */
+.belvg-promo-theme-cyberday { width:249px; height:581px; background:url(../../images/belvg/halloween/cyberday/bg.png); }
+.belvg-promo-theme-cyberday.belvg-promo-position-left { left:-16px; }
+.belvg-promo-theme-cyberday.belvg-promo-position-right { right:-16px; }
+.belvg-promo-theme-cyberday .belvg-promo-close { top:104px; right:20px; width:17px; height:17px; background:url(../../images/belvg/halloween/cyberday/close.png); }
+.belvg-promo-theme-cyberday .belvg-promo-products { margin:336px 24px 0; }
+.belvg-promo-theme-cyberday .belvg-promo-products .product-name a { color:#b70765; }
+.belvg-promo-theme-cyberday .belvg-promo-products .price-box .regular-price .price,
+.belvg-promo-theme-cyberday .belvg-promo-products .price-box .special-price .price { color:#e25f28; }
+
+/* Easter Day */
+.belvg-promo-theme-easterday { width:252px; height:574px; background:url(../../images/belvg/halloween/easterday/bg.png); }
+.belvg-promo-theme-easterday.belvg-promo-position-left { left:-25px; }
+.belvg-promo-theme-easterday.belvg-promo-position-right { right:-16px; }
+.belvg-promo-theme-easterday .belvg-promo-close { top:88px; right:34px; width:17px; height:17px; background:url(../../images/belvg/halloween/easterday/close.png); }
+.belvg-promo-theme-easterday .belvg-promo-products { margin:314px 36px 0; }
+.belvg-promo-theme-easterday .belvg-promo-products .product-name a { color:#52960b; }
+.belvg-promo-theme-easterday .belvg-promo-products .price-box .regular-price .price,
+.belvg-promo-theme-easterday .belvg-promo-products .price-box .special-price .price { color:#e25f28; }
+
+/* Halloween */
+.belvg-promo-theme-halloween { width:217px; height:538px; background:url(../../images/belvg/halloween/halloween/bg.png); }
+.belvg-promo-theme-halloween.belvg-promo-position-left { left:-6px; }
+.belvg-promo-theme-halloween.belvg-promo-position-right { right:0; }
+.belvg-promo-theme-halloween .belvg-promo-close { top:141px; right:4px; width:20px; height:20px; background:url(../../images/belvg/halloween/halloween/close.png); }
+.belvg-promo-theme-halloween .belvg-promo-products { margin:298px 10px 0 16px; }
+.belvg-promo-theme-halloween .belvg-promo-products td { background:#fff; border-bottom:6px solid #000; }
+.belvg-promo-theme-halloween .belvg-promo-products .product-name a { color:#35551f; }
+.belvg-promo-theme-halloween .belvg-promo-products .price-box .regular-price .price,
+.belvg-promo-theme-halloween .belvg-promo-products .price-box .special-price .price { color:#ff9800; }
+
+/* Independence Day */
+.belvg-promo-theme-independenceday { width:218px; height:491px; background:url(../../images/belvg/halloween/independenceday/bg.png); }
+.belvg-promo-theme-independenceday.belvg-promo-position-left { left:-6px; }
+.belvg-promo-theme-independenceday.belvg-promo-position-right { right:-1px; }
+.belvg-promo-theme-independenceday .belvg-promo-close { top:6px; right:10px; width:17px; height:17px; background:url(../../images/belvg/halloween/independenceday/close.png); }
+.belvg-promo-theme-independenceday .belvg-promo-products { margin:258px 16px 0; }
+.belvg-promo-theme-independenceday .belvg-promo-products .product-name a { color:#0042a2; }
+.belvg-promo-theme-independenceday .belvg-promo-products .price-box .regular-price .price,
+.belvg-promo-theme-independenceday .belvg-promo-products .price-box .special-price .price { color:#ff3440; }
+
+/* Labor Day */
+.belvg-promo-theme-laborday { width:314px; height:495px; background:url(../../images/belvg/halloween/laborday/bg.png); }
+.belvg-promo-theme-laborday.belvg-promo-position-left { left:-44px; }
+.belvg-promo-theme-laborday.belvg-promo-position-right { right:-52px; }
+.belvg-promo-theme-laborday .belvg-promo-close { top:14px; right:62px; width:17px; height:17px; background:url(../../images/belvg/halloween/laborday/close.png); }
+.belvg-promo-theme-laborday .belvg-promo-products { margin:249px 60px 0 54px; }
+.belvg-promo-theme-laborday .belvg-promo-products .product-name a { color:#cf282f; }
+.belvg-promo-theme-laborday .belvg-promo-products .price-box .regular-price .price,
+.belvg-promo-theme-laborday .belvg-promo-products .price-box .special-price .price { color:#2ba1dc; }
+
+/* New Year */
+.belvg-promo-theme-newyear { width:283px; height:587px; background:url(../../images/belvg/halloween/newyear/bg.png); }
+.belvg-promo-theme-newyear.belvg-promo-position-left { left:-56px; }
+.belvg-promo-theme-newyear.belvg-promo-position-right { right:-16px; }
+.belvg-promo-theme-newyear .belvg-promo-close { top:28px; right:16px; width:20px; height:20px; background:url(../../images/belvg/halloween/newyear/close.png); }
+.belvg-promo-theme-newyear .belvg-promo-products { margin:306px 10px 0 70px; }
+.belvg-promo-theme-newyear .belvg-promo-products .product-name a { color:#c30202; font-style:italic; }
+.belvg-promo-theme-newyear .belvg-promo-products .price-box .regular-price .price,
+.belvg-promo-theme-newyear .belvg-promo-products .price-box .special-price .price { color:#0f9109; }
+
+/* Patricks Day */
+.belvg-promo-theme-patricksday { width:257px; height:604px; background:url(../../images/belvg/halloween/patricksday/bg.png); }
+.belvg-promo-theme-patricksday.belvg-promo-position-left { left:0; }
+.belvg-promo-theme-patricksday.belvg-promo-position-right { right:-16px; }
+.belvg-promo-theme-patricksday .belvg-promo-close { top:132px; right:24px; width:17px; height:17px; background:url(../../images/belvg/halloween/patricksday/close.png); }
+.belvg-promo-theme-patricksday .belvg-promo-products { margin:277px 23px 0 32px; }
+.belvg-promo-theme-patricksday .belvg-promo-products .product-name a { color:#000; }
+.belvg-promo-theme-patricksday .belvg-promo-products .price-box .regular-price .price,
+.belvg-promo-theme-patricksday .belvg-promo-products .price-box .special-price .price { color:#006008; }
+
+/* Thanks Giving Day */
+.belvg-promo-theme-thanksgivingday { width:249px; height:519px; background:url(../../images/belvg/halloween/thanksgivingday/bg.png); }
+.belvg-promo-theme-thanksgivingday.belvg-promo-position-left { left:0; }
+.belvg-promo-theme-thanksgivingday.belvg-promo-position-right { right:-16px; }
+.belvg-promo-theme-thanksgivingday .belvg-promo-close { top:28px; right:24px; width:17px; height:17px; background:url(../../images/belvg/halloween/thanksgivingday/close.png); }
+.belvg-promo-theme-thanksgivingday .belvg-promo-products { margin:203px 23px 0 24px; }
+.belvg-promo-theme-thanksgivingday .belvg-promo-products .product-name a { color:#da5102; }
+.belvg-promo-theme-thanksgivingday .belvg-promo-products .price-box .regular-price .price,
+.belvg-promo-theme-thanksgivingday .belvg-promo-products .price-box .special-price .price { color:#727312; }
+
+/* Valentines Day */
+.belvg-promo-theme-valentinesday { width:279px; height:593px; background:url(../../images/belvg/halloween/valentinesday/bg.png); }
+.belvg-promo-theme-valentinesday.belvg-promo-position-left { left:-46px; }
+.belvg-promo-theme-valentinesday.belvg-promo-position-right { right:-17px; }
+.belvg-promo-theme-valentinesday .belvg-promo-close { top:34px; right:18px; width:17px; height:17px; background:url(../../images/belvg/halloween/valentinesday/close.png); }
+.belvg-promo-theme-valentinesday .belvg-promo-products { margin:328px 24px 0 56px; }
+.belvg-promo-theme-valentinesday .belvg-promo-products .product-name a { color:#000; font-style:italic; }
+.belvg-promo-theme-valentinesday .belvg-promo-products .price-box .regular-price .price,
+.belvg-promo-theme-valentinesday .belvg-promo-products .price-box .special-price .price { color:#ff0000; }

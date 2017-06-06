@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<widgets>
+    <guestbook_recentmessages type="guestbook/recent_messages" translate="name description" module="guestbook">
+        <name>Guest Book: Recent Comments</name>
+        <parameters>
+            <block_type>
+                <label>Type</label>
+                <type>select</type>
+                <visible>1</visible>
+                <required>sidebar</required>
+                <source_model>guestbook/system_config_source_customtypes</source_model>
+            </block_type>
+            <display_short>
+                <label>Display Short Content</label>
+                <type>select</type>
+                <visible>1</visible>
+                <required>1</required>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+                <comment>It's a only text for Sidebar type</comment>
+            </display_short>
+            <display_date>
+                <label>Display Date</label>
+                <type>select</type>
+                <visible>1</visible>
+                <required>1</required>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+                <comment>It's a only date for Sidebar type</comment>
+            </display_date>
+            <record_limit>
+                <label>Comments Limit</label>
+                <type>text</type>
+                <visible>1</visible>
+                <required>1</required>
+                <value>3</value>
+            </record_limit>
+        </parameters>
+    </guestbook_recentmessages>
+</widgets>

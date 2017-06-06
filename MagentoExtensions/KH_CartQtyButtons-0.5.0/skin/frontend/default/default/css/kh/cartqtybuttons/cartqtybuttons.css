@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+
+.cartQtyButtonsColumn {
+	white-space: nowrap;
+}
+
+.cartQtyButtonsNeighbour {
+	float: left;
+}
+
+/* used by both_left, bot_right */
+.cartQtyButtonsContainer {
+	float: left;
+    width: 9px;
+}
+
+.cartQtyButtonsColumn .cartQtyButtons {
+	display: block;
+	width: 9px;
+	height: 9px;
+	text-indent: -4000px;
+	cursor: pointer;
+}
+
+.cartQtyButtonsColumn .cartQtyButtonsIncrease {
+	background-image: url(../../../images/kh/cartqtybuttons/increase.gif);
+	margin-bottom: 2px;
+}
+
+.cartQtyButtonsColumn .cartQtyButtonsDecrease {
+	background-image: url(../../../images/kh/cartqtybuttons/decrease.gif);
+}
+
+/* both_left */
+.cartQtyButtonsColumnLeft {
+	width: 46px;
+}
+
+.cartQtyButtonsColumnLeft .cartQtyButtonsContainer {
+	padding-right: 1px;
+}
+
+/* both_right */
+.cartQtyButtonsColumnRight {
+	width: 46px;
+}
+
+.cartQtyButtonsColumnRight .cartQtyButtonsContainer {
+	padding-left: 1px;
+}
+
+/* one left, one right */
+.cartQtyButtonsColumnLeftRight {
+	width: 56px;
+}
+
+.cartQtyButtonsColumnLeftRight .cartQtyButtonsIncrease{
+	margin: 5px 0 0 1px;
+	float: left;
+}
+
+.cartQtyButtonsColumnLeftRight .cartQtyButtonsDecrease{
+	margin: 5px 1px 0 0;
+	float: left;
+}

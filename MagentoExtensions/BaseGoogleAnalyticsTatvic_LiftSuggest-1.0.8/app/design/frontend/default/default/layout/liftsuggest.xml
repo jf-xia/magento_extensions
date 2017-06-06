@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addJs"><script>liftsuggest/lift.js</script></action>
+        </reference>
+    </default>
+  <catalog_product_view>
+	<reference name="head">
+		<block type="catalog/product_view" name="tatvic.liftsuggest.catalog.view" template="tatvic/liftsuggest/html_head_liftsuggest.phtml"></block>
+	</reference>
+	<reference name="content">            
+		<block type="catalog/product_view" name="tatvic.liftsuggest.catalog.view" template="tatvic/liftsuggest/view.phtml"></block>
+	</reference>
+  </catalog_product_view>
+  <checkout_cart_index>
+	  <reference name="head">
+		  <block type="checkout/cart" name="tatvic.liftsuggest.checkout.cart" template="tatvic/liftsuggest/html_head_liftsuggest.phtml"></block>
+	  </reference>
+	<reference name="content">
+		<!-- <block type="checkout/cart">
+		<action method="addItemRender"><type>simple</type><template>tatvic/liftsuggest/view.phtml</template></action>
+		</block> -->
+		<block type="checkout/cart" name="tatvic.liftsuggest.checkout.cart.block" template="tatvic/liftsuggest/view.phtml"></block>
+	</reference>
+  </checkout_cart_index>
+</layout>

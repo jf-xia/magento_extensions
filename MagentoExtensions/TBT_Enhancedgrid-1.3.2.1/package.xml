@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>TBT_Enhancedgrid</name>
+ <channel>connect.magentocommerce.com/community</channel>
+ <summary>Improved some of the architecture to make the grid column handlers more expandable in the future.
++ Resolved issue with Magento Community Edition 1.6+, 1.3.x and Magento Enterprise/Professional Editions 1.11+</summary>
+ <description>Enhanced Grid is the most downloaded community-driven extension on Magento Connect with over 15,000 Magento stores world-wide running it.  Enhanced Grid makes managing products much easier and more efficient for store administrators.</description>
+ <lead>
+  <name>Jay</name>
+  <user>najibk</user>
+  <email>contact@wdca.ca</email>
+  <active>yes</active>
+ </lead>
+ <lead>
+  <name>Jay</name>
+  <user>nelkaake</user>
+  <email>nelkaake@wdca.ca</email>
+  <active>yes</active>
+ </lead>
+ <date>2011-10-10</date>
+ <time>20:05:07</time>
+ <version>
+  <release>1.3.2.1</release>
+  <api>1.3.2.1</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license>OSL 3.0</license>
+ <notes>Improved some of the architecture to make the grid column handlers more expandable in the future, and resolved issue with Magento Community Edition 1.6+ and Magento Enterprise/Professional Editions 1.11+</notes>
+ <contents>
+  <dir name="/">
+   <dir name="adminhtml">
+    <dir name="default">
+     <dir name="default">
+      <dir name="layout">
+       <file md5sum="d0dd492f38558072d5c0dad53703a6c6" name="tbt_enhancedgrid.xml" role="magedesign" />
+      </dir> <!-- /adminhtml/default/default/layout -->
+      <dir name="template">
+       <dir name="tbt">
+        <dir name="enhancedgrid\catalog">
+         <file md5sum="449dec037392f3910b9269a24b99e24a" name="product.phtml" role="magedesign" />
+        </dir> <!-- /adminhtml/default/default/template/tbt/enhancedgrid\catalog -->
+        <dir name="enhancedgrid\catalog\product">
+         <file md5sum="8e39bb3abd59ef4ba12fdf4d725dda90" name="grid.phtml" role="magedesign" />
+        </dir> <!-- /adminhtml/default/default/template/tbt/enhancedgrid\catalog\product -->
+       </dir> <!-- /adminhtml/default/default/template/tbt -->
+      </dir> <!-- /adminhtml/default/default/template -->
+     </dir> <!-- /adminhtml/default/default -->
+    </dir> <!-- /adminhtml/default -->
+   </dir> <!-- /adminhtml -->
+   <dir name="js">
+    <dir name="tbt">
+     <dir name="enhancedgrid">
+      <file md5sum="da3aa882d47a41c4d2f7d0c48233ae1e" name="egsupplemental.js" role="mage" />
+      <file md5sum="fcbbe08d942719a668d3536246664628" name="enhancedgrid.js" role="mage" />
+     </dir> <!-- /js/tbt/enhancedgrid -->
+     <dir name="enhancedgrid\customfunctions">
+      <file md5sum="db00553aa26aa6851f92f84447f3cd14" name="catalog_products.js" role="mage" />
+     </dir> <!-- /js/tbt/enhancedgrid\customfunctions -->
+     <dir name="enhancedgrid\resources\css">
+      <file md5sum="a219b0e656329f2407835dbe346f81d3" name="enhancedgrid.css" role="mage" />
+     </dir> <!-- /js/tbt/enhancedgrid\resources\css -->
+    </dir> <!-- /js/tbt -->
+   </dir> <!-- /js -->
+   <dir name="modules">
+    <file md5sum="85a6ca652ec3777aa244a78c1c4fdac4" name="TBT_Enhancedgrid.xml" role="mageetc" />
+   </dir> <!-- /modules -->
+   <dir name="TBT">
+    <dir name="Enhancedgrid">
+     <dir name="\Block\Catalog">
+      <file md5sum="68048313967635cce72082d36afb1ac4" name="Product.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Block\Catalog -->
+     <dir name="\Block\Catalog\Product">
+      <file md5sum="78c9b49ca889805299c9a7e3a369aa6b" name="Grid.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Block\Catalog\Product -->
+     <dir name="\Block\Catalog\Product\Grid">
+      <file md5sum="f84214fc43f665c79b92dc7a092b364f" name="Columns.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Block\Catalog\Product\Grid -->
+     <dir name="\Block\System">
+      <file md5sum="ae18224ae9a7e450e03ccf22612e3dde" name="Html.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Block\System -->
+     <dir name="\Block\Widget">
+      <file md5sum="d1f6919e6bda3e5c201e2b9cd2fb25f1" name="Loyalty.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Block\Widget -->
+     <dir name="\Block\Widget\Grid">
+      <file md5sum="b360986bb6f20cb2f7af22bb383c909e" name="Column.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Block\Widget\Grid -->
+     <dir name="\Block\Widget\Grid\Column\Filter">
+      <file md5sum="8eb68d6bdb28d08e4aa831f2609be421" name="Category.php" role="magecommunity" />
+      <file md5sum="b1e25d3e8d03a0869e1c2edf5fcdd761" name="Image.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Block\Widget\Grid\Column\Filter -->
+     <dir name="\Block\Widget\Grid\Column\Renderer">
+      <file md5sum="32c3917ad4c07942e9f0d003c6854b2b" name="Action.php" role="magecommunity" />
+      <file md5sum="42eff0eac536ef4b511600b2bd1d2ceb" name="Category.php" role="magecommunity" />
+      <file md5sum="ddac5ed4cc015c4dd256f172c802e9cf" name="Image.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Block\Widget\Grid\Column\Renderer -->
+     <dir name="\controllers\Catalog">
+      <file md5sum="39ab9a7719710e1454d7f8b1ede4a104" name="ProductController.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\controllers\Catalog -->
+     <dir name="\etc">
+      <file md5sum="298fabe9e68c5693e46ec5e8c9d416cd" name="config.xml" role="magecommunity" />
+      <file md5sum="5e18079f506dae5dc6627f41f1d7336c" name="system.xml" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\etc -->
+     <dir name="\Helper">
+      <file md5sum="236773d2fc20ccc12702af8a41c5fe96" name="Data.php" role="magecommunity" />
+      <file md5sum="f90fbcb7beffbe1ac6541f529df9b35b" name="Version.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Helper -->
+     <dir name="\Model\Collection\Decorator">
+      <file md5sum="5358ef85d8ad82fef81e220ab5feec46" name="Abstract.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Model\Collection\Decorator -->
+     <dir name="\Model\Product\Collection\Category">
+      <file md5sum="16fff625d09211e054e2caebbdd535ce" name="Decorator.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Model\Product\Collection\Category -->
+     <dir name="\Model\Product\Grid\Settings">
+      <file md5sum="9acfb2ec990f83a25142a35d0bc37989" name="Columns.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Model\Product\Grid\Settings -->
+     <dir name="\Model\Resource\Eav\Mysql4\Product">
+      <file md5sum="02e45e6d6dd551431bb29be7cfd165f5" name="Collection.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Model\Resource\Eav\Mysql4\Product -->
+     <dir name="\Model\System\Config\Source\Columns">
+      <file md5sum="908fec18c7ce6865c7fb9022dd960b2c" name="Show.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Model\System\Config\Source\Columns -->
+     <dir name="\Model\System\Config\Source\Sort">
+      <file md5sum="23cb37d1af2dd75c3c9537adf90c1bc8" name="Direction.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\Model\System\Config\Source\Sort -->
+     <dir name="\sql\enhancedgrid_setup">
+      <file md5sum="360399619e0f058a3ce865ab9fd78827" name="mysql4-install-1.0.0.0.php" role="magecommunity" />
+     </dir> <!-- /TBT/Enhancedgrid/\sql\enhancedgrid_setup -->
+    </dir> <!-- /TBT/Enhancedgrid -->
+   </dir> <!-- /TBT -->
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.0</min>
+    <max>5.99999999</max>
+   </php>
+   <pearinstaller>
+    <min>1.6.2</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+</package>

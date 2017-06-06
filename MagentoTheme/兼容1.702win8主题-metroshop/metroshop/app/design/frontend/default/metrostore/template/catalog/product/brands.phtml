@@ -1,0 +1,22 @@
+<div class="mix_wrapper"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('brands')->toHtml() ?></div>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+//	Responsive layout, resizing the items
+				jQuery('#brands').carouFredSel({
+					responsive: true,
+					auto:false,
+					prev: '#prev6',
+					next: '#next6',
+					width: '100%',
+					scroll: 2,
+					items: {
+						width:220,
+						visible: {
+							min: 1,
+							max: 6
+						}
+					}
+				});
+			});
+	
+</script>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>	
+<layout version="0.1.0">
+    <default>
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><name>js/sk_updatecart.js</name><params/></action>
+			<action method="addItem"><type>skin_css</type><name>css/sk_updatecart.css</name><params/></action>
+		</reference>
+    </default>
+
+	<cartupdate_ajax_index>
+		<update handle="checkout_cart_index"/>
+		<reference name="root">
+            <action method="setTemplate"><template>page/cartupdate.phtml</template></action>
+        </reference>
+	</cartupdate_ajax_index>
+
+</layout>

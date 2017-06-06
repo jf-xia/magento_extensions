@@ -1,0 +1,64 @@
+<div class="clear"></div>
+<?php 
+$footerBlock = Mage::getStoreConfig('buyexpress_options/footerbanner');
+$mediaUrl = Mage::getBaseUrl('media') . 'images/';
+$footerBlockView = Mage::getStoreConfig('buyexpress_options/footerbanner/footer_block_view');
+if(array_filter($footerBlock)):
+if($footerBlockView == 1): 
+	$home = new Mage_Page_Block_Html_Header();
+	if ($home->getIsHomePage()): 
+	
+?>
+
+<div class="footer-block">
+    <div class="footerBox">
+        <a href="<?php echo $footerBlock['footer_block_link1']; ?>"><img src="<?php echo $mediaUrl . $footerBlock['footer_upload1']; ?>" width="308" /></a>
+        <p><?php echo $footerBlock['footer_block_text1']; ?></p>
+        <a href="<?php echo $footerBlock['footer_block_link1']; ?>" class="link"><?php echo $footerBlock['footer_block_link_text1']; ?></a>
+    </div>
+    <div class="footerBox middleBox">
+        <a href="<?php echo $footerBlock['footer_block_link2']; ?>"><img src="<?php echo $mediaUrl . $footerBlock['footer_upload2']; ?>" width="308" /></a>
+        <p><?php echo $footerBlock['footer_block_text2']; ?></p>
+        <a href="<?php echo $footerBlock['footer_block_link2']; ?>" class="link"><?php echo $footerBlock['footer_block_link_text2']; ?></a>
+    </div>
+    <div class="footerBox">
+        <a href="<?php echo $footerBlock['footer_block_link3']; ?>"><img src="<?php echo $mediaUrl . $footerBlock['footer_upload3']; ?>" width="308" /></a>
+        <p><?php echo $footerBlock['footer_block_text3']; ?></p>
+        <a href="<?php echo $footerBlock['footer_block_link3']; ?>" class="link"><?php echo $footerBlock['footer_block_link_text3']; ?></a>
+    </div>
+    <div class="clear"></div>
+</div>
+<?php endif; ?>
+<?php else: ?>
+<div class="footer-block">
+    <div class="footerBox">
+        <a href="<?php echo $footerBlock['footer_block_link1']; ?>"><img src="<?php echo $mediaUrl . $footerBlock['footer_upload1']; ?>" width="308" /></a>
+        <p><?php echo $footerBlock['footer_block_text1']; ?></p>
+        <a href="<?php echo $footerBlock['footer_block_link1']; ?>" class="link"><?php echo $footerBlock['footer_block_link_text1']; ?></a>
+    </div>
+    <div class="footerBox middleBox">
+        <a href="<?php echo $footerBlock['footer_block_link2']; ?>"><img src="<?php echo $mediaUrl . $footerBlock['footer_upload2']; ?>" width="308" /></a>
+        <p><?php echo $footerBlock['footer_block_text2']; ?></p>
+        <a href="<?php echo $footerBlock['footer_block_link2']; ?>" class="link"><?php echo $footerBlock['footer_block_link_text2']; ?></a>
+    </div>
+    <div class="footerBox">
+        <a href="<?php echo $footerBlock['footer_block_link3']; ?>"><img src="<?php echo $mediaUrl . $footerBlock['footer_upload3']; ?>" width="308" /></a>
+        <p><?php echo $footerBlock['footer_block_text3']; ?></p>
+        <a href="<?php echo $footerBlock['footer_block_link3']; ?>" class="link"><?php echo $footerBlock['footer_block_link_text3']; ?></a>
+    </div>
+    <div class="clear"></div>
+</div>
+<?php endif;endif; ?>
+
+<div class="footer-container">
+    <div class="footer">
+        	<?php echo $this->getChildHtml() ?>
+        	<?php echo $this->getChildHtml('footer.newsletter'); ?>
+        	<div class="clear"></div>
+        <div class="copyright">
+        	<p class="credits"><?php echo "BuyExpress " . "&copy; " . date("Y") . ". " . "All Rights Reserved."; ?></p>
+            <p class="powered">Powered by <a href="#">Magento</a>. Theme by <a href="#">raviG</a>.</p>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

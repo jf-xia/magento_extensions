@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <basket_index_index>
+        <reference name="content">
+            <block type="basket/basket" name="basket" template="basket/basket.phtml" />
+        </reference>
+    </basket_index_index>
+</layout> 

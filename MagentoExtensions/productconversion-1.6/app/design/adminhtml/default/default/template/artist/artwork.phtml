@@ -1,0 +1,42 @@
+<!-- It is a view file for the admin artwork details -->
+
+<table align="center" border="1" width="50%">
+<tr><td align="center" colspan="2">
+<h4><?php echo $this->__('Artwork Uploaded Image') ?></h4>
+<?php 
+$id = $this->getRequest()->getParam('id'); 
+if($id!="")
+{
+	$artwork = Mage::getModel('artist/artwork')->load($id);
+	$title = $artwork->title;
+	$status = $artwork->status;
+	$imgname = $artwork->imagename;
+	$artist_id = $artwork->artist_id;
+	$src = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$artist_id."/".$imgname; 
+}
+?>
+<form name="artform" id="artform" method="post" action="<?php echo $this->getUrl('*/*/saveartwork/id/'.$id); ?>"  enctype="multipart/form-data">
+<input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+
+<div class="form-edit">
+     </td></tr><tr><td><label for="title" class="required"><em>*</em><?php echo $this->__('Title') ?></label></td><td>
+           
+                <input type="text" name="title" id="title" title="<?php echo $this->__('Title') ?>" class="input-text required-entry" value = "<?php echo $title; ?>" />
+           
+   	</td></tr>	
+    	<tr><td>
+        	<label for="status" class="required"><?php echo $this->__('Approve for Catalog') ?></label></td><td>
+            
+			<input type="radio" name="status" id="status" title="<?php echo $this->__('Yes') ?>" class="input-text required-entry" value = "1" <?php if($status == 1) { ?> checked="checked" <?php } ?> />Yes
+			<input type="radio" name="status" id="status" title="<?php echo $this->__('No') ?>" class="input-text required-entry" value = "0" <?php if($status == 0) { ?> checked="checked" <?php } else { ?> disabled="disabled" <?php } ?>/>No
+
+</td></tr>
+<tr><td><img src="<?php echo $src; ?>" height="50" width="50" /></td><td><div class="buttons-set" align="right">
+		<p class="required"><?php echo $this->__('* Required Fields') ?></p>
+		<a href="<?php echo $this->getUrl('*/*/index/'); ?>" >Back</a>
+		<button class="scalable save" type="submit"><span>Submit my form</span></button>
+	</div>	
+</div>
+</tr>
+</table>
+</form>

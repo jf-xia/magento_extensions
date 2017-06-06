@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <modules>
+        <Amasty_Fbreview>
+            <version>1.0.0</version>
+        </Amasty_Fbreview>
+    </modules>
+    
+    <frontend>       
+		<layout>
+            <updates>
+                <amfbreview>
+                    <file>amfbreview.xml</file>
+                </amfbreview>
+            </updates>
+        </layout>
+    </frontend>
+    
+    <global>
+        <helpers>
+            <amfbreview>
+                <class>Amasty_Fbreview_Helper</class>
+            </amfbreview>
+        </helpers>
+    </global>
+    
+    <adminhtml>
+        <translate>
+            <modules>
+                <amfbreview>
+                    <files>
+                        <default>Amasty_Fbreview.csv</default>
+                    </files>
+                </amfbreview>
+            </modules>
+        </translate>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <amfbreview translate="title">
+                                            <title>Facebook Reviews</title>
+                                            <sort_order>333</sort_order>
+                                        </amfbreview>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>    
+    <default>
+        <amfbreview>
+            <general>
+                <title></title>
+                <perpage>10</perpage>
+                <ascending>0</ascending>
+            </general>
+            <display>
+                <width>630</width>
+                <nostyles>0</nostyles>
+                <css>/skin/frontend/default/default/css/amfbreview.css</css>
+            </display>
+        </amfbreview>
+    </default>    
+</config>

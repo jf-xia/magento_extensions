@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>activo_categoryurlseo</name>
+    <version>1.0.4.1</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL 3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Flattens the SEO structure of your entire catalog.</summary>
+    <description>This FREE SEO Friendly Categories extension lets you flatten your URL structure by using only the last subcategory name in the URL. So instead of mystore.com/category/subcategory1/subcategory2/subcategory3 you will have just mystore.com/subcategory3 in your URL.</description>
+    <notes>Flattens the SEO structure of your entire catalog: fixed double slash bug in certain cases.</notes>
+    <authors><author><name>Activo Extensions</name><user>activo</user><email>extensions@activo.com</email></author></authors>
+    <date>2012-10-23</date>
+    <time>19:05:57</time>
+    <contents><target name="magecommunity"><dir name="Activo"><dir name="Categoryurlseo"><dir><dir name="Helper"><file name="Category.php" hash="15ae9939d3b789f194747ffd2163e204"/><file name="Data.php" hash="6892bf5f068f01ecbe4bc746ed0be85b"/></dir><dir name="Model"><file name="Url.php" hash="2e970a0b97c40f38d46da150410170d9"/></dir><dir name="etc"><file name="config.xml" hash="c6b25932abab4588478b2ccf46f5ee36"/><file name="system.xml" hash="d8d6fa1b7e04ada0c492b3738b6d9de7"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Activo_Categoryurlseo.xml" hash="cbb2d56a19efe3658ff0b6bf21376dd3"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>8.0.0</max></php></required></dependencies>
+</package>

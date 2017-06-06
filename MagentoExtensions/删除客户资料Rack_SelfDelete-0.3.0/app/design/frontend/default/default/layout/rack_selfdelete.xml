@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+<!--
+Customer account pages, rendered for all tabs in dashboard
+-->
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="selfdelete"><name>selfdelete</name><path>selfdelete/customer/index</path><label>Delete Account</label></action>
+        </reference>
+    </customer_account>
+
+    <selfdelete_customer_index translate="label">
+        <label>Customer Self Delete</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="selfdelete/customer_form" name="selfdelete.customer" template="selfdelete/form.phtml"/>
+        </reference>
+    </selfdelete_customer_index>
+
+    <selfdelete_customer_success translate="label">
+        <label>Customer Self Delete</label>
+        <reference name="root">
+           <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="selfdelete/success" name="selfdelete.success" template="selfdelete/success.phtml"/>
+        </reference>
+    </selfdelete_customer_success>
+
+</layout>

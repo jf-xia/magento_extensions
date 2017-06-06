@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <default>
+	<reference name="right">
+	    <block type="tellafriend/tellafriend" name="tellafriend" template="tellafriend/tellafriend.phtml" before="-" />
+	</reference>
+	<!--<reference name="left">
+	    <block type="tellafriend/tellafriend" name="tellafriend" template="tellafriend/tellafriend.phtml" before="-" />
+	</reference>-->
+    </default>
+</layout>

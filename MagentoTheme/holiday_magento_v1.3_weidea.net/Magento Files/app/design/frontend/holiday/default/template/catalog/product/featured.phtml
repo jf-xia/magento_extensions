@@ -1,0 +1,205 @@
+
+<div class="clear">&nbsp;</div>
+    
+<?php
+    $_productCollection=$this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+    
+?>
+
+<?php
+$ajaxcart = Mage::helper("ExtraConfig")->themeOptions('ajaxcart');
+$newsaleicon = Mage::helper("ExtraConfig")->themeOptions('newsaleicon');
+$loader = Mage::helper("ExtraConfig")->themeOptions('loader');
+$homesidebar = Mage::helper("ExtraConfig")->themeOptions('homesidebar');
+?>
+    
+    <div class="new-arrow1">
+    <h2 class="page-title subtitle x-large"><?php echo $this->__('Featured Products') ?></h2>
+    </div>
+    
+    
+    
+     
+    <?php if(!$_productCollection->count()): ?>
+    <div id="messages_product_view">
+    <ul class="messages x-small">
+        <li class="note-msg">
+            <ul class="x-small">
+                <li>
+                    <span><?php echo $this->__('There are no products matching the selection.') ?></span></li></ul></li></ul></div>
+    <?php else: ?>
+     
+    
+    
+    <?php $_collectionSize = $_productCollection->count() ?>
+    
+    <?php if($homesidebar == 'left' || $homesidebar == 'both'){ ?>
+	<div class="home-left">
+	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-left-sidebar')->toHtml() ?>
+	</div>
+    <?php } ?>
+    <?php if($homesidebar == 'right' || $homesidebar == 'both'){ ?>
+	<div class="home-right">
+	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-right-sidebar')->toHtml() ?>
+	</div>
+    <?php } ?>
+    
+    <?php if($homesidebar == 'left'){ ?>
+        <div class="featured featured-right">
+    <?php } elseif ($homesidebar == 'right') { ?>
+	<div class="featured featured-left">
+    <?php } elseif ($homesidebar == 'both') { ?>
+	<div class="featured featured-both">
+    <?php } else { ?>
+	<div class="featured featured-full">
+    <?php } ?>
+	    
+	    <?php  echo $this->getToolbarHtml() ?>
+	    <?php // List mode ?>
+	    <?php if($this->getMode()!='grid' || $this->getMode()=='grid'): ?>
+	    
+	    <?php // Grid Mode ?>
+	    
+	    
+	    
+	    
+	    <ul class="products-grid">
+	   
+	    <?php $i=0;$j=0; foreach ($_productCollection as $_product): ?>
+	
+            <li class="item">
+		
+		<?php if($newsaleicon == '1') { ?> 
+		 <?php $adate = date('Y-m-d');  //echo 'frpm:-'.$_product->special_from_date.'----';echo "to:-".$_product->special_to_date.'--';
+								    $a= 0;
+								    if($_product->special_from_date != null && $_product->special_to_date == "")
+								    {
+									if( $adate >= $_product->special_from_date)
+									{
+										$a = 1; 
+									}
+								    }
+								    if($_product->special_from_date != "" && $_product->special_to_date != "")
+								    {
+									if($adate >= $_product->special_from_date && $adate <= $_product->special_to_date)
+									{
+									$a = 1; 
+									}
+								    }
+									
+									if($a == 1){ ?>
+								       <div class="sale x-small"><label><?php echo $this->__('SALE') ?></label></div>
+									<?php } ?>
+								    
+								    
+								  <?php $bdate = date('Y-m-d');
+								    $b= 0;
+								    if($_product->news_from_date != null && $_product->news_to_date == "")
+								    {
+									if( $bdate >= $_product->news_from_date)
+									{
+										$b = 1; 
+									}
+								    }
+								    if($_product->news_from_date != "" && $_product->news_to_date != "")
+								    {
+									if($bdate >= $_product->news_from_date && $bdate <= $_product->news_to_date)
+									{
+									$b = 1; 
+									}
+								    }
+									if($b == 1){ ?>
+								       <div class="new x-small"><label><?php echo $this->__('NEW') ?></label></div>
+									<?php } 
+								    ?>  
+		     <?php } ?>
+		
+		<?php if($ajaxcart == '2') { ?>
+		 <a tabindex="1" href='<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$_product->getId()));?>' class='fancybox quick-view' id='fancybox<?php echo $_product->getId()?>'><span class="icon-eye-open"></span><?php echo $this->__('Quick View') ?></a>
+		 <?php } ?>
+		
+		<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(true)->keepAspectRatio(true)->resize(204,214) ?>" width="204" height="214" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+                
+		<div class="productgrid-area">
+		 
+		    <?php	$productName = $this->htmlEscape($_product->getName());
+									if(strlen($productName) > 30) {
+										$productName = mb_strimwidth($productName,0,30,"...",'utf-8');
+									} ?>
+									
+		<div class="actions">
+		    
+		<?php // if($_product->getRatingSummary()): ?>
+                <?php echo $this->getReviewsSummaryHtml($_product, false, true) ?>
+                <?php // endif; ?>
+						<?php if($_product->isSaleable()): ?>
+						    <?php if($ajaxcart == '1' || $ajaxcart == '2') { ?>
+							<?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) ) { ?>
+							<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart ajx-cart" onclick="setLocationAjax('<?php echo $this->getAddToCartUrl($_product) ?>','<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button> 
+							
+							<?php } else { ?>
+								<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+								
+							<?php }  ?>
+						    <?php } else { ?>
+							<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+						    <?php } ?>
+						<?php else: ?>
+						    <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+						<?php endif; ?>
+						<div class="add-to-links x-small">
+						    <?php if ($this->helper('wishlist')->isAllow()) : ?>
+							<a href="<?php echo $this->getAddToWishlistUrl($_product) ?>" title="<?php echo $this->__('Add to Wishlist') ?>" class="link-wishlist"><span><?php echo $this->__('Add to Wishlist') ?></span></a>
+						    <?php endif; ?>
+						    <?php if ($_compareUrl = $this->getAddToCompareUrl($_product)): ?>
+							<span class="separator">|</span><a href="<?php echo $_compareUrl ?>" title="<?php echo $this->__('Add to Compare') ?>" class="link-compare"><span><?php echo $this->__('Add to Compare') ?></span></a>
+						    <?php endif; ?>
+						
+						</div>
+		    
+		</div>
+										
+		<div class="actions1">							
+		<h2 class="product-name small"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $productName; ?></a></h2>
+		<div class="vert">
+                <?php echo $this->getPriceHtml($_product, true) ?>
+	        </div>
+		</div>
+		 
+		</div>
+		<div id='ajax_loader<?php echo $_product->getId()?>' class="ajaxcartpro_progress" style="display: none;">
+		    <img src="<?php echo $this->getSkinUrl('ajaxcart/images/al.gif'); ?>">
+		    <p><?php echo $this->__('Please wait...') ?></p>
+							<div class="small"><?php echo $this->__('We are updating Shopping Bag.') ?></div>
+		</div>
+		
+            </li>
+	
+	<?php endforeach ?>
+	   
+	    </ul>
+	    
+	<?php endif; ?>
+    </div>
+	
+	<script type="text/javascript">
+
+	jQuery.ias({
+		container : '.featured',
+		item: '.item',
+		pagination: '.toolbar .pager',
+		next: '.next',
+		<?php if ($loader == 'clickable'): ?>
+		triggerPageThreshold: 0,
+		trigger: '<span class="icon-refresh"></span>Load More',
+		<?php else: ?>
+		triggerPageThreshold: 10000,
+		<?php endif; ?>
+		loader: '<img src="<?php echo($this->getSkinUrl('ias/images/loader.gif')); ?>" /> <?php echo __('Loading more products, please be patient...'); ?>'
+	});
+	
+	</script>
+	
+    <?php endif; ?>
+	  

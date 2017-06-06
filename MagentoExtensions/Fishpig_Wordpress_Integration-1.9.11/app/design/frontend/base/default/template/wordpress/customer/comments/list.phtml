@@ -1,0 +1,51 @@
+<?php
+/**
+ * @category    Fishpig
+ * @package     Fishpig_Wordpress
+ * @license     http://fishpig.co.uk/license.txt
+ * @author      Ben Tideswell <help@fishpig.co.uk>
+ */
+?>
+<?php $comments = $this->getComments() ?>
+<div class="page-title">
+	<h1><?php echo $this->__('Blog Comments') ?></h1>
+</div>
+<?php echo $this->getPagerHtml(); ?>
+<?php if(count($comments) > 0): ?>
+<table class="data-table" id="my-comments-table">
+    <col width="1" />
+    <col />
+    <col width="1" />
+    <col width="1" />
+    <col width="1" />
+    <thead>
+        <tr>
+            <th><?php echo $this->__('Comment #') ?></th>
+            <th><?php echo $this->__('Post') ?></th>
+            <th><?php echo $this->__('Date') ?></th>
+            <th><?php echo $this->__('Status') ?></th>
+            <th><span class="nobr"><?php echo $this->__(' ') ?></span></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $_odd = ''; ?>
+        <?php foreach ($comments as $comment): ?>
+        <tr>
+            <td><?php echo $comment->getId() ?></td>
+            <td><span class="nobr"><?php echo $this->getPostName($comment) ?></span></td>
+            <td><?php echo $this->formatDate($comment->getCommentDate()) ?></td>
+            <td><span class="nobr"><?php echo $this->getCommentStatus($comment) ?></span></td>
+            <td class="a-center">
+            	<?php if ($this->isCommentValid($comment)): ?>
+					<span class="nobr"><a href="<?php echo $this->getPostUrl($comment) ?>"><?php echo $this->__('View Post') ?></a></span>
+	            <?php endif; ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<script type="text/javascript">decorateTable('my-comments-table');</script>
+<?php echo $this->getPagerHtml(); ?>
+<?php else: ?>
+    <p><?php echo $this->__('You have submitted no comments.'); ?></p>
+<?php endif ?>

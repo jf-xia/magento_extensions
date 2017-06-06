@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Gala_Colorswatches</name>
+ <channel>connect.magentocommerce.com/community</channel>
+ <summary>Gala Color Swatches Magento Extension</summary>
+ <description>Color Swatches Magento Extensions, transform drop-down custom options to swatches, it supports all type of products such as simple product, configurable products...</description>
+ <lead>
+  <name>galathemes</name>
+  <user>galathemes</user>
+  <email>contact@galathemes.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2012-03-21</date>
+ <time>07:14:06</time>
+ <version>
+  <release>1.0.5</release>
+  <api>1.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://galathemes.com/license.html">Commercial</license>
+ <notes>Version 1.0.5 - 03/21/2012
+- Fixed IE did not show swatches.
+
+Ver 1.0.4 - 09/20/2011
+- Added CSS
+- Fixed IE js error
+
+First Release - 09/02/2011</notes>
+ <contents>
+  <dir name="/">
+   <dir name="colors_watches">
+    <file md5sum="f836843f7c41cfcbc3bb9ad060340d3d" name="9.jpg" role="magemedia" />
+    <file md5sum="682a217b52553b0b836bb670393ab07c" name="10.jpg" role="magemedia" />
+    <file md5sum="3a4f381f2c63cb74d44833345d9e7587" name="11.jpg" role="magemedia" />
+    <file md5sum="50071c7dcc1f1d06ace20eee30ad00b0" name="12.jpg" role="magemedia" />
+    <file md5sum="1ca78c083d6445af4907e5a03eb17bfa" name="95.jpg" role="magemedia" />
+    <file md5sum="f5e2faba89dcda154f57db8f0a5458f0" name="105.jpg" role="magemedia" />
+    <file md5sum="b7e2043b596a4c16e98394e5e0e0bb61" name="color-black.png" role="magemedia" />
+    <file md5sum="b7e2043b596a4c16e98394e5e0e0bb61" name="color-yellow.png" role="magemedia" />
+   </dir> <!-- /colors_watches -->
+   <dir name="EM">
+    <dir name="Colorswatches">
+     <dir name="Block">
+      <file md5sum="934e26bae7e4eb8c485d9e1624e912ef" name="Settings.php" role="magecommunity" />
+     </dir> <!-- /EM/Colorswatches/Block -->
+     <dir name="etc">
+      <file md5sum="42ac94059dc34cfdd7187b8f36abc496" name="config.xml" role="magecommunity" />
+      <file md5sum="06ea7e33de7cfd4bcfd802f18cda1eec" name="system.xml" role="magecommunity" />
+     </dir> <!-- /EM/Colorswatches/etc -->
+     <dir name="Helper">
+      <file md5sum="e90743912e617d9a91f9e94fa97eb6fc" name="Data.php" role="magecommunity" />
+     </dir> <!-- /EM/Colorswatches/Helper -->
+    </dir> <!-- /EM/Colorswatches -->
+   </dir> <!-- /EM -->
+   <dir name="frontend">
+    <dir name="base">
+     <dir name="default">
+      <dir name="css">
+       <file md5sum="525694144497b548902e7ddfe2389c14" name="em_colorswatches.css" role="mageskin" />
+      </dir> <!-- /frontend/base/default/css -->
+      <dir name="layout">
+       <file md5sum="005523237754c4e581cea60b7b808b65" name="em_colorswatches.xml" role="magedesign" />
+      </dir> <!-- /frontend/base/default/layout -->
+      <dir name="template">
+       <dir name="em_colorswatches">
+        <file md5sum="9786e41b059f41a3cb68c3ffa5c0a434" name="settings.phtml" role="magedesign" />
+       </dir> <!-- /frontend/base/default/template/em_colorswatches -->
+      </dir> <!-- /frontend/base/default/template -->
+     </dir> <!-- /frontend/base/default -->
+    </dir> <!-- /frontend/base -->
+   </dir> <!-- /frontend -->
+   <dir name="modules">
+    <file md5sum="28c2dfd0b5e565ee1765e6f9fd29e7a0" name="EM_Colorswatches.xml" role="mageetc" />
+   </dir> <!-- /modules -->
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.0</min>
+    <max>6.0.0</max>
+   </php>
+   <pearinstaller>
+    <min>1.6.2</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+</package>

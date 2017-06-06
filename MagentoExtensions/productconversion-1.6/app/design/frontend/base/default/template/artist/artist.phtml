@@ -1,0 +1,39 @@
+<h1><?php echo $this->__('Artist Information') ?></h1>
+<?php
+	$id = $this->getRequest()->getParam('id');
+	$artist = Mage::getModel('artist/artist')->load($id);
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<form name="artform" id="artform" method="post" action="<?php echo $this->getSaveUrl(); ?>" enctype="multipart/form-data">
+<div class="fieldset">
+	<ul class="form-list">
+    	<li class="fields">
+        	<label for="firstname" class="required"><em>*</em><?php echo $this->__('First Name') ?></label>
+            <div class="input-box">
+                <input type="text" name="firstname" id="firstname" title="<?php echo $this->__('First Name') ?>" class="input-text required-entry" value = "<?php echo $artist->firstname; ?>" />
+            </div>
+   		</li>
+    	<li class="fields">
+        	<label for="lastname" class="required"><em>*</em><?php echo $this->__('Last Name') ?></label>
+            <div class="input-box">
+                <input type="text" name="lastname" id="lastname" title="<?php echo $this->__('Last Name') ?>" class="input-text required-entry" value = "<?php echo $artist->lastname; ?>" />
+            </div>
+   		</li>
+    	<li class="fields">
+        	<label for="email" class="required"><em>*</em><?php echo $this->__('Email') ?></label>
+            <div class="input-box">
+                <input type="text" name="email" id="email" title="<?php echo $this->__('Email') ?>" class="input-text required-entry validate-email" value = "<?php echo $artist->email; ?>" />
+            </div>
+   		</li>				
+	</ul>
+	<div class="buttons-set">
+		<p class="required"><?php echo $this->__('* Required Fields') ?></p>
+		<button type="submit" title="<?php echo $this->__('Submit') ?>" class="button"><span><span><?php echo $this->__('Submit') ?></span></span></button>
+	</div>	
+</div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('artform', true);
+//]]>
+</script>

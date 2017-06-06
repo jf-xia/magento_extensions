@@ -1,0 +1,54 @@
+<?php
+/**
+ * Basic template (Mage_Page_Block_Html).
+ * 
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Blueknow Recommender
+ * extension to newer versions in the future. If you wish to customize it for
+ * your needs please save your changes before upgrading.
+ * 
+ * @category	design
+ * @copyright	Copyright (c) 2010 Blueknow, S.L. (http://www.blueknow.com)
+ * @license		GNU General Public License
+ * @author		<a href="mailto:santi.ameller@blueknow.com">Santiago Ameller</a>
+ * @since		1.0.0
+ * 
+ */
+?>
+<script type="text/javascript">
+    //success function
+    function renderItems(items) {
+        if (items.length > 0) {
+            var widget = "";
+            var header = document.getElementById("blueknow-header");
+            widget += header ? header.innerHTML : "";
+            for (var i=0; i < items.length; i++) {
+                var item = items[i];
+                var templateHolder = document.getElementById("blueknow-template");
+                if (!templateHolder) {
+					break;
+                }
+                var template = templateHolder.innerHTML;
+                <?php
+                //[2011-03-14] Issue MAGPLUGIN-3: Unexpected page loading whenever widget is rendered.
+				//			   Header mark of any string-to-replace has been changed from "#" to "$".
+				//			   Additionally, <img /> tag has been changed to avoid unexpected requests ("src" was replaced by "source").
+				?>
+				template = template.replace(/\$name/g, item.name);
+                template = template.replace(/\$url/g, item.url);
+                template = template.replace(/source="\$image"/g, "src='" + item.image + "'");
+                template = template.replace(/\$price/g, item.price);
+                widget += template;
+            }
+            var footer = document.getElementById("blueknow-footer");
+            widget += footer ? footer.innerHTML : "";
+            var container = document.getElementById("blueknow-widget");
+            if (container) {
+                container.innerHTML = widget;
+            }
+        }
+    }
+    //error function
+    function processError(message) {}
+</script>

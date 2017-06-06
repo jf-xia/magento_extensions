@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <recommend translate="label" module="recommend">
+            <label>4-Tell Recommendation Service</label>
+            <tab>service</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>999</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <config translate="label">
+                    <label>General Settings</label>
+                    <comment>If you haven't already signed up for your Client Alias, please &lt;a target="_blank" href="http://www.4-tell.com/signup"&gt;sign up now&lt;/a&gt;!</comment>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <upload translate="label">
+                            <label>Data Upload/Settings</label>
+                            <frontend_model>recommend/system_config_form_field_upload</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>Click to configure upload settings and upload data</tooltip>
+                        </upload>
+
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>recommend/system_config_source_enabled</source_model>
+                            <backend_model>recommend/system_config_validation_clientid</backend_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>Select yes to enable the 4-Tell extension or no disabled the extension.</tooltip>
+                        </enabled>
+
+                        <extensionversion translate="label">
+                            <label>Extension Version</label>
+                            <frontend_model>recommend/system_config_form_field_extensionversion</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>The version number of the 4-Tell extension</tooltip>
+                        </extensionversion>
+
+                        <client_id translate="label">
+                            <label>Client ID</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>recommend/system_config_validation_clientid</backend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>Enter your Client ID, this is supplied to you by 4-Tell.</tooltip>
+                        </client_id>
+
+                        <owner translate="label">
+                            <label>Owner</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>recommend/system_config_validation_owner</backend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>Name of contact point (POC) for errors and issues.</tooltip>
+                        </owner>
+
+                        <email translate="label">
+                            <label>Email</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>recommend/system_config_validation_email</backend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>Email address for the POC.</tooltip>
+                        </email>
+
+                        <reportlevel translate="label">
+                            <label>Report Level</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>recommend/system_config_source_reportlevel</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>Types of messages (errors, warnings, etc.) that should be sent to the POC. The options (in decreasing order) are None, Error, Warning, Information, All. The default value is None. If a different level is chosen, all messages generated for your Client Alias at that level or higher will be emailed to the POC.</tooltip>
+                        </reportlevel>
+
+						<resell translate="label">
+                            <label>Resell</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>recommend/system_config_source_resell</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>Whether previously purchased products should be offered to the same customer.</tooltip>
+                        </resell>
+                        
+						<minlikelihood translate="label">
+                            <label>Min Likelihood</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>recommend/system_config_validation_minlikelihood</backend_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>The minimum likelihood of purchase for a cross-sell or up-sell product to be included in the recommendation tables. In other words, products with a likelihood percentage below the minimum are not recommended, usually 5%</tooltip>
+                        </minlikelihood>
+                        
+						<mincommon translate="label">
+                            <label>Min Common</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>recommend/system_config_validation_mincommon</backend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>The minimum number of common users for a cross-sell or up-sell product to be included in the recommendation tables. In other words, products with common users below the minimum are not included in the tables. Usually this is set to 2, such that product pairs bought by only 1 customer are not recommended.</tooltip>
+                        </mincommon>
+
+                        <mode translate="label">
+                            <label>Mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>recommend/system_config_source_mode</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>Select the mode Live to Test.</tooltip>
+                        </mode>
+
+						<maxsalesdataageinmonths translate="label">
+                            <label>Max Sales Data Age In Months</label>
+                            <frontend_type>text</frontend_type>
+							<backend_model>recommend/system_config_validation_maxsalesdataageinmonths</backend_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>The number of months of sales data to upload when uploading all sales data.</tooltip>
+                        </maxsalesdataageinmonths>
+                    </fields>
+                </config>
+                
+                <display_recommendation translate="label">
+                    <label>Display Recommendations</label>
+                    <comment>&lt;?php echo "xyz"; ?&gt;</comment>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <upsell translate="label">
+                            <label>Upsell</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>recommend/system_config_source_upsell</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>Retrieve recommended Upsell products from 4-Tell</tooltip>
+                        </upsell>
+                        <numupsell translate="label">
+                            <label>Number of Recommendations</label>
+                            <frontend_type>text</frontend_type>
+							<backend_model>recommend/system_config_validation_numupsell</backend_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>How many recommended products to retrieve for Upsell</tooltip>
+                        </numupsell>
+                        
+                        <crosssell translate="label">
+                            <label>Cross Sell</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>recommend/system_config_source_crosssell</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>Retrieve recommended Upsell products from 4-Tell</tooltip>
+                        </crosssell>
+                        <numcrosssell translate="label">
+                            <label>Number of Recommendations</label>
+                            <frontend_type>text</frontend_type>
+							<backend_model>recommend/system_config_validation_numcrosssell</backend_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>How many recommended products to retrieve for Cross Sell</tooltip>
+                        </numcrosssell>
+                        
+                        <related translate="label">
+                            <label>Related</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>recommend/system_config_source_related</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>Retrieve recommended Upsell products from 4-Tell</tooltip>
+                        </related>
+                        <numrelated translate="label">
+                            <label>Number of Recommendations</label>
+                            <frontend_type>text</frontend_type>
+							<backend_model>recommend/system_config_validation_numrelated</backend_model>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>How many recommended products to retrieve for Related products</tooltip>
+                        </numrelated>
+                    </fields>
+                </display_recommendation>  
+            </groups>
+        </recommend>
+    </sections>
+</config>

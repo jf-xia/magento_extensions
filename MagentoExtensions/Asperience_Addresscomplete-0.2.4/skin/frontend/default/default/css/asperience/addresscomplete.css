@@ -1,0 +1,13 @@
+/**
+ * @category   ASPerience
+ * @package    Asperience_Addresscomplete
+ * @author     ASPerience - www.asperience.fr
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ 
+.address-autocomplete { z-index:999; }
+.address-autocomplete ul { border:1px solid #5c7989; background-color:#f9f5f0; }
+.address-autocomplete li { text-align:left; border-bottom:1px solid #f4eee7; padding:2px 0 2px 5px; margin:0; cursor:pointer; }
+.address-autocomplete li .amount { float:right; font-weight:bold; }
+.address-autocomplete li.odd { background-color:#fffefb; }
+.address-autocomplete li.selected { background-color:#f7e8dd; }

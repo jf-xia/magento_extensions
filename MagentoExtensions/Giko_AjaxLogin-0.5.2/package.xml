@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Giko_AjaxLogin</name>
+    <version>0.5.2</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Giko AjaxLogin</summary>
+    <description>Giko AjaxLogin will replace the login link to an ajax popup box.It's easy to use without any core code change</description>
+    <notes>Add the static files, such as js/css/images</notes>
+    <authors><author><name>Giko</name><user>Giko</user><email>wo@luochunhui.com</email></author></authors>
+    <date>2011-07-17</date>
+    <time>07:19:10</time>
+    <contents><target name="magecommunity"><dir name="Giko"><dir name="Ajaxlogin"><dir name="Block"><file name="Form.php" hash="97bc941ff767d3f3810f5f86e17c06dd"/><file name="Js.php" hash="94c12764388620c4f9ff81196969259c"/></dir><dir name="Helper"><file name="Data.php" hash="82b0004af2c85fec0359e35992854a94"/></dir><dir name="controllers"><file name="LoginController.php" hash="9b4c1f383edde1d07a02e198a186eb8e"/></dir><dir name="etc"><file name="config.xml" hash="78a3f8ca1c4f04eda9b9d093d3713a2e"/><file name="system.xml" hash="f620a68064925a7385c544b8f213adb0"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Giko_Ajaxlogin.xml" hash="5db395b7e6ba60868fb6e7938d498b39"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="ajaxlogin.xml" hash="e95676c60dcb48cfc22378cc1d603928"/></dir><dir name="template"><dir name="ajaxlogin"><file name="form.phtml" hash="cab254d9e4e5f262e491271fe5f1b331"/></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="css"><dir name="giko"><file name="ajaxlogin.css" hash="d74f51ff3af0b2e40a5b061a013dee22"/></dir></dir><dir name="images"><dir name="giko"><dir name="ajaxlogin"><file name="close.png" hash="4278a8b021acb550ad96cdddb2db6d8f"/><file name="preload.gif" hash="bf3ec68db23e93ba2ec795ef558e96da"/></dir></dir></dir></dir></dir></dir></target><target name="mageweb"><dir name="js"><dir name="giko"><file name="tinybox.js" hash="1a6b0ef907a4f5cc136ef0846be88a05"/><file name="ajaxlogin.js" hash="a68dafd2df08570a60d241d6285ec62e"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php><package><name>Mage_Core_Modules</name><channel>core</channel><min>1.5.0</min><max>1.6.0</max></package></required></dependencies>
+</package>

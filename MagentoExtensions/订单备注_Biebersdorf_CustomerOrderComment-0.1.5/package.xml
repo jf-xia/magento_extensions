@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<package>
+    <name>Biebersdorf_CustomerOrderComment</name>
+    <version>0.1.5</version>
+    <stability>beta</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Enable customers to write comments to their orders.</summary>
+    <description>This extension adds an EAV-Attribute to the order entity model so the customer can write a comment for the order. 
+
+To get this extension work some changes in the template files are required!
+
+In the folder /app/code/community/Biebersdorf/CustomerOrderComment/design/ you will find template files as examples for the magento standard theme. Copy them to the right places of your design theme modification folder or change your existing template files. Please do not overwrite the original template files!
+
+Explaination for the needed changes in templates:
+
+You have to add a HTML textarea field in the file app/design/frontend/default/default/template/checkout/onepage/agreements.phtml. Place the new textarea inside the form (opening and closing form tags) to be sure the comment variable is submitted. Don't forget to &#x201C;enable Terms and Conditions&#x201D; in configuration for the template to get shown. You can enable it here: System &gt; Configuration &gt; Sales &gt; Checkout &gt; Checkout Options &gt; Enable Terms and Conditions).
+
+To get the order comments visible you have to customize the templates where you like the comments to be shown (don&#x2019;t forget to escape the data with something like htmlspecialchars()):
+
+&lt;?php
+// If there is an order object:
+echo $_order-&gt;getBiebersdorfCustomerordercomment();
+// If you only have the order-id (e.g. 11), you have to create an instance first:
+$_order = Mage::getModel('sales/order')-&gt;load(11);
+echo $_order-&gt;getBiebersdorfCustomerordercomment();
+?&gt;
+
+This extension is still in development. To get a clean implementation the textarea for the input of the comment has to be moved out of the agreements-formular.</description>
+    <notes>- removed installer routine for 1.4-compatibility</notes>
+    <authors><author><name>Ottmar Biebersdorf</name><user>auto-converted</user><email>ottmar@rocketmail.com</email></author></authors>
+    <date>2010-12-15</date>
+    <time>08:14:50</time>
+    <contents><target name="magecommunity"><dir name="Biebersdorf"><dir name="CustomerOrderComment"><dir name="design"><dir name="adminhtml"><dir name="template"><dir name="sales"><dir name="order"><dir name="view"><dir name="tab"><file name="info.phtml" hash="7b69b0d7e2a693b4c25a86932e4343c4"/></dir></dir></dir></dir></dir></dir><dir name="frontend"><dir name="template"><dir name="checkout"><dir name="multishipping"><file name="agreements.phtml" hash="73abd886cff106fd815a727759860403"/></dir><dir name="onepage"><file name="agreements.phtml" hash="b27ba6ebb8e761817060101bd39da399"/></dir></dir></dir></dir></dir><dir name="etc"><file name="config.xml" hash="dfecfeec08b9ab8e826976c420410681"/></dir><dir name="Helper"><file name="Data.php" hash="cd500288ea1185c4cd0128f11b1ff284"/></dir><dir name="sql"><dir name="customerordercomment_setup"><file name="mysql4-install-0.0.3.php" hash="b601e6b1ff18bf245fef8ec5095ae5f7"/></dir></dir></dir></dir></target><target name="magelocale"><dir name="de_DE"><file name="Biebersdorf_CustomerOrderComment.csv" hash="a56fc6041f31200e18250bc691ece733"/></dir><dir name="en_GB"><file name="Biebersdorf_CustomerOrderComment.csv" hash="08cd2d519d47f2383fe495e3afab7232"/></dir><dir name="en_US"><file name="Biebersdorf_CustomerOrderComment.csv" hash="08cd2d519d47f2383fe495e3afab7232"/></dir><dir name="nl_NL"><file name="Biebersdorf_CustomerOrderComment.csv" hash="91ccab84e361e5eb23341e2ad2ead185"/></dir><dir name="th_TH"><file name="Biebersdorf_CustomerOrderComment.csv" hash="0ee6f97b2a801f458a2edb813a353e45"/></dir></target><target name="mageetc"><dir name="modules"><file name="Biebersdorf_CustomerOrderComment.xml" hash="2f5a3324eb920ec6a01ac7fd3901a3f1"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

@@ -1,0 +1,9 @@
+.order-about dd.customer-comment {
+  background-color: #dee5e8;
+  border: 1px solid #BEBCB7;
+  padding: 2px 5px;
+}
+
+dl.hide dd, dl.hide dt {
+  visibility: hidden;
+}

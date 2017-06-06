@@ -1,0 +1,270 @@
+<?php
+	$bannerCollection = $this->getBannerCollection();
+	$i = 0;
+?>
+<?php $timeDelay = $this->getDelayTime() ?>
+<?php $showdesc = $this->isShowDescription() ?>
+<?php $listStyle = $this->getListStyle() ?>
+<?php $animationStyle = $this->getListAnimaiton() ?>
+<?php $imagewidth = $this->getImageWidth() ?>
+<?php $imageheight = $this->getImageHeight() ?>
+<?php $metrobanner = $this->getMetroBanner() ?>
+<?php $flexbanner = $this->getFlexBanner() ?>
+<?php $slideshowSpeed = $this->getSlideshowSpeed() ?>
+<?php $animationSpeed = $this->getAnimationSpeed() ?>
+<?php $slideshowSpeedSpeedSequence = $this->getAnimationSpeedSequence() ?>
+<?php $animationSpeedSpeedSequence = $this->getSlideshowSpeedSequence() ?>
+<?php $sequencebBanner = $this->getSequencebBanner() ?>
+<?php $sequencebDis = $this->getSequencebDis() ?>
+<?php $nivoBanner = $this->getNivoBanner() ?>
+<?php $nivoDis = $this->getNivoDis() ?>
+<?php $nivoEffects = $this->getNivoEffect() ?>
+<?php $animSpeed = $this->getAnimSpeed() ?>
+<?php $pauseTime = $this->getPauseTime() ?>
+<?php $bannerType = $this->getBannertype() ?>
+<?php $bText = $this->getButtontextsequence() ?>
+
+<?php if ($bannerType == '1'):?>
+<?php if (!count($bannerCollection)): ?>
+<div class="no-banner"><?php echo $this->__('Please upload banner');?></div>
+<?php else:?>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/banner2.css');?>" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/custom.css');?>" media="all" />
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/custom.js'); ?>"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery('.metro-banner-slide').hover(function(){	
+		if(jQuery(this).children('.metorDis').is(":hidden")) {
+			jQuery(this).children('.metorDis').slideDown("fast");
+		}else{
+			jQuery(this).children('.metorDis').slideUp("fast");
+		}
+	 });	
+	});
+</script>
+ <!-- Slider -->
+ <div class="span12 bannerRow">
+  <div class="metro-banner-wrapper max-box box-level-3">
+    <div id="metro-banner" class="metro-banner">
+      <div class="metro-banner-inner">
+        <div class="metro-banner-inSide">
+          <?php $i = 0; foreach ($bannerCollection as $banner): $i++; ?>
+       <a class="metro-banner-slide block-3 bg-color-slider" href="<?php echo Mage::getBaseUrl().$banner['weblink'];?>" title="<?php echo $banner['title']?>" >
+       <span class="imgBox box-level-2 marginNone"> 
+	                    <img class="slider_img" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $banner['filename']?>" title="<?php echo $banner['title']?>" alt="<?php echo $banner['title']?>" />
+                        </span>
+                        <?php if ($showdesc == '1'):?>
+                            <div class="metorDis" style="display:none;">
+                            <h2><?php echo $banner['title']?></h2>
+                            <p><?php echo $banner['content']; ?></p>
+                            </div>
+                        <?php endif;?>
+							</a>
+                        <?php endforeach; ?>	
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clear anti-mar sepB">&nbsp;</div>
+  <div class="metro-banner-control max-box block-h-half bg-color-slider" id="metro-banner-control"> 
+  	<a href="#" class="control-left"></a>
+      <div class="control-seek">
+        <div class="control-seek-box">
+          <div class="control-seek-box-inner"></div>
+        </div>
+      </div>
+      <a href="#" class="control-right"></a>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <!-- /Slider -->
+<?php endif;?>
+<?php endif;?>
+  
+
+<?php if ($bannerType == '2'):?>
+<?php if (!count($bannerCollection)): ?>
+<div class="no-banner"><?php echo $this->__('Please upload banner');?></div>
+<?php else:?>
+<?php if ($animationStyle == '0'):?>
+	<?php $animationFix = 'slide';?>
+<?php elseif ($animationStyle == '2'):?>
+	<?php $animationFix = 'fade';?>    
+<?php endif;?>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/flexslider.css');?>" media="all" />
+<script type="text/javascript">
+jQuery(document).ready(function(){
+     jQuery('.flexslider').flexslider({
+        animation: "<?php echo $animationFix; ?>",
+		slideshowSpeed:<?php echo $slideshowSpeed; ?>,
+		animationSpeed:<?php echo $animationSpeed; ?>, 
+		animationLoop: true, 
+		pauseOnAction: true,
+        start: function(slider){
+         jQuery('.banner_box').removeClass('loading');
+        }
+      });
+});
+</script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery.flexslider.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery.touchSwipe.min.js'); ?>"></script>
+ <div class="span12 bannerRow">
+<div class="banner_box loading">
+  <div class="slider">
+    <div class="flexslider">
+      <ul class="slides">
+					   <?php $i = 0; foreach ($bannerCollection as $banner): $i++; ?>
+                       
+                       <li>
+                       		<a href="<?php echo Mage::getBaseUrl().$banner['weblink'];?>">
+				<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $banner['filename']?>" title="<?php echo $banner['title']?>" alt="<?php echo $banner['title']?>" />				
+				</a>
+                       </li>
+                        
+                       <?php endforeach; ?>	
+                    </ul>
+    </div>
+  </div>
+</div>
+</div>
+<?php endif;?> 
+<?php endif;?>  
+
+<?php if ($bannerType == '3'):?>
+<?php if (!count($bannerCollection)): ?>
+<div class="no-banner"><?php echo $this->__('Please upload banner');?></div>
+<?php else:?>    
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/banner3.css');?>" media="all" />
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/sequence.jquery-min.js') ?>"></script>
+<script type="text/javascript">	
+			jQuery(document).ready(function(){
+				var options = {
+					autoPlay: true,
+					autoPlayDelay:<?php echo $slideshowSpeedSpeedSequence;?>,
+					nextButton: true,
+					prevButton: true,
+					preloader: true,
+					animateStartingFrameIn: true,
+					transitionThreshold:<?php echo $animationSpeedSpeedSequence;?>,
+				}
+				
+				var sequence = jQuery("#sequence").sequence(options).data("sequence");
+	
+				sequence.afterLoaded = function(){
+					jQuery(".info").css('display','block');
+					jQuery("#sequence").hover(
+					        function() {
+					        	jQuery(".prev, .next").stop().animate({opacity:0.7},300);	            
+					        },
+					        function() {        
+					        	jQuery(".prev, .next").stop().animate({opacity:0},300);
+					        }
+					);
+					
+					jQuery(".prev, .next").hover(
+					        function() {
+					        	jQuery(this).stop().animate({opacity:1},200);	            
+					        },
+					        function() {        
+					        	jQuery(this).stop().animate({opacity:0.7},200);
+					        }		
+					);
+				}
+			});
+		</script>
+<div class="span12 bannerRow">
+  <div id="slider_holder" class="clearfix">
+        	<div id="sequence">
+					<div class="prev" ><span></span></div>
+					<div class="next" ><span></span></div>
+                    <ul>
+                     <?php $i = 0; foreach ($bannerCollection as $banner): $i++; ?>
+                    	<li>
+                         <?php if ($sequencebDis == '1'):?>
+                        	<div class="info">
+                            	<h2><?php echo $banner['title']?></h2>
+                            	<p><?php echo $banner['content']; ?></p>
+
+                                <a class="sequenceButton" href="<?php echo Mage::getBaseUrl().$banner['weblink'];?>"><?php echo $bText; ?></a>
+                              
+                            </div>
+                           <?php endif;?> 
+                           	<img class="slider_bgr" src="<?php echo $this->getSkinUrl('images/banner-bg.jpg')?>" alt="bg"/>	
+                             <img class="slide_img" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $banner['filename']?>" title="<?php echo $banner['title']?>" alt="<?php echo $banner['title']?>" />
+                        </li>
+                         <?php endforeach; ?>	
+                    </ul>
+            </div>        
+        </div>
+        </div>
+<?php endif;?>
+<?php endif;?>
+
+
+<?php if ($bannerType == '4'):?>
+<?php if (!count($bannerCollection)): ?>
+<div class="no-banner"><?php echo $this->__('Please upload banner');?></div>
+<?php else:?>
+
+<?php if ($nivoEffects == '1'):?>
+	<?php $animationEffect = 'random';?>
+<?php elseif ($nivoEffects == '2'):?>
+	<?php $animationEffect = 'sliceDown';?> 
+<?php elseif ($nivoEffects == '3'):?>
+	<?php $animationEffect = 'sliceDownLeft';?> 
+<?php elseif ($nivoEffects == '4'):?>
+	<?php $animationEffect = 'sliceUp';?> 
+<?php elseif ($nivoEffects == '5'):?>
+	<?php $animationEffect = 'sliceUpLeft';?> 
+<?php elseif ($nivoEffects == '6'):?>
+	<?php $animationEffect = 'sliceUpDown';?> 
+<?php elseif ($nivoEffects == '7'):?>
+	<?php $animationEffect = 'sliceUpDownLeft';?> 
+<?php elseif ($nivoEffects == '8'):?>
+	<?php $animationEffect = 'fold';?> 
+<?php elseif ($nivoEffects == '9'):?>
+	<?php $animationEffect = 'fade';?> 
+ <?php elseif ($nivoEffects == '10'):?>
+	<?php $animationEffect = 'slideInRight';?> 
+<?php elseif ($nivoEffects == '11'):?>
+	<?php $animationEffect = 'slideInLeft';?> 
+<?php elseif ($nivoEffects == '12'):?>
+	<?php $animationEffect = 'boxRandom';?> 
+<?php elseif ($nivoEffects == '13'):?>
+	<?php $animationEffect = 'boxRain';?> 
+<?php elseif ($nivoEffects == '14'):?>
+	<?php $animationEffect = 'boxRainReverse';?> 
+<?php elseif ($nivoEffects == '15'):?>
+	<?php $animationEffect = 'boxRainGrow';?> 
+<?php elseif ($nivoEffects == '16'):?>
+	<?php $animationEffect = 'boxRainGrowReverse';?>                                                           
+<?php endif;?>
+
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/nivo-slider.css');?>" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/nivodefault.css');?>" media="all" />
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery.nivo.slider.js') ?>"></script>
+<script type="text/javascript">
+    jQuery(window).load(function() {
+       jQuery('#slider').nivoSlider({
+		   effect:'<?php if($config['animationEffect']==true):?><?php echo $config['animationEffect']; ?><?php else: ?><?php echo 'random';?><?php endif; ?>',
+		   animSpeed: <?php echo $animSpeed;?>,
+           pauseTime: <?php echo $pauseTime;?>,
+		   });
+    });
+</script>
+  <div class="span12 bannerRow">
+<div class="slider-wrapper theme-default">
+            <div id="slider" class="nivoSlider">
+            <?php $i = 0; foreach ($bannerCollection as $banner): $i++; ?>
+                <a href="<?php echo Mage::getBaseUrl().$banner['weblink'];?>"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $banner['filename']?>" data-thumb"<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $banner['filename']?>"  alt="" title=" <?php if ($nivoDis == '1'):?><?php echo $banner['title']?><?php endif;?> " /></a>
+             <?php endforeach; ?>	    
+            </div>
+          	
+        </div>
+ </div>
+ <?php endif;?>  
+  <?php endif;?>       
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/mdl/ajax_cart.css');?>" media="all" />
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/light_box.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/mdl/ajax_cart.js') ?>"></script>

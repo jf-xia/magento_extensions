@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Amasty_Pgrid>
+            <version>2.8.1</version>
+        </Amasty_Pgrid>
+    </modules>
+    
+    <admin>
+        <routers>
+            <ampgrid>
+                <use>admin</use>
+                <args>
+                    <module>Amasty_Pgrid</module>
+                    <frontName>ampgrid</frontName>
+                </args>
+            </ampgrid>
+        </routers>
+    </admin>
+    
+    <frontend>
+        <translate>
+            <modules>
+                <Amasty_Pgrid>
+                    <files>
+                        <default>Amasty_Pgrid.csv</default>
+                    </files>
+                </Amasty_Pgrid>
+            </modules>
+        </translate>
+    </frontend>
+    
+    <adminhtml>
+        <translate>
+            <modules>
+                <Amasty_Pgrid>
+                    <files>
+                        <default>Amasty_Pgrid.csv</default>
+                    </files>
+                </Amasty_Pgrid>
+            </modules>
+        </translate>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <ampgrid translate="title" module="ampgrid">
+                                            <title>Extended Product Grid with Editor</title>
+                                        </ampgrid>
+                                    </children>
+                                </config>
+                            </children>
+                        </system> 
+                     </children>
+                </admin> 
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <ameasyblocks>
+                    <file>ampgrid.xml</file>
+                </ameasyblocks>
+            </updates>
+        </layout>
+    </adminhtml>
+    
+    <global>
+    
+        <models>
+            <ampgrid>
+                <class>Amasty_Pgrid_Model</class>
+                <resourceModel>ampgrid_mysql4</resourceModel>
+            </ampgrid>
+            <ampgrid_mysql4>
+                <class>Amasty_Pgrid_Model_Mysql4</class>
+            </ampgrid_mysql4>
+        </models>
+        
+		<resources>
+             <ampgrid_setup>
+                <setup>
+                    <module>Amasty_Pgrid</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ampgrid_setup>
+		    <ampgrid_write>
+		        <connection><use>core_write</use></connection>
+		    </ampgrid_write>
+		    <ampgrid_read>
+		        <connection><use>core_read</use></connection>
+		    </ampgrid_read>
+		</resources>
+		  
+        <blocks>
+            <ampgrid>
+                <class>Amasty_Pgrid_Block</class>
+            </ampgrid>
+            
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_grid>Amasty_Pgrid_Block_Adminhtml_Catalog_Product_Grid</catalog_product_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        
+        <helpers>
+            <ampgrid>
+                <class>Amasty_Pgrid_Helper</class>
+            </ampgrid>
+        </helpers>
+
+    </global>
+    
+    
+    <default>
+        <ampgrid>
+           <editing>
+                <mode>single</mode>
+           </editing>
+           <cols>
+                <name>1</name>
+                <sku>1</sku>
+                <price>1</price>
+                <qty>1</qty>
+                <vis>1</vis>
+                <status>1</status>
+           </cols>
+           <attr>
+               <cols>1</cols>
+               <zoom>1</zoom>
+           </attr>
+           <additional>
+               <avail>0</avail>
+               <thumb>1</thumb>
+               <category>0</category>
+               <category_filter>0</category_filter>
+               <special_price>0</special_price>
+               <special_price_dates>0</special_price_dates>
+               <cost>0</cost>
+               <remove></remove>
+           </additional>
+           <cond>
+               <availability>0</availability>
+           </cond>
+        </ampgrid>
+    </default>
+    
+</config>

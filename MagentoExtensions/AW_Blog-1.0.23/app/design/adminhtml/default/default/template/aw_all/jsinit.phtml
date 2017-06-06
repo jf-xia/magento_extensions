@@ -1,0 +1,32 @@
+<?php if ($this->_section == 'awall'): ?>
+<div id="awall_extensions_table">
+    <table class="form-list">
+        <tbody>
+            <?php foreach ($this->getExtensions() as $Extension): ?>
+        <tr>
+            <td><img src="<?php echo $this->getIcon($Extension)->getSource()?>"
+                     alt="<?php echo $this->getIcon($Extension)->getTitle()?>"/></td>
+            <td><a href="<?php echo $Extension->getFeedInfo()->getUrl()?>"
+                   onclick="this.target = '_blank'"><?php echo $Extension->getFeedInfo()->getDisplayName()?></a></td>
+            <td><?php echo $Extension->getVersion()?></td>
+            <td>
+                <a href="http://doc.aheadworks.com/magento-extensions/<?php echo $Extension->getName()?>-<?php echo $Extension->getVersion()?>/readme.html"
+                   onclick="this.target = '_blank'"><img
+                        src="<?php echo $this->getSkinUrl('aw_all/images/readme.png')?>"/></a></td>
+        </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?php endif; ?>
+<?php if ($this->_section == 'awstore'): ?>
+<div id="awall_store_response">
+
+    <?php echo $this->_getStoreData()->getTextResponse()?>
+</div>
+<?php endif; ?>
+
+
+<script type="text/javascript">
+    _section = '<?php echo $this->_section?>';
+</script>

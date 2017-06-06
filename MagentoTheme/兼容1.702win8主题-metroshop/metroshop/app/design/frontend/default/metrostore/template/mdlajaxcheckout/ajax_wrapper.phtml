@@ -1,0 +1,27 @@
+<script type="text/javascript">
+    var ajax_cart_show_popup = <?php echo (int)Mage::getStoreConfig('mdlajaxcheckout/default/mdl_ajax_cart_show_popup', Mage::app()->getStore()->getId());?>;
+    <?php $loading_arr = explode("x",Mage::getStoreConfig('mdlajaxcheckout/default/mdl_ajax_cart_loading_size', Mage::app()->getStore()->getId()));?>
+    <?php $confirm_arr = explode("x",Mage::getStoreConfig('mdlajaxcheckout/default/mdl_ajax_cart_confirm_size', Mage::app()->getStore()->getId()));?>
+    
+    var loadingW = <?php echo $loading_arr[0];?>;
+    var loadingH = <?php echo $loading_arr[1];?>;
+    var confirmW = <?php echo $confirm_arr[0];?>;
+    var confirmH = <?php echo $confirm_arr[1];?>;
+
+</script>
+
+<div class="mdl-overlay" id="mdl-overlay" style="display: none;">&nbsp;</div>
+
+<div style="display: none; width: <?php echo $loading_arr[0];?>px; height: <?php echo $loading_arr[1];?>px; top: 550px;" class="mdlajax-progress" id="mdl_ajax_progress">
+        &nbsp;
+</div>
+<div class="mdl-loading-data" id="mdl-loading-data" style="display: none;">
+    <img alt="<?php echo $this->__('loading...');?>" src="<?php echo $this->getSkinUrl();?>images/mdl/ajax-loader.gif"/>
+    <p><?php echo $this->__('loading...');?></p>
+</div>
+
+<div style="display: none; width: <?php echo $confirm_arr[0];?>px; height: <?php echo $confirm_arr[1];?>px; position: fixed; top: 496px;" class="mdlajax-confirm" id="mdl_ajax_confirm">
+        &nbsp;
+</div>
+
+<div id="mdl-temp-div" style="display:none;"></div>

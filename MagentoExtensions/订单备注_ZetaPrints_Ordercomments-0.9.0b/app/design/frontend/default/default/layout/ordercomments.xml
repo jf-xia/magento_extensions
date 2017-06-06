@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version = "0.1.0">
+  <sales_order_view>
+    <reference name="head">
+      <action method="addJs"><name>custom/ordercomments.js</name></action>
+      <action method="addCss"><name>css/ordercomments.css</name></action>
+    </reference>
+    <reference name="my.account.wrapper">
+      <block type="ordercomments/form_front" as="comment_form" name="order.comment.form.front" after="order_items"/>
+    </reference>
+  </sales_order_view>
+</layout>

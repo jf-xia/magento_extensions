@@ -1,0 +1,66 @@
+<?php
+	$bannerCollection = $this->getBannerCollection();
+	$configData = Mage::getStoreConfig('bannerslider');
+	$i = 0;
+?>
+
+
+
+<?php if ($configData['settings']['enable'] == '1') { ?>
+<div class="clear"></div>
+
+<div class="banner">
+	
+	<ul class="bxslider">
+		
+			   <?php
+	foreach ($bannerCollection as $banner):
+	?>
+		
+		<li>
+			    <img src=" <?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $banner['filename']?>" />
+			    
+				<?php if ($configData['settings']['show_description'] == '1' && $banner['content'] != ""):?>
+					<div class="flex-container">	
+					<div class="container">
+				
+						<div class="summer_box">
+							
+							<div class="contenttextbox">
+							<div class="text_box">
+								
+								<h2 class="x-large"><?php echo $banner['title']?></h2>
+								
+								
+								<p><?php echo $banner['content']; ?></p>
+								
+								<a href="<?php echo $banner['weblink'];?>" class="button" title="READ MORE">View More</a>
+							 
+							</div>
+							</div>
+						</div>	
+					</div>
+					</div>
+				<?php endif;?>
+		</li>
+		
+		 <?php
+					$i++;
+					endforeach;
+			?>
+				
+	</ul>		    
+			   
+</div>
+<div class="clear"></div>
+   
+<script>
+	
+var vSlide = <?php echo $configData['settings']['time_delay']; ?>;
+var vEffect = '<?php echo $configData['settings']['effect']?>';
+var vMode = '<?php echo $configData['settings']['mode']; ?>';
+
+</script>
+    
+<?php } ?>
+    

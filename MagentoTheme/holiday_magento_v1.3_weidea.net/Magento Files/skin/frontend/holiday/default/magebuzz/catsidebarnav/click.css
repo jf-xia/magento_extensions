@@ -1,0 +1,26 @@
+
+.block-category-nav{}
+.block-category-nav .block-title{}
+.block-category-nav .block-title strong{}
+.block-category-nav .block-content{}
+
+
+
+
+
+
+/* Level 0 */
+
+#sidenav li.level-top a.level-top{}
+#sidenav li.level-top a.level-top:hover{}
+#sidenav li ul.level0{display:none;padding-left:15px;}
+#sidenav li.active ul.level0{display:block;}
+#sidenav li.active ul.level0 li.active ul.level1{display:block;}
+#sidenav li.active ul.level0 li.active ul.level1 li.active ul.level2{display:block;}
+#sidenav li ul.level0 li{}
+/*#sidenav li ul.level0 li a{width:250px;}*/
+/*#sidenav li ul.level0 li a.show-cat{width:auto;}*/
+#sidenav li ul.level0 li.last{border:0 none;}
+/* Level 1 */
+#sidenav li ul li ul{ display:none;padding-left:15px;}
+#sidenav li ul li ul li a{}

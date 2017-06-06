@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * Delivery date Observer Model
+ *
+ * @category	Dh
+ * @package		Dh_Deliverydate
+ * @author		Drew Hunter <drewdhunter@gmail.com>
+ * @version		0.1.0
+ */
+class Dh_Deliverydate_Model_Observer extends Mage_Core_Helper_Abstract
+{        
+	/**
+	 * Take the date from post and and store it in the current quote.
+	 * 
+	 * When the quote gets converted we will store the delivery date
+	 * and assign to the order
+	 *
+	 * @param Varien_Object $observer
+	 * @return Dh_Deliverydate_Model_Observer
+	*/
+    public function checkoutEventCreateDeliveryDate($observer)
+    {
+        $date = $observer->getEvent()->getRequest()->getParam('deliverydate-date');
+        
+		if (! empty($date)) {		
+			$observer->getEvent()->getQuote()->setDeliveryDate((string)$date)->save();
+		}
+        return $this;
+    }
+    
+	/**
+	 * If the quote has a delivery date then lets save that date and 
+	 * assign the id to the order
+	 * 
+	 * @param Varien_Object $observer
+	 * @return Dh_Deliverydate_Model_Observer
+	*/
+    public function salesEventConvertQuoteToOrder($observer)
+    {
+		if ($date = $observer->getEvent()->getQuote()->getDeliveryDate()) {		
+			$deliverydate = Mage::getModel('deliverydate/date')->setDate($date)->save();
+			
+			$observer->getEvent()->getOrder()
+				->setDeliverydateId($deliverydate->getDeliverydateId());
+		}
+        return $this;
+    }
+}

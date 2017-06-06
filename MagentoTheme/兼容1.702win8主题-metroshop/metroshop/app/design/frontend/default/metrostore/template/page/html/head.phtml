@@ -1,0 +1,95 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php $config = Mage::getStoreConfig('mdloption/genral_theme_setting'); ?>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>" />
+<title><?php echo $this->getTitle() ?></title>
+<meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+<meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
+<meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
+<link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
+    var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
+//]]>
+</script>
+<![endif]-->
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+<?php echo $this->getCssJsHtml() ?>
+<?php if ($config['enable_font']) :?>
+<link href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $config['font']); ?>:300,400,700' rel='stylesheet' type='text/css'>
+<?php endif; ?>
+<?php $config = Mage::getStoreConfig('mdloption/priceSetting'); ?>
+<?php if ($config['enable_font']) :?>
+        <link href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $config['price_font']); ?>:300,400,700' rel='stylesheet' type='text/css'>
+<?php endif; ?>
+<?php $config = Mage::getStoreConfig('mdloption/buttonSetting'); ?>
+<?php if ($config['enable_font']) :?>
+        <link href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $config['button_font']); ?>:300,400,700' rel='stylesheet' type='text/css'>
+<?php endif; ?>
+
+<?php $config = Mage::getStoreConfig('mdloption/mega_navsetting'); ?>
+<?php if ($config['enable_font']) :?>
+        <link href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $config['mega_font']); ?>:300,400,700' rel='stylesheet' type='text/css'>
+<?php endif; ?>
+
+<?php echo $this->getChildHtml() ?>
+<?php echo $this->helper('core/js')->getTranslatorScript() ?>
+<?php echo $this->getIncludes() ?>
+
+<?php $config = Mage::getStoreConfig('mdloption/themesetting'); ?>
+<?php if($config['theme-color-option']==1):?>
+<?php $config = Mage::getStoreConfig('mdloption/genral_theme_setting'); ?>
+<?php if($config['body_bg']==true):?>
+<?php if($config['bg_repeat']==1):?>
+	<?php $positionBox = 'no-repeat'?>
+<?php elseif($config['bg_repeat']==2):?>  
+	<?php $positionBox = 'repeat'?>  
+<?php elseif($config['bg_repeat']==3):?> 
+	<?php $positionBox = 'repeat-x'?>
+<?php elseif($config['bg_repeat']==4):?> 
+	<?php $positionBox = 'repeat-y'?>
+<?php endif; ?>
+<style>
+	body{
+		background-image:url(<?php  echo Mage::getBaseUrl('media') . 'magic/bg/' . $config['body_bg'];?>);
+		background-repeat:<?php echo $positionBox;?>;
+	}
+</style>
+<?php endif; ?>
+<?php endif; ?>
+

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- This layout file is used to route the controller and actions -->
+
+<layout version="0.1.0">
+    <artist_adminhtml_artist_index>
+        <reference name="content">
+            <block type="artist/adminhtml_artist" name="artist" />
+        </reference>
+    </artist_adminhtml_artist_index>
+ 
+</layout>

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<config>
+    <includes>
+        <default>
+            <Mage_Adminhtml_Controller_Action />
+	</default>
+        <rewardpoints>
+            <Rewardpoints_Model_Validator />
+            <Rewardpoints_Model_Statusfield />
+            <Rewardpoints_Model_Stats />
+            <Rewardpoints_Model_Session />
+            <Rewardpoints_Model_Rules />
+            <RewardPoints_Model_Rule />
+            <Rewardpoints_Model_Review />
+            <Rewardpoints_Model_Referral />
+            <Rewardpoints_Model_Quote />
+            <Rewardpoints_Model_Pointrules />
+            <Rewardpoints_Model_Observer />
+            <Rewardpoints_Model_Mathmethod />
+            <Rewardpoints_Model_Discount />
+            <Rewardpoints_Model_Columns2 />
+            <Rewardpoints_Model_Columns />
+            <Rewardpoints_Model_Catalogpointrules />
+            <Rewardpoints_Model_Account />
+            <Rewardpoints_Model_Rule_Condition_Combine />
+            <Rewardpoints_Model_Rule_Condition_Order_Params />
+            <Rewardpoints_Model_Rule_Condition_Customerattribute_Params />
+            <Rewardpoints_Model_Rule_Condition_Customeraddress_Params />
+            <Rewardpoints_Model_Mysql4_Stats />
+            <Rewardpoints_Model_Mysql4_Rules />
+            <Rewardpoints_Model_Mysql4_Rewardpoints />
+            <Rewardpoints_Model_Mysql4_Referral />
+            <Rewardpoints_Model_Mysql4_Pointrules />
+            <Rewardpoints_Model_Mysql4_Catalogpointrules />
+            <Rewardpoints_Model_Mysql4_Abstract />
+            <Rewardpoints_Model_Mysql4_Stats_Collection />
+            <Rewardpoints_Model_Mysql4_Rules_Collection />
+            <Rewardpoints_Model_Mysql4_Rewardpoints_Collection />
+            <Rewardpoints_Model_Mysql4_Referral_Collection />
+            <Rewardpoints_Model_Mysql4_Pointrules_Collection />
+            <Rewardpoints_Model_Mysql4_Customer_Collection />
+            <Rewardpoints_Model_Mysql4_Catalogpointrules_Collection />
+            <Rewardpoints_Model_Config_Imageimport />
+            <Rewardpoints_Model_Config_Tablecell />
+            <Rewardpoints_Model_Catalogpointrule_Condition_Combine />
+            <Rewardpoints_Model_Catalogpointrule_Condition_Order_Params />
+            <Rewardpoints_Helper_Data />
+            <Rewardpoints_Helper_Event />
+            <Rewardpoints_Block_Referral />
+            <Rewardpoints_Block_Productpoints />
+            <Rewardpoints_Block_Points />
+            <Rewardpoints_Block_J2thead />
+            <Rewardpoints_Block_Dashboard />
+            <Rewardpoints_Block_Coupon />
+            <Rewardpoints_Block_Config_Import />
+            <Rewardpoints_Block_Config_Export />
+        </rewardpoints>
+    </includes>
+</config>

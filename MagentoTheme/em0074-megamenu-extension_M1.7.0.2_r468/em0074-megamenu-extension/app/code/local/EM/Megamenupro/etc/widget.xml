@@ -1,0 +1,16 @@
+<widgets>
+    <megamenupro type="megamenupro/megamenupro" module="megamenupro" translate="name description">
+        <name>EM Megamenu Pro</name>
+        <description type="desc"></description>
+        <parameters>
+			<menu>
+                <label>Menu : </label>
+                <visible>1</visible>
+				<required>1</required>
+                <description></description>
+                <type>select</type>
+                <source_model>megamenupro/megamenupro</source_model>
+            </menu>
+		</parameters>
+    </megamenupro>
+</widgets>

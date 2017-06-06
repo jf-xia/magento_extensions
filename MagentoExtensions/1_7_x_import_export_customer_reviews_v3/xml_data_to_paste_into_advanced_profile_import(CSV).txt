@@ -1,0 +1,15 @@
+<action type="dataflow/convert_adapter_io" method="load">
+    <var name="type">file</var>
+    <var name="path">var/import</var>
+    <var name="filename"><![CDATA[import_bulk_customer_reviews.csv]]></var>
+    <var name="format"><![CDATA[csv]]></var>
+</action>
+<action type="dataflow/convert_parser_csv" method="parse">
+    <var name="delimiter"><![CDATA[,]]></var>
+    <var name="enclose"><![CDATA["]]></var>
+    <var name="fieldnames">true</var>
+    <var name="number_of_records">1</var>
+    <var name="decimal_separator"><![CDATA[.]]></var>
+    <var name="adapter">catalog/convert_adapter_customerreviewimport</var>
+    <var name="method">parse</var>
+</action>

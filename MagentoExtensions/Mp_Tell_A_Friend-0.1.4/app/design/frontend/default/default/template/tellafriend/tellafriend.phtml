@@ -1,0 +1,28 @@
+<div class="block block-subscribe">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Tell a Friend') ?></span></strong>
+    </div>
+    <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="tellafriend-validate-detail">
+        <div class="block-content">
+	    
+            <label for="name"><?php echo $this->__('Your Name:') ?></label>
+            <div class="input-box">               
+	       <input type="text" class="input-text required-entry" title="<?php echo $this->__('Your Name') ?>" id="name" name="name" />
+            </div>
+
+	    <label for="email"><?php echo $this->__('Your Friend\'s Email Address:') ?></label>
+            <div class="input-box">
+	       <input type="text" class="input-text required-entry validate-email" title="<?php echo $this->__('Your Friend\'s Email Address') ?>" id="email" name="email" />
+            </div>
+
+            <div class="actions">
+                <button type="submit" title="<?php echo $this->__('Submit') ?>" class="button"><span><span><?php echo $this->__('Submit') ?></span></span></button>
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var tellafriendFormDetail = new VarienForm('tellafriend-validate-detail');
+    //]]>
+    </script>
+</div>

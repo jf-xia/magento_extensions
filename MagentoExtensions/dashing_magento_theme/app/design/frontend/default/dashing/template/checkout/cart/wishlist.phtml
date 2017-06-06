@@ -1,0 +1,30 @@
+
+	
+							<?php if($this->getWishlistItemsCount()>0): ?>
+							<?php $_items = $this->getWishlistItems()  ?>
+				  				<div class="mini-cart">
+									<ol class="mini-products-list">
+									<?php foreach($_items as $_item): ?>
+									<?php $product = $_item->getProduct(); ?> 	
+									<?php
+									//Mage::log(get_class($this));
+									//Mage::log($this->getData());
+									?>
+									<li class="item">
+										<a href="<?php echo $this->getProductUrl($_item) ?>" title="<?php echo $this->escapeHtml($product->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($product, 'thumbnail')->resize(50); ?>" width="50" height="50" alt="<?php echo $this->escapeHtml($product->getName()) ?>" /></a>
+										<div class="mini-products-list">
+											<a href="<?php echo $this->getItemRemoveUrl($_item) ?>" title="<?php echo $this->__('Remove This Item') ?>" onclick="return confirm('<?php echo $this->__('Are you sure you would like to remove this item from the wishlist?') ?>');" class="btn-remove"><?php echo $this->__('Remove This Item') ?></a>
+											<p class="product-name"><a href="<?php echo $this->getProductUrl($_item) ?>"><?php echo $this->escapeHtml($product->getName()) ?></a></p>
+											<?php echo $this->getPriceHtml($product, false, '-wishlist') ?>
+										</div>
+									</li>
+									<?php endforeach; ?>
+									</ol>
+								</div>
+							<?php else: ?>
+				  				<div class="mini-cart">
+									<p class="empty"><?php echo $this->__('You have no items in your WishList.') ?></p>
+								</div>
+							<?php endif ?>
+							
+							<?php $_wishlistQty = $this->getSummaryCount() ?>

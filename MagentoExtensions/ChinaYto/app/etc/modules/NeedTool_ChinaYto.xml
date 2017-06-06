@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <NeedTool_ChinaYto>
+            <active>true</active>
+            <codePool>local</codePool>
+        </NeedTool_ChinaYto>
+    </modules>
+</config>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>ActionLogger</name>
+    <version>1.1.0</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Frontend and Admin action logger. Useful for site monitoring and/or development.</summary>
+    <description>This extension is inspired, to some extent, by "Logging of Administrator Actions" feature available in Magento Enterprise. Extension has several configurable parameters to set its behavior. It supports localization, via ActiveCodeline_ActionLogger.csv file. </description>
+    <notes>Fix for 404 Admin links on Linux clients.</notes>
+    <authors><author><name>Branko Ajzele</name><user>brankoa</user><email>ajzele@gmail.com</email></author></authors>
+    <date>2011-02-23</date>
+    <time>14:05:32</time>
+    <contents><target name="magecommunity"><dir name="ActiveCodeline"><dir name="ActionLogger"><dir name="Block"><dir name="Adminhtml"><dir name="List"><dir name="Admin"><file name="Grid.php" hash="8062ab8c65627e62a291e79158cf67d0"/></dir><dir name="Frontend"><file name="Grid.php" hash="64369eb1f1f2164288433a09c0edcb3a"/></dir><dir name="Renderer"><file name="Param.php" hash="18d7d0c55b948112348eefa370eff40e"/></dir></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="5786dbb70993b61e0b4b30062cd71806"/></dir><dir name="Model"><file name="Admin.php" hash="97bc0d1abedc0ba9d49ea5ca7d8aa811"/><file name="Frontend.php" hash="bb3c11adf75dcb8ad3d16719d5b24c35"/><dir name="Mysql4"><dir name="Admin"><file name="Collection.php" hash="5d2704b7792499377e709c0c80263261"/></dir><file name="Admin.php" hash="b20cf82f97457e265123ef8dfade51df"/><dir name="Frontend"><file name="Collection.php" hash="53c8b81d7438b575b9ed211d76f82385"/></dir><file name="Frontend.php" hash="71236e7158dc7d42a09a21858cd97b7f"/></dir><file name="Observer.php" hash="dfd15e2676b9e05b390f10de2e44073b"/></dir><dir name="controllers"><dir name="Adminhtml"><dir name="ActionLogger"><dir name="Admin"><file name="GridController.php" hash="04fed13b304bc912dff51bff5e368830"/></dir><dir name="Frontend"><file name="GridController.php" hash="c3e62c75e7fd41870d0c3e758cca3375"/></dir></dir></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="f08cb7cfaaff5ca9225a964e21ae4e9b"/><file name="config.xml" hash="373a0b02e9feafe2de77299691d89215"/><file name="system.xml" hash="511ad9f53d32ba2fd328cd3e7ae4e550"/></dir><dir name="sql"><dir name="activecodeline_actionlogger_setup"><file name="mysql4-install-1.0.0.php" hash="6a2d5a4ba81922bd9abbd6efde738a73"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="ActiveCodeline_ActionLogger.xml" hash="276359fcf9f52f645861c8d0abb3791f"/></dir></target><target name="magelocale"><dir name="en_US"><file name="ActiveCodeline_ActionLogger.csv" hash="e098d88a3713d6f6a466e340587af5b0"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Zopim_Livechat>
+            <version>0.5.0</version>
+        </Zopim_Livechat>
+    </modules>
+    <global>
+        <models>
+            <livechat>
+                <class>Zopim_Livechat_Model</class>
+                <resourceModel>livechat_mysql4</resourceModel>
+            </livechat>
+            <livechat_mysql4>
+                <class>Zopim_Livechat_Model_Mysql4</class>
+                <entities>
+                    <livechat>
+                        <table>livechat</table>
+                    </livechat>
+                </entities>
+            </livechat_mysql4>
+        </models>
+        <blocks>
+            <livechat>
+                <class>Zopim_Livechat_Block</class>
+            </livechat>
+        </blocks>
+         <helpers>
+            <livechat><class>Zopim_Livechat_Helper</class></livechat>
+        </helpers>
+        <resources>
+            <livechat_setup>
+                <setup>
+                    <module>Zopim_Livechat</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </livechat_setup>
+            <livechat_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </livechat_write>
+            <livechat_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </livechat_read>
+        </resources>
+    </global>
+    <frontend>
+        <routers>
+            <Zopim_Livechat>
+                <use>standard</use>
+                <args>
+                    <module>Zopim_Livechat</module>
+                    <frontName>livechat</frontName>
+                </args>
+            </Zopim_Livechat>
+        </routers>
+        <layout>
+            <updates>
+                <Zopim_Livechat>
+                    <file>livechat.xml</file>
+                </Zopim_Livechat>
+            </updates>
+        </layout>
+     </frontend>
+    <admin>
+       <routers>
+            <Zopim_Livechat>
+                <use>admin</use>
+                <args>
+                    <module>Zopim_Livechat</module>
+                    <frontName>livechat</frontName>
+                </args>
+            </Zopim_Livechat>
+       </routers>
+    </admin>
+	<adminhtml>
+		<menu>
+	        <livechat translate="title" module="livechat">
+	   	        <title>Zopim Live Chat</title>
+    	        <sort_order>1000</sort_order>
+            	<children>
+                	<accountconfig translate="title" module="livechat">
+    	                <title>Account Setup</title>
+                        <action>livechat/admin/accountconfig</action>
+        	            <sort_order>0</sort_order>
+            	    </accountconfig>
+					<customize translate="title" module="livechat">
+	                    <title>Customize</title>
+                        <action>livechat/admin/customization</action>
+	                    <sort_order>20</sort_order>
+	                </customize>
+	                <instantmessaging translate="title" module="livechat">
+	                    <title>IM Integration</title>
+                        <action>livechat/admin/instantmessaging</action>
+	                    <sort_order>30</sort_order>
+	                </instantmessaging>
+	                <dashboard translate="title" module="livechat">
+	                    <title>Dashboard</title>
+                        <action>livechat/admin/dashboard</action>
+	                    <sort_order>40</sort_order>
+	                </dashboard>
+    	        </children>
+        	</livechat>
+		</menu>
+    <acl>
+      <resources>
+        <admin>
+          <children>
+            <livechat translate="title" module="livechat">
+                <title>Zopim Live Chat</title>
+                <sort_order>1000</sort_order>
+                <children>
+                    <accountconfig translate="title" module="livechat">
+                        <title>Account Setup</title>
+                        <action>livechat/admin/accountconfig</action>
+                        <sort_order>0</sort_order>
+                    </accountconfig>
+                    <customize translate="title" module="livechat">
+                        <title>Customize</title>
+                        <action>livechat/admin/customization</action>
+                        <sort_order>20</sort_order>
+                    </customize>
+                    <instantmessaging translate="title" module="livechat">
+                        <title>IM Integration</title>
+                        <action>livechat/admin/instantmessaging</action>
+                        <sort_order>30</sort_order>
+                    </instantmessaging>
+                    <dashboard translate="title" module="livechat">
+                        <title>Dashboard</title>
+                        <action>livechat/admin/dashboard</action>
+                        <sort_order>40</sort_order>
+                    </dashboard>
+                </children>
+            </livechat>
+          </children>
+        </admin>
+      </resources>
+    </acl>
+	</adminhtml>
+</config>

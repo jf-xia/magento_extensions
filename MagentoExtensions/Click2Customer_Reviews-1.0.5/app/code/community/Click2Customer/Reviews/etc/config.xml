@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Click2Customer_Reviews>
+            <version>1.0</version>
+        </Click2Customer_Reviews>
+    </modules>
+    <global>
+        <blocks>
+            <click2customer_reviews>
+                <class>Click2Customer_Reviews_Block</class>
+            </click2customer_reviews>
+        </blocks>
+        <helpers>
+            <click2customer_reviews>
+                <class>Click2Customer_Reviews_Helper</class>
+            </click2customer_reviews>
+        </helpers>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <clickcustomer_reviews module="Click2Customer_Reviews">
+                    <file>click2customer_reviews.xml</file>
+                </clickcustomer_reviews>
+            </updates>
+        </layout>
+    </frontend>
+</config>

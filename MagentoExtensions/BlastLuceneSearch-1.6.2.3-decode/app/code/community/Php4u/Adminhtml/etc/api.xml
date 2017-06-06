@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   Php4u
+ * @package    Php4u_BlastLuceneSearch
+ * @author     Marcin Szterling <marcin@php4u.co.uk>
+ * @copyright  Php4u Marcin Szterling (c) 2012
+ * @license http://php4u.co.uk/licence/
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ * Any form of ditribution, sell, transfer forbidden see licence above
+ */
+ -->
+<config>
+	<api>
+		<resources>
+			<php4u_blastlucene translate="title" module="php4u">
+				<title>Php4u Lucene Search API</title>
+				<model>blastlucenesearch/search_api</model>
+				<acl>php4u/blastlucenesearch</acl>
+				<methods>
+					<search translate="title" module="php4u">
+						<title>Search</title>
+						<method>search</method>
+						<acl>php4u/blastlucenesearch/search</acl>
+					</search>
+				</methods>
+			</php4u_blastlucene>
+		</resources>
+		<acl>
+			<resources>
+				<php4u translate="title" module="php4u">
+					<title>Php4u</title>
+					<sort_order>100</sort_order>
+					<blastlucenesearch translate="title" module="php4u">
+						<title>Blast Search Lucene</title>
+						<sort_order>100</sort_order>
+						<search translate="title" module="php4u">
+							<title>Search product by query</title>
+							<sort_order>10</sort_order>
+						</search>
+					</blastlucenesearch>	
+				</php4u>
+			</resources>
+		</acl>
+	</api>
+</config>

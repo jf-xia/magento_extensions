@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mdlext_Mdloption>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Mdlext_Mdloption>
+    </modules>
+</config>

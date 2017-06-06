@@ -1,0 +1,47 @@
+<?php 
+$home = new Mage_Page_Block_Html_Header();
+	  if ($home->getIsHomePage()): 
+	  $slides = Mage::getStoreConfig('buyexpress_options/slides');
+	  $mediaUrl = Mage::getBaseUrl('media') . 'images/';
+?>
+<div class="slideshow">
+	<ul class="slideTab">
+<?php $i=0; foreach($slides as $slide): $i++;  ?>
+	
+    	<?php if(!empty($slides["slide_title{$i}"])): ?>
+        <li <?php if($i==1){ echo "class='active'"; } ?>>
+        	<div class="tabContent">
+        		<a href="<?php echo $slides["slide_url{$i}"];?>" class="title"><?php echo $slides["slide_title{$i}"]; ?></a>
+            	<p class="slideDesc"><?php echo $slides["slide_subtitle{$i}"]; ?></p>
+                <img src="<?php echo $this->getSkinUrl('images/slideAcive.png', array('_secure'=>true)); ?>" width="16" height="56" class="arrowActive" />
+    	</li>
+        <?php endif; ?>
+<?php endforeach; ?>
+	</ul>
+    <div class="slideContent">
+    <?php $i=0; foreach($slides as $slide): $i++;  ?>
+    <?php if(!empty($slides["slide_title{$i}"])): ?>
+		<?php if($slides["slide_type{$i}"]==2): ?>
+        	<div class="slides">
+        		<a href="<?php if(!empty($slides["slide_url{$i}"])) { echo $slides["slide_url{$i}"]; } else { echo "javacript:void(0);";} ?>"><img src="<?php echo $mediaUrl . $slides["slide_image{$i}"] ?>" width="723" height="387" /></a>
+       		</div>
+        <?php elseif($slides["slide_type{$i}"]==3): ?>
+            <div class="slides">
+                <div class="videoSlide">
+                    <?php echo $slides["slide_video{$i}"]; ?>
+                </div>
+            </div>
+        <?php else: ?>
+        	<div class="slides">
+            	<?php echo $slides["slide_html{$i}"]; ?>
+            </div>
+        <?php endif; ?>
+        <?php endif; ?>
+   <?php endforeach;  ?>
+    </div>
+    <ul class="prevNext">
+    	<li class="prev"><a href="javascript:void(0);">Prev</a></li>
+        <li class="next"><a href="javascript:void(0);">Next</a></li>
+    </ul>
+</div>
+<?php endif; ?>

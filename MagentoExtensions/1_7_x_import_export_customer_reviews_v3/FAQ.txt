@@ -1,0 +1,25 @@
+created_at = the date the review was "added"
+
+review_title = this is the review title
+
+review_detail = this is the review description
+
+nickname = set the nickname for person leaving review
+
+customer_id = this is the ID of the customer you want to have the review assoicated with. If you leave blank it will be imported as a guest
+
+store_id_review_is_from = this is the storeID you want the review to be left from. This is required
+
+product_id = this is the ID of the product you want to assoicate the review too.
+
+entity_type = this can be (product/category/customer) and the values are all lowercase.
+
+status_code = this can be (Approved or Disapproved).
+
+reviews_count = this is usually always 1 since you have just 1 review from this product. But if you have multiple reviews per 1 product this should be incremented in the csv.
+
+rating_summary = this is the 5star wieghting average in increments of 10 (0/10/20/30/40/50/60/70/80/90/100)
+
+rating_options = value format is ratingID:value(1-5) and delimiter is a comma
+
+store_ids = this is all the store's you have in your system (0=admin view, 1=default store and if you have multi-store you will have additional ids)

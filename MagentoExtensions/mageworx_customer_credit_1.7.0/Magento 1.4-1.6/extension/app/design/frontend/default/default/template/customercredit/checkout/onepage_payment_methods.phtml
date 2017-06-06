@@ -1,0 +1,76 @@
+<?php
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ *
+ * @category   MageWorx
+ * @package    MageWorx_CustomerCredit
+ * @copyright  Copyright (c) 2012 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+
+/**
+ * Customer Credit extension
+ *
+ * @category   MageWorx
+ * @package    MageWorx_CustomerCredit
+ * @author     MageWorx Dev Team
+ */
+$isPartial = $this->isPartialPayment();
+$isCheckedCustomercredit = Mage::getSingleton('checkout/session')->getUseInternalCredit();
+if ($isPartial==2 && $isCheckedCustomercredit) $this->getQuote()->getPayment()->setMethod('customercredit');
+?>
+<div class="payment-methods">
+    <dl id="checkout-payment-method-load">
+    <?php foreach ($this->getMethods() as $_method): $_code = $_method->getCode() ?>
+        <dt>
+        <?php if (sizeof($this->getMethods()) > 1): ?>
+            <?php if ($_code=='customercredit' && $isPartial==1): ?>
+                <input id="p_method_<?php echo $_code ?>" value="1" type="checkbox" name="payment[use_internal_credit]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" class="checkbox" onclick="payment.switchMethod('<?php echo $_code ?>')" <?php if ($isCheckedCustomercredit) { ?>checked="checked"<?php } ?> />
+            <?php elseif ($_code=='customercredit' && $isPartial==-1): ?>
+                <input id="p_method_<?php echo $_code ?>_disabled" disabled="disabled" value="1" type="checkbox" name="payment[use_internal_credit]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" class="checkbox" />
+            <?php elseif ($_code=='customercredit' && $isPartial==0) : ?>
+                <input id="p_method_<?php echo $_code ?>_disabled" disabled="disabled" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" class="radio" />
+            <?php else: ?>
+                <input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" class="radio" onclick="payment.switchMethod('<?php echo $_code ?>')"<?php if($this->getSelectedMethodCode()==$_code): ?> checked="checked"<?php endif; ?> />
+            <?php endif; ?>
+        <?php else: ?>
+            <span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" checked="checked" /></span>
+        <?php endif; ?>
+            <label for="p_method_<?php echo $_code ?>">
+                <?php echo $this->__($_method->getTitle()); 
+                if ($_code=='customercredit' && Mage::helper('customercredit')->isEnabledCodes()) {?>
+                    (<a href="<?php echo $this->getUrl('customercredit/') ?>" target="_blank"><?php echo Mage::helper('customercredit')->__('Recharge') ?></a>)
+                <?php } ?>
+            </label>
+        </dt>
+        <?php if($html = $this->getChildHtml('payment.method.'.$_code)): ?>
+        <dd>
+            <?php echo $html; ?>
+        </dd>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    </dl>
+</div>
+<?php echo $this->getChildChildHtml('additional'); ?>
+<script type="text/javascript">
+//<![CDATA[
+    <?php echo $this->getChildChildHtml('scripts'); ?>
+    payment.init();
+    el = $('p_method_customercredit');
+    if (el) el.disabled = false;
+    <?php if ($isPartial==1 && $isCheckedCustomercredit) { ?>payment.switchMethod('customercredit');<?php } ?>
+//]]>
+</script>

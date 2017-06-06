@@ -1,0 +1,25 @@
+<?php
+
+if (Mage::getConfig()->getNode('default/liftsuggest/liftsuggest')->active == 1) {
+	$gaversion = Mage::getConfig()->getNode('default/liftsuggest/liftsuggest')->gaversion;
+	$gaid = Mage::getConfig()->getNode('default/liftsuggest/liftsuggest')->gaid;
+
+	if ($gaid != null || $gaid != '') {
+		if (get_class($this) == 'Mage_Catalog_Block_Product_View' || get_class($this) == 'Mage_Checkout_Block_Cart' ) {
+			
+			echo <<<_HTML_
+<script type="text/javascript">
+window.onload = function() {
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'http://www.liftsuggest.com/js/liftsuggest.js?gv={$gaversion}&uaid={$gaid}'; //liftsuggest tracking script for GA
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+}
+</script>
+_HTML_;
+		}
+	}
+}
+?>

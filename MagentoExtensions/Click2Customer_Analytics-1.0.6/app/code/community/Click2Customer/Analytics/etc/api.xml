@@ -1,0 +1,46 @@
+<config>
+    <api>
+        <resources>
+            <c2cproducts translate="title" module="analytics">
+                <title>Product Information</title>
+                <acl>c2cproducts</acl>
+                <model>analytics/c2cproducts_api</model>
+                <methods>
+                    <list translate="title" module="analytics">
+                        <title>Retrieve Products</title>
+                        <method>items</method>
+                        <acl>c2cproducts/list</acl>
+                    </list>
+                    <categories translate="title" module="analytics">
+                        <title>Retrieve Categories</title>
+                        <method>categories</method>
+                        <acl>c2cproducts/categories</acl>
+                    </categories>
+                </methods>
+                <faults>
+                    <data_invalid>
+                        <code>100</code>
+                        <message>Invalid product data. Details in error message.</message>
+                    </data_invalid>
+                    <not_exists>
+                        <code>101</code>
+                        <message>Product doesn't exist.</message>
+                    </not_exists>
+                </faults>
+            </c2cproducts>
+        </resources>
+        <acl>
+            <resources>
+                <c2cproducts translate="title" module="analytics">
+                     <title>Click2Customer</title>                   
+                     <list translate="title" module="analytics">
+                        <title>Get Product Details (ReadOnly)</title>
+                     </list>
+                     <categories translate="title" module="analytics">
+                        <title>Get Category Details (ReadOnly)</title>
+                     </categories>                  
+                </c2cproducts>
+            </resources>
+        </acl>
+    </api>
+</config>

@@ -1,0 +1,319 @@
+<?php
+    $_productCollection=$this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+	$_collectionSize = $_productCollection->count();
+?>
+<div class="breadcrumbs">
+	<ul>
+    	<li>
+        	<a href="<?php echo $this->getUrl() ?>" title="<?php echo $this->helper('groupdeal')->__('Go to Home Page') ?>"><?php echo $this->helper('groupdeal')->__('Home') ?></a>
+            <span>/ </span>
+		</li>
+        <?php if($this->getRequest()->getParam('category')){?>
+        <li>
+        	<a href="<?php echo $this->getUrl('groupdeal') ?>" title="<?php echo $this->helper('groupdeal')->__('Go to Groupdeal') ?>"><?php echo $this->helper('groupdeal')->__('Groupdeal') ?></a>
+            <span>/ </span>
+		</li>
+        <li><strong><?php echo $this->getCategoryName() ?></strong></li>
+        <?php }else{?>
+        <li><strong><?php echo $this->helper('groupdeal')->__('Groupdeal') ?></strong></li>
+        <?php }?>
+    </ul>
+</div>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<?php if(!$_collectionSize){ ?>
+<p class="note-msg category-deals"><?php echo $this->helper('groupdeal')->__('There are no deals matching the selection.') ?></p>
+<?php }else{ ?>
+<div id="group-deal-list" class="category-products category-deals">
+	<!--<div class="deallist-title"><?php echo $this->getTitle()?></div>-->
+    <?php $_columnCount = 2; ?>
+    <?php $i=0; foreach ($_productCollection as $_product){ ?>
+    	<?php $_deal = $this->getDeal($_product->getId()) ?>
+		<!-- Hai.Ta -->
+		<?php $productOptionInDeal = $this->getProductHaveOptions($_deal->getProductIds());  ?>		
+		<!-- end -->
+    	<?php if($i == 0){?>
+            <ul class="groupdeals-top products-grid">
+            	<li class="item">
+                    <a href="<?php echo $_deal->getDealUrl() ?>" title="<?php echo $this->stripTags($_deal->getDealTitle(), null, true) ?>" class="product-image">
+                        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(300, 182); ?>" width="300" height="182" alt="<?php echo $this->stripTags($_deal->getDealTitle(), null, true) ?>" />
+                     </a>
+                     
+                    <div class="info">
+                        <h2 class="product-name">
+                            <a href="<?php echo $_deal->getDealUrl() ?>" title="<?php echo $this->stripTags($_deal->getDealTitle(), null, true) ?>">
+                                <?php echo $this->stripTags($_deal->getDealTitle(), null, true) ?>
+                            </a>
+                        </h2>
+                        <p class="description"><?php echo $this->stripTags($_deal->getShortDescription(), null, true) ?></p>
+                        <div class="price-box inf-box">
+                            <dl class="first">
+                                <dt class="old-price">
+                                    <span class="price-label"><?php echo $this->helper('groupdeal')->__('Value') ?></span>
+                                </dt>
+                                <dd class="special-price">
+                                    <span class="price"><strike><?php echo $_deal->getValueHtml() ?></strike></span>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt class="old-price">
+                                    <span class="price-label"><?php echo $this->helper('groupdeal')->__('Price') ?></span>
+                                </dt>
+                                <dd class="special-price">
+                                    <span class="price"><?php echo $_deal->getPriceHtml() ?></span>
+                                </dd>
+                            </dl>
+                        </div>
+                        
+                        <div class="time-box inf-box">
+                            <dl class="first">
+                                <dt class="old-price">
+                                    <span class="time-text price-label"><?php echo $_deal->getTimeText() ?></span>
+                                </dt>
+                                
+                                <dd class="special-price">
+                                    <span id="left-time-<?php echo $_deal->getDealId() ?>" class="price"><?php echo $_deal->getLeftTime() ?></span>
+                                 </dd>
+                            </dl>
+                            <dl>
+                                <dt class="old-price">
+                                    <span class="time-text price-label"><?php echo $this->helper('groupdeal')->__('Bought') ?></span>
+                                </dt>
+                                
+                                <dd class="special-price">
+                                    <span class="price"><?php echo $_deal->getBought()  ?>/<?php echo $_deal->getMinimumPurchase()  ?></span>
+                                 </dd>
+                            </dl>
+                            <script type="text/javascript">
+                                var remainTime<?php echo $_deal->getDealId() ?> = <?php echo $_deal->getRemainTime() ?>;
+                                function showLeftTime<?php echo $_deal->getId() ?>(){
+                                    <?php if($_deal->getDealStatus() == 2 || $_deal->getDealStatus() == 3){ ?>		
+                                    remainTime<?php echo $_deal->getDealId() ?>++;
+                                    <?php }else{?>
+                                    remainTime<?php echo $_deal->getDealId() ?>--;
+                                    <?php }?>
+                                    var leftTime = getLeftTime(remainTime<?php echo $_deal->getId() ?>);
+                                    $('left-time-<?php echo $_deal->getId() ?>').update(leftTime);
+                                }
+                                
+                                setInterval("showLeftTime<?php echo $_deal->getId() ?>()", 1000);
+                            </script>
+                        </div>
+                        <?php if($_deal->getDealStatus() == 4 || $_deal->getDealStatus() == 5){ ?>
+                        <div class="buy-item inf-box">
+                            <dl class="first">
+                                <?php if($_deal->getBought() >= $_deal->getMinimumPurchase()){ ?>
+                                <span class="targetmet"><?php echo $this->helper('groupdeal')->getTargetMeetLabel() ?></span>
+                                <?php }else{?>
+                                <span class="targetnotmet"><?php echo $this->helper('groupdeal')->getTargetNotMetLabel() ?></span>
+                                <?php }?>
+                             </dl>
+                            <dl>
+                                <?php if($_deal->getOptionProduct()==0 || $productOptionInDeal==0):?>
+							   <form action="<?php echo $this->getAddToCartUrl($_product) ?>" method="post">
+									<?php foreach($_deal->getProductIds() as $productId){?>
+									<input type="hidden" name="super_group[<?php echo $productId ?>]" value="1">
+									<?php }?>
+									<button type="submit" title="<?php echo $this->__('Buy Now') ?>" class="button btn-cart"><span><span><?php echo $this->__('Buy Now') ?></span></span></button>
+								</form>								
+								<?php else: ?>
+									<button type="submit" title="<?php echo $this->__('Buy Now') ?>" class="button btn-cart" onclick="openPopup('<?php echo $productOptionInDeal->getId() ?>', '<?php echo $_deal->getId();?>')"><span><span><?php echo $this->__('Buy Now') ?></span></span></button>
+								<?php endif; ?>
+                            </dl>
+                        </div>
+                        <?php }?>
+                    </div>
+				</li>
+            </ul>
+            <?php $i++?>
+        <?php }else{?>
+            <?php if ($i++%$_columnCount==1): ?>
+            <ul class="groupdeals-grid products-grid">
+            <?php endif ?>
+                <li class="item<?php if(($i-1)%$_columnCount==1): ?> first<?php elseif($i%$_columnCount==1): ?> last<?php endif; ?>">                    
+					<div class="name-tag"></div>
+					<h2 class="product-name">
+                        <a href="<?php echo $_deal->getDealUrl() ?>" title="<?php echo $this->stripTags($_deal->getDealTitle(), null, true) ?>">
+                            <?php $title = $this->getOneLineTitle($_deal->getDealTitle(), 30)?>
+                            <?php echo $this->stripTags($title, null, true) ?>
+                        </a>
+                    </h2>
+					<a href="<?php echo $_deal->getDealUrl() ?>" title="<?php echo $this->stripTags($_deal->getDealTitle(), null, true) ?>" class="product-image">
+                        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(190, 115); ?>" width="190" height="115" alt="<?php echo $this->stripTags($_deal->getDealTitle(), null, true) ?>" />
+                     </a>
+                    
+                    
+                    
+                    <div class="price-box inf-box">
+                        <dl class="first">
+                            <dt class="old-price">
+                                <span class="price-label"><?php echo $this->helper('groupdeal')->__('Value') ?></span>
+                            </dt>
+                            <dd class="special-price">
+                                <span class="price"><strike><?php echo $_deal->getValueHtml() ?></strike></span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt class="old-price">
+                                <span class="price-label"><?php echo $this->helper('groupdeal')->__('Price') ?></span>
+                            </dt>
+                            <dd class="special-price">
+                                <span class="price"><?php echo $_deal->getPriceHtml() ?></span>
+                            </dd>
+                        </dl>
+                    </div>
+                    
+                    <div class="time-box inf-box">
+                        <dl class="first">
+                            <dt class="old-price">
+                                <span class="time-text price-label"><?php echo $_deal->getTimeText() ?></span>
+                            </dt>
+                            
+                            <dd class="special-price">
+                                <span id="left-time-<?php echo $_deal->getDealId() ?>" class="price"><?php echo $_deal->getLeftTime() ?></span>
+                             </dd>
+                        </dl>
+                        <dl>
+                            <dt class="old-price">
+                                <span class="time-text price-label"><?php echo $this->helper('groupdeal')->__('Bought') ?></span>
+                            </dt>
+                            
+                            <dd class="special-price">
+                                <span class="price"><?php echo $_deal->getBought()  ?>/<?php echo $_deal->getMinimumPurchase()  ?></span>
+                             </dd>
+                        </dl>
+                        <script type="text/javascript">
+                            var remainTime<?php echo $_deal->getDealId() ?> = <?php echo $_deal->getRemainTime() ?>;
+                            function showLeftTime<?php echo $_deal->getId() ?>(){
+                                <?php if($_deal->getDealStatus() == 2 || $_deal->getDealStatus() == 3){ ?>		
+                                remainTime<?php echo $_deal->getDealId() ?>++;
+                                <?php }else{?>
+                                remainTime<?php echo $_deal->getDealId() ?>--;
+                                <?php }?>
+                                var leftTime = getLeftTime(remainTime<?php echo $_deal->getId() ?>);
+                                $('left-time-<?php echo $_deal->getId() ?>').update(leftTime);
+                            }
+                            
+                            setInterval("showLeftTime<?php echo $_deal->getId() ?>()", 1000);
+                        </script>
+                    </div>
+                    <?php if($_deal->getDealStatus() == 4 || $_deal->getDealStatus() == 5){ ?>
+                    <div class="buy-item inf-box">
+                        <dl class="first">
+                            <?php if($_deal->getBought() >= $_deal->getMinimumPurchase()){ ?>
+                            <span class="targetmet"><?php echo $this->helper('groupdeal')->getTargetMeetLabel() ?></span>
+                            <?php }else{?>
+                            <span class="targetnotmet"><?php echo $this->helper('groupdeal')->getTargetNotMetLabel() ?></span>
+                            <?php }?>
+                         </dl>
+                        <dl>							
+							<?php if($_deal->getOptionProduct()==0 || $productOptionInDeal==0):?>
+						   <form action="<?php echo $this->getAddToCartUrl($_product) ?>" method="post">
+                            	<?php foreach($_deal->getProductIds() as $productId){?>
+                            	<input type="hidden" name="super_group[<?php echo $productId ?>]" value="1">
+                                <?php }?>
+                            	<button type="submit" title="<?php echo $this->__('Buy Now') ?>" class="button btn-cart"><span><span><?php echo $this->__('Buy Now') ?></span></span></button>
+                            </form>							
+							<?php else: ?>
+								<button type="submit" title="<?php echo $this->__('Buy Now') ?>" class="button btn-cart" onclick="openPopup('<?php echo $productOptionInDeal->getId() ?>', '<?php echo $_deal->getId();?>')"><span><span><?php echo $this->__('Buy Now') ?></span></span></button>
+							<?php endif; ?>
+                        </dl>
+                    </div>
+                    <?php }?>
+                </li>
+            <?php if ($i%$_columnCount==1 || $i==$_collectionSize+1): ?>
+            </ul>
+            <?php endif ?>
+		<?php }?>
+	<?php }?>
+    <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+</div>
+<?php }?>
+
+<div class="right-sidebar">
+    <?php echo $this->getLayout()->createBlock('groupdeal/sidebar')->setTemplate('groupdeal/sidebar/categories.phtml')->toHtml(); ?>
+	<?php echo $this->getLayout()->createBlock('groupdeal/sidebar')->setTemplate('groupdeal/sidebar/newestdeals.phtml')->toHtml(); ?>
+	<?php echo $this->getLayout()->createBlock('groupdeal/sidebar')->setTemplate('groupdeal/sidebar/newsletter.phtml')->toHtml(); ?>
+</div>
+
+<script type="text/javascript">
+function getLeftTime(remainTime){
+	if(remainTime > 0){
+		var remainDay = parseInt(remainTime/24/3600);
+		var remainHour = parseInt((remainTime%(24*3600))/3600);
+		if(remainHour < 10)
+			remainHour = '0' + remainHour; 
+		var remainMinute = parseInt(((remainTime%(24*3600))%3600)/60);
+		if(remainMinute < 10)
+			remainMinute = '0' + remainMinute;
+		var remainSecond = parseInt(((remainTime%(24*3600))%3600)%60);
+		if(remainSecond < 10)
+			remainSecond = '0' + remainSecond;
+		
+		if(remainDay != 0)
+			var leftTime = remainDay + 'd, ' + remainHour + ':' + remainMinute + ':' + remainSecond;
+		else
+			var leftTime = remainHour + ':' + remainMinute + ':' + remainSecond;
+	}else{
+		var leftTime = "<?php echo $this->helper('groupdeal')->__('Time is up') ?>";
+	}
+	return leftTime;
+}
+</script>
+
+<!-- load by Hai.Ta 17.4.2013 -->
+<?php //if($_deal->getOptionProduct() && $productOptionInDeal==0):?>
+<div id="deal-ajaxcart-load-ajax" style="display:none;">
+	<div class="deal-ajaxcart-overlay">&nbsp;</div>
+	<div class="deal-ajaxcart-loading">
+		<img alt="<?php echo $this->__('Loading') ?>..." src="<?php echo $this->getSkinUrl('images/groupdeal/loading.gif') ?>" /><br />
+		<?php echo $this->__('Loading') ?>...
+	</div>
+</div>
+<div id="deal-ajaxcart-pop-up" style="display: none;">
+	<div class="deal-ajaxcart-popup-overlay" onclick="closeDealAjaxPopup();">&nbsp;</div>	
+	<div id="deal-ajaxcart-content" class="deal-ajaxcart-content" style="left:35%"></div>
+</div>
+<script type="text/javascript">		
+	
+	var urlAction = '<?php echo $this->getActionUrlBuy() ?>';
+	var groupdeal = new GroupDeal('deal-ajaxcart-load-ajax','deal-ajaxcart-pop-up','deal-ajaxcart-content','','div[class="block block-cart"]',$$('.header').first().down('ul.links'),'ajaxcart');
+	
+	
+	groupdeal.addToCartHandle = function(requestUrl, product_id, deal_id){
+		groupdeal.url = urlAction+'?productId='+product_id;		
+		$('deal-ajaxcart-load-ajax').show();		
+		new Ajax.Request(urlAction,{
+			method: 'get',			
+			parameters: {productId:product_id, dealId:deal_id},
+			onException: function (xhr, e){				
+				$('deal-ajaxcart-load-ajax').hide();
+				$('deal-ajaxcart-pop-up').hide();
+				window.location.href = groupdeal.url;
+			},
+			onComplete: groupdeal.ajaxOnComplete
+		});
+	}
+	groupdeal.ajaxOnComplete = function(xhr){		
+		if (xhr.responseText.isJSON()){
+			var response = xhr.responseText.evalJSON();
+			groupdeal.popupContentWindow(response);
+			
+		 }
+	}
+	
+	function openPopup(product_id, deal_id){		
+		groupdeal.addToCartHandle("",product_id, deal_id);		
+	}
+	
+	function closeDealAjaxPopup(){
+		$('deal-ajaxcart-load-ajax').hide();
+		$('deal-ajaxcart-pop-up').style.display = "none";
+	}
+	function ajaxMoreTemplateJs(){
+		if ($('deal-ajaxcart-content').down(".paypal-logo")) $('ajaxcart-pop-up').down(".paypal-logo").hide();
+		if ($('deal-ajaxcart-content').down(".add-to-links")) $('ajaxcart-pop-up').down(".add-to-links").hide();
+	}
+</script>
+<?php //endif; ?>
+<!-- end -->

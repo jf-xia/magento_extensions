@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@mageworx.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ * or send an email to sales@mageworx.com
+ *
+ * @category   MageWorx
+ * @package    MageWorx_Adminhtml
+ * @copyright  Copyright (c) 2010 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+
+/**
+ * MageWorx Adminhtml extension
+ *
+ * @category   MageWorx
+ * @package    MageWorx_Adminhtml
+ * @author     MageWorx Dev Team <dev@mageworx.com>
+ */
+-->
+<config>
+    <tabs>
+        <mageworx module="mageworx">
+            <label>MageWorx</label>
+            <sort_order>101</sort_order>
+        </mageworx>
+    </tabs>
+	<sections>
+		<mageworx translate="label" module="mageworx">
+			<label>Extensions &amp; Support</label>
+			<tab>mageworx</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>999999</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+                <extensions translate="label">
+                    <label>Extensions Information</label>
+                    <frontend_type>text</frontend_type>
+                    <frontend_model>mageworx/system_config_form_fieldset_mageworx_extensions</frontend_model>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </extensions>
+                <support translate="label">
+                    <label>Get Support</label>
+                    <frontend_type>text</frontend_type>
+                    <frontend_model>mageworx/system_config_form_fieldset_mageworx_support</frontend_model>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </support>
+			</groups>
+		</mageworx>
+	</sections>
+</config>

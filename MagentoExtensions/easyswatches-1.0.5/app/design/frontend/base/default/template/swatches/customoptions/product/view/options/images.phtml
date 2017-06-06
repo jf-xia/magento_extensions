@@ -1,0 +1,16 @@
+<?php $_option = $this->getOption() ?>
+<ul class="swatches-customoptions-list">
+<?php foreach ($_option->getValues() as $value): ?>
+    <?php $imagePath = $this->helper('swatches_customoptions')
+            ->getResizedUrl($value->getImage()) ?>
+    <li class="swatches-customoptions-list-item">
+        <a title="<?php echo $this->helper('core')->htmlEscape($value->getTitle())?>" 
+           href="javascript:void(0);" rel="<?php echo $_option->getId() . '_' . $value->getId()?>">
+            <img src="<?php echo $imagePath ?>"
+                 alt="<?php echo $this->helper('core')->htmlEscape($value->getTitle())?>" /></a>
+    </li>
+<?php endforeach; ?>
+</ul>
+<?php if(Mage::getStoreConfig('swatches/customoptions/show_text')): ?>
+<span id="swatches_state_<?php echo $_option->getId() ?>">&nbsp;</span>
+<?php endif; ?>

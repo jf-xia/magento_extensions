@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+
+/*
+ * Magento EsayCheckout Extension
+ *
+ * @copyright:	EcommerceTeam (http://www.ecommerce-team.com)
+ * @version:	1.0
+ *
+ */
+
+ -->
+<layout version="0.1.0">
+	
+	<checkout_onepage_index>
+		<update handle="ecommerceteam_echeckout_onepage_index"/>
+	</checkout_onepage_index>
+	
+	
+	<ecommerceteam_echeckout_onepage_index>
+		
+		<remove name="right"/>
+		<remove name="left"/>
+		
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        
+        <reference name="head">
+        	<action method="addCss"><stylesheet>css/ecommerceteam/echeckout.css</stylesheet></action>
+        	<action method="addCss"><stylesheet>css/ecommerceteam/tinybox.css</stylesheet></action>
+        	
+        	<action method="addJs"><script>ecommerceteam/easycheckout.js</script></action>
+        	<action method="addJs"><script>ecommerceteam/tinybox.js</script></action>
+        </reference>
+        
+        <reference name="content">
+        	
+        	<action method="unsetChildren" />
+        	
+        	<block type="ecommerceteam_echeckout/onepage" name="checkout.onepage" template="ecommerceteam/echeckout/checkout.phtml">
+        		<block type="ecommerceteam_echeckout/onepage_billing" name="checkout.onepage.address.billing" as="billing_address" template="ecommerceteam/echeckout/billing_address.phtml" />
+        		<block type="ecommerceteam_echeckout/onepage_shipping" name="checkout.onepage.address.shipping" as="shipping_address" template="ecommerceteam/echeckout/shipping_address.phtml" />
+        		
+        		<block type="ecommerceteam_echeckout/onepage_shipping_method" name="checkout.onepage.shipping_method" as="shipping_method" template="ecommerceteam/echeckout/shipping_method.phtml">
+	            	<block type="ecommerceteam_echeckout/onepage_shipping_method_available" name="checkout.onepage.shipping_method.available" as="available" template="checkout/onepage/shipping_method/available.phtml"/>
+	                <block type="ecommerceteam_echeckout/onepage_shipping_method_additional" name="checkout.onepage.shipping_method.additional" as="additional" template="checkout/onepage/shipping_method/additional.phtml"/>
+	            </block>
+	           	
+	           	<block type="ecommerceteam_echeckout/onepage_payment" name="checkout.onepage.payment" as="payment_method" template="ecommerceteam/echeckout/payment_method.phtml">
+                    <block type="checkout/onepage_payment_methods" name="checkout.payment.methods" as="methods" template="checkout/onepage/payment/methods.phtml">
+                        <action method="setMethodFormTemplate"><method>purchaseorder</method><template>payment/form/purchaseorder.phtml</template></action>
+                    </block>
+                </block>
+                <block type="ecommerceteam_echeckout/onepage_review" name="checkout.onepage.review" as="review" template="ecommerceteam/echeckout/review.phtml">
+                	<block type="checkout/onepage_review_info" name="info" template="ecommerceteam/echeckout/review/info.phtml">
+			            <action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>checkout/onepage/review/item.phtml</template></action>
+			            <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/onepage/review/item.phtml</template></action>
+			            <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/onepage/review/item.phtml</template></action>
+			            <action method="addItemRender"><type>downloadable</type><block>downloadable/checkout_cart_item_renderer</block><template>downloadable/checkout/onepage/review/item.phtml</template></action>
+			            <action method="addItemRender"><type>bundle</type><block>bundle/checkout_cart_item_renderer</block><template>checkout/onepage/review/item.phtml</template></action>
+			            <block type="checkout/cart_totals" name="checkout.onepage.review.info.totals" as="totals" template="checkout/onepage/review/totals.phtml"/>
+			            <block type="core/text_list" name="checkout.onepage.review.info.items.before" as="items_before"/>
+			        </block>
+                    <block type="checkout/agreements" name="checkout.onepage.agreements" as="agreements" template="ecommerceteam/echeckout/agreements.phtml"/>
+                </block>
+				
+				<block type="checkout/cart_coupon"  name="echeckout_coupon" as="echeckout_coupon" template="ecommerceteam/echeckout/coupon.phtml"/>
+	           	
+        	</block>
+        	
+        </reference>
+	</ecommerceteam_echeckout_onepage_index>
+	<ecommerceteam_echeckout_onepage_coupon>
+		<block type="checkout/cart_coupon" name="root" output="toHtml" template="ecommerceteam/echeckout/coupon.phtml"/>
+		<remove name="right"/>
+        <remove name="left"/>
+	</ecommerceteam_echeckout_onepage_coupon>
+</layout>

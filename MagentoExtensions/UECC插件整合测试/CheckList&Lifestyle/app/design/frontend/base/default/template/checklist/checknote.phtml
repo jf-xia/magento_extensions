@@ -1,0 +1,18 @@
+<?php if ($this->canShow()): ?>
+	<?php 
+		$customerId = Mage::getSingleton('customer/session')->getCustomer()->getId();
+		$wpChecknote = Mage::getModel('checklist/checknote')->getCollection()->addAttributeToSelect('*')->addFieldToFilter('customer_id',$customerId);
+		?>
+	<ol>
+	<?php foreach ($wpChecknote->getItems() as $_item): ?>
+		<li>
+			<?php echo $_item->getTitle() ?>
+		</li>
+	<?php endforeach ?>
+	</ol>
+<?php endif; ?>
+<form name="input" action="checklist/addlist" method="get">
+Date Time: <input type="text" name="Datetime" value="" /><br />
+Shopping Note: <textarea type="text" name="Checknote" value="" /><br />
+<input type="submit" value="Add Note" />
+</form> 

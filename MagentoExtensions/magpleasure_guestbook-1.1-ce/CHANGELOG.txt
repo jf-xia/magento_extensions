@@ -1,0 +1,16 @@
+Legend:
+    + Feature
+    * Bugfix
+
+1.1
+    + Possibility to change sort order for Comments
+    + Recent Comments widget
+    + Email Notification when New Comment arrived
+    + Titles are readable in Backend
+    * Undefined variable $postId in the code
+    * Fatal error when Automatic Approving is Enabled
+    * Prototype Effects object is not initialized properly
+    * Problem with translation of some Labels
+    * Minor Fixes
+
+

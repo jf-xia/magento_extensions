@@ -1,0 +1,255 @@
+<?xml version="1.0"?><!--
+/**
+ * Noovias_Cron
+ *
+ * NOTICE OF LICENSE
+ *
+ * Noovias_Cron is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Noovias_Cron is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Noovias_Cron. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Noovias_Cron to newer
+ * versions in the future. If you wish to customize Noovias_Cron for your
+ * needs please refer to http://www.noovias.com for more information.
+ *
+ * @category    Noovias
+ * @package    	Noovias_Cron
+ * @copyright   Copyright (c) 2010 <info@noovias.com> - noovias.com
+ * @license     <http://www.gnu.org/licenses/>
+ * 			    GNU General Public License (GPL 3)
+ * @link	    http://www.noovias.com
+ */
+-->
+<config>
+    <modules>
+        <Noovias_Cron>
+            <version>1.0.1</version>
+        </Noovias_Cron>
+    </modules>
+    <global>
+        <blocks>
+            <noovias_cron>
+                <class>Noovias_Cron_Block</class>
+            </noovias_cron>
+        </blocks>
+
+        <models>
+            <noovias_cron>
+                <class>Noovias_Cron_Model</class>
+                <resourceModel>noovias_cron_mysql4</resourceModel>
+            </noovias_cron>
+            <noovias_cron_mysql4>
+                <class>Noovias_Cron_Model_Mysql4</class>
+                <entities>
+                    <processedjob>
+                        <table>noovias_cron_processedjob</table>
+                    </processedjob>
+                    <schedule_config>
+                        <table>noovias_cron_schedule_config</table>
+                    </schedule_config>
+                </entities>
+            </noovias_cron_mysql4>
+            <cron>
+                <rewrite>
+                    <schedule>Noovias_Cron_Model_Schedule</schedule>
+                </rewrite>
+            </cron>
+            <cron>
+                <rewrite>
+                    <observer>Noovias_Cron_Model_Observer_Cron</observer>
+                </rewrite>
+            </cron>
+        </models>
+
+        <helpers>
+            <noovias_cron>
+                <class>Noovias_Cron_Helper</class>
+            </noovias_cron>
+        </helpers>
+
+        <events>
+            <cron_schedule_delete_after>
+                <observers>
+                    <noovias_cron>
+                        <type>singleton</type>
+                        <class>noovias_cron/observer_cleanupProcessedJobs</class>
+                        <method>cronScheduleDeleteAfter</method>
+                    </noovias_cron>
+                </observers>
+            </cron_schedule_delete_after>
+        </events>
+
+        <resources>
+            <noovias_cron_setup>
+                <setup>
+                    <module>Noovias_Cron</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </noovias_cron_setup>
+            <noovias_cron_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </noovias_cron_write>
+            <noovias_cron_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </noovias_cron_read>
+        </resources>
+
+        <template>
+            <email>
+                <noovias_cron_email_error_template translate="label" module="noovias_cron">
+                    <label>Noovias Cron Email Error</label>
+                    <file>noovias/cron/alert_error_email_template.html</file>
+                    <type>html</type>
+                </noovias_cron_email_error_template>
+                <noovias_cron_email_hanging_template translate="label" module="noovias_cron">
+                    <label>Noovias Cron Email Hanging</label>
+                    <file>noovias/cron/alert_hanging_email_template.html</file>
+                    <type>html</type>
+                </noovias_cron_email_hanging_template>
+                <noovias_cron_email_missed_template translate="label" module="noovias_cron">
+                    <label>Noovias Cron Email Missed</label>
+                    <file>noovias/cron/alert_missed_email_template.html</file>
+                    <type>html</type>
+                </noovias_cron_email_missed_template>
+                <noovias_cron_email_long_template translate="label" module="noovias_cron">
+                    <label>Noovias Cron Email Long</label>
+                    <file>noovias/cron/alert_long_email_template.html</file>
+                    <type>html</type>
+                </noovias_cron_email_long_template>
+            </email>
+        </template>
+    </global>
+
+    <admin>
+        <routers>
+            <noovias_cron>
+                <use>admin</use>
+                <args>
+                    <module>Noovias_Cron</module>
+                    <frontName>noovias_cron</frontName>
+                </args>
+            </noovias_cron>
+        </routers>
+    </admin>
+    
+    <adminhtml>
+        <layout>
+            <updates>
+                <noovias_cron>
+                    <file>noovias/cron.xml</file>
+                </noovias_cron>
+            </updates>
+        </layout>
+
+        <translate>
+            <modules>
+                <Noovias_Cron>
+                    <files>
+                        <default>Noovias_Cron.csv</default>
+                    </files>
+                </Noovias_Cron>
+            </modules>
+        </translate>
+    </adminhtml>
+
+    <frontend>
+        <routers>
+            <noovias_cron>
+                <use>standard</use>
+                <args>
+                    <module>Noovias_Cron</module>
+                    <frontName>noovias_cron</frontName>
+                </args>
+            </noovias_cron>
+        </routers>
+
+        <translate>
+            <modules>
+                <Noovias_Cron>
+                    <files>
+                        <default>Noovias_Cron.csv</default>
+                    </files>
+                </Noovias_Cron>
+            </modules>
+        </translate>
+    </frontend>
+
+    <default>
+        <noovias_cron>
+            <general>
+                <time_hanging>90</time_hanging>
+                <time_long>90</time_long>
+            </general>
+            <email_error>
+                <template>noovias_cron_email_error_template</template>
+                <cronjob_expression>*/5 * * * *</cronjob_expression>
+            </email_error>
+            <email_hanging>
+                <template>noovias_cron_email_hanging_template</template>
+                <cronjob_expression>0 * * * *</cronjob_expression>
+            </email_hanging>
+            <email_missed>
+                <template>noovias_cron_email_missed_template</template>
+                <cronjob_expression>0 * * * *</cronjob_expression>
+            </email_missed>
+            <email_long>
+                <template>noovias_cron_email_long_template</template>
+                <cronjob_expression>0 * * * *</cronjob_expression>
+            </email_long>
+        </noovias_cron>
+    </default>
+
+    <crontab>
+        <jobs>
+            <noovias_cron_checkfailedjobs>
+                <schedule>
+                    <config_path>noovias_cron/email_error/cronjob_expression</config_path>
+                </schedule>
+                <run>
+                    <model>noovias_cron/Cronjobs_Automail::checkFailedJobs</model>
+                </run>
+            </noovias_cron_checkfailedjobs>
+            <noovias_cron_checkmissedjobs>
+                <schedule>
+                    <config_path>noovias_cron/email_missed/cronjob_expression</config_path>
+                </schedule>
+                <run>
+                    <model>noovias_cron/Cronjobs_Automail::checkMissedJobs</model>
+                </run>
+            </noovias_cron_checkmissedjobs>
+            <noovias_cron_checkhangingjobs>
+                <schedule>
+                    <config_path>noovias_cron/email_hanging/cronjob_expression</config_path>
+                </schedule>
+                <run>
+                    <model>noovias_cron/Cronjobs_Automail::checkHangingJobs</model>
+                </run>
+            </noovias_cron_checkhangingjobs>
+            <noovias_cron_checklongjobs>
+                <schedule>
+                    <config_path>noovias_cron/email_long/cronjob_expression</config_path>
+                </schedule>
+                <run>
+                    <model>noovias_cron/Cronjobs_Automail::checkLongJobs</model>
+                </run>
+            </noovias_cron_checklongjobs>
+        </jobs>
+    </crontab>
+</config>

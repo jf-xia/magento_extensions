@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<upload_options>
+  <exclude_options>
+    <option>
+      <field>price</field>
+      <compare>eq</compare>
+      <value>0</value>
+    </option>
+  </exclude_options>
+  <replace_options>
+    <option>
+      <oldid>1</oldid>
+      <newid>2</newid>
+    </option>
+  </replace_options>
+  <upload_sales_data>All</upload_sales_data>
+  <upload_replacement_data>None</upload_replacement_data>
+  <upload_product_data>Yes</upload_product_data>
+  <upload_exclusion_data>No</upload_exclusion_data>
+  <replace_catalog_old_field>sku</replace_catalog_old_field>
+  <replace_catalog_new_field>entity_id</replace_catalog_new_field>
+  <showUploadDetails>Yes</showUploadDetails>
+</upload_options>

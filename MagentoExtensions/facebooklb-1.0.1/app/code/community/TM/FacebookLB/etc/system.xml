@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <templates_master>
+            <label>Templates-master</label>
+            <sort_order>195</sort_order>
+        </templates_master>
+    </tabs>
+
+    <sections>
+          <facebooklb translate="label" module="facebooklb">
+            <label>Facebook Like Button</label>
+            <tab>templates_master</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>71</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <sort_order>600</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <appid translate="label">
+                                <label>Application id </label>
+                                <comment><![CDATA[ Get <a href="http://www.facebook.com/developers/createapp.php">Facebook API</a> access info.]]></comment>
+                                <frontend_type>text</frontend_type>
+                                <sort_order>15</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                            </appid>
+                            <appkey translate="label">
+                                <label>Application key</label>
+                                <frontend_type>text</frontend_type>
+                                <sort_order>20</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                            </appkey>
+                        <layout translate="label">
+                            <label>Layout style</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>TM_FacebookLB_Adminhtml_Model_System_Config_Source_Layout</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </layout>
+                        <showfaces translate="lable">
+                            <label>Show faces</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </showfaces>
+                        <width translate="lable">
+                            <label>Width</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </width>
+                        <height translate="lable">
+                            <label>Height</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </height>
+                        <verb translate="label">
+                            <label>Verb to display</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>TM_FacebookLB_Adminhtml_Model_System_Config_Source_Verb</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </verb>
+                        <font translate="label">
+                            <label>Font</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>TM_FacebookLB_Adminhtml_Model_System_Config_Source_Font</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </font>
+                        <color translate="label">
+                            <label>Color scheme</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>TM_FacebookLB_Adminhtml_Model_System_Config_Source_Color</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color>
+                    </fields>
+                </general>
+                <opengraph translate="label">
+                    <label>Open graph</label>
+                    <sort_order>610</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                        <fields>
+                            <enabled_op translate="label">
+                                <label>Open graph enabled</label>
+                                <frontend_type>select</frontend_type>
+                                <source_model>adminhtml/system_config_source_yesno</source_model>
+                                <sort_order>10</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                            </enabled_op>
+                        </fields>
+                </opengraph>
+            </groups>
+        </facebooklb>
+    </sections>
+</config>

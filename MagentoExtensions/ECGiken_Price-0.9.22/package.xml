@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+    <name>ECGiken_Price</name>
+    <version>0.9.22</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/BSD-2-Clause">New BSD</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension adjusts price display formats.&#xD;
+&#x4FA1;&#x683C;&#x8868;&#x793A;&#x3092;&#x8ABF;&#x6574;&#x3059;&#x308B;&#x30A8;&#x30AF;&#x30B9;&#x30C6;&#x30F3;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3059;&#x3002;</summary>
+    <description>Additional marks like &#xFFE5;, $, etc. display position right/left/default.&#xD;
+also change decimal place.&#xD;
+&#x5C0F;&#x6570;&#x70B9;&#x4EE5;&#x4E0B;&#x306E;&#x6841;&#x6570;&#x3092;&#x8ABF;&#x6574;&#x3057;&#x305F;&#x308A;&#x3001;&#x4FA1;&#x683C;&#x8A18;&#x53F7;(&#x5186;&#x30DE;&#x30FC;&#x30AF;&#x3084;&#x300C;&#x5186;&#x300D;&#x3068;&#x8A00;&#x3063;&#x305F;&#x3082;&#x306E;)&#x306E;&#x8868;&#x793A;&#x4F4D;&#x7F6E;&#x3092;&#x5DE6;&#x53F3;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x4F4D;&#x7F6E;&#x306B;&#x8868;&#x793A;&#x3055;&#x305B;&#x308B;&#x305F;&#x3081;&#x306E;&#x30A8;&#x30AF;&#x30B9;&#x30C6;&#x30F3;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3059;&#x3002;</description>
+    <notes>mjv $Revision: 343 $</notes>
+    <authors><author><name>ECGikenJp_Price</name><user>ecgiken</user><email>info@ec-giken.com</email></author></authors>
+    <date>2012-12-01</date>
+    <time>05:32:24</time>
+    <contents><target name="magecommunity"><dir name="ECGiken"><dir name="Price"><dir name="Block"><dir name="Adminhtml"><dir name="Widget"><dir name="Grid"><dir name="Column"><dir name="Renderer"><file name="Currency.php" hash="91651d23b4608d37ee511e048542ea21"/></dir></dir></dir></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="4fd169541cd981a0937db335f6261cc9"/></dir><dir name="Model"><dir name="Core"><file name="Locale.php" hash="7c3b8be46b145ae80f47bfdd9aa40e01"/></dir><dir name="Directory"><file name="Currency.php" hash="f4e5a0a63b9e66ca1d10a7370dfc7949"/></dir><dir name="Option"><file name="Position.php" hash="9c5727511dd011887e8e240e3227ee88"/></dir></dir><dir name="etc"><file name="config.xml" hash="a11941c09693f16437adf70ccb9118c9"/><file name="system.xml" hash="eb603d78a23c5e2c9e349eefa268fbfa"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="ECGiken_Price.xml" hash="c1b97f7def5cb360bfcb85c79d73f77f"/></dir></target><target name="magelocale"><dir><dir name="en_US"><file name="ECGiken_Price.csv" hash="7e30c8bc98d4683af57735def6cdd2c9"/></dir><dir name="ja_JP"><file name="ECGiken_Price.csv" hash="6805c7758a1ab52c5219658289efd5b9"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.17</min><max>6.0.0</max></php></required></dependencies>
+</package>

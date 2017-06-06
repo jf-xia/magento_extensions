@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Feed_Manager_Version_1_1_2</name>
+    <version>2.0.7</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">Extension license name (OSL v3.0)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension creates xml files to retailtower for further distribution to price engines.</summary>
+    <description>This extension creates xml files to retailtower for further distribution to price engines.</description>
+    <notes>Stable version</notes>
+    <authors><author><name>rinkart</name><user>rinkarto</user><email>rinkarto2000@gmail.com</email></author></authors>
+    <date>2012-07-05</date>
+    <time>11:15:38</time>
+    <contents><target name="mageweb"><dir><dir><file name="productapi.php" hash="96392969c21b2c3cf628065478154771"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

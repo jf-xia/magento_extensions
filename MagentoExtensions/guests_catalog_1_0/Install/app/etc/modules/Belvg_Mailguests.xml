@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Belvg_Mailguests>
+      <active>true</active>
+      <codePool>community</codePool>
+    </Belvg_Mailguests>
+  </modules>
+</config>

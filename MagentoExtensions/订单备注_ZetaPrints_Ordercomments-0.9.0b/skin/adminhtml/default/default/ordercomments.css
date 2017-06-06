@@ -1,0 +1,7 @@
+#order_history_block .note-list li {
+  border-width: 2px;
+}
+#order_history_block .customer-comment {
+  background-color: #FCFAC9;
+  border-color: #0F7F14;
+}

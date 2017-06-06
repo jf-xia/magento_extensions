@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<config>
+ <tabs>
+      <searchautocomplete translate="label" module="searchautocomplete">
+            <label>Search Auto Complete</label>
+            <sort_order>200</sort_order>
+        </searchautocomplete>
+ </tabs>
+    <sections>
+		<searchautocomplete translate="label" module="searchautocomplete">
+           	<label>Search Auto Complete</label>
+            <tab>searchautocomplete</tab>
+   	        <frontend_type>text</frontend_type>
+       	    <sort_order>100</sort_order>
+           	<show_in_default>1</show_in_default>
+           	<show_in_website>1</show_in_website>
+           	<show_in_store>1</show_in_store>
+            <groups>
+                <settings translate="label">
+            		<label>Setting</label>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+<!--
+						          <effect translate="">
+                            <label>Effect</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <source_model>searchautocomplete/source_effect</source_model>
+                      </effect>
+
+						          <max_char translate="">
+                            <label>Max char</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </max_char>
+-->
+						          <border_color translate="">
+                            <label>Border Color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </border_color>
+
+						          <border_width translate="">
+                            <label>Border Width (px)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </border_width>
+						          <hover_background translate="">
+                            <label>Hover Background</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </hover_background>
+                </fields>
+            	</settings>
+              <suggest translate="label">
+            		<label>Suggest</label>
+                    <frontend_type>text</frontend_type>
+
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+
+						          <enable translate="">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                      </enable>
+
+						          <background translate="">
+                            <label>Background</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </background>
+
+						          <suggest_color translate="">
+                            <label>Suggest Color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </suggest_color>
+
+						          <count_color translate="">
+                            <label>Count Color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </count_color>
+
+                  </fields>
+            	</suggest>
+
+                <preview translate="label">
+            		    <label>Product Preview</label>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						          <enable translate="">
+                        <label>Enable</label>
+                        <frontend_type>select</frontend_type>
+                        <sort_order>1</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                      </enable>
+						          <number_product translate="">
+                            <label>Number Product Show</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </number_product>
+
+						          <show_image translate="">
+                            <label>Show Product Image</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                      </show_image>
+						          <show_name translate="">
+                            <label>Show Product Name</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                      </show_name>
+
+						          <show_description translate="">
+                            <label>Show Product Descrition</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                      </show_description>
+
+						          <num_char_description translate="">
+                            <label>Number character of Product Descrition</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </num_char_description>
+
+						          <background translate="">
+                            <label>Background</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </background>
+
+
+
+						          <pro_title_color translate="">
+                            <label>Product Name Color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </pro_title_color>
+
+						          <pro_description_color translate="">
+                            <label>Product Description Color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </pro_description_color>
+
+
+
+						          <image_width translate="">
+                            <label>Thumnail width (px)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </image_width>
+						          <image_height translate="">
+                            <label>Thumnail height (px)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </image_height>
+
+						          <image_border_width translate="">
+                            <label>Image border width (px)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </image_border_width>
+						          <image_border_color translate="">
+                            <label>Image border color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                      </image_border_color>
+                  </fields>
+            	</preview>
+            </groups>
+        </searchautocomplete>
+
+ 
+	</sections>
+</config>

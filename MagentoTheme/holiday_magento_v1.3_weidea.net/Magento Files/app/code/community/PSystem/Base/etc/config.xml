@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<config>
+	<modules>
+		<PSystem_Base>
+			<version>1.1.2</version>
+		</PSystem_Base>
+	</modules>
+	<global>
+		<blocks>
+			<psbase>
+				<class>PSystem_Base_Block</class>
+			</psbase>
+		</blocks>
+		<models>
+			<psbase>
+				<class>PSystem_Base_Model</class>
+			</psbase>
+		</models>
+		<helpers>
+			<psbase>
+				<class>PSystem_Base_Helper</class>
+			</psbase>
+		</helpers>
+		<events>
+			<controller_action_postdispatch>
+				<observers>
+					<psystem_base_observer>
+						<type>singleton</type>
+						<class>psbase/observer</class>
+						<method>postdispatch</method>
+					</psystem_base_observer>
+				</observers>
+			</controller_action_postdispatch>
+		</events>
+	</global>
+	<frontend>
+		<layout>
+			<updates>
+				<psbase module="PSystem_Base">
+					<file>ps_base.xml</file>
+				</psbase>
+			</updates>
+		</layout>
+	</frontend>
+	<default>
+		<psbase>
+			<quickimages>
+				<disable>1</disable>
+			</quickimages>
+		</psbase>
+	</default>
+</config>

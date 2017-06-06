@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout>
+
+
+    <!--<adminhtml_sales_order_view>
+            <reference name="order_totals">
+                    <action method="setTemplate">
+                            <template>rewardpoints/reward_totals.phtml</template>
+                    </action>
+                    <block type="adminhtml/sales_order_totals" name="reward_order_totals" template="sales/order/totals.phtml">
+                        <block type="adminhtml/sales_order_totals_tax" name="tax" template="sales/order/totals/tax.phtml" />
+                    </block>
+                    <block type="rewardpoints/adminhtml_totals" name="customer_account_points" as="points" template="rewardpoints/points.phtml"/>
+            </reference>
+    </adminhtml_sales_order_view>-->
+
+
+</layout>

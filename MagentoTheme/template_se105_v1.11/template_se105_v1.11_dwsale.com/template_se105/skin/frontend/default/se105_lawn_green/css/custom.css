@@ -1,0 +1,72 @@
+/* kinds of colors */
+
+div.add-to-cart div.quantity input#add1,
+div.add-to-cart div.quantity input#minus1
+{background-image:url("../images/sprites.gif")}
+
+#topnav,
+.home-box .head span,
+.featured-cat-title h2,
+button.button,
+#topnav ul li,
+#topnav ul li.last a span,
+#topnav ul li.top-link1 a span,
+#topnav ul li.top-link3 a span,
+.header .home-link,
+.box-recent-review .head, 
+.breadcrumbs li.home,
+.block-layered-nav .block-title,
+.tabs li.active a, .tabs li.active a:hover,
+.review-title-top,
+.block.block-cart .block-title,
+a.add-to-cart-link
+{background-image:url("../images/sprites_repeat.gif");}
+
+button.btn-round, button.btn-gray, button.btn-round-s{background:#fff;}
+
+.dealsoff{background-image:url("../images/offbg.png");}
+
+.sorter .sort-by a.active span, .limiter a.active span,
+.sorter .view-mode span,
+.pager .pages .current, .pager .pages li:hover,
+.pager a.i-next, .pager a.i-previous, .sorter .sort-by a.set_asc, .sorter .sort-by a.set_des,
+.sorter .sort-by a.active span, .limiter a.active span, .sorter .view-mode span, .pager .pages .current, 
+.pager .pages li:hover, .pager a.i-next, .pager a.i-previous, 
+.sorter .sort-by a.set_asc, .sorter .sort-by a.set_des
+{background-image:url("../images/toolbar-icons.gif"); }
+
+.footer, .tabs, .product-view .box-reviews .form-add {border-color:#7daf00;}
+
+#sidenav_header a{background-color:#8ca61f}
+
+.home-box .head span,
+.before_footer .home_viewed_block .head span,
+.featured-cat-title h2,
+.new-items-li a.news-title,
+.box-recent-review .head span,
+.block-layered-nav .block-title strong,
+.block-cart .block-title strong,
+.home-box .in-category
+{color:#748c0e;}
+
+.header .quick-access-right .topcart-content a, .header .quick-access-right p.empty{}
+
+.news-list .block-title span{color:#748c0e; font-weight:bold;}
+
+.block-login .top-links a.top-register-link, a.top-logout-lin,
+.header .quick-access-right .topcart-content a span,
+.header .quick-access-right p.empty span,
+.special-price .price,
+.header .home-link a,
+#shopping-cart-table .price,
+a.add-to-cart-link
+{color:#748c0e;}
+
+.home-box .home-product-img a:hover{border-color:#c4d96a;}
+
+.box-recent-review, .block-layered-nav, .block-layered-nav .block-subtitle, .block.block-cart{border-color:#c4d96a}
+.box-recent-review .head{border-bottom:1px solid #c4d96a;}
+
+
+#topnav ul li a{font-weight:bold;}
+button.button span span{font-weight:bold;}

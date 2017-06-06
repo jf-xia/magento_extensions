@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<layout version = "0.1.0">
+  <adminhtml_sales_order_view>
+    <reference name = "head">
+      <action method = "addJs"><name>custom/ordercomments_admin.js</name></action>
+      <action method="addCss"><name>ordercomments.css</name></action>
+    </reference>
+  </adminhtml_sales_order_view>
+</layout>

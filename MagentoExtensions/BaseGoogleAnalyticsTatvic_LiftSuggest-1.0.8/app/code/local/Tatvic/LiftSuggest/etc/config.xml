@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Tatvic_LiftSuggest>
+            <version>0.0.1</version>
+        </Tatvic_LiftSuggest>
+    </modules>
+    <global>
+        <helpers>
+            <liftsuggest>
+                <class>Tatvic_LiftSuggest_Helper</class>
+            </liftsuggest>
+        </helpers>
+        <blocks>
+             <Tatvic_LiftSuggest>
+                <class>Tatvic_LiftSuggest_Block</class>
+             </Tatvic_LiftSuggest>
+        </blocks>
+    </global>
+<frontend>
+		<routers>
+            <liftsuggest>
+                <use>standard</use>
+                <args>
+                    <module>Tatvic_LiftSuggest</module>
+                    <frontName>liftsuggest</frontName>
+                </args>
+            </liftsuggest>
+        </routers>
+        <layout>
+            <updates>
+                <liftsuggest>
+                    <file>liftsuggest.xml</file>
+                </liftsuggest>
+            </updates>
+        </layout>
+</frontend>
+   <admin>
+        <routers>
+		<liftsuggest>
+			<use>admin</use>
+			<args>
+				<module>Tatvic_LiftSuggest</module>
+				<frontName>liftsuggest</frontName>
+			</args>
+		</liftsuggest>
+        </routers>
+    </admin>
+    <adminhtml>
+    <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <liftsuggest>
+                                            <title>Lift Suggest</title>
+                                        </liftsuggest>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        </adminhtml>
+</config>

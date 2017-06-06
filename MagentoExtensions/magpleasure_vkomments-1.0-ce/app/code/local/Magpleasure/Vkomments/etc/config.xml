@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * MagPleasure Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magpleasure.com/LICENSE.txt
+ *
+ * @category   Magpleasure
+ * @package    Magpleasure_Vkomments
+ * @copyright  Copyright (c) 2011 Magpleasure Co. (http://www.magpleasure.com)
+ * @license    http://www.magpleasure.com/LICENSE.txt
+ */
+-->
+<config>
+    <modules>
+        <Magpleasure_Vkomments>
+            <version>1.0</version>
+        </Magpleasure_Vkomments>
+    </modules>
+    <global>
+        <models>
+            <vkomments>
+                <class>Magpleasure_Vkomments_Model</class>
+            </vkomments>
+        </models>
+        <blocks>
+            <vkomments>
+                <class>Magpleasure_Vkomments_Block</class>
+            </vkomments>
+        </blocks>
+        <helpers>
+            <vkomments>
+                <class>Magpleasure_Vkomments_Helper</class>
+            </vkomments>
+        </helpers>
+        <resources>
+            <vkomments_setup>
+                <setup>
+                    <module>Magpleasure_Vkomments</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </vkomments_setup>
+            <vkomments_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </vkomments_write>
+            <vkomments_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </vkomments_read>
+        </resources>
+		<layout>
+			<updates>
+				<vkomments>
+					<file>vkomments.xml</file>
+				</vkomments>
+			</updates>
+		</layout>
+    </global>
+    <frontend>
+        <routers>
+            <vkomments>
+                <use>standard</use>
+                <args>
+                    <module>Magpeasure_Vkomments</module>
+                    <frontName>vkomments</frontName>
+                </args>
+            </vkomments>
+        </routers>
+		<layout>
+			<updates>
+				<vkomments>
+					<file>vkomments.xml</file>
+				</vkomments>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Magpleasure_Vkomments>
+					<files>
+						<default>Magpleasure_Vkomments.csv</default>
+					</files>
+				</Magpleasure_Vkomments>
+			</modules>
+		</translate>
+    </frontend>
+    <adminhtml>
+		<translate>
+			<modules>
+				<Magpleasure_Vkomments>
+					<files>
+						<default>Magpleasure_Vkomments.csv</default>
+					</files>
+				</Magpleasure_Vkomments>
+			</modules>
+		</translate>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <vkomments>
+                                            <title>Vkontakte Comments</title>
+                                        </vkomments>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+    </adminhtml>
+    <default>
+        <vkomments>
+            <general>
+                <width>500</width>
+                <limit>15</limit>
+            </general>
+        </vkomments>
+    </default>
+</config>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>facebooklb</name>
+    <version>1.0.1</version>
+    <stability>beta</stability>
+    <license uri="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Magento Facebook Lit button with open graph support community module</summary>
+    <description>This small extension will help  to install Facebook  like button. Installation and configuration will take approximately 5 minutes.</description>
+    <notes>Magento Facebook Lit button with open graph support community module</notes>
+    <authors><author><name>TemplatesMaster</name><user>auto-converted</user><email>support@templates-master.com</email></author></authors>
+    <date>2010-06-10</date>
+    <time>14:59:59</time>
+    <contents><target name="magelocale"><dir name="en_US"><file name="TM_FacebookLB.csv" hash="b16e998d9a4871a1dc4e776c1f3d342f"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="FacebookLB.xml" hash="0ed1a648c79b7f2409a52da3f405deda"/></dir><dir name="template"><dir name="facebooklb"><file name="head.phtml" hash="061d3cb23d09c4fcbafd5db8658f3137"/><file name="like.phtml" hash="493d9826614e31b3dab97158190daa4b"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="TM_FaceBookLB.xml" hash="79621bd44fe66b2787f49eb99e78b13e"/></dir></target><target name="magecommunity"><dir name="TM"><dir name="FacebookLB"><dir name="Adminhtml"><dir name="Model"><dir name="System"><dir name="Config"><dir name="Source"><file name="Color.php" hash="9c91450129b8b919037919afcf635e9d"/><file name="Font.php" hash="467e09b325943618e4ddc5652cccd643"/><file name="Layout.php" hash="a30d75d198f58073adcae01e8a3c41c6"/><file name="Verb.php" hash="113e583ebc53abe798e2ace8ed5fee05"/></dir></dir></dir></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="c296db31902a7bf1f6357554abac2e09"/><file name="config.xml" hash="9bdf6c2ed4c24b4cdbff1bcac62d5d89"/><file name="system.xml" hash="9ea9d9fd32426e3023286ddc8c9def2b"/></dir><dir name="Helper"><file name="Data.php" hash="0aca2e397521487745ff5136ced4c320"/></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

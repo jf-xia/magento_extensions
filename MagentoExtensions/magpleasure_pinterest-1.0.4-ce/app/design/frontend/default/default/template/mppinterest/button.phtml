@@ -1,0 +1,35 @@
+<?php
+/**
+ * Magpleasure Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE-CE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magpleasure.com/LICENSE-CE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * Magpleasure does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * Magpleasure does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   Magpleasure
+ * @package    Magpleasure_Pinterest
+ * @version    1.0.4
+ * @copyright  Copyright (c) 2012 Magpleasure Ltd. (http://www.magpleasure.com)
+ * @license    http://www.magpleasure.com/LICENSE-CE.txt
+ */
+/** @var Magpleasure_Pinterest_Block_Button $this */
+?>
+<?php if ($this->canShow()): ?>
+<a href="<?php echo $this->getPinItUrl(); ?>" class="pin-it-button" count-layout="<?php echo $this->getButtonType(); ?>">Pin It</a>
+<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>
+<?php endif; ?>
+
+

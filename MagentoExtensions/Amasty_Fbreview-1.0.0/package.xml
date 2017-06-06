@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Amasty_Fbreview</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license>AFL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Get user-generated content on your Facebook pages. Gain more credibility and attract more customers. Amasty</summary>
+    <description>This extension is another one in our line of social media related modules. While the purpose of Facebook</description>
+    <notes>Initial release</notes>
+    <authors><author><name>Amasty</name><user>auto-converted</user><email>support@amasty.com</email></author></authors>
+    <date>2012-03-29</date>
+    <time>19:31:37</time>
+    <contents><target name="magecommunity"><dir name="Amasty"><dir name="Fbreview"><dir name="Helper"><file name="Data.php" hash="7d77f32f9926d056cdd3aeaff1d855c4"/></dir><dir name="etc"><file name="adminhtml.xml" hash="79ad11528d4a38e3f61d0387c6970a0e"/><file name="config.xml" hash="37ae213867eb917819e3756636ae3827"/><file name="system.xml" hash="b7d9c4dbb0a5e2654e937934bf874e7e"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="amfbreview.xml" hash="afb34a01cc7f973373232a1eb3b1ea80"/></dir><dir name="template"><dir name="amfbreview"><file name="head.phtml" hash="a4980071ea3c2ba06014e06956473f92"/><file name="list.phtml" hash="f6bc488b992055b717ce64eef5579766"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Amasty_Fbreview.xml" hash="023682e8c2a9335fde0b4e2a06c78df0"/><file name="Amasty_Base.xml" hash="651f99cee7568ab645fdef118f7933ca"/></dir></target><target name="magelocal"><dir name="Amasty"><dir name="Base"><dir name="Block"><file name="Extensions.php" hash="e0f76a6c0e9d3db6f634562cbb0266bc"/></dir><dir name="Helper"><file name="Data.php" hash="b36b76d52650c0f2982a0403d04407bd"/></dir><dir name="Model"><dir name="Source"><dir name="Updates"><file name="Type.php" hash="dbb958c4aa01c61578cfb22a1c88a482"/></dir></dir><file name="Feed.php" hash="86fb0e24d6b1c9706caf69c908e710ad"/></dir><dir name="etc"><file name="adminhtml.xml" hash="2134fcecc3d5cb639a2446dded0032d5"/><file name="config.xml" hash="85fb35cf777412bc6d8cbe993e1d846f"/><file name="system.xml" hash="d7e5cda7d0b09152931039fdf1d4b2bc"/></dir><dir name="sql"><dir name="ambase_setup"><file name="mysql4-install-1.0.0.php" hash="ba30c778afd0f4a959ec9f86d439ea0a"/><file name="mysql4-upgrade-1.0.0-1.0.1.php" hash="26476d7e59961bfe0fc5748c589a010c"/></dir></dir></dir></dir></target><target name="mageskin"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="images"><dir name="ambase"><file name="bad.gif" hash="b8379f1ba7ab552ca46b9d5fd0452345"/><file name="ok.gif" hash="a38bc2ee6e116e39c6e2e3013ee50f5e"/><file name="update.gif" hash="8342e11f7739fcfa25134707f0536ed6"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

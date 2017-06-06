@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@mageworx.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ * or send an email to sales@mageworx.com
+ *
+ * @category   MageWorx
+ * @package    MageWorx_Adminhtml
+ * @copyright  Copyright (c) 2010 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+
+/**
+ * MageWorx Adminhtml extension
+ *
+ * @category   MageWorx
+ * @package    MageWorx_Adminhtml
+ * @author     MageWorx Dev Team <dev@mageworx.com>
+ */
+-->
+<config>
+  <modules>
+    <MageWorx_Adminhtml>
+      <version>1.1.1</version>
+    </MageWorx_Adminhtml>
+  </modules>
+    <admin>
+        <routers>
+            <mageworx>
+                <use>admin</use>
+                <args>
+                    <module>MageWorx_Adminhtml</module>
+                    <frontName>mageworx</frontName>
+                </args>
+            </mageworx>
+        </routers>
+    </admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <MageWorx_Adminhtml>
+                    <files>
+                        <default>MageWorx_Adminhtml.csv</default>
+                    </files>
+                </MageWorx_Adminhtml>
+            </modules>
+        </translate>
+    </adminhtml>
+	<global>
+		<blocks>
+		  <mageworx>
+			<class>MageWorx_Adminhtml_Block</class>
+		  </mageworx>
+		  <adminhtml>
+		      <rewrite>
+		          <system_config_edit>MageWorx_Adminhtml_Block_System_Config_Edit</system_config_edit>
+		      </rewrite>
+		  </adminhtml>
+		</blocks>
+        <models>
+            <mageworx>
+                <class>MageWorx_Adminhtml_Model</class>
+            </mageworx>
+        </models>
+		<resources>
+		  <mageworx_setup>
+			  <setup>
+				  <module>MageWorx_Adminhtml</module>
+			  </setup>
+			  <connection>
+				  <use>core_setup</use>
+			  </connection>
+		  </mageworx_setup>
+		  <mageworx_write>
+			  <connection>
+				  <use>core_write</use>
+			  </connection>
+		  </mageworx_write>
+		  <mageworx_read>
+			  <connection>
+				  <use>core_read</use>
+			  </connection>
+		  </mageworx_read>
+		</resources>
+		<helpers>
+			<mageworx>
+                <class>MageWorx_Adminhtml_Helper</class>
+			</mageworx>
+		</helpers>
+	  <template>
+            <email>
+                <mageworx_support_email_template>
+                    <label>MageWorx Support</label>
+                    <file>mageworx_support.html</file>
+                    <type>text</type>
+                </mageworx_support_email_template>
+            </email>
+        </template>
+	</global>
+	
+	<default>
+		<mageworx>
+            <support>
+                <email><![CDATA[c3VwcG9ydEBtYWdld29yeC5jb20=]]></email>
+                <name>MageWorx Support</name>
+                <template>mageworx_support_email_template</template>
+            </support>
+		</mageworx>
+	</default>
+</config>

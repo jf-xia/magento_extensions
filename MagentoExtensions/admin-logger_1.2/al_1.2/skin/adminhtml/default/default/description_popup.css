@@ -1,0 +1,42 @@
+.lien-popup a{
+    text-decoration: none; /* delete <a> style for newer */
+    text-decoration:underline;
+    color: black;
+}
+
+.lien-popup a:hover{
+    text-decoration: none; /* delete <a> style for newer */
+    color: grey;
+}
+
+.lien-popup span
+{								   
+    position       :  absolute;
+    top            :  -2000em;
+    left           :  -2000em;
+    width          :  1px;
+    height         :  1px;
+    overflow       :  hidden; 
+    background     :  #ffffe1;   /* D?finition du fond, sinon on a le m?me que notre lien */
+    border         :  1px solid #000000; /* D?finition des bordures */
+    text-decoration: none;
+    color: black;
+    text-align: left;
+}  
+ 
+ 
+.lien-popup:hover span
+{	
+    top        :  auto;
+    left       :  500px;
+    width      :  500px;
+    height     :  auto;
+    overflow   :  visible;
+}  
+
+.order_preparation_comments
+{
+	border : 1px solid #000000;
+	background: #ffffff;
+	padding: 5px;
+}

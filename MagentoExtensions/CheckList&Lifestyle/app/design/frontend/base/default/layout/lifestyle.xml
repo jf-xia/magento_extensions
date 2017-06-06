@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+
+    
+    <customer_account_index>
+            <reference name="customer_account_dashboard">
+                    <action method="setTemplate">
+                            <template>lifestyle/my_dashboard.phtml</template>
+                    </action>
+                    <block type="lifestyle/dashboard" name="customer_account_points" as="points" template="lifestyle/dashboard_points.phtml"/>
+            </reference>
+    </customer_account_index>
+    
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="lifestyle"><name>lifestyle</name><path>lifestyle/index/list</path><label>Favorite</label></action>
+        </reference>
+    </customer_account>
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="checklist"><name>checklist</name><path>checklist/addlist/list</path><label>Checklist</label></action>
+        </reference>
+    </customer_account>
+
+    <checklist_addlist_list>
+        <update handle="customer_account"/>
+        <reference name="content">
+            <block type="lifestyle/favorite" name="lifestyle" template="lifestyle/checknote.phtml" />
+            <block type="customer/account_dashboard" name="customer.account.link.back" template="customer/account/link/back.phtml"/>
+        </reference>
+    </checklist_addlist_list>
+    
+
+    <lifestyle_index_list>
+        <update handle="customer_account"/>
+        <reference name="content">
+            <block type="lifestyle/favorite" name="lifestyle" template="lifestyle/favorite.phtml" />
+            <block type="customer/account_dashboard" name="customer.account.link.back" template="customer/account/link/back.phtml"/>
+        </reference>
+    </lifestyle_index_list>
+    
+    
+</layout>

@@ -1,0 +1,13 @@
+Version 1.2
+Changed files:
+dashing/app/design/frontend/default/dashing/template/checkout/cart.phtml
+dashing/app/design/frontend/default/dashing/template/catalog/product/view/quickview.phtml
+dashing/skin/frontend/default/dashing/js/js.js
+dashing/app/design/frontend/default/dashing/template/catalogsearch/form.mini.phtml
+dashing/skin/frontend/default/dashing/css/styles.css
+dashing/skin/frontend/default/dashing/images/bg-search-bubble.png
+
+
+Removed Files:
+dashing/skin/frontend/default/dashing/jquery.fancybox2.js
+

@@ -1,0 +1,93 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_default
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Shoping cart sidebar
+ *
+ * @see Mage_Checkout_Block_Cart_Sidebar
+ */
+?>
+<script type="text/javascript">
+function isMouseLeaveOrEnter(e, handler){
+if (e.type != 'mouseout' && e.type != 'mouseover') return false;
+var reltg = e.relatedTarget ? e.relatedTarget :
+e.type == 'mouseout' ? e.toElement : e.fromElement;
+while (reltg && reltg != handler) reltg = reltg.parentNode;
+return (reltg != handler);
+}
+</script>
+
+
+<div class="mini-cart"  onmouseover="if (isMouseLeaveOrEnter(event, this)) Element.addClassName(this,'over')" onmouseout="if (isMouseLeaveOrEnter(event, this)) Element.removeClassName(this,'over')">
+    <div class="head-title">
+        <?php $_cartQty = $this->getSummaryCount() ?>
+
+	     <?php if ($_cartQty==0): ?>
+                <?php echo $this->__('<a class="cart-links" href="%s"><strong>0 <span>item</span></strong></a>', $this->getUrl('checkout/cart')) ?>
+            <?php elseif ($_cartQty==1): ?>
+                <?php echo $this->__('<a class="cart-links" href="%s"><strong>1 <span>item</span></strong></a>', $this->getUrl('checkout/cart')) ?>
+            <?php else: ?>
+                <?php echo $this->__('<a class="cart-links" href="%s"><strong>%s <span>items</span></strong></a>', $this->getUrl('checkout/cart'), $_cartQty) ?>
+            <?php endif ?>
+            
+
+    </div>
+
+
+
+    <?php $_items = $this->getRecentItems() ?>
+    <?php if(count($_items)): ?>
+    <div class="hidden-cart">
+   <div class="cart-outer">
+    <div class="cart-inner">
+    <ol id="cart-sidebar">
+    <?php foreach($_items as $_item): ?>
+        <?php echo $this->getItemHtml($_item) ?>
+    <?php endforeach; ?>
+    </ol>
+    <script type="text/javascript">decorateList('cart-sidebar', 'non-recursive')</script>
+    <?php endif ?>
+     <?php if($_cartQty && $this->isPossibleOnepageCheckout()): ?>
+    <div class="actions">
+       <p class="subtotal">
+                <?php echo $this->__('Total:') ?> <strong><?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?></strong>
+                <?php if ($_subtotalInclTax = $this->getSubtotalInclTax()): ?>
+                    <br />(<strong><?php echo Mage::helper('checkout')->formatPrice($_subtotalInclTax) ?></strong> <?php echo Mage::helper('tax')->getIncExcText(true) ?>)
+                <?php endif; ?>
+       </p>
+       <a class="checkout-btn" href="<?php echo $this->getCheckoutUrl() ?>">
+                    <span><?php echo $this->__('Checkout') ?></span>
+       </a>
+    <div class="clearer"></div>
+    </div>
+    </div>
+  </div>
+   <div id="mini_shadow"></div>
+</div>
+    <?php endif ?>
+<div class="clearer"></div>
+</div>
+<!-- [ends] .cart-sidebar // -->

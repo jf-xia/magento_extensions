@@ -1,0 +1,19 @@
+<?php
+ /*
+ * Arcanum Dev AwardPoints
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to arcanumdev@wafunotamago.com so we can send you a copy immediately.
+ *
+ * @category   Magento Sale Extension
+ * @package    AwardPoints
+ * @copyright  Copyright (c) 2012 Arcanum Dev. Y.K. (http://arcanumdev.wafunotamago.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ class Arcanumdev_Awardpoints_Block_Adminhtml_Catalogpointrules_Edit_Tab_Main extends Mage_Adminhtml_Block_Widget_Form{protected function _prepareForm(){$model = Mage::registry('catalogpointrules_data');$form = new Varien_Data_Form();$form->setHtmlIdPrefix('rule_');$fieldset = $form->addFieldset('base_fieldset', array('legend'=>Mage::helper('awardpoints')->__('General Information')));if ($model->getId()) {$fieldset->addField('rule_id', 'hidden', array('name'=>'rule_id',));}$fieldset->addField('title', 'text', array('name'=>'title','label'=>Mage::helper('awardpoints')->__('Rule Title'),'title'=>Mage::helper('awardpoints')->__('Rule Title'),'required'=>true,));$fieldset->addField('rule_type', 'select', array('label'=>Mage::helper('awardpoints')->__('Type of rule'),'name'=>'rule_type','values'=> $model->ruletypesToOptionArray(),'after_element_html'=>'','required'=>true,));$fieldset->addField('status', 'select', array('label'=>Mage::helper('awardpoints')->__('Status'),'title'=>Mage::helper('awardpoints')->__('Status'),'name'=>'status','options'=> array('1'=>Mage::helper('awardpoints')->__('Active'),'0'=>Mage::helper('awardpoints')->__('Inactive'),),));if (!Mage::app()->isSingleStoreMode()) {$fieldset->addField('website_ids', 'multiselect', array('name'=>'website_ids[]','label'=>Mage::helper('awardpoints')->__('Websites'),'title'=>Mage::helper('awardpoints')->__('Websites'),'required'=>true,'values'=> Mage::getSingleton('adminhtml/system_config_source_website')->toOptionArray(),));}else {$fieldset->addField('website_ids', 'hidden', array('name'=>'website_ids[]','value'=>Mage::app()->getStore(true)->getWebsiteId()));$model->setWebsiteIds(Mage::app()->getStore(true)->getWebsiteId());}$customerGroups = Mage::getResourceModel('customer/group_collection')->load()->toOptionArray();$found = false;foreach ($customerGroups as $group) {if ($group['value']==0) {$found = true;}}if (!$found) {array_unshift($customerGroups, array('value'=>0, 'label'=>Mage::helper('catalogrule')->__('NOT LOGGED IN')));}$fieldset->addField('customer_group_ids', 'multiselect', array('name'=>'customer_group_ids[]','label'=>Mage::helper('awardpoints')->__('Customer Groups'),'title'=>Mage::helper('awardpoints')->__('Customer Groups'),'required'=>true,'values'=> $customerGroups,));$dateFormatIso = Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT);$fieldset->addField('from_date', 'date', array('name' =>'from_date','label'=>Mage::helper('awardpoints')->__('From Date'),'title'=>Mage::helper('awardpoints')->__('From Date'),'image'=>$this->getSkinUrl('images/grid-cal.gif'),'input_format'=>Varien_Date::DATE_INTERNAL_FORMAT,'format' =>$dateFormatIso));$fieldset->addField('to_date', 'date', array('name' =>'to_date','label'=>Mage::helper('awardpoints')->__('To Date'),'title'=>Mage::helper('awardpoints')->__('To Date'),'image'=>$this->getSkinUrl('images/grid-cal.gif'),'input_format'=>Varien_Date::DATE_INTERNAL_FORMAT,'format' =>$dateFormatIso));$fieldset->addField('sort_order', 'text', array('name'=>'sort_order','label'=>Mage::helper('awardpoints')->__('Priority'),));$form->setValues($model->getData());$this->setForm($form);return parent::_prepareForm();}}

@@ -1,0 +1,14 @@
+<h1>Favorite</h1>
+<br/>
+	<?php 
+	
+		$customerId = Mage::getSingleton('customer/session')->getCustomer()->getId();
+		$wpFavorite = Mage::getModel('lifestyle/favorite')->getCollection()->addFieldToFilter('customer_id',$customerId)->setOrder('lifestyle_favorite_id', 'DESC');
+		echo '<ol>';
+		foreach ($wpFavorite->getItems() as $_item){
+			echo '<li>';
+				echo "<a href='".$_item->getUrl()."'>".$_item->getTitle()."</a>";
+			echo '</li>';
+		}
+		echo '</ol>';
+		?>

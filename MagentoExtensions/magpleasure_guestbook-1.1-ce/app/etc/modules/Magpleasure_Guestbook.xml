@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Magpleasure_Guestbook>
+            <active>true</active>
+            <codePool>community</codePool>
+        <edition>CE</edition><license>YTozOntzOjM6ImNpZCI7czo0OiIxODYxIjtzOjM6ImVpZCI7czoxOiIxIjtzOjM6InBpZCI7czoyOiIyMCI7fQ,,</license></Magpleasure_Guestbook>
+    </modules>
+</config>

@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<config>
+  <sections>
+    <liftsuggest translate="label" module="liftsuggest">
+      <label>LiftSuggest</label>
+      <tab>sales</tab>
+      <frontend_type>text</frontend_type>
+      <sort_order>1000</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+    <groups>
+                <liftsuggest translate="label" module="liftsuggest">
+                    <label>LiftSuggest</label>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+						<lifttoken translate="label">
+                            <label>Token</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </lifttoken>
+						<liftuserid translate="label">
+                            <label>LiftSuggest User Id</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </liftuserid>
+						<reclimit translate="label">
+                            <label>Recommendation Limit</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </reclimit>
+                        <domain translate="label">
+                            <label>Domain</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </domain>
+                        <gaid translate="label">
+                            <label>Google Analytics Account ID</label>
+                              <comment>
+                                    <![CDATA[Google Analytics AccountID
+                                    <span class="notice">UA-XXXXXXX-X</span>.]]>
+                              </comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </gaid>
+                       <gaversion translate="label">
+                            <label>Google Analytics Version</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Tatvic_LiftSuggest_Model_System_Config_Source_Yesno</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </gaversion>
+
+						 <prodpageub translate="label comment">
+                            <label>Enable in Catalog Page</label>
+                              <comment>
+                                    <![CDATA[Enable LiftSuggest Module - "What customers ultimately bought after viewing this item.."
+									type recommendations- in
+                                    <span class="notice">Product View Page</span>.]]>
+                              </comment>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </prodpageub>
+						
+
+						 <prodpage translate="label comment">
+                            <label>Enable in Catalog Page</label>
+                              <comment>
+                                    <![CDATA[Enable LiftSuggest Module  -"Customers who bought this also bought..." type recommendations- in
+                                    <span class="notice">Product View Page</span>.]]>
+                              </comment>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </prodpage>
+
+                      
+
+                       <cartpage translate="label comment">
+                            <label>Enable in Cart Page</label>
+							  <comment>
+								<![CDATA[Enable LiftSuggest Module -"Customers who bought this also bought..." type recommendations- in
+								<span class="notice">Cart Page</span>.]]>
+							  </comment>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cartpage>
+
+						
+
+                       <imgsize translate="label">
+                            <label>Default Image</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Tatvic_LiftSuggest_Block_View</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </imgsize>
+                       <cartbutton translate="label">
+                            <label>Show Add to Cart Button</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cartbutton>
+                    </fields>
+                </liftsuggest>
+            </groups>
+             </liftsuggest>
+  </sections>
+</config>

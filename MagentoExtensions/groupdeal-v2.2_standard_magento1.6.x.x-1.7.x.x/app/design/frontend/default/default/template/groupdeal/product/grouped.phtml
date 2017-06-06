@@ -1,0 +1,81 @@
+<?php 
+	/**
+	 * ajaxcart template
+	 */
+?>
+<?php $_product = $this->getProduct(); ?>
+<?php $deal = Mage::helper('groupdeal')->getDeal(); ?>
+<a href="#" title="<?php echo $this->__('Close') ?>" class="close-popup" alt="<?php echo $this->__('Close') ?>" onclick="closeDealAjaxPopup();return false;"><em><?php echo $this->__('Close') ?></em></a>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<form action="<?php echo $this->getBuyUrl() ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+	<div class="deal-ajaxcart-product-name" style="margin-left: 18px;">
+		<h2 class="product-name">
+			<a href="<?php echo $deal->getDealUrl() ?>" title="<?php echo $this->stripTags($deal->getDealTitle(),null,true) ?>">
+				<?php echo $deal->getDealTitle();?>
+			</a>
+		</h2>
+	</div>
+	
+	<div style="margin: 18px;">		
+		<?php echo $this->getStartFormHtml() ?>		
+	</div>
+	
+	<div class="no-display">
+		<input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+		<input type="hidden" name="related_product" id="related-products-field" value="" />
+	</div>	
+	<?php if ($this->hasOptions()): ?>	
+          <?php echo $this->getOptionsWrapperHtml() ?>        
+    <?php endif ?>		
+   <div style="margin: 15px 24px 15px 24px; float: right;">
+        <?php echo $this->getOptionsWrapperBottomHtml() ?>
+    </div>   
+</form>
+<script type="text/javascript">	
+	
+//<![CDATA[
+	var productAddToCartForm = new VarienForm('product_addtocart_form');
+	 productAddToCartForm.submit = function(button, url) {
+            if (this.validator.validate()) {
+                var form = this.form;
+                var oldUrl = form.action;
+
+                if (url) {
+                   form.action = url;
+                }
+                var e = null;
+                try {
+                    this.form.submit();
+                } catch (e) {
+                }
+                this.form.action = oldUrl;
+                if (e) {
+                    throw e;
+                }
+
+                if (button && button != 'undefined') {
+                    button.disabled = true;
+                }
+            }
+        }.bind(productAddToCartForm);
+
+        productAddToCartForm.submitLight = function(button, url){
+            if(this.validator) {
+                var nv = Validation.methods;
+                delete Validation.methods['required-entry'];
+                delete Validation.methods['validate-one-required'];
+                delete Validation.methods['validate-one-required-by-name'];
+                if (this.validator.validate()) {
+                    if (url) {
+                        this.form.action = url;
+                    }
+                    this.form.submit();
+                }
+                Object.extend(Validation.methods, nv);
+            }
+        }.bind(productAddToCartForm);
+	if($('deal-ajaxcart-content').down('.add-to-links')) $('deal-ajaxcart-content').down('.add-to-links').hide();
+//]]>
+</script>

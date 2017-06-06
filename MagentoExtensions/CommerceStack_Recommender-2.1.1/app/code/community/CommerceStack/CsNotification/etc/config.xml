@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<CommerceStack_CsNotification>
+			<version>1.0</version>
+		</CommerceStack_CsNotification>
+	</modules>
+	
+	<global>
+		<models>
+            <adminnotification>
+	            <rewrite>
+	            	<feed>CommerceStack_CsNotification_Model_AdminNotification_Feed</feed>
+	            </rewrite>
+            </adminnotification>
+		</models>
+	</global>
+	<default>
+		<system>
+	    	<csnotification>
+	    		<api>
+	    			<notification_uri>notification/</notification_uri>
+	    		</api>
+	    	</csnotification>
+	    </system>
+	</default>
+</config>

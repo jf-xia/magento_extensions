@@ -1,0 +1,139 @@
+<?php
+global $zopimoptions;
+if (!isset($zopimoptions)) {
+$zopimoptions = Mage::getModel('livechat/livechat')->load(1);
+$zopimoptions = $zopimoptions->_data;
+
+if ($zopimoptions["code"] != "") {
+   echo "
+      <!-- Start of Zopim Live Chat Script -->
+      <script type=\"text/javascript\">
+      document.write(unescape(\"%3Cscript src='\" + document.location.protocol + \"//zopim.com/?".$zopimoptions["code"]."' charset='utf-8' type='text/javascript'%3E%3C/script%3E\"));
+   </script>
+      <!-- End of Zopim Live Chat Script -->
+      ";
+
+   $theoptions = array();
+   if ($zopimoptions["lang"] != "" && $zopimoptions["lang"] != "--") {
+      $theoptions[] = " language: '".$zopimoptions["lang"]."'";
+   }
+
+   /*
+   if ( isset($current_user) && $zopimoptions["getVisitorInfo"] != "" )
+   {
+      $ul = $current_user->data->first_name;
+      $useremail = $current_user->data->user_email;
+
+      if ($ul!="" && $useremail != "") {
+         $theoptions[] = "
+            name: '$ul',
+            email: '$useremail'
+               ";
+      }
+   }
+   */
+   
+   echo '
+      <script type="text/javascript">';
+   if (count($theoptions) > 0) {
+      echo '$zopim.livechat.set({';
+      echo implode(", ", $theoptions);      
+      echo "      });";
+   }
+   
+   if ($zopimoptions['position'] != "") {
+      echo "\n\$zopim.livechat.button.setPosition('".$zopimoptions['position']."');";
+   }
+   if ($zopimoptions['theme'] != "") {
+      echo "\n\$zopim.livechat.window.setTheme('".$zopimoptions['theme']."');";
+   }
+   if ($zopimoptions['color'] != "") {
+      echo "\n\$zopim.livechat.window.setColor('".$zopimoptions['color']."');";
+   }
+   if ($zopimoptions['bubbleTitle'] != "") {
+      echo "\n\$zopim.livechat.bubble.setTitle('".addslashes($zopimoptions['bubbleTitle'])."');";
+   }
+   if ($zopimoptions['bubbleText'] != "") {
+      echo "\n\$zopim.livechat.bubble.setText('".addslashes($zopimoptions['bubbleText'])."');";
+   }
+   if ($zopimoptions['hideOnOffline'] == "checked") {
+      echo "\n\$zopim.livechat.button.setHideWhenOffline(true);";
+   }
+   if ($zopimoptions['bubbleEnable'] == "checked") {
+      echo "\n\$zopim.livechat.bubble.show(true);";
+   }
+   if ($zopimoptions['greetings'] != "") {
+      $greetings = Zend_Json::decode($zopimoptions['greetings']);
+      echo "\n\$zopim.livechat.setGreetings({
+            'online': ['".addslashes($greetings["online"]["bar"])."', '".addslashes($greetings["online"]["window"])."'],
+            'offline': ['".addslashes($greetings["offline"]["bar"])."', '".addslashes($greetings["offline"]["window"])."'],
+            'away': ['".addslashes($greetings["away"]["bar"])."', '".addslashes($greetings["away"]["window"])."']})";
+   }
+   echo "
+      </script>
+      ";
+
+}
+}
+/*
+   This shows how to load specific fields from a record in the database.
+   1) Note the load(15), this corresponds to saying "select * from table where table_id = 15"
+   2) You can then just use the get(fieldname) to pull specific data from the table.
+   3) If you have a field named news_id, then it becomes getNewsId, etc.
+ */
+/*
+   $news = Mage::getModel('livechat/livechat')->load(15);
+   echo $news->getNewsId();
+   echo $news->getTitle();
+   echo $news->getContent();
+   echo $news->getStatus();
+ */
+
+/*
+   This shows an alternate way of loading datas from a record using the database the "Magento Way" (using blocks and controller).
+   Uncomment blocks in /app/code/local/Namespace/Module/controllers/IndexController.php if you want to use it.
+
+ */
+/*
+   $object = $this->getLivechat();
+   echo 'id: '.$object['test_id'].'<br/>';
+   echo 'title: '.$object['title'].'<br/>';
+   echo 'content: '.$object['content'].'<br/>';
+   echo 'status: '.$object['status'].'<br/>';
+ */            
+
+
+/*
+   This shows how to load multiple rows in a collection and save a change to them.
+   1) The setPageSize function will load only 5 records per page and you can set the current Page with the setCurPage function.
+   2) The $collection->walk('save') allows you to save everything in the collection after all changes have been made.
+ */
+/*
+   $i = 0;
+
+   $collection = Mage::getModel('livechat/livechat')->getCollection();
+   $collection->setPageSize(5);
+   $collection->setCurPage(2);
+   $size = $collection->getSize();
+   $cnt = count($collection);
+   foreach ($collection as $item) {
+   $i = $i+1;
+   $item->setTitle($i);
+   echo $item->getTitle();
+   }
+
+   $collection->walk('save');
+ */
+
+/*
+   This shows how to load a single record and save a change.
+   1) Note the setTitle, this corresponds to the table field name, title, and then you pass it the text to change.
+   2) Call the save() function only on a single record.
+ */
+/*
+   $object = Mage::getModel('livechat/livechat')->load(1);
+   $object->setTitle('This is a changed title');
+   $object->save();
+ */
+
+?> 

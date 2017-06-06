@@ -1,0 +1,127 @@
+div.zp-text-field-editor {
+  float: left;
+  display: block;
+  margin-right: 2px;
+  width: 20px;
+  height: 16px;
+  font-size: 10px;
+  color: #909090;
+  line-height: 1.55;
+}
+
+div.zp-text-field-editor-handle {
+  border: 1px solid transparent;
+  padding: 3px 0px 0px 3px;
+}
+
+div.zp-text-field-editor.opened div.zp-text-field-editor-handle {
+  border-color: #b6b6b6;
+  border-bottom-color: white;
+}
+
+div.zp-text-field-editor.opened div.zp-text-field-editor-icon.pen {
+  background-position: 0px -18px;
+}
+
+div.zp-text-field-editor.state-changed .zp-text-field-editor-icon.pen {
+  background-position: 0px -56px;
+}
+
+div.zp-text-field-editor.opened.state-changed .zp-text-field-editor-icon.pen {
+  background-position: 0px -73px;
+}
+
+div.zp-text-field-editor-panel {
+  display: none;
+  position: absolute;
+  top: 17px;
+  z-index: 2;
+  background-color: white;
+  border: 1px solid #b6b6b6;
+  padding: 1px 4px 1px 3px;
+}
+
+div.zp-text-field-editor-panel div.white-line {
+  width: 18px;             /* width of .zp-text-field-editor - total width of
+                              its left and right borders */
+  height: 2px;             /* width of parent's border + margin top - 1*/
+  margin-top: -2px;        /* top padding of the parent + width of its
+                              top border */
+  margin-left: -3px;       /* left padding of the parent */
+  background-color: white; /* backgrond color of the parent */
+}
+
+div.zp-text-field-editor-panel span {
+  vertical-align: middle;
+}
+
+div.zp-text-field-editor-panel input[type=radio] {
+  max-width: 15px;
+  max-height: 15px;
+  *width: 15px;
+  *height: 15px;
+}
+
+div.zp-text-field-editor.opened div.zp-text-field-editor-panel {
+  display: block;
+}
+
+div.zp-text-field-editor-row {
+  padding: 4px 0;
+}
+
+div.zp-text-field-editor-clear {
+  clear: both;
+}
+
+div.zp-text-field-editor-row div.zp-text-field-editor-icon {
+  float: left;
+  margin-top: 2px;
+}
+
+div.zp-text-field-editor-icon {
+  background: url('images/zp-text-field-editor/sprites.png') no-repeat;
+  height: 13px;
+  width: 13px;
+}
+
+div.zp-text-field-editor-icon.color-picker {
+  background-position: -19px -17px;
+}
+
+div.zp-text-field-editor-icon.pen {
+  background-position: 0px 0px;
+  cursor: pointer;
+}
+
+.zp-text-field-editor-icon.pallet {
+  background-position: -79px 0px;
+  width: 19px;
+  height: 15px;
+  margin-top: 1px !important;
+}
+
+div.zp-text-field-editor-options {
+  margin-left: 10px;
+  float: left;
+}
+
+div.zp-text-field-editor-option {
+  float: left;
+}
+
+div.zp-text-field-editor-option:first-child {
+  margin-right: 8px;
+}
+
+div.zp-text-field-editor-option div {
+  float: left;
+  margin-right: 2px;
+}
+
+div.zp-text-field-editor-color-example {
+  float: none;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}

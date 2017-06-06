@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<config>
+	<sections>
+		<mlayer translate="label" module="mlayer">
+			<label>Magic Banner</label>
+			<tab>Mdlext</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>999</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<mainsettings translate="label">
+				<label>Select your banner</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+					<fields>
+						<select_banner translate="label, comment">
+							<label>Select your Banner</label>
+							<comment><![CDATA[You can enable or disable here]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mlayer/system_config_mainbanner</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</select_banner>
+					</fields>
+				</mainsettings>
+			
+				<settings translate="label">
+				<label>Metro Banner Settings</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>10</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+					<fields>
+						<show_description translate="label, comment">
+							<label>Show description</label>
+							<comment><![CDATA[show description in front of image]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_description>
+					</fields>
+				</settings>
+				
+				<flex_banner_settings translate="label">
+				<label>Flex Banner Settings</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>20</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+					<fields>
+						<animation_style translate="label, comment">
+							<label>Animation</label>
+							<comment><![CDATA[Choice animation for banner]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mlayer/system_config_animation</source_model>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</animation_style>
+						<animation_speed translate="label, comment">
+							<label>Animation speed per Image</label>
+							<comment><![CDATA[in Millisecond]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</animation_speed>
+						<slideshow_speed translate="label, comment">
+							<label>Slideshow speed per Image</label>
+							<comment><![CDATA[in Millisecond]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</slideshow_speed>
+					</fields>
+				</flex_banner_settings>
+				
+				<sequence_banner_settings translate="label">
+				<label>Sequence Banner Settings</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>30</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+					<fields>
+						<show_description_sequence translate="label, comment">
+							<label>Show description</label>
+							<comment><![CDATA[show description in front of image]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_description_sequence>
+						<animation_speed_sequence translate="label, comment">
+							<label>Animation speed per Image</label>
+							<comment><![CDATA[in Millisecond]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</animation_speed_sequence>
+						<slideshow_speed_sequence translate="label, comment">
+							<label>Delay between slides</label>
+							<comment><![CDATA[in Millisecond]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</slideshow_speed_sequence>
+						<buttontext_sequence translate="label, comment">
+							<label>Button Text</label>
+							<comment><![CDATA[button name]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</buttontext_sequence>
+					</fields>
+				</sequence_banner_settings>
+				
+				
+				<nivo_banner_settings translate="label">
+				<label>Nivo Banner Settings</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>40</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+					<fields>
+						<nivo_effect translate="label, comment">
+							<label>Animation effects</label>
+							<comment><![CDATA[Choice effects for banner]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mlayer/system_config_nivoeffects</source_model>
+							<sort_order>3</sort_order>
+							<show_in_default>2</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</nivo_effect>
+						<show_description_nivo translate="label, comment">
+							<label>Show description</label>
+							<comment><![CDATA[show description in front of image]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_description_nivo>
+						<anim_speed translate="label, comment">
+							<label>Animation speed per Image</label>
+							<comment><![CDATA[in Millisecond]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</anim_speed>
+						<pause_time translate="label, comment">
+							<label>Pause time</label>
+							<comment><![CDATA[in Millisecond]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pause_time>
+					</fields>
+				</nivo_banner_settings>
+				
+				
+			</groups>
+		</mlayer>
+	</sections>
+</config>

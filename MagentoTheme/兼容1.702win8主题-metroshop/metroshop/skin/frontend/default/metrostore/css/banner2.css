@@ -1,0 +1,332 @@
+.one-half h1:first-child, .one-half h2:first-child, .one-half h3:first-child, .one-half h4:first-child, .one-half h5:first-child, .one-half h6:first-child,
+.one-third h1:first-child, .one-third h2:first-child, .one-third h3:first-child, .one-third h4:first-child, .one-third h5:first-child, .one-third h6:first-child,
+.two-third h1:first-child, .two-third h2:first-child, .two-third h3:first-child, .two-third h4:first-child, .two-third h5:first-child, .two-third h6:first-child,
+.one-fourth h1:first-child, .one-fourth h2:first-child, .one-fourth h3:first-child, .one-fourth h4:first-child, .one-fourth h5:first-child, .one-fourth h6:first-child,
+.three-fourth h1:first-child, .three-fourth h2:first-child, .three-fourth h3:first-child, .three-fourth h4:first-child, .three-fourth h5:first-child, .three-fourth h6:first-child,
+.one-fifth h1:first-child, .one-fifth h2:first-child, .one-fifth h3:first-child, .one-fifth h4:first-child, .one-fifth h5:first-child, .one-fifth h6:first-child,
+.two-fifth h1:first-child, .two-fifth h2:first-child, .two-fifth h3:first-child, .two-fifth h4:first-child, .two-fifth h5:first-child, .two-fifth h6:first-child,
+.three-fifth h1:first-child, .three-fifth h2:first-child, .three-fifth h3:first-child, .three-fifth h4:first-child, .three-fifth h5:first-child, .three-fifth h6:first-child,
+.four-fifth h1:first-child, .four-fifth h2:first-child, .four-fifth h3:first-child, .four-fifth h4:first-child, .four-fifth h5:first-child, .four-fifth h6:first-child,
+.one-sixth h1:first-child, .one-sixth h2:first-child, .one-sixth h3:first-child, .one-sixth h4:first-child, .one-sixth h5:first-child, .one-sixth h6:first-child,
+.five-sixth h1:first-child, .five-sixth h2:first-child, .five-sixth h3:first-child, .five-sixth h4:first-child, .five-sixth h5:first-child, .five-sixth h6:first-child
+{
+	margin-top:0;
+}
+.metro-banner img {
+	max-width:100%;
+	height:auto;
+}
+.block-1,
+.block-2,
+.block-3,
+.block-4,
+.block-5,
+.block-6,
+.block-7
+{
+	margin:0 6px;
+	float:left;
+	position:relative;
+}
+.block-1.marginNone,
+.block-2.marginNone,
+.block-3.marginNone,
+.block-4.marginNone,
+.block-5.marginNone,
+.block-6.marginNone,
+.block-7.marginNone,
+.max-box.marginNone,
+.block-1.zero-mar,
+.block-2.zero-mar,
+.block-3.zero-mar,
+.block-4.zero-mar,
+.block-5.zero-mar,
+.block-6.zero-mar,
+.block-7.zero-mar,
+.max-box.zero-mar
+{
+	margin:0;
+}
+
+.block-1
+{
+	width:96px;
+}
+
+
+
+/************************
+ * Big Slider
+ ************************/
+ 
+.metro-banner-wrapper
+{
+	overflow:hidden;
+}
+
+.metro-banner
+{
+	margin:-6px;
+}
+
+.metro-banner-inner
+{
+	width:999999px;
+}
+
+.metro-banner-inSide
+{
+	float:left;
+}
+
+.metro-banner-slide
+{
+	display:block;
+	text-align:center;
+	text-decoration:none;
+	color:inherit;
+	position:relative;
+}
+
+.metro-banner-slide:hover
+{
+	text-decoration:none;
+}
+
+.metro-banner-slide .after
+{
+	display:none;
+}
+
+.no-touch .metro-banner-slide .after
+{
+	content:'';
+	display:block;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	color:#fff;
+	border:6px solid rgba(255,255,255,0);
+	
+	-webkit-transition:all 0.3s;
+	-moz-transition:all 0.3s;
+	transition:all 0.3s;
+}
+
+.no-touch .metro-banner-slide:hover .after
+{
+	border-color:rgba(255,255,255,0.3);
+}
+
+.metro-banner-slide .imgBox
+{
+	display:block;
+	overflow:hidden;
+	position:relative;
+}
+.metro-banner-slide .imgBox img
+{
+	display:block;
+	max-height:100%;
+	
+	-webkit-transition:-webkit-transform 1.4s;
+	-moz-transition:-moz-transform 1.4s;
+	transition:transform 1.4s;
+}
+
+.metro-banner-slide .imgBox-after
+{
+	display:none;
+}
+
+.mozilla.no-touch .metro-banner-slide .imgBox-after
+{
+	display:block;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background:#000;
+	opacity:0;
+	
+}
+
+.mozilla.no-touch .metro-banner-slide:hover .imgBox-after
+{
+  -moz-animation-duration: 2s;
+  -moz-animation-name: fadeInOut;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-delay: 0.6s;
+  
+  animation-duration: 2s;
+  animation-name: fadeInOut;
+  animation-iteration-count: infinite;
+  animation-delay: 0.6s;
+}
+
+@-moz-keyframes fadeInOut {
+  from { opacity:0; }
+  50% { opacity:0.35; }
+  to { opacity:0; }
+}
+@keyframes fadeInOut {
+  from { opacity:0; }
+  50% { opacity:0.35; }
+  to { opacity:0; }
+}
+
+
+.metro-banner-slide .imgBox .video
+{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+
+.metro-banner-slide .imgBox .video iframe,  
+.metro-banner-slide .imgBox .video object,  
+.metro-banner-slide .imgBox .video embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.metro-banner-slide.video-slide .imgBox
+{
+	z-index:1;
+}
+
+.metro-banner-slide:hover .imgBox img
+{
+	-webkit-transform: scale(1.2,1.2);
+	-moz-transform: scale(1.2,1.2);
+	transform: scale(1.2,1.2);
+}
+
+.metro-banner-slide .text-wrapper
+{
+	display:table;
+	width:100%;
+}
+
+.metro-banner-slide .text
+{
+	display:block;
+	display:table-cell;
+	width:100%;
+	padding:0 12px;
+	vertical-align:middle;
+	overflow:hidden;
+}
+
+.no-touch .metro-banner-slide .text
+{
+	-webkit-transition:background 0.3s, color 0.3s;
+	-moz-transition:background 0.3s, color 0.3s;
+	transition:background 0.3s, color 0.3s;	
+}
+
+.metro-banner-slide .text .text-inner
+{
+	display:block;
+	position:relative;
+}
+
+.metro-banner-slide .text .title
+{
+	display:block;
+	padding:6px 0;
+	font-size:18px;
+	line-height:100%;
+	font-weight:bold;
+}
+
+.no-touch .metro-banner-slide .text .title
+{
+	-webkit-transition:color 0.3s;
+	-moz-transition:color 0.3s;
+	transition:color 0.3s;	
+}
+
+.no-touch .metro-banner-slide:hover .text,
+.no-touch .metro-banner-slide:hover .text .title
+{
+	color:#fff;
+}
+
+.metro-banner-slide .text .text-text
+{
+	display:block;
+	position:relative;
+}
+
+/* Control */
+
+.metro-banner-control .control-left,
+.metro-banner-control .control-right
+{
+	float:left;
+	height:100%;
+	cursor:pointer;
+	-webkit-transition:background-color 0.3s;
+	-moz-transition:background-color 0.3s;
+	transition:background-color 0.3s;
+}
+
+.metro-banner-control .control-right
+{
+	float:right;
+}
+
+.metro-banner-control .control-left:hover, .metro-banner-control .control-right:hover
+{
+	background-color:#F96E4C;
+}
+.metro-banner-control .control-seek {
+    box-shadow: 0 4px 7px #C1C1C1 inset;
+    float: left;
+    margin: 0;
+    width: 100%;
+}
+
+.touch .metro-banner-control .control-seek
+{
+	display:none;
+}
+
+.metro-banner-control .control-seek-box {
+    cursor: pointer;
+    height: 16px;
+    left: 0;
+    margin: 0;
+    position: relative;
+    width: 70px;
+}
+
+.metro-banner-control .control-seek-box-inner
+{
+	height:100%;
+
+	-webkit-transition:background-color 0.3s;
+	-moz-transition:background-color 0.3s;
+	transition:background-color 0.3s;
+}
+
+.metro-banner-control .control-seek:hover .control-seek-box
+{
+	/*background-image:none;*/
+}
+
+
+.metro-banner-control .control-seek:hover .control-seek-box.pressed,
+.metro-banner-control .control-seek-box.pressed
+{
+	/*background-image:none;*/
+}

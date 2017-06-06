@@ -1,0 +1,193 @@
+div.zetaprints-field-shape.bottom {
+  position: absolute;
+  cursor: pointer;
+  border: 1px solid white;
+  background-image: url('../images/transparent-background.gif');
+}
+
+div.zetaprints-field-shape.top {
+  position: relative;
+  border: 1px dashed red;
+  top: -1px;
+  left: -1px;
+  width: 100%;
+  height: 100%;
+}
+
+div#zetaprints-preview-image-container div.zetaprints-field-shape.bottom {
+  visibility: hidden;
+}
+
+div#zetaprints-preview-image-container:hover div.zetaprints-field-shape.bottom {
+  visibility: visible;
+}
+
+#fancybox-content div.zetaprints-field-shape.bottom {
+  visibility: hidden;
+}
+
+#fancybox-content:hover div.zetaprints-field-shape.bottom {
+  visibility: visible;
+}
+
+div.zetaprints-field-shape.highlighted {
+  visibility: visible !important;
+  border-color: white;
+}
+
+div.zetaprints-field-shape.highlighted div.zetaprints-field-shape.top {
+  top: -2px;
+  left: -2px;
+  border-style: solid;
+}
+
+div.zetaprints-page-input-fields .highlighted, div.zetaprints-page-stock-images .highlighted {
+  border-color: #F18200 !important;
+  border-style: solid !important;
+}
+
+div.zetaprints-field-shape.edited {
+  background-image: url('../images/edited-shape-background.png');
+}
+
+div.fieldbox {
+  visibility: hidden;
+  background-color: white;
+  padding: 3px;
+  text-align: left;
+  position: absolute;
+  z-index: 10000;
+}
+
+div.fieldbox .fieldbox-wrapper {
+  border: 1px solid #F18200;
+}
+
+div.fieldbox .fieldbox-head {
+  background-color: #f18200;
+  color: white;
+  padding: 1px 1px 0px 1px;
+  display: block;
+}
+
+.fieldbox-head li {
+  display: block;
+  float: left;
+  margin: 0 3px 0 0;
+  padding: 0 0 2px 0;
+  cursor: pointer;
+}
+
+div.fieldbox .fieldbox-head .last {
+  float: none;
+  clear: both;
+}
+
+.fieldbox-head .ui-tabs-selected {
+  background: white;
+}
+
+.fieldbox-head .ui-tabs-selected .zp-text-field-editor {
+  display: block;
+}
+
+.fieldbox-head a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  line-height: 1.5;
+  float: left;
+}
+
+.fieldbox-head .ui-tabs-selected a {
+  color: #de5400;
+  font-weight: bold;
+}
+
+.fieldbox-head .zp-text-field-editor {
+  display: none;
+  margin: 0;
+}
+
+.fieldbox-head .zp-text-field-editor-handle {
+  padding-top: 2px;
+}
+
+.fieldbox-head .zp-text-field-editor.opened .zp-text-field-editor-panel {
+  display: table;
+}
+
+div.fieldbox.ui-draggable .fieldbox-head {
+  cursor: move;
+}
+
+div.fieldbox .fieldbox-button {
+  display: block;
+  background-image: url('../images/in-preview-edit-sprite.png');
+  float: right;
+  text-decoration: none;
+  margin: 3px 3px 0px 3px;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+}
+
+.fieldbox-tab-inner {
+  border: 1px solid #de5400;
+  padding-right: 1px;
+}
+
+.fieldbox-head .ui-tabs-selected .fieldbox-tab-inner {
+  border-color: white;
+}
+
+.fieldbox-tab-icon {
+  background: url('../images/images-selector-sprites.png') no-repeat;
+  float: left;
+  width: 15px;
+  height: 13px;
+  margin: 2px 4px 0 4px;
+}
+
+.text-field .fieldbox-tab-icon {
+  background-position: -260px 0px;
+  width: 13px;
+}
+
+.image-field .fieldbox-tab-icon {
+  background-position: -260px -20px;
+}
+
+.ui-tabs-selected.image-field .fieldbox-tab-icon {
+  background-position: -260px -39px;
+}
+
+.fieldbox .ui-tabs-hide {
+  display: none;
+}
+
+.fieldbox-field > .zetaprints-text-field-wrapper {
+  border-color: #F18200;
+  position: relative;
+  margin: 4px;
+}
+
+.fieldbox-field .zp-combobox-button {
+  border-color: #F18200;
+}
+
+.fieldbox-field .ui-menu {
+  border: 1px solid #F18200;
+}
+
+div.fieldbox div.tabs-wrapper {
+  border-width: 0px;
+}
+
+div.fieldbox ul.tab-buttons li {
+  border-left: none;
+}
+
+div.colorpicker {
+  z-index: 10100;
+}

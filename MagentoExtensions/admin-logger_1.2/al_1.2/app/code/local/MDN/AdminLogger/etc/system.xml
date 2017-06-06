@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <adminlogger translate="label" module="AdminLogger">
+            <label>Admin Logger</label>
+			<tab>advanced</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>500</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+            	<general>
+            		<label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </enable>
+                        <auto_prune>
+                            <label>Auto Prune</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </auto_prune>
+                        <auto_prune_delay>
+                            <label>Auto Prune delay</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment>days</comment>
+                        </auto_prune_delay>
+                        <force_initial_data>
+                            <label>Force Initial Data</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </force_initial_data>
+	                    <enable_log>
+	                        <label>Enable log</label>
+	                        <frontend_type>select</frontend_type>
+	                        <source_model>adminhtml/system_config_source_yesno</source_model>
+	                        <sort_order>6</sort_order>
+	                        <show_in_default>1</show_in_default>
+	                    </enable_log>
+                   </fields>
+            	</general>
+            	<advanced>
+            		<label>Advanced</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <fields_to_ignore translate="label">
+                            <label>Fields to ignore</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </fields_to_ignore>
+                        <object_to_ignore translate="label">
+                            <label>Object Type to Ignore</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </object_to_ignore>
+                        <force_orig_data translate="label">
+                            <label>Force Orig Data</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </force_orig_data>
+					</fields>
+            	</advanced>
+            </groups>
+        </adminlogger>
+    </sections>
+</config>

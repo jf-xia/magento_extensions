@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+								
+								
+									<title>Vkontakte Comments</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">
+								dt{font-weight: bold;}
+								PRE{
+								background-color:#F9F9F9 !important;
+								border:1px dashed #2F6FAB !important;
+								padding:1em !important;
+								}								
+							</style></head><body><table align="right">
+<tbody><tr>
+<td> <table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Vkontakte_Comments"><span class="tocnumber">1</span> <span class="toctext">Vkontakte Comments</span></a></li>
+<li class="toclevel-1"><a href="#Features"><span class="tocnumber">2</span> <span class="toctext">Features</span></a></li>
+<li class="toclevel-1"><a href="#Installation"><span class="tocnumber">3</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Backup_Your_Data"><span class="tocnumber">3.1</span> <span class="toctext">Backup Your Data</span></a></li>
+<li class="toclevel-2"><a href="#Download_and_Extract"><span class="tocnumber">3.2</span> <span class="toctext">Download and Extract</span></a></li>
+<li class="toclevel-2"><a href="#Upload_Files"><span class="tocnumber">3.3</span> <span class="toctext">Upload Files</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Configuration"><span class="tocnumber">4</span> <span class="toctext">Configuration</span></a></li>
+<li class="toclevel-1"><a href="#Troubleshooting"><span class="tocnumber">5</span> <span class="toctext">Troubleshooting</span></a></li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+</td></tr></tbody></table>
+<a name="Vkontakte_Comments" id="Vkontakte_Comments"></a><h1> <span class="mw-headline">Vkontakte Comments</span></h1>
+<p><b>Version 1.0</b>
+</p><p>Vkontakte Comments is extension for Magento. This one allow to 
+integrate Vkontakte.ru comments into your store. In a few minutes you 
+can easy create section with comments on each product page of your 
+store. As result all comments about your products are translated into 
+social network Vkontakte. This is a very good advertisement for your 
+store.
+</p>
+<a name="Features" id="Features"></a><h1> <span class="mw-headline">Features</span></h1>
+<ul><li>Easy-to-use interface
+</li><li>Multistore support
+</li><li>Easy 2-minutes installation
+</li><li>Meets Magento programming practices for most versions and customizations compatibility
+</li></ul>
+<a name="Installation" id="Installation"></a><h1> <span class="mw-headline">Installation</span></h1>
+<p>Clear the store cache under <b>var/cache</b> and all cookies for your
+ store domain. This step eliminates almost all potential problems. It's 
+necessary since Magento uses cache heavily.
+</p>
+<a name="Backup_Your_Data" id="Backup_Your_Data"></a><h3> <span class="mw-headline">Backup Your Data</span></h3>
+<p>Backup your store database and web directory.
+</p>
+<a name="Download_and_Extract" id="Download_and_Extract"></a><h3> <span class="mw-headline">Download and Extract</span></h3>
+<p>Download and unzip extension contents on your computer and navigate inside the extracted folder.
+</p>
+<a name="Upload_Files" id="Upload_Files"></a><h3> <span class="mw-headline">Upload Files</span></h3>
+<p>If you use a different from default theme - be sure to rename 
+app/design/frontend/default/default and skin/frontend/default/default 
+folders to your store's values. Using your FTP client upload files <i>app</i>, <i>js</i> and <i>skin</i> directory to your store root. Depending on the module some directories mentioned may not exist in the package.
+</p><p>To install Vkontakte Comments at the Product page of your store you should:
+open the <b>/<i>&lt;your_locale&gt;</i>/<i>&lt;your_skin&gt;</i>/template/catalog/product/view.phtml</b> file,
+which has <i>your_skin</i> as the name of your current store skin and <i>your_locale</i> as your current locale. If you haven't ever changed your store's skin or locale, use the <i>default</i> value for <i>your_skin</i> and <i>your_locale</i>.
+</p><p>Find the following string:
+</p>
+<div dir="ltr" style="text-align: left;"><div class="php source-php" style="font-family: monospace;"><pre class="de1">  <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">getChildHtml</span><span class="br0">(</span><span class="st_h">'upsell_products'</span><span class="br0">)</span> <span class="sy1">?&gt;</span></pre></div></div>
+<p>and insert this code after it:
+</p>
+<div dir="ltr" style="text-align: left;"><div class="php source-php" style="font-family: monospace;"><pre class="de1">  <span class="kw2">&lt;?php</span> <span class="kw1">echo</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">getChildHtml</span><span class="br0">(</span><span class="st_h">'vkomments'</span><span class="br0">)</span><span class="sy0">;</span> <span class="sy1">?&gt;</span></pre></div></div>
+<p><br>
+</p>
+<a name="Configuration" id="Configuration"></a><h1> <span class="mw-headline">Configuration</span></h1>
+<p>To set up Vkontakte Comments go to the <b>System</b> &gt; <b>Configuration</b> &gt; <b>Vkontakte Comments</b> page at the backend.
+</p><p>In the <i>General</i> tab, you must enter API KEY and Application ID. Get it here <a href="http://vkontakte.ru/editapp?act=create" class="external free" title="http://vkontakte.ru/editapp?act=create" rel="nofollow">http://vkontakte.ru/editapp?act=create</a>.
+</p><p>You can also define limit of comments per page and width of the widget.
+</p>
+<a name="Troubleshooting" id="Troubleshooting"></a><h1> <span class="mw-headline">Troubleshooting</span></h1>
+<dl><dt>After the extension installation the store gives an error, or blank page, or suggests to start Magento installation procedure.
+</dt><dd> Change the owner of the extracted extension files to the web 
+server user and set 775 permissions on them. Clear the store cache and 
+try again.
+</dd></dl>
+<dl><dt>There is no <i>aheadWorks extensions</i> under my configuration section, or having the extension tab clicked I get a blank page, or <i>Access Denied</i> error.
+</dt><dd> Clear the store cache, browser cookies, logout and login again.
+</dd></dl>
+<dl><dt>I've set up everything correctly, inserted the HTML code but there is nothing on that page.
+</dt><dd> Clear the store cache, clear your browser cache and domain cookies and refresh the page.
+</dd></dl>
+<dl><dt>My configuration changes do not appear on the store.
+</dt><dd> Clear the store cache, clear your browser cache and domain cookies and refresh the page.
+</dd></dl>
+<p><br>
+</p>
+<hr>
+<center>
+<p>You can always find the latest version of the software, full documentation, demos, screenshots and reviews at <a href="http://www.magpleasure.com/" class="external free" title="http://www.magpleasure.com" rel="nofollow">http://www.magpleasure.com</a><br>
+License agreement: <a href="http://www.magpleasure.com/LICENSE.txt" class="external free" title="http://www.magpleasure.com/LICENSE.txt" rel="nofollow">http://www.magpleasure.com/LICENSE.txt</a><br>
+<b>Copyright © 2011 MagPleasure Co. <a href="http://www.magpleasure.com/" class="external free" title="http://www.magpleasure.com" rel="nofollow">http://www.magpleasure.com</a></b>
+</p>
+</center>
+<p><br>
+</p></body></html>

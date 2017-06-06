@@ -1,0 +1,27 @@
+<?php $note = $this->getNote(); ?>
+<div class="entry-edit-head" id='deliverynote'>
+	<h4 class="icon-head head-deliverynote"><?php echo $this->__(Mage::helper('deliverynote')->getFrontendLabel()) ?></h4>
+</div>
+<fieldset>
+<?php if ($note !== false) : ?>
+	<?php echo $note;?>
+<?php endif; ?>
+</fieldset>
+<?php $time = $this->getTime(); ?>
+<div class="entry-edit-head" id='deliverynote'>
+	<h4 class="icon-head head-deliverynote">Delivery Date</h4>
+</div>
+<fieldset>
+<?php if ($time !== false) : ?>
+	<?php echo $time;?>
+<?php endif; ?>
+</fieldset>
+<?php $invoice = $this->getInvoice(); ?>
+<div class="entry-edit-head" id='deliverynote'>
+	<h4 class="icon-head head-deliverynote">Delivery Invoice</h4>
+</div>
+<fieldset>
+<?php if ($invoice !== false) :  ?>
+	<?php echo str_replace("^","<br>",$invoice);?>
+<?php endif; ?>
+</fieldset>

@@ -1,0 +1,540 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * @see Mage_Adminhtml_Block_Widget_Form_Container
+ */
+	$model	=	Mage::registry('megamenupro_data')->getData();
+	$menu	=	unserialize($model['content']);
+ ?>
+<?php echo $this->getFormInitScripts() ?>
+<div class="content-header">
+    <?php echo $this->getHeaderHtml() ?>
+    <p class="form-buttons"><?php echo $this->getButtonsHtml('header') ?></p>
+</div>
+
+<div class="menupro_content">
+	<div id="em_value_num"></div>
+	<div id="container">
+		<div id="sidebar">
+			<!-- HTML Markup for Toolbox -->
+			<fieldset id="itemtypes">
+				<legend><?php echo $this->__("Item Types") ?></legend>
+				<div class="dragzone">
+					<div class="menu-item menu-item-link">
+						<div class="menu-item-header"><?php echo $this->__("Link:") ?><span class="title"></span></div>
+						<div class="menu-item-content">
+							<input type="hidden" name="type" value="link">
+							<table class="form-list">
+								<tbody>
+									<tr>
+										<td class="label"><label><?php echo $this->__("Label") ?></label></td>
+										<td class="value"><input type="input" name="label" class="input-text" size="20"></td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("Sub Label") ?></label></td>
+										<td class="value"><input type="input" name="sublabel" class="input-text" size="20"></td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("URL") ?></label></td>
+										<td class="value"><input type="input" name="url" class="input-text" size="20"></td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("Target") ?></label></td>
+										<td class="value"><input type="input" name="target" class="input-text" size="20"></td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("CSS Class") ?></label></td>
+										<td class="value"><input type="input" name="css_class" class="input-text" size="20"></td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("Container CSS") ?></label></td>
+										<td class="value"><input type="input" name="container_css" class="input-text" size="20"></td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="2">
+											<button name="revert"><?php echo $this->__("Revert") ?></button>
+											<button name="apply"><?php echo $this->__("Apply") ?></button>
+											<button name="delete"><?php echo $this->__("Delete") ?></button>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+					
+					<div class="menu-item menu-item-text">
+						<div class="menu-item-header"><?php echo $this->__("Text") ?></div>
+						<div class="menu-item-content">
+							<input type="hidden" name="type" value="text">
+							<table class="form-list">
+								<tbody>
+									<tr>
+										<td class="value" colspan="2">
+											<textarea name="text" cols="30" rows="5"></textarea>
+											<button title="WYSIWYG Editor" type="button" class="scalable btn-wysiwyg"><?php echo $this->__("WYSIWYG Editor") ?></button>
+										</td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("CSS Class") ?></label></td>
+										<td class="value"><input type="input" name="css_class" class="input-text" size="20"></td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("Container CSS") ?></label></td>
+										<td class="value"><input type="input" name="container_css" class="input-text" size="20"></td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="2">
+											<button name="revert"><?php echo $this->__("Revert") ?></button>
+											<button name="apply"><?php echo $this->__("Apply") ?></button>
+											<button name="delete"><?php echo $this->__("Delete") ?></button>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+					
+					<div class="menu-item menu-item-hbox">
+						<div class="menu-item-header"><?php echo $this->__("Columns Layout") ?></div>
+						<div class="menu-item-content">
+							<input type="hidden" name="type" value="hbox">
+							<table class="form-list">
+								<tbody>
+									<tr>
+										<td class="label"><label><?php echo $this->__("Width") ?></label></td>
+										<td class="value"><input type="input" name="width" class="input-text" size="20"></td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("Height") ?></label></td>
+										<td class="value"><input type="input" name="height" class="input-text" size="20"></td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("Spacing") ?></label></td>
+										<td class="value"><input type="input" name="spacing" class="input-text" size="20"></td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("CSS Class") ?></label></td>
+										<td class="value"><input type="input" name="css_class" class="input-text" size="20"></td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("Container CSS") ?></label></td>
+										<td class="value"><input type="input" name="container_css" class="input-text" size="20"></td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="2">
+											<button name="revert"><?php echo $this->__("Revert") ?></button>
+											<button name="apply"><?php echo $this->__("Apply") ?></button>
+											<button name="delete"><?php echo $this->__("Delete") ?></button>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+					
+					<div class="menu-item menu-item-vbox">
+						<div class="menu-item-header"><?php echo $this->__("Rows Layout") ?></div>
+						<div class="menu-item-content">
+							<input type="hidden" name="type" value="vbox">
+							<table class="form-list">
+								<tbody>
+									<tr>
+										<td class="label"><label><?php echo $this->__("Width") ?></label></td>
+										<td class="value"><input type="input" name="width" class="input-text" size="20"></td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("Height") ?></label></td>
+										<td class="value"><input type="input" name="height" class="input-text" size="20"></td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("Spacing") ?></label></td>
+										<td class="value"><input type="input" name="spacing" class="input-text" size="20"></td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("CSS Class") ?></label></td>
+										<td class="value"><input type="input" name="css_class" class="input-text" size="20"></td>
+									</tr>
+									<tr>
+										<td class="label"><label><?php echo $this->__("Container CSS") ?></label></td>
+										<td class="value"><input type="input" name="container_css" class="input-text" size="20"></td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="2">
+											<button name="revert"><?php echo $this->__("Revert") ?></button>
+											<button name="apply"><?php echo $this->__("Apply") ?></button>
+											<button name="delete"><?php echo $this->__("Delete") ?></button>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+
+		<div id="main">
+			<!-- HTML Markup for Canvas -->
+			<fieldset id="canvas">
+				<legend><?php echo $this->__("Menu Designer Canvas") ?></legend>
+				<div class="dropzone">
+					<!-- 
+						Example we have some MenuItem already exists.
+						In real world, it should load from database
+					-->
+					
+					<?php foreach ($menu as $item): ?>
+						
+						<?php if ($item['type'] == 'link'): ?>
+						
+							<div class="menu-item menu-item-link menu-item-depth-<?php echo htmlspecialchars($item['depth']) ?>">
+								<div class="menu-item-header"><?php echo $this->__("Link:") ?> <span class="title"><?php echo htmlspecialchars($item['label']) ?></span></div>
+								<div class="menu-item-content">
+									<input type="hidden" name="type" value="link">
+									<table class="form-list">
+										<tbody>
+											<tr>
+												<td class="label"><label><?php echo $this->__("Label") ?></label></td>
+												<td class="value"><input type="input" name="label" class="input-text" size="20" value="<?php echo htmlspecialchars($item['label']) ?>"></td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("Sub Label") ?></label></td>
+												<td class="value"><input type="input" name="sublabel" class="input-text" size="20" value="<?php echo htmlspecialchars($item['sublabel']) ?>"></td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("URL") ?></label></td>
+												<td class="value"><input type="input" name="url" class="input-text" size="20" value="<?php echo htmlspecialchars($item['url']) ?>"></td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("Target") ?></label></td>
+												<td class="value"><input type="input" name="target" class="input-text" size="20" value="<?php echo htmlspecialchars($item['target']) ?>"></td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("CSS Class") ?></label></td>
+												<td class="value"><input type="input" name="css_class" class="input-text" size="20" value="<?php echo htmlspecialchars($item['css_class']) ?>"></td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("Container CSS") ?></label></td>
+												<td class="value"><input type="input" name="container_css" class="input-text" size="20" value="<?php echo htmlspecialchars($item['container_css']) ?>"></td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="2">
+													<button name="revert"><?php echo $this->__("Revert") ?></button>
+													<button name="apply"><?php echo $this->__("Apply") ?></button>
+													<button name="delete"><?php echo $this->__("Delete") ?></button>
+												</td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+							</div>	
+						
+						<?php elseif ($item['type'] == 'text'): ?>
+							<?php $item['text']	=	base64_decode($item['text']); ?>
+							<div class="menu-item menu-item-text menu-item-depth-<?php echo htmlspecialchars($item['depth']) ?>">
+								<div class="menu-item-header"><?php echo $this->__("Text") ?></div>
+								<div class="menu-item-content">
+									<input type="hidden" name="type" value="text">
+									<table class="form-list">
+										<tbody>
+											<tr>
+												<td class="value" colspan="2">
+													<textarea name="text" cols="30" rows="5"><?php echo htmlspecialchars($item['text']) ?></textarea>
+													<button title="WYSIWYG Editor" type="button" class="scalable btn-wysiwyg"><?php echo $this->__("WYSIWYG Editor") ?></button>
+												</td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("CSS Class") ?></label></td>
+												<td class="value"><input type="input" name="css_class" class="input-text" size="20" value="<?php echo htmlspecialchars($item['css_class']) ?>"></td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("Container CSS") ?></label></td>
+												<td class="value"><input type="input" name="container_css" class="input-text" size="20" value="<?php echo htmlspecialchars($item['container_css']) ?>"></td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="2">
+													<button name="revert"><?php echo $this->__("Revert") ?></button>
+													<button name="apply"><?php echo $this->__("Apply") ?></button>
+													<button name="delete"><?php echo $this->__("Delete") ?></button>
+												</td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+							</div>
+							
+						<?php elseif ($item['type'] == 'hbox'): ?>
+							
+							<div class="menu-item menu-item-hbox menu-item-depth-<?php echo htmlspecialchars($item['depth']) ?>">
+								<div class="menu-item-header"><?php echo $this->__("Columns Layout") ?></div>
+								<div class="menu-item-content">
+									<input type="hidden" name="type" value="hbox">
+									<table class="form-list">
+										<tbody>
+											<tr>
+												<td class="label"><label><?php echo $this->__("Width") ?></label></td>
+												<td class="value"><input type="input" name="width" class="input-text" size="20" value="<?php echo htmlspecialchars($item['width']) ?>"></td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("Height") ?></label></td>
+												<td class="value"><input type="input" name="height" class="input-text" size="20" value="<?php echo htmlspecialchars($item['height']) ?>"></td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("Spacing") ?></label></td>
+												<td class="value"><input type="input" name="spacing" class="input-text" size="20" value="<?php echo htmlspecialchars($item['spacing']) ?>"></td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("CSS Class") ?></label></td>
+												<td class="value"><input type="input" name="css_class" class="input-text" size="20" value="<?php echo htmlspecialchars($item['css_class']) ?>"></td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("Container CSS") ?></label></td>
+												<td class="value"><input type="input" name="container_css" class="input-text" size="20" value="<?php echo htmlspecialchars($item['container_css']) ?>"></td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="2">
+													<button name="revert"><?php echo $this->__("Revert") ?></button>
+													<button name="apply"><?php echo $this->__("Apply") ?></button>
+													<button name="delete"><?php echo $this->__("Delete") ?></button>
+												</td>
+											</tr>
+										</tfoot>
+									</table>
+									
+								</div>
+							</div>
+							
+						<?php elseif ($item['type'] == 'vbox'): ?>
+							
+							<div class="menu-item menu-item-vbox menu-item-depth-<?php echo htmlspecialchars($item['depth']) ?>">
+								<div class="menu-item-header"><?php echo $this->__("Rows Layout") ?></div>
+								<div class="menu-item-content">
+									<input type="hidden" name="type" value="vbox">
+									<table class="form-list">
+										<tbody>
+											<tr>
+												<td class="label"><label><?php echo $this->__("Width") ?></label></td>
+												<td class="value"><input type="input" name="width" class="input-text" size="20" value="<?php echo htmlspecialchars($item['width']) ?>"></td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("Height") ?></label></td>
+												<td class="value"><input type="input" name="height" class="input-text" size="20" value="<?php echo htmlspecialchars($item['height']) ?>"></td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("Spacing") ?></label></td>
+												<td class="value"><input type="input" name="spacing" class="input-text" size="20" value="<?php echo htmlspecialchars($item['spacing']) ?>"></td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("CSS Class") ?></label></td>
+												<td class="value"><input type="input" name="css_class" class="input-text" size="20" value="<?php echo htmlspecialchars($item['css_class']) ?>"></td>
+											</tr>
+											<tr>
+												<td class="label"><label><?php echo $this->__("Container CSS") ?></label></td>
+												<td class="value"><input type="input" name="container_css" class="input-text" size="20" value="<?php echo htmlspecialchars($item['container_css']) ?>"></td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="2">
+													<button name="revert"><?php echo $this->__("Revert") ?></button>
+													<button name="apply"><?php echo $this->__("Apply") ?></button>
+													<button name="delete"><?php echo $this->__("Delete") ?></button>
+												</td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+							</div>
+							
+						<?php endif ?>
+						
+					<?php endforeach ?>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<form id="edit_form" name="editForm" action="<?php echo Mage::helper('adminhtml')->getUrl('*/*/save', array('id' => $this->getRequest()->getParam('id')))?>" method="post">
+		<input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+		<textarea id="frm_info" name="content" style="display:none" ></textarea>
+	</form>
+	
+</div>
+<?php if ($this->hasFooterButtons()): ?>
+    <div class="content-footer">
+        <p class="form-buttons"><?php echo $this->getButtonsHtml('footer') ?></p>
+    </div>
+<?php endif; ?>
+<script type="text/javascript">
+    var editForm = new varienForm('edit_form', '<?php echo $this->getValidationUrl() ?>');
+</script>
+<?php echo $this->getFormScripts() ?>
+<script type="text/javascript">
+	Window.keepMultiModalWindow = true;
+	EM_MegaMenu.emWysiwygEditor = {
+		overlayShowEffectOptions : null,
+		overlayHideEffectOptions : null,
+		tinymce: null,
+		open : function(elementId) {
+			this.openDialogWindow(elementId);
+		},
+		openDialogWindow : function(elementId) {
+			this.overlayShowEffectOptions = Windows.overlayShowEffectOptions;
+			this.overlayHideEffectOptions = Windows.overlayHideEffectOptions;
+			Windows.overlayShowEffectOptions = {duration:0};
+			Windows.overlayHideEffectOptions = {duration:0};
+
+			var content = ''
+				+ '<div id="editor' + elementId + '_editor" class="hor-scroll">' + "\n"
+				+ '	 <div id="buttons'+ elementId + '_editor" class="buttons-set">' + "\n"
+				+ '	   <button type="button" class="scalable show-hide" style="" id="toggle' + elementId + '_editor"><span><span><span>Show / Hide Editor</span></span></span></button>' + "\n"
+				+ '	   <button type="button" class="scalable add-widget plugin" onclick="widgetTools.openDialog(\'<?php echo $this->getUrl("adminhtml/widget/index") ?>widget_target_id/' + elementId + '_editor\')" style="display:none"><span><span><span>Insert Widget...</span></span></span></button>' + "\n"
+				+ '	   <button type="button" class="scalable add-image plugin" onclick="MediabrowserUtility.openDialog(\'<?php echo $this->getUrl("adminhtml/cms_wysiwyg_images/index") ?>target_element_id/' + elementId + '_editor\')" style="display:none"><span><span><span>Insert Image...</span></span></span></button>' + "\n"
+				+ '	   <button type="button" class="scalable add-variable plugin" onclick="MagentovariablePlugin.loadChooser(\'<?php echo $this->getUrl("adminhtml/system_variable/wysiwygPlugin") ?>\', \'' + elementId + '_editor\')" style="display:none"><span><span><span>Insert Variable...</span></span></span></button>' + "\n"
+				+ '</div>' + "\n"
+				+ '<textarea name="content" id="' + elementId + '_editor" class="textarea" style="width:725px;height:460px" rows="2" cols="15" ></textarea>' + "\n"
+				+ '</div>';
+
+			Dialog.confirm(content, {
+				draggable:true,
+				resizable:true,
+				closable:true,
+				className:"magento",
+				windowClassName:"popup-window",
+				title:'WYSIWYG Editor',
+				width:950,
+				height:555,
+				zIndex:1000,
+				recenterAuto:false,
+				hideEffect:Element.hide,
+				showEffect:Element.show,
+				id:"catalog-wysiwyg-editor",
+				buttonClass:"form-button",
+				okLabel:"Submit",
+				ok: this.okDialogWindow.bind(this),
+				cancel: this.closeDialogWindow.bind(this),
+				onClose: this.closeDialogWindow.bind(this),
+				firedElementId: elementId
+			});
+
+			$(elementId+'_editor').value = $(elementId).value;
+
+			this.initTinyMCE(elementId);
+		},
+		initTinyMCE: function(elementId) {
+			if ("undefined" != typeof(Translator)) {
+				Translator.add({"Insert Image...":"Insert Image...","Insert Media...":"Insert Media...","Insert File...":"Insert File..."});
+			}
+			this.tinymce = new tinyMceWysiwygSetup(elementId+"_editor", <?php echo Zend_Json::encode($this->getConfig()) ?>);
+			this.tinymce.setup("exact");
+			editorFormValidationHandler = this.tinymce.onFormValidation.bind(this.tinymce);
+			Event.observe("toggle"+elementId+"_editor", "click", this.tinymce.toggle.bind(this.tinymce));
+			varienGlobalEvents.attachEventHandler("formSubmit", editorFormValidationHandler);
+			varienGlobalEvents.attachEventHandler("tinymceBeforeSetContent", this.tinymce.beforeSetContent.bind(this.tinymce));
+			varienGlobalEvents.attachEventHandler("tinymceSaveContent", this.tinymce.saveContent.bind(this.tinymce));
+			varienGlobalEvents.clearEventHandlers("open_browser_callback");
+			varienGlobalEvents.attachEventHandler("open_browser_callback", this.tinymce.openFileBrowser.bind(this.tinymce));
+		},
+		okDialogWindow : function(dialogWindow) {
+			if (dialogWindow.options.firedElementId) {
+				this.tinymce.turnOff();
+				if (tinyMCE.get(this.tinymce.id)) {
+					$(dialogWindow.options.firedElementId).value = tinyMCE.get(this.tinymce.id).getContent();
+				} else {
+					if ($(dialogWindow.options.firedElementId+'_editor')) {
+						$(dialogWindow.options.firedElementId).value = $(dialogWindow.options.firedElementId+'_editor').value;
+					}
+				}
+			}
+			this.closeDialogWindow(dialogWindow);
+		},
+		closeDialogWindow : function(dialogWindow) {
+			// remove form validation event after closing editor to prevent errors during save main form
+			if (typeof varienGlobalEvents != undefined && editorFormValidationHandler) {
+				varienGlobalEvents.removeEventHandler('formSubmit', editorFormValidationHandler);
+			}
+
+			//IE fix - blocked form fields after closing
+			$(dialogWindow.options.firedElementId).focus();
+
+			//destroy the instance of editor
+			if (tinyMCE.get(this.tinymce.id)) {
+			   tinyMCE.execCommand('mceRemoveControl', true, this.tinymce.id);
+			}
+
+			dialogWindow.close();
+			Windows.overlayShowEffectOptions = this.overlayShowEffectOptions;
+			Windows.overlayHideEffectOptions = this.overlayHideEffectOptions;
+		}
+	};
+
+	jQuery(function($) {
+		emCanvas = new EM_MegaMenu.Canvas('#canvas');
+		emToolbox = new EM_MegaMenu.Toolbox('#itemtypes', canvas);
+		$('#canvas button, #itemtypes button').button();
+	});
+
+	function saveAndContinueEdit(){
+		var param = emCanvas.serializeArray();
+		jQuery.ajax({
+			url: "<?php echo Mage::helper('adminhtml')->getUrl('*/*/parsecode') ?>",
+			type: "post",
+			data: {menu:param,form_key:'<?php echo Mage::getSingleton('core/session')->getFormKey() ?>'},
+			success: function(rs){
+				jQuery("#frm_info").val(rs);
+				editForm.submit($('edit_form').action+'back/edit/');
+			}
+		});
+	}
+	function savefrom() {
+		var param = emCanvas.serializeArray();
+		jQuery.ajax({
+			url: "<?php echo Mage::helper('adminhtml')->getUrl('*/*/parsecode') ?>",
+			type: "post",
+			data: {menu:param,form_key:'<?php echo Mage::getSingleton('core/session')->getFormKey() ?>'},
+			success: function(rs){
+				jQuery("#frm_info").val(rs);
+				editForm.submit();
+			}
+		});
+	}
+
+</script>

@@ -1,0 +1,6 @@
+<?php if ($p = Mage::registry('product')): ?>
+<meta property="og:title" content="<?php echo $this->htmlEscape($p->getName()); ?>" />
+<meta property="og:description" content="<?php echo $this->htmlEscape($p->getShortDescription()); ?>" />
+<meta property="og:image" content="<?php echo Mage::helper('catalog/image')->init($p, 'small_image')->resize(150); ?>" />
+<meta property="fb:app_id" content="<?php echo Mage::getStoreConfig('amfbreview/general/appid'); ?>" />
+<?php endif ?>

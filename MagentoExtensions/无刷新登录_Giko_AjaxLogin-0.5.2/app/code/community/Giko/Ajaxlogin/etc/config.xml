@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+	<!--
+		/** * luochunhui.com * * COPYRIGHT (c) 2011 BY LuoChunhui. ALL RIGHTS
+		* RESERVED. The source code, design, and structure of THIS PROGRAM are
+		trade secrets. * You will not disassemble, decompile, or reverse
+		engineer it, in whole or in part, except to the extent expressly
+		permitted by law. You will not use THIS PROGRAM for illegal purposes.
+		You will comply with all export laws. Giko_Tenpay is licensed, not
+		sold. * * @category Profit * @package Giko_Qeckout * @author
+		luochunhui * @copyright Copyright (c) 2011 LuoChunhui
+		(http://www.luochunhui.com) * */
+	-->
+<config>
+	<modules>
+		<Giko_Ajaxlogin>
+			<version>0.5.2</version>
+		</Giko_Ajaxlogin>
+	</modules>
+
+	<global>
+		<models>
+			<ajaxlogin>
+				<class>Giko_Ajaxlogin_Model</class>
+			</ajaxlogin>
+		</models>
+		
+		<helpers>
+			<ajaxlogin>
+				<class>Giko_Ajaxlogin_Helper</class>
+			</ajaxlogin>
+		</helpers>
+		
+		<blocks>
+            <ajaxlogin>
+            	<class>Giko_Ajaxlogin_Block</class>
+            </ajaxlogin>
+    	</blocks>
+	</global>
+	
+	<adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <ajaxlogin>
+                                            <title>Ajaxlogin</title>
+                                        </ajaxlogin>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+	
+	<frontend>
+		<secure_url>
+			<ajaxlogin_index>/ajaxlogin/login</ajaxlogin_index>
+		</secure_url>
+        <routers>
+        	<ajaxlogin>
+                <use>standard</use>
+                <args>
+                    <module>Giko_Ajaxlogin</module>
+                    <frontName>ajaxlogin</frontName>
+                </args>
+            </ajaxlogin>
+        </routers>
+        <layout>
+            <updates>
+                <ajaxlogin>
+                    <file>ajaxlogin.xml</file>
+                </ajaxlogin>
+            </updates>
+        </layout>
+    </frontend>
+	
+</config>

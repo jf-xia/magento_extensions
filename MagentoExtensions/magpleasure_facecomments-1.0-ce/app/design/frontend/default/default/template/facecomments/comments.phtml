@@ -1,0 +1,45 @@
+<?php
+/**
+ * Magpleasure Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE-CE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magpleasure.com/LICENSE-CE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * Magpleasure does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * Magpleasure does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   Magpleasure
+ * @package    Magpleasure_Facecomments
+ * @version    1.0
+ * @copyright  Copyright (c) 2011 Magpleasure Ltd. (http://www.magpleasure.com)
+ * @license    http://www.magpleasure.com/LICENSE-CE.txt
+ */
+/** @var Magpleasure_Facecomments_Block_Comments $this */
+?>
+<?php if ($this->canShow()): ?>
+<div class="box-collateral">
+    <h2><?php echo $this->__('Comments'); ?></h2>
+    <div id="fb-root"></div>
+    <script type="text/javascript">(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <fb:comments href="<?php echo $this->getCanonicalUrl(); ?>" num_posts="<?php echo $this->getLimit(); ?>" width="<?php echo $this->getWidth(); ?>"></fb:comments>
+</div>
+<?php endif; ?>
+
+

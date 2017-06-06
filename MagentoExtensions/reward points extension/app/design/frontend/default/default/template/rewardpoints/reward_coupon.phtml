@@ -1,0 +1,159 @@
+<?php
+/**
+ * J2T RewardsPoint2
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@j2t-design.com so we can send you a copy immediately.
+ *
+ * @category   Magento extension
+ * @package    RewardsPoint2
+ * @copyright  Copyright (c) 2009 J2T DESIGN. (http://www.j2t-design.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ ?>
+
+<?php $points_currently_used = $this->getPointsCurrentlyUsed(); ?>
+<?php $couponCode = Mage::getSingleton('checkout/cart')->getQuote()->getCouponCode(); ?>
+<?php $pts = $this->getPointsOnOrder();?>
+
+<?php if (!$this->getAutoUse()): ?>
+    <?php if (!$this->getCustomerId()):?>
+    <div class="discount-codes box discount">
+        <h2><?php echo $this->__('Reward points'); ?></h2>
+        <?php echo $this->getIllustrationImage()?>
+        <div class="rewards_point_cart"><?php echo $this->__("This shopping cart is worth %s loyalty point(s).", $pts);?></div>
+    </div>
+    <?php endif; ?>
+<?php if ($this->getCustomerId()): ?>
+    <?php $point_details = $this->getPointsInfo();?>
+
+<?php if ($this->canUseCouponCode() && ($couponCode == "" || $couponCode == null) || !$this->canUseCouponCode()):?>
+<div class="discount-codes box discount">
+    <?php if (!$points_currently_used): ?>
+    <form action="<?php echo $this->getUrl('rewardpoints/index/quotation/') ?>" method="post" name="discountFormPoints2">
+        <fieldset>
+            <h2><?php echo $this->__('Reward points'); ?></h2>
+            
+            <?php echo $this->getIllustrationImage()?>
+            
+            <div class="rewards_point_cart"><?php echo $this->__("This shopping cart is worth %s loyalty point(s).", $pts);?></div>
+            <?php //if ($point_details['points_money'] > $point_details['customer_points']):?>
+            <?php if ($point_details['min_use'] > $point_details['customer_points']):?>
+                <p><?php echo $this->__('You have %d loyalty point(s) available.', $point_details['customer_points']); ?></p>
+                <?php if ($point_details['step_apply']):?>
+                <p><?php echo $this->__('To get a discount you need at least %d loyalty point(s).', $point_details['step']); ?></p>
+                <?php endif;?>
+            <?php else:?>
+                <p class="no-display"><?php echo $this->__('Enter quantity of loyalty point(s) you want to use.') ?></p>
+                <p><?php echo $this->__('You have %d loyalty point(s) available.', $point_details['customer_points']); ?></p>
+
+                <?php if($this->isUsable()) : ?>
+                <?php if ($point_details['step_apply']):?>
+                    <?php if (!$this->useSlider()):?>
+                    <select name="points_to_be_used" id="coupon_code_points_qty" class="input-text">
+                        <?php echo $this->pointsToAddOptions($point_details['customer_points'], $point_details['step']);?>
+                    </select>
+                    <?php else:?>
+
+                    <div class="j2t-slider">
+                        <div onclick="new Effect.SwitchOff(this)"><?php echo $this->__('Slide to specify the amount of points to be used.');?></div>
+                        <div id="j2t-track1">
+                            <div id="j2t-handle1"> </div>
+                        </div>
+                        <div id='j2t-height_value_1'></div>
+
+                        <?php $option_slider = $this->pointsToAddOptions($point_details['customer_points'], $point_details['step'], true);?>
+                        <?php $arr_slider = explode(',',$option_slider);?>
+
+                        <script type="text/javascript" language="javascript">
+                        // <![CDATA[
+                            window.onload = function() {
+                                var s1 = new Control.Slider('j2t-handle1','j2t-track1', {axis:'horizontal', range: $R(<?php echo $arr_slider[0];?>,<?php echo end($arr_slider);?>), values: [<?php echo $option_slider;?>]});
+                                s1.options.onChange = function(value){
+                                    $('j2t-height_value_1').innerHTML = value;
+                                    $('points_to_be_used').value = s1.value;
+                                };
+                                $('j2t-height_value_1').innerHTML = s1.value;
+                                $('points_to_be_used').value = s1.value;
+                            }
+                        // ]]>
+                      </script>
+                      <input type="hidden" value="<?php if(isset($arr_slider[0])):?><?php echo $arr_slider[0];?><?php endif;?>"  name="points_to_be_used" id="points_to_be_used" class="input-text" />
+                    </div>
+                    <?php endif;?>
+
+
+                <?php else:?>
+                    <input <?php if($point_details['full_use']):?>type="hidden"<?php else:?>type="text"<?php endif;?> value="<?php if($point_details['full_use']):?><?php echo $point_details['max_use'];?><?php endif;?>"  name="points_to_be_used" class="input-text" />
+                <?php endif;?>
+                <?php if($this->getCustomerPoints() > 0) : ?>
+                <div class="buttons-set">
+                    <button class="form-button-alt button" value="<?php echo $this->__('Apply Points') ?>" onclick="discountFormPoints2.submit(false)" type="button">
+                        <span><span><?php echo $this->__('Apply Points') ?></span></span>
+                    </button>
+                </div>
+                <?php endif;?>
+                <?php else: ?>
+                    <p><?php echo $this->__('You must have at least %s point(s) to apply points.', $this->getMinimumBalance()); ?></p>
+                <?php endif; ?>
+            <?php endif;?>
+
+            <?php //echo Mage::helper('rewardpoints/event')->getCreditPoints(); ?>
+
+        </fieldset>
+    </form>
+    <?php else: ?>
+    <form action="<?php echo $this->getUrl('rewardpoints/index/removequotation/') ?>" method="post" name="discountFormPoints2">
+        <fieldset>
+            <h2><?php echo $this->__('Reward points'); ?></h2>
+            <?php echo $this->getIllustrationImage()?>
+            <div class="rewards_point_cart"><?php echo $this->__("This shopping cart is worth %s loyalty point(s).", $pts);?></div>
+            <p><?php echo $this->__('You are currently using %d point(s) of your %d loyalty point(s) available.', $points_currently_used, $this->getCustomerPoints()); ?></p>
+            <div class="buttons-set">
+                <button class="form-button-alt button" type="button" onclick="discountFormPoints2.submit(false)" value="<?php echo $this->__('Remove Points') ?>"><span><span><?php echo $this->__('Remove Points') ?></span></span></button>
+            </div>
+        </fieldset>
+    </form>
+    <?php endif;?>
+</div>
+
+<?php endif;?>
+<?php endif;?>
+
+
+
+<?php /*if ($this->canUseCouponCode() && ($points_currently_used < 1 || $points_currently_used == null) || !$this->canUseCouponCode()):?>
+<?php echo $this->getChildHtml('coupon_original');?>
+<?php endif;*/?>
+
+<?php else: ?>
+<?php /*?><div class="discount-codes box discount"><?php */?>
+<?php if (!$this->getCustomerId()):?>
+<div class="discount-codes box discount">
+    <h2><?php echo $this->__('Reward points'); ?></h2>
+    <div class="rewards_point_cart"><?php echo $this->__("This shopping cart is worth %s loyalty point(s).", $pts);?></div>
+</div>
+<?php endif; ?>
+<?php if ($this->getCustomerId()): ?>
+<?php $customerPoints = $this->getCustomerPoints(); ?>
+<?php if ($customerPoints):?>
+<div class="discount-codes box discount">
+    <h2><?php echo $this->__('Reward points'); ?></h2>
+    <div class="rewards_point_cart"><?php echo $this->__("This shopping cart is worth %s loyalty point(s).", $pts);?></div>
+    <p><?php echo $this->__('You are currently using %d point(s) of your %d loyalty point(s) available.', $points_currently_used, $customerPoints); ?></p>
+</div>
+<?php endif;?>
+<?php endif;?>
+<?php endif;?>
+
+<?php if ($this->canUseCouponCode() && ($points_currently_used < 1 || $points_currently_used == null) || !$this->canUseCouponCode()):?>
+<?php echo $this->getChildHtml('coupon_original');?>
+<?php endif;?>
+
+

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+        <modules>
+                <MdlAjaxPage_Mdla>
+                        <active>true</active>
+                        <codePool>local</codePool>
+                </MdlAjaxPage_Mdla>
+        </modules>
+</config>

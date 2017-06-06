@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>HM_DeveloperToolbar</name>
+    <version>1.0</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>DeveloperToolbar</summary>
+    <description>DeveloperToolbar is useful extension that allow the developers to access some common configuration quickly and easily without logging in to admin panel.</description>
+    <notes>Compatible with magento 1.2.x - 1.3.x</notes>
+    <authors><author><name>Hai NGUYEN</name><user>auto-converted</user><email>haint@hello-magento.com</email></author></authors>
+    <date>2009-11-05</date>
+    <time>02:55:46</time>
+    <contents><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="developertoolbar.xml" hash="04e3440fab602230c373870eed65d2da"/></dir><dir name="template"><dir name="developertoolbar"><file name="toolbar.phtml" hash="28bb1b032cc255e17beb0cd6c1cc79f6"/></dir></dir></dir></dir></dir></target><target name="magecommunity"><dir name="HM"><dir name="DeveloperToolbar"><dir name="controllers"><file name="IndexController.php" hash="9b51ca0d357576b3ba0c892c39cab231"/></dir><dir name="etc"><file name="config.xml" hash="88dccd6de1a371868366e88d2b46e457"/><file name="system.xml" hash="d3a464b2dafd444f734c948f4c8e43b8"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="HM_DeveloperToolbar.xml" hash="08f56679bb2ba0892395f48520b0c09a"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

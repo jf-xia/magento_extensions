@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ *  luochunhui.com
+ *
+ *     COPYRIGHT (c)  2011 BY  LuoChunhui.  ALL RIGHTS
+ *     RESERVED.   The source code, design, and structure of THIS PROGRAM are trade secrets. 
+ * You will not disassemble, decompile, or reverse engineer it, in whole or in part, 
+ except to the extent expressly permitted by law. 
+ You will not use THIS PROGRAM for illegal purposes. You will comply with all export laws. Giko_Tenpay is licensed, not sold.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   Payment
+ * @package    Giko_Tenpay
+ * @author     luochunhui
+ * @copyright  Copyright (c) 2011 LuoChunhui (http://www.luochunhui.com)
+ *
+ *
+ */
+-->
+
+<layout version="0.1.0">
+    <default>
+    	<reference name="head">
+            <action method="addJs" ifconfig="ajaxlogin/settings/enable"><script>giko/tinybox.js</script></action>
+            <action method="addJs" ifconfig="ajaxlogin/settings/enable"><script>giko/ajaxlogin.js</script></action>
+            <action method="addCss"><stylesheet>css/giko/ajaxlogin.css</stylesheet></action>
+        </reference>
+        
+        <reference name="before_body_end">
+            <block type="ajaxlogin/js" name="ajaxlogin" as="ajaxlogin" />
+        </reference>
+    </default>
+    
+	<ajaxlogin_login_form translate="label">
+		<!-- 
+		<reference name="head">
+        	<action method="addJs"><script>giko/ajaxlogin.js</script></action>
+	        <action method="addCss"><script>css/giko/ajaxlogin.css</script></action>
+        </reference>
+        -->
+        
+		<reference name="root">
+            <action method="setTemplate"><template>page/empty.phtml</template></action>
+            <action method="setHeaderTitle" translate="title" module="contacts"><title>Contact Us</title></action>
+        </reference>
+        
+        <reference name="content">
+				<block type="ajaxlogin/form" name="ajaxlogin_form" template="ajaxlogin/form.phtml"></block>
+        </reference>
+		
+    </ajaxlogin_login_form>
+</layout>

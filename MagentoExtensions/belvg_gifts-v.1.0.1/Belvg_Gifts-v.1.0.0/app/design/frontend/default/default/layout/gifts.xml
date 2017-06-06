@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<checkout_cart_index>
+		<reference name="checkout.cart.methods.onepage">
+			<action method="setTemplate">
+				<template>gifts/checkout/onepage/link.phtml</template>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="gifts/gifts" name="gifts" template="gifts/gifts.phtml"/>
+		</reference>
+		<reference name="head">
+			<action method="addCss"><stylesheet>css/belvg/gifts.css</stylesheet></action>
+		</reference>
+	</checkout_cart_index>
+</layout>

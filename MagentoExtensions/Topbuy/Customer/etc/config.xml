@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Topbuy_Customer>
+            <version>0.1.0</version>
+        </Topbuy_Customer>
+    </modules> 
+    <frontend> 
+        <routers>
+            <customer>
+				<use>standard</use>
+                <args>
+                    <modules>
+                        <Topbuy_Customer before="Mage_Customer">Topbuy_Customer</Topbuy_Customer>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+    </frontend> 
+</config>

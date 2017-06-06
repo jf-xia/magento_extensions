@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<layout>
+
+
+<!---
+    - Displays a simple WordPress post list in Magento
+    - Allows you to set a custom list title and post limit
+    -
+    - Static Block equivalent:
+    -
+    - {{block type="wordpress/post_list_recent" template="wordpress/post/recent.phtml" title="Recent Posts" post_count="3"}}
+    - 
+  -->
+<reference name="left">
+	<block type="wordpress/post_list_recent" name="wp.recent-posts" template="wordpress/post/recent.phtml">
+		<action method="setTitle"><title>Recent Posts</title></action>
+		<action method="setPostCount"><post_count>3</post_count></action>
+	</block>
+</reference>
+
+<!---
+    - Filter your WordPress post list by a WordPress category ID
+    -
+    - Static Block equivalent:
+    -
+    - {{block type="wordpress/post_list_recent" template="wordpress/post/recent.phtml" title="Recent Posts" post_count="3" category_id="1"}}
+    - 
+  -->
+<reference name="left">
+	<block type="wordpress/post_list_recent" name="wp.recent-posts" template="wordpress/post/recent.phtml">
+		<action method="setTitle"><title>Recent Posts</title></action>
+		<action method="setPostCount"><post_count>3</post_count></action>
+		<action method="setCategoryId"><category_id>1</category_id></action>
+	</block>
+</reference>
+
+<!---
+    - Filter your WordPress post list by a WordPress user ID
+    -
+    - Static Block equivalent:
+    -
+    - {{block type="wordpress/post_list_recent" template="wordpress/post/recent.phtml" title="Recent Posts" post_count="3" author_id="1"}}
+    - 
+  -->
+<reference name="left">
+	<block type="wordpress/post_list_recent" name="wp.recent-posts" template="wordpress/post/recent.phtml">
+		<action method="setTitle"><title>Recent Posts</title></action>
+		<action method="setPostCount"><post_count>3</post_count></action>
+		<action method="setAuthorId"><author_id>1</author_id></action>
+	</block>
+</reference>
+
+<!---
+    - Displays a simple WordPress post list in Magento
+    - Allows you to set a custom list title and post limit
+    - Also sets a custom post list template. This allows you to customise the actual post list
+    -
+    - Static Block equivalent:
+    -
+    - {{block type="wordpress/post_list_recent" template="wordpress/post/recent.phtml" title="Recent Posts" post_count="3" post_list_template="wordpress/post/recent/list.phtml"}}
+    - 
+  -->
+<reference name="left">
+	<block type="wordpress/post_list_recent" name="wp.recent-posts" template="wordpress/post/recent.phtml">
+		<action method="setTitle"><title>Recent Posts</title></action>
+		<action method="setPostCount"><post_count>3</post_count></action>
+		<action method="setPostListTemplate"><post_list_template>wordpress/post/recent/list.phtml</post_list_template></action>
+	</block>
+</reference>
+
+<!---
+    - Display a single WordPress using the 'featured post' template
+    - The featured template only displays basic post information
+    -  To display more information about the post, use the full post view template (wordpress/post/template.phtml)
+    - 
+    - Static Block Equivalent
+    - {{block type="wordpress/post_view" template="wordpress/post/featured.phtml" post_id="1"}}
+    - 
+  -->
+<reference name="content">
+	<block type="wordpress/post_view" name="wp.featured-post" template="wordpress/post/featured.phtml">
+		<action method="setPostId"><post_id>1</post_id></action>
+	</block>
+</reference>
+
+<!---
+    - Display a single WordPress using the 'standard post' template
+	- This template will display all of the information about a post that would be displayed in WordPress
+    - 
+    - Static Block Equivalent
+    - {{block type="wordpress/post_view" template="wordpress/post/view.phtml" post_id="1"}}
+    - 
+  -->
+<reference name="content">
+	<block type="wordpress/post_view" name="wp.featured-post" template="wordpress/post/view.phtml">
+		<action method="setPostId"><post_id>1</post_id></action>
+	</block>
+</reference>
+
+<!---
+    - Display posts associated with the current product on the product page
+    - This XML will work if you include the following line of PHP in your catalog/product/view.phtml
+    - <?php echo $this->getChildHtml('additional')
+    - If you do not include this block, move the block below into an appropriate reference
+    -
+    - Static Block Equivalent:
+    - {{block type="wordpress/post_list_associated" template="wordpress/post/associated.phtml" title="Related Blog Posts"}}
+    -
+  -->
+<catalog_product_view>
+<reference name="product.info.additional">
+	<block type="wordpress/post_list_associated" name="associated.posts" template="wordpress/post/associated.phtml">
+		<action method="setTitle"><title>Related blog posts</title></action>
+	</block>
+</reference>
+</catalog_product_view>
+
+
+<!---
+    - Display posts associated with the current product on the product page
+    - This will display the posts in the left hand navigaiton. Change the reference from left to right if you are using 2columns-right.phtml
+    -
+    - Static Block Equivalent:
+    - {{block type="wordpress/post_list_associated" template="wordpress/post/associated.phtml" title="Related Blog Posts"}}
+    -
+  -->
+<catalog_product_view>
+<reference name="left">
+	<block type="wordpress/post_list_associated" name="associated.posts" template="wordpress/post/associated.phtml">
+		<action method="setTitle"><title>Related blog posts</title></action>
+	</block>
+</reference>
+</catalog_product_view>
+
+<!---
+    - Display posts associated with the current product on the product page
+    - This will display the posts in the left hand navigaiton. Change the reference from left to right if you are using 2columns-right.phtml
+    -
+    - Static Block Equivalent:
+    - {{block type="wordpress/post_list_associated" template="wordpress/post/associated.phtml" title="Related Blog Posts"}}
+    -
+  -->
+<reference name="content">
+	<block type="wordpress/post_list_associated" name="associated.posts" template="wordpress/post/associated.phtml">
+		<action method="setTitle"><title>Related blog posts</title></action>
+		<action method="setProductId"><product_id>1</product_id></action>
+	</block>
+</reference>
+
+<!---
+    - Display posts associated with the current product on the product page
+    - This will display the posts in the left hand navigaiton. Change the reference from left to right if you are using 2columns-right.phtml
+    - You can change the default post list template using the 'setPostListTemplate' action
+    - 
+    - Static Block Equivalent:
+    - {{block type="wordpress/post_list_associated" template="wordpress/post/associated.phtml" title="Related Blog Posts" post_list_template="wordpress/post/associated/list.phtml"}}
+    -
+  -->
+<reference name="content">
+	<block type="wordpress/post_list_associated" name="associated.posts" template="wordpress/post/associated.phtml">
+		<action method="setTitle"><title>Related blog posts</title></action>
+		<action method="setProductId"><product_id>1</product_id></action>
+		<action method="setPostListTemplate"><post_list_template>wordpress/post/associated/list.phtml</post_list_template></action>
+	</block>
+</reference>
+
+<!---
+    - Displays a list of categories
+    -
+    - Static block equivalent:
+    - {{type="wordpress/category_list" template="wordpress/category/list.phtml" title="Categories"}}
+    -
+    -->
+<reference name="left">
+	<block type="wordpress/category_list" name="wp.category-list" template="wordpress/category/list.phtml" before="-">
+		<action method="setTitle"><title>Categories</title></action>
+	</block>
+</reference>
+
+<!---
+    - Displays a list of sub-categories
+    -
+    - Static block equivalent:
+    - {{type="wordpress/category_list" template="wordpress/category/list.phtml" parent_id="3" title="Sub-Categories"}}
+    -
+    -->
+<reference name="left">
+	<block type="wordpress/category_list" name="wp.category-list" template="wordpress/category/list.phtml" before="-">
+		<action method="setTitle"><title>Sub-Categories</title></action>
+		<action method="setParentId"><parent_id>3</parent_id></action>
+	</block>
+</reference>
+
+<!--
+   - Displays a list of archive links
+   -
+   -
+   -->
+<reference name="left">
+	<block type="wordpress/archive_list" name="wordpress_archive_list" template="wordpress/archive/list.phtml">
+		<action method="setTitle"><title>Archives</title></action>
+	</block>
+</reference>
+
+</layout>

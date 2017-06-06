@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<adminhtml_menueditor_edit>
+		<reference name="head">			
+			<action method="addCss"><stylesheet>em_megamenupro/css/em/jquery-ui-1.9.2.custom.css</stylesheet></action>
+			<action method="addCss"><stylesheet>em_megamenupro/css/layout.css</stylesheet></action>
+			<action method="addItem"><type>skin_js</type><name>em_megamenupro/js/jquery-1.8.2.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>em_megamenupro/js/jquery-ui-1.9.1.custom.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>em_megamenupro/js/designer.js</name></action>
+        </reference>
+		<update handle="editor" />
+	</adminhtml_menueditor_edit>
+
+    <adminhtml_megamenupro_index>
+        <reference name="content">
+            <block type="megamenupro/adminhtml_megamenupro" name="megamenupro" />
+        </reference>
+    </adminhtml_megamenupro_index>
+</layout>

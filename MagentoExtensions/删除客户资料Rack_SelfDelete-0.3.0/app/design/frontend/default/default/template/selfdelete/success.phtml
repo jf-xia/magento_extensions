@@ -1,0 +1,9 @@
+<div class="page-title">
+    <h1><?php echo Mage::helper('selfdelete')->__('Thank you for using our survice!') ?></h1>
+</div>
+<p><?php echo Mage::helper('customer')->__('Your account successfully deleted and will be redirected to our homepage in 5 seconds.') ?></p>
+<script type="text/javascript">
+//<![CDATA[
+    setTimeout(function(){ location.href = '<?php echo $this->getUrl() ?>'},5000);
+//]]>
+</script>

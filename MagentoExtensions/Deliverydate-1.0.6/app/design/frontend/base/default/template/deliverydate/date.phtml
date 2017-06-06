@@ -1,0 +1,15 @@
+<?php if ($this->canShow()): ?>
+	<?php $characterCount = $this->getCharacterCount(); ?>
+	<!--<div id='deliverydate'>
+		<label for='deliverydate-date'><?php echo $this->__(Mage::helper('deliverydate')->getFrontendLabel()) ?><?php if ($characterCount !== false): ?> ( max <?php echo $characterCount ?> characters ) <?php endif; ?></label>
+		<textarea id='deliverydate-date' name='deliverydate-date' class="input-text<?php if ($characterCount !== false): ?> validate-length maximum-length-<?php echo $characterCount ?> <?php endif; ?>"></textarea>
+	</div>-->
+	<div id='deliverydate'>
+		<label for='deliverydate-date'><?php echo $this->__(Mage::helper('deliverydate')->getFrontendLabel()) ?></label>	
+		<select id='deliverydate-date' name='deliverydate-date' class="shipping_deliverydate-date">
+     <option value="only work days">only work days</option>
+     <option value="only weekends or holidays">only weekends or holidays</option>
+     <option value="anytime">anytime</option>
+     </select>
+	</div>	
+<?php endif; ?>

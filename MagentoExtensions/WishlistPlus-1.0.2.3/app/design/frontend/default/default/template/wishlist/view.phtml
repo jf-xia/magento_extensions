@@ -1,0 +1,247 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/* @var $this Mage_Wishlist_Block_Customer_Wishlist */
+?>
+<script language="javascript">
+function addSelectedToCart(f)
+{
+	var ids='';
+	var qtys='';
+	var notSelected = false;
+	var formElements = "";
+	for (var n=0; n < f.elements.length; n++)
+	{
+		if(f.elements[n].type == 'checkbox' && f.elements[n].checked)
+		{
+			var id = f.elements[n].id;
+			var qty = f.elements[n+2].value;
+			if(id != '')
+			{
+				ids += id + ',';
+				qtys += qty+',';
+			}
+		}
+		if(f.elements[n].type == 'checkbox' && f.elements[n].checked)
+		{
+			notSelected = true;
+		}
+	}
+	if(ids == '' || ids == ',')
+	{
+		alert('Please select an item.');
+		return false;
+	}
+	if(qtys == '' || qtys == ',')
+	{
+		alert('Quantity cannot be blank.');
+		return false;
+	}
+	else
+	{
+		var url = '<?php echo $this->getUrl('customwishlist/index/addselectedtocart') ?>'+'ids/'+ids+'/qtys/'+qtys;
+		document.location.href= url;
+	}
+}
+
+function doSelectAll(status)
+{
+	objInput = document.getElementsByTagName('input');
+
+	for(var i =0 ; i < objInput.length; i++)
+	{
+		if(objInput[i].type == "checkbox")
+		{
+			objInput[i].checked = status;
+		}
+	}
+}
+</script>
+
+<?php $cart = Mage::getModel('checkout/cart'); ?>
+<?php
+$cartqtys = array();
+$cartprices = array();
+
+$cartItems = $cart->getProductIds();
+foreach ($cart->getQuote()->getAllItems() as $citem)
+{
+	$cartqtys[$citem->getProductId()][] = $citem->getQty();
+	$cartprices[$citem->getProductId()][] = $citem->getBaseCalculationPrice();
+}
+?>
+<div class="my-wishlist">
+    <div class="page-title title-buttons">
+        <?php if ($this->helper('wishlist')->isRssAllow() && $this->hasWishlistItems()): ?>
+            <a href="<?php echo $this->helper('wishlist')->getRssUrl(); ?>" class="link-rss"><?php echo $this->__('RSS Feed') ?></a>
+        <?php endif; ?>
+        <h1><?php echo $this->__('My Wishlist') ?></h1>
+    </div>
+
+<?php
+$searchq = Mage::app()->getRequest()->getParam('wishq');
+?>
+<form method="get" action="<?php echo Mage::getUrl() ?>wishlist/" id="search_wish_form">
+    <div class="form-search" style="margin-bottom:10px;" style="float:left;">
+        <label for="search">Search:</label>
+        <input type="text" class="input-text" value="<?php echo (isset($searchq) && $searchq!='')?$searchq:'';?>" name="wishq" id="wishsearch" autocomplete="off" style="width:200px">
+        <button class="button" title="Search" type="submit"><span><span>Search Wishlist</span></span></button>
+        <script type="text/javascript">
+        //<![CDATA[
+            var wishsearchForm = new Varien.searchForm('search_wish_form', 'wishsearch', 'Search wishlist here...');
+        //]]>
+        </script>
+		<?php
+		if(isset($searchq) && $searchq!='')
+		{
+		?>
+			<a style="padding:5px;" href="<?php echo $this->getUrl('wishlist'); ?>">View All Items</a>
+		<?php
+		}
+		?>
+    </div>
+</form>
+
+<div class="clear"></div>
+<?php
+	if($searchq != '' && isset($searchq))
+	{
+?>
+<div class="page-head">
+    <h3><?php echo Mage::helper('core')->htmlEscape($this->__("Search results for '%s'", $searchq)) ?></h3>
+</div>
+<?php 
+	}
+?>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+	<?php echo $this->getPagerHtml(); ?>
+    <?php if ($this->hasWishlistItems()): ?>
+    <form action="<?php echo $this->getUrl('*/*/update') ?>" method="post">
+        <fieldset>
+            <?php echo $this->getBlockHtml('formkey')?>
+            <table class="data-table" id="wishlist-table">
+            <col width="80" />
+            <col width="1" />
+            <col />
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+                <thead>
+                    <tr>
+						<th style="text-align: center; !important " >Select All<br /><input type="checkbox" name="chck" onclick="doSelectAll(this.checked)" ></th> 
+                        <th><?php echo $this->__('Product') ?></th>
+                        <th><?php echo $this->__('Comment') ?></th>
+						<th><?php echo $this->__('Qty') ?></th>
+                        <th class="a-center"><span class="nobr"><?php echo $this->__('Added On') ?></span></th>
+                        <!--<th class="a-center"><span class="nobr"><?php echo $this->__('Add to Cart') ?></span></th>-->
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($this->getWishlistItems() as $item): ?>
+	            <?php
+				$color = "";
+				if(in_array($item->getProductId(),$cartItems)) 
+				{
+					$color = " #FFF8C6";
+				}
+      			?>
+					<tr style="background-color: <?php echo $color ?> !important ;" >     
+						<td style="text-align: center; !important ">
+						<?php if($item->isSaleable()): ?>
+									 <input type="checkbox" id="<?php echo $item->getId() ?>"><br />
+						<?php endif; ?>
+						<?php
+							if(in_array($item->getProductId(),$cartItems)) 
+							{
+								?>
+								<center><span style="color:green; font-weight:bold;">In Cart</span></center>
+								<p><strong><?php echo $cartqtys[$item->getProductId()][0] ?></strong> x <?php echo Mage::helper('core')->currency($item->getFinalPrice()) ?></p>
+								<?php
+							}
+							?>
+						</td>
+                        <td>
+                            <a class="product-image" href="<?php echo $this->getProductUrl($item) ?>" title="<?php echo $this->htmlEscape($item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize(113, 113); ?>" width="113" height="113" alt="<?php echo $this->htmlEscape($item->getName()) ?>" /></a>
+                            <h2 class="product-name"><a href="<?php echo $this->getProductUrl($item) ?>"><?php echo $this->htmlEscape($item->getName()) ?></a></h2>
+                            <?php echo $this->getPriceHtml($item) ?>
+                        </td>
+                        <td>
+                            <textarea name="description[<?php echo $item->getWishlistItemId() ?>]" rows="2" cols="5" onfocus="focusComment(this)" onblur="focusComment(this)" title="<?php echo $this->__('Comment') ?>"><?php echo $this->hasDescription($item) ? $this->getEscapedDescription($item) : $this->helper('wishlist')->defaultCommentString() ?></textarea>
+                        </td>
+						<td>
+							<input type="text" value="1" maxlength="12" id="qty_<?php echo $item->getId(); ?>" class="input-text qty" name="qty">
+						</td>
+                        <td>
+                            <span class="nobr"><?php echo $this->getFormatedDate($item->getAddedAt()) ?></span>
+                        </td>
+                        <!--<td class="a-center">
+                        <?php if ($item->isSaleable()): ?>
+                            <button type="button" title="<?php echo $this->__('Add to Cart') ?>" onclick="setLocation('<?php echo $this->getItemAddToCartUrl($item) ?>')" class="button btn-cart"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                        <?php else: ?>
+                            <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                        <?php endif; ?>
+                        </td>-->
+                        <td>
+                            <a href="<?php echo $this->getItemRemoveUrl($item) ?>" title="<?php echo $this->__('Remove Item') ?>" onclick="return confirmRemoveWishlistItem();" class="btn-remove btn-remove2"><?php echo $this->__('Remove item')?></a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+                </tbody>
+            </table>
+		<?php echo $this->getPagerHtml(); ?>
+        <script type="text/javascript">decorateTable('wishlist-table')</script>
+            <div class="buttons-set buttons-set2">
+                <button type="submit" onclick="this.name='save_and_share'" title="<?php echo $this->__('Share Wishlist') ?>" class="button btn-share"><span><span><?php echo $this->__('Share Wishlist') ?></span></span></button>
+                <?php if($this->isSaleable()):?>
+					<button onClick="addSelectedToCart(this.form)" class="button btn-add"  type="button"><span><?php echo $this->__('Add Selected to Cart') ?></span></button>
+                    <button type="button" title="<?php echo $this->__('Add All to Cart') ?>" onclick="setLocation('<?php echo $this->getUrl('*/*/allcart') ?>')" class="button btn-add"><span><span><?php echo $this->__('Add All to Cart') ?></span></span></button>
+                <?php endif;?>
+                <button type="submit" title="<?php echo $this->__('Update Wishlist') ?>" onclick="this.name='do'" class="button btn-update"><span><span><?php echo $this->__('Update Wishlist') ?></span></span></button>
+            </div>
+        </fieldset>
+    </form>
+    <?php else: ?>
+        <p><?php echo $this->__('You have no items in your wishlist.') ?></p>
+    <?php endif ?>
+    <script type="text/javascript">
+    //<![CDATA[
+    function confirmRemoveWishlistItem() {
+        return confirm('<?php echo $this->__('Are you sure you want to remove this product from your wishlist?') ?>');
+    }
+
+    function focusComment(obj) {
+        if( obj.value == '<?php echo $this->helper('wishlist')->defaultCommentString() ?>' ) {
+            obj.value = '';
+        } else if( obj.value == '' ) {
+            obj.value = '<?php echo $this->helper('wishlist')->defaultCommentString() ?>';
+        }
+    }
+    //]]>
+    </script>
+</div>
+<div class="buttons-set">
+    <p class="back-link"><a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>
+</div>

@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+.ias_loader {
+	text-align:center;
+	margin: 5px 0;
+}
+.ias_trigger{
+	display:table;
+	margin:20px auto 0 auto;
+}
+.ias_trigger a{
+	background:#EFEFEF;
+	border:1px solid #DCDCDC;
+	box-shadow:0 0 5px rgba(0, 0, 0, 0.10);
+	font-family:'helvetica_bold';
+	font-size:16px;
+	text-decoration:none;
+	padding:12px 30px;
+	font-size:14px;
+	display:table;
+	border-radius:3px;
+}
+.ias_trigger a span.icon-refresh{
+	padding-right:10px;
+	font-size:17px;
+	font-family:'FontAwesome';
+}
+.ias_trigger a:hover{
+	background:#F07318;
+	color:#FFF;
+	border-color:#F07318;
+}

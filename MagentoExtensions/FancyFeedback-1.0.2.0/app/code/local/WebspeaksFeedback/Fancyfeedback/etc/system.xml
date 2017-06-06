@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<config>
+    <tabs>
+        <fancyfeedback_tab module="fancyfeedback" translate="label">
+            <label>Fancy Feedback</label>
+            <sort_order>100</sort_order>
+        </fancyfeedback_tab>
+    </tabs>
+    <sections>
+        <fancyfeedbackconfig module="fancyfeedback" translate="label">
+            <label>Configuration</label>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <tab>fancyfeedback_tab</tab>
+            <groups>
+                <fancyfeedback_group translate="label">
+                    <label>Fancy Feedback Configuration</label>
+                    <!--<comment>Show/Hide Fancy feedback on your site</comment>-->
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <fancyfeedback_enabled translate="label tooltip comment">
+                            <label>Is Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Display Fancy feedback form in front office.</comment>
+                        </fancyfeedback_enabled>
+                        <fancyfeedback_senderemail translate="label tooltip comment">
+                            <label>Sender Email</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Email address used to reply feedbacks.</comment>
+                        </fancyfeedback_senderemail>
+                        <fancyfeedback_sendername translate="label tooltip comment">
+                            <label>Sender Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Name used to reply feedbacks.</comment>
+                        </fancyfeedback_sendername>
+                        <fancyfeedback_receiveremail translate="label tooltip comment">
+                            <label>Receiver Email</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Email on which feedbacks are received.</comment>
+                        </fancyfeedback_receiveremail>
+                        <fancyfeedback_subject translate="label tooltip comment">
+                            <label>Default Subject</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Subject line of received feedback mails.</comment>
+                        </fancyfeedback_subject>
+                    </fields>
+                </fancyfeedback_group>
+            </groups>
+        </fancyfeedbackconfig>
+    </sections>
+</config>

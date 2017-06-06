@@ -1,0 +1,37 @@
+<?php
+/**
+ * Template for Blueknow_Recommender_Block_Cart_Recommmender.
+ * 
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Blueknow Recommender
+ * extension to newer versions in the future. If you wish to customize it for
+ * your needs please save your changes before upgrading.
+ * 
+ * @category	design
+ * @copyright	Copyright (c) 2010 Blueknow, S.L. (http://www.blueknow.com)
+ * @license		GNU General Public License
+ * @author		<a href="mailto:santi.ameller@blueknow.com">Santiago Ameller</a>
+ * @since		1.0.0
+ * 
+ */
+?>
+<?php $bConfiguration = $this->getConfig(); ?>
+
+<script src="<?php echo $bConfiguration->getBaseURL() ?>/bk-r.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	var rec = new Blueknow.Recommender('<?php echo $bConfiguration->getBKNumber() ?>');
+	rec.setCurrency('<?php echo $bConfiguration->getCurrentCurrency()->getCode() ?>');
+	rec.setLanguage('<?php echo $bConfiguration->getLanguage() ?>');
+</script>
+
+<script type="text/javascript">
+	var i2b_properties = new Object();
+	i2b_properties.recommendations = '<?php echo $bConfiguration->getUpSellNOR() ?>';
+	var i2b_products = Array();
+	<?php foreach ($this->getCart()->getProducts() as $bProduct) { ?>
+	i2b_products.push('<?php echo $bProduct ?>');
+	<?php } //eof foreach ?>
+	rec.item2basket('<?php echo $bConfiguration->getDescriptor(); ?>_cart', i2b_products, i2b_properties);
+</script>

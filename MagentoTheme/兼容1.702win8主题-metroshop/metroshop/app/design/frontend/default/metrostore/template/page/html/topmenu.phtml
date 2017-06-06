@@ -1,0 +1,91 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @see Mage_Page_Block_Html_Topmenu
+ */
+?>
+<?php $config = Mage::getStoreConfig('mdloption/navsetting'); ?>
+<?php $_menu = $this->getHtml('level-top') ?>
+<?php if($_menu): ?>
+<div class="nav-container span12">
+<?php if($config['fishnavbox']==true):?>
+	<div id="menu">
+        <ul class="sf-menu">
+            <li class="home"><a href="<?php echo $this->getUrl('') ?>"><?php echo $this->__('Home')?></a></li>
+            <?php echo $_menu ?>
+            <li><a href="<?php echo $this->getUrl('contacts') ?>"><?php echo $this->__('Contact us')?></a></li>
+        </ul>
+     </div> 
+     <script type="text/javascript">
+     	jQuery(function(){
+		jQuery('ul.sf-menu').supersubs({ 
+			minWidth:18.4,   // minimum width of sub-menus in em units 
+			maxWidth:27,	// maximum width of sub-menus in em units 
+			extraWidth:1     // extra width can ensure lines don't sometimes turn over due to slight rounding differences and font-family 
+		}).superfish({	// main navigation init
+			delay:200,		// one second delay on mouseout 
+			animation:{opacity:'show',height:"show"}, // fade-in and slide-down animation 
+			speed:'normal',  // faster animation speed 
+			autoArrows:false,   // generation of arrow mark-up (for submenu) 
+			dropShadows:false   // drop shadows (for submenu)
+		});
+	});
+     </script>  
+<?php else:?>	
+	 <ul id="nav">
+    	<li class="home">
+        <a href="<?php echo $this->getUrl('') ?>"><?php echo $this->__('Home')?></a></li>
+        <?php echo $_menu ?>
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('customMenu')->toHtml() ?>
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('customMenu-1')->toHtml() ?>
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('customMenu-2')->toHtml() ?>
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('customMenu-3')->toHtml() ?>
+        <li><a href="<?php echo $this->getUrl('contacts') ?>"><?php echo $this->__('Contact us')?></a></li>
+    </ul>
+<?php endif?>
+</div>
+<?php endif ?>
+<?php if($_menu): ?>
+<div class="mobMenu span12">
+<h1>
+<span><?php echo$this->__('Menu');?></span>
+<a class="menuBox highlight" href="javascript:void(0);">ccc</a>
+<span class="clearfix"></span>
+</h1>
+<div id="menuInnner" style="display:none;">
+       <ul class="accordion">
+		 <?php echo $_menu ?>
+         <li><a href="<?php echo $this->getUrl('contacts') ?>"><?php echo $this->__('Contact us')?></a></li>
+          <span class="clearfix"></span>
+       </ul>
+      
+ </div>      
+</div>
+<?php endif ?>

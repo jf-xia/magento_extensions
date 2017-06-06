@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Baobaz_OrdersCancel>
+            <version>0.1.2</version>
+        </Baobaz_OrdersCancel>
+    </modules>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Baobaz_OrdersCancel>
+                    <files>
+                        <default>Baobaz_OrdersCancel.csv</default>
+                    </files>
+                </Baobaz_OrdersCancel>
+            </modules>
+        </translate>
+    </adminhtml>
+    <global>
+        <models>
+            <orderscancel>
+                <class>Baobaz_OrdersCancel_Model</class>
+            </orderscancel>
+        </models>
+    </global>
+    <crontab>
+        <jobs>
+            <cancel_old_orders>
+                <schedule><cron_expr>*/5 * * * *</cron_expr></schedule>
+                <run><model>orderscancel/observer::cancelOldOrders</model></run>
+            </cancel_old_orders>
+        </jobs>
+    </crontab>
+    <default>
+        <sales>
+            <orderscancel>
+                <expiration_days>30</expiration_days>
+                <expiration_hours>0</expiration_hours>
+                <expiration_minutes>0</expiration_minutes>
+                <status_to_cancel>pending</status_to_cancel>
+                <log_file>cron.cancelorders.log</log_file>
+            </orderscancel>
+        </sales>
+    </default>
+</config>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <catalog_category_default>
+        <reference name="product_list_toolbar">
+            <action method="disableParamsMemorizing"/>
+        </reference>
+    </catalog_category_default>
+    <catalog_category_layered>
+        <reference name="product_list_toolbar">
+            <action method="disableParamsMemorizing"/>
+        </reference>
+    </catalog_category_layered>
+    <catalogsearch_result_index>
+        <reference name="product_list_toolbar">
+            <action method="disableParamsMemorizing"/>
+        </reference>
+    </catalogsearch_result_index>
+    <catalogsearch_advanced_result>
+        <reference name="product_list_toolbar">
+            <action method="disableParamsMemorizing"/>
+        </reference>
+    </catalogsearch_advanced_result>
+</layout>

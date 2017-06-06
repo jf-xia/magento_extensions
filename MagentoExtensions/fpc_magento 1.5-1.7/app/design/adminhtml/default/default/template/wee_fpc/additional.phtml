@@ -1,0 +1,12 @@
+<?php if ($this->isEnabled()): ?>
+<table class="form-list">
+    <tr>
+        <td class="scope-label">
+            <button onclick="setLocation('<?php echo $this->getFlushCacheUrl()?>')" type="button" class="scalable"><span><?php echo Mage::helper('wee_fpc')->__('Flush Full Page Cache') ?></span></button>
+        </td>
+        <td class="scope-label">
+            <?php echo Mage::helper('wee_fpc')->__('Full page cache.')?>
+        </td>
+    </tr>
+</table>
+<?php endif;?>

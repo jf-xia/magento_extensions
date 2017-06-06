@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="top.search">
+            <action method="setTemplate" ><template>searchautocomplete/topsearch.phtml</template></action>
+        </reference>
+
+    </default>
+    <searchautocomplete_suggest_result>
+
+        <reference name="root">
+<action method="setTemplate"><template>searchautocomplete/blank.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="searchautocomplete/suggest" name="searchautocomplete" template="searchautocomplete/suggest.phtml" />
+        </reference>
+    </searchautocomplete_suggest_result>
+</layout> 

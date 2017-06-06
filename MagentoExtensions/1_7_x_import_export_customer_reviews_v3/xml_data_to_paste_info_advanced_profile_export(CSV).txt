@@ -1,0 +1,18 @@
+<action type="catalog/convert_parser_customerreviewexport" method="unparse">
+</action>
+
+<action type="dataflow/convert_mapper_column" method="map">
+</action>
+
+<action type="dataflow/convert_parser_csv" method="unparse">
+    <var name="delimiter"><![CDATA[,]]></var>
+    <var name="enclose"><![CDATA["]]></var>
+    <var name="fieldnames">true</var>
+</action>
+
+<action type="dataflow/convert_adapter_io" method="save">
+    <var name="type">file</var>
+    <var name="path">var/export</var>
+    <var name="filename"><![CDATA[export_bulk_customer_reviews.csv]]></var>
+</action>
+

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_catalog_product_index>
+        <reference name="head">
+            <action method="addJs"><file>amasty/ampgrid/attribute.js</file></action>
+            <action method="addJs"><file>amasty/ampgrid/grid.js</file></action>
+            <action method="addCss"><name>amasty/ampgrid/grid.css</name></action>
+            
+            <action method="addItem"><type>js</type><name>prototype/window.js</name></action>
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/magento.css</name></action>
+            
+            <action method="addJs"><stylesheet>amasty/ampgrid/lightbox/js/lightbox.js</stylesheet></action>
+            <action method="addItem"><type>js_css</type><name>amasty/ampgrid/lightbox/css/lightbox.css</name><params/></action>
+        </reference>
+        <reference name="content">
+            <block type="ampgrid/adminhtml_catalog_product_grid_jsinit" name="ampgrid_jsinit"></block>
+            <block type="ampgrid/adminhtml_catalog_product_grid_attributes" name="ampgrid_attributes"></block>
+        </reference>
+    </adminhtml_catalog_product_index>
+</layout>

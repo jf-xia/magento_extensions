@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+    <name>Custom_Login_Redirect</name>
+    <version>1.1.1</version>
+    <stability>stable</stability>
+    <license>OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Custom Login Redirect allows you to redirect to custom page after customer login.</summary>
+    <description>Custom Login Redirect allows you to redirect to custom page after customer login.</description>
+    <notes>- Fixed the minor issue related to not logged in customer&#xD;
+- Removed the annoying intro page</notes>
+    <authors><author><name>Raj K B</name><user>auto-converted</user><email>rajen_k_bhtt@gmail.com</email></author></authors>
+    <date>2011-04-18</date>
+    <time>11:53:16</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="MagentoPycho_Customer.xml" hash="d0f479e60cdd93402291cd0fcbcaf867"/></dir></target><target name="magelocal"><dir name="MagentoPycho"><dir name="Customer"><dir name="Block"><dir name="System"><dir name="Config"><file name="Extension.php" hash="696c5c1911435c273dd1012b3381d369"/><file name="Info.php" hash="78711bf514c051687acf78b199b2459d"/></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="ea1257615a3190dcea6027a7018e81be"/></dir><dir name="controllers"><file name="AccountController.php" hash="86f17efdfd2f9279e131801040943475"/></dir><dir name="etc"><file name="config.xml" hash="93079b4bb55e625b695d0f890ce1e49d"/><file name="system.xml" hash="48a9b7f79141c2a8b38346a1dc3ed9bf"/></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

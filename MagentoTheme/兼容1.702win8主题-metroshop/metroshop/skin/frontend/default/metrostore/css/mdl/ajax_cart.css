@@ -1,0 +1,119 @@
+div.mdlajax-confirm div.mdlajax-checkout-img{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border:3px double #E6E6E6;
+    box-shadow: 0 0 9px 1px #f1f1f1;
+	padding:4px;
+	float:left;
+	margin-right:10px;
+}
+.btn-mdlcart{float:left;}
+.mdlcheckout{float:right;}
+div.mdlajax-confirm .success-msg {
+    background:none;
+    color:#000;
+    padding: 8px !important;
+    text-align:left;
+    border:none !important;
+}
+
+div.mdl-cart-bts {clear:both; height:45px; margin-top:10px;}
+
+
+div.mdlajax-confirm, div.mdlajax-progress{
+    border:#ccc solid 1px; z-index: 199;
+    text-align:center;
+}
+div.mdlajax-progress{padding:5px; z-index: 199;}
+
+
+div.mdl-overlay{
+    width: 100%;
+    height: 100%;
+    background: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:9999;
+}
+
+a.mdl-checkout-link{
+    background: transparent url('../../images/mdl/mdl-button-gray-left.gif') no-repeat top left;
+    display: block;
+    float: right;
+    font-size:11px;
+    line-height: 16px; /* This value + 4px + 4px (top and bottom padding of SPAN) must equal height of button background (default is 24px) */
+    height: 24px; /* Height of button background height */
+    padding-left: 11px; /* Width of left menu image */
+    text-decoration: none;
+    margin-right:10px;
+}
+
+a:link.mdl-checkout-link, a:visited.mdl-checkout-link, a:active.mdl-checkout-link{
+    color: #494949; /*button text color*/
+}
+
+a.mdl-checkout-link span{
+    background: transparent url('../../images/mdl/mdl-button-gray-right.gif') no-repeat top right;
+    display: block;
+    padding: 4px 11px 4px 0; /*Set 11px below to match value of 'padding-left' value above*/
+}
+
+a.mdl-checkout-link:hover{ /* Hover state CSS */
+    background-position: bottom left;
+}
+
+a.mdl-checkout-link:hover span{ /* Hover state CSS */
+    background-position: bottom right;
+    color: black;
+}
+
+
+
+span.mdl-or{
+    display:none;
+}
+a.mdl-continue-link{
+    background: transparent url('../../images/mdl/mdl-button-green-left.gif') no-repeat top left;
+    display: block;
+    float: left;
+    font-size:11px;
+    line-height: 16px; /* This value + 4px + 4px (top and bottom padding of SPAN) must equal height of button background (default is 24px) */
+    height: 24px; /* Height of button background height */
+    padding-left: 11px; /* Width of left menu image */
+    text-decoration: none;
+    margin-left:10px;
+}
+
+a:link.mdl-continue-link, a:visited.mdl-continue-link, a:active.mdl-continue-link{
+    color: #494949; /*button text color*/
+}
+
+a.mdl-continue-link span{
+    background: transparent url('../../images/mdl/mdl-button-green-right.gif') no-repeat top right;
+    display: block;
+    padding: 4px 11px 4px 0; /*Set 11px below to match value of 'padding-left' value above*/
+}
+
+a.mdl-continue-link:hover{ /* Hover state CSS */
+    background-position: bottom left;
+}
+
+a.mdl-continue-link:hover span{ /* Hover state CSS */
+    background-position: bottom right;
+    color: black;
+}
+
+span.mdl-upsells-list-wrapper {display:block; text-align:left;}
+
+table.mdl-upsell-product-table {clear:both;}
+table td.mdl-upsells-list-item h5.mdl-product-lnk {}
+table td.mdl-upsells-list-item h5.mdl-product-lnk a {font-size: 11px; font-weight: normal;}
+h4.mdl-upsells-title {display:block; clear:both; padding-left:10px;padding-top:5px;}
+
+div.mdlajax-progress, div.mdlajax-confirm {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 4px double #E6E6E6;
+    box-shadow: 0 0 9px 1px #666666;
+    z-index:100000;
+	padding:10px;
+}

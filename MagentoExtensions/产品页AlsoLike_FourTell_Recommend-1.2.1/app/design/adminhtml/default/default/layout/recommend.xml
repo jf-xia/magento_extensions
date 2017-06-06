@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout>
+    <recommend_adminhtml_uploadform_index>
+        <update handle="recommend_uploadform_index"/>
+
+        <reference name="content">
+            <block type="adminhtml/template" name="uploadform" template="recommend/uploadform.phtml"/>
+        </reference>
+    </recommend_adminhtml_uploadform_index>
+</layout>

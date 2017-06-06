@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * MagPleasure Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magpleasure.com/LICENSE.txt
+ *
+ * @category   Magpleasure
+ * @package    Magpleasure_Vkomments
+ * @copyright  Copyright (c) 2011 Magpleasure Co. (http://www.magpleasure.com)
+ * @license    http://www.magpleasure.com/LICENSE.txt
+ */
+-->
+<layout version="0.1.0">
+    <catalog_product_view>
+        <reference name="head">
+           <action method="addJs"><script>vkomments/openapi.js</script></action>
+        </reference>
+        <reference name="product.info">
+            <block type="vkomments/comments" name="vkomments.comments" as="vkomments" template="vkomments/comments.phtml" />
+        </reference>
+    </catalog_product_view>
+</layout>

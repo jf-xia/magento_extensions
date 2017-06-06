@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <CKApps_SinaLogin>
+            <active>true</active>
+            <codePool>local</codePool>    
+        </CKApps_SinaLogin>
+    </modules>
+</config>

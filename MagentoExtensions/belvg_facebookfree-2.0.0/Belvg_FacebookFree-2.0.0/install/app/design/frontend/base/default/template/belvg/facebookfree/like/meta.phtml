@@ -1,0 +1,7 @@
+<?php if($this->isActive()):?>
+<meta property="fb:app_id" content="<?php echo $this->getAppId()?>"/>
+<meta property="og:title" content="<?php echo $this->getProductName(); ?>"/>
+<meta property="og:image" content="<?php echo $this->getProductImage(); ?>"/>
+<meta property="og:url" content="<?php echo $this->getProductUrl(); ?>"/>
+<meta property="og:type" content="product"/>
+<?php endif?>

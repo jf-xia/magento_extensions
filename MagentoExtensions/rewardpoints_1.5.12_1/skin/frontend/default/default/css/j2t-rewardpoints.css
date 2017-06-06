@@ -1,0 +1,6 @@
+#j2t-track1 {background-image:url(../images/j2t-bg-fader.gif); background-repeat:no-repeat; width:209px; height:28px;}
+#j2t-handle1 {background-image:url(../images/j2t-thumb-n.gif); background-repeat:no-repeat; width:17px; height:21px; cursor:move;}
+#j2t-track2 {background-image:url(../images/j2t-bg-fader.gif); background-repeat:no-repeat; width:209px; height:28px;}
+#j2t-handle2 {background-image:url(../images/j2t-thumb-orange.gif); background-repeat:no-repeat; width:17px; height:21px; cursor:pointer;}
+.j2t-loyalty-points {display:block; clear:both;}
+.rewards_point_cart em {color:#EB340A;}

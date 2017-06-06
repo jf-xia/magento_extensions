@@ -1,0 +1,451 @@
+<?xml version = "1.0"?>
+<!-- 
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@mageworx.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ * or send an email to sales@mageworx.com
+ *
+ * @category   MageWorx
+ * @package    MageWorx_CustomerCredit
+ * @copyright  Copyright (c) 2010 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+ 
+/**
+ * Customer Credit extension
+ *
+ * @category   MageWorx
+ * @package    MageWorx_CustomerCredit
+ * @author     MageWorx Dev Team <dev@mageworx.com>
+ */
+-->
+<config>
+    <modules>
+        <MageWorx_CustomerCredit>
+            <version>1.1.3</version>
+        </MageWorx_CustomerCredit>
+    </modules>
+    
+    <frontend>
+        <routers>
+            <customercredit>
+                <use>standard</use>
+                <args>
+                    <module>MageWorx_CustomerCredit</module>
+                    <frontName>customercredit</frontName>
+                </args>
+            </customercredit>
+        </routers>
+    
+        <translate>
+            <modules>
+                <MageWorx_CustomerCredit>
+                    <files>
+                        <default>MageWorx_CustomerCredit.csv</default>
+                    </files>
+                </MageWorx_CustomerCredit>
+            </modules>
+        </translate>
+    
+        <layout>
+            <updates>
+                <customercredit>
+                    <file>customercredit.xml</file>
+                </customercredit>
+            </updates>
+        </layout>
+    </frontend>
+    
+    <adminhtml>
+        <menu>
+            <promo>
+                <children>
+                    <rechargecode translate="title" module="customercredit">
+                        <title>Recharge Codes</title>
+                        <action>mageworx/customercredit_code</action>
+                    </rechargecode>
+                    <creditrules>
+                        <title>Credit Rules</title>
+                        <action>mageworx/customercredit_rules</action>
+                    </creditrules>
+                </children>
+            </promo>
+        </menu>
+    
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <mageworx_customers translate="title" module="mageworx">
+                                            <title>MageWorx &gt; Customers</title>
+                                            <children>
+                                                <customercredit_credit translate="title" module="customercredit">
+                                                    <title>Customer Credit - General Settings</title>
+                                                </customercredit_credit>
+                                                <customercredit_recharge_codes translate="title" module="customercredit">
+                                                    <title>Customer Credit - Recharge Codes Settings</title>
+                                                </customercredit_recharge_codes>
+                                            </children>
+                                        </mageworx_customers>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    
+        <layout>
+            <updates>
+                <customercredit>
+                    <file>customercredit.xml</file>
+                </customercredit>
+            </updates>
+        </layout>
+    </adminhtml>
+    
+    <global>
+    <models>
+        <customercredit>
+            <class>MageWorx_CustomerCredit_Model</class>
+            <resourceModel>customercredit_mysql4</resourceModel>
+        </customercredit>
+        <customercredit_mysql4>
+            <class>MageWorx_CustomerCredit_Model_Mysql4</class>
+            <entities>
+                <credit>
+                    <table>customercredit_credit</table>
+                </credit>
+                <credit_log>
+                    <table>customercredit_credit_log</table>
+                </credit_log>
+                <code>
+                    <table>customercredit_code</table>
+                </code>
+                <code_log>
+                    <table>customercredit_code_log</table>
+                </code_log>
+                <rules>
+                    <table>customercredit_rules</table>
+                </rules>
+                <rules_customer>
+                    <table>customercredit_rules_customer</table>
+                </rules_customer>
+            </entities>
+        </customercredit_mysql4>
+    
+        <paypal>
+            <rewrite>
+                <standard>MageWorx_CustomerCredit_Model_Paypal_Standard</standard>
+            </rewrite>
+        </paypal>
+    
+        <checkout>
+            <rewrite>
+                <type_onepage>MageWorx_CustomerCredit_Model_Checkout_Type_Onepage</type_onepage>
+            </rewrite>
+        </checkout>
+    </models>
+    
+    <resources>
+        <customercredit_setup>
+            <setup>
+                <module>MageWorx_CustomerCredit</module>
+                <class>MageWorx_CustomerCredit_Model_Mysql4_Setup</class>
+            </setup>
+            <connection>
+                <use>core_setup</use>
+            </connection>
+        </customercredit_setup>
+        <customercredit_write>
+            <connection>
+                <use>core_write</use>
+            </connection>
+        </customercredit_write>
+        <customercredit_read>
+            <connection>
+                <use>core_read</use>
+            </connection>
+        </customercredit_read>
+    </resources>
+    
+    <blocks>
+        <customercredit>
+            <class>MageWorx_CustomerCredit_Block</class>
+        </customercredit>
+    
+        <checkout>
+            <rewrite>
+                <onepage_payment_methods>MageWorx_CustomerCredit_Block_Checkout_Onepage_Payment_Methods
+                </onepage_payment_methods>
+            </rewrite>
+        </checkout>
+    
+        <adminhtml>
+            <rewrite>
+                <sales_order_view_tab_info>MageWorx_Adminhtml_Block_Customercredit_Sales_Order_View_Tab_info
+                </sales_order_view_tab_info>
+            </rewrite>
+        </adminhtml>
+    </blocks>
+    
+    <helpers>
+        <customercredit>
+            <class>MageWorx_CustomerCredit_Helper</class>
+        </customercredit>
+    </helpers>
+    
+    <events>
+        <customer_login>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>customercreditRule</method>
+                </customercredit>
+            </observers>
+        </customer_login>
+        <customercredit_code_save_after>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>saveCodeAfter</method>
+                </customercredit>
+            </observers>
+        </customercredit_code_save_after>
+        <customercredit_credit_save_after>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>saveCreditAfter</method>
+                </customercredit>
+            </observers>
+        </customercredit_credit_save_after>
+        <adminhtml_customer_prepare_save>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>prepareCustomerSave</method>
+                </customercredit>
+            </observers>
+        </adminhtml_customer_prepare_save>
+        <adminhtml_customer_save_after>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>saveCustomerAfter</method>
+                </customercredit>
+            </observers>
+        </adminhtml_customer_save_after>
+        <sales_quote_collect_totals_before>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>collectQuoteTotalsBefore</method>
+                </customercredit>
+            </observers>
+        </sales_quote_collect_totals_before>
+        <sales_order_place_before>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>placeOrderBefore</method>
+                </customercredit>
+            </observers>
+        </sales_order_place_before>
+        <sales_order_place_after>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>reduceCustomerCreditValue</method>
+                </customercredit>
+            </observers>
+        </sales_order_place_after>
+        <!--<sales_order_save_after>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>reduceCustomerCreditValue</method>
+                </customercredit>
+            </observers>
+        </sales_order_save_after>-->
+        <sales_order_invoice_save_after>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>saveInvoiceAfter</method>
+                </customercredit>
+            </observers>
+        </sales_order_invoice_save_after>
+    
+        <sales_order_load_after>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>loadOrderAfter</method>
+                </customercredit>
+            </observers>
+        </sales_order_load_after>
+    
+        <adminhtml_sales_order_creditmemo_register_before>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>registerCreditmemoBefore</method>
+                </customercredit>
+            </observers>
+        </adminhtml_sales_order_creditmemo_register_before>
+    
+        <!-- <adminhtml_sales_order_create_after>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method></method>
+                </customercredit>
+            </observers>
+        </adminhtml_sales_order_create_after>-->
+    
+        <sales_order_creditmemo_refund>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>refundCreditmemo</method>
+                </customercredit>
+            </observers>
+        </sales_order_creditmemo_refund>
+    
+        <!--<sales_order_payment_refund>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>refundCustomerCredit</method>
+                </customercredit>
+            </observers>
+        </sales_order_payment_refund>-->
+    
+        <sales_order_creditmemo_save_after>
+            <observers>
+                <customercredit>
+                    <class>customercredit/observer</class>
+                    <method>saveCreditmemoAfter</method>
+                </customercredit>
+            </observers>
+        </sales_order_creditmemo_save_after>
+    </events>
+    <sales>
+        <quote>
+            <totals>
+                <customercredit>
+                    <class>customercredit/quote_total_customercredit</class>
+                    <after>grand_total</after>
+                </customercredit>
+            </totals>
+        </quote>
+    
+        <order_invoice>
+            <totals>
+                <customercredit>
+                    <class>customercredit/invoice_total_customercredit</class>
+                    <after>grand_total</after>
+                </customercredit>
+            </totals>
+        </order_invoice>
+    
+        <order_creditmemo>
+            <totals>
+                <customercredit>
+                    <class>customercredit/creditmemo_total_customercredit</class>
+                </customercredit>
+            </totals>
+        </order_creditmemo>
+    </sales>
+    <fieldsets>
+        <sales_convert_quote_address>
+            <customer_credit_amount>
+                <to_order>*</to_order>
+            </customer_credit_amount>
+            <base_customer_credit_amount>
+                <to_order>*</to_order>
+            </base_customer_credit_amount>
+        </sales_convert_quote_address>
+    </fieldsets>
+    
+    <pdf>
+        <totals>
+            <customer_credit_amount translate="title">
+                <title>Internal Credit</title>
+                <source_field>customer_credit_amount</source_field>
+                <font_size>7</font_size>
+                <display_zero>0</display_zero>
+                <sort_order>590</sort_order>
+                <amount_prefix>-</amount_prefix>
+            </customer_credit_amount>
+        </totals>
+    </pdf>
+    </global>
+    
+    <default>
+        <mageworx_customers>
+            <customercredit_credit>
+                <enable_credit>1</enable_credit>
+                <enable_recharge_codes>1</enable_recharge_codes>
+                <enable_partial_credit_payment>1</enable_partial_credit_payment>
+            </customercredit_credit>
+            <customercredit_recharge_codes>
+                <code_length>16</code_length>
+                <group_length>4</group_length>
+                <group_separator>-</group_separator>
+                <code_format>num</code_format>
+                <!--<code_prefix></code_prefix>
+                <code_suffix></code_suffix>
+                <use_incremental_id>0</use_incremental_id>-->
+            </customercredit_recharge_codes>
+        </mageworx_customers>
+        <payment>
+            <customercredit translate="title">
+                <title>Internal Credit</title>
+                <active>1</active>
+                <model>customercredit/payment_method_customercredit</model>
+                <order_status>pending</order_status>
+                <allowspecific>0</allowspecific>
+            </customercredit>
+        </payment>
+        <sales>
+            <totals_sort>
+                <customercredit>98</customercredit>
+            </totals_sort>
+        </sales>
+    </default>
+    <!--<crontab>
+        <jobs>
+            <linkexchange_generate>
+                <run>
+                    <model>linkexchange/observer::scheduledCheckReciprocalLink</model>
+                </run>
+            </linkexchange_generate>
+        </jobs>
+    </crontab>-->
+</config>

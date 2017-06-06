@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ *
+ * @category   AW
+ * @package    AW_Productquestions
+ * @copyright  Copyright (c) 2008-2010 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ */
+
+$questionCount = $this->getQuestionCount();
+?>
+<div>
+<?php if(AW_Productquestions_Helper_Data::checkIfGuestsAllowed()): ?>
+    <?php if($questionCount): ?>
+        <a href="<?php echo $this->getQuestionsPageUrl() ?>"><?php echo $this->__('Ask a question (%d)', $questionCount); ?></a>
+    <?php else: ?>
+        <a href="<?php echo $this->getQuestionsPageUrl() ?>"><?php echo $this->__('Be the first to ask about this product'); ?></a>
+    <?php endif; ?>
+<?php else: ?>
+    <?php if($questionCount): ?>
+        <a href="<?php echo $this->getQuestionsPageUrl() ?>"><?php echo $this->__('View questions (%d)<br />', $questionCount)?></a>
+    <?php else: ?>
+       <?php echo Mage::helper('productquestions')->getPleaseRegisterMessage(); ?>
+    <?php endif; ?>
+<?php endif; ?>
+</div>

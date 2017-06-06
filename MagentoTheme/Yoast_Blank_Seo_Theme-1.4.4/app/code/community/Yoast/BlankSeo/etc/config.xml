@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yoast
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ *
+ * @category   Yoast
+ * @package    Yoast_BlankSeoUrl
+ * @copyright  Copyright (c) 2009 Yoast (http://yoast.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ -->
+<config>
+	<modules>
+		<Yoast_BlankSeo>
+			<version>0.1.0</version>
+		</Yoast_BlankSeo>
+	</modules>
+	<frontend>
+		<layout>
+            <updates>
+                <BlankSeo>
+                    <file>seo.xml</file>
+                </BlankSeo>
+            </updates>
+        </layout>
+	</frontend>
+    <default>
+        <design>
+            <head translate="default_description" module="page">
+                <default_robots>INDEX,FOLLOW</default_robots>
+            </head>
+        </design>
+        <web>
+            <noindex>
+                <search>0</search>
+				<customer>0</customer>
+				<checkout>0</checkout>
+				<contacts>0</contacts>
+				<wishlist>0</wishlist>
+				<compare>0</compare>
+				<friend>0</friend>
+				<reviews>0</reviews>
+				<tags>0</tags>
+				<rss>0</rss>
+            </noindex>
+        </web>
+    </default>
+</config>

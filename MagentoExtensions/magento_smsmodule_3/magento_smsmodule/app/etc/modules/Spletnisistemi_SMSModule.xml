@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Spletnisistemi_SMSModule>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Spletnisistemi_SMSModule>
+    </modules>
+</config>

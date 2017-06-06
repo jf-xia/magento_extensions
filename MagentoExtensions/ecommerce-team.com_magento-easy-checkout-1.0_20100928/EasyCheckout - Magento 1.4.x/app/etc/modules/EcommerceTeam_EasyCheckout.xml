@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+
+/*
+ * Magento EsayCheckout Extension
+ *
+ * @copyright:	EcommerceTeam (http://www.ecommerce-team.com)
+ * @version:	1.0
+ *
+ */
+
+ -->
+<config>
+    <modules>
+        <EcommerceTeam_EasyCheckout>
+            <active>true</active>
+            <codePool>local</codePool>
+        </EcommerceTeam_EasyCheckout>
+	</modules>
+</config>

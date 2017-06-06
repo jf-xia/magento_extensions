@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>HTML_Minification_by_Jemoon</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license uri="http://framework.zend.com/license">BSD License</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Simple and light extension which minifies HTML. It reduces document's size by approx. 10 - 15%.</summary>
+    <description>This small extension reduces overall size of all html documents which are send to customer's browser. It can save about 10 - 15% of original file size by removing all unnecessary comments, whitespaces and new lines from documents. As a result you'll get some performance boost - how it will work in your case? Please share the result in comments.</description>
+    <notes>Stable (tested with 1.5.0.0 and above till 1.7.0.0). Can be disabled for development purposes in at System -&gt; Configuration -&gt; Developer (under 'Advanced' tab) -&gt; HTML Settings.</notes>
+    <authors><author><name>Marcin J&#x119;drzejewski</name><user>jemoon</user><email>marcin.jedrzejewski85@gmail.com</email></author></authors>
+    <date>2012-06-06</date>
+    <time>18:52:08</time>
+    <contents><target name="magecommunity"><dir name="Jemoon"><dir name="Htmlminify"><dir><dir name="Model"><file name="Observer.php" hash="07ffc003bdabe03aaf5bd9ad94b3621e"/></dir><dir name="etc"><file name="config.xml" hash="4c4d0a639e0319400fe7ccf5409f5d89"/><file name="system.xml" hash="00fa20e8e0e4d8d7288cc7eb57cd7752"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Jemoon_Htmlminify.xml" hash="21c1dc8189aefd6e48a79fef2f69dec9"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

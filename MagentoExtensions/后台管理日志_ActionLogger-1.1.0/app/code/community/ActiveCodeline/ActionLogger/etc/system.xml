@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    ActiveCodeline
+ * @package     ActiveCodeline_ActionLogger
+ * @author      Branko Ajzele (http://activecodeline.net)
+ * @copyright   Copyright (c) Branko Ajzele
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <sections>
+     <dev>
+            <groups>
+                <activecodeline_actionlogger translate="label">
+                    <label>ActionLogger</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <log_frontend_actions translate="label">
+                            <label>Log frontend actions</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment>Logs the frontend related actions, actions triggered by controller_action_predispatch event on frontend area.</comment>
+                        </log_frontend_actions>
+                        <log_admin_actions translate="label">
+                            <label>Log admin actions</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment>Logs the admin related actions, actions triggered by controller_action_predispatch event on admin area.</comment>
+                        </log_admin_actions>
+                        <log_request_params translate="label">
+                            <label>Log request params</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment>Logs the full request parameters. Please note that this option should be used only in development environment. Do not set this option to Yes in production site. For example, if you select Yes, you will be able to see usernames, passwords, etc. shown in the listing grid. This is to be used just for debugging/testing/development.</comment>
+                        </log_request_params>
+                        <view_logged_request_params translate="label">
+                            <label>View logged request params</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment>Show parameters column in the list grid. Note, parameters are stored encrypted in database, and are decrypted once page is to be served.</comment>
+                        </view_logged_request_params>
+                    </fields>
+                </activecodeline_actionlogger>
+            </groups>
+        </dev>
+    </sections>
+</config>

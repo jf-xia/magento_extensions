@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    
+       
+    <catalog_category_default>
+        <reference name="category.products">
+            <action method="setTemplate" ifconfig="easy_catalogimg/general/enabled"><template>easycatalogimg/view.phtml</template></action>
+            <block type="catalog/navigation" name="subcategories">
+                <action method="setTemplate" ifconfig="easy_catalogimg/general/enabled"><template>easycatalogimg/subcategories.phtml</template></action>
+            </block>
+        </reference>
+    </catalog_category_default>
+    
+
+    <catalog_category_layered>
+        <reference name="category.products">
+            <action method="setTemplate" ifconfig="easy_catalogimg/general/enabled"><template>easycatalogimg/view.phtml</template></action>
+            <block type="catalog/navigation" name="subcategories">
+                <action method="setTemplate" ifconfig="easy_catalogimg/general/enabled"><template>easycatalogimg/subcategories.phtml</template></action>
+            </block>
+        </reference>
+    </catalog_category_layered>
+    
+</layout>

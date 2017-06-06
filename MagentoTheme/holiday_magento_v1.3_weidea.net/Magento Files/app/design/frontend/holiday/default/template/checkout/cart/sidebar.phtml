@@ -1,0 +1,109 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Shoping cart sidebar
+ *
+ * @see Mage_Checkout_Block_Cart_Sidebar
+ */
+
+?>
+<?php if ($this->getIsNeedToDisplaySideBar()):?>
+<div class="block-cart mini-cart-div">
+    <?php $_cartQty = $this->getSummaryCount() ?>
+    
+    <?php if ($_cartQty>0): ?>
+	<div class="summary-container">
+	    <div class="summary">
+		<?php if ($_cartQty==1): ?>
+		    <p class="amount"><?php echo $this->__('<span>(1)</span>') ?></p>
+		<?php else: ?>
+		    <p class="amount"><?php echo $this->__('<span>(%s)</span>', $_cartQty) ?></p>
+		<?php endif ?>
+	    </div>
+	</div>
+	<?php endif ?>
+	
+    <?php $_items = $this->getRecentItems() ?>
+    <?php if(count($_items)): ?>
+    <div class="block-cart">
+		<div id="cart-listing" class="block-content slideTogglebox" style="display:none;">
+                    <div class="toptital">
+			    <div class="tital">
+				<div class="hr"><div class="block-subtitle small"><?php echo $this->__('Recently added item(s)') ?></div></div>
+			    </div>
+			    <ol id="cart-sidebar" class="mini-products-list">
+			    <?php foreach($_items as $_item): ?>
+				    <?php echo $this->getItemHtml($_item) ?>
+			    <?php endforeach; ?>
+			    </ol>
+			    <script type="text/javascript">decorateList('cart-sidebar', 'none-recursive')</script>
+			    
+			    
+		    
+			     <div class="subtotal">
+				
+				    <?php if ($this->canApplyMsrp()): ?>
+					    <span class="map-cart-sidebar-total x-small"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></span>
+				    <?php else: ?>
+					    <span class="label"><?php echo $this->__('Cart Subtotal:') ?></span> <?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?>
+					    <?php if ($_subtotalInclTax = $this->getSubtotalInclTax()): ?>
+						    <br />(<?php echo Mage::helper('checkout')->formatPrice($_subtotalInclTax) ?> <?php echo Mage::helper('tax')->getIncExcText(true) ?>)
+					    <?php endif; ?>
+				    <?php endif; ?>
+				    <div class="actions"><button type="button" title="<?php echo $this->__('Checkout') ?>" class="button" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><span><span><?php echo $this->__('Checkout') ?></span></span></button>
+				    <button type="button" title="<?php echo $this->__('View Cart') ?>" class="button view-cart" onclick="setLocation('<?php echo $this->getUrl('checkout/cart') ?>')"><span><span><?php echo $this->__('View Cart') ?></span></span></button></div>
+			      </div>
+		    </div>
+                </div>
+		
+		
+    </div>
+    <?php else: ?>
+		<div class="summary-container">
+			<div class="summary">
+			   <p class="amount"><?php echo $this->__('<span>(0)</span>') ?></p>
+			</div>
+			<div class="actions"><button type="button" title="<?php echo $this->__('Checkout') ?>" class="button" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><span><span><?php echo $this->__('Checkout') ?></span></span></button><div class="checkout-aerrow"></div></div>
+			<div class="clearall"></div>
+		</div>
+		
+		<?php $_items = $this->getRecentItems() ?>
+		    <?php if(!count($_items)): ?>
+			<div class="block-cart">
+			<div id="cart-listing" class="block-content slideTogglebox" style="display:none;">
+			    <div class="toptital">
+				    <div class="tital">
+					<div class="hr"><div class="block-subtitle small"><?php echo $this->__('You have no items in your shopping cart.') ?></div></div>
+				    </div>
+			    </div>
+			</div>
+			</div>
+		    <?php endif ?>
+    <?php endif ?>
+    
+</div>
+<?php endif;?>

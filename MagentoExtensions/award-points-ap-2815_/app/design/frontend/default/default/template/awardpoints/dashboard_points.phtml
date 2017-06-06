@@ -1,0 +1,20 @@
+<?php
+ /*
+ * Arcanum Dev AwardPoints
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to arcanumdev@wafunotamago.com so we can send you a copy immediately.
+ *
+ * @category   Magento Sale Extension
+ * @package    AwardPoints
+ * @copyright  Copyright (c) 2012 Arcanum Dev. Y.K. (http://arcanumdev.wafunotamago.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<div class="box"><div class="box-title"><h3><?php echo $this->__('Points Details') ?></h3></div><div class="box-content"><p><?php echo $this->__('Your Available Points') ?>: <?php echo sprintf('%d', $this->getPointsCurrent()); ?><br/><?php echo $this->__('Total Accumulated Points') ?>: <?php echo sprintf('%d', $this->getPointsReceived()); ?><br/><?php echo $this->__('Total Points Spent') ?>: <?php echo sprintf('%d', $this->getPointsSpent()); ?><br/><?php echo $this->__('Points waiting for validation') ?>: <?php echo sprintf('%d', $this->getPointsWaitingValidation()); ?></p></div></div>

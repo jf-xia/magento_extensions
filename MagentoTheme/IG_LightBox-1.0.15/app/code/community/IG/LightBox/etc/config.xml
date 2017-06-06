@@ -1,0 +1,133 @@
+<config>
+	<modules>
+		<IG_LightBox>
+			<version>1.0.15</version>
+		</IG_LightBox>
+	</modules>
+
+	<global>
+		<helpers>
+			<ig_lightbox>
+				<class>IG_LightBox_Helper</class>
+			</ig_lightbox>
+        </helpers>
+		<blocks>
+			<ig_lightbox>
+				<class>IG_LightBox_Block</class>
+			</ig_lightbox>
+			<catalog>
+				<rewrite>
+					<product_view_media>IG_LightBox_Block_Media</product_view_media>
+				</rewrite>
+			</catalog>
+		</blocks>
+		<resources>
+			<ig_lightbox_setup>  
+				<setup>  
+					<module>IG_LightBox</module>  
+				</setup>  
+				<connection>  
+					<use>core_setup</use>  
+				</connection>  
+			</ig_lightbox_setup>  
+			
+			<ig_lightbox_write>  
+				<connection>  
+					<use>core_write</use>  
+				</connection>  
+			</ig_lightbox_write>  
+			
+			<ig_lightbox_read>  
+				<connection>  
+					<use>core_read</use>  
+				</connection>  
+			</ig_lightbox_read>  
+        </resources>
+	</global>
+	
+	<frontend>
+		<routers>
+			<ig_lightbox>
+				<use>standard</use>
+				<args>
+					<module>IG_LightBox</module>
+					<frontname>ig_lightbox</frontname>
+				</args>
+			</ig_lightbox>
+		</routers>
+
+		<layout>
+			<updates>
+				<ig_lightbox module="IG_LightBox">
+					<file>ig_lightbox.xml</file>
+				</ig_lightbox>
+			</updates>
+		</layout>
+	</frontend>
+
+	<adminhtml>
+		<translate>
+			<modules>
+				<ig_lightbox>
+					<files>
+						<default>IG_LightBox.csv</default>
+					</files>
+				</ig_lightbox>
+			</modules>
+        </translate>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<ig_lightbox translate="title" module="ig_lightbox">
+											<title>IG LightBox</title>
+											<sort_order>50</sort_order>
+										</ig_lightbox>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+    </adminhtml>
+		
+	<default>
+		<ig_lightbox>
+			<general>
+				<enabled>1</enabled>
+				<wrapImages>1</wrapImages>
+				<bigImageSize>800x600</bigImageSize>
+				<mainImageSize>265x265</mainImageSize>
+				<thumbnailImageSize>60x60</thumbnailImageSize>
+			</general>
+			<display>
+				<backgroundOpacity>0.8</backgroundOpacity>
+				<backgroundColor>#000000</backgroundColor>
+				<imageboxOpacity>1.0</imageboxOpacity>
+				<imageboxColor>#000000</imageboxColor>
+				
+				<toolbarOpacity>0.7</toolbarOpacity>
+				<toolbarColor>#000000</toolbarColor>
+				<toolbarTextColor>#ffffff</toolbarTextColor>
+				<toolbarTextSize>12</toolbarTextSize>
+				
+				<toolbarTextFont>Verdana</toolbarTextFont>
+				<paddingSize>10</paddingSize>
+				<borderSize>1</borderSize>
+				<borderColor>#909090</borderColor>
+			</display>
+			<effects>
+				<fadeIn>1.0</fadeIn>
+				<fadeOut>1.0</fadeOut>
+				<imageResize>0.5</imageResize>
+				<imageSwap>0.5</imageSwap>
+			</effects>
+		</ig_lightbox>
+	</default>
+</config>

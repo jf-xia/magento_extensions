@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <ZetaPrints_WebToPrint>
+      <version>11</version>
+    </ZetaPrints_WebToPrint>
+  </modules>
+
+  <global>
+    <models>
+      <webtoprint>
+        <class>ZetaPrints_WebToPrint_Model</class>
+        <resourceModel>webtoprint_mysql4</resourceModel>
+
+        <rewrite>
+          <templates-synchronization>ZetaPrints_WebToPrint_Model_Convert_Parser_Template</templates-synchronization>
+          <products-creation>ZetaPrints_WebToPrint_Model_Convert_Mapper_Product_Creating</products-creation>
+          <products-updating>ZetaPrints_WebToPrint_Model_Convert_Mapper_Product_Updating</products-updating>
+          <catalogues-creation>ZetaPrints_WebToPrint_Model_Convert_Parser_Catalogue</catalogues-creation>
+        </rewrite>
+      </webtoprint>
+
+      <webtoprint_mysql4>
+        <class>ZetaPrints_WebToPrint_Model_Mysql4</class>
+
+        <entities>
+          <template>
+            <table>zetaprints_templates</table>
+          </template>
+        </entities>
+      </webtoprint_mysql4>
+
+      <dataflow>
+        <rewrite>
+          <profile_history>ZetaPrints_WebToPrint_Model_Profile_History</profile_history>
+        </rewrite>
+      </dataflow>
+
+      <sales>
+        <rewrite>
+          <quote_item>ZetaPrints_WebToPrint_Model_Quote_Item</quote_item>
+        </rewrite>
+      </sales>
+    </models>
+
+    <blocks>
+      <webtoprint>
+        <class>ZetaPrints_WebToPrint_Block</class>
+      </webtoprint>
+
+      <adminhtml>
+        <rewrite>
+          <catalog_product_edit_tabs>ZetaPrints_WebToPrint_Block_Catalog_Product_Edit_Tabs</catalog_product_edit_tabs>
+        </rewrite>
+      </adminhtml>
+
+      <page>
+        <rewrite>
+          <html_footer>ZetaPrints_WebToPrint_Block_Html_Footer</html_footer>
+        </rewrite>
+      </page>
+    </blocks>
+
+    <helpers>
+      <webtoprint>
+        <class>ZetaPrints_WebToPrint_Helper</class>
+
+        <rewrite>
+          <personalization-form>ZetaPrints_WebToPrint_Helper_PersonalizationForm</personalization-form>
+        </rewrite>
+      </webtoprint>
+    </helpers>
+
+    <resources>
+      <webtoprint_setup>
+        <setup>
+          <module>ZetaPrints_WebToPrint</module>
+          <class>ZetaPrints_WebToPrint_Model_Resource_Mysql4_Setup</class>
+        </setup>
+        <connection>
+          <use>core_setup</use>
+        </connection>
+      </webtoprint_setup>
+
+      <webtoprint_write>
+        <connection>
+          <use>core_write</use>
+        </connection>
+      </webtoprint_write>
+
+      <webtoprint_read>
+        <connection>
+          <use>core_read</use>
+        </connection>
+      </webtoprint_read>
+    </resources>
+
+    <events>
+      <checkout_cart_product_add_after>
+        <observers>
+          <webtoprint-order-creation-observer>
+            <type>singleton</type>
+            <class>ZetaPrints_WebToPrint_Model_Events_Observer</class>
+            <method>create_zetaprints_order</method>
+          </webtoprint-order-creation-observer>
+        </observers>
+      </checkout_cart_product_add_after>
+
+      <controller_action_predispatch_checkout_cart_add>
+        <observers>
+          <webtoprint-template-values-observer>
+            <type>singleton</type>
+            <class>ZetaPrints_WebToPrint_Model_Events_Observer</class>
+            <method>store_template_values</method>
+          </webtoprint-template-values-observer>
+        </observers>
+      </controller_action_predispatch_checkout_cart_add>
+
+      <catalog_product_save_before>
+        <observers>
+          <webtoprint-product-required-options>
+            <type>singleton</type>
+            <class>ZetaPrints_WebToPrint_Model_Events_Observer</class>
+            <method>set_required_options</method>
+          </webtoprint-product-required-options>
+
+          <webtoprint-product-images>
+            <type>singleton</type>
+            <class>ZetaPrints_WebToPrint_Model_Events_Observer</class>
+            <method>process_images</method>
+          </webtoprint-product-images>
+        </observers>
+      </catalog_product_save_before>
+
+      <catalog_controller_product_view>
+        <observers>
+          <webtoprint-specify-option-message>
+            <type>singleton</type>
+            <class>ZetaPrints_WebToPrint_Model_Events_Observer</class>
+            <method>specify_option_message</method>
+          </webtoprint-specify-option-message>
+        </observers>
+      </catalog_controller_product_view>
+
+      <sales_order_save_after>
+        <observers>
+          <webtoprint-order-complete>
+            <type>singleton</type>
+            <class>ZetaPrints_WebToPrint_Model_Events_Observer</class>
+            <method>delete_zetaprints_order</method>
+          </webtoprint-order-complete>
+        </observers>
+      </sales_order_save_after>
+
+      <sales_quote_item_save_after>
+        <observers>
+          <webtoprint-save-product-url>
+            <type>singleton</type>
+            <class>ZetaPrints_WebToPrint_Model_Events_Observer</class>
+            <method>save_product_url</method>
+          </webtoprint-save-product-url>
+        </observers>
+      </sales_quote_item_save_after>
+
+      <customer_save_before>
+        <observers>
+          <webtoprint-restore-credentials-in-customer>
+            <type>singleton</type>
+            <class>ZetaPrints_WebToPrint_Model_Events_Observer</class>
+            <method>restore_credentials_in_customer</method>
+          </webtoprint-restore-credentials-in-customer>
+        </observers>
+      </customer_save_before>
+
+      <checkout_type_onepage_save_order_after>
+      <!--checkout_onepage_controller_success_action-->
+        <observers>
+          <webtoprint-complete-zetaprints-order>
+            <type>singleton</type>
+            <class>ZetaPrints_WebToPrint_Model_Events_Observer</class>
+            <method>complete_zetaprints_order</method>
+          </webtoprint-complete-zetaprints-order>
+        </observers>
+      <!--/checkout_onepage_controller_success_action-->
+      </checkout_type_onepage_save_order_after>
+    </events>
+
+    <sales>
+      <order>
+        <statuses>
+          <problems translate="label"><label>Pending Review</label></problems>
+        </statuses>
+
+        <states>
+          <problems translate="label">
+            <label>Pending Review</label>
+
+            <statuses>
+              <problems default="1" />
+            </statuses>
+
+            <visible_on_front />
+          </problems>
+        </states>
+      </order>
+    </sales>
+
+    <cache>
+      <types>
+        <webtoprint-custom-options module="webtoprint"
+                                   translate="label,description">
+          <label>ZetaPrints web-to-print options</label>
+          <description>Customer's personal options for web-to-print extension.</description>
+          <tags>WEBTOPRINT_CUSTOM_OPTIONS</tags>
+        </webtoprint-custom-options>
+      </types>
+    </cache>
+  </global>
+
+  <frontend>
+    <translate>
+      <modules>
+        <ZetaPrints_WebToPrint>
+          <files>
+            <default>ZetaPrints_WebToPrint.csv</default>
+          </files>
+        </ZetaPrints_WebToPrint>
+      </modules>
+    </translate>
+
+    <routers>
+      <ZetaPrints_WebToPrint>
+        <use>standard</use>
+        <args>
+          <module>ZetaPrints_WebToPrint</module>
+          <frontName>web-to-print</frontName>
+        </args>
+      </ZetaPrints_WebToPrint>
+    </routers>
+
+    <layout>
+      <updates>
+        <webtoprint>
+          <file>web-to-print.xml</file>
+        </webtoprint>
+
+        <catalog-web-to-print-product>
+          <file>catalog/web-to-print-product.xml</file>
+        </catalog-web-to-print-product>
+
+        <review-web-to-print-product>
+          <file>review/web-to-print-product.xml</file>
+        </review-web-to-print-product>
+
+        <checkout-web-to-print-cart>
+          <file>checkout/web-to-print-cart.xml</file>
+        </checkout-web-to-print-cart>
+
+        <sales-web-to-print-order>
+          <file>sales/web-to-print-order.xml</file>
+        </sales-web-to-print-order>
+      </updates>
+    </layout>
+  </frontend>
+
+
+  <admin>
+    <routers>
+      <ZetaPrints_WebToPrint>
+        <use>admin</use>
+          <args>
+            <module>ZetaPrints_WebToPrint</module>
+            <frontName>web-to-print</frontName>
+          </args>
+      </ZetaPrints_WebToPrint>
+    </routers>
+  </admin>
+
+  <adminhtml>
+    <acl>
+      <resources>
+        <admin>
+          <children>
+            <system>
+              <children>
+                <config>
+                  <children>
+                    <webtoprint>
+                      <title>ZetaPrints Web-to-print Integration</title>
+                    </webtoprint>
+                  </children>
+                </config>
+              </children>
+            </system>
+          </children>
+        </admin>
+      </resources>
+    </acl>
+  </adminhtml>
+
+  <stores>
+    <admin>
+      <design>
+        <package>
+          <name>default</name>
+        </package>
+        <theme>
+          <default>zptheme</default>
+        </theme>
+      </design>
+    </admin>
+  </stores>
+
+  <default>
+    <webtoprint>
+      <settings>
+        <templates-removing-behaviour>-1</templates-removing-behaviour>
+        <products-populate-defaults>1</products-populate-defaults>
+      </settings>
+    </webtoprint>
+  </default>
+</config>

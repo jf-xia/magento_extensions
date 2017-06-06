@@ -1,0 +1,98 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php $config = Mage::getStoreConfig('mdloption/homepage'); ?>
+<?php if($config['home-page-option']==1):?>
+<!--banner content static block content-->
+<div class="main span12"><?php echo $this->getLayout()->createBlock('mlayer/mlayer')->setTemplate('mlayer/mlayer.phtml')->toHtml(); ?></div>
+<div class="promoBox span12"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('promotional_block_html')->toHtml() ?></div>
+<!--end -->
+
+<?php elseif($config['home-page-option']==2):?>
+<!--banner content static block content-->
+<div class="main span12"><?php echo $this->getLayout()->createBlock('mlayer/mlayer')->setTemplate('mlayer/mlayer.phtml')->toHtml(); ?></div>
+<div class="promoBox span12"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('bottom4_promotional_static_block')->toHtml() ?></div>
+<!--end -->
+<?php elseif($config['home-page-option']==3):?>
+<!--banner content static block content-->
+<div class="main span12"><?php echo $this->getLayout()->createBlock('mlayer/mlayer')->setTemplate('mlayer/mlayer.phtml')->toHtml(); ?></div>
+<div class="promoBox span12"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('bottom3_promotional_static_block')->toHtml() ?></div>
+<!--end -->
+<?php elseif($config['home-page-option']==4):?>
+<!--banner content static block content-->
+<div class="main span12"><?php echo $this->getLayout()->createBlock('mlayer/mlayer')->setTemplate('mlayer/mlayer.phtml')->toHtml(); ?></div>
+<div class="promoBox span12"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('bottom2_promotional_static_block')->toHtml() ?></div>
+<!--end -->
+<?php elseif($config['home-page-option']==5):?>
+<!--banner content static block content-->
+<div class="main span12 banner-col-2">
+	<?php echo $this->getLayout()->createBlock('mlayer/mlayer')->setTemplate('mlayer/mlayer.phtml')->toHtml(); ?>
+	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('right3_promotional_static_block')->toHtml() ?>
+</div>
+<!--end -->
+<?php endif; ?>
+
+<!-- content -->
+<?php if($config['home-page-content']==1):?>
+<!--content-->
+<div class="slider-box span12"><?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/featured.phtml')->toHtml(); ?></div>
+<div class="slider-box span12"><?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/bestseller.phtml')->toHtml(); ?></div>
+<div class="slider-box span12"><?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/home_product.phtml')->toHtml(); ?></div>
+<div class="slider-box span12"><?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/brands.phtml')->toHtml(); ?></div>
+<!--end -->
+
+<?php elseif($config['home-page-content']==2):?>
+<!--content-->
+<div class="col2-left-layout span12">
+    <div class="col-main span9">
+        <div class="slider-box"><?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/featured.phtml')->toHtml(); ?></div>
+        <div class="slider-box"><?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/bestseller.phtml')->toHtml(); ?></div>
+        <div class="slider-box"><?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/home_product.phtml')->toHtml(); ?></div>
+    </div>
+    <div class="sidebar span3">
+        <?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/block-slideshow.phtml')->toHtml(); ?>
+        <?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/static-sidebar-left.phtml')->toHtml(); ?>
+    </div>
+</div>
+<div class="slider-box span12"><?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/brands.phtml')->toHtml(); ?></div>
+<!--end -->
+
+<?php elseif($config['home-page-content']==3):?>
+<!--content-->
+<div class="col2-left-layout span12">
+    <div class="col-main span9 sideCol-right">
+        <div class="slider-box"><?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/featured.phtml')->toHtml(); ?></div>
+        <div class="slider-box"><?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/bestseller.phtml')->toHtml(); ?></div>
+        <div class="slider-box"><?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/home_product.phtml')->toHtml(); ?></div>
+    </div>
+    <div class="sidebar span3 sideColBar-right">
+        <?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/block-slideshow-right.phtml')->toHtml(); ?>
+        <?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/static-sidebar-right.phtml')->toHtml(); ?>
+    </div>
+</div>
+<div class="slider-box span12"><?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/brands.phtml')->toHtml(); ?></div>
+<!--end -->
+<?php endif; ?>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <HM_DeveloperToolbar>
+            <version>1.0.0</version>
+        </HM_DeveloperToolbar>
+    </modules>
+    <frontend>
+        <routers>
+            <developertoolbar>
+                <use>standard</use>
+                <args>
+                    <module>HM_DeveloperToolbar</module>
+                    <frontName>developertoolbar</frontName>
+                </args>
+            </developertoolbar>
+        </routers>       
+        <layout>
+            <updates>
+                <developertoolbar>
+                    <file>developertoolbar.xml</file>
+                </developertoolbar>
+            </updates>
+        </layout>
+    </frontend>  
+	
+	<default>
+		<dev>
+			<developertoolbar>
+				<enabled>1</enabled>
+			</developertoolbar>
+		</dev>
+	</default>
+</config>

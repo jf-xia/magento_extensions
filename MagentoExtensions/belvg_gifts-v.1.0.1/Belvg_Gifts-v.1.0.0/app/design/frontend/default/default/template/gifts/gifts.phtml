@@ -1,0 +1,77 @@
+<?php
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+ /***************************************
+ *         MAGENTO EDITION USAGE NOTICE *
+ *****************************************/
+ /* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+ /***************************************
+ *         DISCLAIMER   *
+ *****************************************/
+ /* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ *****************************************************
+ * @category   Belvg
+ * @package    Belvg_Gifts
+ * @copyright  Copyright (c) 2010 - 2012 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+ ?>
+
+<?php $products = $this->getGiftProducts(); ?>
+<?php if(is_array($products) && count($products) && !Mage::helper('gifts')->isGiftUsed()):?>
+	<div class="gifts-popup" id="gifts_popup" style="display:none;">
+		<div class="gifts-popup-wrapper">
+			<a href="#" onclick="$('gifts_popup').hide()" class="gifts-popup-close" title="<?php echo $this->__('Close Popup') ?>"><?php echo $this->__('&times') ?></a>
+			<h2><?php echo $this->__('Gifts') ?></h2>
+			<div class="gifts-products-wrapper">
+				<ul class="products-list">
+				<?php $per_row = 3 ?>
+				<?php $counter = 0 ?>
+				<?php foreach ($products as $product): ?>
+					<li class="item">
+						<?php if($product->isVisibleInSiteVisibility()):?>
+							<a href="<?php echo $product->getProductUrl() ?>" class="product-image" title="<?php echo $this->stripTags($product->getName(), null, true) ?>">
+						<?php else : ?>
+							<a href="javascript:;" class="product-image" title="<?php echo $this->stripTags($product->getName(), null, true) ?>">
+						<?php endif; ?>
+							<img src="<?php echo Mage::helper('catalog/image')->init($product, 'small_image')->resize(50); ?>" width="50" height="50" alt="<?php echo $this->stripTags($product->getName(), null, true) ?>" />
+						</a>
+						<div class="product-details">
+							<h2 class="product-name">
+								<?php if($product->isVisibleInSiteVisibility()):?>
+									<a href="<?php echo $product->getProductUrl() ?>" title="<?php echo $this->stripTags($product->getName(), null, true) ?>"><?php echo $product->getName() ?></a>
+								<?php else : ?>
+									<?php echo $product->getName() ?>
+								<?php endif; ?>
+							</h2>
+							<div class="actions">
+								<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo Mage::getUrl('gifts/index/add', array('gift'=>$product->getId()))?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+							</div>
+						</div>
+					</li>
+				<?php $counter++ ?>
+				<?php if ($counter == $per_row): ?>
+						</ul>
+						<ul class="products-list">
+					<?php $counter = 0 ?>
+				<?php endif; ?>
+				<?php endforeach; ?>
+				</ul>
+			</div>
+		</div>
+		<div class="gifts-popup-overlay"></div>
+	</div>
+<?php endif; ?>

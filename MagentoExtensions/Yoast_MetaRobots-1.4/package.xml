@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Yoast_MetaRobots</name>
+ <channel>connect.magentocommerce.com/community</channel>
+ <summary>There is no easy way to add meta robots tags to Magento pages, unless of course, when you install this plugin.</summary>
+ <description>There is no easy way to add meta robots tags to Magento pages, unless of course, when you install this plugin.</description>
+ <lead>
+  <name>Yoast</name>
+  <user>Yoast</user>
+  <email>magento@yoast.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2010-04-26</date>
+ <time>09:18:54</time>
+ <version>
+  <release>1.4</release>
+  <api>1.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license>Open Software License OSL v3.0</license>
+ <notes>There is no easy way to add meta robots tags to Magento pages, unless of course, when you install this plugin.</notes>
+ <contents>
+  <dir name="/">
+   <dir name="frontend">
+    <dir name="base">
+     <dir name="default">
+      <dir name="layout">
+       <file md5sum="a7b02aaee82e5bc419f3a1998fc4616e" name="metarobots.xml" role="magedesign" />
+      </dir> <!-- /frontend/base/default/layout -->
+     </dir> <!-- /frontend/base/default -->
+    </dir> <!-- /frontend/base -->
+   </dir> <!-- /frontend -->
+   <dir name="modules">
+    <file md5sum="a46ee5dcc8151a7af13f55cc9d69a6d0" name="Yoast_MetaRobots.xml" role="mageetc" />
+   </dir> <!-- /modules -->
+   <dir name="Yoast">
+    <dir name="MetaRobots">
+     <dir name="Block">
+      <dir name="Catalog">
+       <dir name="Product">
+        <file md5sum="2310cd0c07b910c34723976b33166e21" name="View.php" role="magecommunity" />
+       </dir> <!-- /Yoast/MetaRobots/Block/Catalog/Product -->
+      </dir> <!-- /Yoast/MetaRobots/Block/Catalog -->
+      <dir name="Cms">
+       <dir name="Adminhtml">
+        <dir name="Page">
+         <dir name="Edit">
+          <dir name="Tab">
+           <file md5sum="c667cd5bb947b1e45790a60fbae94afc" name="Meta.php" role="magecommunity" />
+          </dir> <!-- /Yoast/MetaRobots/Block/Cms/Adminhtml/Page/Edit/Tab -->
+         </dir> <!-- /Yoast/MetaRobots/Block/Cms/Adminhtml/Page/Edit -->
+        </dir> <!-- /Yoast/MetaRobots/Block/Cms/Adminhtml/Page -->
+       </dir> <!-- /Yoast/MetaRobots/Block/Cms/Adminhtml -->
+       <file md5sum="c3ebcdcd8dfee5b5f3b36a23b70e307d" name="Page.php" role="magecommunity" />
+      </dir> <!-- /Yoast/MetaRobots/Block/Cms -->
+     </dir> <!-- /Yoast/MetaRobots/Block -->
+     <dir name="etc">
+      <file md5sum="daaff4260d00c8967dcbeff1d265b91d" name="config.xml" role="magecommunity" />
+      <file md5sum="b4b9da2fd0efd850e912df53b7a442f7" name="system.xml" role="magecommunity" />
+     </dir> <!-- /Yoast/MetaRobots/etc -->
+     <dir name="Model">
+      <dir name="Product">
+       <dir name="Attribute">
+        <dir name="Source">
+         <file md5sum="718ef031b515983a34c97ec13fb80453" name="Unit.php" role="magecommunity" />
+        </dir> <!-- /Yoast/MetaRobots/Model/Product/Attribute/Source -->
+       </dir> <!-- /Yoast/MetaRobots/Model/Product/Attribute -->
+      </dir> <!-- /Yoast/MetaRobots/Model/Product -->
+      <dir name="Resource">
+       <dir name="Eav">
+        <dir name="Mysql4">
+         <file md5sum="96f98278cd3812704c95fb24b45c7237" name="Setup.php" role="magecommunity" />
+        </dir> <!-- /Yoast/MetaRobots/Model/Resource/Eav/Mysql4 -->
+       </dir> <!-- /Yoast/MetaRobots/Model/Resource/Eav -->
+      </dir> <!-- /Yoast/MetaRobots/Model/Resource -->
+     </dir> <!-- /Yoast/MetaRobots/Model -->
+     <dir name="sql">
+      <dir name="metarobots_setup">
+       <file md5sum="5ac1cd654d22d161f2237ff1e2eb23f9" name="mysql4-install-0.1.0.php" role="magecommunity" />
+      </dir> <!-- /Yoast/MetaRobots/sql/metarobots_setup -->
+     </dir> <!-- /Yoast/MetaRobots/sql -->
+    </dir> <!-- /Yoast/MetaRobots -->
+   </dir> <!-- /Yoast -->
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.0</min>
+    <max>6.0.0</max>
+   </php>
+   <pearinstaller>
+    <min>1.6.2</min>
+   </pearinstaller>
+   <package>
+    <name>Mage_Core_Modules</name>
+    <channel>connect.magentocommerce.com/core</channel>
+    <min>1.4</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+</package>

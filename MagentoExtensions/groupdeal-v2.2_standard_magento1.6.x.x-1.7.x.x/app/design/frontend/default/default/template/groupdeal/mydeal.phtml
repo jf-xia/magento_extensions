@@ -1,0 +1,51 @@
+<div class="page-title">
+	<h1><?php  echo $this->__('My Deal')?></h1>
+</div>
+<?php $statuses = $this->getStatusList()?>
+<?php $orders = $this->getOrders()?>
+<?php echo $this->getPagerHtml(); ?>
+<?php if($orders->getSize()){?>
+<table class="data-table" id="deal-table">
+    <thead>
+        <tr>
+			<th><?php echo $this->__('Deal Title') ?></th>
+            <th><?php echo $this->__('Bought Time') ?></th>
+            <th><?php echo $this->__('Value') ?></th>
+            <th><?php echo $this->__('Price') ?></th>
+            <th><?php echo $this->__('Status') ?></th>
+            <th><?php echo $this->__('Coupon Code') ?></th>
+            <th><?php echo $this->__('Order') ?></th>
+        </tr>
+    </thead>
+    <tbody>
+		<?php foreach($orders as $order){ ?>
+        <?php $deal = $this->getDeal($order);?>
+        <?php $realOrder = $this->getRealOrder($order)?>
+		<tr onclick="window.location.href='<?php echo $this->getDealViewUrl($order) ?>'">
+			<td><?php echo $deal->getDealTitle() ?></td>
+            <td width="105px"><?php echo $this->formatDate($realOrder->getCreatedAt(),'short',true)?></td>
+			<td width="50px"><?php echo $deal->getValueHtml()?></td>
+			<td width="50px"><?php echo $deal->getPriceHtml()?></td>
+			<td width="50px"><?php echo $statuses[$deal->getDealStatus()]?></td>
+            <td width="100px"><?php echo $order->getCouponCode()?></td>
+            <td width="40px"><a href="<?php echo $this->getOrderViewUrl($order)?>"><?php echo $this->helper('groupdeal')->__('View') ?></a></td>
+		</tr>
+		<?php }?>
+	</tbody>
+</table>
+<script type="text/javascript">
+	decorateTable('deal-table');
+</script>
+<?php } else {?>
+	<h4><?php echo $this->__('No Deal') ?></h4>
+<?php }?>
+<?php //echo $this->getPagerHtml(); ?>
+<div class="buttons-set">
+    <p class="back-link">
+        <a href="javascript:history.go(-1)">
+            <button type="button" class="form-button button" onclick="javascript:history.go(-1)">
+                <span><?php echo $this->__('Back')?></span>
+            </button>
+        </a>
+    </p>
+</div>

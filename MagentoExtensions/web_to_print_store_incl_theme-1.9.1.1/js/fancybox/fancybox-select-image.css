@@ -1,0 +1,75 @@
+#zp-select-image-button {
+  display: block;
+  position: absolute;
+  right: 36px;
+  top: -15px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1103;
+  font: bold 8pt arial;
+}
+
+#zp-select-image-button.no-middle {
+  right: 15px;
+}
+
+.selected #zp-select-image-button {
+  cursor: default;
+}
+
+#zp-select-image-button .icon {
+  display: block;
+  background: url("images/zp-update-preview-button-sprite.png") no-repeat;
+}
+
+#zp-select-image-button .icon.left-part {
+  float: left;
+  background-position: 0px -2px;
+  width: 11px;
+  height: 30px;
+  position: relative; /* For absolute positioning of arrows icon*/
+}
+
+.selected #zp-select-image-button .icon.left-part {
+  background-position: -27px -2px;
+  width: 21px;
+}
+
+.selected #zp-select-image-button .icon.tick {
+  background-position: -20px -32px;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  margin-top: -10px;
+}
+
+#zp-select-image-button .text {
+  display: block;
+  float: right;
+  background: url("images/zp-update-preview-button-x.png") repeat-x;
+  height: 30px;
+  *float: none;
+}
+
+.selected #zp-select-image-button .text {
+  background-position: 0px -31px;
+}
+
+#zp-select-image-button .text span {
+  display: block;
+  margin: 4px 4px 0px 5px;
+  height: 18px;
+  line-height: 18px;
+}
+
+#zp-select-image-button .text .selected-image-text,
+.selected #zp-select-image-button .text .use-image-text {
+  display: none;
+}
+
+.selected #zp-select-image-button .text .selected-image-text {
+  display: block;
+}

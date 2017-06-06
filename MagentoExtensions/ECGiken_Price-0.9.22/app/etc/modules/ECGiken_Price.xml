@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * ECGiken_Price
+ *
+ * Copyright (c) 2011, EC-GIKEN Inc.
+ * All rights reserved.
+-->
+<config>
+    <modules>
+        <ECGiken_Price>
+            <active>true</active>
+            <codePool>community</codePool>
+        </ECGiken_Price>
+    </modules>
+</config>

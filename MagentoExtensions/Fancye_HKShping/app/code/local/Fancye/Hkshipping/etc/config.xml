@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Fancye_Hkshipping>
+      <version>0.1.0</version>
+    </Fancye_Hkshipping>
+  </modules>
+  <global>
+    <helpers>
+      <hkshipping>
+        <class>Fancye_Hkshipping_Helper</class>
+      </hkshipping>
+    </helpers>
+	<models>
+	  <hkshipping>
+		<class>Fancye_Hkshipping_Model</class>
+		<resourceModel>hkshipping_mysql4</resourceModel>
+	  </hkshipping>
+	</models>
+  </global>    
+	<default>
+        <carriers>
+            <hkshipping>
+                <active>1</active>
+                <model>hkshipping/carrier_hkshipping</model>
+                <name>HongKong Air Mail</name>
+                <title>HongKong Air Mail with no Tracking Number</title>
+                <description>HongKong Shipping with no Tracking Number</description>
+                <sort_order>0</sort_order>
+            </hkshipping>
+            <hkshiptrack>
+                <active>1</active>
+                <model>hkshipping/carrier_hkshiptrack</model>
+                <name>HongKong Air Mail (Tracking No.)</name>
+                <title>HongKong Air Mail with Tracking Number</title>
+                <description>HongKong Shipping with Tracking Number</description>
+                <sort_order>1</sort_order>
+            </hkshiptrack>
+        </carriers>
+    </default>
+</config> 

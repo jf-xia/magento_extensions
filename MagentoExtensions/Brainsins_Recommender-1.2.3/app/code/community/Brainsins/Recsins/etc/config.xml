@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+
+<!--
+ * BrainSINS' Magento Extension allows to integrate the BrainSINS
+ * personalized product recommendations into a Magento Store.
+ * Copyright (c) 2011 Social Gaming Platform S.R.L.
+ *
+ * This file is part of BrainSINS' Magento Extension.
+ *
+ *  BrainSINS' Magento Extension is free software: you can redistribute it
+ *  and/or modify it under the terms of the GNU General Public License
+ *  as published by the Free Software Foundation, either version 3 of the
+ *  License, or (at your option) any later version.
+ *
+ *  Foobar is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  Please do not hesitate to contact us at info@brainsins.com
+-->
+
+<config>
+    <modules>
+        <Brainsins_Recsins>
+            <version>1.2.3</version>
+        </Brainsins_Recsins>
+    </modules>
+    <frontend>
+        <routers>
+            <recsins>
+                <use>standard</use>
+                <args>
+                    <module>Brainsins_Recsins</module>
+                    <frontName>recsins</frontName>
+                </args>
+            </recsins>
+        </routers>
+        <layout>
+            <updates>
+                <recsins>
+                    <file>recsins.xml</file>
+                </recsins>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <menu>
+            <recsins module="recsins">
+                <title>BrainSINS</title>
+                <sort_order>73</sort_order>
+                <children>
+                    <items module="recsins">
+                        <title>Configure</title>
+                        <sort_order>0</sort_order>
+                        <action>admin/recsins</action>
+                    </items>
+                </children>
+            </recsins>
+        </menu>
+        <routers>
+            <recsins>
+                <use>admin</use>
+                <args>
+                    <module>Brainsins_Recsins</module>
+                    <frontName>recsins</frontName>
+                </args>
+            </recsins>
+        </routers>
+        <layout>
+            <updates>
+                <recsins>
+                    <file>recsins.xml</file>
+                </recsins>
+            </updates>
+        </layout>
+    </admin>
+    <adminhtml>
+        <menu>
+            <recsins module="recsins">
+                <title>BrainSINS</title>
+                <sort_order>71</sort_order>
+                <children>
+                    <items module="recsins">
+                        <title>Configure</title>
+                        <sort_order>0</sort_order>
+                        <action>recsins/adminhtml_recsins</action>
+                    </items>
+                </children>
+            </recsins>
+        </menu>
+        <translate>
+            <modules>
+                <recsins_recommender>
+                    <files>
+                        <default>Brainsins_Recsins.csv</default>
+                    </files>
+                </recsins_recommender>
+            </modules>
+        </translate>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <Brainsins_Recsins>
+                            <title>Recsins Module</title>
+                            <sort_order>10</sort_order>
+                        </Brainsins_Recsins>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <recsins>
+                    <file>recsins.xml</file>
+                </recsins>
+            </updates>
+        </layout>
+    </adminhtml>
+    <global>
+        <models>
+            <recsins>
+                <class>Brainsins_Recsins_Model</class>
+                <resourceModel>recsins_resource_eav_mysql4</resourceModel>
+            </recsins>
+            <recsins_resource_eav_mysql4>
+                <class>Brainsins_Recsins_Model_Resource_Eav_Mysql4</class>
+                <entities>
+                    <recommender>
+                        <table>recommender</table>
+                    </recommender>
+                </entities>
+            </recsins_resource_eav_mysql4>
+            <client>
+                <class>Brainsins_Recsins_Model</class>
+            </client>
+            <product>
+                <class>Brainsins_Recsins_Model</class>
+            </product>
+            <orderProduct>
+                <class>Brainsins_Recsins_Model</class>
+            </orderProduct>
+            <cartProduct>
+                <class>Brainsins_Recsins_Model</class>
+            </cartProduct>
+            <user>
+                <class>Brainsins_Recsins_Model</class>
+            </user>
+            <order>
+                <class>Brainsins_Recsins_Model</class>
+            </order>
+            <cart>
+                <class>Brainsins_Recsins_Model</class>
+            </cart>
+        </models>
+        <resources>
+            <recsins_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </recsins_write>
+            <recsins_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </recsins_read>
+            <recsins_setup>
+                <setup>
+                    <module>Brainsins_Recsins</module>
+                    <class>Brainsins_Recsins_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </recsins_setup>
+        </resources>
+        <blocks>
+            <recsins>
+                <class>Brainsins_Recsins_Block</class>
+            </recsins>
+        </blocks>
+        <helpers>
+            <recsins>
+                <class>Brainsins_Recsins_Helper</class>
+            </recsins>
+        </helpers>
+        <events>
+            <customer_login>
+                <observers>
+                    <Brainsins_Recsins>
+                        <type>singleton</type>
+                        <class>recsins/observer</class>
+                        <method>onLogin</method>
+                    </Brainsins_Recsins>
+                </observers>
+            </customer_login>
+            <checkout_cart_save_after>
+                <observers>
+                    <Brainsins_Recsins>
+                        <type>singleton</type>
+                        <class>recsins/observer</class>
+                        <method>onCart</method>
+                    </Brainsins_Recsins>
+                </observers>
+            </checkout_cart_save_after>
+           <sales_order_place_after>
+                <observers>
+                    <Brainsins_Recsins>
+                        <type>singleton</type>
+                        <class>recsins/observer</class>
+                        <method>onCheckoutSuccess</method>
+                    </Brainsins_Recsins>
+                </observers>
+            </sales_order_place_after>
+            <controller_action_postdispatch_customer_account_createpost>
+                <observers>
+                    <Brainsins_Recsins>
+                        <type>singleton</type>
+                        <class>recsins/observer</class>
+                        <method>onCreateAccount</method>
+                    </Brainsins_Recsins>
+                </observers>
+            </controller_action_postdispatch_customer_account_createpost>
+        </events>
+    </global>
+</config>

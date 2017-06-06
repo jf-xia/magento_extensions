@@ -1,0 +1,1 @@
+- Rajouter une option pour désactiver les logs

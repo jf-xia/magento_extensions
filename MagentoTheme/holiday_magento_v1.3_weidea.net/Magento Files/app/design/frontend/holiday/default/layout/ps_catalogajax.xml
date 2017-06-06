@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+	<default>
+		<reference name="head">
+			<action method="addCss" ifconfig="pscatalogajax/selector/enabled"><stylesheet>css/pascalsystem/base.css</stylesheet></action>
+			<action method="addJs" ifconfig="pscatalogajax/selector/enabled"><script>pascalsystem/base.js</script></action>
+			<action method="addJs" ifconfig="pscatalogajax/selector/enabled"><script>pascalsystem/catalogajax.js</script></action>
+			
+			<block type="pscatalogajax/config" name="catalogajaxconfig" />
+		</reference>
+	</default>
+</layout>

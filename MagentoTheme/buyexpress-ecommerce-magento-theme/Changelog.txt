@@ -1,0 +1,62 @@
+07 October - 
+
+Added the following CSS styles in the file styles.css for the pagination:
+
+.pager .pages { margin:0; }
+.pager .pages ol { display:inline; }
+.pager .pages li { display:inline; margin:0 2px; }
+.pager .pages li a img{vertical-align:middle;}
+.pager .pages .current {}
+
+
+******************************
+
+05 October 2013 -
+
+Fixed some minor bugs. 
+1.H1 width for cms pages
+2. logo width the same for homepage and inner pages
+3. Fixed pagination to inline
+4. FIxed registration page not shown on tables and phones.
+
+
+Files altered:
+1. header.phtml 
+2. styles.css
+3. footer.phtml
+
+
+*****************************************************
+
+Fixed footer on product page when footer 3 blocks are disabled.
+
+File altered:
+1. 1column.phtml (app/design/frontend/default/buyexpress/page)
+
+
+********************************************************
+
+17 Septempber 2013 -
+
+1. Added an option to upload background Image.
+2. Now you can Exclude CMS pages in footer area also.
+
+	Files Altered:
+		1. Head.phtml (app/design/frontend/default/buyexpress/template/page/html)	
+		2. system.xml (app/code/community/Webizmu/Buyexpress/etc)
+		3. footer.phtml
+
+	Added files:
+		1. Bgrepeat.php (app/code/community/Webizmu/Buyexpress/model)
+		2. Background.php (app/code/community/Webizmu/Buyexpress/model)
+
+
+
+******************************************************
+
+15 september 2013 - 
+
+Fixed banners in header section not showing up:
+File altered: header.phtml
+
+*******************************************************

@@ -1,0 +1,257 @@
+<?php
+/*
+* @author Tatvic Interactive
+* Email : info@liftsuggest.com
+* URL : http://www.liftsuggest.com
+* Description : LiftSuggest Recommendations is the module that helps you show recommendations for your products to users/visitors on product pages and/or shopping cart page. This will help in increasing the average order value and conversion rate of your site.
+* File : view.phtml
+* @copyright Copyright (C) 20011 Tatvic Interactive - All rights reserved.
+* @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see license.php
+* LiftSuggest Recommendations is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+*/
+
+if(Mage::getConfig()->getNode('default/liftsuggest/liftsuggest')->active == 1)
+{
+	$gaversion = Mage::getConfig()->getNode('default/liftsuggest/liftsuggest')->gaversion;
+	$gaid = Mage::getConfig()->getNode('default/liftsuggest/liftsuggest')->gaid;
+	
+	if($gaid != null || $gaid != ''){
+		if(get_class($this) == 'Mage_Catalog_Block_Product_View')
+		{
+			$curr_sku = trim(Mage::registry('current_product')->getSku());
+			$product_price = trim(Mage::registry('current_product')->getPrice());
+			$pagetracker_type = "N";
+
+			if(isset($_SESSION['reco_prods']) && $_SESSION['reco_prods']!=null)
+			{
+				if(in_array($curr_sku,$_SESSION['reco_prods']))
+					$pagetracker_type= "R";
+			}
+		}
+		
+	}
+}
+
+	$block = new Tatvic_LiftSuggest_Block_View(get_class($this));
+	
+	if($block->_lift_item != "" && (get_class($this)=='Mage_Catalog_Block_Product_View' ) )
+	{
+		$lift_response = $block->showRecommendation();
+		if(is_array($lift_response)==false && isset($lift_response['error']))
+		{
+			//echo "Error : " . $lift_response;
+			echo <<<_HTML_
+			<div class="liftsuggest {act:'pv',sku:'{$curr_sku}',reco:'{$pagetracker_type}'}" />
+_HTML_;
+		}
+		else if(is_array($lift_response) && count($lift_response)>1)
+		{
+			$row_id = 0;
+			$perc = $lift_response[0];
+			unset($lift_response[0]);
+?>
+	<div class="lift_container liftsuggest {act:'pv',sku:'<?php echo $curr_sku;?>',reco:'<?php echo $pagetracker_type;?>'}">
+	<div class="lift_container_head"><?php echo $perc . " people saw these products also"?></div>
+<?php
+			foreach($lift_response as $key=>$product)
+			{
+				if($row_id==0)
+				{ echo "<div class='lift_prod lsrecommendations {act:\"oc\",sku:\"".$product['prod_sku']."\",reco:\"R\"}'>"; }
+				else
+				{ echo "<div class='lift_prod lsrecommendations {act:\"oc\",sku:\"".$product['prod_sku']."\",reco:\"R\"}'>"; }
+?>
+	<div><a href="<?php echo $product['prod_link']?>"><img src="<?php echo $product['prod_img_path']?>" width="85" /></a></div>
+	<div class="lift_prod_name"><a href="<?php echo $product['prod_link']?>"><?php echo $product['prod_name']?></a></div>
+	<div class="lift_prod_price"><strong>Price :&nbsp;<?php echo $product['prod_currency'].$product['prod_price']?></strong></div>
+	<?php if(isset($product['prod_cart_link'])){ ?>
+		<button onclick="setLocation(<?php echo "'" . $product['prod_cart_link'] . "'";?>);" class="button btn-cart" title="Add to Cart" type="button"><span><span>Add to Cart</span></span></button>
+		<?php }?>
+	</div>
+<?php 
+				$row_id++;
+				if($row_id==4)
+					$row_id = 0;
+			}
+		?>
+	</div>
+<?php
+		}
+	}
+	
+	if($block->_lift_item != "" && (get_class($this)=='Mage_Checkout_Block_Cart' ) )
+	{
+		$lift_response = $block->showRecommendation();
+		if(is_array($lift_response)==false && isset($lift_response['error']))
+		{
+			//echo "Error : " . $lift_response;
+			$curr_sku = $block->_lift_item;
+			$pagetracker_type = "N";
+			$bulksku = explode(",",$curr_sku);
+			if(isset($_SESSION['reco_prods']) && $_SESSION['reco_prods']!=null)
+			{
+				foreach($bulksku as $sku)
+				{
+					if(in_array($sku,$_SESSION['reco_prods']))
+					{	$pagetracker_type= "R";
+						continue;
+					}
+				}
+			}
+			
+			echo <<<_HTML_
+			<div class="liftsuggest {act:'cv',sku:'{$curr_sku}',reco:'{$pagetracker_type}'}" />
+_HTML_;
+		}
+		else if(is_array($lift_response) && count($lift_response)>1)
+		{
+			$row_id = 0;
+			$perc = $lift_response[0];
+			unset($lift_response[0]);
+?>
+	<div class="lift_container liftsuggest {act:'cv',sku:'<?php echo $curr_sku;?>',reco:'<?php echo $pagetracker_type;?>'}">
+	<div class="lift_container_head"><?php echo $perc . " people saw these products also"?></div>
+<?php
+			foreach($lift_response as $key=>$product)
+			{
+				if($row_id==0)
+				{ echo "<div class='lift_prod lsrecommendations {act:\"oc\",sku:\"".$product['prod_sku']."\",reco:\"R\"}'>"; }
+				else
+				{ echo "<div class='lift_prod lsrecommendations {act:\"oc\",sku:\"".$product['prod_sku']."\",reco:\"R\"}'>"; }
+?>
+	<div><a href="<?php echo $product['prod_link']?>"><img src="<?php echo $product['prod_img_path']?>" width="85" /></a></div>
+	<div class="lift_prod_name"><a href="<?php echo $product['prod_link']?>"><?php echo $product['prod_name']?></a></div>
+	<div class="lift_prod_price"><strong>Price :&nbsp;<?php echo $product['prod_currency'].$product['prod_price']?></strong></div>
+	<?php if(isset($product['prod_cart_link'])){ ?>
+		<button onclick="setLocation(<?php echo "'" . $product['prod_cart_link'] . "'";?>);" class="button btn-cart" title="Add to Cart" type="button"><span><span>Add to Cart</span></span></button>
+		<?php }?>
+	</div>
+<?php 
+				$row_id++;
+				if($row_id==4)
+					$row_id = 0;
+			}
+		?>
+	</div>
+<?php
+		}else if(is_array($lift_response) && count($lift_response)==1){
+			$curr_sku = $block->_lift_item;
+			$pagetracker_type = "N";
+			$bulksku = explode(",",$curr_sku);
+			if(isset($_SESSION['reco_prods']) && $_SESSION['reco_prods']!=null)
+			{
+				foreach($bulksku as $sku)
+				{
+					if(in_array($sku,$_SESSION['reco_prods']))
+					{	$pagetracker_type= "R";
+						continue;
+					}
+				}
+			}
+			
+			echo <<<_HTML_
+			<div class="liftsuggest {act:'cv',sku:'{$curr_sku}',reco:'{$pagetracker_type}'}" />
+_HTML_;
+		}
+	}
+
+	if($block->_lift_item_ub != "")
+	{
+		echo "<br clear=\"all\" />";
+		$lift_response = $block->getBoughtProduct();
+		//$lift_response = array_unique($lift_response);
+		
+		$ubpagetracker_type = "Normal";
+		if(isset($_SESSION['ub_reco_prods']) && $_SESSION['ub_reco_prods']!=null) {
+			if(in_array($product_sku,$_SESSION['ub_reco_prods'])) {
+				$ubpagetracker_type= "Reco";
+			}
+		}
+		$ubreco_type = $ubpagetracker_type == 'Reco' ? 'UB': 'N';
+		
+		if(is_array($lift_response)==false && isset($lift_response['error']))
+		{
+			?>
+<div class="ubliftsuggest {act:'pv',sku:'<?php echo $curr_sku;?>',reco:'<?php echo $ubreco_type;?>'}" />
+<?php
+		}
+		else if(is_array($lift_response) && count($lift_response)>0)
+		{
+		$row_id=0;
+?>
+	<div class="lift_container ubliftsuggest {act:'pv',sku:'<?php echo $curr_sku;?>',reco:'<?php echo $ubreco_type;?>'}">
+	<div class="lift_container_head"><?php echo "What other customers bought after viewing this item?"?></div>
+<?php
+        foreach($lift_response as $key=>$product)
+		{
+			if($row_id==0)
+			{ echo "<div class='lift_prod lsrecommendations{act:\"pv\",sku:\"{$product['prod_sku']}\",reco:\"UB\"}' style='clear:both;'>"; }
+			else
+			{ echo "<div class='lift_prod lsrecommendations{act:\"pv\",sku:\"{$product['prod_sku']}\",reco:\"UB\"}'>"; }
+?>
+		<div><a href="<?php echo $product['prod_link']?>"><img src="<?php echo $product['prod_img_path']?>" width="85" /></a></div>
+		<div class="lift_prod_name"><a href="<?php echo $product['prod_link']?>"><?php echo $product['prod_name']?></a></div>
+		<div class="lift_prod_price"><strong>Price :&nbsp;<?php echo $product['prod_currency'].$product['prod_price']?></strong></div>
+		<?php if(isset($product['prod_cart_link'])){ ?>
+                <button onclick="setLocation(<?php echo "'" . $product['prod_cart_link'] . "'";?>);" class="button btn-cart" title="Add to Cart" type="button"><span><span>Add to Cart</span></span></button>
+		<?php }?>
+		</div>
+<?php
+			$row_id++;
+			if($row_id==4)
+				$row_id = 0;
+		}
+		}
+	}
+?>
+<style type="text/css">
+.lift_container
+{
+	width: 700px;
+	padding:5px;
+	margin:5px 0px;
+	text-align:left;
+}
+.lift_container_head
+{
+	width: 680px;
+	font-size:15px;
+	font-weight: bold;	
+	color: #616D7E;
+	padding: 5px 0px 5px 0px;
+}
+.lift_prod
+{
+	float: left;
+	width: 150px;
+	padding:5px; 
+	margin:5px 5px; 
+}
+.lift_prod_name a
+{
+	padding-top:5px;
+	word-wrap: break-word;
+	font-size:13px;
+	font-weight: bold;
+	color: #203548;
+}
+.lift_prod_price
+{	 
+	padding-top:5px;
+	padding-bottom:5px;
+	font-size:13px;
+	font-weight: bold;
+	color: #C76200;
+}
+</style>

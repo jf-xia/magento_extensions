@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+								
+								
+									<title>File System</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">
+								dt{font-weight: bold;}
+								PRE{
+								background-color:#F9F9F9 !important;
+								border:1px dashed #2F6FAB !important;
+								padding:1em !important;
+								}								
+							</style></head><body><table align="right">
+<tbody><tr>
+<td> <table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#File_System"><span class="tocnumber">1</span> <span class="toctext">File System</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Attention.21"><span class="tocnumber">1.1</span> <span class="toctext">Attention!</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Features"><span class="tocnumber">2</span> <span class="toctext">Features</span></a></li>
+<li class="toclevel-1"><a href="#Installation"><span class="tocnumber">3</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Backup_Your_Data"><span class="tocnumber">3.1</span> <span class="toctext">Backup Your Data</span></a></li>
+<li class="toclevel-2"><a href="#Download_and_Extract"><span class="tocnumber">3.2</span> <span class="toctext">Download and Extract</span></a></li>
+<li class="toclevel-2"><a href="#Upload_Files"><span class="tocnumber">3.3</span> <span class="toctext">Upload Files</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Troubleshooting"><span class="tocnumber">4</span> <span class="toctext">Troubleshooting</span></a></li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+</td></tr></tbody></table>
+<a name="File_System" id="File_System"></a><h1> <span class="mw-headline">File System</span></h1>
+<p><b>Version 1.0</b>
+</p><p>Magpleasure File System is a professional tool that is aimed at 
+Magento files' editing straight from the backend interface. It can be 
+convenient to use it, when slight changes should be made to the system 
+files. Then <b>ftp</b> or <b>ssh</b> connections are too expensive and difficult to use. Using File System you can easily do all the necessary operations.
+</p><p>To use this tool you just have to install it to the system. In administrative part there will be a new menu point <i>Filesystem</i>-&gt;<i>IDE</i>.
+ Entering that, you will see a tree of files of your shop and space for 
+editing. Choose the file in the tree and click on it. It will open in 
+the space for editing and after you make all necessary changes in the 
+file - click "Save" that is situated above the space for editing. File 
+will be saved.
+</p>
+<a name="Attention.21" id="Attention.21"></a><h2> <span class="mw-headline">Attention!</span></h2>
+<p>As soon as all files of the system are available to the editor, pay 
+attention to all your actions. This tool do not secure you from changes 
+that may endanger work of your shop. Therefore pay attention and to not 
+let users that you do not fully trust or with doubtful professional 
+qualities access the tool.
+</p>
+<a name="Features" id="Features"></a><h1> <span class="mw-headline">Features</span></h1>
+<ul><li>Easy-to-use interface
+</li><li>Multistore support
+</li><li>Easy 2-minutes installation
+</li><li>Meets Magento programming practices for most versions and customizations compatibility
+</li></ul>
+<a name="Installation" id="Installation"></a><h1> <span class="mw-headline">Installation</span></h1>
+<p>Clear the store cache under <b>var/cache</b> and all cookies for your
+ store domain. This step eliminates almost all potential problems. It's 
+necessary since Magento uses cache heavily.
+</p>
+<a name="Backup_Your_Data" id="Backup_Your_Data"></a><h3> <span class="mw-headline">Backup Your Data</span></h3>
+<p>Backup your store database and web directory.
+</p>
+<a name="Download_and_Extract" id="Download_and_Extract"></a><h3> <span class="mw-headline">Download and Extract</span></h3>
+<p>Download and unzip extension contents on your computer and navigate inside the extracted folder.
+</p>
+<a name="Upload_Files" id="Upload_Files"></a><h3> <span class="mw-headline">Upload Files</span></h3>
+<p>If you use a different from default theme - be sure to rename 
+app/design/frontend/default/default and skin/frontend/default/default 
+folders to your store's values. Using your FTP client upload files <i>app</i>, <i>js</i> and <i>skin</i> directory to your store root. Depending on the module some directories mentioned may not exist in the package.
+</p>
+<a name="Troubleshooting" id="Troubleshooting"></a><h1> <span class="mw-headline">Troubleshooting</span></h1>
+<dl><dt>After the extension installation the store gives an error, or blank page, or suggests to start Magento installation procedure.
+</dt><dd> Change the owner of the extracted extension files to the web 
+server user and set 775 permissions on them. Clear the store cache and 
+try again.
+</dd></dl>
+<dl><dt>There is no <i>aheadWorks extensions</i> under my configuration section, or having the extension tab clicked I get a blank page, or <i>Access Denied</i> error.
+</dt><dd> Clear the store cache, browser cookies, logout and login again.
+</dd></dl>
+<dl><dt>I've set up everything correctly, inserted the HTML code but there is nothing on that page.
+</dt><dd> Clear the store cache, clear your browser cache and domain cookies and refresh the page.
+</dd></dl>
+<dl><dt>My configuration changes do not appear on the store.
+</dt><dd> Clear the store cache, clear your browser cache and domain cookies and refresh the page.
+</dd></dl>
+<p><br>
+</p>
+<hr>
+<center>
+<p>You can always find the latest version of the software, full documentation, demos, screenshots and reviews at <a href="http://www.magpleasure.com/" class="external free" title="http://www.magpleasure.com" rel="nofollow">http://www.magpleasure.com</a><br>
+License agreement: <a href="http://www.magpleasure.com/LICENSE.txt" class="external free" title="http://www.magpleasure.com/LICENSE.txt" rel="nofollow">http://www.magpleasure.com/LICENSE.txt</a><br>
+<b>Copyright © 2011 MagPleasure Co. <a href="http://www.magpleasure.com/" class="external free" title="http://www.magpleasure.com" rel="nofollow">http://www.magpleasure.com</a></b>
+</p>
+</center>
+<p><br>
+</p></body></html>

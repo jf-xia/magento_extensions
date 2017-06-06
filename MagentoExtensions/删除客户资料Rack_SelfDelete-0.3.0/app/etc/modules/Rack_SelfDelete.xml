@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Rack_SelfDelete>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Rack_SelfDelete>
+    </modules>
+</config>

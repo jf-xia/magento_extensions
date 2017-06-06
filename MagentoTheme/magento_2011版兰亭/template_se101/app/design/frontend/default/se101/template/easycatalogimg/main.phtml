@@ -1,0 +1,45 @@
+<?php
+if (Mage::getStoreConfig('easy_catalogimg/catalogimg/enabled')) :
+
+    if (Mage::getStoreConfig('easy_catalogimg/catalogimg/showOnMain')) :
+    
+        $columnsCount = Mage::getStoreConfig('easy_catalogimg/catalogimg/columnsCount') 
+        ? Mage::getStoreConfig('easy_catalogimg/catalogimg/columnsCount') : 3;?>
+
+        <?php	$_categories = $this->getStoreCategories();
+        $_collectionSize = $_categories->count();?>
+        <div class="listing-catalogimg-grid catalogimg-listing">   
+            <?php $i=0; foreach ($_categories as $_category): 
+            
+                if (!$_category->getIsActive()) {
+                    continue;
+                }
+                
+                $cur_category=Mage::getModel('catalog/category')->load($_category->getId());
+                $imageUrl = $cur_category->getImageUrl();
+                if (empty($imageUrl)) {
+                    $imageUrl = $this->getSkinUrl('images/np_thumb2.gif');
+                }
+            ?>
+            
+            <?php if($i++%$columnsCount==0): ?>
+                <ol class="grid-row">
+            <?php endif; ?>
+                <li class="item">
+                    <div class="category-entry">
+                        <a href="<?php echo $cur_category->getUrl() ?>" title="<?php echo $this->htmlEscape($_category->getName()) ?>" class="product-image" ><img src="<?php echo $imageUrl ?>"  width="120" alt="<?php echo $this->htmlEscape($_category->getName()) ?>" /></a>
+                        <h5><a href="<?php echo $cur_category->getUrl() ?>" title="<?php echo $this->htmlEscape($_category->getName()) ?>"  class="easycategoriesroot"><?php echo $this->htmlEscape($_category->getName()) ?></a></h5>
+                    </div>
+                </li>   
+            <?php if($i%$columnsCount==0 || $i==$_collectionSize): ?>
+                </ol>
+            <?php endif; ?>
+            
+            <?php endforeach ?> 
+            
+            <script type="text/javascript">decorateGeneric($$('.grid-row'), ['last', 'odd', 'even']);</script>
+            
+        </div>
+
+    <?php endif; ?>
+<?php endif; ?>

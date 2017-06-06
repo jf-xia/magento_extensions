@@ -1,0 +1,96 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_default
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<div class="block block-topdeal">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Top Deal'); ?></span></strong>
+    </div>
+  <div class="block-content">
+     <div style="position: relative; height: 202px; overflow: hidden; padding: 0pt; margin: 0pt;" id="topdeals">
+        
+
+	  <?php $_productCollection=$this->getLoadedProductCollection() ?>
+
+            <?php $_iterator=0; ?>
+	    <div id="topdeals1">
+	    <ul class="top-list">
+	    <?php  foreach ($_productCollection as $_product): ?>
+	    
+		<li>
+
+			<a class="product-img" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>">
+				<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(70, 70); ?>" width="70" height="70" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" />
+		       </a>
+		     <div class="other-info">
+		      <div class="home-name">
+		      <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a>
+		      </div>
+		      <p class="home-price"><?php echo $this->getPriceHtml($_product, true) ?></p>
+			
+		    </div>
+		    <div class="clearer"></div>
+		</li>
+
+		 
+
+   	          <?php if(++$_iterator>10) {break;} ?>
+
+	    <?php endforeach ?>
+	    </ul>
+	    </div>
+	    <div id="topdeals2">
+	    </div>
+
+    </div>
+ </div>
+</div>
+
+<script type="text/javascript">
+//top deals
+var speeda=10;
+var topdeals2=document.getElementById("topdeals2");
+var topdeals1=document.getElementById("topdeals1");
+var topdeals=document.getElementById("topdeals");
+topdeals2.innerHTML=topdeals1.innerHTML;
+function Marquee(){
+if(topdeals2.offsetTop-topdeals.scrollTop<=0){
+topdeals.scrollTop-=topdeals1.offsetHeight+10;
+}else{
+topdeals.scrollTop++;
+}
+}
+var MyMar=setInterval(Marquee,speeda);
+topdeals.onmouseover=function() {clearInterval(MyMar)}
+topdeals.onmouseout=function() {MyMar=setInterval(Marquee,speeda)}
+</script>
+

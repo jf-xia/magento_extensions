@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+            <Mdl_Ajaxcheckout>
+                    <version>0.1.0</version>
+                    <depends>
+                            <Mage_Customer />
+                            <Mage_Checkout />
+                    </depends>
+            </Mdl_Ajaxcheckout>
+    </modules>
+    <global>
+
+        <models>
+            <mdlajaxcheckout>
+                <class>mdl_Ajaxcheckout_Model</class>
+            </mdlajaxcheckout>
+        </models>
+        <blocks>
+            <mdlajaxcheckout>
+                <class>Mdl_Ajaxcheckout_Block</class>
+            </mdlajaxcheckout>
+        </blocks>
+        <helpers>
+            <mdlajaxcheckout>
+                <class>mdl_Ajaxcheckout_Helper</class>
+            </mdlajaxcheckout>
+        </helpers>
+
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <mdlajaxcheckout>
+                    <file>mdlajaxcheckout.xml</file>
+                </mdlajaxcheckout>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Mdl_Ajaxcheckout>
+                    <files>
+                        <default>mdl_ajaxcheckout.csv</default>
+                    </files>
+                </Mdl_Ajaxcheckout>
+            </modules>
+        </translate>
+
+    </frontend>
+
+    <frontend>
+        <routers>
+            <mdlajaxcheckout>
+                <use>standard</use>
+                <args>
+                    <module>Mdl_Ajaxcheckout</module>
+                    <frontName>mdlajaxcheckout</frontName>
+                </args>
+            </mdlajaxcheckout>
+        </routers>
+    </frontend>
+
+    <adminhtml>
+
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <catalog>
+                            <children>
+                                <mdlajaxcheckout_adminform>
+                                    <title>Configuration</title>
+                                </mdlajaxcheckout_adminform>
+                            </children>
+                        </catalog>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+
+
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <mdlajaxcheckout>
+                                            <title>Mdl Ajax Cart</title>
+                                        </mdlajaxcheckout>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                        <customer>
+                            <children>
+                                <mdlajaxcheckout translate="title">
+                                    <title>Mdl Ajax Cart</title>
+                                    <sort_order>45</sort_order>
+                                </mdlajaxcheckout>
+                            </children>
+                        </customer>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+
+    <default>
+        <mdlajaxcheckout>
+            <default>
+                <mdl_ajax_cart_loading_size>260x50</mdl_ajax_cart_loading_size>
+                <mdl_ajax_cart_confirm_size>320x134</mdl_ajax_cart_confirm_size>
+                <mdl_ajax_cart_image_size>55x55</mdl_ajax_cart_image_size>
+                <mdl_ajax_cart_show_popup>1</mdl_ajax_cart_show_popup>
+            </default>
+        </mdlajaxcheckout>
+    </default>
+
+    <global>
+    </global>
+</config>
+

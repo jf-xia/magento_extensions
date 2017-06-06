@@ -1,0 +1,23 @@
+<?php
+$schedule = Mage::registry('noovias_cron_schedule');
+$helper = Mage::helper('noovias_cron');
+?>
+<div class="content-header">
+    <?php echo $this->getHeaderHtml() ?>
+    <p class="form-buttons"><?php echo $this->getButtonsHtml('header') ?></p>
+</div>
+
+<div class="box-left">
+    <form action="<?php echo $this->getSaveUrl() ?>" method="post" id="schedule_new_form" enctype="multipart/form-data">
+        <?php echo $this->getFormHtml() ?>
+        <div style="display:none"></div>
+    </form>
+</div>
+
+<div class="clear"></div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var editForm = new varienForm('schedule_new_form');
+    //]]>
+</script>

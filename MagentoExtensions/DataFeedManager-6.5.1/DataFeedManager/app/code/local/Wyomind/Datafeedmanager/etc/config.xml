@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Wyomind
+ * @package    Wyomind_DataFeedManager
+ * @license    http://wyomind.com
+ */
+ --> 
+<config>
+    <modules>
+        <Wyomind_Datafeedmanager>
+            <version>6.5.1</version>
+        </Wyomind_Datafeedmanager>
+    </modules>
+    <default>
+        <datafeedmanager>
+            <license> 
+                <version>6.5.1</version>
+            </license>
+            <setting>
+                <report_title>Data Feed Manager - report </report_title>
+            </setting>
+            <system>
+                <preview>10</preview>
+                <buffer>10</buffer>
+                <sqlsize>1500</sqlsize>
+                <filters>10</filters>
+                <disabled>0</disabled>
+                <include_in_menu>0</include_in_menu>
+                <memory_limit>1024</memory_limit>
+                <error_reporting>0</error_reporting>
+                <urlrewrite>1</urlrewrite>
+            </system>
+        </datafeedmanager>
+    </default>
+    <frontend>
+        <routers>
+            <datafeedmanager>
+                <use>standard</use>
+                <args>
+                    <module>Wyomind_Datafeedmanager</module>
+                    <frontName>datafeedmanager</frontName>
+                </args>
+            </datafeedmanager>
+        </routers>  
+    </frontend>
+    <admin>
+        <routers>
+            <datafeedmanager>
+                <use>admin</use>
+                <args>
+                    <module>Wyomind_Datafeedmanager</module>
+                    <frontName>datafeedmanager</frontName>
+                </args>
+            </datafeedmanager>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <catalog>
+                <children>
+                    <datafeedmanager translate="title" module="datafeedmanager">
+                        <title>Data Feed Manager</title>
+                        <sort_order>190</sort_order>
+                        <action>datafeedmanager/adminhtml_configurations</action>
+                        <children>
+                            <datafeedmanagerconfigurations translate="title" module="datafeedmanager">
+                                <title>Data feeds</title>
+                                <sort_order>1</sort_order>
+                                <action>datafeedmanager/adminhtml_configurations</action>
+                            </datafeedmanagerconfigurations>
+                            <datafeedmanagerattributes translate="title" module="datafeedmanager">
+                                <title>Custom Attributes</title>
+                                <sort_order>2</sort_order>
+                                <action>datafeedmanager/adminhtml_attributes</action>
+                            </datafeedmanagerattributes>
+                            <datafeedmanageroptions translate="title" module="datafeedmanager">
+                                <title>Custom Options</title>
+                                <sort_order>3</sort_order>
+                                <action>datafeedmanager/adminhtml_options</action>
+                            </datafeedmanageroptions>
+                        </children>
+                       
+                    </datafeedmanager>
+                </children>
+            </catalog>
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <catalog>
+                            <children>
+                                <datafeedmanager translate="title" module="datafeedmanager">
+                                    <title>Data Feed Manager</title>
+                                    <children>
+                                        <datafeedmanagerconfigurations translate="title" module="datafeedmanager">
+                                            <title>Data feeds</title>
+                                        </datafeedmanagerconfigurations>
+                                        <datafeedmanagerattributes translate="title" module="datafeedmanager">
+                                            <title>Custom attributes</title>
+                                        </datafeedmanagerattributes>
+                                        <datafeedmanageroptions translate="title" module="datafeedmanager">
+                                            <title>Custom options</title>
+                                        </datafeedmanageroptions>
+                                    </children>
+                                </datafeedmanager>
+                            </children>
+                        </catalog>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <datafeedmanager>
+                                            <title>Data Feed Manager</title>
+                                        </datafeedmanager>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <translate>
+            <modules>
+                <Wyomind_Datafeedmanager>
+                    <files>
+                        <default>Wyomind_Datafeedmanager.csv</default>
+                    </files>
+                </Wyomind_Datafeedmanager>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <datafeedmanager>
+                    <file>datafeedmanager.xml</file>
+                </datafeedmanager>
+            </updates>
+        </layout>
+    </adminhtml>
+    <global>
+        <models>
+            <datafeedmanager>
+                <class>Wyomind_Datafeedmanager_Model</class>
+                <resourceModel>datafeedmanager_mysql4</resourceModel>
+            </datafeedmanager>
+            <datafeedmanager_mysql4>
+                <class>Wyomind_Datafeedmanager_Model_Mysql4</class>
+                <entities>
+                    <attributes>
+                        <table>datafeedmanager_attributes</table>
+                    </attributes>
+                </entities>
+                <entities>
+                    <options>
+                        <table>datafeedmanager_options</table>
+                    </options>
+                </entities>
+                <entities>
+                    <configurations>
+                        <table>datafeedmanager_configurations</table>
+                    </configurations>
+                </entities>
+            </datafeedmanager_mysql4>
+        </models>
+        <resources>
+            <datafeedmanager_setup>
+                <setup>
+                    <module>Wyomind_Datafeedmanager</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </datafeedmanager_setup>
+            <datafeedmanager_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </datafeedmanager_write>
+            <datafeedmanager_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </datafeedmanager_read>
+        </resources>
+        <blocks>
+            <datafeedmanager>
+                <class>Wyomind_Datafeedmanager_Block</class>
+            </datafeedmanager>
+        </blocks>
+        <helpers>
+            <datafeedmanager>
+                <class>Wyomind_Datafeedmanager_Helper</class>
+            </datafeedmanager>
+        </helpers>
+    </global>
+    <crontab>
+        <jobs>
+            <datafeedmanager_generate>
+                <schedule>
+                    <cron_expr>* * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>datafeedmanager/observer::scheduledGenerateFeeds</model>
+                </run>
+            </datafeedmanager_generate>
+        </jobs>
+    </crontab>
+</config>

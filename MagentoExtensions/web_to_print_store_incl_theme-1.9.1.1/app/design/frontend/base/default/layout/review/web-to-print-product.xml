@@ -1,0 +1,5 @@
+<layout version="0.1.0">
+  <review_product_list>
+    <update handle="webtoprint_product_view" />
+  </review_product_list>
+</layout>

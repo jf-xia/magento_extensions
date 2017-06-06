@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<config>
+  <tabs>
+    <click2customer translate="label" module="analytics">
+      <label>Click2Customer</label>
+      <sort_order>250</sort_order>
+    </click2customer>
+  </tabs>
+  <sections>
+    <analytics translate="label" module="analytics">
+      <label>Configuration</label>
+      <tab>click2customer</tab>
+      <sort_order>100</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+        <settings translate="label comment">
+          <comment><![CDATA[<strong>If you have not signed up for a Click2Customer account you can do so <a target="_blank" href="http://www.click-2-customer.com">here</a></strong>]]></comment>
+          <label>Settings</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>200</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <name translate="label">
+              <label>Account Settings</label>
+            </name>
+            <account_id translate="label">
+              <label>Account ID</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment><![CDATA[This can be found under the "My Account" tab in the Click2Customer Management Interface]]></comment>
+            </account_id>
+            <service_url translate="label">
+              <label>Service URL</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>10</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </service_url>
+          </fields>
+        </settings>
+      </groups>
+    </analytics>
+  </sections>
+</config>
+

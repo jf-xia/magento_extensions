@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <Apptha translate="label" module="timer">
+            <label>Apptha</label>
+            <sort_order>300</sort_order>
+        </Apptha>
+    </tabs>
+    <sections>
+        <timer translate="label" module="timer">
+            <tab>Apptha</tab>
+            <label>Price Countdown</label>
+            <frontend_type>text</frontend_type>
+            <sort_order>120</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label" module="timer">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <activate_apptha_timer translate="label">
+                            <label>Activate Price Countdown:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Activate Product Timer</comment>
+                        </activate_apptha_timer>
+
+                        <activate_apptha_heading translate="label">
+                            <label>Timer Heading:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_Heading</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Timer Heading</comment>
+                        </activate_apptha_heading>
+
+                         <activate_apptha_description translate="label">
+                            <label>Timer Caption:</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_Caption</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Timer Caption</comment>
+                        </activate_apptha_description>
+                        
+                        <heading translate="label">
+                            <label>Timer Title:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Timer Title.</comment>
+                        </heading>
+                    </fields>
+                </general>
+                <apptha_timer_color translate="label" module="timer">
+                    <label>Colors</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>4</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <text translate="label">
+                            <label>Timer Color:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Please Click the text box to select color</comment>
+                        </text>
+
+                        <heading_text_color translate="label">
+                            <label>Timer Heading Text Color:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Please Click the text box to select color</comment>
+                        </heading_text_color>
+
+                        <description translate="label">
+                            <label>Timer Caption Text Color:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Please Click the text box to select color</comment>
+                        </description>
+
+                        
+                    </fields>
+                </apptha_timer_color>
+            </groups>
+        </timer>
+    </sections>
+</config>

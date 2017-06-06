@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   design_default
+ * @package    Mage
+ * @copyright  Copyright (c) 2004-2007 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<layout version="0.1.0">
+	<default>
+        <reference name="footer_links">
+			<block type="blog/blog" name="add.blog.footer">
+				<action method="addFooterLink" ifconfig="blog/menu/footer"></action>
+			</block>
+		</reference>
+		<reference name="right">
+			<block type="blog/blog" name="right.blog.menu" >
+				<action method="setTemplate" ifconfig="blog/menu/right">
+					<template>blog/menu.phtml</template> 
+				</action>
+			</block>
+        </reference>
+		<reference name="left">
+			<block type="blog/blog" name="left.blog.menu" >
+				<action method="setTemplate" ifconfig="blog/menu/left">
+					<template>blog/menu.phtml</template> 
+				</action>
+			</block>
+        </reference>
+		<reference name="top.links">
+			<block type="blog/blog" name="add.blog.link">
+				<action method="addTopLink" ifconfig="blog/menu/top"></action>
+			</block>
+		</reference>
+		<reference name="head">
+			<action method="addItem"><type>skin_css</type><name>css/blog.css</name></action>
+		</reference>
+    </default>
+
+    <blog_index_index>
+        <reference name="content">
+            <block type="blog/blog" name="blog" template="blog/blog.phtml"/>
+        </reference>
+    </blog_index_index>
+	<blog_post_view>
+        <reference name="content">
+            <block type="blog/post" name="post" template="blog/post.phtml" />
+        </reference>
+    </blog_post_view>
+	<blog_cat_view>
+        <reference name="content">
+            <block type="blog/cat" name="cat" template="blog/cat.phtml" />
+        </reference>
+    </blog_cat_view>
+	
+	<blog_rss_index>
+        <block type="blog/rss" output="toHtml" name="rss.blog.new"/>
+    </blog_rss_index>
+</layout> 

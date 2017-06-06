@@ -1,0 +1,9 @@
+<?php $date = $this->getdate(); ?>
+<div class="entry-edit-head" id='deliverydate'>
+	<h4 class="icon-head head-deliverydate"><?php echo $this->__(Mage::helper('deliverydate')->getFrontendLabel()) ?></h4>
+</div>
+<fieldset>
+<?php if ($date !== false) : ?>
+	<?php echo $date;?>
+<?php endif; ?>
+</fieldset>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Price_Countdown</name>
+ <channel>connect.magentocommerce.com/community</channel>
+ <summary>Countdown timer for Special product price to date. Timer displays according to the special price and to date set while adding products.</summary>
+ <description>Countdown timer for Special product price to date. Timer displays according to the special price and to date set while adding products.</description>
+ <lead>
+  <name>Apptha</name>
+  <user>apptha</user>
+  <email>info@apptha.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2011-09-04</date>
+ <time>00:56:59</time>
+ <version>
+  <release>1.1</release>
+  <api>1.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+ <notes>Countdown timer for Special product price to date. Timer displays according to the special price and to date set while adding products.</notes>
+ <contents>
+  <dir name="/">
+   <dir name="adminhtml\default\default\layout">
+    <file md5sum="922bab7b8ef9783a71da8af3a4d1586b" name="timer.xml" role="magedesign" />
+   </dir> <!-- /adminhtml\default\default\layout -->
+   <dir name="Apptha">
+    <dir name="Timer\Block">
+     <file md5sum="67a2dcb24788f98669928cb4e053c12d" name="Compare.php" role="magelocal" />
+     <file md5sum="0eec8b05238b8c1fb3d6c5e9b36ba0f2" name="List.php" role="magelocal" />
+     <file md5sum="cb9ef6d51f81a5e19a5bf0f1a5ced057" name="View.php" role="magelocal" />
+    </dir> <!-- /Apptha/Timer\Block -->
+    <dir name="Timer\Block\Adminhtml">
+     <file md5sum="41e15898f393910176531c7a402924d6" name="Timer.php" role="magelocal" />
+    </dir> <!-- /Apptha/Timer\Block\Adminhtml -->
+    <dir name="Timer\Block\Adminhtml\Timer">
+     <file md5sum="328ae3312a3a27580f3ceec0f1e3d1a9" name="Edit.php" role="magelocal" />
+     <file md5sum="4c3285d41d3d2bc36d3e14381adaf2fb" name="Grid.php" role="magelocal" />
+    </dir> <!-- /Apptha/Timer\Block\Adminhtml\Timer -->
+    <dir name="Timer\Block\Adminhtml\Timer\Edit">
+     <file md5sum="8dbc637bb22b48db386712782c7f57f5" name="Form.php" role="magelocal" />
+     <file md5sum="8d1b3b2c1753f85109104fa17a7e9178" name="Tabs.php" role="magelocal" />
+    </dir> <!-- /Apptha/Timer\Block\Adminhtml\Timer\Edit -->
+    <dir name="Timer\Block\Adminhtml\Timer\Edit\Tab">
+     <file md5sum="e52b4fbfa7b6591daca75000ff62d26f" name="Form.php" role="magelocal" />
+    </dir> <!-- /Apptha/Timer\Block\Adminhtml\Timer\Edit\Tab -->
+    <dir name="Timer\controllers">
+     <file md5sum="df0410bbc702e03dc132e7885a77906b" name="IndexController.php" role="magelocal" />
+    </dir> <!-- /Apptha/Timer\controllers -->
+    <dir name="Timer\controllers\Adminhtml">
+     <file md5sum="da8e47f527a9dbaca6aaf1ea14d9469b" name="TimerController.php" role="magelocal" />
+    </dir> <!-- /Apptha/Timer\controllers\Adminhtml -->
+    <dir name="Timer\etc">
+     <file md5sum="9e49c3217738110eb53f6f074f5e1b4c" name="adminhtml.xml" role="magelocal" />
+     <file md5sum="0620ebe17e8e3ca40f26a8ebaf451351" name="config.xml" role="magelocal" />
+     <file md5sum="b03b62de7cc6e0e778a61afa4b426471" name="system.xml" role="magelocal" />
+    </dir> <!-- /Apptha/Timer\etc -->
+    <dir name="Timer\Helper">
+     <file md5sum="90aab09e0601a4b9979787fb07f4ac43" name="Data.php" role="magelocal" />
+    </dir> <!-- /Apptha/Timer\Helper -->
+    <dir name="Timer\Model">
+     <file md5sum="b0979e8ee08fa38288981a620fff0289" name="Status.php" role="magelocal" />
+     <file md5sum="a892cf13e30d46305701665c4093cfd2" name="Timer.php" role="magelocal" />
+    </dir> <!-- /Apptha/Timer\Model -->
+    <dir name="Timer\Model\Mysql4">
+     <file md5sum="24a37d8b83b13d8c74bfaacf8e5eb46c" name="Timer.php" role="magelocal" />
+    </dir> <!-- /Apptha/Timer\Model\Mysql4 -->
+    <dir name="Timer\Model\Mysql4\Timer">
+     <file md5sum="92d0e9389d7876f5706a7dadf076705e" name="Collection.php" role="magelocal" />
+    </dir> <!-- /Apptha/Timer\Model\Mysql4\Timer -->
+    <dir name="Timer\sql\timer_setup">
+     <file md5sum="ca197db87139585fba35d472a5af60f5" name="mysql4-install-0.1.0.php" role="magelocal" />
+    </dir> <!-- /Apptha/Timer\sql\timer_setup -->
+   </dir> <!-- /Apptha -->
+   <dir name="frontend\default\default\layout">
+    <file md5sum="d0ff6efc6dfecf8eadaf36b890958936" name="timer.xml" role="magedesign" />
+   </dir> <!-- /frontend\default\default\layout -->
+   <dir name="frontend\default\default\template\facebooklb">
+    <file md5sum="061d3cb23d09c4fcbafd5db8658f3137" name="head.phtml" role="magedesign" />
+    <file md5sum="f6b89000f9ad76b9ef3ad8af769a7fa7" name="like.phtml" role="magedesign" />
+   </dir> <!-- /frontend\default\default\template\facebooklb -->
+   <dir name="frontend\default\default\template\gr\deepzoom\product\view">
+    <file md5sum="a7295b823ccacd8f9aa5321e2274dc11" name="media.phtml" role="magedesign" />
+   </dir> <!-- /frontend\default\default\template\gr\deepzoom\product\view -->
+   <dir name="frontend\default\default\template\gr\deepzoom\product\widget">
+    <file md5sum="d04b40979393bc22ab8ecb2928dd0d07" name="gallery.phtml" role="magedesign" />
+    <file md5sum="394103e979e84f71cbd9582ef4597c8d" name="image.phtml" role="magedesign" />
+   </dir> <!-- /frontend\default\default\template\gr\deepzoom\product\widget -->
+   <dir name="frontend\default\default\template\smoovpay">
+    <file md5sum="b575084988786791231ade3d18a5e7a1" name="blank.phtml" role="magedesign" />
+    <file md5sum="7c166c97981b7dc478cf303a42a9f3cd" name="cancel.phtml" role="magedesign" />
+    <file md5sum="9f1a043a25281f2ed2000a996105d902" name="failure.phtml" role="magedesign" />
+    <file md5sum="f7209aec22f6ce9041035b972aac33f8" name="form.phtml" role="magedesign" />
+    <file md5sum="38925077734f5f51f0f71c6ad37d6b39" name="info.phtml" role="magedesign" />
+    <file md5sum="dc982bcc3bfe42c37c5418a6a1d35360" name="redirect.phtml" role="magedesign" />
+   </dir> <!-- /frontend\default\default\template\smoovpay -->
+   <dir name="frontend\default\default\template\timer">
+    <file md5sum="d6167b4526883ce0cf7547e6ebb980dc" name="list.phtml" role="magedesign" />
+    <file md5sum="ac729282ef95ae536ccaec6c0163b07b" name="view.phtml" role="magedesign" />
+   </dir> <!-- /frontend\default\default\template\timer -->
+   <dir name="frontend\default\default\timer">
+    <file md5sum="d708dd99a8bfba68149cbb5d8ca9a5e9" name="timer.css" role="mageskin" />
+   </dir> <!-- /frontend\default\default\timer -->
+   <dir name="js">
+    <dir name="jscolor">
+     <file md5sum="5034704a76cd55c1cbcbc58ea6bf523f" name="arrow.gif" role="mage" />
+     <file md5sum="ba9a274b9323753cd95bc3b1eb2f4e5f" name="cross.gif" role="mage" />
+     <file md5sum="edf71251cb2be20322d2efb00aee86a6" name="demo.html" role="mage" />
+     <file md5sum="fefa1a03d92ebad25c88dca94a0b63db" name="hs.png" role="mage" />
+     <file md5sum="990d71cada17da100653636cf8490884" name="hv.png" role="mage" />
+     <file md5sum="40781563e36d1f1df99a2b5c8e0ef9bf" name="jscolor.js" role="mage" />
+     <file md5sum="b1f50deafceb1febfcf05103758e03a6" name="Thumbs.db" role="mage" />
+    </dir> <!-- /js/jscolor -->
+    <file md5sum="4f709d357b0d7863a2b4fc2d95596a8b" name="timer.js" role="mage" />
+   </dir> <!-- /js -->
+   <dir name="Mage">
+    <dir name="Adminhtml">
+     <dir name="Model">
+      <dir name="System">
+       <dir name="Config">
+        <dir name="Source">
+         <file md5sum="0ef33d4dcfc139788f56e500cfe2a4a4" name="Caption.php" role="magelocal" />
+         <file md5sum="de0d7e340af16af42416369657c7f202" name="Heading.php" role="magelocal" />
+        </dir> <!-- /Mage/Adminhtml/Model/System/Config/Source -->
+       </dir> <!-- /Mage/Adminhtml/Model/System/Config -->
+      </dir> <!-- /Mage/Adminhtml/Model/System -->
+     </dir> <!-- /Mage/Adminhtml/Model -->
+    </dir> <!-- /Mage/Adminhtml -->
+   </dir> <!-- /Mage -->
+   <dir name="modules">
+    <file md5sum="ede273b6645782b3d3953e6ea604dbce" name="Apptha_Timer.xml" role="mageetc" />
+   </dir> <!-- /modules -->
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.0</min>
+    <max>6.0.0</max>
+   </php>
+   <pearinstaller>
+    <min>1.6.2</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+</package>

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<SK_CartUpdate>
+			<version>0.0.1</version>
+		</SK_CartUpdate>
+	</modules>
+
+	<adminhtml>
+		<acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <cartupdate>
+                                            <title>SK - Special product</title>
+                                        </cartupdate>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+	</adminhtml>
+
+	<global>
+		<helpers>
+            <cartupdate>
+                <class>SK_CartUpdate_Helper</class>
+            </cartupdate>
+        </helpers>
+	</global>
+
+	<frontend>
+		<layout>
+			<updates>
+				<cartupdate module="SK_CartUpdate">
+					<file>sk_cartupdate.xml</file>
+				</cartupdate>
+			</updates>
+		</layout>
+		 <routers>
+            <cartupdate>
+                <use>standard</use>
+                <args>
+                    <module>SK_CartUpdate</module>
+                    <frontName>cartupdate</frontName>
+                </args>
+            </cartupdate>
+        </routers>
+	</frontend>
+
+</config>

@@ -1,0 +1,22 @@
+div.mdl-box-tl {background:url(../../images/mdl/box-template-rounded.png) no-repeat top left;}
+div.mdl-box-tm {background:url(../../images/mdl/box-template-rounded.png) no-repeat top center;}
+div.mdl-box-tr {background:url(../../images/mdl/box-template-rounded.png) no-repeat top right;}
+
+div.mdl-box-cl {background:url(../../images/mdl/box-template-rounded.png) no-repeat center left;}
+div.mdl-box-cm {background:url(../../images/mdl/box-template-rounded.png) no-repeat center center;}
+div.mdl-box-cr {background:url(../../images/mdl/box-template-rounded.png) no-repeat center right;}
+
+div.mdl-box-bl {background:url(../../images/mdl/box-template-rounded.png) no-repeat bottom left;}
+div.mdl-box-bm {background:url(../../images/mdl/box-template-rounded.png) no-repeat bottom center;}
+div.mdl-box-br {background:url(../../images/mdl/box-template-rounded.png) no-repeat bottom right;}
+
+/*div.mdl-box-bottom {clear:both;}*/
+
+div.mdlajax-progress, div.mdlajax-confirm {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 4px double #E6E6E6;
+    box-shadow: 0 0 9px 1px #666666;
+    z-index: 1501;
+	padding:10px;
+}
+div.mdlajax-confirm, div.mdlajax-progress{border:none;}

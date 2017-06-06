@@ -1,0 +1,7 @@
+<layout version="0.1.0">
+  <zetaprints_webtoprint_image_index>
+    <reference name="root">
+      <block type="page/html" name="root" output="toHtml" template="web-to-print/image-edit/edit.phtml" />
+    </reference>
+  </zetaprints_webtoprint_image_index>
+</layout>

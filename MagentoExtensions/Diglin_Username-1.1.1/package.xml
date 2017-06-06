@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package>
+    <name>Diglin_Username</name>
+    <version>1.1.1</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Create and login to an account thanks to a username AND email address.&#xD;
+Allow to disable an account from backend. The user will be blocked if the option in the customer backend is set to no</summary>
+    <description>This module allows you to:&#xD;
+&#xD;
+- login with a username, it can be done from frontend during checkout or getting access to the customer account&#xD;
+- save a username from frontend (register account or checkout process) or from backend by editing a customer account&#xD;
+- check that the username doesn't already exists&#xD;
+- deactivate temporary customer account from Customer Management page (bonus functionnality). The user will be blocked if the option in the customer backend is set to no.&#xD;
+- The default template override some customer and checkout views to adapt display for login pages, checkout process and account edition in frontend. If you have a customized template, please check the layout file username.xml and compare with your template to use or adapt to your situation.&#xD;
+&#xD;
+Compatible Magento version &gt;= 1.4.2</description>
+    <notes>Version 1.1.0: change the module name from Jfusion_Customer to Diglin_Username, fix bugs with checkout frontend and backend and with old customers&#xD;
+Version 1.0.0 - stable version&#xD;
+Version 1.0.1 - fix bug in sql query during installation on prefixed tables, add german translation, do package for Magento version prior to 1.5 and version 1.5.x&#xD;
+Version 1.0.2 - fix a bug with the installation</notes>
+    <authors><author><name>diglin</name><user>auto-converted</user><email>sly@diglin.com</email></author></authors>
+    <date>2011-09-12</date>
+    <time>18:35:05</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Diglin_Username.xml" hash="79603fae3def6dd098d4be51897e1ec6"/></dir></target><target name="magecommunity"><dir name="Diglin"><dir name="Username"><dir name="Block"><dir name="Overwrite"><dir name="Adminhtml"><dir name="Edit"><dir name="Tab"><file name="Account.php" hash="a5269ed241e97fc94ea6585ddf89d41e"/></dir></dir></dir></dir></dir><dir name="Model"><dir name="Entity"><file name="Customer.php" hash="75871fbc0b7ba6283a9d00e1300d5687"/><file name="Setup.php" hash="52fb83e922217a03ec49a7e01ec4168d"/></dir><file name="Customer.php" hash="a3fa48726a43f267d1560a7b14574309"/><file name="Form.php" hash="8842ea13f59069341b20c86fae4e6986"/><file name="Observer.php" hash="4badcaa6ab91dc56270c31aa0dcab4f5"/></dir><dir name="etc"><file name="config.xml" hash="6bd6bfb1ad3d522be4bcd0ccdf342928"/></dir><dir name="sql"><dir name="username_setup"><file name="mysql4-install-1.0.0.php" hash="139862c7d033b40808f2dd5c17c59d77"/><file name="mysql4-upgrade-1.0.0-1.1.0.php" hash="a6cdaceb3ae152b7ac2debe99022209b"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="template"><dir name="username"><dir name="checkout"><dir name="onepage"><file name="billing.phtml" hash="158561d558368712426b803b2f392a8b"/><file name="login.phtml" hash="057960b4b741b21657aed20a15278872"/></dir></dir><dir name="customer"><dir name="form"><file name="edit.phtml" hash="9db985e8451b66a7c09b8dc472fc9544"/><file name="login.phtml" hash="4b0be135d49e4098e093514bc0ddb88f"/><file name="register.phtml" hash="2808979c10df1b36dc0c74333490a50f"/></dir></dir></dir></dir><dir name="layout"><file name="username.xml" hash="5fdf86d9fbaa0da02b1de86d62bb2ef3"/></dir></dir></dir></dir></target><target name="magelocale"><dir name="en_GB"><file name="Diglin_Username.csv" hash="2d18fb6bfc2c4c56f19cfe7ee6761f4b"/></dir><dir name="en_US"><file name="Diglin_Username.csv" hash="2d18fb6bfc2c4c56f19cfe7ee6761f4b"/></dir><dir name="fr_FR"><file name="Diglin_Username.csv" hash="d8d025c852649fc8e9edd2aed5ab377a"/></dir><dir name="de_DE"><file name="Diglin_Username.csv" hash="7b82f7fe5e8775963956447f55954116"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

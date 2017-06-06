@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+<!-- declare module's version information -->
+    <J2t_Loginrequired>
+<!-- this version number will be used for database upgrades -->
+      <version>0.1.0</version>
+    </J2t_Loginrequired>
+  </modules>
+
+
+
+  <global>
+
+    <models>
+        <loginrequired>
+            <class>J2t_Loginrequired_Model</class>
+        </loginrequired>
+    </models>
+
+    
+  </global>
+
+
+  <frontend>
+    <events>
+        <model_load_after>
+            <observers>
+                <j2t_loginrequired_observer>
+                    <type>singleton</type>
+                    <class>J2t_Loginrequired_Model_Observer</class>
+                    <method>checklogin</method>
+                </j2t_loginrequired_observer>
+            </observers>
+        </model_load_after>
+    </events>
+  </frontend>
+
+    <default>
+        <customer>
+            <loginrequired>
+                <default>
+                    <activated>0</activated>
+                </default>
+            </loginrequired>
+        </customer>
+
+    </default>
+
+
+</config>
+

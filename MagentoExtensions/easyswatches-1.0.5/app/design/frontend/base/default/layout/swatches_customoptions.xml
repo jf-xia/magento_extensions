@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addCss" ifconfig="swatches/customoptions/enabled">
+                <stylesheet>css/swatches/customoptions.css</stylesheet>
+            </action>
+            <action method="addJs" ifconfig="swatches/customoptions/enabled">
+                <script>swatches/customoptions.js</script>
+            </action>
+        </reference>
+    </catalog_product_view>
+    
+</layout>

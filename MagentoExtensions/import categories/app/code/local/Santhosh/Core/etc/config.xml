@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Santhosh_Core>
+            <version>0.0.1</version>
+        </Santhosh_Core>
+	</modules>
+
+	<global>
+		<helpers>
+			<santhosh_core>
+				<class>Santhosh_Core_Helper</class>
+			</santhosh_core>
+		</helpers>
+
+		<models>
+			<santhosh_core>
+				<class>Santhosh_Core_Model</class>
+				<resourceModel>santhosh_core_mysql4</resourceModel>
+			</santhosh_core>
+			<santhosh_core_mysql4>
+				<class>Santhosh_Core_Model_Mysql4</class>
+			</santhosh_core_mysql4>
+        </models>
+	</global>
+</config>

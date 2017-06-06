@@ -1,0 +1,101 @@
+<style>
+div.tooltip {
+background-color:#000000;
+color:#FFFFFF;
+position: fixed;
+padding 10px;
+z-index: 2;
+border: 3px solid #ccc;
+width:530px;
+overflow-x: hidden;
+overflow-y: auto;
+}
+* html div.tooltip { 
+   height: expression( this.scrollHeight < 334 ? "333px" : "auto" ); /* sets min-height for IE */
+}
+div.tooltip { 
+   min-height: 333px; /* sets min-height value for all standards-compliant browsers */
+}
+* html div.tooltip { 
+   height: expression( this.scrollHeight > 500 ? "501px" : "auto" ); /* sets max-height for IE */
+}
+div.tooltip {
+   max-height: 501px; /* sets max-height value for all standards-compliant browsers */
+}
+</style>
+
+
+<?php $_links = $this->getLinks(); ?>
+<?php if(count($_links)>0): ?>
+<ul class="links"<?php if($this->getName()): ?> id="<?php echo $this->getName() ?>"<?php endif;?>>
+    <?php foreach($_links as $_link): ?>
+        <li<?php if($_link->getIsFirst()||$_link->getIsLast()): ?> class="<?php if($_link->getIsFirst()): ?>first<?php endif; ?><?php if($_link->getIsLast()): ?> last<?php endif; ?>"<?php endif; ?> <?php echo $_link->getLiParams() ?>><?php echo $_link->getBeforeText() ?><a href="<?php echo $_link->getUrl() ?>" title="<?php echo $_link->getTitle() ?>" <?php echo $_link->getAParams() ?>><?php echo $_link->getLabel() ?></a><?php echo $_link->getAfterText() ?></li>
+    <?php endforeach; ?>
+</ul>
+<?php endif; ?>
+<script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script language="javascript">
+$(document).ready(function(){
+
+	var basketText = $('ul.links li a.top-link-cart').text().replace("My Cart", "Basket");
+	$('ul.links li a.top-link-cart').text(basketText);
+
+	var baseUrl = '<?php echo Mage::getUrl(); ?>';
+
+	var positionTooltip = function(event)
+	{
+		var tPosX = event.pageY + 100;
+		var tPosY = event.pageY + 20;
+
+		$('div.tooltip').css({top: tPosY, right: tPosX});
+	};
+
+	var showTooltip = function(event)
+	{
+		$('div.tooltip').remove();  /* Remove previous tooltip to avoid flicker */
+		var text = $(this).text();
+		$('<div class="tooltip">Click to see : '+text+' </div>').appendTo('body');
+		$('.tooltip').css({'opacity':'0.9'}); /* Set the opacity */
+		positionTooltip(event);
+		
+		loadCart();
+	};
+
+	var hideTooltip = function()
+	{
+		$('div.tooltip').remove();
+	};
+
+	$('ul.links li a.top-link-cart').click(showTooltip);
+
+	$('ul.links li a.top-link-cart').click(function(e){
+		e.preventDefault();
+	});
+	
+	$('#closebasket').click(hideTooltip);
+	
+	function loadCart()
+	{
+		$.ajax({
+			type:"POST",
+			url: baseUrl+"basket/index/getcart",
+			cache: true,
+			data: "id=1",
+			beforeSend: function(){
+				$('.tooltip').empty().html('<div align="center" style="text-align:center;"><img src="http://www.loadinfo.net/images/preview/18_clock_five_24.gif?1200916238" alt="Loading..." title="Loading..."><br />Loading...<br />Click <a href="<?php echo Mage::getUrl().'checkout/cart/';?>">here</a> to go to your cart page.</div>');
+			},
+			success: function(a){
+				$('.tooltip').empty().html(a);
+			},
+			error: function(){
+				$('div.tooltip').remove();
+			}
+		});
+	}
+	
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+});
+</script>

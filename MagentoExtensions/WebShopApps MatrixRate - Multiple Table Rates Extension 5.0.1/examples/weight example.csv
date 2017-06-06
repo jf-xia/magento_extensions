@@ -1,0 +1,7 @@
+"Country","Region/State","City","Zip/Postal Code","Zip to","Weight >=","Weight <=","Shipping Price","Delivery Type"
+"USA","*","*","*","*",0,5,12,"UPS Ground"
+"USA","*","*","*","*",6,1000,15,"UPS Ground"
+"USA","*","*","*","*",0,5,20,"Next Day Air"
+"USA","*","*","*","*",6,1000,30,"Next Day Air"
+"*","*","*","*","*",0,5,35,"International 5-7 Days"
+"*","*","*","*","*",6,1000,50,"International 5-7 Days"

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Santhosh_Export>
+            <version>0.0.1</version>
+        </Santhosh_Export>
+	</modules>
+
+	<global>
+		<helpers>
+			<santhosh_export>
+				<class>Santhosh_Export_Helper</class>
+			</santhosh_export>
+        </helpers>
+
+		<blocks>
+			<santhosh_export>
+				<class>Santhosh_Export_Block</class>
+			</santhosh_export>
+		</blocks>
+	</global>
+
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<santhosh_export after="Mage_Adminhtml">Santhosh_Export_Adminhtml</santhosh_export>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+
+	<adminhtml>
+		<layout>
+			<updates>
+				<santhosh_export>
+					<file>export.xml</file>
+				</santhosh_export>
+			</updates>
+		</layout>
+
+		<translate>
+			<modules>
+				<Santhosh_Export>
+					<files>
+						<default>Santhosh_Export.csv</default>
+					</files>
+				</Santhosh_Export>
+			</modules>
+		</translate>
+	</adminhtml>
+
+	<stores>
+		<admin>
+			<design>
+				<package>
+					<name>default</name>
+				</package>
+				<theme>
+					<default>santhosh</default>
+				</theme>
+			</design>
+		</admin>
+	</stores>
+</config>

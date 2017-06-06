@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * System configuration file.
+ * 
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Blueknow Recommender
+ * extension to newer versions in the future. If you wish to customize it for
+ * your needs please save your changes before upgrading.
+ * 
+ * @category	Blueknow
+ * @copyright	Copyright (c) 2010 Blueknow, S.L. (http://www.blueknow.com)
+ * @license		GNU General Public License
+ * @author		<a href="mailto:santi.ameller@blueknow.com">Santiago Ameller</a>
+ * @since		1.0.0
+ * 
+ */
+-->
+<config>
+    <sections>
+        <blueknow module="blueknow_recommender">
+            <label>Blueknow Recommender</label>
+            <tab>service</tab>
+            <class>blueknow-recommender-section</class>
+            <header_css>blueknow-recommender-header</header_css>
+            <frontend_type>text</frontend_type>
+            <sort_order>999</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <recommender translate="label,comment">
+                    <label>Main configuration</label>
+                    <!-- [2011-03-20] Translation of the comment below is not shown, so it is properly translated -->
+                    <comment><![CDATA[<b>Important note:</b> Once the extension is installed, your clients won't get personalized recommendations until at least <b>24 hours</b> after. Read carefully the <b>documentation</b> included in the extension package.]]></comment>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<version translate="label,comment">
+                    		<label>Version</label>
+                            <comment><![CDATA[Current version of the extension.]]></comment>
+                            <frontend_model>blueknow_recommender/system_config_form_field_version</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                    	</version>
+                    	<enabled translate="label,comment">
+                    		<label>Enable</label>
+                            <comment><![CDATA[Activate/Deactivate Blueknow Recommender.]]></comment>
+                    		<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                    	</enabled>
+                    	<bk_number translate="comment">
+                    		<label>BK number</label>
+                            <comment><![CDATA[Unique identifier assigned to this eCommerce.<br />Do you need one? Obtain it for free at <a href='http://www.blueknow.com?utm_source=magentocommerce.com&utm_medium=backoffice&utm_campaign=blueknow-magento-extension'>here</a>.]]></comment>
+                    		<frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                    	</bk_number>
+                    </fields>
+                </recommender>
+                <item_to_item translate="label">
+                    <label>Cross-sell recommendations</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<enabled translate="label,comment">
+                    		<label>Enable</label>
+                            <comment><![CDATA[Activate/Deactivate cross-sell recommendations in product detail page.]]></comment>
+                    		<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                    	</enabled>
+                    	<nor translate="label,comment">
+                    		<label>Recommendations</label>
+                            <comment><![CDATA[Number of cross-sell recommendations to show in product detail page.]]></comment>
+                    		<frontend_type>select</frontend_type>
+							<source_model>blueknow_recommender/source_numberofrecommendations</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                    	</nor>
+					</fields>
+				</item_to_item>
+				<item_to_basket translate="label">
+                    <label>Up-sell recommendations</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<enabled translate="label,comment">
+                    		<label>Enable</label>
+                            <comment><![CDATA[Activate/Deactivate up-sell recommendations in shopping cart page.]]></comment>
+                    		<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                    	</enabled>
+                    	<nor translate="label,comment">
+                    		<label>Recommendations</label>
+                            <comment><![CDATA[Number of up-sell recommendations to show in shopping cart page.]]></comment>
+                    		<frontend_type>select</frontend_type>
+							<source_model>blueknow_recommender/source_numberofrecommendations</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                    	</nor>
+					</fields>
+				</item_to_basket>
+            </groups>
+        </blueknow>
+    </sections>
+</config>

@@ -1,0 +1,153 @@
+<?php
+
+$in_context = Mage::helper('webtoprint')
+                ->getCustomOptions('image-edit/in-context@enabled=1');
+?>
+
+<div class="zetaprints-image-edit">
+  <ul class='zetaprints-image-edit-menu'>
+    <?php if ($in_context): ?>
+    <li>
+      <div id="fit-to-field-button" class="button"
+           title="<?php echo $this->__('Fit image in field'); ?>">
+        <?php echo $this->__('Fit in field'); ?>
+      </div>
+    </li>
+    <?php endif; ?>
+    <li>
+      <div id="rotate-right-button" class="button"
+           title="<?php echo $this->__('Rotate Image Right'); ?>">
+        <?php echo $this->__('Rotate right'); ?>
+      </div>
+    </li>
+    <li>
+      <div id="rotate-left-button" class="button"
+           title="<?php echo $this->__('Rotate Image Left'); ?>">
+        <?php echo $this->__('Rotate left'); ?>
+      </div>
+    </li>
+    <li>
+      <div id="crop-button" class="button"
+           title="<?php echo $this->__('Crop Image'); ?>">
+        <?php echo $this->__('Crop'); ?>
+      </div>
+    </li>
+    <li class="hidden">
+      <div id="undo-button" class="button"
+           title="<?php echo $this->__('Undo all changes'); ?>">
+        <?php echo $this->__('Restore'); ?>
+      </div>
+    </li>
+    <li class="last">
+      <div id="delete-button" class="button"
+           title="<?php echo $this->__('Delete Image'); ?>">
+        <?php echo $this->__('Delete'); ?>
+      </div>
+    </li>
+  </ul>
+
+  <div class='zetaprints-image-edit-wrapper'>
+    <div class="zetaprints-image-edit-container">
+      <img id="zetaprints-image-edit-user-image" class="zetaprints-hidden"/>
+    </div>
+
+    <div class="info-bar">
+      <div class="column titles">
+        <div class="row current">
+          <span class="uploaded-title">Uploaded image</span>
+          <span class="cropped-title">Cropped image</span>
+        </div>
+        <div class="row recommended">Recommended image:</div>
+      </div>
+
+      <div class="column numbers">
+        <div id="current-width" class="row current"></div>
+        <div id="recommended-width" class="row recommended"></div>
+      </div>
+
+      <div class="column">
+        <div class="row current">&times;</div>
+        <div class="row recommended">&times;</div>
+      </div>
+
+      <div class="column numbers">
+        <div id="current-height" class="row current"></div>
+        <div id="recommended-height" class="row recommended"></div>
+      </div>
+
+      <div class="column left-text-position">
+        <div class="row current">px at</div>
+        <div class="row recommended">px at</div>
+      </div>
+
+      <div class="column numbers">
+        <div id="current-dpi" class="row current"></div>
+        <div id="recommended-dpi" class="row recommended"></div>
+      </div>
+
+      <div class="column">
+        <div class="row current">dpi</div>
+        <div class="row recommended">dpi</div>
+      </div>
+
+      <div class="column notice-switchers">
+        <div class="row current outer">
+          <div class="middle">
+            <div class="icon question-sign inner uploaded-title" rel="current"
+                 title="Size and resolution of the uploaded image as it will be shown in the design.">
+            </div>
+            <div class="icon question-sign inner cropped-title" rel="current"
+                 title="Size and resolution of the selected image area as it will be shown in the design.">
+            </div>
+          </div>
+        </div>
+        <div class="row recommended outer">
+          <div class="middle">
+            <div class="icon question-sign inner" rel="recommended"
+                 title="Best image size for fit and quality.">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column left-text-position last notices">
+        <span class="default-notice">
+          Move, resize and crop the image for the best fit and resolution.
+        </span>
+        <span class="low-cropped-resolution-notice">
+          The selected area is too small for quality output.
+        </span>
+        <span class="low-full-resolution-notice">
+          The image resolution is too small for quality output. Try resizing here or upload a larger image.
+        </span>
+        <span class="small-image-notice">
+          The image is too small. Upload a larger image or move, resize and crop this one for the best fit.
+        </span>
+      </div>
+
+      <div class="reset"></div>
+    </div>
+
+    <div class="zetaprints-buttons-row">
+      <div class="row-part first">
+        <div id="restore-button" class="zetaprints-button restore-action">
+          <div class="icon"></div>
+          <span><?php echo $this->__('Reset'); ?></span>
+        </div>
+      </div>
+
+      <div class="row-part">
+        <div id="save-button" class="zetaprints-button save-action">
+          <div class="icon"></div>
+          <span><?php echo $this->__('Save'); ?></span>
+        </div>
+
+        <div class="reset"></div>
+      </div>
+
+      <div class="reset"></div>
+    </div>
+  </div>
+
+  <div style="clear: both;"></div>
+</div>

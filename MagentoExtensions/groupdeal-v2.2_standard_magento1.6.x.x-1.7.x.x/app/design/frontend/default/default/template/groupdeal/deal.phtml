@@ -1,0 +1,361 @@
+<?php 	
+	$_deal = $this->getDeal();
+	$_products = $this->getProductsInDeal();
+	$_helper = $this->helper('groupdeal');
+	$urlRequest = $this->getRequest();	
+	// Zend_debug::dump(get_class_methods($urlRequest));die();
+	$productOptionInDeal= $this->getProductHaveOptions($_products) ;	
+	//Zend_debug::dump($productOptionInDeal->getCategoryIds());die();
+?>
+<div class="breadcrumbs">
+	<ul>
+    	<li>
+        	<a href="<?php echo $this->getUrl() ?>" title="<?php echo $this->helper('groupdeal')->__('Go to Home Page') ?>"><?php echo $this->helper('groupdeal')->__('Home') ?></a>
+            <span>/ </span>
+		</li>
+        <li>
+        	<a href="<?php echo $this->getUrl('groupdeal') ?>" title="<?php echo $this->helper('groupdeal')->__('Go to Groupdeal') ?>"><?php echo $this->helper('groupdeal')->__('Groupdeal') ?></a>
+            <span>/ </span>
+		</li>
+        <?php if($this->getCategory()){ ?>
+        <li>
+        	<a href="<?php echo $this->getCategoryUrl() ?>" title="<?php echo $this->getCategoryName() ?>"><?php echo $this->getCategoryName() ?></a>
+            <span>/ </span>
+		</li>
+        <?php }?>
+       	<li><strong><?php echo $_deal->getDealTitle() ?></strong></li>
+    </ul>
+</div>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="product-view groupdeal">
+    <div class="product-essential">
+        <div class="top">
+            <h1 class="title"><?php echo $this->stripTags($_deal->getDealTitle(), null, true) ?></h1>
+            <p class="description"><?php echo $this->stripTags($_deal->getShortDescription(), null, true) ?></p>
+        </div>
+        <div class="left">
+            <div class="add-to-cart">
+                <?php echo $_deal->getPriceHtml() ?>
+				<?php if($_deal->getOptionProduct()==0 || $productOptionInDeal==0):?>
+               <form action="<?php echo $this->getAddToCartUrl() ?>" method="post">
+                	<?php foreach($_deal->getProductIds() as $productId){?>
+                    <input type="hidden" name="super_group[<?php echo $productId ?>]" value="1">
+                    <?php }?>
+                	<button id="buynow" class="button" type="submit" <?php if($_deal->getDealStatus() != 4 && $_deal->getDealStatus() != 5){?> style="display:none"<?php }?>></button>
+                </form>				
+				<?php else: ?>
+					<button id="buynow" class="button" type="submit" onclick="openPopup('<?php echo $productOptionInDeal->getId()?>', '<?php echo $_deal->getId()?>')"<?php if($_deal->getDealStatus() != 4 && $_deal->getDealStatus() != 5){?> style="display:none"<?php }?>></button>
+				<?php endif; ?>
+            </div>			
+            <div class="discount">
+                <dl>
+                    <dt><?php echo $_helper->__('Value') ?></dt>
+                    <dd><?php echo $_deal->getValueHtml() ?></dd>
+                </dl>
+                <dl>
+                    <dt><?php echo $_helper->__('Discount') ?></dt>
+                    <dd><?php echo $_deal->getDiscountHtml() ?></dd>
+                </dl>
+                <dl>
+                    <dt><?php echo $_helper->__('You save') ?></dt>
+                    <dd><?php echo $_deal->getYouSaveHtml() ?></dd>
+                </dl>
+            </div>
+            <!--<div class="for-friends">
+                <a href=""><?php echo $_helper->__('Buy it for a friend!') ?></a>
+            </div>-->
+            <div class="time">
+                <img class="time-image" src="<?php echo $this->getSkinUrl('images/groupdeal/hourglass.gif')?>" />
+                <div class="count-time">
+                    <dl>
+                        <dt><?php echo $_deal->getTimeText() ?></dt>
+                        <dd id="left-time"><?php echo $_deal->getLeftTime() ?></dd>
+                    </dl>
+                </div>
+            </div>
+            
+            <div class="number-sold">
+            	<?php $remain = $_deal->getMinimumPurchase() - $_deal->getBought()?>
+				<?php if($_deal->getDealStatus() == 5 || $remain > 0){?>
+                <div class="status"><?php echo $_deal->getNumberBoughtText() ?></div>
+                <div id="deal-waiting">
+                    <div class="progess-point" style="left:<?php echo ($_deal->getBought()/$_deal->getMinimumPurchase())*182 +10?>px;"></div>
+                    <div class="progess-bar">
+                        <div class="progess-line" style="width:<?php echo ($_deal->getBought()/$_deal->getMinimumPurchase())*182 ?>px;"></div>
+                    </div>
+                    <div class="quantity-number">
+                        <span class="min-quantity">0</span>
+                        <span class="max-quantity"><?php echo $_deal->getMinimumPurchase() ?></span>
+                    </div>
+                </div>
+                <?php }else{?>
+                <div id="deal-status">
+                    <img class="sold-image" src="<?php echo $this->getSkinUrl('images/groupdeal/deal_on.png')?>" />
+                    <?php echo $_deal->getStatusText()?>
+                </div>
+                <?php }?>
+                
+                <div class="remain-quantity"><?php echo $_deal->getRemainQuantityText() ?></div>
+            </div>
+            <div class="share">
+            	<div class="share-title"><?php echo $_helper->__('Share') ?></div>
+                <div class="share-content">
+					<div class="google">
+						<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
+						<g:plusone size="tall" href="<?php echo $_deal->getDealUrl() ?>"> </g:plusone>
+					</div>
+                    
+                    <div class="twitter">
+                    	<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+						<a href="http://twitter.com/share?url=<?php echo $_deal->getDealUrl() ?>" class="twitter-share-button" data-count="vertical"></a>
+					</div>
+					<div class="facebook">
+						<div id="fb-root"></div>
+						<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+                        <fb:like send="false" layout="box_count" width="140" show_faces="false" href="<?php echo $_deal->getDealUrl() ?>"></fb:like>
+					</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            
+            <div class="what-happen">
+                <a href="javascript:void(0);" onclick="popWin('<?php echo $this->getWhatHappenUrl() ?>', 'what_happen', 'top:0,left:0,width=500,height=320,resizable=yes,scrollbars=yes'); return false;"><?php echo $_helper->__('What happen to your purchase?')?></a>
+                <?php $product = $this->getProduct()?>
+                 <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($product) ?>"><?php echo $this->__('Email to a Friend') ?></a></p>   
+            </div>
+        </div>
+        <div class="right">
+        	<div class="product-img-box">
+            	<?php $gallery = $product->getMediaGallery()?>
+                <?php $images = array_reverse($gallery['images'])?>
+            	<ul id="deal-image" <?php if(count($images) > 1){?>onmouseover="stopSlideshow()" onmouseout="startSlideshow()<?php }?>">
+                	<?php if(count($images) > 1){?><li class="prev nav-slider"><a href="javascript:prevSlideshow()" title="<?php echo $this->__('Previous photo') ?>">&#139;</a></li><?php }?>
+                	<?php foreach($images as $image){?>
+                    <li><img src="<?php echo $this->helper('catalog/image')->init($product, 'thumbnail', $image['file'])->resize(420, 255) ?>" title="" height="255" width="420" /></li>
+                    <?php }?>
+                    <?php if(count($images) > 1){?><li class="next nav-slider"><a href="javascript:nextSlideshow()" title="<?php echo $this->__('Next photo') ?>">&#155;</a></li><?php }?>
+                </ul>
+                <?php if(count($images) > 1){?>
+                <script type="text/javascript">
+				var duration = 4000;
+				var showNextImage = true;
+				var total = $$('#deal-image img').length;
+				var i = total-1;
+				function stopSlideshow() {
+					showNextImage = false;
+					$$("li.nav-slider").each(function(elm){
+						elm.setStyle({'opacity':'0.9', 'filter':'alpha(opacity=90)'});
+					});
+				} 
+				function startSlideshow() {
+					showNextImage = true;
+					$$("li.nav-slider").each(function(elm){
+						elm.setStyle({'opacity':'0.4', 'filter':'alpha(opacity=40)'})
+					});
+				}
+				
+				function nextSlideshow(){
+					var imgs = $$('#deal-image img'), 
+					visible = imgs.findAll(function(img){ return img.visible();});
+					
+					if(visible.length > 1) {
+						visible.last().fade({ duration: 1 });
+					} else {
+						imgs.last().appear({ duration: 1, afterFinish: function(){ imgs.slice(0,imgs.length-1).invoke('show'); } });
+					}
+				}
+				
+				function prevSlideshow(){
+					var imgs = $$('#deal-image img'), 
+					hidden = imgs.findAll(function(img){ return !img.visible();});
+				
+					if(hidden.length >= 1) {
+						hidden.first().appear({ duration: 1 });
+					} else {
+						imgs.slice(1,imgs.length-1).invoke('hide');
+						imgs.last().fade({ duration: 1 });
+					}
+				}
+				
+				setInterval(function(){
+					if(!showNextImage){ 
+						return; 
+					}
+					var imgs = $$('#deal-image img'), visible = imgs.findAll(function(img){ 
+						return img.visible(); 
+					});
+				
+					if(visible.length > 1) {
+						visible.last().fade({ duration: 1 });
+					} else {
+						imgs.last().appear({ duration: 1, afterFinish: function(){ imgs.slice(0,imgs.length-1).invoke('show'); } });
+					}
+				}, duration);
+				</script>
+                <?php }?>
+            </div>
+            <div class="thefineprint">
+                <div class="thefineprint-title"><?php echo $_helper->__('The Fine Print')?></div>
+                <div class="thefineprint-content"><?php  echo $_deal->getTheFinePrint()?></div>
+            </div>
+
+            <div class="highlights">
+                <div class="highlights-title"><?php echo $_helper->__('Highlights')?></div>
+                <div class="highlights-content"><?php echo $_deal->getHighlights() ?></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    
+    <div class="product-collateral">
+        <div class="box-collateral box-description">
+        	<h2><?php echo $this->__('Details') ?></h2>
+			<div class="std"><?php echo $_deal->getFullDescription() ?></div>
+		</div>
+        <div class="clear"></div>
+    </div>
+    
+    <?php if($this->isShowProductList()){?>
+	<div class="product-collateral">
+        <div class="box-collateral box-up-sell products-in-deal">
+        	<h2><?php echo $this->getProductListTitle() ?></h2>
+			<p><?php echo $this->getProductListDescription() ?></p>
+			<table class="products-grid" id="groupdeal-product-list">
+			<?php // $this->setColumnCount(5); // uncomment this line if you want to have another number of columns. also can be changed in layout ?>
+			<?php $this->setColumnCount(5) ?>
+			<?php for($_i=0;$_i<ceil(count($_products) / $this->getColumnCount());$_i++): ?>
+				<tr>
+				<?php for($_j=0;$_j<$this->getColumnCount();$_j++): ?>
+					<?php if($_product=$_products[$_i*$this->getColumnCount() + $_j]): ?>
+					<td>
+						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(125) ?>" width="125" height="125" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" /></a>
+						<h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a></h3>
+						<?php echo $this->getPriceHtml($_product, true, '-upsell') ?>
+						<?php echo $this->getReviewsSummaryHtml($_product) ?>
+					</td>
+					<?php else: ?>
+					<td class="empty">&nbsp;</td>
+					<?php endif; ?>
+				<?php endfor; ?>
+				</tr>
+			<?php endfor; ?>
+			</table>
+			<script type="text/javascript">decorateTable('groupdeal-product-list')</script>
+		</div>
+        <div class="clear"></div>
+    </div>
+    <?php }?>
+</div>
+
+<div class="right-sidebar">
+    <?php echo $this->getLayout()->createBlock('groupdeal/sidebar')->setTemplate('groupdeal/sidebar/categories.phtml')->toHtml(); ?>
+    <?php echo $this->getLayout()->createBlock('groupdeal/sidebar')->setTemplate('groupdeal/sidebar/newestdeals.phtml')->toHtml(); ?>
+	<?php echo $this->getLayout()->createBlock('groupdeal/sidebar')->setTemplate('groupdeal/sidebar/newsletter.phtml')->toHtml(); ?>
+</div>
+<script type="text/javascript">
+var remainTime, timeId;
+function getLeftTime(){
+	<?php if($_deal->getDealStatus() == 2 || $_deal->getDealStatus() == 3){ // ended, unreached?>
+		remainTime++;
+	<?php }else{?>
+		remainTime--;
+	<?php }?>
+	
+	if(remainTime > 0){
+		var remainDay = parseInt(remainTime/24/3600);
+		var remainHour = parseInt((remainTime%(24*3600))/3600);
+		if(remainHour < 10)
+			remainHour = '0' + remainHour; 
+		var remainMinute = parseInt(((remainTime%(24*3600))%3600)/60);
+		if(remainMinute < 10)
+			remainMinute = '0' + remainMinute;
+		var remainSecond = parseInt(((remainTime%(24*3600))%3600)%60);
+		if(remainSecond < 10)
+			remainSecond = '0' + remainSecond;
+		
+		if(remainDay != 0)
+			var leftTime = remainDay + 'd, ' + remainHour + ':' + remainMinute + ':' + remainSecond;
+		else
+			var leftTime = remainHour + ':' + remainMinute + ':' + remainSecond;
+	}else{
+		//var leftTime = "<?php echo $_helper->__('Time is up') ?>";
+		clearInterval(timeId);
+		<?php if($_deal->getDealStatus() == 4 || $_deal->getDealStatus() == 5){?>
+		$('buynow').hide();
+		<?php }else{?>
+		$('buynow').show();
+		<?php }?>
+		window.location.reload(true);
+	}
+	
+	$('left-time').update(leftTime);
+}
+
+function countdownClock(){
+	remainTime = parseInt('<?php echo $_deal->getRemainTime() ?>');
+	<?php if($_deal->getDealStatus() == 2 || $_deal->getDealStatus() == 3){ // ended, unreached?>
+		clearInterval(timeId);	
+		
+	<?php }else{?>
+		timeId = setInterval("getLeftTime()", 1000);
+	<?php } ?>
+}
+countdownClock();
+</script>
+<!-- load by Hai.Ta 17.4.2013 -->
+<?php //if($_deal->getOptionProduct() && $productOptionInDeal==0):?>
+<div id="deal-ajaxcart-load-ajax" style="display:none;">
+	<div class="deal-ajaxcart-overlay">&nbsp;</div>
+	<div class="deal-ajaxcart-loading">
+		<img alt="<?php echo $this->__('Loading') ?>..." src="<?php echo $this->getSkinUrl('images/groupdeal/loading.gif') ?>" /><br />
+		<?php echo $this->__('Loading') ?>...
+	</div>
+</div>
+<div id="deal-ajaxcart-pop-up" style="display: none;">
+	<div class="deal-ajaxcart-popup-overlay" onclick="closeDealAjaxPopup();">&nbsp;</div>
+	<div id="deal-ajaxcart-content" class="deal-ajaxcart-content" style="left:35%"></div>
+</div>
+<script type="text/javascript">		
+	
+	var urlAction = '<?php echo $this->getActionUrlBuy() ?>';
+	var groupdeal = new GroupDeal('deal-ajaxcart-load-ajax','deal-ajaxcart-pop-up','deal-ajaxcart-content','','div[class="block block-cart"]',$$('.header').first().down('ul.links'),'ajaxcart');
+	
+	
+	groupdeal.addToCartHandle = function(requestUrl, product_id, deal_id){
+		groupdeal.url = urlAction+'?productId='+product_id;		
+		$('deal-ajaxcart-load-ajax').show();		
+		new Ajax.Request(urlAction,{
+			method: 'get',			
+			parameters: {productId:product_id, dealId:deal_id},
+			onException: function (xhr, e){				
+				$('deal-ajaxcart-load-ajax').hide();
+				$('deal-ajaxcart-pop-up').hide();
+				window.location.href = groupdeal.url;
+			},
+			onComplete: groupdeal.ajaxOnComplete
+		});
+	}
+	groupdeal.ajaxOnComplete = function(xhr){		
+		if (xhr.responseText.isJSON()){
+			var response = xhr.responseText.evalJSON();
+			groupdeal.popupContentWindow(response);
+			
+		 }
+	}
+	
+	function openPopup(product_id, deal_id){		
+		groupdeal.addToCartHandle("",product_id, deal_id);		
+	}
+	
+	function closeDealAjaxPopup(){
+		$('deal-ajaxcart-load-ajax').hide();
+		$('deal-ajaxcart-pop-up').style.display = "none";
+	}
+	function ajaxMoreTemplateJs(){
+		if ($('deal-ajaxcart-content').down(".paypal-logo")) $('ajaxcart-pop-up').down(".paypal-logo").hide();
+		if ($('deal-ajaxcart-content').down(".add-to-links")) $('ajaxcart-pop-up').down(".add-to-links").hide();
+	}
+</script>
+<?php //endif; ?>
+<!-- end -->

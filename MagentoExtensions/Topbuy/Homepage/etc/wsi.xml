@@ -1,0 +1,1924 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:typens="urn:{{var wsdl.name}}"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             name="{{var wsdl.name}}"
+             targetNamespace="urn:{{var wsdl.name}}">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:{{var wsdl.name}}">
+      <!--Define all Parameters Type here-->
+      <xsd:complexType name="tbNewsletterType">
+        <xsd:sequence>
+          <xsd:element name="email" type="xsd:string" minOccurs="0" />
+          <xsd:element name="customerid" type="xsd:string" minOccurs="0" />
+          <xsd:element name="subscribetype" type="xsd:string" minOccurs="0" />
+          <xsd:element name="subscribestatus" type="xsd:string" minOccurs="0" />
+          <xsd:element name="rowid" type="xsd:string" minOccurs="0" />
+          <xsd:element name="storeid" type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbNewsletterArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbNewsletterType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbAttributeOptionType">
+        <xsd:sequence>
+          <xsd:element name="option_name" type="xsd:string" minOccurs="0" />
+          <xsd:element name="option_position" type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbAttributeOptions">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbAttributeOptionType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbAttributeType">
+        <xsd:sequence>
+          <xsd:element name="attribute_code" type="xsd:string" minOccurs="0" />
+          <xsd:element name="attribute_name" type="xsd:string" minOccurs="0" />
+          <xsd:element name="options" type="typens:tbAttributeOptions" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbAttributeArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbAttributeType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbAttributeProductUnitType">
+        <xsd:sequence>
+          <xsd:element name="attribute_code" type="xsd:string" minOccurs="0" />
+          <xsd:element name="attribute_value" type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbAttributeProductUnitArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbAttributeProductUnitType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbAttributeProductType">
+        <xsd:sequence>
+          <xsd:element name="idproduct" type="xsd:string" minOccurs="0" />
+          <xsd:element name="attributes" type="typens:tbAttributeProductUnitArray" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbAttributeProductArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbAttributeProductType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbAttributeCategoryUnitType">
+        <xsd:sequence>
+          <xsd:element name="attribute_name" type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbAttributeCategoryUnitArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbAttributeCategoryUnitType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbAttributeCategoryType">
+        <xsd:sequence>
+          <xsd:element name="idcategory" type="xsd:string" minOccurs="0" />
+          <xsd:element name="attributes" type="typens:tbAttributeCategoryUnitArray" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbAttributeCategoryArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbAttributeCategoryType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="catalogProductCreateEntityArray">
+         <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:catalogProductCreateEntity" />
+         </xsd:sequence>
+      </xsd:complexType>
+	<xsd:complexType name="tbcategoryProductType">
+        <xsd:sequence>
+          <xsd:element name="idmagproduct" type="xsd:string" minOccurs="0" />
+		  <xsd:element name="idmagcategory" type="xsd:string" minOccurs="0" />
+		  <xsd:element name="status" type="xsd:string" minOccurs="0" />
+		  <xsd:element name="rowid" type="xsd:string" minOccurs="0" /> 
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbcategoryProductArray">
+         <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbcategoryProductType" />
+         </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbproductType">
+        <xsd:sequence>
+          <xsd:element name="idproduct" type="xsd:string" minOccurs="0" />
+		  <xsd:element name="idtbproduct" type="xsd:string" minOccurs="0" />
+		  <xsd:element name="imageroot" type="xsd:string" minOccurs="0" />
+		  <xsd:element name="productname" type="xsd:string" minOccurs="0" />
+		  <xsd:element name="productdescription" type="xsd:string" minOccurs="0" />
+		  <xsd:element name="weight" type="xsd:string" minOccurs="0" />
+          <xsd:element name="price" type="xsd:string" minOccurs="0" />
+          <xsd:element name="listprice" type="xsd:string" minOccurs="0" />
+          <xsd:element name="stock" type="xsd:string" minOccurs="0" />
+          <xsd:element name="is_in_stock" type="xsd:string" minOccurs="0" />
+          <xsd:element name="freeshipping" type="xsd:boolean" minOccurs="0" />
+          <xsd:element name="fixshippingfee" type="xsd:string" minOccurs="0" />
+          <xsd:element name="capshippingfee" type="xsd:string" minOccurs="0" />
+          <xsd:element name="shippingtype" type="xsd:string" minOccurs="0" />
+		  <xsd:element name="active_status" type="xsd:string" minOccurs="0" />
+		  <xsd:element name="tax_class_id" type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbproductArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbproductType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbProductsOrderedType">
+        <xsd:sequence>
+          <xsd:element name="idproductordered" type="xsd:int" minOccurs="0" />
+          <xsd:element name="idproduct" type="xsd:int" minOccurs="0" />
+          <xsd:element name="idorder" type="xsd:int" minOccurs="0" />
+          <xsd:element name="idtbproduct" type="xsd:int" minOccurs="0" />
+          <xsd:element name="idtborder" type="xsd:int" minOccurs="0" />
+          <xsd:element name="unitprice" type="xsd:string" minOccurs="0" />
+          <xsd:element name="quantity" type="xsd:int" minOccurs="0" />
+          <xsd:element name="options" type="xsd:string" minOccurs="0" />
+          <xsd:element name="tracking_number" type="xsd:string" minOccurs="0" />
+          <xsd:element name="serials_number" type="xsd:string" minOccurs="0" />
+          <xsd:element name="is_shipped" type="xsd:boolean" minOccurs="0" />
+          <xsd:element name="is_processed" type="xsd:boolean" minOccurs="0" />
+          <xsd:element name="is_cancelled" type="xsd:boolean" minOccurs="0" />
+          <xsd:element name="process_step" type="xsd:int" minOccurs="0" />
+          <xsd:element name="dfdropshipflag" type="xsd:int" minOccurs="0" />
+          <xsd:element name="instockflag" type="xsd:int" minOccurs="0" />
+          <xsd:element name="shipping_type" type="xsd:int" minOccurs="0" />
+          <xsd:element name="carrier" type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbProductsOrderedArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbProductsOrderedType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbOrderType">
+        <xsd:sequence>
+          <xsd:element name="idorder" type="xsd:int" minOccurs="0" />
+          <xsd:element name="idtborder" type="xsd:int" minOccurs="0" />
+          <xsd:element name="idcustomer" type="xsd:int" minOccurs="0" />
+          <xsd:element name="idtbcustomer" type="xsd:int" minOccurs="0" />
+          <xsd:element name="order_total" type="xsd:string" minOccurs="0" />
+          <xsd:element name="gst" type="xsd:string" minOccurs="0" />
+          <xsd:element name="discount_amount" type="xsd:string" minOccurs="0" />
+          <xsd:element name="shippingfee" type="xsd:string" minOccurs="0" />
+          <xsd:element name="payment_status" type="xsd:int" minOccurs="0" />
+          <xsd:element name="order_status" type="xsd:int" minOccurs="0" />
+          <xsd:element name="payment_receive_date" type="xsd:string" minOccurs="0" />
+          <xsd:element name="shipped_date" type="xsd:string" minOccurs="0" />
+          <xsd:element name="billing_firstname" type="xsd:string" minOccurs="0" />
+          <xsd:element name="billing_lastname" type="xsd:string" minOccurs="0" />
+          <xsd:element name="billing_company" type="xsd:string" minOccurs="0" />
+          <xsd:element name="billing_phone" type="xsd:string" minOccurs="0" />
+          <xsd:element name="billing_address" type="xsd:string" minOccurs="0" />
+          <xsd:element name="billing_address1" type="xsd:string" minOccurs="0" />
+          <xsd:element name="billing_suburb" type="xsd:string" minOccurs="0" />
+          <xsd:element name="billing_state" type="xsd:string" minOccurs="0" />
+          <xsd:element name="billing_postcode" type="xsd:string" minOccurs="0" />
+          <xsd:element name="billing_countrycode" type="xsd:string" minOccurs="0" />
+          <xsd:element name="Shipping_fullname" type="xsd:string" minOccurs="0" />
+          <xsd:element name="shipping_companyname" type="xsd:string" minOccurs="0" />
+          <xsd:element name="shipping_phone" type="xsd:string" minOccurs="0" />
+          <xsd:element name="shipping_address" type="xsd:string" minOccurs="0" />
+          <xsd:element name="shipping_address1" type="xsd:string" minOccurs="0" />
+          <xsd:element name="shipping_suburb" type="xsd:string" minOccurs="0" />
+          <xsd:element name="shipping_state" type="xsd:string" minOccurs="0" />
+          <xsd:element name="shipping_postcode" type="xsd:string" minOccurs="0" />
+          <xsd:element name="shipping_countrycode" type="xsd:string" minOccurs="0" />
+          <xsd:element name="order_tracking" type="xsd:string" minOccurs="0" />
+          <xsd:element name="totalproductsordered" type="xsd:int" minOccurs="0" />
+          <xsd:element name="productsordered" type="typens:tbProductsOrderedArray" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbOrderArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbOrderType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbDailyStealType">
+        <xsd:sequence>
+          <xsd:element name="idproduct" type="xsd:string" minOccurs="0" />
+          <xsd:element name="idtbproduct" type="xsd:string" minOccurs="0" />
+          <xsd:element name="sku" type="xsd:string" minOccurs="0" />
+          <xsd:element name="promotion_desc" type="xsd:string" minOccurs="0" />
+		  <xsd:element name="was_price" type="xsd:string" minOccurs="0" />
+		  <xsd:element name="extra_description" type="xsd:string" minOccurs="0" />
+          <xsd:element name="promotion_price" type="xsd:string" minOccurs="0" />
+          <xsd:element name="send_date" type="xsd:string" minOccurs="0" />
+          <xsd:element name="line_order" type="xsd:int" minOccurs="0" />
+          <xsd:element name="duration" type="xsd:int" minOccurs="0" />
+          <xsd:element name="max_qty" type="xsd:int" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbDailyStealArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbDailyStealType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbCrossSaleGroupType">
+        <xsd:sequence>
+          <xsd:element name="idcsgroup" type="xsd:string" minOccurs="0" />
+          <xsd:element name="csgroupname" type="xsd:string" minOccurs="0" />
+          <xsd:element name="csentrydate" type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbCrossSaleGroupArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbCrossSaleGroupType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbCrossSaleGroupProductUnitType">
+        <xsd:sequence>
+          <xsd:element name="idcsproduct" type="xsd:string" minOccurs="0" />
+          <xsd:element name="idtbcsproduct" type="xsd:string" minOccurs="0" />
+          <xsd:element name="idcsgroup" type="xsd:string" minOccurs="0" />
+          <xsd:element name="discount" type="xsd:string" minOccurs="0" />
+          <xsd:element name="displayname" type="xsd:string" minOccurs="0" />
+          <xsd:element name="sortby" type="xsd:string" minOccurs="0" />
+          <xsd:element name="rowid" type="xsd:string" minOccurs="0" />
+          <xsd:element name="sku" type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbCrossSaleGroupProductUnitArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbCrossSaleGroupProductUnitType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbCrossSaleGroupProductType">
+        <xsd:sequence>
+          <xsd:element name="idcsgroup" type="xsd:string" minOccurs="0" />
+          <xsd:element name="crosssaleproducts" type="typens:tbCrossSaleGroupProductUnitArray" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbCrossSaleGroupProductArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbCrossSaleGroupProductType" />
+        </xsd:sequence>
+      </xsd:complexType>
+
+      <xsd:complexType name="tbCrossSaleProductMapUnitType">
+        <xsd:sequence>
+          <xsd:element name="idcsgroup" type="xsd:string" minOccurs="0" />
+          <xsd:element name="sortby" type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbCrossSaleProductMapUnitArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbCrossSaleProductMapUnitType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbCrossSaleProductMapType">
+        <xsd:sequence>
+          <xsd:element name="idproduct" type="xsd:string" minOccurs="0" />
+          <xsd:element name="idtbproduct" type="xsd:string" minOccurs="0" />
+          <xsd:element name="csgroups" type="typens:tbCrossSaleProductMapUnitArray" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbCrossSaleProductMapArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbCrossSaleProductMapType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbMessagePriorityType">
+        <xsd:sequence>
+          <xsd:element name="pc_pri_id_pri" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pc_pri_name" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pc_pri_img" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pc_pri_show_img" type="xsd:string" minOccurs="0" /> 
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbMessagePriorityArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbMessagePriorityType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbMessageStatusType">
+        <xsd:sequence>
+          <xsd:element name="pc_fstat_id_status" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pc_fstat_name" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pc_fstat_img" type="xsd:string" minOccurs="0" />
+		  <xsd:element name="pc_fstat_bgcolor" type="xsd:string" minOccurs="0" />		   
+          <xsd:element name="pc_fstat_show_img" type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbMessageStatusArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbMessageStatusType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbMessageTypeType">
+        <xsd:sequence>
+          <xsd:element name="pc_ftype_id_type" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pc_ftype_name" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pc_ftype_img" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pc_ftype_show_img" type="xsd:string" minOccurs="0" />
+          <xsd:element name="manager" type="xsd:string" minOccurs="0" />
+          <xsd:element name="display_type" type="xsd:string" minOccurs="0" />
+          <xsd:element name="sort_by" type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbMessageTypeArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbMessageTypeType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbMessageType">
+        <xsd:sequence>
+          <xsd:element name="idpccomments" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_idfeedback" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_idorder" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_idmagorder" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_idparent" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_idmagparent" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_iduser" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_idmaguser" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_createddate" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_editeddate" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_ftype" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_fstatus" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_priority" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_description" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_details" type="xsd:string" minOccurs="0" />
+          <xsd:element name="idproduct" type="xsd:string" minOccurs="0" />
+          <xsd:element name="idmagproduct" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_internalnotes" type="xsd:string" minOccurs="0" />
+          <xsd:element name="notesreaded" type="xsd:string" minOccurs="0" />
+          <xsd:element name="notedate" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_idproduct" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_productdes" type="xsd:string" minOccurs="0" />
+          <xsd:element name="pccomm_keeplive" type="xsd:string" minOccurs="0" />
+          <xsd:element name="sourcetype" type="xsd:string" minOccurs="0" />
+          <xsd:element name="last_staff_id" type="xsd:string" minOccurs="0" />
+          <xsd:element name="idstore" type="xsd:string" minOccurs="0" /> 
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbMessageArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbMessageType" />
+        </xsd:sequence>
+      </xsd:complexType> 
+      <xsd:complexType name="tbMessageRankType">
+        <xsd:sequence>
+		  <xsd:element name="rank_mag_id" type="xsd:string" minOccurs="0" />	
+          <xsd:element name="id_mag_pccomments" type="xsd:string" minOccurs="0" />
+          <xsd:element name="rank_type" type="xsd:string" minOccurs="0" />
+          <xsd:element name="rank_point" type="xsd:string" minOccurs="0" /> 
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbMessageRankArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbMessageRankType" />
+        </xsd:sequence>
+      </xsd:complexType>	 
+      <xsd:complexType name="tbDailyNewsletterType">
+        <xsd:sequence>
+		  <xsd:element name="newsletter_head_id" type="xsd:string" minOccurs="0" />	
+          <xsd:element name="send_date" type="xsd:string" minOccurs="0" />
+          <xsd:element name="subject_line" type="xsd:string" minOccurs="0" /> 
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbDailyNewsletterArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbDailyNewsletterType" />
+        </xsd:sequence>
+      </xsd:complexType>
+	  <xsd:complexType name="tbCategoryMapType">
+        <xsd:sequence>		
+          <xsd:element name="id_tbcategory" type="xsd:string" minOccurs="0" />
+          <xsd:element name="id_magcategory" type="xsd:string" minOccurs="0" /> 
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbCategoryMapArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbCategoryMapType" />
+        </xsd:sequence>
+      </xsd:complexType>	 
+      <xsd:complexType name="tbCustomerMapType">
+        <xsd:sequence>		 
+          <xsd:element name="id_tbcustomer" type="xsd:string" minOccurs="0" />
+          <xsd:element name="id_magcustomer" type="xsd:string" minOccurs="0" /> 
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbCustomerMapArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbCustomerMapType" />
+        </xsd:sequence>
+      </xsd:complexType>	 
+      <xsd:complexType name="tbOrderMapType">
+        <xsd:sequence>
+		  <xsd:element name="id_tborder" type="xsd:string" minOccurs="0" />	
+          <xsd:element name="id_magorder" type="xsd:string" minOccurs="0" /> 
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbOrderMapArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbOrderMapType" />
+        </xsd:sequence>
+      </xsd:complexType>	 
+      <xsd:complexType name="tbOrderHistoryType">
+        <xsd:sequence>
+		  <xsd:element name="id_tborder" type="xsd:string" minOccurs="0" />	
+          <xsd:element name="orderdate" type="xsd:string" minOccurs="0" />	
+		  <xsd:element name="id_magcustomer" type="xsd:string" minOccurs="0" />	
+		  <xsd:element name="id_tbcustomer" type="xsd:string" minOccurs="0" /> 
+		  <xsd:element name="orderamount" type="xsd:string" minOccurs="0" /> 
+		  <xsd:element name="shipping_fullname" type="xsd:string" minOccurs="0" /> 
+		  <xsd:element name="token_key" type="xsd:string" minOccurs="0" /> 
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbOrderHistoryArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbOrderHistoryType" />
+        </xsd:sequence>
+      </xsd:complexType>		  
+      <xsd:complexType name="tbCustomerPasswordType">
+        <xsd:sequence>
+		  <xsd:element name="id_tbcustomer" type="xsd:string" minOccurs="0" />	
+		  <xsd:element name="id_magcustomer" type="xsd:string" minOccurs="0" />	
+          <xsd:element name="plain_password" type="xsd:string" minOccurs="0" /> 
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbCustomerPasswordArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbCustomerPasswordType" />
+        </xsd:sequence>
+      </xsd:complexType>	
+      <xsd:complexType name="tbCategoryExtraInforType">
+        <xsd:sequence>
+		  <xsd:element name="id_magcategory" type="xsd:string" minOccurs="0" />	
+          <xsd:element name="id_tbcategory" type="xsd:string" minOccurs="0" /> 
+		  <xsd:element name="supplier" type="xsd:string" minOccurs="0" /> 
+		  <xsd:element name="extra_infor1" type="xsd:string" minOccurs="0" /> 
+		  <xsd:element name="extra_infor2" type="xsd:string" minOccurs="0" /> 
+		  <xsd:element name="extra_infor3" type="xsd:string" minOccurs="0" /> 
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbCategoryExtraInforArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbCategoryExtraInforType" />
+        </xsd:sequence>
+      </xsd:complexType>		  
+      <xsd:complexType name="tbEmailSendBufferType">
+        <xsd:sequence>
+		  <xsd:element name="row_id" type="xsd:string" minOccurs="0" />	
+          <xsd:element name="from_name" type="xsd:string" minOccurs="0" /> 
+		  <xsd:element name="from_email" type="xsd:string" minOccurs="0" /> 
+		  <xsd:element name="to_name" type="xsd:string" minOccurs="0" /> 
+		  <xsd:element name="subject" type="xsd:string" minOccurs="0" /> 
+		  <xsd:element name="email_body" type="xsd:string" minOccurs="0" /> 
+		  <xsd:element name="schedule_send_time" type="xsd:string" minOccurs="0" /> 
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbEmailSendBufferArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbEmailSendBufferType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbPromotionCrossSaleType">
+        <xsd:sequence>
+		   <xsd:element name="rowid" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="idtbproduct_primary" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="idtbproduct_discount" type="xsd:string" minOccurs="0" /> 
+		   <xsd:element name="idmagproduct_primary" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="idmagproduct_discount" type="xsd:string" minOccurs="0" /> 
+		   <xsd:element name="fromdate" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="todate" type="xsd:string" minOccurs="0" /> 
+		   <xsd:element name="qty_limit" type="xsd:string" minOccurs="0" /> 
+		   <xsd:element name="discount_desc" type="xsd:string" minOccurs="0" /> 
+		   <xsd:element name="discount_type" type="xsd:string" minOccurs="0" /> 
+		   <xsd:element name="discount_value" type="xsd:string" minOccurs="0" /> 
+		   <xsd:element name="discount_flag" type="xsd:string" minOccurs="0" />  
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbPromotionCrossSaleArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbPromotionCrossSaleType" />
+        </xsd:sequence>
+      </xsd:complexType>	 	
+	    <xsd:complexType name="tbReviewRankType">
+        <xsd:sequence>
+		   <xsd:element name="idrank" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="rankscore" type="xsd:string" minOccurs="0" />	 
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbReviewRankArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbReviewRankType" />
+        </xsd:sequence>
+      </xsd:complexType>	  	  	 
+	  <xsd:complexType name="tbProductReviewType">
+        <xsd:sequence>
+		   <xsd:element name="idproductReviewTB" type="xsd:string" minOccurs="0" />
+		   <xsd:element name="idproductReviewMag" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="idproduct" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="idtbproduct" type="xsd:string" minOccurs="0" /> 
+		    <xsd:element name="idcustomer" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="idtbcustomer" type="xsd:string" minOccurs="0" /> 
+		   <xsd:element name="entrydate" type="xsd:string" minOccurs="0" />	
+		   <xsd:element name="nickname" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="ranks" type="typens:tbReviewRankArray" minOccurs="0" />  
+		   <xsd:element name="status" type="xsd:string" minOccurs="0" />  
+		   <xsd:element name="review_content" type="xsd:string" minOccurs="0" />  
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="tbProductReviewArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbProductReviewType" />
+        </xsd:sequence>
+      </xsd:complexType>	  	
+	  <xsd:complexType name="tbOrderPaymentInfoType">
+        <xsd:sequence>
+		   <xsd:element name="idMagOrder" type="xsd:string" minOccurs="0" />
+		   <xsd:element name="idTBOrder" type="xsd:string" minOccurs="0" />	
+		   <xsd:element name="method" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="amount" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="transactionID" type="xsd:string" minOccurs="0" /> 
+		   <xsd:element name="cc_exp_month" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="cc_exp_year" type="xsd:string" minOccurs="0" /> 
+		   <xsd:element name="cc_owner" type="xsd:string" minOccurs="0" />	
+		   <xsd:element name="cc_type" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="cc_beagle" type="xsd:string" minOccurs="0" />  
+		   <xsd:element name="cc_code" type="xsd:string" minOccurs="0" />   
+		   <xsd:element name="money_back" type="xsd:string" minOccurs="0" />   
+		   <xsd:element name="money_back_response" type="xsd:string" minOccurs="0" />  
+		   <xsd:element name="money_back_refer" type="xsd:string" minOccurs="0" />  
+		   <xsd:element name="money_back_date" type="xsd:string" minOccurs="0" />  
+        </xsd:sequence>
+      </xsd:complexType>
+	  <xsd:complexType name="tbOrderPaymentInfoArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbOrderPaymentInfoType" />
+        </xsd:sequence>
+      </xsd:complexType>
+	  <xsd:complexType name="tbWarrantyMapType">
+        <xsd:sequence>
+		   <xsd:element name="idMagProduct" type="xsd:string" minOccurs="0" />
+		   <xsd:element name="idProduct" type="xsd:string" minOccurs="0" />	
+		   <xsd:element name="priceFrom" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="priceTo" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="Period" type="xsd:string" minOccurs="0" />  
+        </xsd:sequence>
+      </xsd:complexType>
+	  <xsd:complexType name="tbWarrantyMapArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbWarrantyMapType" />
+        </xsd:sequence>
+      </xsd:complexType>
+	  <xsd:complexType name="tbWarrantyRegisterRecordType">
+        <xsd:sequence>
+		   <xsd:element name="item_id_magWarranty" type="xsd:string" minOccurs="0" />
+		   <xsd:element name="item_id_magProduct" type="xsd:string" minOccurs="0" />	
+		   <xsd:element name="SerialsNo" type="xsd:string" minOccurs="0" />	
+           <xsd:element name="entryDate" type="xsd:string" minOccurs="0" /> 
+        </xsd:sequence>
+      </xsd:complexType>
+	  <xsd:complexType name="tbWarrantyRegisterRecordArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:tbWarrantyRegisterRecordType" />
+        </xsd:sequence>
+      </xsd:complexType>	  
+	  
+      <!--Define all Request / Response Param here-->
+      <xsd:element name="homepageTbdatasyncCreateBannerRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="rowid" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="imageurl" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="linkurl" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="alttext" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="displayfrom" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="displayto" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="positiontype" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="displaytitle" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="displaycontent" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncCreateBannerResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncDeleteBannerRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="rowid" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncDeleteBannerResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncCreateCategoryspecialRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="rowid" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="idparentcategory" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="linkname" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="linkhref" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="linkflag" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="linkstatus" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="sortby" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="linenumber" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncCreateCategoryspecialResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncDeleteCategoryspecialRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="rowid" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncDeleteCategoryspecialResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncCreateTestimonialRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="idtestimonial" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="subject" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="contentbody" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="senddate" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="staffid" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="fromstate" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="fromname" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="idstore" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncCreateTestimonialResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncDeleteTestimonialRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="rowid" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncDeleteTestimonialResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncTbUpdateProductsRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="products" type="typens:tbproductArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncTbUpdateProductsResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncGetNewsletterListRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="houroffset" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncGetNewsletterListResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:tbNewsletterArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncOrderStatusRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="orders" type="typens:tbOrderArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncOrderStatusResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncAttributeRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="attributes" type="typens:tbAttributeArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncAttributeResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncAttributeProductRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="productattributes" type="typens:tbAttributeProductArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncAttributeProductResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncAttributeCategoryRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="categoryattributes" type="typens:tbAttributeCategoryArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncAttributeCategoryResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncDailyStealRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="dailySteals" type="typens:tbDailyStealArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncDailyStealResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncCrossSaleGroupRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="crossSaleGroups" type="typens:tbCrossSaleGroupArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncCrossSaleGroupResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncCrossSaleGroupProductRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="crossSaleGroupProducts" type="typens:tbCrossSaleGroupProductArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncCrossSaleGroupProductResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncCrossSaleProductMapRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="crossSaleProductMaps" type="typens:tbCrossSaleProductMapArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncCrossSaleProductMapResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncMessageAttributeRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="messageStatuses" type="typens:tbMessageStatusArray" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="messagePriorities" type="typens:tbMessagePriorityArray" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="messageTypes" type="typens:tbMessageTypeArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncMessageAttributeResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncMessageFromTopBuyRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="messages" type="typens:tbMessageArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncMessageFromTopBuyResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncMessageFromMagentoRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncMessageFromMagentoResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:tbMessageArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncMessageRankFromMagentoRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncMessageRankFromMagentoResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:tbMessageRankArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  <xsd:element name="homepageTbdatasyncSyncNewsletterRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="newsletter" type="typens:tbDailyNewsletterArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncNewsletterResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  <xsd:element name="homepageTbdatasyncSyncCategoryMapRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="categorymap" type="typens:tbCategoryMapArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncCategoryMapResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  <xsd:element name="homepageTbdatasyncSyncCustomerMapRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="customermap" type="typens:tbCustomerMapArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+  	 <xsd:element name="homepageTbdatasyncSyncCustomerMapResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>	     
+	  <xsd:element name="homepageTbdatasyncSyncOrderMapRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="ordermap" type="typens:tbOrderMapArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    <xsd:element name="homepageTbdatasyncSyncOrderMapResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+   <xsd:element name="homepageTbdatasyncCreateProductBatchRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="products" type="typens:catalogProductCreateEntityArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    <xsd:element name="homepageTbdatasyncCreateProductBatchResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+   <xsd:element name="homepageTbdatasyncUpdateCategoryProductBatchRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="categoryproducts" type="typens:tbcategoryProductArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    <xsd:element name="homepageTbdatasyncUpdateCategoryProductBatchResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	<xsd:element name="homepageTbdatasyncUpdateCustomerPasswordRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="customers_password" type="typens:tbCustomerPasswordArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    <xsd:element name="homepageTbdatasyncUpdateCustomerPasswordResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  
+	<xsd:element name="homepageTbdatasyncUpdateCategoryExtraInforRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="categories_extra_infor" type="typens:tbCategoryExtraInforArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    <xsd:element name="homepageTbdatasyncUpdateCategoryExtraInforResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  
+	  <xsd:element name="homepageTbdatasyncUpdateOrderHistoryRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="orders_history" type="typens:tbOrderHistoryArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    <xsd:element name="homepageTbdatasyncUpdateOrderHistoryResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>	  
+	  <xsd:element name="homepageTbdatasyncSyncEmailSendBufferRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="start_rowid" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncEmailSendBufferResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="email_send_buffer" type="typens:tbEmailSendBufferArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>  
+	  <xsd:element name="homepageTbdatasyncSyncPromotionCrossSaleRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="crossSaleProducts" type="typens:tbPromotionCrossSaleArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncPromotionCrossSaleResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>  
+	  <xsd:element name="homepageTbdatasyncSyncProductUpdatesRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="products" type="typens:tbproductArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncProductUpdatesResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string"  />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>  	
+	  <xsd:element name="homepageTbdatasyncSyncProductReviewRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="productreviews" type="typens:tbProductReviewArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncProductReviewResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+             <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string"  />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>  	  
+	  <xsd:element name="homepageTbdatasyncSyncProductReviewFromMagRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" /> 
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncProductReviewFromMagResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+		  	 <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:tbProductReviewArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element> 
+	  <xsd:element name="homepageTbdatasyncSyncOrderPaymentInfoRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" /> 
+			<xsd:element minOccurs="1" maxOccurs="1" name="orderString" type="xsd:string" /> 
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncOrderPaymentInfoResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+		  	 <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:tbOrderPaymentInfoArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element> 
+	  <xsd:element name="homepageTbdatasyncSyncWarrantyMapRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" /> 
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncWarrantyMapResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+		  	 <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:tbWarrantyMapArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element> 
+	  <xsd:element name="homepageTbdatasyncSyncWarrantyRegisterRecordRequestParam">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" /> 
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="homepageTbdatasyncSyncWarrantyRegisterRecordResponseParam">
+        <xsd:complexType>
+          <xsd:sequence>
+		  	 <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:tbWarrantyRegisterRecordArray" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element> 
+    </xsd:schema>
+  </wsdl:types>
+  <!--Define all Request/ Response here-->
+  <wsdl:message name="homepageTbdatasyncCreateBannerRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncCreateBannerRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncCreateBannerResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncCreateBannerResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncDeleteBannerRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncDeleteBannerRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncDeleteBannerResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncDeleteBannerResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncCreateCategoryspecialRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncCreateCategoryspecialRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncCreateCategoryspecialResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncCreateCategoryspecialResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncDeleteCategoryspecialRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncDeleteCategoryspecialRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncDeleteCategoryspecialResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncDeleteCategoryspecialResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncCreateTestimonialRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncCreateTestimonialRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncCreateTestimonialResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncCreateTestimonialResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncDeleteTestimonialRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncDeleteTestimonialRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncDeleteTestimonialResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncDeleteTestimonialResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncTbUpdateProductsRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncTbUpdateProductsRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncTbUpdateProductsResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncTbUpdateProductsResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncGetNewsletterListRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncGetNewsletterListRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncGetNewsletterListResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncGetNewsletterListResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncOrderStatusRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncOrderStatusRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncOrderStatusResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncOrderStatusResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncAttributeRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncAttributeRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncAttributeResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncAttributeResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncAttributeProductRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncAttributeProductRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncAttributeProductResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncAttributeProductResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncAttributeCategoryRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncAttributeCategoryRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncAttributeCategoryResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncAttributeCategoryResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncDailyStealRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncDailyStealRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncDailyStealResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncDailyStealResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncCrossSaleGroupRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncCrossSaleGroupRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncCrossSaleGroupResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncCrossSaleGroupResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncCrossSaleGroupProductRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncCrossSaleGroupProductRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncCrossSaleGroupProductResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncCrossSaleGroupProductResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncCrossSaleProductMapRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncCrossSaleProductMapRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncCrossSaleProductMapResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncCrossSaleProductMapResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncMessageAttributeRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncMessageAttributeRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncMessageAttributeResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncMessageAttributeResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncMessageFromTopBuyRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncMessageFromTopBuyRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncMessageFromTopBuyResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncMessageFromTopBuyResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncMessageFromMagentoRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncMessageFromMagentoRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncMessageFromMagentoResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncMessageFromMagentoResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncMessageRankFromMagentoRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncMessageRankFromMagentoRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncMessageRankFromMagentoResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncMessageRankFromMagentoResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncNewsletterRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncNewsletterRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncNewsletterResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncNewsletterResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncCategoryMapRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncCategoryMapRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncCategoryMapResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncCategoryMapResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncCustomerMapRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncCustomerMapRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncCustomerMapResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncCustomerMapResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncOrderMapRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncOrderMapRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncOrderMapResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncOrderMapResponseParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncCreateProductBatchRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncCreateProductBatchRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncCreateProductBatchResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncCreateProductBatchResponseParam" />
+  </wsdl:message> 
+  <wsdl:message name="homepageTbdatasyncUpdateCategoryProductBatchRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncUpdateCategoryProductBatchRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncUpdateCategoryProductBatchResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncUpdateCategoryProductBatchResponseParam" />
+  </wsdl:message> 
+  
+  <wsdl:message name="homepageTbdatasyncUpdateCustomerPasswordRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncUpdateCustomerPasswordRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncUpdateCustomerPasswordResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncUpdateCustomerPasswordResponseParam" />
+  </wsdl:message> 
+    
+  <wsdl:message name="homepageTbdatasyncUpdateCategoryExtraInforRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncUpdateCategoryExtraInforRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncUpdateCategoryExtraInforResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncUpdateCategoryExtraInforResponseParam" />
+  </wsdl:message> 
+  
+  <wsdl:message name="homepageTbdatasyncUpdateOrderHistoryRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncUpdateOrderHistoryRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncUpdateOrderHistoryResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncUpdateOrderHistoryResponseParam" />
+  </wsdl:message> 
+  
+  <wsdl:message name="homepageTbdatasyncSyncEmailSendBufferRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncEmailSendBufferRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncEmailSendBufferResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncEmailSendBufferResponseParam" />
+  </wsdl:message> 
+  
+  <wsdl:message name="homepageTbdatasyncSyncPromotionCrossSaleRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncPromotionCrossSaleRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncPromotionCrossSaleResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncPromotionCrossSaleResponseParam" />
+  </wsdl:message> 
+  <wsdl:message name="homepageTbdatasyncSyncProductUpdatesRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncProductUpdatesRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncProductUpdatesResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncProductUpdatesResponseParam" />
+  </wsdl:message>     
+  <wsdl:message name="homepageTbdatasyncSyncProductReviewRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncProductReviewRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncProductReviewResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncProductReviewResponseParam" />
+  </wsdl:message>   
+  <wsdl:message name="homepageTbdatasyncSyncProductReviewFromMagRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncProductReviewFromMagRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncProductReviewFromMagResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncProductReviewFromMagResponseParam" />
+  </wsdl:message>  
+  <wsdl:message name="homepageTbdatasyncSyncOrderPaymentInfoRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncOrderPaymentInfoRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncOrderPaymentInfoResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncOrderPaymentInfoResponseParam" />
+  </wsdl:message>   
+  <wsdl:message name="homepageTbdatasyncSyncWarrantyMapRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncWarrantyMapRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncWarrantyMapResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncWarrantyMapResponseParam" />
+  </wsdl:message>   
+  <wsdl:message name="homepageTbdatasyncSyncWarrantyRegisterRecordRequest">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncWarrantyRegisterRecordRequestParam" />
+  </wsdl:message>
+  <wsdl:message name="homepageTbdatasyncSyncWarrantyRegisterRecordResponse">
+    <wsdl:part name="parameters" element="typens:homepageTbdatasyncSyncWarrantyRegisterRecordResponseParam" />
+  </wsdl:message>  
+  <wsdl:portType name="{{var wsdl.handler}}PortType">
+    <wsdl:operation name="homepageTbdatasyncCreateBanner">
+      <wsdl:documentation>Create Front Banner</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncCreateBannerRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncCreateBannerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncDeleteBanner">
+      <wsdl:documentation>Delete Front Banner</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncDeleteBannerRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncDeleteBannerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncCreateCategoryspecial">
+      <wsdl:documentation>Create Category Special</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncCreateCategoryspecialRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncCreateCategoryspecialResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncDeleteCategoryspecial">
+      <wsdl:documentation>Delete Category Special</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncDeleteCategoryspecialRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncDeleteCategoryspecialResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncCreateTestimonial">
+      <wsdl:documentation>Create Testimonial</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncCreateTestimonialRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncCreateTestimonialResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncDeleteTestimonial">
+      <wsdl:documentation>Delete Testimonial</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncDeleteTestimonialRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncDeleteTestimonialResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncTbUpdateProducts">
+      <wsdl:documentation>Update Products in Batch</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncTbUpdateProductsRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncTbUpdateProductsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncGetNewsletterList">
+      <wsdl:documentation>Get newsletter list</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncGetNewsletterListRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncGetNewsletterListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncOrderStatus">
+      <wsdl:documentation>Sync Order Status From Backend</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncOrderStatusRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncOrderStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncAttribute">
+      <wsdl:documentation>Sync Attributed</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncAttributeRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncAttributeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncAttributeProduct">
+      <wsdl:documentation>Sync Attributed Product</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncAttributeProductRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncAttributeProductResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncAttributeCategory">
+      <wsdl:documentation>Sync Attributed Category</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncAttributeCategoryRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncAttributeCategoryResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncDailySteal">
+      <wsdl:documentation>Sync Daily Steals</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncDailyStealRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncDailyStealResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncCrossSaleGroup">
+      <wsdl:documentation>Sync Cross Sale Group</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncCrossSaleGroupRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncCrossSaleGroupResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncCrossSaleGroupProduct">
+      <wsdl:documentation>Sync Cross Sale Group Product</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncCrossSaleGroupProductRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncCrossSaleGroupProductResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncCrossSaleProductMap">
+      <wsdl:documentation>Sync Cross Sale Product Map</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncCrossSaleProductMapRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncCrossSaleProductMapResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncMessageAttribute">
+      <wsdl:documentation>Sync Message Attribute</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncMessageAttributeRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncMessageAttributeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncMessageFromTopBuy">
+      <wsdl:documentation>Sync Message From TopBuy</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncMessageFromTopBuyRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncMessageFromTopBuyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncMessageFromMagento">
+      <wsdl:documentation>Sync Message From Magentop</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncMessageFromMagentoRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncMessageFromMagentoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncMessageRankFromMagento">
+      <wsdl:documentation>Sync Message Rank From Magentop</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncMessageRankFromMagentoRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncMessageRankFromMagentoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncNewsletter">
+      <wsdl:documentation>Sync Newsletter</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncNewsletterRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncNewsletterResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncCategoryMap">
+      <wsdl:documentation>Sync Category Map</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncCategoryMapRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncCategoryMapResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncCustomerMap">
+      <wsdl:documentation>Sync Customer Map</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncCustomerMapRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncCustomerMapResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncOrderMap">
+      <wsdl:documentation>Sync Order Map</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncOrderMapRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncOrderMapResponse" />
+    </wsdl:operation> 
+    <wsdl:operation name="homepageTbdatasyncCreateProductBatch">
+      <wsdl:documentation>Create Product Batch</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncCreateProductBatchRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncCreateProductBatchResponse" />
+    </wsdl:operation> 
+    <wsdl:operation name="homepageTbdatasyncUpdateCategoryProductBatch">
+      <wsdl:documentation>Update Category Product Batch</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncUpdateCategoryProductBatchRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncUpdateCategoryProductBatchResponse" />
+    </wsdl:operation> 	
+	<wsdl:operation name="homepageTbdatasyncUpdateCustomerPassword">
+      <wsdl:documentation>Update Customer Password</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncUpdateCustomerPasswordRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncUpdateCustomerPasswordResponse" />
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncUpdateCategoryExtraInfor">
+      <wsdl:documentation>Update Category ExtraInfor</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncUpdateCategoryExtraInforRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncUpdateCategoryExtraInforResponse" />
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncUpdateOrderHistory">
+      <wsdl:documentation>Update Order History</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncUpdateOrderHistoryRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncUpdateOrderHistoryResponse" />
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncEmailSendBuffer">
+      <wsdl:documentation>Sync Email Send Buffer</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncEmailSendBufferRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncEmailSendBufferResponse" />
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncPromotionCrossSale">
+      <wsdl:documentation>Sync Promotion Cross Sale</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncPromotionCrossSaleRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncPromotionCrossSaleResponse" />
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncProductUpdates">
+      <wsdl:documentation>Sync Product Updates</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncProductUpdatesRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncProductUpdatesResponse" />
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncProductReview">
+      <wsdl:documentation>Sync Product Review</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncProductReviewRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncProductReviewResponse" />
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncProductReviewFromMag">
+      <wsdl:documentation>Sync Product Review From Mag</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncProductReviewFromMagRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncProductReviewFromMagResponse" />
+    </wsdl:operation> 	
+	<wsdl:operation name="homepageTbdatasyncSyncOrderPaymentInfo">
+      <wsdl:documentation>Sync Order Payment Info</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncOrderPaymentInfoRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncOrderPaymentInfoResponse" />
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncWarrantyMap">
+      <wsdl:documentation>Sync Warranty Map</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncWarrantyMapRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncWarrantyMapResponse" />
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncWarrantyRegisterRecord">
+      <wsdl:documentation>Sync Warranty Register Record</wsdl:documentation>
+      <wsdl:input message="typens:homepageTbdatasyncSyncWarrantyRegisterRecordRequest" />
+      <wsdl:output message="typens:homepageTbdatasyncSyncWarrantyRegisterRecordResponse" />
+    </wsdl:operation> 			
+  </wsdl:portType>
+  <wsdl:binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="homepageTbdatasyncCreateBanner">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncDeleteBanner">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncCreateCategoryspecial">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncDeleteCategoryspecial">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncCreateTestimonial">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncDeleteTestimonial">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncTbUpdateProducts">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncGetNewsletterList">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncOrderStatus">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncAttribute">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncAttributeProduct">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncAttributeCategory">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncDailySteal">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncCrossSaleGroup">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncCrossSaleGroupProduct">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncCrossSaleProductMap">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncMessageAttribute">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncMessageFromTopBuy">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncMessageFromMagento">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="homepageTbdatasyncSyncMessageRankFromMagento">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="homepageTbdatasyncSyncNewsletter">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="homepageTbdatasyncSyncCategoryMap">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="homepageTbdatasyncSyncCustomerMap">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="homepageTbdatasyncSyncOrderMap">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="homepageTbdatasyncCreateProductBatch">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncUpdateCategoryProductBatch">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>  
+	<wsdl:operation name="homepageTbdatasyncUpdateCustomerPassword">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncUpdateCategoryExtraInfor">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncUpdateOrderHistory">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncEmailSendBuffer">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncPromotionCrossSale">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncProductUpdates">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncProductReview">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncProductReviewFromMag">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncOrderPaymentInfo">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncWarrantyMap">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation> 
+	<wsdl:operation name="homepageTbdatasyncSyncWarrantyRegisterRecord">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation> 
+  </wsdl:binding>
+  <wsdl:service name="{{var wsdl.name}}Service">
+    <wsdl:port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+      <soap:address location="{{var wsdl.url}}" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

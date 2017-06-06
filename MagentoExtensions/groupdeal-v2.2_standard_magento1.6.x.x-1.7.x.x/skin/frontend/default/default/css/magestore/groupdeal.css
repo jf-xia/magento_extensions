@@ -1,0 +1,243 @@
+@font-face {
+    font-family: "HelveticaLTStd-roman";
+    font-weight: normal;
+    src: url("fonts/HelveticaLTStd-Roman.otf") format("truetype");
+}
+@font-face {
+    font-family: "HelveticaLTStd-bold";
+    font-weight: bold;
+    src: url("fonts/HelveticaLTStd-Bold.otf") format("truetype");
+}
+
+
+.category-deals .special-price .price {
+    color: #e83340;
+    font-family: HelveticaLTStd-bold;
+    font-size: 14px;
+}
+.category-deals button.button span span{ 
+	background: url(../../images/groupdeal/btn-add.gif) repeat-x left top;
+	padding: 0 19px;
+	height: 25px;
+	line-height: 25px;
+	text-transform: uppercase;
+	font-family: "HelveticaLTStd-roman";
+}
+.category-deals button.button span{
+    border: 0 none;
+    background: none transparent;
+	padding: 0;
+}
+.category-deals .old-price .price-label {
+    color: #606060;
+    font-size: 13px;
+    white-space: nowrap;
+	font-weight: bold;
+}
+.subscribe-box, .groupdeal, .category-deals{ width:685px; float:left;} /*font-family: "HelveticaLTStd-roman";*/
+.right-sidebar { float:right; width:195px;}
+.right-sidebar a{ text-decoration:none; font-weight:bold; font-size:13px}
+.right-sidebar a:hover{ text-decoration:underline}
+.right-sidebar .categories .item{ padding:5px 9px!important}
+.newsletter .item span{ color:red}
+.newsletter .form-list select { width:174px}
+.newsletter .form-list li.item { padding:0 0}
+.newsletter .form-list li input { width:170px}
+#mini-deals-list .product-image{ width:90px; height:54px; border:1px solid #DFDFDF}
+#mini-deals-list .deal-info-price{ margin: 10px 0 0 97px;}
+#mini-deals-list .deal-price{ width:64px; height:23px; background:url(../../images/groupdeal/pricetag_medium.png) no-repeat; color: white; font-family: Arial,sans-serif; font-size: 16px; font-weight: normal; line-height: 23px; margin-bottom: 0; padding-left: 15px;}
+#mini-deals-list .deal-value { background-color: #CFEEF5; border-bottom: 1px solid #54C2DC; border-left: 1px solid #54C2DC; border-right: 1px solid #54C2DC; font-size: 10px; height: 20px; line-height: 20px; margin-left: 9px; text-align: center; width: 68px}
+.groupdeal .product-essential, .groupdeal .product-collateral{ padding:25px 15px}
+.groupdeal .title {color: #333333;font-family: Arial;font-weight: bold;margin: 0 10px 5px;}
+.groupdeal .description {color: #A9A9A9;font-size: 14px;font-weight: bold; margin: 8px 10px;}
+.groupdeal .left{ float:left; width:220px;}
+.groupdeal .add-to-cart{ background:url(../../images/groupdeal/pricetag.png) no-repeat; height:92px; width:287px; left:-67px; position:relative;}
+.groupdeal .add-to-cart .price{ color:#FFFFFF; font-size:30px; display:block; float:left; margin:15px 0 0 50px; font-weight:bold;}
+.groupdeal #buynow{ background:url(../../images/groupdeal/buy.png) no-repeat; display: block; height: 60px; left: 35px; position: relative; top: 10px; width: 100px; cursor:pointer}
+.groupdeal .discount{ border:1px solid #64C8E2; background:#CFEEF6; height:50px; padding-top:10px; font-size:18px; margin-top:-12px;}
+.groupdeal .discount dl{ float:left; font-weight:bold; width:70px; text-align:center;}
+.groupdeal .discount dt{ font-size:13px;}
+
+.groupdeal .time{ border:1px solid #98C267; background:#DDEDCC; margin-top:7px; height:55px;}
+.groupdeal .time-image{ float:left;margin: 3px 0 0 20px; width:28px; background:url(../../images/groupdeal/hourglass.gif) no-repeat;}
+.groupdeal .count-time{ float:right; width:170px; }
+.groupdeal .time dt{ font-weight:bold}
+.groupdeal .time dl{ text-align:center; font-size:13px; margin-top:5px;}
+.groupdeal .time dd{ font-weight:bold;}
+.groupdeal #left-time{ font-size:18px;}
+
+.groupdeal .progess-point{ background:url(../../images/groupdeal/point.gif) no-repeat;position:relative; height:13px;}
+.groupdeal .progess-bar{ background:url(../../images/groupdeal/bar.png) no-repeat; height:20px; margin-left:15px;}
+.groupdeal .progess-line{ background:url(../../images/groupdeal/line.png) no-repeat; position:relative; left:2px; top:2px; height:10px;}
+
+
+
+.for-friends{ border:1px solid #64C8E2; border-top:0; background: #CFEEF6; height:30px; padding:5px 0 0 8px;}
+*html .for-friends{ height:35px;}
+.for-friends a{ display:block; padding:4px 0 0 42px;}
+
+
+
+.groupdeal .number-sold{border:1px solid #98C267; background:#DDEDCC; margin-top:7px; padding:5px 0;}
+.groupdeal .status{ text-align:center; font-size:20px; margin:5px 0;}
+
+
+.groupdeal .quantity-number{font-weight:bold; margin:0 15px; height:15px;}
+.groupdeal .min-quantity{ float:left; }
+.groupdeal .max-quantity{ float:right;}
+.groupdeal .remain-quantity{ font-size:12px; clear:both; text-align:center;}
+.groupdeal .sold-image{ top:2px; position:relative;}
+#deal-status{ text-align:center; font-weight:bold; margin-bottom:4px; font-size:16px;}
+
+.groupdeal .share{border:1px solid #98C267; background:#DDEDCC; margin-top:7px; padding:5px; font-size:12px; text-align:center;}
+.groupdeal .share-title{ text-align:center; font-weight:bold; font-size:18px;}
+.groupdeal .share-content{ padding: 5px 0 0 5px;}
+.groupdeal .google{ float:left;}
+.groupdeal .facebook{ float:left; width:58px;}
+.groupdeal .twitter{ float:left; margin: -2px 20px 0 20px;}
+
+.groupdeal .what-happen{border:1px solid #98C267; background:#DDEDCC; margin-top:7px; padding:8px; font-size:13px; text-align:center;}
+.groupdeal .what-happen a{ text-decoration:none}
+.groupdeal .whathappen-pop{ text-align:justify}
+.groupdeal .right{ width:425px;}
+.groupdeal .product-img-box{ width:auto !important; }
+.groupdeal #deal-image{ margin-bottom:10px; border:1px solid #DFDFDF; background:#FFFFFF; position:relative; width:427px; height:262px;}
+.groupdeal #deal-image img { position:absolute; left:0; top:0; margin:3px}
+.groupdeal #deal-image .nav-slider{ font-size:60px; z-index:100; position:relative; margin-top:100px;width:30px; height:50px; background:#000000; opacity:0.4;filter:alpha(opacity=40)}
+.groupdeal #deal-image .nav-slider a{ text-decoration:none; color:#FFFFFF; font-family:"Times New Roman", Times, serif; position:relative; top:-28px; left:4px}
+.groupdeal #deal-image .nav-slider a:hover{ color:#cccccc;}
+.groupdeal #deal-image .next{ float:right; margin-right:4px;}
+.groupdeal #deal-image .prev{ float:left; margin-left:3px;}
+* html .share .button{ padding:3px 4px 4px}
+
+.groupdeal .image{ width:300px; height:200px;border:1px solid #64C8E2; background:#FFFFFF; padding:3px;}
+.clear{ clear:both}
+.groupdeal .thefineprint ,.groupdeal .highlights{ width:200px; float:left;}
+.groupdeal .thefineprint{ margin-right:10px;}
+.groupdeal .thefineprint-title, .groupdeal .highlights-title{ font-size:16px; font-weight:bold; margin-bottom:5px;}
+.groupdeal .thefineprint-content, .groupdeal .highlights-content{font-family:"lucida grande",tahoma,verdana,arial,sans-serif;}
+.groupdeal .thefineprint-content ul, .groupdeal .highlights-content ul{ list-style-type:disc; list-style-position:outside}
+.groupdeal .thefineprint-content li, .groupdeal .highlights-content li{ margin-left:18px;}
+
+.bottom-content{ margin-top:15px;}
+.inner-content{ margin-left: 6px;}
+.vender-name{ font-size:16px; font-weight:bold;}
+.vender-website{ font-size:13px;}
+.full-description {margin:10px 3px 0; text-align:justify; font-family:"lucida grande",tahoma,verdana,arial,sans-serif;}
+.comment-box{ margin-top:10px;}
+.products-in-deal h2{ margin-bottom:5px;}
+.products-in-deal p{ color:#A9A9A9;}
+
+/*-------deal list -----*/
+.deallist-title{ font-size:25px; color: #0A263C;border-bottom: 1px solid #CCC;margin: 0 0 25px; font-weight:bold}
+#group-deal-list .groupdeals-grid, .groupdeals-top{background:none !important; width:auto !important;border:0;}
+#group-deal-list .groupdeals-grid li.item , .groupdeals-top li.item{padding:24px; background-color: #EBEBEB; background-image: -moz-linear-gradient(center top , #FBFBFB 0%, #EBEBEB 100%); border: 1px solid #CCCCCC; box-shadow: 1px 2px 3px #CCCCCC; margin:0 10px 10px 0}
+#group-deal-list .groupdeals-grid li.item{width:280px; margin:0 24px 24px 0;} 
+#group-deal-list .groupdeals-top li.item { width:634px; margin:0 0 28px 0}
+
+#group-deal-list .groupdeals-grid li.last{ margin-right:0}
+#group-deal-list .groupdeals-grid .product-image {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DFDFDF;
+    height: 140px;
+    padding: 5px;
+    text-align: center;
+    width: 268px;
+}
+#group-deal-list .groupdeals-top .product-name a{font-size: 22px!important;}
+#group-deal-list .groupdeals-top .product-image { height: 195px; width: 312px; border:1px solid #DFDFDF; padding:5px; background:#FFFFFF; float:left; margin:0}
+#group-deal-list .groupdeals-grid .product-name a, .groupdeals-top .product-name a{ text-decoration:none; font-size: 15px; color: #000;font-weight: bold;}
+#group-deal-list .groupdeals-grid .product-name a:hover, .groupdeals-top .product-name a:hover{ text-decoration:underline;}
+#group-deal-list .groupdeals-grid .name-tag{ background:url(../../images/groupdeal/tag.png) no-repeat; width:26px; height:11px; margin-top:6px; float:left;}
+#group-deal-list .groupdeals-grid .product-name{margin: 0 0 7px;}
+#group-deal-list .groupdeals-grid .inf-box{ margin:0 0 0 3px;}
+#group-deal-list .groupdeals-grid .buy-item .first, .groupdeals-grid .time-box .first, .groupdeals-grid .price-box .first{ width:153px; padding:0 !important; float:left;/*text-align:center;*/}
+#group-deal-list .groupdeals-grid .buy-item .first{ text-align: left;}
+#group-deal-list .groupdeals-grid .buy-item, .groupdeals-top .buy-item{ 
+    border-top: 4px solid #DFDFDF;
+    clear: both;
+    padding-top: 5px;
+	text-align: right;
+}
+#group-deal-list .groupdeals-grid .targetmet, .groupdeals-top .targetmet{ color:#3B871B; font-weight:bold;}
+#group-deal-list .groupdeals-grid .targetnotmet, .groupdeals-top .targetnotmet{ font-weight: bold; color:#3b3b3b; font-size:12px;}
+
+#group-deal-list .groupdeals-top .info{ float:left; margin-left: 28px; width:282px;}
+#group-deal-list .groupdeals-top .info h2{ font-size:20px; margin-top: 6px;}
+#group-deal-list .groupdeals-top .buy-item .first, .groupdeals-top .time-box .first, .groupdeals-top .price-box .first{ width:184px; padding:0 !important; float:left;text-align:left;}
+#group-deal-list .groupdeals-top .description {color: #878787;font-size: 13px;font-weight: normal; margin: 8px 0;}
+/*---my deal----*/
+#deal-table tr:hover, #deal-table tr:hover{ background:#FCF5DD; cursor:pointer;}
+#deal-table tr th:hover, #deal-table tr th:hover{ cursor:default;}
+
+
+/*by Hai Ta */
+div.deal-ajaxcart-loading{
+	position:fixed;
+	top:45%;
+	left:50%;
+	width:120px;
+    text-align:center;
+	margin-left:-125px;
+	padding:15px 60px;
+	border: 8px solid rgba(209, 209, 209, 0.35);
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	background-color: #fff;
+	border-radius: 5px;
+	color: #000;
+	z-index: 197;
+}
+
+div.deal-ajaxcart-content{
+	position:absolute;
+	top: 18%;
+	width: 471px;
+	border: 8px solid rgba(209, 209, 209, 0.35);
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	background-color: #fff;
+	border-radius: 5px;
+	z-index: 189;
+}
+
+div.deal-ajaxcart-overlay{
+    width: 100%;
+    background: #000000;
+    position: fixed;
+    opacity: 0.5;
+    filter:alpha(opacity=50);
+    top: 0;
+    left: 0;
+    z-index: 196;	
+	height: 100%;
+}
+
+div.deal-ajaxcart-popup-overlay{
+	width: 100%;
+    background: #000000;
+    position: fixed;
+    opacity: 0.5;
+    filter:alpha(opacity=50);
+    top: 0;
+    left: 0;
+    z-index: 188;
+	height: 100%;
+}
+
+div.deal-ajaxcart-product-name{
+	margin: 13px 0px -8px 23px;
+	font: bold 15px/1.35 Arial, Helvetica, sans-serif;
+}
+
+#deal-ajaxcart-content a.close-popup{
+	background: url("../../images/groupdeal/close-popup.png") no-repeat scroll 0 0 transparent;
+	height: 36px;
+	overflow: hidden;
+	position: absolute;
+	right: -22px;
+	text-indent: -999em;
+	top: -21px;
+	width: 36px;
+	z-index: 198;
+}

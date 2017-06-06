@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+    <name>Mp_Tell_A_Friend</name>
+    <version>0.1.4</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Tell a friend block module is used to tell a friend about the site/info.</summary>
+    <description>Tell a friend block module is used to tell a friend about the site/info.</description>
+    <notes>- Modified the email template&#xD;
+- fixed the by default active state = false</notes>
+    <authors><author><name>MagePsycho</name><user>auto-converted</user><email>rajen_k_bhtt@hotmail.com</email></author></authors>
+    <date>2011-07-05</date>
+    <time>09:24:52</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="MagePsycho_Tellafriend.xml" hash="a0de91a6925d466140bb06a2d00f3f75"/></dir></target><target name="magelocale"><dir name="en_US"><dir name="template"><dir name="email"><dir name="tellafriend"><file name="tellafriend.html" hash="ac6989fa8c78be5696644775f08daaf7"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="template"><dir name="tellafriend"><file name="tellafriend.phtml" hash="c8cb73d980c7dda669eda03fddc2477b"/></dir></dir><dir name="layout"><file name="tellafriend.xml" hash="673a4260b5c289fc5e6076313e53fab7"/></dir></dir></dir></dir></target><target name="magelocal"><dir name="MagePsycho"><dir name="Tellafriend"><dir name="Block"><dir name="System"><dir name="Config"><file name="Info.php" hash="44b685a1e1b4f1ad2797fd5c63dff1ff"/></dir></dir><file name="Tellafriend.php" hash="62ca34c67d745642c0743b559a218389"/></dir><dir name="Helper"><file name="Data.php" hash="71127f38a09f04173df539c5533b7962"/></dir><dir name="Model"><file name="Session.php" hash="495a430e59c5f7a057756c6a344ff6c4"/><file name="Tellafriend.php" hash="f50f073a66f1ec4d4eed1b06011c29a4"/></dir><dir name="controllers"><file name="IndexController.php" hash="18527e015d622b491045c23e465c877d"/></dir><dir name="etc"><file name="config.xml" hash="65ad47c5c73660a3715cea021a0adfc2"/><file name="system.xml" hash="e090f36250cff5787a5bd9cc6c85638b"/></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

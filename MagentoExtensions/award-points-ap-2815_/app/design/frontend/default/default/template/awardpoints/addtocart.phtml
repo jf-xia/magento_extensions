@@ -1,0 +1,20 @@
+<?php
+ /*
+ * Arcanum Dev AwardPoints
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to arcanumdev@wafunotamago.com so we can send you a copy immediately.
+ *
+ * @category   Magento Sale Extension
+ * @package    AwardPoints
+ * @copyright  Copyright (c) 2012 Arcanum Dev. Y.K. (http://arcanumdev.wafunotamago.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php $_product = $this->getProduct() ?> <p class="arcanum-loyalty-points" style="top:50px"><img src="<?php echo $this->getSkinUrl('images/AwardPoints/AwardPoints.png') ?>" alt="" /><span style="left:15px;">&nbsp;&nbsp;<?php echo $this->__("Product Points"); ?>: <?php echo sprintf("<span id='arcanum-pts'>%d</span>", Mage::helper('awardpoints/data')->getProductPoints($_product));?></span></p> <script type="text/javascript"> var arcanum_points = <?php echo Mage::helper('awardpoints/data')->getProductPoints($_product) ?>; document.observe("dom:loaded", function() { if ($('qty')){ Event.observe($('qty'), 'change', function(){ if($('qty').value > 0){ $('arcanum-pts').innerHTML = arcanum_points * $('qty').value;} else {$('arcanum-pts').innerHTML = arcanum_points;} }); } }); </script>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Edev_Priceformat>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Edev_Priceformat>
+    </modules>
+</config>

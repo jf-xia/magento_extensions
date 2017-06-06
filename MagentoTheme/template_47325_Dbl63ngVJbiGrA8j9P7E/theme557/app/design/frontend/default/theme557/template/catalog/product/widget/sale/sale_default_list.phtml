@@ -1,0 +1,48 @@
+<?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+<div class="widget widget-catalogsale-products">
+        <div class="page-title category-title specials-title">
+            <h1><?php echo $this->__('Special products') ?></h1>
+        </div>
+            <?php $suffix = $this->getNameInLayout(); ?>
+            <ul class="products-grid row" id="widget-catalogsale-products-<?php echo $suffix; ?>">
+            <?php foreach ($_products->getItems() as $_product): ?>
+                <li class="item col-xs-12 col-sm-3">
+                    <a class="product-image" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(192) ?>" alt="<?php echo $this->stripTags($_product->getName(), null, true) ?>" /></a>
+                    <div class="product-shop">
+                            <p class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>)"><?php echo $this->helper('catalog/output')->productAttribute($_product, $_product->getName() , 'name') ?></a></p>
+                            <div class="desc_grid"><?php $small_getDescription = strip_tags($_product->getShortDescription());
+                                 if (strlen($small_getDescription) < 70) echo($small_getDescription);
+                                 else { echo mb_substr($small_getDescription, 0, 70,'UTF-8').'...';} ?>
+                            </div>
+                                <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                                <?php echo $this->getPriceHtml($_product, true, '-widget-catalogsale-'.$suffix) ?>
+
+                         <?php if($_product->isSaleable()): ?>
+                                <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                            <?php else: ?>
+                                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                            <?php endif; ?>
+                         <div class="actions">
+                           
+                         <!--    <button type="button" title="<?php echo $this->__('Details') ?>" class="button btn-etails" onclick="setLocation('<?php echo $_product->getProductUrl() ?>')"><span><span><?php echo $this->__('Details') ?></span></span></button> -->
+                            <!-- <ul class="add-to-links">
+                                <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                    <li><a title="<?php echo $this->__('Add to Wishlist') ?>" href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" rel="tooltip" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+                                <?php endif; ?>
+                                <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                                    <li><span class="separator">|</span> <a  title="<?php echo $this->__('Add to Compare') ?> " href="<?php echo $_compareUrl ?>" rel="tooltip" class="link-compare "><?php echo $this->__('Add to Compare') ?></a></li>
+                                <?php endif; ?>
+                            </ul> -->
+                        </div>
+                    </div>
+                      <?php $_product = Mage::getModel('catalog/product')->load($_product->getId()); ?>
+                        <div class="label-product">             
+                            <?php if($_product->getData('new')){echo '<span class="new">'.$this->__('New').'</span>';  }?>
+                            <?php if($_product->getData('sale')){echo '<span class="sale">'.$this->__('Sale').'</span>';  }?>
+                        </div>
+                </li>
+            <?php endforeach; ?>
+            </ol>
+            <script type="text/javascript">decorateList('widget-catalogsale-products-<?php echo $suffix; ?>', 'none-recursive')</script>
+</div>
+<?php endif; ?>

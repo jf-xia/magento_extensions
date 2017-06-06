@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <mlayer_adminhtml_mlayer_index>
+        <reference name="content">
+            <block type="mlayer/adminhtml_mlayer" name="mlayer" />
+        </reference>
+    </mlayer_adminhtml_mlayer_index>
+</layout>

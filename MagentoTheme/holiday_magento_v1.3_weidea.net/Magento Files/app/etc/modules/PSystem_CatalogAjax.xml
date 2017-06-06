@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<config>
+	<modules>
+		<PSystem_CatalogAjax>
+			<active>true</active>
+			<codePool>community</codePool>
+			<depends>
+				<PSystem_Base/>
+			</depends>
+		</PSystem_CatalogAjax>
+	</modules>
+</config>

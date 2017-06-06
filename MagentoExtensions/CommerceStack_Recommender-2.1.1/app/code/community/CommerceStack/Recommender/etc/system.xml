@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <recommender translate="label" module="recommender">
+            <label>Related Products Manager</label>
+            <tab>catalog</tab>
+            <frontend_type>text</frontend_type>
+            <frontend_model>recommender/system_config_form</frontend_model>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>     
+            <groups>
+                <relatedproducts translate="label">
+                    <label>Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>  
+                    <fields>
+                        <update>
+                            <button_label>Update Related Products</button_label>
+                            <comment>Last updated </comment>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>recommender/system_config_form_updatebutton</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </update>
+                        <cancel>
+                            <button_label>Cancel</button_label>
+                            <comment>Analysis in progress</comment>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>recommender/system_config_form_cancelbutton</frontend_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                        </cancel>
+                        <numberofrelatedproducts>
+                            <label>Related products to show</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </numberofrelatedproducts>
+                        <numberofcrosssellproducts>
+                            <label>Cross-sell products to show</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </numberofcrosssellproducts>
+                        <numberofupsellproducts>
+                            <label>Up-sell products to show</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </numberofupsellproducts>
+                        <constraincategory>
+                            <label>Prefer same-category products (Basic and Pro plans only)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </constraincategory>
+                        <!--<constrain_brand>
+                            <label>From same brand only (Pro)</label>
+                            <frontend_type>checkbox</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </constrain_brand>-->
+                        <apikeyurl>
+                            <frontend_type>hidden</frontend_type>
+                            <frontend_model>recommender/system_config_form_apikeyurl</frontend_model>
+                            <sort_order>101</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </apikeyurl>
+		    		</fields>  
+		    	</relatedproducts>
+                <account>
+                    <label>Account</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <fields>
+                        <plan>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>recommender/system_config_form_paymentiframe</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </plan>
+                        <email>
+                            <label>Email</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>
+                                <![CDATA[Email address we should contact for news about bug fixes, new releases, and account information]]>
+                            </comment>
+                            <frontend_model>recommender/system_config_form_email</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </email>
+                        <apiuser>
+                            <label>API User</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>
+                                <![CDATA[For technical support only. Please do not change this value unless instructed.]]>
+                            </comment>
+                            <frontend_model>recommender/system_config_form_apiuser</frontend_model>
+                            <config_path>csapiclient/api/user</config_path>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </apiuser>
+                        <apisecret>
+                            <label>API Password</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>
+                                <![CDATA[For technical support only. Please do not change this value unless instructed.]]>
+                            </comment>
+                            <frontend_model>recommender/system_config_form_apisecret</frontend_model>
+                            <config_path>csapiclient/api/secret</config_path>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </apisecret>
+                    </fields>
+                </account>
+		    	<relatedproductsadvanced translate="label">
+                    <label>Advanced</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>  
+                    <fields>   
+                    	<upsellsource>
+                            <label>Up-sell Source</label>
+                            <frontend_type>select</frontend_type>
+                            <comment>
+				                <![CDATA[<ul><li>Use <b>Cross-sell</b> if both related products and up-sells are displayed on product page</li>
+				                <li>Use <b>Related Products</b> if only up-sells (and not related products) are displayed on product page</li></ul>]]>
+				            </comment>
+                            <source_model>recommender/system_config_form_upsellsource</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </upsellsource>
+                    </fields>           
+                </relatedproductsadvanced>
+                <relatedproductshelp>
+                    <label>Help</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>4</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <help>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>recommender/system_config_form_helpiframe</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </help>
+                    </fields>
+                </relatedproductshelp>
+            </groups>
+           
+        </recommender>
+    </sections>    
+</config>

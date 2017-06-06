@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layout version="0.1.0">
+	
+	<catalog_product_view>
+		<reference name="head">
+			<action method="addItem" ifconfig="ig_lightbox/general/enabled"><type>skin_css</type><name>css/ig_lightbox.css</name></action>
+			<action method="addItem" ifconfig="ig_lightbox/general/enabled"><type>skin_js</type><name>js/ig_effects.js</name></action>
+			<action method="addItem" ifconfig="ig_lightbox/general/enabled"><type>skin_js</type><name>js/ig_lightbox.js</name></action>
+		</reference>
+		<reference name="product.info.media">
+			<action method="setTemplate" ifconfig="ig_lightbox/general/enabled"><template>ig_lightbox/media.phtml</template></action>
+		</reference>
+	</catalog_product_view>
+	
+	<review_product_list>
+		<reference name="head">
+			<action method="addItem" ifconfig="ig_lightbox/general/enabled"><type>skin_css</type><name>css/ig_lightbox.css</name></action>
+			<action method="addItem" ifconfig="ig_lightbox/general/enabled"><type>skin_js</type><name>js/ig_effects.js</name></action>
+			<action method="addItem" ifconfig="ig_lightbox/general/enabled"><type>skin_js</type><name>js/ig_lightbox.js</name></action>
+		</reference>
+        <reference name="product.info.media">
+			<action method="setTemplate" ifconfig="ig_lightbox/general/enabled"><template>ig_lightbox/media.phtml</template></action>
+			<action method="disableGallery"/>
+		</reference>
+    </review_product_list>
+
+</layout>

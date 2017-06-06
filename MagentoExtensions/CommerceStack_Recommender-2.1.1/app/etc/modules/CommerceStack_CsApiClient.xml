@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <CommerceStack_CsApiClient>
+            <active>true</active>
+            <codePool>community</codePool>
+        </CommerceStack_CsApiClient>
+    </modules>
+</config>

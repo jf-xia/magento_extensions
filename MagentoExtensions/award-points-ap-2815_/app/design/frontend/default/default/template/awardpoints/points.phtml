@@ -1,0 +1,20 @@
+<?php
+ /*
+ * Arcanum Dev AwardPoints
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to arcanumdev@wafunotamago.com so we can send you a copy immediately.
+ *
+ * @category   Magento Sale Extension
+ * @package    AwardPoints
+ * @copyright  Copyright (c) 2012 Arcanum Dev. Y.K. (http://arcanumdev.wafunotamago.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<div class="page-title"><h1><?php echo $this->__('Shopping Points') ?></h1></div><div class="fieldset"><h2 class="legend"><?php echo $this->__('Your Shopping Points History') ?></h2><?php echo $this->getMessagesBlock()->getGroupedHtml() ?><?php $_points = $this->getPoints();?><?php if($_points->getSize()): ?><?php echo $this->getPagerHtml() ?><table cellspacing="0" class="data-table" id="award-points-table"><thead><tr><th><?php echo $this->__('Type of point') ?></th><th><?php echo $this->__('Points added') ?></th><th><?php echo $this->__('Points used') ?></th><th><?php echo $this->__('Obtention date') ?></th><th><?php echo $this->__('Valid until') ?></th></tr></thead><tbody><?php $_odd = ''; ?><?php foreach ($_points as $_point): ?><tr><td><?php echo $this->getTypeOfPoint($_point->getOrder_id(), $_point->getAwardpointsReferralId());?></td><td><?php echo $_point->getPoints_current() ?></td><td><?php echo $_point->getPoints_spent() ?></td><td><?php if ($_point->getDate_start() != ""): echo $this->formatDate($_point->getDate_start(), 'short'); endif; ?></td><td><?php if ($_point->getDate_end() != ""): echo $this->formatDate($_point->getDate_end(), 'short'); endif; ?></td></tr><?php endforeach; ?></tbody></table><?php echo $this->getPagerHtml() ?><?php else: ?><p><?php echo $this->__('You dont have any recorded points.'); ?></p><?php endif ?></div>

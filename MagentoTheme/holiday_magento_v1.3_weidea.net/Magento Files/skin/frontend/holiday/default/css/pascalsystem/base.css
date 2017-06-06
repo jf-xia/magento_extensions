@@ -1,0 +1,40 @@
+.pascalsystem-overlay {
+	
+	z-index:10000;
+	-moz-opacity:.75;
+	-webkit-opacity:.75;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+	/*IE8*/ opacity:.75;
+	filter: alpha(opacity=75);
+	background: #ffffff url('../../images/pascalsystem/load.gif') center center no-repeat;
+	width: 100% !important;
+	height: 100% !important;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+
+	
+	
+	
+}
+.pascalsystem-block-layered-nav {
+	-moz-opacity:.01;
+	-webkit-opacity:.01;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=01)";
+	/*IE8*/ opacity:.01;
+	filter: alpha(opacity=01);
+}
+.pascalsystem-loader {
+	background: transparent url('../../images/pascalsystem/load.gif') center center no-repeat;
+	z-index:996;
+	width:128px;
+	height:15px;
+}
+.pascalsystem-content {
+	z-index:997;
+}
+.pascalsystem-content-layerimage {
+	border:1px solid #5F5F5F;
+}

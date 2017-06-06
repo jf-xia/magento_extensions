@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<config>
+	<modules>
+		<PSystem_CatalogAjax>
+			<version>1.0.1</version>
+		</PSystem_CatalogAjax>
+	</modules>
+	<global>
+		<blocks>
+			<pscatalogajax>
+				<class>PSystem_CatalogAjax_Block</class>
+			</pscatalogajax>
+		</blocks>
+	</global>
+	<frontend>
+		<layout>
+			<updates>
+				<ps_catalogajax module="PSystem_CatalogAjax">
+					<file>ps_catalogajax.xml</file>
+				</ps_catalogajax>
+			</updates>
+		</layout>
+	</frontend>
+	<default>
+		<pscatalogajax>
+			<selector>
+				<enabled>1</enabled>
+				<limiter>.toolbar .sorter .limiter a</limiter>
+				<navclear>.block-layered-nav .block-content .actions a</navclear>
+			</selector>
+		</pscatalogajax>
+	</default>
+</config>

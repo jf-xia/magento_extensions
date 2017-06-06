@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    ActiveCodeline
+ * @package     ActiveCodeline_ActionLogger
+ * @author      Branko Ajzele (http://activecodeline.net)
+ * @copyright   Copyright (c) Branko Ajzele
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <ActiveCodeline_ActionLogger>
+            <version>1.0.0</version>
+        </ActiveCodeline_ActionLogger>
+    </modules>
+    
+    <global>    
+        <models>
+            <activecodeline_actionlogger>
+                <class>ActiveCodeline_ActionLogger_Model</class>
+                <resourceModel>activecodeline_actionlogger_mysql4</resourceModel>
+            </activecodeline_actionlogger>
+        
+            <activecodeline_actionlogger_mysql4>
+                <class>ActiveCodeline_ActionLogger_Model_Mysql4</class>
+                <entities>
+                    <frontend>
+                        <table>activecodeline_actionlogger_frontend</table>
+                    </frontend>
+                    <admin>
+                        <table>activecodeline_actionlogger_admin</table>
+                    </admin>
+                </entities>
+            </activecodeline_actionlogger_mysql4>
+        </models>
+        <resources>
+            <activecodeline_actionlogger_setup>
+                <setup>
+                    <module>ActiveCodeline_ActionLogger</module>
+                </setup>
+            </activecodeline_actionlogger_setup>
+        </resources>        
+        <blocks>
+            <activecodeline_actionlogger><class>ActiveCodeline_ActionLogger_Block</class></activecodeline_actionlogger>
+        </blocks>
+        <helpers>
+            <activecodeline_actionlogger>
+                <class>ActiveCodeline_ActionLogger_Helper</class>
+            </activecodeline_actionlogger>
+        </helpers>
+    </global>
+
+    <admin>
+        <routers>
+             <adminhtml>
+                 <args>
+                     <modules>
+                         <activecodeline_actionlogger before="Mage_Adminhtml">ActiveCodeline_ActionLogger_Adminhtml</activecodeline_actionlogger>
+                     </modules>
+                 </args>
+             </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <activecodeline_actionlogger_controller_action_predispatch>
+                        <class>activecodeline_actionlogger/observer</class>
+                        <method>hookToAdminhtmlControllerActionPredispatch</method>
+                    </activecodeline_actionlogger_controller_action_predispatch>
+                </observers>
+            </controller_action_predispatch>
+        </events>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <activecodeline_actionlogger>
+                                    <title>Action Logger</title>
+                                    <children>
+                                    <admin_logs>
+                                        <title>Check logs for recorded Admin actions</title>
+                                    </admin_logs>
+                                    <frontend_logs>
+                                        <title>Check logs for recorded Frontend actions</title>
+                                    </frontend_logs>
+                                    </children>
+                                </activecodeline_actionlogger>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <translate>
+            <modules>
+                <ActiveCodeline_ActionLogger>
+                    <files>
+                        <default>ActiveCodeline_ActionLogger.csv</default>
+                    </files>
+                </ActiveCodeline_ActionLogger>
+            </modules>
+        </translate>
+    </adminhtml>
+
+    <frontend>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <activecodeline_actionlogger_controller_action_predispatch>
+                        <class>activecodeline_actionlogger/observer</class>
+                        <method>hookToFrontendControllerActionPredispatch</method>
+                    </activecodeline_actionlogger_controller_action_predispatch>
+                </observers>
+            </controller_action_predispatch>
+        </events>
+    </frontend>
+</config>

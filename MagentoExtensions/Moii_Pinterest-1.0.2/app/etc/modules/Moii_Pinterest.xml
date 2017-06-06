@@ -1,0 +1,9 @@
+<?xml version="1.0"?> 
+<config>
+    <modules>
+        <Moii_Pinterest>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Moii_Pinterest>
+    </modules>
+</config>

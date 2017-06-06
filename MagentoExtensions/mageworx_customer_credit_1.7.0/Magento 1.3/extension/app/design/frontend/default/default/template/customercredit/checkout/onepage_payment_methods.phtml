@@ -1,0 +1,71 @@
+<?php
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@mageworx.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ * or send an email to sales@mageworx.com
+ *
+ * @category   design_default
+ * @package    MageWorx_CustomerCredit
+ * @copyright  Copyright (c) 2010 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+
+/**
+ * Customer Credit extension
+ *
+ * @category   design_default
+ * @package    MageWorx_CustomerCredit
+ * @author     MageWorx Dev Team <dev@mageworx.com>
+ */
+?>
+<div class="payment-methods">
+    <dl id="checkout-payment-method-load">
+    <?php foreach ($this->getMethods() as $_method): $_code = $_method->getCode() ?>
+        <dt>
+        <?php if( sizeof($this->getMethods()) > 1 ): ?>
+            <?php if($this->useCheckbox($_code)): ?>
+            <input id="p_method_<?php echo $_code ?>" value="1" type="checkbox" name="payment[use_internal_credit]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" class="checkbox" onclick="payment.switchMethod('<?php echo $_code ?>')"<?php if(Mage::getSingleton('checkout/session')->getUseInternalCredit()): ?> checked="checked"<?php endif; ?> />
+            <?php else: ?>
+            <input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" class="radio" onclick="payment.switchMethod('<?php echo $_code ?>')"<?php if($this->getSelectedMethodCode()==$_code): ?> checked="checked"<?php endif; ?> />
+            <?php endif; ?>
+        <?php else: ?>
+            <span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" checked="checked" /></span>
+        <?php endif; ?>
+            <label for="p_method_<?php echo $_code ?>"><?php echo $this->__($_method->getTitle()); ?></label>
+        </dt>
+        <?php if($html = $this->getChildHtml('payment.method.'.$_code)): ?>
+        <dd>
+            <?php echo $html; ?>
+        </dd>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    </dl>
+</div>
+<?php echo $this->getChildChildHtml('additional'); ?>
+<script type="text/javascript">
+//<![CDATA[
+<?php echo $this->getChildChildHtml('scripts'); ?>
+payment.init();
+
+el = $('p_method_customercredit');
+if(el){
+    el.disabled = false;
+}
+//]]>
+</script>

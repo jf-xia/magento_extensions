@@ -1,0 +1,9 @@
+<p><?php echo $this->getMethod()->getTitle() ?></p>
+<?php 
+Mage::log($this->getOrder()->getStatus());
+//Mage::log("status");
+//Mage::log(Mage_Sales_Model_Order::STATE_PENDING_PAYMENT);
+if($this->getOrder()->getStatus()==='pending') {?>
+	<p><strong><a href="<?php echo $this->htmlEscape($this->getPayURL()) ?>"><?php echo $this->__('Click here to pay.') ?></a></strong></p>
+<?php 
+} ?>

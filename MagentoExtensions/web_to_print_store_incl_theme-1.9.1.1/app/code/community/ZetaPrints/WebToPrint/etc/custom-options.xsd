@@ -1,0 +1,60 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="config">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="webtoprint">
+          <xsd:annotation>
+            <xsd:documentation>Root of ZP w2p config. See ... for details.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="file-download" minOccurs="0">
+                <xsd:annotation>
+                  <xsd:documentation>File download options</xsd:documentation>
+                </xsd:annotation>
+
+                <xsd:complexType>
+                  <xsd:element name="users" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation>File download options for frontend interface</xsd:documentation>
+                    </xsd:annotation>
+
+                    <xsd:complexType>
+                      <xsd:attribute name="allow" use="optional" fixed="1">
+                        <xsd:annotation>
+                          <xsd:documentation>Users are allowed to download files regardless of ZP template setting if set to 1. Otherwise ZP template setting is used, which is the default setting. The option is applied for existing and future orders.</xsd:documentation>
+                        </xsd:annotation>
+                      </xsd:attribute>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:complexType>
+              </xsd:element>
+
+              <xsd:element name="image-edit" minOccurs="0">
+                <xsd:annotation>
+                  <xsd:documentation>Image editing options.</xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="in-context" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation>In-context editing is when a user image is edited in context of a particular field.</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:complexType>
+                        <xsd:attribute name="enabled" use="optional" fixed="1">
+                          <xsd:annotation>
+                            <xsd:documentation>In-context features are enabled if set to 1. Otherwise disabled, which is the default setting.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>WishlistPlus</name>
+    <version>1.0.2.3</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>WishlistPlus adds the features of Pagination, search and selective add to cart to your wishlst module.</summary>
+    <description>WishlistPlus adds the features of Pagination, search and selective add to cart to your wishlst module.</description>
+    <notes>WishlistPlus adds the features of Pagination, search and selective add to cart to your wishlist module.</notes>
+    <authors><author><name>Arvind Bhardwaj</name><user>auto-converted</user><email>bhardwajsonheight@gmail.com</email></author></authors>
+    <date>2011-02-27</date>
+    <time>06:26:31</time>
+    <contents><target name="magelocal"><dir name="Customwishlist"><dir name="Customwishlist"><dir name="controllers"><file name="IndexController.php" hash="1d0ad1cc37271302cdf03681332ba839"/></dir><dir name="etc"><file name="config.xml" hash="b8a2e5b2694ec258fd4ca90124e074f5"/></dir></dir></dir><dir name="Mage"><dir name="Wishlist"><dir name="Block"><dir name="Customer"><file name="Wishlist.php" hash="81fba9bf2a0feba560be25585c055917"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="template"><dir name="wishlist"><file name="view.phtml" hash="ec4b556905b13abdda6bb940ebcd660d"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Customwishlist_Customwishlist.xml" hash="76f03ae1f3d1904758bd80b113dfe207"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MDN_AdminLogger>
+            <active>true</active>
+            <codePool>local</codePool>
+        </MDN_AdminLogger>
+    </modules>
+</config> 

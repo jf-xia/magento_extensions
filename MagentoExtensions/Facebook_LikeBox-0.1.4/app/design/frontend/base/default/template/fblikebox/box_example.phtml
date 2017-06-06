@@ -1,0 +1,29 @@
+<!--
+If you want the XFBML-Way, use the following.
+
+Remember to activate the xfbml in your admin panel, to insert the javascript code.
+And edit the fblikebox.xml, to insert the script at the right pages.
+-->
+
+<div class="block block-fblikebox">
+	<div class="block-title">
+		<strong><span><?php echo $this->__('Facebook') ?></span></strong>
+	</div>
+	<div class="block-content" style="padding: 0;">
+		<fb:fan profile_id="YOUR_PAGE_ID_HERE" width="220" height="500" connections="10" stream="false" header="false" css="http://your.store.com/media/fblikebox/style.css"></fb:fan>
+    </div>
+</div>
+
+<!--
+If you want the iFrame-Way, use the following.
+Remember to deactivate the xfbml in your admin panel, to reduce the unused data in your html source.
+-->
+
+<div class="block block-fblikebox">
+	<div class="block-title">
+		<strong><span><?php echo $this->__('Facebook') ?></span></strong>
+	</div>
+	<div class="block-content" style="padding: 0;">
+		<iframe src="http://www.facebook.com/plugins/fan.php?id=YOUR_PAGE_ID_HERE&amp;locale=en_US&amp;width=220&amp;connections=10&amp;stream=false&amp;header=false&amp;height=500&amp;css=http://your.store.com/media/fblikebox/style.css" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:220px; height:500px;" allowTransparency="true"></iframe>
+    </div>
+</div>

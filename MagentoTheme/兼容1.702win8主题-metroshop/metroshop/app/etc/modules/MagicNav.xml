@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MagicNav_MagiCat>
+            <active>true</active>
+            <codePool>community</codePool>
+			<depends>
+				<Mage_Core />
+				<Mage_Page />
+				<Mage_Catalog />
+				<!-- <Netzarbeiter_LoginCatalog /> -->
+			</depends>
+        </MagicNav_MagiCat>
+    </modules>
+</config>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+    <name>S3ibusiness_Giftpromo</name>
+    <version>0.1.5</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">Open Software License (OSL 3.0)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Associate free gift and Shopping Cart Price Rules</summary>
+    <description>Associ&#xE9; un  produit cadeau a une r&#xE8;gle de prix panier (r&#xE8;gles de cadeaux)
+
+Possibilit&#xE9; d'ajout&#xE9;s plusieurs r&#xE8;gles de cadeaux
+
+Possibilit&#xE9; d'ajout&#xE9;s plus d'un produit si r&#xE8;gles est atteints</description>
+    <notes>If you have ideas for improvements or find bugs, please send them to Ahmed MAHI  at www.s3ibusiness.com, 1hmedmahi@gmail.com</notes>
+    <authors><author><name>Ahmed MAHI</name><user>auto-converted</user><email>1hmedmahi@gmail.com</email></author><author><name>Ahmed MAHI</name><user>auto-converted</user><email>1hmedmahi@gmail.com</email></author></authors>
+    <date>2011-04-28</date>
+    <time>17:18:49</time>
+    <contents><target name="magelocale"><dir name="en_US"><file name="S3ibusiness_Giftpromo.csv" hash="8b2227ebf5d4f477df01a7fb9382c7a4"/></dir><dir name="fr_FR"><file name="S3ibusiness_Giftpromo.csv" hash="c63f82685d01f7ec1193891c42d31861"/></dir></target><target name="mageetc"><dir name="modules"><file name="S3ibusiness_Giftpromo.xml" hash="2e67049078771379bd67cb0325100d2b"/></dir></target><target name="magecommunity"><dir name="S3ibusiness"><dir name="Giftpromo"><dir name="Block"><dir name="Adminhtml"><dir name="Giftpromo"><dir name="Edit"><dir name="Tab"><file name="Form.php" hash="355403013e352fad92f2723c867c27d9"/></dir><file name="Form.php" hash="b348b241d992af0c06f0536162c69381"/><file name="Tabs.php" hash="aef8e6202c1973243650fc23ce852c51"/></dir><file name="Edit.php" hash="7b108405543311a7546147fe39d781af"/><file name="Grid.php" hash="b9c38c1132ffb84c9f4168d8f3ae3da0"/></dir><file name="Giftpromo.php" hash="4e8d8c896d7f6fb6461ad8b3531f137d"/></dir></dir><dir name="controllers"><dir name="Adminhtml"><file name="IndexController.php" hash="64a97ab794e4015c8e540ce4eb412501"/></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="ccd1d34fb079580633f4d64287faaeb1"/><file name="config.xml" hash="51a1841a56d998c4b951234ba276f781"/><file name="system.xml" hash="8cb8e63e9487db02eacbd66f6ca45667"/></dir><dir name="Helper"><file name="Data.php" hash="a6ca9646081104d93c77c93bac28d05e"/></dir><dir name="Model"><dir name="Mysql4"><dir name="Giftpromo"><file name="Collection.php" hash="3ad4dae15dbdf93e4f8022f0bc7a3b96"/></dir><file name="Giftpromo.php" hash="3ec4a445cf54e8ccca0d8a66a1c68cf6"/></dir><file name="Giftpromo.php" hash="4c5e2e02a4fb615ab307549474cf4bfa"/><file name="Observer.php" hash="16041dfbc0df4fc10577d450715afbd1"/><file name="Status.php" hash="4ea52a3dee8ef4c17aa3fd737de81c46"/></dir><dir name="sql"><dir name="giftpromo_setup"><file name="mysql4-install-0.1.0.php" hash="8a09c06b43da6c65664c85b1740a2dcb"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

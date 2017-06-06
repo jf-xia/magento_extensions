@@ -1,0 +1,50 @@
+<?php
+	
+/*
+ * Magento EsayCheckout Extension
+ *
+ * @copyright:	EcommerceTeam (http://www.ecommerce-team.com)
+ * @version:	1.0
+ *
+ */
+	
+?><div class="easy-step" id="easycheckout-paymentmethod">
+	<div class="tool-tip" id="payment-tool-tip" style="display:none;">
+        <div class="btn-close"><a href="#" id="payment-tool-tip-close" title="<?php echo $this->__('Close') ?>"><?php echo $this->__('Close') ?></a></div>
+        <div class="tool-tip-content"><img src="<?php echo $this->getSkinUrl('images/cvv.gif') ?>" alt="<?php echo $this->__('Card Verification Number Visual Reference') ?>" title="<?php echo $this->__('Card Verification Number Visual Reference') ?>" /></div>
+    </div>
+	
+	<h2><?php echo $this->__('Payment method');?></h2>
+	
+	<script type="text/javascript">
+	//<![CDATA[
+	    var payment = new paymentForm('easycheckout-form');
+	//]]>
+	</script>
+	
+	<div id="easycheckout-paymentmethod-available">
+		
+		<?php echo $this->getChildHtml('methods') ?>
+		
+	</div>
+	<script type="text/javascript">
+    //<![CDATA[
+        function toggleToolTip(event){
+            if($('payment-tool-tip')){
+                /*$('payment-tool-tip').setStyle({
+                    top: (Event.pointerY(event)-510)+'px',
+                    left: (Event.pointerX(event)-800)+'px'
+                })*/
+                $('payment-tool-tip').toggle();
+            }
+            Event.stop(event);
+        }
+        if($('payment-tool-tip-close')){
+            Event.observe($('payment-tool-tip-close'), 'click', toggleToolTip);
+        }
+        $$('.cvv-what-is-this').each(function(element){
+            Event.observe(element, 'click', toggleToolTip);
+        });
+    //]]>
+	</script>
+</div>

@@ -1,0 +1,54 @@
+<?php
+/**
+ * Magpleasure Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE-CE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magpleasure.com/LICENSE-CE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * Magpleasure does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * Magpleasure does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   Magpleasure
+ * @package    Magpleasure_Guestbook
+ * @version    1.1
+ * @copyright  Copyright (c) 2012-2013 Magpleasure Ltd. (http://www.magpleasure.com)
+ * @license    http://www.magpleasure.com/LICENSE-CE.txt
+ */
+?>
+
+<div class="mpblog-comment" id="mp-blog-comment-<?php echo $this->getMessageId(); ?>"<?php if ($this->getIsAjax()): ?> style="display: none;"<?php endif; ?>>
+    <?php if ($this->isReply()): ?>
+    <div class="is-reply"></div>
+    <?php endif; ?>
+    <div class="mp-comment-content">
+        <div class="mp-comment-header">
+            <span class="mp-comment-author"><strong><?php echo $this->escapeHtml($this->getAuthor()); ?></strong></span>
+            <span class="mp-comment-date"><?php echo $this->__("%s at %s", $this->getDate(), $this->getTime()); ?></span>
+            <?php if ($this->getNeedApproveMessage()): ?>
+                <span class="mp-comment-willapprove"><?php echo $this->__("This post will become public after administrator approval."); ?></span>
+            <?php endif; ?>
+            <span class="mp-comment-reply-btn"><a href="#mp-comment-form-<?php echo $this->getMessageId(); ?>" onclick="guestbookComments.getForm('mp-comment-form-<?php echo $this->getMessageId(); ?>', <?php echo $this->getMessageId(); ?>); return false;"><?php echo $this->__("Reply"); ?></a></span>
+            <div class="fixed"></div>
+        </div>
+        <?php if ($this->getSubject()): ?>
+        <h4><?php echo $this->escapeHtml($this->getSubject()); ?></h4>
+        <?php endif; ?>
+        <?php echo $this->getContent(); ?>
+    </div>
+    <div class="mp-replies">
+        <?php echo $this->getRepliesHtml(); ?>
+        <div class="mp-comment-form" id="mp-comment-form-<?php echo $this->getMessageId(); ?>" style="display: none;"></div>
+    </div>
+
+</div>

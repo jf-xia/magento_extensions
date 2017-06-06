@@ -1,0 +1,28 @@
+<?php
+/**
+ * @category    Fishpig
+ * @package     Fishpig_Wordpress
+ * @license     http://fishpig.co.uk/license.txt
+ * @author      Ben Tideswell <help@fishpig.co.uk>
+ */
+?>
+<?php $archives = $this->getArchives() ?>
+<?php if (count($archives) > 0): ?>
+	<div class="block block-blog block-blog-archives">
+		<?php if ($title = $this->getTitle()): ?>
+			<div class="block-title">
+				<strong><span><?php echo $this->__($title) ?></span></strong>
+			</div>
+		<?php endif; ?>
+		<div class="block-content">
+			<ul>
+				<?php foreach($archives as $archive): ?>
+					<li>
+						<a href="<?php echo $archive->getUrl() ?>" title="<?php echo $archive->getName() ?>">
+							<?php echo $this->translateDate($archive->getName()) ?></a> (<?php echo $archive->getPostCount() ?>)
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+<?php endif; ?>

@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   MagePsycho
+ * @package    MagePsycho_Tellafriend
+ * @author     magepsycho@gmail.com
+ * @website    http://www.magepsycho.com 
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <tabs>
+        <magepychoall translate="label" module="tellafriend">
+            <label>MagePsycho Extensions</label>
+            <sort_order>400</sort_order>
+        </magepychoall>
+    </tabs>
+    <sections>
+        <magepychoinfo translate="label" module="tellafriend">
+            <label>Info</label>
+            <tab>magepychoall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>99999999999</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+        <info>
+            <frontend_model>tellafriend/system_config_info</frontend_model>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+        </info>
+            </groups>
+        </magepychoinfo>
+        
+        <tellafriend module="tellafriend">
+            <label>Tell A Friend</label>
+            <tab>magepychoall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <option translate="label">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>    
+                    </fields>
+                </option>
+                <email translate="label">
+                    <label>Email Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>                        
+                        <email_sender translate="label">
+                            <label>Email Sender</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_sender>
+                        <email_template translate="label">
+                            <label>Email Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_template>
+                    </fields>
+                </email>
+            </groups>
+        </tellafriend>
+    </sections>
+</config>

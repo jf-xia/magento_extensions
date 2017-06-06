@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+    <name>Deliverynote</name>
+    <version>1.0.6</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/mit-license.php">MIT license (MIT)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Seamlessly integrates delivery/shipping instructions into the checkout process</summary>
+    <description>The Delivery Note extensions provides a way for customers to notify store owners of any special delivery needs during the checkout process.  &#xD;
+&#xD;
+The module seamlessly integrates into the Magento onestep checkout process by adding an extra field at the shipping method section.</description>
+    <notes>Bug Fix - Some template files were not packaged correctly in the initial release package.  All files are now packaged correctly.</notes>
+    <authors><author><name>Drew Hunter</name><user>auto-converted</user><email>drewdhunter@gmail.com</email></author></authors>
+    <date>2011-08-01</date>
+    <time>10:10:52</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Dh_Deliverynote.xml" hash="cb5950d06b1a80611fc02f73002ec268"/></dir></target><target name="magelocal"><dir name="Dh"><dir name="Deliverynote"><dir name="Block"><dir name="Adminhtml"><dir name="Sales"><dir name="Order"><file name="Note.php" hash="7dd48fc9925f5cb2e26317c6dd31c01c"/></dir></dir></dir><file name="Note.php" hash="c647fc63a65c84cc027ca1007111239d"/></dir><dir name="Helper"><file name="Data.php" hash="fccbb52c1949a5476b63dfa731b69572"/></dir><dir name="Model"><dir name="Mysql4"><file name="Note.php" hash="8445edadd687d18901162e1523bf6954"/></dir><file name="Note.php" hash="b062a1a7c5ae951e3043bf6f0c37d41c"/><file name="Observer.php" hash="fae937b1dd020526aeeac3933b037073"/></dir><dir name="etc"><file name="config.xml" hash="b60a880e44008885f292b5027bbe4faa"/><file name="system.xml" hash="eed71af1b461c242ea14ce2d90cc472b"/></dir><dir name="sql"><dir name="deliverynote_setup"><file name="mysql4-install-0.1.0.php" hash="6e31c522273ff4d34012f7a1250ff76b"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="deliverynote.xml" hash="51b2d461ca170ae2bbc21065311fe1cd"/></dir><dir name="template"><dir name="deliverynote"><file name="note.phtml" hash="3a57783a58431e86ea238017b5d3dd0b"/></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="deliverynote.xml" hash="14d8793ee5e096e1fd5817df70e84b56"/></dir><dir name="template"><dir name="deliverynote"><dir name="sales"><dir name="order"><dir name="creditmemo"><dir name="create"><file name="form.phtml" hash="fca145e8ddaf8d748a27c539c9683546"/></dir><dir name="view"><file name="form.phtml" hash="1b8bb7e4fc506f234a6379435b39435e"/></dir></dir><dir name="invoice"><dir name="create"><file name="form.phtml" hash="22f9b1872bf5566b12ee4dadff081d1d"/></dir><dir name="view"><file name="form.phtml" hash="94612127af3538a67c54f921a644dcfc"/></dir></dir><dir name="shipment"><dir name="create"><file name="form.phtml" hash="8998982ebd513dfa906bbfbf32bc482e"/></dir><dir name="view"><file name="form.phtml" hash="d641042ff72c438b68fcdff1c966850a"/></dir></dir><dir name="view"><dir name="tab"><file name="info.phtml" hash="44918f3cb25064dd89add8d25eb54564"/></dir></dir></dir></dir><file name="note-create.phtml" hash="90bc4162eeb8834afc64a391316a01d0"/><file name="note.phtml" hash="85eff08e5695070d601465305dff27bf"/></dir></dir></dir></dir></dir></target><target name="magelocale"><dir name="en_US"><file name="Dh_Deliverynote.csv" hash="69fcebb8ce8725a68bf2c14c5f564ab8"/></dir></target><target name="mageskin"><dir name="frontend"><dir name="default"><dir name="default"><dir name="css"><file name="deliverynote.css" hash="b3bd61d27b364717b1020c84d4061182"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

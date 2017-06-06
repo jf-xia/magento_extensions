@@ -1,0 +1,27 @@
+<?php
+/**
+ * Agence Soon
+ *
+ * @category    Soon
+ * @package     Soon_AdvancedCache
+ * @copyright   Copyright (c) 2011 Agence Soon. (http://www.agence-soon.fr)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author      Hervé G. ()
+ */
+?>
+<div class="fieldset">
+    <p>
+        <?php echo $this->__('Please manage advanced cache features by using main menu:'); ?>
+        <br/>
+        <strong><?php echo $this->__('System > Configuration > Advanced Cache'); ?></strong>
+    </p>
+    <p>
+        <?php echo $this->__('Or access directly to:'); ?>
+    <ul>
+        <li>- <?php echo $this->__('<a href="%s">Global Cache Management</a> to enable homepage caching and cache expiration settings.', $this->getUrl('adminhtml/cache')); ?></li>
+        <li>- <?php echo $this->__('<a href="%s">Blocks Cache</a> to manage additional block caching.', $this->getUrl('advancedcache/adminhtml_blocks')); ?></li>
+        <li>- <?php echo $this->__('<a href="%s">Exceptions</a> to configure items not to cache.', $this->getUrl('advancedcache/adminhtml_exception')); ?></li>
+        <li>- <?php echo $this->__('<a href="%s">Symlink Cache</a> to optimize filesystem cache and use symlinks for tags <-> caches relationships.', $this->getUrl('advancedcache/adminhtml_symlink')); ?></li>
+    </ul>
+    </p>
+</div>

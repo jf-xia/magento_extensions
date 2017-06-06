@@ -1,0 +1,14 @@
+Legend:
+    + Feature
+    * Bugfix
+
+1.0.2
+    + Increase toolbar generation speed with cache
+    * Extension doesn't bring you to the first page when you change sort order
+
+1.0.1
+    + Compatiility with Magentik Filters Rewrites
+    * Fatal error on empty home page for Magento 1.7.0.0
+    * Fatal Error on Compilation
+    * No Meta Tags for Layered Category Page
+

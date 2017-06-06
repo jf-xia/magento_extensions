@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+
+    <adminhtml_catalog_product_edit>
+        <reference name="product_tabs">
+            <action method="addTab">
+                <name>swatches_customoptions</name>
+                <block>swatches_customoptions/adminhtml_catalog_product_edit_tab_swatches</block>
+                <after>customer_options</after>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_edit>
+
+</layout>

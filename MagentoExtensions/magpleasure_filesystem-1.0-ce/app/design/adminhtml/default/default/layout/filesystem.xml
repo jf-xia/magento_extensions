@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <filesystem_adminhtml_filesystem_index>
+        <reference name="head">
+            <action method="addJs"><script>filesystem/jquery-1.4.2.min.js</script></action>
+            <action method="addJs"><script>filesystem/base64.js</script></action>
+            <action method="addJs"><script>filesystem/script.js</script></action>
+            <action method="addJs"><script>filesystem/jqueryfiletree.js</script></action>
+            <action method="addCss"><script>filesystem/css/styles.css</script></action>
+            <action method="addCss"><script>filesystem/css/jqueryfiletree.css</script></action>
+        </reference>
+        <reference name="content">
+            <block type="filesystem/adminhtml_ide" name="filesystem" template="filesystem/ide.phtml" >
+                <block type="filesystem/adminhtml_ide_tree" name="filesystem.tree" as="filesystem.tree" />
+                <block type="filesystem/adminhtml_ide_editor" name="filesystem.editor" as="filesystem.editor" />
+            </block>
+        </reference>
+    </filesystem_adminhtml_filesystem_index>
+</layout>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <CommerceStack_CsNotification>
+            <active>true</active>
+            <codePool>community</codePool>
+        </CommerceStack_CsNotification>
+    </modules>
+</config>

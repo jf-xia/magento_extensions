@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+	<!-- NEW CODE BLOCK START // All page handler -->
+    <default>
+        <reference name="content">
+			<block type="fancyfeedback/fancyfeedback" name="fancyfeedback" template="fancyfeedback/fancyfeedback.phtml" />
+        </reference>
+    </default>
+    <!-- NEW CODE BLOCK END // All page handler -->
+    
+    <fancyfeedback_index_index>
+        <reference name="content">
+            <block type="fancyfeedback/fancyfeedback" name="fancyfeedback" template="fancyfeedback/fancyfeedback.phtml" />
+        </reference>
+    </fancyfeedback_index_index>
+</layout> 

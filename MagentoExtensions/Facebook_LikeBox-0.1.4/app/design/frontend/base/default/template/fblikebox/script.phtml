@@ -1,0 +1,20 @@
+<?php if( $this->_helper->getBoxActive() && $this->_helper->getBoxMode() ): ?>
+<div id="fb-root"></div>
+<script type="text/javascript">
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId  : '<?php echo $this->_helper->getAppId() ?>',
+			status : <?php echo $this->_helper->getInitStatus() ?>,
+			cookie : <?php echo $this->_helper->getInitCookie() ?>,
+			xfbml  : true
+		});
+	};
+
+	(function() {
+		var e = document.createElement('script');
+		e.src = document.location.protocol + '//connect.facebook.net/<?PHP echo $this->_helper->getLanguage() ?>/all.js';
+		e.async = true;
+		document.getElementById('fb-root').appendChild(e);
+	}());
+</script>
+<?php endif; ?>

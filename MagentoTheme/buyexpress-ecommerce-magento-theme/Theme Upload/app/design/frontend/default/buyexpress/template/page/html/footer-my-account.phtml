@@ -1,0 +1,9 @@
+<div class="fooLinks">
+    <div class="heading"><?php echo $this->__('Quick Links') ?></div>
+        <ul>
+        <li><a href="<?php echo $this->getUrl('customer/account')?>"><?php echo $this->__('My Account') ?></a></li>
+        <li><a href="<?php echo $this->helper('wishlist')->getListUrl()?>"><?php echo $this->__('My Wishlist') ?></a></li>
+        <li><a href="<?php echo $this->getUrl('checkout/cart')?>"><?php echo $this->__('My Cart') ?></a></li>
+        <li><a href="<?php echo Mage::helper('checkout/url')->getCheckoutUrl() ?>"><?php echo $this->__('Checkout') ?></a></li>
+        </ul>
+</div>

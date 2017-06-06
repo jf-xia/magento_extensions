@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+		<reference name="head">
+			<action method="addCss"><stylesheet>em_megamenupro/css/menu.css</stylesheet></action>
+			<action method="addJs"><script>em/jquery-1.8.3.min.js</script></action>
+			<action method="addJs"><script>em/jquery.ba-hashchange.min.js</script></action>
+			<!-- <action method="addJs"><script>em/jquery.touchwipe.min.js</script></action> -->
+			<action method="addItem"><type>skin_js</type><name>em_megamenupro/js/menu.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>em_megamenupro/js/ie7.js</name><params/><if>lt IE 8</if></action>
+        </reference>
+    </default>
+    <megamenupro_index_index>		
+        <reference name="content">
+            <block type="megamenupro/megamenupro" name="megamenupro" template="em_megamenupro/showmenu.phtml" />
+        </reference>
+    </megamenupro_index_index>
+</layout> 

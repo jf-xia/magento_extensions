@@ -1,0 +1,9 @@
+/*Backoffice Blueknow option*/
+ul.tabs a.blueknow-recommender-section,
+ul.tabs a.blueknow-recommender-section:hover { background:url(../../images/tabs_span_bg.gif) repeat-x 0 100%; border-bottom:none; padding:0.5em 0.5em 0.28em 1.5em; }
+ul.tabs a.blueknow-recommender-section:hover { background-color:#d8e6e6; }
+ul.tabs a.blueknow-recommender-section.active, ul.tabs a.blueknow-recommender-section.active:hover { background-color:#fff; }
+ul.tabs a.blueknow-recommender-section span,
+ul.tabs a.blueknow-recommender-section:hover span { background:url(../images/blueknow_logo_small.png) no-repeat 0 0; height:0; overflow:hidden; padding:18px 0 0; width:125px; }
+/*Backoffice Blueknow header*/
+h3.blueknow-recommender-header { background: url("../images/blueknow_logo.png") no-repeat scroll 0 0 transparent; height: 0; overflow: hidden; padding: 40px 0 0; width: 151px; }

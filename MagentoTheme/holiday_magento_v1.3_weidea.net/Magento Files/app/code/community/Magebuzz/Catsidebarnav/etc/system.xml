@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <magebuzz translate="label">
+            <label>PEER SYSTEM</label>
+            <sort_order>7</sort_order>
+        </magebuzz>
+    </tabs>
+	<sections>
+        <catsidebarnav translate="label" module="catsidebarnav">
+            <label>Category Sidebar Navigation</label>
+            <tab>magebuzz</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>299</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+			<groups>
+				<display_settings translate="label">
+                    <label>General Setting</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<enabled translate="label comment">
+							<label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</enabled>
+						<!--<position translate="label comment">
+							<label>Position of Sidebar</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>catsidebarnav/system_config_position</source_model>
+							<sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Display list category on left sidebar</comment>
+						</position>-->
+						<category_level translate="label comment">
+							<label>Category Depth</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Category level to show(0 - show all)</comment>
+						</category_level>
+						<show_type translate="label comment">
+							<label>Show Type</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>catsidebarnav/system_config_type</source_model>
+							<sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</show_type>	
+					</fields>
+				</display_settings>
+			</groups>
+		</catsidebarnav>
+    </sections>
+</config>

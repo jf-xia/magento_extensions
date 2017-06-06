@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <noovias_cron translate="label" module="noovias_cron">
+            <label>Cronjobs</label>
+            <tab>noovias_extensions</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>500</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general>
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <time_hanging translate="label">
+                            <label>Cronjob is hanging after</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Time in minutes</comment>
+                        </time_hanging>
+                        <time_long translate="label">
+                            <label>Cronjob is long running after</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Time in minutes</comment>
+                        </time_long>
+                    </fields>
+                </general>
+                <email_error translate="label" module="noovias_cron">
+                    <label>Email Exception</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <cronjob_expression tranlate="label">
+                            <label>Cron Expression</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Check Interval (e.g. "* * * * *" for every minute)</comment>
+                        </cronjob_expression>
+                        <from translate="label">
+                            <label>From</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </from>
+                        <to translate="label">
+                            <label>To</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </to>
+                        <copy_to translate="label comment">
+                            <label>Copy To</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>separate by ","</comment>
+                        </copy_to>
+                        <template translate="label">
+                            <label>Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </template>
+                    </fields>
+                </email_error>
+                <email_missed translate="label" module="noovias_cron">
+                    <label>Email Missed</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <cronjob_expression tranlate="label">
+                            <label>Cron Expression</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Check Interval (e.g. "* * * * *" for every minute)</comment>
+                        </cronjob_expression>
+                        <from translate="label">
+                            <label>From</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </from>
+                        <to translate="label">
+                            <label>To</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </to>
+                        <copy_to translate="label comment">
+                            <label>Copy To</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>separate by ","</comment>
+                        </copy_to>
+                        <template translate="label">
+                            <label>Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </template>
+                    </fields>
+                </email_missed>
+                <email_hanging translate="label" module="noovias_cron">
+                    <label>Email Hanging</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <cronjob_expression tranlate="label">
+                            <label>Cron Expression</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Check Interval (e.g. "* * * * *" for every minute)</comment>
+                        </cronjob_expression>
+                        <from translate="label">
+                            <label>From</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </from>
+                        <to translate="label">
+                            <label>To</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </to>
+                        <copy_to translate="label comment">
+                            <label>Copy To</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>separate by ","</comment>
+                        </copy_to>
+                        <template translate="label">
+                            <label>Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </template>
+                    </fields>
+                </email_hanging>
+                <email_long translate="label" module="noovias_cron">
+                    <label>Email Long</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <cronjob_expression tranlate="label">
+                            <label>Cron Expression</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Check Interval (e.g. "* * * * *" for every minute)</comment>
+                        </cronjob_expression>
+                        <from translate="label">
+                            <label>From</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </from>
+                        <to translate="label">
+                            <label>To</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </to>
+                        <copy_to translate="label comment">
+                            <label>Copy To</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>separate by ","</comment>
+                        </copy_to>
+                        <template translate="label">
+                            <label>Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </template>
+                    </fields>
+                </email_long>
+            </groups>
+        </noovias_cron>
+    </sections>
+</config>

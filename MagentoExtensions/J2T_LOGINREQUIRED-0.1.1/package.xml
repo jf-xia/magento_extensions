@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>J2T_LOGINREQUIRED</name>
+    <version>0.1.1</version>
+    <stability>stable</stability>
+    <license>OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Login required</summary>
+    <description>Requires login to access site</description>
+    <notes>Please install this module in development environment first. Test it and install it in production if you are happy with your tests.</notes>
+    <authors><author><name>Jonathan Techer</name><user>auto-converted</user><email>jon.techer@gmail.com</email></author></authors>
+    <date>2010-01-28</date>
+    <time>15:57:41</time>
+    <contents><target name="magecommunity"><dir name="J2t"><dir name="Loginrequired"><dir name="etc"><file name="config.xml" hash="10838023cfd85686bd92a11a63c67451"/><file name="system.xml" hash="f3c74029fd4c38c07d362e7e1607ca92"/></dir><dir name="Model"><file name="Observer.php" hash="ca256a6bbb34f45ab13d3ef349850cda"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="J2t_Loginrequired.xml" hash="e10791762c37bf008cfed349f5e6b317"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

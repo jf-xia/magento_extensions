@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+@category    Mana
+@package     ManaPro_FilterAjax
+@copyright   Copyright (c) http://www.manadev.com
+@license     http://www.manadev.com/license  Proprietary License
+ -->
+<!-- BASED ON SNIPPET: Static Visuals/Empty layout file -->
+<!-- This file defines the rules which should be applied when module manapro_filterajax is installed and active. Typically, 
+rules consists of the following parts:
+	1. 	You say on which types of pages you would like your changes to be applied (in Magento wording, you need to 
+		specify layout handle), for example, layout handle "catalog_category_layered" selects all pages where 
+		specific category products are shown and where layered navigation is enabled. Layout handle "default" selects
+		every each page rendered by Magento.
+	2. 	You say in which blocks you would like to make the changes (in Magento wording you reference parent block).
+	3.	You say what changes you would like to apply to that block (you could specify to remove child blocks, to add
+		your own blocks, to invoke methods on referenced block).
+Review standard Magento layout XML's for full list of available layout handles, blocks to be referenced, and for 
+examples on what kind of actions can be applied to referenced blocks. 
+ -->
+<layout version="0.1.0">
+	<catalog_category_layered> <!-- find all category pages with layered navigation -->
+		<update handle="jquery_core" />
+		<reference name="head">
+			<action method="addCss"><stylesheet>css/manapro_filterajax.css</stylesheet></action>
+            <action method="addJs"><script>jquery/history.adapter.jquery.js</script></action>
+            <action method="addJs"><script>jquery/history.js</script></action>
+            <action method="addJs"><script>manapro/filterajax.js</script></action>
+        	<action method="addItem"><type>skin_js</type><name>js/manapro_filterajax.js</name><params/></action>
+		</reference>
+		<reference name="before_body_end">
+            <block type="manapro_filterajax/update" name="m_ajax_update" before="m_js">
+				<action method="addBlock"><block>category.products</block></action>
+				<action method="addBlock"><block>mana.catalog.leftnav</block></action>
+            </block>
+		</reference>
+	</catalog_category_layered>
+	<manapro_filterajax_category_view>
+		<block type="page/html" name="root"><!-- for compatibility -->
+		    <block type="page/html_head" name="head" as="head" />
+		    <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
+		</block>
+		<block type="mana_filters/view" output="toHtml" name="mana.catalog.leftnav" template="catalog/layer/view.phtml" />
+		<block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
+	        <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+                <action method="addPriceBlockType"><type>bundle</type><block>bundle/catalog_product_price</block><template>bundle/catalog/product/price.phtml</template></action>
+                <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+	                <block type="page/html_pager" name="product_list_toolbar_pager"/>
+	            </block>
+	            <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+	            <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+	            <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+	            <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+	            <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+	            <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+	        </block>
+    	</block>
+    	<block type="mana_core/js" name="m_js" />
+        <block type="manapro_filterajax/update" name="m_ajax_update">
+			<action method="addBlock"><block>category.products</block></action>
+			<action method="addBlock"><block>mana.catalog.leftnav</block></action>
+        </block>
+	</manapro_filterajax_category_view>
+	<catalogsearch_result_index> <!-- find all catalog search result page -->
+		<update handle="jquery_core" />
+		<reference name="head">
+			<action method="addCss"><stylesheet>css/manapro_filterajax.css</stylesheet></action>
+            <action method="addJs"><script>jquery/history.adapter.jquery.js</script></action>
+            <action method="addJs"><script>jquery/history.js</script></action>
+            <action method="addJs"><script>manapro/filterajax.js</script></action>
+        	<action method="addItem"><type>skin_js</type><name>js/manapro_filterajax.js</name><params/></action>
+		</reference>
+		<reference name="before_body_end">
+            <block type="manapro_filterajax/update" name="m_ajax_update" before="m_js">
+				<action method="addBlock"><block>search.result</block></action>
+				<action method="addBlock"><block>mana.catalogsearch.leftnav</block></action>
+            </block>
+		</reference>
+	</catalogsearch_result_index>
+	<manapro_filterajax_search_index>
+		<block type="page/html" name="root"><!-- for compatibility -->
+			<block type="page/html_head" name="head" as="head">
+			</block>
+            <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
+		</block>
+        <block type="mana_filters/search" output="toHtml" name="mana.catalogsearch.leftnav" template="catalog/layer/view.phtml"/>
+        <block type="catalogsearch/result" name="search.result" template="catalogsearch/result.phtml">
+            <block type="catalog/product_list" name="search_result_list" template="catalog/product/list.phtml">
+                <action method="addPriceBlockType"><type>bundle</type><block>bundle/catalog_product_price</block><template>bundle/catalog/product/price.phtml</template></action>
+                <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+	                <block type="page/html_pager" name="product_list_toolbar_pager"/>
+	            </block>
+                <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+	            <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+            </block>
+            <action method="setListOrders"/>
+            <action method="setListModes"/>
+            <action method="setListCollection"/>
+        </block>
+    	<block type="mana_core/js" name="m_js" />
+        <block type="manapro_filterajax/update" name="m_ajax_update">
+			<action method="addBlock"><block>search.result</block></action>
+			<action method="addBlock"><block>mana.catalogsearch.leftnav</block></action>
+        </block>
+	</manapro_filterajax_search_index>
+</layout>

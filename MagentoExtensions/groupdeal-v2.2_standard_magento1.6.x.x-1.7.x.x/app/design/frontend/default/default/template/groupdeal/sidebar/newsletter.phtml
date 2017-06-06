@@ -1,0 +1,53 @@
+<div class="block block-subscribe newsletter">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Newsletter') ?></span></strong>
+    </div>
+    
+    <div class="block-content">
+	<?php if($this->isShowNewsletterFormInSidebar()){?>
+    	<?php $this->setNewsleterUrl()?>
+    	<?php $categories = $this->getCategories()?>
+        <form action="<?php echo $this->getUrl('groupdeal/index/newsletter')?>" id="newsletter-form" method="post">
+        <ul class="form-list">
+        	<li class="item">
+            	<label><?php echo $this->__('Select categories') ?></label>
+               	<select name="category_ids[]" multiple="multiple">
+					<?php foreach ($this->getStoreCategories() as $_category){?>
+                    	<option value="<?php echo $_category->getId() ?>" selected="selected">
+							<?php echo $this->htmlEscape($_category->getName()) ?>
+                        </option>
+                    	<?php $output = $this->drawChildren($_category); echo  $output; ?>
+                    <?php }?>
+                </select>
+			</li>
+            <li class="item">
+                <label class="required"><em>*</em><?php echo $this->__('Email') ?></label>
+                <input class="required-entry validate-email" type="text" name="email" size="28" />
+            </li>
+            <li class="item">
+                <label><strong><?php echo $this->__('Price From') ?></strong></label>
+                <input type="text" name="price_from" size="28" />
+            </li>
+            <li class="item">
+                <label><strong><?php echo $this->__('Price To') ?></strong></label>
+                <input type="text" name="price_to" size="28" />
+            </li>
+        </ul>
+        <div class="actions block-compare">
+            <button class="button" title="<?php echo $this->__('Subscribe') ?>" type="submit">
+                <span><span><?php echo $this->__('Subscribe')?></span></span>
+            </button>
+        </div>
+       	</form>
+       	<script type="text/javascript">
+		var newsletterForm = new VarienForm('newsletter-form');
+		</script>
+	<?php }else{?>
+		<div class="actions block-compare">
+            <button class="button" title="<?php echo $this->__('Subscribe') ?>" type="button" onclick="setLocation('<?php echo $this->getUrl('groupdeal/index/subscribe') ?>')">
+                <span><span><?php echo $this->__('Subscribe')?></span></span>
+            </button>
+        </div>
+	<?php }?>
+    </div>
+</div>

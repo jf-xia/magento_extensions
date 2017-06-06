@@ -1,0 +1,90 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php if($this->hasMethods()): ?>
+<div id="order-billing_method_form">
+    <dl class="payment-methods">
+    <?php
+        $_methods       = $this->getMethods();        
+        $_methodsCount  = count($_methods);        
+        $_counter = 0;
+
+        $customerId = Mage::getSingleton('adminhtml/session_quote')->getCustomerId();
+        $websiteId = Mage::app()->getStore(Mage::getSingleton('adminhtml/session_quote')->getStoreId())->getWebsiteId();
+        $quote = Mage::getSingleton('adminhtml/session_quote')->getQuote();
+        
+        $isPartial = Mage::helper('customercredit')->isPartialPayment($quote, $customerId, $websiteId);
+        $isCheckedCustomercredit = Mage::getSingleton('checkout/session')->getUseInternalCredit();
+        if (!$isCheckedCustomercredit) $isCheckedCustomercredit = Mage::getSingleton('adminhtml/session_quote')->getUseInternalCredit();
+    ?>
+    <?php foreach ($_methods as $_method): $_code = $_method->getCode(); $_counter++; ?>
+        <dt>
+        <?php if ($_methodsCount > 1): ?>
+            <?php if ($_code == 'customercredit' && $isPartial==1): ?>
+                <input id="p_method_<?php echo $_code ?>" value="1" type="checkbox" name="payment[use_internal_credit]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" onclick="creditPayment.switchPMethod('<?php echo $_code ?>'); creditPayment.enableCheckbox();"<?php if ($isCheckedCustomercredit) { ?> checked="checked"<?php } ?> />
+            <?php elseif ($_code == 'customercredit' && $isPartial==-1): ?>
+                <input id="p_method_<?php echo $_code ?>_disabled" disabled="disabled" value="1" type="checkbox" name="payment[use_internal_credit]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" />
+            <?php elseif($_code == 'customercredit' && $isPartial==0): ?>
+                <input id="p_method_<?php echo $_code ?>_disabled" disabled="disabled" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" <?php if ($_counter == $_methodsCount) : ?>class="validate-one-required-by-name"<?php endif;?>/>
+            <?php else: ?>
+                <input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" onclick="creditPayment.switchPMethod('<?php echo $_code ?>'); creditPayment.enableCheckbox();"<?php if($this->getSelectedMethodCode()==$_code): ?> checked="checked"<?php endif; ?> <?php if ($_counter == $_methodsCount) : ?>class="validate-one-required-by-name"<?php endif;?>/>
+            <?php endif; ?>
+        <?php else :?>
+            <span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" checked="checked" /></span>
+        <?php endif;?>
+            <label for="p_method_<?php echo $_code ?>"><?php echo $_method->getTitle() ?></label>
+        </dt>
+        <dd>
+            <?php echo $this->getChildHtml('payment.method.'.$_code) ?>
+        </dd>
+    <?php endforeach; ?>
+    </dl>
+</div>
+<script type="text/javascript">
+    order.setPaymentMethod('<?php echo $this->getSelectedMethodCode() ?>')    
+    creditPayment = {
+        switchPMethod: function(code) {
+            el = $('p_method_customercredit');
+            if(el && el.checked == true){
+                code = 'customercredit';
+            } else {
+                if(code == 'customercredit'){
+                    code = '';
+                }
+            }
+            payment.switchMethod(code);
+        },        
+        enableCheckbox: function () {
+            var el = $('p_method_customercredit');
+            if (el) el.disabled = false;        
+        }        
+    }    
+    creditPayment.switchPMethod('customercredit');
+    creditPayment.enableCheckbox();
+</script>
+<?php else: ?>
+    <?php echo Mage::helper('sales')->__('No Payment Methods') ?>
+<?php endif; ?>

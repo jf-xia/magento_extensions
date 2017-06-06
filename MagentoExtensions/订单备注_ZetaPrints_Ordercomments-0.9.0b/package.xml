@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+    <name>ZetaPrints_Ordercomments</name>
+    <version>0.9.0b</version>
+    <stability>beta</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Enables 2-way comments for orders with logging.</summary>
+    <description>This extension enables 2-way comments in order details screen. The default Magento implementation allows admins to make comments and make them visible to the customer, but the customer cannot place a comment in response. Our extension enables a proper conversation with all comments logged in a chronological order.&#xD;
+All comments placed by the customer are emailed to the list of recipients for a new order.&#xD;
+The extension is free and provided "as is" with no warranties or liabilities.&#xD;
+Do not install on a production site without testing.</description>
+    <notes>Pretty much done here.</notes>
+    <authors><author><name>Petar Dzhambazov</name><user>auto-converted</user><email>jamby77@gmail.com</email></author></authors>
+    <date>2011-04-07</date>
+    <time>12:11:56</time>
+    <contents><target name="magecommunity"><dir name="ZetaPrints"><dir name="Ordercomments"><dir name="Block"><dir name="Form"><file name="Front.php" hash="0a0e2de602819d691553b5eb5bcc7bf4"/></dir></dir><dir name="Helper"><file name="Data.php" hash="0eb7a1c3d5d8d8313eb50f0fe26edf45"/></dir><dir name="Model"><dir name="Mysql4"><dir name="Comment"><file name="Collection.php" hash="d128a05c80ea25b04173afc982d114a4"/></dir><file name="Comment.php" hash="54873acdc06dfa4a80a267514a89c102"/></dir><dir name="Resource"><file name="Setup.php" hash="2bea66aceeda2b772cb2476d082cf678"/></dir><file name="Comment.php" hash="ceb1dcd1122a363a9af5c4ce7a60300a"/><file name="History.php" hash="9bef4c9c02b25f618220845bf0df26f0"/></dir><dir name="controllers"><file name="IndexController.php" hash="50d0cc29cfe66132d32643987f18a5ce"/></dir><dir name="etc"><file name="config.xml" hash="cbe980ede39cbdd5624fc0a4f0febf07"/></dir><dir name="sql"><dir name="ordercomments_setup"><file name="mysql4-install-0.1.0.php" hash="9ff58c6becfedec58a539b69be1858a7"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="ordercomments.xml" hash="7188f516ee9d40516b0a4025b0e84367"/></dir></dir></dir></dir><dir name="frontend"><dir name="default"><dir name="default"><dir name="template"><dir name="ordercomments"><dir name="form"><file name="front.phtml" hash="e2f2dc6dd2a27da5c0bfd8a0526f6c19"/></dir></dir></dir><dir name="layout"><file name="ordercomments.xml" hash="f5b25e90f01992221ace3703cf022436"/></dir></dir></dir></dir></target><target name="mageskin"><dir name="adminhtml"><dir name="default"><dir name="default"><file name="ordercomments.css" hash="4adcfeaa83dfe15cfda828d536602f97"/></dir></dir></dir><dir name="frontend"><dir name="default"><dir name="default"><dir name="css"><file name="ordercomments.css" hash="775391c251e8ca8dd80f7ff549d71962"/></dir></dir></dir></dir></target><target name="mageweb"><dir name="js"><dir name="custom"><file name="ordercomments.js" hash="dff0852a28061d21d5bb3e415a368ca2"/><file name="ordercomments_admin.js" hash="1e9189335357c1ec724a0890e9d9159c"/></dir></dir></target><target name="mageetc"><dir name="modules"><file name="ZetaPrints_Ordercomments.xml" hash="67963e3b761c874d3df46897c0127fb2"/></dir></target><target name="magelocale"><dir name="en_US"><dir name="template"><dir name="email"><dir name="sales"><file name="zp_order_update.html" hash="f678faafb4b0927829a78a40b76a028f"/><file name="zp_order_update_guest.html" hash="bd3d77e3ae30abfb712d2307796720f0"/></dir><file name="customer_order_template.html" hash="ccce689b6e9b5de81bed64464d284f2a"/></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

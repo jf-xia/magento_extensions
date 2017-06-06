@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Webguys_CustomerNavigation>
+            <version>0.8.0.1</version>
+        </Webguys_CustomerNavigation>
+    </modules>
+
+    <global>
+        <blocks>
+			<customer>
+				<rewrite>
+					<account_navigation>Webguys_CustomerNavigation_Block_Account_Navigation</account_navigation>
+				</rewrite>
+			</customer>
+        </blocks>         
+        <helpers>
+            <customernavigation>
+                <class>Webguys_CustomerNavigation_Helper</class>
+            </customernavigation>
+        </helpers>
+    </global>
+    
+    <adminhtml>
+		<translate>
+            <modules>
+                <Webguys_CustomerNavigation>
+                    <files>
+                        <default>Webguys_CustomerNavigation.csv</default>
+                    </files>
+                </Webguys_CustomerNavigation>
+            </modules>
+        </translate> 
+    
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <customernavigation translate="title" module="customernavigation">
+                                            <title>Customer Navigation</title>
+                                        </customernavigation>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>     
+    </adminhtml>
+    
+	<default>
+        <customernavigation>
+            <settings>
+				<show_account>false</show_account>
+				<show_account_edit>false</show_account_edit>
+				<show_address_book>false</show_address_book>
+				<show_orders>false</show_orders>
+				<show_billing_agreements>false</show_billing_agreements>
+				<show_recurring_profiles>false</show_recurring_profiles>
+				<show_reviews>false</show_reviews>
+                <show_tags>false</show_tags>
+                <show_wishlist>false</show_wishlist>
+                <show_downloadable_products>false</show_downloadable_products>
+				<show_newsletter>false</show_newsletter>
+			</settings>
+			<reorder>	
+				<position_account>10</position_account>
+				<position_account_edit>20</position_account_edit>
+				<position_address_book>30</position_address_book>
+				<position_orders>40</position_orders>
+				<position_billing_agreements>50</position_billing_agreements>
+				<position_recurring_profiles>60</position_recurring_profiles>
+				<position_reviews>70</position_reviews>
+                <position_tags>80</position_tags>
+                <position_wishlist>90</position_wishlist>
+                <position_downloadable_products>100</position_downloadable_products>
+				<position_newsletter>110</position_newsletter>
+            </reorder>
+        </customernavigation>
+    </default>    
+</config>

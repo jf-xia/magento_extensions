@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="send_goods_confirm_by_platform_jsp_gb"
+  id="myeclipse.1306252794451"
+  context-root="/send_goods_confirm_by_platform_jsp_gb"
+  j2ee-spec="5.0"
+  archive="send_goods_confirm_by_platform_jsp_gb.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

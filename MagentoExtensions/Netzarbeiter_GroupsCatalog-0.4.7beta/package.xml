@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<package>
+    <name>Netzarbeiter_GroupsCatalog</name>
+    <version>0.4.7beta</version>
+    <stability>beta</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension enables you to hide categories and products from customers&#xD;
+depending on the customer group.</summary>
+    <description>This extension enables you to hide categories and products from customers&#xD;
+depending on the customer group.&#xD;
+You can specify a default for all categories and products under&#xD;
+System / Catalog / Customer Groups Catalog&#xD;
+&#xD;
+There you can also choose to disable the extension.&#xD;
+The default after installation is no categories or products are hidden.&#xD;
+You can override the default from te configuration in the Product Management&#xD;
+and Category Management pages.&#xD;
+&#xD;
+You can also set the products visible to a customers group on the "Visible Products" Tab&#xD;
+when editing customers.&#xD;
+&#xD;
+If you have 20 or more groups and complex configurations, you may want to enable the&#xD;
+dynamic field resize feature in the config settings, so the extension can grow the field&#xD;
+size when needed. This feature is turned off by default as a safety precaution, because&#xD;
+it is changing a core magento database table.</description>
+    <notes>This extension enables you to hide categories and products from customers&#xD;
+depending on the customer group.&#xD;
+You can specify a default for all categories and products under&#xD;
+System / Catalog / Customer Groups Catalog&#xD;
+&#xD;
+There you can also choose to disable the extension.&#xD;
+&#xD;
+The default after installation is no categories or products are hidden.&#xD;
+You can override the default from te configuration in the Product Management&#xD;
+and Category Management pages.&#xD;
+&#xD;
+You can also set the products visible to a customers group on the "Visible Products" Tab&#xD;
+when editing customers.&#xD;
+&#xD;
+If you have 20 or more groups and complex configurations, you may want to enable the&#xD;
+dynamic field resize feature in the config settings, so the extension can grow the field&#xD;
+size when needed. This feature is turned off by default as a safety precaution, because&#xD;
+it is changing a core magento database table.&#xD;
+&#xD;
+This extension is a lot more flexible then the Netzarbeiter_LoginCatalog and&#xD;
+Netzarbeiter_CustomerActivation modules, but it is also more complex.&#xD;
+I suggest not installing this extension together with Netzarbeiter_LoginCatalog,&#xD;
+as that doesn't really make sense.&#xD;
+&#xD;
+&#xD;
+If you ever uninstall the extension (I don't hope so ;)) your site will be broken, because&#xD;
+Magento doesn't support a mechanism to remove attributes with an extension, and this&#xD;
+extension uses source models.&#xD;
+To fix the Error, you have to execute the following SQL:&#xD;
+&#xD;
+   DELETE FROM `eav_attribute` where attribute_code like 'groupscatalog%';   &#xD;
+   DELETE FROM `core_resource` where code = 'groupscatalog_setup';&#xD;
+&#xD;
+Don't forget to clear the cache, afterwards.</notes>
+    <authors><author><name>Vinai Kopp</name><user>auto-converted</user><email>vinai@netzarbeiter.com</email></author></authors>
+    <date>2011-06-29</date>
+    <time>11:25:13</time>
+    <contents><target name="magecommunity"><dir name="Netzarbeiter"><dir name="GroupsCatalog"><dir name="Block"><dir name="Adminhtml"><dir name="Catalog"><dir name="Product"><dir name="Helper"><file name="Customergroups.php" hash="4df9100ae6de3f466dc086c8ddafd479"/></dir></dir></dir><dir name="Customer"><dir name="Edit"><dir name="Tab"><file name="Visibleproducts.php" hash="c978acc5e5132adce43c154cf9d80242"/></dir><file name="Tabs.php" hash="b0ff4107ae7cea808eebd1a8f670cbe2"/></dir></dir><dir name="Widget"><dir name="Grid"><dir name="Column"><dir name="Renderer"><file name="Visible.php" hash="26fcef153c956a79279f67d4d46bf6a3"/></dir></dir></dir></dir></dir><dir name="Layer"><file name="View.php" hash="5a441bb95bc16c702e0396b09b26d8fe"/></dir><file name="Navigation.php" hash="75673af31384e3f031453990df612f8b"/></dir><dir name="Helper"><file name="Category.php" hash="f1493d631b5faed11633fde43dd57ce2"/><file name="Data.php" hash="f3be5bb8041a1f952ae3d992f3fe87d6"/><file name="Product.php" hash="a1e8ca75be976053d918758613e96c5b"/></dir><dir name="Model"><dir name="Catalog"><dir name="Resource"><dir name="Eav"><dir name="Mysql4"><dir name="Category"><file name="Flat.php" hash="d591bf399a1cc57efdc66659c98b9b79"/></dir></dir></dir></dir><file name="Layer.php" hash="9688562ca6515134e71126265168ad30"/></dir><dir name="CatalogSearch"><dir name="Mysql4"><dir name="Advanced"><file name="Collection.php" hash="27218376a81d7283a820f710bb94f1fb"/></dir></dir><file name="Layer.php" hash="77bdca366185d0b5eee0cf224e7f069a"/></dir><dir name="Config"><dir name="Data"><file name="Customergroups.php" hash="03669d1842a63365aaa56fca9a829936"/></dir><dir name="Source"><dir name="Customergroups"><file name="Category.php" hash="f15f18999abc1f840e6720785c0fa1b0"/><file name="Product.php" hash="3d55ec0efdb173ab02d29c606be4d9d1"/></dir><file name="Customergroups.php" hash="d8453d2ae75989f0a3b3c879507c364d"/><file name="HiddenRedirect.php" hash="b899be5d6a7fc04550663432b61c2864"/></dir></dir><dir name="Entity"><dir name="Attribute"><dir name="Backend"><file name="Customergroups.php" hash="c71e7617615fbd27b3e4454cfe4598d5"/></dir></dir></dir><dir name="Resource"><dir name="Sitemap"><dir name="Mysql4"><file name="Category.php" hash="39e6ea2a882a4815780d49ab33a70631"/><file name="Product.php" hash="0f48163f6dea000ae7c377b05b3dbd40"/></dir></dir><file name="Setup.php" hash="6cf66e668473383b1adfabdfddc53938"/></dir><file name="Observer.php" hash="9f7145e91cb1f73a57ce90fe7ae74b6f"/></dir><dir name="controllers"><dir name="Override"><dir name="Adminhtml"><file name="CustomerController.php" hash="768a076b8f26c6999812aa4f1d0820e9"/></dir></dir></dir><dir name="etc"><file name="config.xml" hash="66c3cd4419b6420f912d9bb84babf892"/><file name="system.xml" hash="b713aad04bd1919340f3c2d1a919b81e"/></dir><dir name="sql"><dir name="groupscatalog_setup"><file name="mysql4-install-0.1.0.php" hash="5cb1264ca101ad389cb52881ef61026a"/><file name="mysql4-upgrade-0.2.2-0.2.3.php" hash="ae54119dc8aa17f909ce074a11a77fb2"/><file name="mysql4-upgrade-0.2.8-0.2.9.php" hash="e3f89a30715bd07145ddf2dea4ed6cc5"/><file name="mysql4-upgrade-0.3.2-0.3.3.php" hash="268271a03e34e656325c4b81c0b0e26e"/><file name="mysql4-upgrade-0.3.3-0.3.4.php" hash="14108f3e7f7c72b154db2c723add5bff"/><file name="mysql4-upgrade-0.3.5-0.3.6.php" hash="aea0ca73f50a2d95bcadb716cac80f62"/><file name="mysql4-upgrade-0.3.6-0.3.7.php" hash="99bc1fc2cf6e5b0770b4fabd098af43b"/></dir></dir><file name="README.txt" hash="9517efcfee179d3645c297c788b2ce53"/></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Netzarbeiter_GroupsCatalog.xml" hash="013006160a58fbe750169a15fad66a8b"/></dir></target><target name="magelocale"><dir name="en_US"><file name="Netzarbeiter_GroupsCatalog.csv" hash="34eb58fce7a86cbd374a0f29da27071b"/></dir><dir name="de_DE"><file name="Netzarbeiter_GroupsCatalog.csv" hash="0b7b3a4657f858c2a0788f4625f2e775"/></dir><dir name="fr_FR"><file name="Netzarbeiter_GroupsCatalog.csv" hash="5e547e38243e3c4bd521891ab2662c36"/></dir><dir name="nl_NL"><file name="Netzarbeiter_GroupsCatalog.csv" hash="b7182e138307686862224b851de17fc7"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

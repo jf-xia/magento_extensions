@@ -1,0 +1,30 @@
+.cm-s-default span.cm-keyword {color: #708;}
+.cm-s-default span.cm-atom {color: #219;}
+.cm-s-default span.cm-number {color: #164;}
+.cm-s-default span.cm-def {color: #00f;}
+.cm-s-default span.cm-variable {color: black;}
+.cm-s-default span.cm-variable-2 {color: #05a;}
+.cm-s-default span.cm-variable-3 {color: #0a5;}
+.cm-s-default span.cm-property {color: black;}
+.cm-s-default span.cm-operator {color: black;}
+.cm-s-default span.cm-comment {color: #a50;}
+.cm-s-default span.cm-string {color: #a11;}
+.cm-s-default span.cm-string-2 {color: #f50;}
+.cm-s-default span.cm-meta {color: #555;}
+.cm-s-default span.cm-error {color: #f00;background-color:yellow;font-wieght:bold;}
+.cm-s-default span.cm-qualifier {color: #555;}
+.cm-s-default span.cm-builtin {color: #30a;}
+.cm-s-default span.cm-bracket {color: #cc7;}
+.cm-s-default span.cm-tag {color: #170;}
+.cm-s-default span.cm-attribute {color: #00c;}
+/* dfm syntax*/
+ span.cm-dfm{ color: red; background:yellow;}
+ span.red{color: red; font-weight: bold;background:white}
+ span.pink{color: #FF1493; font-weight: bold;background:white}
+ span.purple{color: purple; font-weight: bold;background:white}
+ span.orange{color: orange; font-weight: bold;border-bottom:1px dotted orange;background:white}
+ span.blue{color: #006699; font-weight: bold;background:white}
+ span.orangered{color: orangered; font-weight: bold;background:white}
+ span.green{color: green; font-weight: bold;background:white}
+ span.grey{color: grey; font-weight: bold;background:white}
+ span.underline{background:yellow;background:white}

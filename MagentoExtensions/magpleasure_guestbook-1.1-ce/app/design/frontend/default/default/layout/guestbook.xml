@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+    <default>
+        <reference name="top.links">
+            <block type="guestbook/menu_item" name="guestbook_item_top">
+                <action method="addGuestbookLink"></action>
+            </block>
+        </reference>
+        <reference name="footer_links">
+            <block type="guestbook/menu_item" name="guestbook_item_footer">
+                <action method="addGuestbookLink"></action>
+            </block>
+        </reference>
+        <reference name="head">
+            <action method="addCss"><styles>guestbook/css/styles.css</styles></action>
+        </reference>
+    </default>    
+    <guestbook_index_index>
+        <reference name="head">
+            <action method="addCss"><styles>guestbook/css/styles.css</styles></action>
+            <action method="addJs"><styles>guestbook/comments.js</styles></action>
+            <action method="addJs"><styles>scriptaculous/effects.js</styles></action>
+            <block type="mpblog/rss_wrapper" name="mpblog.rss.wrapper" as="mpblog_rss_wrapper"  />
+        </reference>
+
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+
+        <reference name="content">
+            <block type="guestbook/comments" name="guestbook_comments" >
+                <block type="page/html_pager" name="guestbook_list_toolbar"/>
+            </block>
+        </reference>
+    </guestbook_index_index>
+</layout>   
+	

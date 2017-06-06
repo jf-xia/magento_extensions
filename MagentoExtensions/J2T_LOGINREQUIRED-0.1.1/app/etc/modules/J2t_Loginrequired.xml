@@ -1,0 +1,8 @@
+<config>
+  <modules>
+    <J2t_Loginrequired>
+      <active>true</active>
+      <codePool>community</codePool>
+    </J2t_Loginrequired>
+  </modules>
+</config>

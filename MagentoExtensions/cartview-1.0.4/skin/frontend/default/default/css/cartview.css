@@ -1,0 +1,4 @@
+#cartview { float: left; position: relative;}
+#cartview-link { overflow: hidden; text-align: right; }
+#cartview-panel { width: 250px; position: absolute; right: 0; text-align: left; z-index: 10;}
+#cartview-panel .block-title { display: none }

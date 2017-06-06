@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Rewardpoints>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Adminhtml />
+                <Mage_Catalog />
+                <Mage_Checkout />
+                <Mage_Sales />
+            </depends>
+        </Rewardpoints>
+    </modules>
+</config>

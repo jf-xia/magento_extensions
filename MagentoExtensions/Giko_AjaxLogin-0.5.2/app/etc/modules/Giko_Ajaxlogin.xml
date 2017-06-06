@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Giko_Ajaxlogin>
+			<active>true</active>
+			<codePool>community</codePool>
+			<depends>
+				<Mage_Checkout />
+			</depends>
+		</Giko_Ajaxlogin>
+	</modules>
+</config>

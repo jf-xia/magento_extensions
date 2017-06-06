@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Edev_Priceformat>
+             <version>1.0</version>
+        </Edev_Priceformat>
+    </modules>
+	<global>
+		<models>
+			<directory>
+				<rewrite>
+					<currency>Edev_Priceformat_Model_Formater</currency>
+				</rewrite>
+			</directory>
+		</models>
+	</global>
+	<default>
+		<priceformat>
+			<format>
+				<price_postfix>,-</price_postfix>
+			</format>
+		</priceformat>
+	</default>
+	<frontend>
+		<layout>
+		  <updates>
+			  <priceformat module="Edev_Priceformat">
+				  <file>priceformat.xml</file>
+			  </priceformat>
+		  </updates>
+		</layout>
+		<routers>
+			<priceformat>
+				<use>standard</use>
+				<args>
+					<module>Edev_Priceformat</module>
+					<frontName>priceformat</frontName>
+				</args>
+			</priceformat>
+		</routers>
+	</frontend>
+</config>

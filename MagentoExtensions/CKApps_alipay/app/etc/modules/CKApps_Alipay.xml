@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <CKApps_Alipay>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Payment/>
+            </depends>
+        </CKApps_Alipay>
+    </modules>
+</config>

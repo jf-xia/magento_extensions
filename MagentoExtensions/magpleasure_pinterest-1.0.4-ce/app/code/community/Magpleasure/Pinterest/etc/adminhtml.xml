@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <translate>
+        <modules>
+            <Magpleasure_Pinterest>
+                <files>
+                    <default>Magpleasure_Pinterest.csv</default>
+                </files>
+            </Magpleasure_Pinterest>
+        </modules>
+    </translate>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <mppinterest>
+                                        <title>Pinterest Integration</title>
+                                    </mppinterest>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

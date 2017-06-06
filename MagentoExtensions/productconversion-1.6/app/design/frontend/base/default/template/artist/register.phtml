@@ -1,0 +1,46 @@
+<div class="account-create">
+<div class="page-title">
+    <h1><?php echo $this->__('Artist Register') ?></h1>
+</div>
+<div class="login-box">
+<form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
+  <div class="fieldset">
+  <div class="content">
+ <ul class="form-list">
+ <li>
+        <label for="firstname"><?php echo $this->__('First Name') ?> <span class="required">*</span></label><br />
+                        <input name="firstname" value="" title="<?php echo $this->__('First Name') ?>" id="firstname" type="text" class="input-text required-entry" style="width:250px;" />
+                    </li>
+					
+		<li>
+        <label for="lastname"><?php echo $this->__('Last Name') ?> <span class="required">*</span></label><br />
+                        <input name="lastname" value="" title="<?php echo $this->__('Last Name') ?>" id="lastname" type="text" class="input-text required-entry" style="width:250px;" />
+                    </li>
+					
+					
+		<li>
+        <label for="email"><?php echo $this->__('Email') ?> <span class="required">*</span></label><br />
+                        <input name="email" value="" title="<?php echo $this->__('Email') ?>" id="email" type="text" class="input-text required-entry validate-email" style="width:250px;" />
+                    </li>
+					
+		<li>
+        <label for="password"><?php echo $this->__('Password') ?> <span class="required">*</span></label><br />
+                        <input name="password" value="" title="<?php echo $this->__('Password') ?>" id="password" type="password" class="input-text required-entry" style="width:250px;" />
+                    </li>
+								
+                <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+ </div> 
+    <div class="button-set">
+        
+        <button class="button" type="submit" name="send" id="send2"><span><?php echo $this->__('Register') ?></span></button>
+      </div>
+					</div>
+	</form>				
+				</div>
+				
+				
+				<script type="text/javascript">
+    var dataForm = new VarienForm('login-form', true);
+
+</script>
+</div>

@@ -1,0 +1,21 @@
+<?php
+	/*Get the current product*/
+	$_product = $this->getProduct();
+	
+	/*Get the current product price*/
+	$_productPrice = $this->getProductPrice();
+	
+	/*Get the current product URL*/
+	$cUrl = $this->getPUrl();
+	
+	/*Get the current product image URL*/
+	$cMedia = $this->getMedia();
+	
+	/*Get the current product description*/
+	$cDesc = $this->getDesc();
+	
+	/*Get the current product count on Pinterest*/
+	$count = $this->getCount();
+?>
+<a href="http://pinterest.com/pin/create/button/?url=<?=$cUrl?>&media=<?=$cMedia?>&description=<?=$cDesc?>" class="pin-it-button" count-layout="<?=$count?>">Pin It</a>
+<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>

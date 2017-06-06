@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<config>
+      <modules>
+        <Topbuy_Addons>
+          <version>0.1.2</version>
+        </Topbuy_Addons>
+      </modules>
+	  <frontend>
+      <routers>
+        <addons>
+          <use>standard</use>
+         <args>
+           <module>Topbuy_Addons</module>
+           <frontName>addons</frontName>
+         </args>
+        </addons>
+      </routers>
+        <secure_url>
+            <addons_warranty>/addons/warranty</addons_warranty>
+        </secure_url>
+	  <layout>
+          <updates>
+              <addons>
+                  <file>addons.xml</file>
+              </addons>
+          </updates>
+      </layout>
+    </frontend>
+   <global>
+
+   
+   
+      <helpers>
+       <addons>
+           <class>Topbuy_Addons_Helper</class>
+       </addons>
+      </helpers>   
+
+	  <blocks><addons><class>Topbuy_Addons_Block</class></addons></blocks>
+	         <models>
+            <addons>
+                <class>Topbuy_Addons_Model</class>
+                <resourceModel>addons_mysql4</resourceModel>
+            </addons>
+            <addons_mysql4>
+                <class>Topbuy_Addons_Model_Mysql4</class>
+                <entities>
+                    <csgroup>
+                        <table>tb_csgroup</table>
+                    </csgroup>
+                    <csgroupproduct>
+                        <table>tb_csgroupproduct</table>
+                    </csgroupproduct>
+                    <csproductmap>
+                        <table>tb_csproductmap</table>
+                    </csproductmap>
+                    <warrantymap>
+                        <table>tb_warrantymap</table>
+                    </warrantymap>
+                    <warrantyregisterrecord>
+                        <table>tb_warrantyrecord</table>
+                    </warrantyregisterrecord>
+                </entities>
+            </addons_mysql4>
+        </models>
+        <resources>
+            <addons_setup>
+                <setup>
+                    <module>Topbuy_Addons</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </addons_setup>
+            <addons_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </addons_write>
+            <addons_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </addons_read>			
+        </resources>
+        <template>
+            <email>
+                <addons_email_warranty translate="label" module="addons">
+                    <label>Warranty Registration</label>
+                    <file>custom_email_warranty.html</file>
+                    <type>html</type>
+                </addons_email_warranty>
+                <addons_email_bug translate="label" module="addons">
+                    <label>Bug Coupon</label>
+                    <file>addons_email_bug.html</file>
+                    <type>html</type>
+                </addons_email_bug>
+            </email>
+        </template>
+   </global> 
+   
+    <default>
+        <addons>
+           <email>
+               <enabled>1</enabled>
+               <template>addons_email_warranty</template>               
+               <identity>addons</identity>          
+           </email>
+        </addons>
+    </default>
+
+</config> 

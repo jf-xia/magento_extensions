@@ -1,0 +1,93 @@
+"Credit Balance was refilled with %s successfully using Recharge Code ""%s"".","Credit Balance was refilled with %s successfully using Recharge Code ""%s""."
+"excluding separators, prefix and suffix","excluding separators, prefix and suffix"
+%d Recharge Code(s) was successfully generated,%d Recharge Code(s) was successfully generated
+A negative value subtracts from the credit balance,A negative value subtracts from the credit balance
+Action Log,Action Log
+Action,Action
+Activity Log,Activity Log
+Added/Deducted,Added/Deducted
+Adjust Credit,Adjust Credit
+Alphabetical,Alphabetical
+Alphanumeric,Alphanumeric
+By Customer #%s,By Customer #%s
+By Recharge Code %s,By Recharge Code %s
+Canceled,Canceled
+Character Group Length,Character Group Length
+Character Group Separator,Character Group Separator
+Code Format,Code Format
+Code Length,Code Length
+Code was successfully deleted,Code was successfully deleted
+Code,Code
+Comment,Comment
+Created,Created
+Credit activity is empty.,Credit activity is empty.
+Credit Balance,Credit Balance
+Credit Rule "%s" In Order #%s,Credit Rule "%s" In Order #%s
+Credit Rule,Credit Rule
+Credit Rule(s) In Order #%s,Credit Rule(s) In Order #%s
+Credit Rule(s) Order #%s; \nCreditmemo #%s,Credit Rule(s) Order #%s; \nCreditmemo #%s
+Credit Value,Credit Value
+Credit,Credit
+Creditmemo not set.,Creditmemo not set.
+Customer Credit - General Settings,Customer Credit - General Settings
+Customer Credit - Recharge Codes Settings,Customer Credit - Recharge Codes Settings
+Customer credit hasn't assigned.,Customer credit hasn't assigned.
+Customer Credit should be enabled,Customer Credit should be enabled
+Customer Credit,Customer Credit
+Customer ID is not set,Customer ID is not set
+Date Expire,Date Expire
+Date Start,Date Start
+Details,Details
+Edit Recharge Code: %s,Edit Recharge Code: %s
+Enable Customer Credit,Enable Customer Credit
+Enable Recharge Codes,Enable Recharge Codes
+End Date should be greater than Start Date,End Date should be greater than Start Date
+Enter Recharge Code to Refill the Balance:,Enter Recharge Code to Refill the Balance:
+Error occur while refilling the credit.,Error occur while refilling the credit.
+From Date,From Date
+Generate New Recharge Codes,Generate New Recharge Codes
+Generate Recharge Codes,Generate Recharge Codes
+Generate,Generate
+groups not used if empty,groups not used if empty
+groups not used if empty,groups not used if empty
+ID,ID
+In Order #%s,In Order #%s
+Internal Credit,Internal Credit
+Is Active,Is Active
+Last Used,Last Used
+MageWorx &gt; Customers,MageWorx &gt; Customers
+Manage Recharge Codes,Manage Recharge Codes
+Modified On,Modified On
+Modified,Modified
+My Credit Activity,My Credit Activity
+My Credit,My Credit
+No,No
+Not enough Credit Amount to complete this operation.,Not enough Credit Amount to complete this operation.
+Not enough Credit Amount to complete this Order.,Not enough Credit Amount to complete this Order.
+Numeric,Numeric
+Order #%s,Order #%s
+Order #%s; \nCreditmemo #%s,Order #%s; \nCreditmemo #%s
+Order not set.,Order not set.
+Qty,Qty
+Recent Actions,Recent Actions
+Recharge Code can not be deleted.,Recharge Code can not be deleted.
+Recharge code hasn't assigned.,Recharge code hasn't assigned.
+Recharge Code is invalid.,Recharge Code is invalid.
+Recharge Code was successfully saved,Recharge Code was successfully saved
+Recharge Code,Recharge Code
+Recharge Codes,Recharge Codes
+Refunded to Customer's Credit,Refunded to Customer's Credit
+Refunded,Refunded
+Settings,Settings
+Submit Code,Submit Code
+The customer not found,The customer not found
+To Date,To Date
+Unknown log action type.,Unknown log action type.
+Updated,Updated
+Used,Used
+Value,Value
+Website ID is not set,Website ID is not set
+Website,Website
+Wrong Recharge Code specified.,Wrong Recharge Code specified.
+Yes,Yes
+Your current credit balance is:,Your current credit balance is:

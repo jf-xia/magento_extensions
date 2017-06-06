@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Webguys_CustomerNavigation</name>
+    <version>0.9.1</version>
+    <stability>beta</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Opens up possibilities to configure the user account menu.</summary>
+    <description>Opens up possibilities to configure the user account menu. These include the selective showing and hiding menu items, and the ability to set the reorder the menu items.</description>
+    <notes>None</notes>
+    <authors><author><name>Ingo Hillebrand</name><user>auto-converted</user><email>ingo@webguys.de</email></author></authors>
+    <date>2010-09-22</date>
+    <time>08:34:21</time>
+    <contents><target name="magelocale"><dir name="de_DE"><file name="Webguys_CustomerNavigation.csv" hash="c5b4fa7b887a1ce8ecfb073af3e14942"/></dir><dir name="en_US"><file name="Webguys_CustomerNavigation.csv" hash="8cb852a5b32e5e65a7cffba39a32f5fe"/></dir></target><target name="mageetc"><dir name="modules"><file name="Webguys_CustomerNavigation.xml" hash="8a0c1dc8d555d7a902084e98e86b8690"/></dir></target><target name="magecommunity"><dir name="Webguys"><dir name="CustomerNavigation"><dir name="Block"><dir name="Account"><file name="Navigation.php" hash="860fffeeb71e6cf00c1f9a01d809844b"/></dir></dir><dir name="etc"><file name="config.xml" hash="e7c880b6d3922abf18faab45a83b5991"/><file name="system.xml" hash="0c836c03adb9e4cfdf6f810e5e6a084f"/></dir><dir name="Helper"><file name="Data.php" hash="a28568f61e6599f05774bc972a066a6e"/></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

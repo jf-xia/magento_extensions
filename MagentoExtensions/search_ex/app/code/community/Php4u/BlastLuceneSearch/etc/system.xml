@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category   Php4u
+ * @package    Php4u_BlastLuceneSearch
+ * @author     Marcin Szterling <marcin@php4u.co.uk>
+ * @copyright  Php4u Marcin Szterling (c) 2012
+ * @license http://php4u.co.uk/licence/
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ * Any form of ditribution, sell, transfer forbidden see licence above
+ */
+ -->
+<config>
+    <tabs>
+        <php4u translate="label comment">
+            <label>Php4u Extensions</label>
+            <sort_order>100</sort_order>
+        </php4u>
+    </tabs>
+    <sections>
+        <php4u translate="label comment">
+            <label>Blast Search Lucene Options</label>
+            <tab>php4u</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <php4u_group translate="label comment">
+                    <label>Extension General Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment>
+				          <![CDATA[
+							<div style="padding:10px;background-color:#fff;border:1px solid #ddd;margin-bottom:7px;">
+							<img src="http://php4u.co.uk/blastlucenesearch/index.php?resize=yes" width="32" height="28" alt="Php4u" /><br/>
+							This module was developed by <a href="http://php4u.co.uk" target="_blank">php4u.co.uk</a><br/>
+							<br/>For setup assistance refer to <a href="http://php4u.co.uk/blast-search-lucene-magento-extension" target="_blank">php4u.co.uk/blast-search-lucene-magento-extension</a>
+							<br/>Support - click <a href="http://php4u.zendesk.com/" target="_blank">here</a>	
+							<br/><br/><strong>After changing settings - search results are cleared automatically</strong>
+							<br/><a href="https://php4u.zendesk.com/entries/20767416-how-to-reindex-all-products-from-the-scratch-advanced-method" target=_blank">How to do full reindex?</a>
+							</div>
+						  ]]>
+					</comment>
+                    <fields>
+                        <php4u_lucene_enabled translate="label comment">
+                            <label>Lucene enabled on frontend?</label>
+                            <comment>If Yes selected Lucene will be used in frontend for all searches. If No selected, then extention is only disabled on frontend, but still reindexing works.</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </php4u_lucene_enabled>
+                        <php4u_lucene_limiter translate="label comment">
+                            <label>Limit number of large results to:</label>
+                            <comment>0 - unlimited. Optimal number 500. Use it if your search queries are returning too many products and using too much memory</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-zero-or-greater</validate>
+                        </php4u_lucene_limiter>
+                        <php4u_allow_mag_search_cache translate="label comment">
+                            <label>Allow magento cache search results?</label>
+                            <comment>If Yes selected Magento will cache search results (default)</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </php4u_allow_mag_search_cache>
+                        <php4u_outofstock_last translate="label comment">
+                            <label>Push out of stock items at the end of the list?</label>
+                            <comment><![CDATA[
+                            If Yes selected Magento will push out of stok products at the end of the search results<br/>
+                            Note that it will work only when showing out of stock produts is set to Yes<br/>
+                            This can slow down search as every item must be checked]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>18</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </php4u_outofstock_last>
+                        <php4u_allow_mag_clear_results translate="label comment">
+                            <label>Allow magento clear results?</label>
+                            <comment>If Yes selected Magento will clear search results on every product update (default)</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>19</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </php4u_allow_mag_clear_results>
+                        <batch_size translate="label comment">
+                            <label>Indexing batch size:</label>
+                            <comment>Default 100. If you have problem with mySQL timeouts or too large data - descrease it</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-greater-than-zero</validate>
+                        </batch_size>
+                        <php4u_lucene_onlynew translate="label comment">
+                        	<label>Index only new products?</label>
+                            <comment>If Yes selected Lucene will index only new or changed products</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </php4u_lucene_onlynew>
+                        <php4u_lucene_document_limiter translate="label comment">
+                            <label>Run optimize index every n document</label>
+                            <comment><![CDATA[[FULL REINDEX REQUIRED]0 - optimize at the end. <br/>If your system has problem with number of files open, then set it to number above 0, and do full reindexing.<br/>
+                            ]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-zero-or-greater</validate>
+                        </php4u_lucene_document_limiter>
+                        <php4u_add_tags translate="label comment">
+                            <label>Add product tags to index?</label>
+                            <comment>If Yes selected Lucene will index product tags as well (only active and approved ones)</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </php4u_add_tags>
+                        <php4u_add_category_names translate="label comment">
+                            <label>Add product category names to index?</label>
+                            <comment>If Yes selected Lucene will add product category names</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>27</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment><![CDATA[[FULL REINDEX REQUIRED]<br/><i>Beta</i>. This feature can slow down indexing process by at least 20%!]]></comment>
+                        </php4u_add_category_names>
+                        <php4u_split_hyphened translate="label comment">
+                            <label>Tokenize hyphened/slash values?</label>
+                            <comment>If Yes selected Lucene will split hyphened strings and slashes into separate tokens</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>28</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment><![CDATA[[FULL REINDEX REQUIRED]<br/>Enable if you want every part of "abcd-1234-abcd 12/13" to be indexed as separate keywords]]></comment>
+                        </php4u_split_hyphened>
+                        <php4u_tokenize_numbers translate="label comment">
+                            <label>Tokenize number values?</label>
+                            <comment>If Yes selected Lucene will find any numbers in string and tokenize them separately</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>28</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment><![CDATA[[FULL REINDEX REQUIRED]<br/>Enable if you want 1234 from "abcd-1234-abcd" to be indexed as separate keyword]]></comment>
+                        </php4u_tokenize_numbers>
+                        <use_stemmer>
+                        	<label>Do you want to use singlular/plurar ENGLISH stemmer?</label>
+                            <comment>[FULL REINDEX REQUIRED]If Yes selected Lucene will search for plurar and singular words. English language only. Disable for non-english stores.</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </use_stemmer>
+                        <php4u_lucene_utf8nonstandard>
+                        	<label>Do You use non-standard utf-8 characters such as hebrew language?</label>
+                            <comment>[FULL REINDEX REQUIRED]If Yes selected Lucene will not remove those characters. You need to reindex whole catalogue after changing this.</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </php4u_lucene_utf8nonstandard>
+                        <php4u_chars2space translate="label comment">
+                            <label>Chars to convert into spaces</label>
+                            <comment><![CDATA[[FULL REINDEX REQUIRED]Enter all characters which should be converted into spaces (no separator), f.e. enter "-/" to convert hyphens and slashes into spaces.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>        
+                            <validate></validate>                    
+                        </php4u_chars2space>
+                        <php4u_index_ignore_words translate="label comment">
+                            <label>Words to ignore</label>
+                            <comment><![CDATA[Please do separate by comma all words you want to ignore while searching f.e. <strong>by,and,the</strong> will remove "by", "and" and "the" from customer queries]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>        
+                            <validate></validate>                    
+                        </php4u_index_ignore_words>
+                        <php4u_lucene_searchmode translate="label comment">
+                            <label>Lucene search mode?</label>
+                            <comment>Phraze - searches for phrazes f.e. "Red hat", Fulltext - searches for all words in any order</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>blastlucenesearch/source</source_model>
+                        </php4u_lucene_searchmode>
+                        <php4u_lucene_fulltextmode translate="label comment">
+                            <label>Lucene fulltext operator?</label>
+                            <comment>"red OR shirt", "red AND shirt"</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>55</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>blastlucenesearch/fulltextmode</source_model>
+                        </php4u_lucene_fulltextmode>
+                        <php4u_no_results_enabled translate="label comment">
+                            <label>Try again if no results?</label>
+                            <comment>If Yes selected Lucene will try to search more results using method selected below</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </php4u_no_results_enabled>
+                        <php4u_no_results_append_min_qty translate="label comment">
+                            <label>Append results if above results are lower than</label>
+                            <comment>0 - no appending (replacing). If you select f.e. 2, then if search return 0 or 1 result then we will append results from SECOND attempt</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>65</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>blastlucenesearch/dropdownlist</source_model>
+                        </php4u_no_results_append_min_qty>
+                        <php4u_chars2trim translate="label comment">
+                            <label>Chars to trim for second attempt</label>
+                            <comment>For second attempt, we can try to remove some of the characters to repeat query. F.e. for space enter " " or for hyphen enter "-" (without quotes). Leave empty to disable that behaviour.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>   
+                            <depends><php4u_no_results_enabled>1</php4u_no_results_enabled></depends>                         
+                        </php4u_chars2trim>
+                        <php4u_lucene_no_results_searchmode translate="label comment">
+                            <label>No results mode?</label>
+                            <comment>It is used only if no results found. Wildcard - searches for phrazes f.e. "Red hat*", Fuzzy - Red hut, Rod Hot etc.</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>blastlucenesearch/querytype</source_model>
+                            <depends><php4u_no_results_enabled>1</php4u_no_results_enabled></depends>
+                        </php4u_lucene_no_results_searchmode>
+                        <php4u_lucene_no_results_searchmode_split translate="label comment">
+                            <label>If no results how treat search query?</label>
+                            <comment>It is used only if no results found. Phraze - searches for phrazes f.e. "Red hat", Fulltext - searches for all words in any order</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>blastlucenesearch/source</source_model>
+                            <depends><php4u_no_results_enabled>1</php4u_no_results_enabled></depends>
+                        </php4u_lucene_no_results_searchmode_split>
+                        <php4u_lucene_no_results_fulltextmode translate="label comment">
+                            <label>Lucene no results fulltext operator?</label>
+                            <comment>It is used only if no results found. "red OR shirt", "red AND shirt"</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>blastlucenesearch/fulltextmode</source_model>
+                            <depends><php4u_no_results_enabled>1</php4u_no_results_enabled></depends>
+                        </php4u_lucene_no_results_fulltextmode>
+                         <php4u_no_results_second_enabled translate="label comment">
+                            <label>Try again if no results found using above method?</label>
+                            <comment>If Yes selected Lucene will try to search more results using another method than selected above</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <depends><php4u_no_results_enabled>1</php4u_no_results_enabled></depends>
+                        </php4u_no_results_second_enabled>
+                        <php4u_no_results_second_append_min_qty translate="label comment">
+                            <label>Append results if above results are lower than</label>
+                            <comment>
+                            	<![CDATA[0 - no appending (replacing). If you select f.e. 2, then if search return 0 or 1 result then we will append results from THIRD attempt.<br/>
+                            	Please note that above results can be sum of normal results and first attempt.
+                            	]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>95</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>blastlucenesearch/dropdownlist</source_model>
+                        </php4u_no_results_second_append_min_qty>
+                        <log_enabled translate="label comment">
+                            <label>Log Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </log_enabled>
+                        <products_log_enabled translate="label comment">
+                            <label>Products Log Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                            	<![CDATA[If enabled it will log products IDs which are beeing added to index<br/>
+                            	         Can slow down indexing!
+                            	]]>
+                            </comment>
+                        </products_log_enabled>
+                    </fields>
+                </php4u_group>
+                <dym translate="label comment" module="php4u">
+                	<label>Did you mean? functionality</label>
+                    <sort_order>220</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment>
+				          <![CDATA[
+							<div style="padding:10px;background-color:#fff;border:1px solid #ddd;margin-bottom:7px;">
+							When enabled and no results were found there will be 'Do You mean "phrase"?' added to results page	
+							</div>
+						  ]]>
+					</comment>
+                    <fields>
+                        <enabled translate="label comment">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <tags_limiter translate="label comment">
+                            <label>Max number of tags to index</label>
+                            <comment>0 - unlimited. Optimal number 150000. If you put too much, DYM will be slow</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-zero-or-greater</validate>
+                        </tags_limiter>
+                        <query_words_limit translate="label comment">
+                            <label>Max number of words to parse</label>
+                            <comment>0 - unlimited. Optimal number 10. If you put too much, DYM will be slow</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-zero-or-greater</validate>
+                        </query_words_limit>
+                        <log_enabled translate="label comment">
+                            <label>Log Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </log_enabled>
+                    </fields>    
+                </dym>
+                <lucene404 translate="label comment">
+                	<comment>
+				          <![CDATA[
+							<div style="padding:10px;background-color:#fff;border:1px solid #ddd;margin-bottom:7px;">
+							When enabled - instead of using standard 404 cms page - search based on url parts will be performed	
+							</div>
+						  ]]>
+					</comment>
+                	<label>Alternative 404</label>
+                    <sort_order>230</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label comment">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                    </fields>    
+                </lucene404>
+                <generate translate="label comment" module="php4u">
+                    <label>Index Regeneration Settings</label>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <enabled translate="label comment">
+                            <label>Cron Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <error_email translate="label comment">
+                            <label>Error Email Recipient</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </error_email>
+                        <error_email_identity translate="label comment">
+                            <label>Error Email Sender</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </error_email_identity>
+                        <error_email_template translate="label comment">
+                            <label>Error Email Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </error_email_template>
+                    </fields>
+                </generate>
+                <license translate="label comment" module="php4u">
+                    <label>Module Licensing</label>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment>
+				          <![CDATA[
+							<div style="padding:10px;background-color:#fff;border:1px solid #ddd;margin-bottom:7px;">
+							<img src="http://php4u.co.uk/blastlucenesearch/index.php?resize=yes" width="32" height="28" alt="Php4u" /><br/>
+							This licence is only per one domain, if you're using it on many different domains it is illegal without paying additional fee<br/>
+							This module was developed by <a href="http://php4u.co.uk" target="_blank">php4u.co.uk</a><br/>
+							<br/>For setup assistance refer to <a href="http://php4u.co.uk/blast-search-lucene-magento-extension" target="_blank">php4u.co.uk/blast-search-lucene-magento-extension</a>
+							<br/>Support - click <a href="http://php4u.zendesk.com/" target="_blank">here</a>	
+							</div>
+						  ]]>
+					</comment>
+                    <fields>
+                        <key translate="label comment">
+                            <label>License Key</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+				                <![CDATA[Please provide license as received when you bought extension <br />
+				                To check license - change scope in the dropdown on left hand side to store view level<br/> 
+				                <span class="notice"><a href="http://php4u.zendesk.com/" target="_blank">Support</a></span>
+				                <p>
+				                -------------------------------BEGIN LICENSE KEY--------------------------------
+				                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+				                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+				                --------------------------------END LICENSE KEY---------------------------------
+				                </p>
+				                ]]>
+				            </comment>
+				            <validate>required-entry</validate>
+                        </key>
+                        <key_info translate="label comment">
+                            <label>License Info</label>
+                            <frontend_model>blastlucenesearch/adminhtml_info</frontend_model>
+                            <frontend_type>label</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </key_info>
+                    </fields>
+                </license>
+                <index_boost translate="label comment" module="php4u">
+                    <label>Product Atributes Booster</label>
+                    <sort_order>400</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment>
+				          <![CDATA[
+							<div style="padding:10px;background-color:#fff;border:1px solid #ddd;margin-bottom:7px;">
+							Default is value 1, if you specify higher then product attribute will become more important for search.<br/>
+							For example if you want SKU to be most important then enter 2.0 for it and leave 1.0 for the rest.<br/>
+							Only attributes specified below will be boosted, others will be treated as Default (1.0)<br/>
+							<a href="https://php4u.zendesk.com/entries/20767416-how-to-reindex-all-products-from-the-scratch-advanced-method" target=_blank">FULL REINDEX REQUIRED</a> after changing below settings
+							</div>
+						  ]]>
+					</comment>
+                    <fields>
+                        <product_name translate="label comment">
+                            <label>Product name boost</label>
+                            <source_model>blastlucenesearch/booster</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_name>
+                        <product_sku translate="label comment">
+                            <label>Product SKU boost</label>
+                            <source_model>blastlucenesearch/booster</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_sku>
+                        <product_description translate="label comment">
+                            <label>Product Description boost</label>
+                            <source_model>blastlucenesearch/booster</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_description>
+                        <product_short_description translate="label comment">
+                            <label>Product Short Description boost</label>
+                            <source_model>blastlucenesearch/booster</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_short_description>
+                        <!--  
+                        <list translate="label comment">
+                            <label>Product attributes to boost</label>
+                            <frontend_model>blastlucenesearch/system_config_form_field_booster</frontend_model>
+                            <backend_model>blastlucenesearch/system_config_backend_variables</backend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </list>
+                        -->
+                    </fields>
+                </index_boost>
+                <word_synonims translate="label comment" module="php4u">
+                    <label>Word Synonyms</label>
+                    <sort_order>500</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment>
+				          <![CDATA[
+							<div style="padding:10px;background-color:#fff;border:1px solid #ddd;margin-bottom:7px;">
+							This section is in addition to standard Magento Synonyms functionality<br/><br/>
+							It has changed in extension <strong>ver 1.5.5.2</strong> and above<br/>
+							It allows to search for both terms f.e.<br/>
+							If you specify <strong>"gta"</strong>  => <strong>"grand theft auto"</strong>  then if customer<br/>
+							search for gta it will search for both <strong>"gta"</strong> OR <strong>"grand theft auto"</strong> 
+							</div>
+						  ]]>
+					</comment>
+                    <fields>
+                    	<enabled translate="label comment">
+                            <label>Enabled?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <list translate="label comment">
+                            <label>Words list to replace</label>
+                            <frontend_model>blastlucenesearch/system_config_form_field_variables</frontend_model>
+                            <backend_model>blastlucenesearch/system_config_backend_variables</backend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </list>
+                    </fields>
+                </word_synonims>
+            </groups>
+        </php4u>
+    </sections>
+</config>

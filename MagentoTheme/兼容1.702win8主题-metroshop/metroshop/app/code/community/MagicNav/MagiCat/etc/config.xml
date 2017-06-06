@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MagicNav_MagiCat>
+            <version>1.0</version>
+        </MagicNav_MagiCat>
+    </modules>
+
+    <global>
+    	<blocks>
+    		<magicat>
+				<class>MagicNav_MagiCat_Block</class>
+    		</magicat>
+    	</blocks>
+    	<models>
+    		<magicat>
+				<class>MagicNav_MagiCat_Model</class>
+    		</magicat>
+    	</models>
+		<helpers>
+    		<magicat>
+				<class>MagicNav_MagiCat_Helper</class>
+    		</magicat>
+		</helpers>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <magicat>
+                    <file>magicat.xml</file>
+                </magicat>
+            </updates>
+        </layout>
+    </frontend>
+    <default>
+    	<catalog>
+    		<magicat>
+				<magicat_root>current</magicat_root>
+    		</magicat>
+    	</catalog>
+    </default>
+</config>
+

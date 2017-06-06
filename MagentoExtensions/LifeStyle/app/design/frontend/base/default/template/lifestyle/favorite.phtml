@@ -1,0 +1,13 @@
+<?php if ($this->canShow()): ?>
+	<?php 
+		$customerId = Mage::getSingleton('customer/session')->getCustomer()->getId();
+		$wpFavorite = Mage::getModel('lifestyle/favorite')->getCollection()->addAttributeToSelect('*')->addFieldToFilter('customer_id',$customerId);
+		?>
+	<ol>
+	<?php foreach ($wpFavorite->getItems() as $_item): ?>
+		<li>
+			<?php echo $_item->getTitle() ?>
+		</li>
+	<?php endforeach ?>
+	</ol>
+<?php endif; ?>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+    <name>Mage_Productlist</name>
+    <version>0.1.4</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Show a list of product from current store</summary>
+    <description>Show a list of product from current store</description>
+    <notes>*	Add parent category
+
+CHANGES:
+	-&gt;U	app/design/frontend/default/default/template/catalog/product/productlist/category.phtml</notes>
+    <authors><author><name>Manuel</name><user>auto-converted</user><email>manuelcanepa@gmail.com</email></author></authors>
+    <date>2008-11-20</date>
+    <time>15:14:14</time>
+    <contents><target name="magelocale"><dir name="es_ES"><file name="Mage_Productlist.csv" hash="57d7665565e2d4858871e2f8867d2957"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="productlist.xml" hash="c19c2c34905769ac85fe608c6f6fd9a1"/></dir><dir name="template"><dir name="catalog"><dir name="product"><dir name="productlist"><file name="category.phtml" hash="7578f3501b3d80da0021e8faae412aa6"/><file name="container.phtml" hash="270a194b15a8c8e09063b00fabbb9220"/><file name="list.phtml" hash="59ca82c888ad65d358b86663f0a35436"/></dir></dir></dir></dir></dir></dir></dir></target><target name="magelocal"><dir name="Mage"><dir name="Productlist"><dir name="Block"><dir name="List"><file name="All.php" hash="4e3c78efbda0cb43f7df81d4f478828d"/><file name="Category.php" hash="dfbd05ebd04ab27d4a1d5111803ccbca"/></dir></dir><dir name="controllers"><file name="IndexController.php" hash="e5a1a77881e74b2a555d39aab31fb3fd"/></dir><dir name="etc"><file name="config.xml" hash="40111bd441360fc88bcc8d29d47b3d81"/></dir><dir name="Helper"><file name="Data.php" hash="d56b8c3adbbc1d97e20af9870bf899f1"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Mage_Productlist.xml" hash="61a6f9da871fe21cd77675b357ad7f2e"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

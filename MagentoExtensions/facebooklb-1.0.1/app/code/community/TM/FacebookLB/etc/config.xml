@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <TM_FacebookLB>
+            <version>1.0</version>
+        </TM_FacebookLB>
+    </modules>
+
+    <frontend>
+        <layout>
+            <updates>
+                <FacebookLB>
+                    <file>FacebookLB.xml</file>
+                </FacebookLB>
+            </updates>
+        </layout>
+        
+    </frontend>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <TM_FacebookLB>
+                    <files>
+                        <default>TM_FacebookLB.csv</default>
+                    </files>
+                </TM_FacebookLB>
+            </modules>
+        </translate>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<facebooklb translate="title" module="facebooklb">
+											<title>Facebook Like Button</title>
+										</facebooklb>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>		
+    </adminhtml>
+
+    <global>
+        <resources>
+            <FacebookLB_setup>
+                <setup>
+                    <module>TM_FacebookLB</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </FacebookLB_setup>
+            <FacebookLB_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </FacebookLB_write>
+            <FacebookLB_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </FacebookLB_read>
+        </resources>
+        <blocks>
+            <FacebookLB>
+                <class>TM_FacebookLB_Block</class>
+            </FacebookLB>
+        </blocks>
+        <helpers>
+            <facebooklb>
+                <class>TM_FacebookLB_Helper</class>
+            </facebooklb>
+        </helpers>
+    </global>
+
+    <default>
+        <facebooklb>
+            <general>
+                <enabled>0</enabled>
+                <layout>button_count</layout>
+                <showfaces>false</showfaces>
+                <width>450</width>
+                <height>30</height>
+                <verb>like</verb>
+                <font></font>
+                <color>light</color>
+            </general>
+            <opengraph>
+                <enabled_op>0</enabled_op>
+            </opengraph>
+        </facebooklb>
+    </default>
+</config>

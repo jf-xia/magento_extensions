@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<package>
+    <name>Facebook_LikeBox</name>
+    <version>0.1.4</version>
+    <stability>beta</stability>
+    <license uri="http://www.gnu.org/licenses/gpl-3.0.html">GPL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Adds Facebook LikeBox, also known as FanBox, to yout Store. Supports XFBML and iFrame inclusion. Many options.</summary>
+    <description>English:
+After installation you have access to the facebook like / fan box at your magento store. You can customize the block at your own. Please take care of following steps:
+
+1.) After correct modul installation re-login to magento admin panel. Now you have access to configure all options.
+
+2.) Consider if you want to use XFBML or iFrame to include the box to your site. XFBML is a facebook development and loads a remote javascript file to view the box. Its a more professional way.
+
+3.) You can only link to a facebook page, not to a personal profile. Your can get your page id, from the address bar wenn you go to it on facebook. The app-id is optional.
+
+4.) With this modul you have the ability to customize the box at your own. An example css file is stored in '{Magento}/media/fblikebox/'. You can activate this in your admin panel.
+WARNING: If you take any changes to css files, enable the deveoper mode. Otherwise facebook will not load your new file because caching is active.
+
+5.) If you want to use the box in different sizes and types, you can easily create your own templates. For this, you can use the 'box_example.phtml' file in the template folder as guidline.
+
+6.) To use the box on diffent pages in your magento store, you can add or change this in the 'fblikebox.xml' in the layout-folder.
+
+7.) If you want to change the language of the facebook content, you have to open the file 'script.phtml' in the template folder. Search for 'en_US'. This is the language code. Edit your language code, for german example 'de_DE', and save file changes.
+
+Versions:
+I've tested the modul with the versions 1.3 and 1.4.
+Older versions maybe run correct but without guarantee.
+
+Other Problems?
+You can send me a message with you problem. ;)
+
+Changelog:
+- 0.1.4: add support for 97 languages
+- 0.1.3: set default box language to english
+- 0.1.2: unreleased version
+- 0.1.1: remove incorrect dependency
+
+
+
+German:
+Nach der Installation steht Ihnen ein Block zur verf&#xFC;gung, in dem sich eine Like / Fan Box von Facebook befindet. Um die Box an Ihre Bed&#xFC;rfnise anzupassen, beachten Sie folgende Schritte:
+
+1.) Nachdem das Modul installiert wurde, loggen Sie sich aus dem Admin-Bereich aus und erneut wieder an. Konfigurieren Sie im Anschluss alle Optionen im Konfigurations-Bereich.
+
+2.) Entscheiden Sie, ob sie XFBML oder ein iFrame zur Anzeige verwenden m&#xF6;chten.
+XFBML ist eine JavaScript-L&#xF6;sung von Facebook, die eine Datei von einem entfernten Server l&#xE4;d. Die professionellere Variante. Im Falle von XFBML wird automatisch ein Javascript-Code in den Body ihres Magento Shops eingef&#xFC;gt.
+
+3.) Sie k&#xF6;nnen die LikeBox nur mit einer Facebook-Page verkn&#xFC;pfen. Die ID der gew&#xFC;nschten Page erfahren Sie, indem Sie bei Facebook auf Ihre Seite gehen. Die ID steht in der Adresszeile. Die App-ID ist optional.
+
+4.) Mit dem Modul besteht die M&#xF6;glichkeit, die Facebook Box nach eigenen W&#xFC;nschen mittels CSS zu gestalten. Hierf&#xFC;r finden Sie eine Beispiel-Datei im Ordner '{Magento}/media/fblikebox/'. Diese k&#xF6;nnen Sie im Admin-Bereich aktivieren.
+WICHTIG: Aktivieren Sie unbedingt den Developer-Mode, da Ihre &#xC4;nerungen sonst nicht sichtbar sind, da Facebook dir CSS-Datei cached.
+
+5.) Sollten Sie dir Box &#xF6;fters verwenden wollen, in verschiedenen Gr&#xF6;&#xDF;en und Formen, so k&#xF6;nnen Sie jeder Zeit ein eigenes Box-Template erstellen. Als Vorlage dient Ihnen dabei die Datei 'box_example.phtml' im Template-Ordner des Moduls.
+
+6.) Wenn Sie das Modul nicht nur auf der Startseite verwenden m&#xF6;chten, so passen Sie einfach die Bereiche in der 'fblikebox.xml' im Layout-Ordner an.
+
+7.) Falls Sie die Standard-Sprache des Inhaltes der Facebook-Box &#xE4;ndern wollten, so &#xF6;ffnen Sie die 'script.phtml' Datei im Template-Ordner. Suchen Sie nach 'en_US'. Dies ist der Sprach-Code f&#xFC;r den Inhalt. Ersetzten Sie diesen durch den gew&#xFC;nschten Sprach-Code. F&#xFC;r deutsch z.B. 'de_DE'. Danach einfach die Datei speichern.
+
+Versionen:
+Ich konnte das Modul mit der Version 1.3 und 1.4 testen.
+Andere Versionen sind m&#xF6;glich, aber nicht garantiert.
+
+Andere Probleme?
+Sie k&#xF6;nnen mir eine Nachricht mit Ihren Problemen schreiben. ;)
+
+&#xC4;nderungen:
+- 0.1.4: Unterst&#xFC;tzung f&#xFC;r 97 Sprachen hinzugef&#xFC;gt
+- 0.1.3: Standardsprache der Box auf Englisch gestellt
+- 0.1.2: Unver&#xF6;ffendlichte Version
+- 0.1.1: Fehlerhafte Abh&#xE4;nigkeit entfernt</description>
+    <notes>Versions:
+I've tested the modul with the versions 1.3 and 1.4.
+Older versions maybe run correct but without guarantee.
+
+Versionen:
+Ich konnte das Modul mit der Version 1.3 und 1.4 testen.
+Andere Versionen sind m&#xF6;glich, aber nicht garantiert.</notes>
+    <authors><author><name>Daniel Kern</name><user>auto-converted</user><email>work@eisbehr.de</email></author></authors>
+    <date>2010-08-18</date>
+    <time>08:18:02</time>
+    <contents><target name="magelocal"><dir name="Eisbehr"><dir name="FbLikeBox"><dir name="Block"><file name="Box.php" hash="b861f2553fb67cdddad2fa5c0e348ba0"/><file name="Script.php" hash="f155dceb8127300ea69b4f9460c6be00"/></dir><dir name="etc"><file name="config.xml" hash="800e740b99414a3f5ecd0ecb33c243a3"/><file name="system.xml" hash="1755b05cb292b8be48adedc0e1b80b2b"/></dir><dir name="Helper"><file name="Data.php" hash="1de760b5ed79b01591510e9fd4159dcd"/></dir><dir name="Model"><file name="Language.php" hash="1502b39ce20b458757dea0c809fcca3e"/></dir></dir></dir></target><target name="magemedia"><dir name="fblikebox"><file name="style.css" hash="e0bb4cb9b888238c83d8fc4ed5bae14a"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="fblikebox.xml" hash="110e19a704fcfcb635574f576999fee9"/></dir><dir name="template"><dir name="fblikebox"><file name="box.phtml" hash="4983587544bc0fe0a4a9b83a9aa8a579"/><file name="box_example.phtml" hash="ec730bbedeccaafab94f9e7cf5a96a03"/><file name="script.phtml" hash="d6c7dcc0f9b6d2d2b1a84d11fae26f63"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Eisbehr_FbLikeBox.xml" hash="6d9fc6312d2f091b52732865d4924928"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

@@ -1,0 +1,13 @@
+<layout>
+    <default>
+        <reference name="head">
+            <action method="addJs"><script>jquery/jquery.js</script></action>
+            <action method="addJs"><script>jquery/noconflict.js</script></action>
+            <action method="addJs"><script>colorpicker/colorpicker.js</script></action>
+            <action method="addJs"><script>colorpicker/eye.js</script></action>
+            <action method="addJs"><script>colorpicker/utils.js</script></action>
+            <action method="addJs"><script>colorpicker/layout.js?ver=1.0.2</script></action>
+            <action method="addCss"><name>colorpicker.css</name></action>
+        </reference> 
+    </default>
+</layout>

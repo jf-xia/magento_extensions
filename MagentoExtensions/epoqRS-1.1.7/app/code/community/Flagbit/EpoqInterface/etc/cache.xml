@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <placeholders>
+        <epoqinterface_recommentation_product>
+            <block>epoqinterface/recommentation_product</block>
+            <placeholder>EPOQ_RECOMMENTATION_PRODUCT</placeholder>
+            <container>Flagbit_EpoqInterface_Model_Container_Product</container>
+            <cache_lifetime>0</cache_lifetime>
+			<template>epoqinterface/recommendation/product.phtml</template>
+        </epoqinterface_recommentation_product>
+        <epoqinterface_track_product>
+            <block>epoqinterface/track_product</block>
+            <placeholder>EPOQ_TRACK_PRODUCT</placeholder>
+            <container>Flagbit_EpoqInterface_Model_Container_TrackProduct</container>
+            <cache_lifetime>0</cache_lifetime>
+        </epoqinterface_track_product>		
+    </placeholders>
+</config>
+ 

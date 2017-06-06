@@ -1,0 +1,126 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_modern
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div class="footer-container">
+<div class="footer_top span12">
+        <div class="middleInner">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('social-link')->toHtml() ?>
+            <?php echo $this->getChildHtml('footer_newsletter') ?>
+        </div>
+</div>
+<?php $config = Mage::getStoreConfig('mdloption/aboutusrow'); ?>
+<?php if ($config['footertop']) :?>
+<div class="aboutContent span12 tabFix">
+        <div class="aboutBlock static-center">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('about-block')->toHtml() ?>
+        </div>
+        <div class="twitterBlock static-center">
+        	<div class="headingBox">
+                <span class="headingIcons twitterIcon"></span><h1 class="line_heading"><?php echo $this->__('Latest Tweets');?></h1>
+            </div>
+            <?php $config = Mage::getStoreConfig('mdloption/twittersetting'); ?>
+            <div class="tweet"></div>
+                <script type="text/javascript">
+                	jQuery(document).ready(function(){
+						// TWITTER WIDGET //
+							jQuery(".tweet").tweet({
+							  join_text: "auto",
+							  username: "<?php echo $config['twitteruser']; ?>",
+							  count: <?php if($config['twitter-count']==true):?><?php echo $config['twitter-count']; ?><?php else: ?><?php echo '3';?><?php endif; ?>,
+							  template: "{join}{text}{time}{reply_action}{retweet_action}",
+							  auto_join_text_reply: null,
+							  auto_join_text_default: null,        // [string]   auto text for non verb: "i said" bullocks
+							  auto_join_text_ed: null,                   // [string]   auto text for past tense: "i" surfed
+							  auto_join_text_ing: null,               // [string]   auto tense for present tense: "i was" surfing
+							  auto_join_text_reply: null,     // [string]   auto tense for replies: "i replied to" @someone "with"
+							  auto_join_text_url: null, 
+							  loading_text: "loading tweets...",
+							  refresh_interval:<?php if($config['twitter-refresh']==true):?><?php echo $config['twitter-refresh']; ?><?php else: ?><?php echo '60';?><?php endif; ?>
+							});	
+							jQuery.noConflict();
+						});
+                </script>
+        	
+        </div>
+        <div class="facebookBlock static-center last">
+        	<div class="headingBox">
+                <span class="headingIcons facebookIcon"></span><h1 class="line_heading"><?php echo $this->__('Find us on Facebook');?></h1>
+            </div>
+            <?php $config = Mage::getStoreConfig('mdloption/facebooksetting'); ?>
+					<style type="text/css">
+                         .facebookOuter {
+                            background-color:#fff; 
+                            padding:10px 0 10px 10px;
+                            height:<?php if($config['facebook-height']==true):?><?php echo $config['facebook-height']; ?><?php else: ?><?php echo '250';?><?php endif; ?>px;
+                            border:none;
+                          }
+                         .facebookInner {
+                            height:<?php if($config['facebook-height']==true):?><?php echo $config['facebook-height']; ?><?php else: ?><?php echo '250';?><?php endif; ?>px;
+                            overflow:hidden;
+                          }
+                        </style>
+                        
+                        <div class="facebookOuter">
+                         <div class="facebookInner">
+                          <div class="fb-like-box" 
+                              data-width="440" data-height="<?php if($config['facebook-height']==true):?><?php echo $config['facebook-height']; ?><?php else: ?><?php echo '250';?><?php endif; ?>" 
+                              data-href="https://www.facebook.com/<?php if($config['facebookuser']==true):?><?php echo $config['facebookuser']; ?><?php else: ?><?php echo 'themeforest';?><?php endif; ?>" 
+                              data-border-color="#F4F4F4" data-show-faces="true" 
+                              data-stream="false" data-header="false">
+                          </div>          
+                         </div>
+                        </div>
+                                  
+                        <div id="fb-root"></div>
+                        
+                        <script>
+						 (function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                        
+        </div>
+</div> 
+<?php endif; ?>
+  <div class="footer">
+    <div class="footer_bottom span12">
+      <div class="link_box">
+	  	  <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_links_box')->toHtml() ?></div>
+      </div>
+      <div class="copyright">
+      	<div class="copyrightBox span12">
+        	<p class="copyText"><?php echo $this->getCopyright() ?></p>	
+            <div class="block_2 span3"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('payment_block')->toHtml() ?></div>
+        </div>
+        </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div id="back-top" class="goTop"><a rel="tooltip" title="<?php echo $this->__('Back To Top')?>" data-placement="left" href="javascript:void(0);">BackTop</a></div>

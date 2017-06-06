@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config>
+      <modules>
+        <Topbuy_Orderextend>
+          <version>0.1.0</version>
+        </Topbuy_Orderextend>
+      </modules>
+	  
+   <global>
+      <helpers>
+       <orderextend>
+           <class>Topbuy_Orderextend_Helper</class>
+       </orderextend>
+      </helpers>   	  
+	   <models>
+            <orderextend>
+                <class>Topbuy_Orderextend_Model</class>
+                <resourceModel>orderextend_mysql4</resourceModel>
+            </orderextend>
+        </models>
+	 <resources>	 
+            <salesattribute1334740284_setup>
+                <setup>
+                    <module>Topbuy_Orderextend</module>
+                    <class>Mage_Sales_Model_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </salesattribute1334740284_setup>
+            <salesattribute1334740284_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </salesattribute1334740284_write>
+            <salesattribute1334740284_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </salesattribute1334740284_read>
+	 </resources>
+   </global> 
+</config> 

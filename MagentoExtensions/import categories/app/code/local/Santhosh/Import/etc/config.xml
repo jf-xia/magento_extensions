@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Santhosh_Import>
+            <version>0.0.1</version>
+        </Santhosh_Import>
+	</modules>
+
+	<global>
+		<helpers>
+			<santhosh_import>
+				<class>Santhosh_Import_Helper</class>
+			</santhosh_import>
+        </helpers>
+
+		<blocks>
+			<santhosh_import>
+				<class>Santhosh_Import_Block</class>
+			</santhosh_import>
+		</blocks>
+	</global>
+
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<santhosh_import after="Mage_Adminhtml">Santhosh_Import_Adminhtml</santhosh_import>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+
+	<adminhtml>
+		<layout>
+			<updates>
+				<santhosh_import>
+					<file>import.xml</file>
+				</santhosh_import>
+			</updates>
+		</layout>
+
+		<translate>
+			<modules>
+				<Santhosh_Import>
+					<files>
+						<default>Santhosh_Import.csv</default>
+					</files>
+				</Santhosh_Import>
+			</modules>
+		</translate>
+	</adminhtml>
+
+	<stores>
+		<admin>
+			<design>
+				<package>
+					<name>default</name>
+				</package>
+				<theme>
+					<default>santhosh</default>
+				</theme>
+			</design>
+		</admin>
+	</stores>
+</config>

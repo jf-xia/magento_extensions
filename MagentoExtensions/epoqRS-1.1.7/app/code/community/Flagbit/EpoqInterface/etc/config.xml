@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<!--
+/*                                                                       *
+* This script is part of the epoq Recommendation Service project         *
+*                                                                        *
+* epoqinterface is free software; you can redistribute it and/or modify  *
+* it under the terms of the GNU General Public License version 2 as      *
+* published by the Free Software Foundation.                             *
+*                                                                        *
+* This script is distributed in the hope that it will be useful, but     *
+* WITHOUT ANY WARRANTY; without even the implied warranty of MERCHAN-    *
+* TABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General      *
+* Public License for more details.                                       *
+*                                                                        *
+* @version $Id: config.xml 674 2011-07-27 14:25:17Z weller $
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
+*/
+-->
+<config>
+    <modules>
+        <Flagbit_EpoqInterface>
+            <active>true</active>
+            <version>1.1.7</version>
+        </Flagbit_EpoqInterface>
+    </modules>
+
+    <global>
+        <helpers>
+            <epoqinterface>
+                <class>Flagbit_EpoqInterface_Helper</class>
+            </epoqinterface>
+        </helpers>
+        <blocks>
+            <epoqinterface>
+                <class>Flagbit_EpoqInterface_Block</class>
+            </epoqinterface>
+        </blocks>     
+        <models>
+            <epoqinterface>
+                <class>Flagbit_EpoqInterface_Model</class>
+                <resourceModel>epoqinterface_mysql4</resourceModel>
+            </epoqinterface>
+            <epoqinterface_mysql4>
+                <class>Flagbit_EpoqInterface_Model_Resource_Eav_Mysql4</class>
+            </epoqinterface_mysql4>	
+        </models>
+        <rewrite>
+            <epoqinterface>
+                <from><![CDATA[#^/epoqinterface/#]]></from>
+                <to>/epoqinterface/index/productlist/</to>
+            </epoqinterface>
+        </rewrite>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <epoqinterface>
+                    <file>epoqinterface.xml</file>
+                </epoqinterface>			
+            </updates>
+        </layout>
+        <routers>
+            <epoqinterface>
+                <use>standard</use>
+                <args>
+                    <module>Flagbit_EpoqInterface</module>
+                    <frontName>epoqinterface</frontName>
+                </args>
+            </epoqinterface>
+        </routers>
+        <events>
+            <checkout_cart_product_add_after>
+                <observers>
+                    <epoqinterface>
+                        <type>singleton</type>
+                        <class>epoqinterface/observer</class>
+                        <method>checkoutCartProductAddAfter</method>
+                    </epoqinterface>
+                </observers>
+            </checkout_cart_product_add_after>
+            <checkout_cart_update_items_after>
+                <observers>
+                    <epoqinterface>
+                        <type>singleton</type>
+                        <class>epoqinterface/observer</class>
+                        <method>checkoutCartUpdateItemsAfter</method>
+                    </epoqinterface>
+                </observers>
+            </checkout_cart_update_items_after>
+            <controller_action_predispatch_checkout_cart_delete>
+                <observers>
+                    <epoqinterface>
+                        <type>singleton</type>
+                        <class>epoqinterface/observer</class>
+                        <method>controllerActionPredispatchCheckoutCartDelete</method>
+                    </epoqinterface>
+                </observers>                
+            </controller_action_predispatch_checkout_cart_delete>
+        	<sales_order_place_after>
+                <observers>
+                    <epoqinterface>
+                        <type>singleton</type>
+                        <class>epoqinterface/observer</class>
+                        <method>salesOrderPlaceAfter</method>
+                    </epoqinterface>
+                </observers>                
+        	</sales_order_place_after>              	
+            <checkout_onepage_controller_success_action>
+                <observers>
+                    <epoqinterface_order_success>
+                        <class>epoqinterface/observer</class>
+                        <method>setTrackOnOrderSuccessPageView</method>
+                    </epoqinterface_order_success>
+                </observers>
+            </checkout_onepage_controller_success_action>
+            <checkout_multishipping_controller_success_action>
+                <observers>
+                    <epoqinterface_order_success>
+                        <class>epoqinterface/observer</class>
+                        <method>setTrackOnOrderSuccessPageView</method>
+                    </epoqinterface_order_success>
+                </observers>
+            </checkout_multishipping_controller_success_action>
+        </events>
+    </frontend>
+    
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <epoqinterface>
+                                            <title>epoq Recommendation Service</title>
+                                        </epoqinterface>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <translate>
+            <modules>
+                <Flagbit_EpoqInterface>
+                    <files>
+                        <default>Flagbit_EpoqInterface.csv</default>
+                    </files>
+                </Flagbit_EpoqInterface>
+            </modules>
+        </translate>       
+    </adminhtml>
+    
+    <default>
+        <epoqinterface>
+            <config>
+                <timeout>2</timeout>
+                <demo>0</demo>
+                <customer_profiles>0</customer_profiles>
+				<debug>0</debug>
+            </config>
+            <display_recommendation>
+                <user>1</user>
+                <cart>1</cart>
+                <product>1</product>
+            </display_recommendation>
+            <export>
+                <username>epoq</username>
+            </export>
+            <error_handling>
+                <enabled>0</enabled>
+                <max_attempts>3</max_attempts>
+                <idle_time>10</idle_time>
+            </error_handling>
+        </epoqinterface>
+        <system>
+            <epoqinterface>
+                <rest_url>http://rs1.epoq.de/inbound-servletapi/</rest_url>
+                <rest_failure_counter>0</rest_failure_counter>
+            </epoqinterface>
+        </system>
+    </default>
+</config>

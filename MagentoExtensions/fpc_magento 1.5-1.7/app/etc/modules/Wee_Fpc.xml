@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Wee_Fpc>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Wee_Fpc>
+    </modules>
+</config>

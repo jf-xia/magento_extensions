@@ -1,0 +1,90 @@
+Legend:
+  + Feature
+  * Bugfix
+
+1.4.0
+    * Wrong Advanced Newsletter segments fetching
+    * Incorrect email address in "Reply to" field
+    * Wrong backend URL if "Add Store Code to Urls" enabled
+    * Mistakes in translation file
+    * Replied questions couldn't be sorted in grid
+    * Wrong number of questions to display
+    * Invalid transactional email code
+    * Incorrect links in RSS feed if URL rewrites enabled
+
+1.3.3
+    * Number of questions is calculated incorrectly
+    * Minor bugfixes
+
+1.3.2
+    + URL rewrite option added
+    * Incorrect work with https enabled only in admin area
+    * Minor bugfixes
+
+1.3.1
+    + Advanced Newsletter extension integration
+    * Incorrect variables in autoresponder template
+    * 404 error when entering backend on some websites
+    * Incorrect Product Questions title in frontend
+    * No email validation in backend at 'Email options' and 'Reply questions' form
+    * Problem when setting filter by checked state in backend
+
+1.3
+	+ Multistore support
+	+ Spam protection
+	+ SEO-friendly URLs
+	+ RSS feed
+	+ Helpfullness rating
+	+ Question sorting by date and helpfulness, configurable in admin section
+	+ An option to get subscribed on the 'Ask a question' form (with aheadWorks Advanced Newsletter extension integration)
+	+ Show last X questions when displayng the block on product page
+	+ Auto-responder sending notification to customer
+	+ Option to disable questions from quests
+	+ Option to disable helpfulness rating from guests
+	+ Option to parse URLs into links when admin replies
+	+ A variety of new objects is available for the email template processor
+	+ Magento 1.4.0.0 compatibility
+	* Short tags in templates
+	* Table name changed to have an 'aw_' prefix
+	* Module's disabling in backend disabled not all elements
+	* Minor changes
+
+1.1.2
+	* Global Record Search in the backend fixed
+	* Incorrect visibility filling fixed
+	* "Save and continue edit" button action fixed
+	* Sorting by Yes/No in the backend fixed
+
+1.1.1
+	+ AW All 2.0 extension integrated
+
+1.1
+	+ Complete breadcrumbs
+	+ Customer-defined status
+	+ Ability to insert PQ blocks via layout
+	+ Link to admin area from e-mail
+	* Bugfixes
+
+1.0.11
+	* Updated e-mail templates to be more compatible with Help Desk Ultimate
+
+1.0.10
+	* Converted database to utf-8
+	* fixed non-utf8 chars display on frontend
+
+1.0.9
+	* Fixed cycle redirects when "Add Store Code to Urls" is on and admin account is restricted to Product Questions only
+
+1.0.8
+	* Fixed URL troubles when "Add Store Code to Urls" is on
+	* Fixed https redirect from customer area when asking new question
+	* Fixed redirect customer to product page when question posting failed
+	* Fixed error when deleting product from admin area
+	
+1.0.6
+   * Fixed redirect to home page after adding question in https environment
+   * Fixed unsettable permissions for roles at admin area
+
+1.0.5
+   + Multiple store support
+   * Multiple bugfixes

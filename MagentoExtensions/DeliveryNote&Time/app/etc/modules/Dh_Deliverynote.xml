@@ -1,0 +1,10 @@
+<?xml version='1.0'?>
+
+<config>
+    <modules>
+        <Dh_Deliverynote>
+            <active>true</active> 
+            <codePool>local</codePool> 
+        </Dh_Deliverynote>
+    </modules>
+</config>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+    <name>KH_CartQtyButtons</name>
+    <version>0.5.0</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>bugfix release (fixes some problems with ie7/8/9)</summary>
+    <description>F&#xFC;gt jeder Position im Warenkorb 2 Icons zum erh&#xF6;hen/reduzieren der Menge hinzu.&#xD;
+&#xD;
+Adds buttons for each item in cart to increase/decrease quantity by one mouse-click.</description>
+    <notes>- tested on magento 1.5.1.0&#xD;
+- works only with prototype 1.6.x&#xD;
+- works with integer and decimal item quantities&#xD;
+- takes advantage of global inventory configuration-option: "Qty Increments"</notes>
+    <authors><author><name>Kevin Horst</name><user>kevinhorst</user><email>info@kevinhorst.de</email></author></authors>
+    <date>2011-07-15</date>
+    <time>09:23:56</time>
+    <contents><target name="magecommunity"><dir name="KH"><dir name="CartQtyButtons"><dir name="Helper"><file name="Data.php" hash="092ca5215f187119b17038dac8a165f5"/></dir><dir name="Model"><dir name="Admin"><file name="NullBehavior.php" hash="5219ca2ef6da50c15255afc783d775cd"/><file name="Position.php" hash="d351b7e7025176d009a4a027825bf9df"/></dir></dir><dir name="etc"><file name="config.xml" hash="f47e61a4e794d59bc1b17bb611b68643"/><file name="system.xml" hash="f8c4ab222e8a867c3854a2a96a0cb9d8"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="cartqtybuttons.xml" hash="18e160ae42f92c7686fc05a05f561fd0"/></dir><dir name="template"><dir name="kh"><dir name="cartqtybuttons"><dir name="js"><file name="render.phtml" hash="9390c3eb44b3af6cf43d7c99be67bd80"/></dir></dir></dir></dir></dir></dir></dir></target><target name="magelocale"><dir name="de_DE"><file name="KH_CartQtyButtons.csv" hash="43c80c8e282cc50f202029c25ec1dd17"/></dir><dir name="en_US"><file name="KH_CartQtyButtons.csv" hash="7cc439e15d4d4863978bf9df92f3e9b4"/></dir></target><target name="mageskin"><dir name="frontend"><dir name="default"><dir name="default"><dir name="css"><dir name="kh"><dir name="cartqtybuttons"><file name="cartqtybuttons.css" hash="5a1ed924d95c8622026395d877ab6962"/></dir></dir></dir><dir name="images"><dir name="kh"><dir name="cartqtybuttons"><file name="decrease.gif" hash="834c44fa616c3f8ac0393ec4f9d2a7ad"/><file name="increase.gif" hash="c6c10abdf3aa10937909ab3a437afb11"/></dir></dir></dir></dir></dir></dir></target><target name="mage"><dir name="js"><dir name="kh"><dir name="cartqtybuttons"><file name="cartqtybuttons.js" hash="eaba075018e1581b3229550bd4e68674"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="KH_CartQtyButtons.xml" hash="f1d2e0758a4f4bef5b71cfaf1aa6e4ac"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

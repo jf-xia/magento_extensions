@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <groupdeal_adminhtml_deal_index>
+        <reference name="content">
+            <block type="groupdeal/adminhtml_deal" name="deal" />
+        </reference>
+    </groupdeal_adminhtml_deal_index>
+	
+	<groupdeal_adminhtml_deal_products>
+		<block type="core/text_list" name="root">
+			<block type="groupdeal/adminhtml_deal_edit_tab_product" name="deal.edit.tab.product"/>
+            <block type="adminhtml/widget_grid_serializer" name="related_grid_serializer">
+				<action method="initSerializerBlock">
+					<grid_block_name>deal.edit.tab.product</grid_block_name>
+					<data_callback>getSelectedProducts</data_callback>
+					<hidden_input_name>deal_product</hidden_input_name>
+					<reload_param_name>oproduct</reload_param_name>
+				</action>
+				<action method="addColumnInputName">
+					<input_name>position</input_name>
+				</action>
+            </block>
+		</block>
+	</groupdeal_adminhtml_deal_products>
+	
+	<groupdeal_adminhtml_deal_productsgrid>
+		<block type="core/text_list" name="root">
+			<block type="groupdeal/adminhtml_deal_edit_tab_product" name="deal.edit.tab.product"/>
+		</block>
+	</groupdeal_adminhtml_deal_productsgrid>
+	
+	<groupdeal_adminhtml_deal_orders>
+		<block type="core/text_list" name="root">
+			<block type="groupdeal/adminhtml_deal_edit_tab_order" name="deal.edit.tab.order"/>
+		</block>
+	</groupdeal_adminhtml_deal_orders>
+	
+	<groupdeal_adminhtml_subscriber_index>
+        <reference name="content">
+            <block type="groupdeal/adminhtml_subscriber" name="subscriber" />
+        </reference>
+    </groupdeal_adminhtml_subscriber_index>
+</layout>

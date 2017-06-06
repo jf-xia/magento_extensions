@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+    <name>Rack_SelfDelete</name>
+    <version>0.3.0</version>
+    <stability>stable</stability>
+    <license>Open Software Lisence v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension allows these action to customeres.&#xD;
+&#xD;
+remove their own account&#xD;
+cancel their order which does not start processing.</summary>
+    <description>This extension allows these action to customeres.&#xD;
+&#xD;
+remove their own account&#xD;
+cancel their order which does not start processing.</description>
+    <notes>0.3.0 stable release&#xD;
+0.2.0 beta release</notes>
+    <authors><author><name>Hirokazu Nishi</name><user>hirokazu_n</user><email>nishi@principle-works.jp</email></author></authors>
+    <date>2011-08-20</date>
+    <time>14:08:19</time>
+    <contents><target name="magecommunity"><dir name="Rack"><dir name="SelfDelete"><dir name="Block"><dir name="Customer"><file name="Form.php" hash="d421b375440ed3d8d50e7a673240552f"/><file name=".DS_Store" hash="194577a7e20bdcc7afbb718f502c134c"/></dir><dir name="Order"><file name="View.php" hash="fa48df3b3e4912d189e96ac784a90a53"/></dir><file name="Success.php" hash="ecf779b60e10a9251aaedfe935afc5a6"/><file name=".DS_Store" hash="194577a7e20bdcc7afbb718f502c134c"/></dir><dir name="Helper"><file name="Data.php" hash="9d969b83f7d32e6707425f645c4a2777"/></dir><dir name="Model"><file name="SelfDelete.php" hash="8f9ad2d574c158c0f9daa148c1e82d37"/><file name="Session.php" hash="d1be26e8896492f6257f662ec997ad75"/><dir name="System"><file name="Config.php" hash="84c5a199ae5a3133bc229b17815a40ea"/></dir><file name=".DS_Store" hash="194577a7e20bdcc7afbb718f502c134c"/></dir><dir name="controllers"><file name="CustomerController.php" hash="ced73c9a2a48bb631b5545a4887a8588"/><file name="OrderController.php" hash="1e0610f6bcda05ebb8ccd38e89579ea3"/></dir><dir name="etc"><file name="config.xml" hash="f9d11ed1413d26ab33d16c6d7e484c8d"/><file name="system.xml" hash="a3e3ca859f1c1f498aba964f14942f49"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="rack_selfdelete.xml" hash="b1571009adace4b68f2e360613bd5252"/></dir><dir name="template"><dir name="selfdelete"><file name="form.phtml" hash="dfc9b019e705a4f3dd7466c16c741c91"/><dir name="order"><file name="cancel.phtml" hash="4c850c5b3b2756e67a91bad8e046ddac"/><file name="view.phtml" hash="27c5e8acd468c8870c52bf6b68fd5428"/></dir><file name="success.phtml" hash="319ddcf839d7056c765412ecf1d25288"/></dir></dir></dir></dir></dir></target><target name="magelocale"><dir name="ja_JP"><file name="Rack_SelfDelete.csv" hash="2c2ae24c4e18fafac888d599018c5d15"/></dir></target><target name="mageetc"><dir name="modules"><file name="Rack_SelfDelete.xml" hash="77568659c9b88f99648817d4a12eb9b9"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>5.3.10</max></php></required></dependencies>
+</package>

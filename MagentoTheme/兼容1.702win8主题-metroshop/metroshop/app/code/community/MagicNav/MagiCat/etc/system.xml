@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<sections>
+		<catalog translate="label" module="catalog">
+			<groups>
+				<magicat translate="label" module="magicat">
+					<label>Left Menu</label>
+					<sort_order>500</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>	
+						<expand_all translate="label" module="magicat">
+							<label>Expand all categories</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</expand_all>
+						<magicat_root translate="label" module="magicat">
+							<label>Main Category Categories</label>
+							<frontend_type>select</frontend_type>
+							<source_model>magicat/system_config_source_root</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</magicat_root>
+					</fields>
+				</magicat>
+			</groups>
+		</catalog>
+	</sections>
+</config>

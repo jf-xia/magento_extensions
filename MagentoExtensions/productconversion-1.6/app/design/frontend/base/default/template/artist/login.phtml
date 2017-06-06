@@ -1,0 +1,52 @@
+<div class="account-login">
+<div class="page-title">
+    <h1><?php echo $this->__('Log in or Create Artist Account') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="col2-set">
+<form action="<?php echo $this->getRegisterPostActionUrl() ?>" method="post" id=register-form">
+
+    <div class="col-1 new-users">
+        <div class="content">
+            <h2><?php echo $this->__('New Artist') ?></h2>
+            <p><?php echo $this->__('By creating an Artist account, you will be able to Upload Artwork Images for Sell your Artwork.') ?></p>
+        </div>
+      <div class="col2-set">
+	    <div class="buttons-set">
+            <button type="submit" class="button right" onclick="window.location='<?php echo $this->getCreateAccountUrl() ?>';" type="button"><span><?php echo $this->__('Create an Account') ?></span></button>
+        </div></div>
+    </div>
+</form>	
+<form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
+    <div class="col-2 registered-users">
+        <div class="content">
+            <h2><?php echo $this->__('Registered Artist') ?></h2>
+            <p><?php echo $this->__('If you have an artist account with us, please log in.') ?></p>
+            <ul class="form-list">
+                    <li>
+                        <label for="email"><?php echo $this->__('Email Address') ?> <span class="required">*</span></label><br />
+                        <input name="email" value="" title="<?php echo $this->__('Email Address') ?>" id="email" type="text" class="input-text required-entry" style="width:250px;" />
+                    </li>
+                    <li>
+                        <label for="pass"><?php echo $this->__('Password') ?> <span class="required">*</span></label><br />
+                        <input name="pass" type="password" class="input-text required-entry validate-password" id="pass" style="width:250px;" />
+                    </li>
+                </ul>
+                <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+    </div>
+	<div class="col2-set">
+	
+    <div class="buttons-set">
+       
+        <button class="button right" type="submit" name="send" id="send2"><span><?php echo $this->__('Login') ?></span></button>
+    </div>
+	</div>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+    var dataForm = new VarienForm('login-form', true);
+	 var dataForm = new VarienForm('register-form', true);
+</script>
+</div>

@@ -1,0 +1,5 @@
+<?php if (!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+    <li class="last">
+        <?php echo $this->getChildHtml('belvg_facebookfree_button'); ?>
+    </li>
+<?php endif?>

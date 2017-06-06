@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    
+     
+    
+    <datafeedmanager_adminhtml_configurations_index>
+        <reference name="content">
+            <block type="datafeedmanager/adminhtml_configurations" name="datafeedmanager" />
+        </reference>
+    </datafeedmanager_adminhtml_configurations_index>
+    <datafeedmanager_adminhtml_attributes_index>
+        <reference name="content">
+            <block type="datafeedmanager/adminhtml_attributes" name="attributes" />
+        </reference>
+    </datafeedmanager_adminhtml_attributes_index> 
+    <datafeedmanager_adminhtml_options_index>
+        <reference name="content">
+            <block type="datafeedmanager/adminhtml_options" name="options" />
+        </reference>
+    </datafeedmanager_adminhtml_options_index>
+    		
+    
+    <datafeedmanager_adminhtml_configurations_edit>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>datafeedmanager/datafeedmanager.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>datafeedmanager/datafeedmanager.css</name>
+            </action>
+            
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>CodeMirror2/lib/codemirror.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>CodeMirror2/theme/default.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/lib/codemirror.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/mode/xml/xml.js</name>
+            </action>
+        </reference>
+    </datafeedmanager_adminhtml_configurations_edit>
+    
+    <datafeedmanager_adminhtml_attributes_edit>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>datafeedmanager/attributes.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>datafeedmanager/datafeedmanager.css</name>
+            </action>
+            
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>CodeMirror2/lib/codemirror.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>CodeMirror2/theme/default.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/lib/codemirror.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/mode/xml/xml.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/mode/javascript/javascript.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/mode/css/css.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/mode/php/php.js</name>
+            </action>
+        </reference>
+    </datafeedmanager_adminhtml_attributes_edit>
+    
+    <datafeedmanager_adminhtml_options_edit>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>datafeedmanager/attributes.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>datafeedmanager/datafeedmanager.css</name>
+            </action>
+            
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>CodeMirror2/lib/codemirror.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>CodeMirror2/theme/default.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/lib/codemirror.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/mode/xml/xml.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/mode/javascript/javascript.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/mode/css/css.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>CodeMirror2/mode/php/php.js</name>
+            </action>
+        </reference>
+    </datafeedmanager_adminhtml_options_edit>
+    
+</layout>

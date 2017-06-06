@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * ECGiken_Price
+ *
+ * Copyright (c) 2011, EC-GIKEN Inc.
+ * All rights reserved.
+-->
+<config>
+    <modules>
+        <ECGiken_Price>
+            <version>0.9.16</version>
+        </ECGiken_Price>
+    </modules>
+    <global>
+        <models>
+            <ecgprice>
+                <class>ECGiken_Price_Model</class>
+            </ecgprice>
+            <core>
+                <rewrite>
+                    <locale>ECGiken_Price_Model_Core_Locale</locale>
+                </rewrite>
+            </core>
+            <directory>
+                <rewrite>
+                    <currency>ECGiken_Price_Model_Directory_Currency</currency>
+                </rewrite>
+            </directory>
+        </models>
+        <blocks>
+            <adminhtml>
+                <rewrite>
+                    <widget_grid_column_renderer_currency>ECGiken_Price_Block_Adminhtml_Widget_Grid_Column_Renderer_Currency</widget_grid_column_renderer_currency>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <helpers>
+            <ecgprice>
+                <class>ECGiken_Price_Helper</class>
+            </ecgprice>
+        </helpers>
+    </global>
+    <frontend>
+        <translate>
+            <modules>
+                <ECGiken_Price>
+                    <files>
+                        <default>ECGiken_Price.csv</default>
+                    </files>
+                </ECGiken_Price>
+            </modules>
+        </translate>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <ECGiken_Price>
+                    <files>
+                        <default>ECGiken_Price.csv</default>
+                    </files>
+                </ECGiken_Price>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <currency>
+            <format_options>
+                <precision>2</precision>
+                <symbol></symbol>
+                <symbol_position></symbol_position>
+            </format_options>
+        </currency>
+    </default>
+</config>

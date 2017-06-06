@@ -1,0 +1,24 @@
+<?php if($this->getItems()->getSize()): ?>
+<div class="upsell">
+  <h3>People that bought this item also bought</h3>
+  <div class="upsell-list">
+    <div>
+      <ul>
+        <?php $i=0; foreach($this->getItems() as $_item): ?>
+        <?php if ($i++%4==0): ?><li><?php endif ?>
+          <div class="left">
+            <p><a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_item, 'small_image')) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'small_image')->resize(65); ?>" alt="<?php echo $this->htmlEscape($this->getImageLabel($_item, 'small_image')) ?>" /></a></p>
+            <p><a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></p>
+            <?php echo $this->getPriceHtml($_item, true) ?>
+            <?php if ($this->helper('wishlist')->isAllow()) : ?>
+            <p><a href="<?php echo $this->getAddToWishlistUrl($_item) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></p>
+            <?php endif; ?>
+          </div>
+          <?php if( $i%4 == 0 ):?> </li><?php endif; ?>
+          <?php endforeach; ?>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<?php endif ?>

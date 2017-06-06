@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Monk_Blog>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Monk_Blog>
+    </modules>
+</config>

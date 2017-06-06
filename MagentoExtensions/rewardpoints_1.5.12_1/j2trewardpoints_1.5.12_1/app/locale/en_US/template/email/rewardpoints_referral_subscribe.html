@@ -1,0 +1,33 @@
+<!--@subject Referral program subscription ({{var parent.name}} invites you to visit {{var store_name}}) @-->
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<style type="text/css">
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+</style>
+
+<div style="font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;">
+    <table cellspacing="0" cellpadding="0" border="0" width="98%" style="margin-top:10px; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px;">
+        <tr>
+            <td align="center" valign="top">
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tr>
+                        <td valign="top"><a href="{{var referral_url}}"><img src="{{skin url="images/logo_email.gif" _area='frontend'}}" alt=""  style="margin-bottom:10px;" border="0"/></a></td>
+                    </tr>
+                </table>
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tr>
+                        <td valign="top">
+                            <p>{{var parent.name}} ({{var parent.email}}) invites you to visit: <a href="{{var referral_url}}">{{var store_name}}</a></p>
+                            <p>Dear {{var referral.rewardpoints_referral_name}}, <br /><br />
+                                If you register and order on <a href="{{var referral_url}}">{{var store_name}}</a> with this email address: {{var referral.rewardpoints_referral_email}}, you will allow your friend, {{var parent.name}} ({{var parent.email}}), to earn some loyalty points.<br />
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+</div>

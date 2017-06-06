@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>OutsourceOnline_Captcha</name>
+    <version>1.0.9</version>
+    <stability>stable</stability>
+    <license>gpl</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Module to add Ajax captcha  functionality for magento</summary>
+    <description>Captcha functionality for magento forms for registration,contactus,product review and send a friend .Simply install the module and check the aforementioned forms</description>
+    <notes>This is a development version.Any valuable suggestions and help will be highly appreciated</notes>
+    <authors><author><name>Sreekanth Dayanand</name><user>auto-converted</user><email>blogspot@outsource-online.net</email></author></authors>
+    <date>2011-10-14</date>
+    <time>10:20:47</time>
+    <contents><target name="magelocale"><dir name="en_US"><file name="OutsourceOnline_Captcha.csv" hash="46c1c9105a99ef6a3e884381ba060fe9"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="OutsourceOnline_Captcha.xml" hash="11b7c7d447adedc9a06c1880ac7da9e2"/></dir><dir name="template"><dir name="outsourceOnline"><dir name="captcha"><file name="ajaxInsert.phtml" hash="eb81b88715c0c927e4ef8dd0f4e82c82"/><file name="captchaAjax.phtml" hash="5feefbfb1a1aaad28aaadd572dafbe74"/><file name="contacts.phtml" hash="acc889439f7f2375c3c55bfd55e7e05a"/><file name="form.phtml" hash="c6c74543a1859affe1c5051516e76da4"/><file name="onepage_billing.phtml" hash="2d54f1a6b377e949571762cf3ac5f749"/><file name="register.phtml" hash="9140614281ccfd7b8cbc238a34048d6b"/><file name="send.phtml" hash="81196f45080cdfec3741bcab351b92c8"/></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="OutsourceOnline_Captcha.xml" hash="7b700e1a3656005d4fc1b3f703a4269a"/></dir></target><target name="magecommunity"><dir name="OutsourceOnline"><dir name="Captcha"><dir name="Block"><dir name="Checkout"><dir name="Onepage"><file name="Billing.php" hash="d9610a7617bf208112283751282a5732"/></dir></dir><dir name="Review"><file name="Form.php" hash="d9039bc65bbf00e4e9a42e405b5864a9"/></dir></dir><dir name="controllers"><file name="AccountController.php" hash="7b6a5ed8fbb5fbb4f9f430b36f945c33"/><file name="AjaxController.php" hash="8b923b7ba0ee6736e79a438dbbffade7"/><file name="ContactsController.php" hash="5150818931bd7b3b517f0297af025979"/><file name="OnepageController.php" hash="60026a5dc29fb0f0d0bf09dec20807f7"/><file name="ProductController.php" hash="cc313c03c7bcc966cafa331474f2bd4f"/><file name="ReviewController.php" hash="b188272e196ac3213bc311e75de367d1"/></dir><dir name="etc"><file name="config.xml" hash="f0b13abb2dd1159aaddc908cff08ccce"/><file name="system.xml" hash="fb6311facb6411a522d885ffbb6cfd5f"/></dir><dir name="Helper"><dir name="osolCaptcha"><file name="adlibBT.png" hash="6a4ddf589628a9a16657532bd2f75a5c"/><file name="adlibBT.TTF" hash="4ff833d37c38398cd201b2550bf8ecb5"/></dir><file name="Data.php" hash="59b23c26640f4975f400322db9577cab"/></dir><dir name="Model"><dir name="Source"><file name="Captchaimage.php" hash="b49acab3a47cfa798aa16825f6417c82"/><file name="Captchalanguage.php" hash="89d9e8e16788d84c5ce8fcc2a9e07925"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

@@ -1,0 +1,11 @@
+<?php
+/**
+ * @see EM_Megamenupro_Block_CatalogNavigation
+ */
+?>
+<?php $_menu = $this->renderCategoriesMenuHtml($this->getData('category_id'), 0) ?>
+<?php if($_menu): ?>
+<ul class="em-catalog-navigation <?php echo $this->getData('css_class') ?>">
+    <?php echo $_menu ?>
+</ul>
+<?php endif ?>

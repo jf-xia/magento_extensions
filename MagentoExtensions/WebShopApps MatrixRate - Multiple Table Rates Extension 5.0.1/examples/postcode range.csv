@@ -1,0 +1,4 @@
+"Country","Region/State","City","Zip/Postal Code","Zip to","Weight >=","Weight <=","Shipping Price","Delivery Type"
+"AUS","*","*",3000,4000,0,1000,12,"Next Day"
+"AUS","*","*",3000,4000,0,1000,15,"Courier"
+"AUS","*","*",6000,7000,0,1000,20,"Courier"

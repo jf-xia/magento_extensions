@@ -1,0 +1,13 @@
+ul.swatches-customoptions-list li.swatches-customoptions-list-item {
+    display: inline; 
+    list-style-type: none; 
+    padding-right: 7px;
+}
+
+ul.swatches-customoptions-list li.swatches-customoptions-list-item img {
+    border: 1px solid #B6B6B6;
+}
+
+ul.swatches-customoptions-list li.swatches-customoptions-list-item.selected img {
+     border: 1px solid #000;
+}

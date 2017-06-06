@@ -1,0 +1,76 @@
+<?php if ($this->canShow()): ?>
+	<?php $characterCount = $this->getCharacterCount(); ?>
+	<div id='deliverynote'>
+		<label for='deliverynote-time'><?php echo $this->__('Delivery Date') ?></label>	
+		<select id='deliverynote-time' name='deliverynote-time' class="shipping_deliverynote-time">
+			 <option value="only work days">only work days</option>
+			 <option value="only weekends or holidays">only weekends or holidays</option>
+			 <option value="anytime">anytime</option>
+     	</select>
+	</div>	
+	
+	<div id='deliverynote'>
+		<label for='deliverynote-note'><?php echo $this->__(Mage::helper('deliverynote')->getFrontendLabel()) ?><?php if ($characterCount !== false): ?> ( max <?php echo $characterCount ?> characters ) <?php endif; ?></label>
+		<textarea id='deliverynote-note' name='deliverynote-note' class="input-text<?php if ($characterCount !== false): ?> validate-length maximum-length-<?php echo $characterCount ?> <?php endif; ?>"></textarea>
+	</div>
+	
+	<div id='deliverynote'>
+		<label>开具发票</label>
+			<ul class="invoices_list">
+				<li> <span class="label">发票类型：</span>
+					<label><input id="invoices_type" name="invoices_type" type="radio" value="增值税发票" checked="checked" onclick="showin(2);hidein(3);">增值税发票</label>
+					<label><input id="invoices_type" name="invoices_type" type="radio" value="普通发票" onclick="hidein(2);showin(3);">普通发票</label>
+				</li>
+				<li> <span class="label">发票抬头：</span>
+					<label><input id="invoices_title" name="invoices_title" type="radio" value="单位" checked="checked" >单位</label>
+					<label id="3" style="display:none"><input id="invoices_title" name="invoices_title" type="radio" value="个人" >个人</label>
+				</li>
+				<li>
+					<div>单位/个人名称：<input id="invoices_company" name="invoices_company" type="text" value=""><span class="required">*</span></div>
+					<ul id="2">
+						<li><strong>增值税发票专用发票资质填写：</strong></li>
+						<li>
+							<label>纳税人识别号：
+								<input id="taxpayer_id" name="taxpayer_id"><span class="required">*</span>
+							</label>
+						</li>
+						<li>
+							<label>注册地址：
+								<input id="invoices_address" name="invoices_address"><span class="required">*</span>
+							</label>
+						</li>
+						<li>
+							<label>注册电话：
+								<input id="invoices_phone" name="invoices_phone"><span class="required">*</span>
+							</label>
+						</li>
+						<li>
+							<label>开户银行：
+								<input id="invoices_bank" name="invoices_bank"><span class="required">*</span>
+							</label>
+						</li>
+						<li>
+							<label>银行帐户：
+								<input id="invoices_account" name="invoices_account"><span class="required">*</span>
+							</label>
+						</li>
+					</ul>
+				</li>
+				<li> <span class="label">发票内容：</span>
+					<label>
+						<input id="invoices_content" name="invoices_content" type="radio" value="明细" checked="checked">
+						&nbsp;明细					</label>
+					<label>
+						<input id="invoices_content" name="invoices_content" type="radio" value="办公用品">
+						&nbsp;办公用品					</label>
+					<label>
+						<input id="invoices_content" name="invoices_content" type="radio" value="电脑配件">
+						&nbsp;电脑配件					</label>
+					<label>
+						<input id="invoices_content" name="invoices_content" type="radio" value="耗材">
+						&nbsp;耗材					</label>
+				</li>
+			</ul>
+	</div>
+		
+<?php endif; ?>

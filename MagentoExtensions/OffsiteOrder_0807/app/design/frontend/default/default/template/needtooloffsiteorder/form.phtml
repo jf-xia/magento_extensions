@@ -1,0 +1,11 @@
+<img src="<?php echo $this->getSkinUrl('images/nt_paylogo/logo_alipay.gif') ?>" alt="Alipay" />
+<br />
+<fieldset class="form-list">
+	<?php $_code=$this->getMethodCode() ?>
+	<ul id="payment_form_<?php echo $_code ?>" style="display:none">
+		<li>
+			<?php echo $this->__('You will be redirected to Alipay website when you place an order.') ?>
+			<br /><?php echo $this->__('Technical Support: NEEDTOOL.COM.') ?>
+		</li>
+	</ul>
+</fieldset>

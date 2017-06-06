@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    
+    <adminlogger_admin_grid>
+        <reference name="head">
+             <action method="addCss"><stylesheet>description_popup.css</stylesheet></action>
+        </reference>
+        <reference name="content">
+            <block type="AdminLogger/Grid" name="adminloggertaskgrid" template="AdminLogger/Grid.phtml">
+            </block>
+        </reference>
+    </adminlogger_admin_grid>
+    
+    <!-- add tabs in product view -->
+    <adminhtml_catalog_product_edit>
+        <reference name="head">
+             <action method="addCss"><stylesheet>description_popup.css</stylesheet></action>
+        </reference>
+        <reference name="product_tabs">
+            <action method="addTab">
+                <name>Admin_Logger</name>
+                <block>AdminLogger/Adminhtml_Catalog_Product_Tabs_Grid</block>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_edit>   
+
+    <!-- add tabs in order view -->
+    <adminhtml_sales_order_view>
+        <reference name="head">
+             <action method="addCss"><stylesheet>description_popup.css</stylesheet></action>
+        </reference>
+        <reference name="sales_order_tabs">
+            <action method="addTab">
+                <name>Admin_Logger</name>
+                <block>AdminLogger/Adminhtml_Sales_Order_View_Grid</block></action>
+        </reference>
+    </adminhtml_sales_order_view>
+
+    <!-- add tabs in customer page -->
+    <adminhtml_customer_edit>
+        <reference name="head">
+             <action method="addCss"><stylesheet>description_popup.css</stylesheet></action>
+        </reference>
+        <reference name="customer_edit_tabs">
+            <action method="addTab">
+                <name>Admin_Logger</name>
+                <block>AdminLogger/Adminhtml_Customer_View_Grid</block>
+            </action>
+        </reference>
+   </adminhtml_customer_edit>
+   
+   
+</layout>

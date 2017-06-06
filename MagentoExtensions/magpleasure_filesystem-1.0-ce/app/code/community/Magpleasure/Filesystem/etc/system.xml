@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <magpleasure translate="label" module="filesystem">
+            <label>MagPleasure Extensions</label>
+            <sort_order>300</sort_order>
+        </magpleasure>
+    </tabs>    
+	<sections>
+		<filesystem translate="label" module="filesystem">
+			<label>File System</label>
+			<tab>magpleasure</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>150</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+                <general>
+					<label>General</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+<!--						<show translate="label">
+							<label>Show block</label>
+							<comment></comment>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>						
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+						</show>                     -->
+					</fields>	                    
+                </general>
+			</groups>
+		</filesystem>
+	</sections>
+</config>

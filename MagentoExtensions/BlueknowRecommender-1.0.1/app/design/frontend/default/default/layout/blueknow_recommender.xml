@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Blueknow Recommender layout configuration file.
+ * 
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Blueknow Recommender
+ * extension to newer versions in the future. If you wish to customize it for
+ * your needs please save your changes before upgrading.
+ * 
+ * @category	design
+ * @copyright	Copyright (c) 2010 Blueknow, S.L. (http://www.blueknow.com)
+ * @license		GNU General Public License
+ * @author		<a href="mailto:santi.ameller@blueknow.com">Santiago Ameller</a>
+ * @since		1.0.0
+ * 
+ */
+-->
+<layout version="0.1.0">
+	<default>
+		<reference name="content">
+			<block type="blueknow_recommender/customer_tracker" name="blueknow.customer.tracker" as="customer_tracker" template="blueknow/customer/tracker.phtml" />
+		</reference>
+	</default>
+	<catalog_product_view>
+		<reference name="content">
+			<reference name="product.info.additional">
+				<block before="-" type="blueknow_recommender/product_recommender" name="blueknow.product.recommender.widget" as="product_recommender_widget" template="blueknow/product/recommender_widget.phtml">
+					<block type="blueknow_recommender/base" name="blueknow.product.recommender.widget.footer" as="product_recommender_widget_footer" template="blueknow/common/recommender_widget_footer.phtml" />
+				</block>
+			</reference>
+			<block type="page/html" name="blueknow.product.recommender.renderer" as="product_recommender_renderer" template="blueknow/common/recommender_renderer.phtml" />
+			<block type="blueknow_recommender/product_recommender" name="blueknow.product.recommender" as="product_recommender" template="blueknow/product/recommender.phtml" />
+			<block type="blueknow_recommender/product_tracker" name="blueknow.product.tracker" as="product_tracker" template="blueknow/product/tracker.phtml" />
+		</reference>
+	</catalog_product_view>
+	<checkout_cart_index>
+		<reference name="content">
+			<reference name="checkout.cart">
+				<!--
+					You will have to modify your custom checkout cart template to add up-sell recommendations.
+					Affected file: app/design/frontend/<interface>/<theme>/template/checkout/cart.phtml.
+					Code to add: <?php echo $this->getChildHtml('blueknow.cart.recommender.widget') ?>
+					IMPORTANT NOTE: not compatible with Magento v1.1.x.
+				-->
+				<block type="blueknow_recommender/cart_recommender" name="blueknow.cart.recommender.widget" template="blueknow/cart/recommender_widget.phtml">
+					<block type="blueknow_recommender/base" name="blueknow.cart.recommender.widget.footer" as="cart_recommender_widget_footer" template="blueknow/common/recommender_widget_footer.phtml" />
+				</block>
+			</reference>
+			<block type="page/html" name="blueknow.cart.recommender.renderer" as="cart_recommender_renderer" template="blueknow/common/recommender_renderer.phtml" />
+			<block type="blueknow_recommender/cart_recommender" name="blueknow.cart.recommender" as="cart_recommender" template="blueknow/cart/recommender.phtml" />
+		</reference>
+	</checkout_cart_index>
+	<checkout_onepage_success>
+		<reference name="content">
+			<block type="blueknow_recommender/checkout_tracker" name="blueknow.checkout.tracker" as="checkout_tracker" template="blueknow/checkout/tracker.phtml" />
+		</reference>
+	</checkout_onepage_success>
+	<checkout_multishipping_success>
+		<reference name="content">
+			<block type="blueknow_recommender/checkout_tracker" name="blueknow.checkout.multishipping.tracker" as="checkout_multishipping_tracker" template="blueknow/checkout/tracker.phtml" />
+		</reference>        
+    </checkout_multishipping_success>
+</layout>

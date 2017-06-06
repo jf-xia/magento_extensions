@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <AddThis_SharingTool>
+            <active>true</active>
+            <codePool>community</codePool>
+        </AddThis_SharingTool>
+    </modules>
+</config>

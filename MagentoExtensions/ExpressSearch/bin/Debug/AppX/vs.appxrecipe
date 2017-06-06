@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>XIAYANG</Machine>
+    <WindowsUser>yang</WindowsUser>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <RegisteredManifestChecksum>D6E129FF95CF6340391DE18DF65D974482B63F7927D043107F9432C762402B70</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>eoe.22970D16268A3_1.0.0.4_neutral__ctjm2xnrgw12a</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>eoe.22970D16268A3_ctjm2xnrgw12a!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>eoe.22970D16268A3</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=290772C7-A618-4DEF-875B-423924825D0D</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.4</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="D:\Project\ExpressSearch\ExpressSearch\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-10-04T06:38:02.119</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\bin\Debug\ExpressSearch.exe">
+      <PackagePath>ExpressSearch.exe</PackagePath>
+      <Modified>2012-10-04T07:21:14.919</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\bin\Debug\ExpressSearch.pdb">
+      <PackagePath>ExpressSearch.pdb</PackagePath>
+      <Modified>2012-10-04T07:21:14.882</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\Assets\24.png">
+      <PackagePath>Assets\24.png</PackagePath>
+      <Modified>2012-09-28T03:40:08.197</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\Assets\30.png">
+      <PackagePath>Assets\30.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-09-28T03:40:08.226</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\Assets\50.png">
+      <PackagePath>Assets\50.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-09-28T03:40:08.237</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\Assets\loading.png">
+      <PackagePath>Assets\loading.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-09-28T03:41:54.586</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\Assets\Logo.png">
+      <PackagePath>Assets\Logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-09-28T03:40:08.255</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\Assets\SmallLogo.png">
+      <PackagePath>Assets\SmallLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-09-28T03:40:08.257</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\Common\ReadMe.txt">
+      <PackagePath>Common\ReadMe.txt</PackagePath>
+      <Modified>2012-09-25T02:56:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\bin\Debug\App.xaml">
+      <PackagePath>App.xaml</PackagePath>
+      <Modified>2012-09-24T10:51:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\bin\Debug\Common\StandardStyles.xaml">
+      <PackagePath>Common\StandardStyles.xaml</PackagePath>
+      <Modified>2012-09-25T10:02:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\bin\Debug\Common\listViewStyles.xaml">
+      <PackagePath>Common\listViewStyles.xaml</PackagePath>
+      <Modified>2012-09-26T06:26:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\bin\Debug\ExpressCompanyList.xaml">
+      <PackagePath>ExpressCompanyList.xaml</PackagePath>
+      <Modified>2012-09-26T06:18:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\bin\Debug\MainPage.xaml">
+      <PackagePath>MainPage.xaml</PackagePath>
+      <Modified>2012-09-29T05:36:25.174</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Project\ExpressSearch\ExpressSearch\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2012-09-29T06:02:38.501</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

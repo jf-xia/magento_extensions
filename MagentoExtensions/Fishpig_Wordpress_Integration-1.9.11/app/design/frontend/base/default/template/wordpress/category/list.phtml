@@ -1,0 +1,38 @@
+<?php
+/**
+ * @category    Fishpig
+ * @package     Fishpig_Wordpress
+ * @license     http://fishpig.co.uk/license.txt
+ * @author      Ben Tideswell <help@fishpig.co.uk>
+ */
+?>
+<?php $categories = $this->getCategories() ?>
+<?php if (count($categories) > 0): ?>
+	<div class="block block-blog block-blog-categories">
+		<?php if ($title = $this->getTitle()): ?>
+			<div class="block-title">
+				<strong><span><?php echo $this->__($title) ?></span></strong>
+			</div>
+		<?php endif; ?>
+		<div class="block-content">
+			<ul class="level0">
+				<?php foreach($categories as $category): ?>
+					<li class="level0">
+						<a  class="level0" href="<?php echo $category->getUrl() ?>" title="<?php echo $category->getName() ?>">
+							<?php echo $category->getName() ?>
+						</a>
+						<?php if ($children = $category->getChildrenCategories()): ?>
+							<ul class="level1">
+								<?php foreach($children as $child): ?>
+									<li class="level1">
+										&raquo; <a href="<?php echo $child->getUrl() ?>" title="<?php echo $child->getName() ?>" class="level1"><?php echo $child->getName() ?></a>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						<?php endif; ?>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+<?php endif; ?>

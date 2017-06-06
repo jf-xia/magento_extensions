@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+		<reference name="left">
+			 <block type="catsidebarnav/catsidebarnav" name="left.catsidebarnav" after="catalog.leftnav">
+				<action method="leftSidebarBlock" />
+			 </block>
+		</reference>
+		
+    </default>
+    <catsidebarnav_index_index>
+        <reference name="content">
+            <block type="catsidebarnav/catsidebarnav" name="catsidebarnav" template="catsidebarnav/catsidebarnav.phtml" />
+        </reference>
+    </catsidebarnav_index_index>
+</layout> 

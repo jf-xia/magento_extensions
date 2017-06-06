@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <ThemeOptions_ExtraConfig>
+            <version>1.0.0</version>
+            <depends>
+            <!-- no dependencies -->
+            </depends>
+        </ThemeOptions_ExtraConfig>
+    </modules>
+	<global>
+		<models>
+		    <!-- ... -->
+		    <ExtraConfig>
+			<class>ThemeOptions_ExtraConfig_Model</class>
+		    </ExtraConfig>
+		    
+		    <!-- ... -->
+		</models>
+		<helpers>
+				<ExtraConfig>
+					<class>ThemeOptions_ExtraConfig_Helper</class>
+				</ExtraConfig>
+		</helpers>
+		<resources />
+		<extraconfig />
+		<blocks>
+		    <mygeneral><class>ThemeOptions_ExtraConfig_Block</class></mygeneral>
+		    <catalog>
+			<rewrite>
+			    <product_list_promotion>ThemeOptions_ExtraConfig_Block_Product_List_Promotion</product_list_promotion>
+			
+			    <product_list_toolbar1>ThemeOptions_ExtraConfig_Block_Product_List_Toolbar1</product_list_toolbar1>
+			</rewrite>
+		    </catalog>
+		    <checkout>
+			<rewrite>
+			    <cart_crosssell>ThemeOptions_ExtraConfig_Block_Cart_Crosssell</cart_crosssell>
+			</rewrite>
+		    </checkout>
+		    <page>
+			<rewrite>
+			    <html_topmenu>ThemeOptions_ExtraConfig_Block_Html_Topmenu</html_topmenu>
+			</rewrite>
+			<layouts>
+			    <category module="page" translate="label">
+				    <label>Category</label>
+				    <template>page/category.phtml</template>
+				    <layout_handle>page_category</layout_handle>
+			    </category>
+			</layouts>
+		    </page>
+		    
+		</blocks>
+	</global>
+	<!---->
+	<default>
+	    <mygeneral>
+			
+			<header>
+			    <sticky_header>1</sticky_header>
+			    
+			</header>
+			<home>
+			    <default_product>15</default_product>
+			    <loader>clickable</loader>
+			</home>
+			<background>
+			    <background_pattern>pattern5.png</background_pattern>
+			</background>
+			<product_list>
+			    <column_count>3</column_count>
+			    <productlayout>default</productlayout>
+			    <ajaxcart>2</ajaxcart>
+			    <grayscale>1</grayscale>
+			    <newsaleicon>1</newsaleicon>
+			</product_list>
+			
+			<category>
+			    <displaycategorysidebar>left</displaycategorysidebar>
+			</category>
+			<extra_settings>
+			    <backtotop>1</backtotop>
+			    <instock>1</instock>
+			    <responsiveness>1</responsiveness>
+			</extra_settings>
+	    </mygeneral>
+		
+	</default>
+	<!---->
+    <adminhtml>   
+        <layout>
+            <updates>
+                <ExtraConfig>
+                    <file>options.xml</file>
+                </ExtraConfig>
+            </updates>
+        </layout>
+    </adminhtml>     
+</config>

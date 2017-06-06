@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <translate>
+        <modules>
+            <AW_Advancedsearch>
+                <files>
+                    <default>AW_Advancedsearch.csv</default>
+                </files>
+            </AW_Advancedsearch>
+        </modules>
+    </translate>
+    <menu>
+        <awadvancedsearch module="awadvancedsearch">
+            <title>Advanced Search</title>
+            <sort_order>72</sort_order>
+            <children>
+                <manage_indexes translate="title" module="awadvancedsearch">
+                    <title>Manage Indexes</title>
+                    <action>awadvancedsearch_admin/adminhtml_manageindexes/index</action>
+                    <sort_order>10</sort_order>
+                </manage_indexes>
+                <settings  translate="title" module="awadvancedsearch">
+                    <title>Settings</title>
+                    <action>adminhtml/system_config/edit/section/awadvancedsearch</action>
+                    <sort_order>20</sort_order>
+                </settings>
+            </children>
+        </awadvancedsearch>
+    </menu>
+    <enterprise>
+        <admingws>
+            <collection_load_before>
+                <awadvancedsearch__catalogindexes_collection>addStoreFilter</awadvancedsearch__catalogindexes_collection>
+            </collection_load_before>
+        </admingws>
+    </enterprise>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <awadvancedsearch>
+                        <title>Advanced Search</title>
+                        <sort_order>10</sort_order>
+                        <children>
+                            <edit module="awadvancedsearch">
+                                <title>Manage Indexes</title>
+                                <sort_order>10</sort_order>
+                            </edit>
+                            <manage_indexes module="awadvancedsearch">
+                                <title>View Indexes</title>
+                                <sort_order>20</sort_order>
+                            </manage_indexes>
+                            <settings module="awadvancedsearch">
+                                <title>Settings Quick Link</title>
+                                <sort_order>30</sort_order>
+                            </settings>
+                        </children>
+                    </awadvancedsearch>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <awadvancedsearch>
+                                        <title><![CDATA[aheadWorks &ndash; Advanced Search section]]></title>
+                                    </awadvancedsearch>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <layout>
+        <updates>
+            <awadvancedsearch module="awadvancedsearch">
+                <file>aw_advancedsearch.xml</file>
+            </awadvancedsearch>
+        </updates>
+    </layout>
+    <events>
+        <admin_system_config_changed_section_awadvancedsearch>
+            <observers>
+                <awadvancedsearch_config_save_after>
+                    <type>singleton</type>
+                    <class>awadvancedsearch/observer</class>
+                    <method>afterConfigurationSave</method>
+                </awadvancedsearch_config_save_after>
+            </observers>
+        </admin_system_config_changed_section_awadvancedsearch>
+        <catalog_product_save_after>
+            <observers>
+                <awadvancedsearch_catalog_product_save_after>
+                    <type>singleton</type>
+                    <class>awadvancedsearch/observer</class>
+                    <method>afterProductSave</method>
+                </awadvancedsearch_catalog_product_save_after>
+            </observers>
+        </catalog_product_save_after>
+        <controller_action_postdispatch_adminhtml_catalog_product_save>
+            <observers>
+                <awadvancedsearch_catalog_product_save_postdispatch>
+                    <type>singleton</type>
+                    <class>awadvancedsearch/observer</class>
+                    <method>productSavePostDispatch</method>
+                </awadvancedsearch_catalog_product_save_postdispatch>
+            </observers>
+        </controller_action_postdispatch_adminhtml_catalog_product_save>
+        <controller_action_postdispatch_blog_admin_manage_blog_save>
+            <observers>
+                <awadvancedsearch_blog_post_save_postdispatch>
+                    <type>singleton</type>
+                    <class>awadvancedsearch/observer</class>
+                    <method>blogSavePostDispatch</method>
+                </awadvancedsearch_blog_post_save_postdispatch>
+            </observers>
+        </controller_action_postdispatch_blog_admin_manage_blog_save>
+    </events>
+</config>

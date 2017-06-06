@@ -1,0 +1,46 @@
+<div id="fb-root"></div>
+<script type="text/javascript">
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '<?php echo $this->getAppId() ?>', // App ID
+            status     : true, // check login status
+            cookie     : true, // enable cookies to allow the server to access the session
+            xfbml      : true  // parse XFBML
+        });
+    };
+
+    // Load the SDK Asynchronously
+    (function(d){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/<?php echo $this->getLocale() ?>/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+
+    function greet(id){
+        FB.api('/me', function(response) {
+            var src = 'https://graph.facebook.com/'+id+'/picture';
+            $$('.welcome-msg')[0].insert('<img height="20" src="'+src+'"/>');
+        });
+    }
+
+    function fblogin(){
+        try {
+            FB.login(function(response) {
+                if (response.status == 'connected') {
+                    var url = '<?php echo $this->getLoginUrl() ?>';
+                    setLocation(url);
+                } else if (response.status === 'not_authorized') {
+                    alert('<?php echo $this->__('Please, approve our application') ?>');
+                } else {
+                    // user is not logged in
+                    window.location.reload();
+                }
+            }, {scope:'email'});
+        } catch (err) {
+            fblogin();
+        }
+        return false;
+    }
+</script>

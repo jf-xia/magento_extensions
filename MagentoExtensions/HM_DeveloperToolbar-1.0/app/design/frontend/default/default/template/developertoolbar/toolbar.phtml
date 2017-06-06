@@ -1,0 +1,92 @@
+<?php if(Mage::getStoreConfig('dev/developertoolbar/enabled')): ?>
+<style>
+.developertoolbar {
+	position: fixed;
+	left: 0px;
+	bottom: 0px;	
+	width: 100%;
+	text-align: center;
+	background: #0A263C;
+	border-top: 1px solid #415966;	
+	z-index: 10000;
+}
+.developertoolbar a {
+	color: #FF822F;
+	font-weight:bold;
+	font-size:11px;
+	text-decoration: none;
+	padding-left: 8px;
+	padding-right: 8px;	
+}
+
+.developertoolbar a:hover {
+	color: #A7C6DD;
+}
+
+.developertoolbar .bar_name {
+	color: #D96708;
+	font-size: 10px;
+	font-weight:bold;
+	float: left;
+	cursor:pointer;
+	padding-left: 3px;
+}
+
+.developertoolbar .hide_me {
+	color: #D96708;
+	font-size: 9px;
+	font-weight:bold;	
+	padding-right: 3px;	
+}
+
+.developertoolbar .seperate {
+	width: 1px;
+	border-right: 1px solid #415966;
+}
+
+.developertoolbar .disabled {
+	color: #666;
+}
+</style>
+
+<script language="javascript">
+function hide_developer_toolbar(){
+	if (document.getElementById('bar_content').style.display == 'none') {
+		document.getElementById('bar_content').style.display = "inline";
+		document.getElementById('developertoolbar').style.width = "100%";
+	} else {
+		document.getElementById('bar_content').style.display = "none";
+		document.getElementById('developertoolbar').style.width = "100px";
+	}	
+}
+</script>
+<div class="developertoolbar" id="developertoolbar">
+	<a href="" onclick="hide_developer_toolbar(); return false;"><span class="bar_name">Developer Toolbar</span></a>
+	
+	
+	<span id="bar_content">
+		<a <?php if (Mage::getStoreConfig('dev/debug/template_hints') != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/hints/enabled/'.(Mage::getStoreConfig('dev/debug/template_hints')!='1'?1:0).'/type/front') ?>">Frontend Hints</a>	
+		
+		<span class="seperate"></span>
+		<a <?php if (Mage::getStoreConfig('dev/debug/template_hints', 0) != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/hints/enabled/'.(Mage::getStoreConfig('dev/debug/template_hints', 0)!='1'?1:0).'/type/back') ?>">Backend Hints</a>	
+		
+		<span class="seperate"></span>	
+		<a <?php if (Mage::getStoreConfig('dev/log/active') != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/log/enabled/'.(Mage::getStoreConfig('dev/log/active')!='1'?1:0)) ?>">Logs</a>
+		
+		<span class="seperate"></span>
+		<a <?php if (Mage::getStoreConfig('dev/js/merge_files') != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/js/enabled/'.(Mage::getStoreConfig('dev/js/merge_files')!='1'?1:0)) ?>">Merge JS</a>	
+		
+		<span class="seperate"></span>
+		<a <?php if (Mage::getStoreConfig('web/url/use_store') != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/url/enabled/'.(Mage::getStoreConfig('web/url/use_store')!='1'?1:0)) ?>">Store Code in Urls</a>
+		
+		<span class="seperate"></span>
+		<a <?php if (Mage::getStoreConfig('web/seo/use_rewrites') != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/seo/enabled/'.(Mage::getStoreConfig('web/seo/use_rewrites')!='1'?1:0)) ?>">SEO Rewrites</a>
+		
+		<span class="seperate"></span>
+		<a <?php if (Mage::getStoreConfig('dev/translate_inline/active') != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/translate/enabled/'.(Mage::getStoreConfig('dev/translate_inline/active')!='1'?1:0)) ?>">Translate Inline</a>
+		
+		<span class="seperate"></span>
+		<a style="color:#FF0000;" href="<?php echo $this->getUrl('developertoolbar/index/cache/') ?>">Clean & Disable All Cache</a>
+	</span>
+</div>
+<?php endif; ?>

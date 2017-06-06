@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+    <name>Red2Black_EmailOverride</name>
+    <version>0.1.0</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">Open Software License (OSL 3.0)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Overrides the default email templates with ones that work without tedious setup</summary>
+    <description>This extension replaces some of the default email templates; specifically the ones that use the Magento logo and show store business hours as 8am to 5pm PST. These email templates are overridden safely with ones that can be used without further modification. &#xD;
+You won't lose these templates if you upgrade, and you won't have to tediously edit them all and then change each one in the configuration and hope you didn't miss any ;)&#xD;
+Please advise me of any problems or suggestions. </description>
+    <notes>Please report any issues or bugs. Should work with any Magento version.</notes>
+    <authors><author><name>Andre Nickatina</name><user>andre_nickatina</user><email>andre@r2bconcepts.com</email></author></authors>
+    <date>2011-07-27</date>
+    <time>13:11:30</time>
+    <contents><target name="magecommunity"><dir><dir name="Red2Black"><dir name="EmailOverride"><dir name="etc"><file name="config.xml" hash="bce48508fc629750d7e8c7a0265929b3"/></dir></dir></dir></dir></target><target name="mageetc"><dir><dir name="modules"><file name="Red2Black_EmailOverride.xml" hash="5a6c5f0045565fd47d9d78cc639bb751"/></dir></dir></target><target name="magelocale"><dir><dir name="en_US"><dir name="template"><dir name="email"><file name="r2b-account_new.html" hash="5aeeb8026a0ad09ca0b98462fa4dabdf"/><file name="r2b-account_new_confirmation.html" hash="abaf16dfaa09b4745f06310e4b741f12"/><file name="r2b-account_new_confirmed.html" hash="7c950624cb95a88cb660f40764f12747"/><file name="r2b-admin_password_new.html" hash="cd297f53c649f89f6680c911b0e25cce"/><file name="r2b-newsletter_subscr_confirm.html" hash="422e325286c815dc99c6ea93cee621f0"/><file name="r2b-newsletter_subscr_notify.html" hash="ebb84d49b34368e73e926f9d2fb24496"/><file name="r2b-password_new.html" hash="3b7c142f046b26d1f8dc323826797af8"/><file name="r2b-wishlist_share.html" hash="8fdac8fb58196c9704f9fa1b750eaa1f"/><dir name="sales"><file name="r2b-creditmemo_new.html" hash="978f77fd51e7bab4ab24cc9f85f58b18"/><file name="r2b-creditmemo_new_guest.html" hash="494df79d51618697dc3764abad2a1be3"/><file name="r2b-creditmemo_update.html" hash="ec9c8c383a58ed974da67bb7873fa124"/><file name="r2b-creditmemo_update_guest.html" hash="8c9628c3b9ef5a5ddc1c03ee4f810684"/><file name="r2b-invoice_new.html" hash="491adb6e6b318bdd290b4c0ce3dd683a"/><file name="r2b-invoice_new_guest.html" hash="245343f872186e0bec1f12bf7b206d1f"/><file name="r2b-invoice_update.html" hash="ca000e882c913709f707db5cf3c9bace"/><file name="r2b-invoice_update_guest.html" hash="a9c08a29d9bfee4fbd25cb3681052dca"/><file name="r2b-order_new.html" hash="2c0c0d1d3333748021063723e96bffb9"/><file name="r2b-order_new_guest.html" hash="86da8f7769873528e1cf2c630f1505fd"/><file name="r2b-order_update.html" hash="4bde35baf60f66c4f74699f9daf1c1e1"/><file name="r2b-order_update_guest.html" hash="66300f0c7e10ec20bd3397c0b2ab1885"/><file name="r2b-shipment_new.html" hash="3309767ca47ee25ed8618c3fd775474b"/><file name="r2b-shipment_new_guest.html" hash="9c4cff2fe00cfe8801d79ae9fbc7180c"/><file name="r2b-shipment_update.html" hash="687a5892d01d30f6de2d3eb783427da9"/><file name="r2b-shipment_update_guest.html" hash="a2ac72c2b5d835d031619301884a6e35"/></dir></dir></dir></dir></dir></target><target name="mageskin"><dir><dir name="frontend"><dir name="default"><dir name="red2black"><dir name="images"><file name="logo_email.gif" hash="b6fdac951deaef1f1cd7593f63d31976"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

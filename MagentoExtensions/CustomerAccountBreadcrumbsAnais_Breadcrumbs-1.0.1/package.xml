@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Anais_Breadcrumbs</name>
+    <version>1.0.1</version>
+    <stability>stable</stability>
+    <license>OSL 3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension allows you to add breadcrumbs for the account pages.</summary>
+    <description>This extension allows you to add breadcrumbs for the account pages. You can enable it for all the available account pages or just specific pages.</description>
+    <notes>This extension allows you to add breadcrumbs for the account pages.</notes>
+    <authors><author><name>Anais Software</name><user>AnaisSoftware</user><email>magento@anais-it.com</email></author></authors>
+    <date>2011-10-06</date>
+    <time>06:22:24</time>
+    <contents><target name="magecommunity"><dir name="Anais"><dir name="Breadcrumbs"><dir name="Helper"><file name="Data.php" hash="701e65c29608c4a9dec6e8ed5a77688e"/></dir><dir name="Model"><dir name="Adminhtml"><file name="Observer.php" hash="54fcfab2d35fb290b7494a94407ef371"/><dir name="System"><dir name="Config"><dir name="Source"><dir name="Breadcrumb"><file name="Pages.php" hash="e67e2c2025249c01735dc437d16d2298"/></dir></dir></dir></dir></dir><dir name="Layout"><file name="Observer.php" hash="80cef0fd83c6ba8464002070fc2cc14d"/></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="6e3a7e62c8fc29fcd532fb21fc35c32c"/><file name="config.xml" hash="8af8c47bfd68235d858e7f3c68cd1de6"/><file name="system.xml" hash="4f068804b6245dcea6e776d55b1d2a79"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Anais_Breadcrumbs.xml" hash="d4609c8e2ab025a71d2cb21242bffcd5"/></dir></target><target name="magelocale"><dir name="en_US"><file name="Anais_Breadcrumbs.csv" hash="08bbbdf35fdbb25799c2127bb003a2fa"/></dir><dir name="ro_RO"><file name="Anais_Breadcrumbs.csv" hash="1e40dedacb83a29dd3263bd00ae8155d"/></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="anais_breadcrumbs"><dir><dir name="config"><file name="js.phtml" hash="8c20f5f87898611362863808c2ae7bb9"/></dir></dir></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

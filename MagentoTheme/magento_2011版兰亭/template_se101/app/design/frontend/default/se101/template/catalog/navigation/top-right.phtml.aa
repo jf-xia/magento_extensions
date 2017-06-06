@@ -1,0 +1,29 @@
+ <script type="text/javascript">
+function isMouseLeaveOrEnter(e, handler){
+if (e.type != 'mouseout' && e.type != 'mouseover') return false;
+var reltg = e.relatedTarget ? e.relatedTarget :
+e.type == 'mouseout' ? e.toElement : e.fromElement;
+while (reltg && reltg != handler) reltg = reltg.parentNode;
+return (reltg != handler);
+}
+</script>
+
+ <div class="right-top-nav" >
+ <ul>
+    <li class="right-top" onmouseover="if (isMouseLeaveOrEnter(event, this)) Element.addClassName(this,'over')" onmouseout="if (isMouseLeaveOrEnter(event, this)) Element.removeClassName(this,'over')" >
+	<div class="top-nav-title"><span>All Navigation</span></div>
+        <div class="right-nav-container">
+	    <div id="topcatbg"></div>
+	    <ul class="right-nav">
+            <?php foreach ($this->getStoreCategories() as $_category): ?>
+            <?php if ($_category->getIsActive()) { ?> 
+            <li <?php if(!$_category) {echo ' class="first"'; } ?> ><a href="<?php echo $this->getCategoryUrl($_category); ?>" ><?php echo $_category->getName();?>(<?php  $this->_getCategoryInstance()->getProductCount() ?> )</a></li>
+            <?php } ?>
+            <?php endforeach ?>
+        </ul>
+	</div>
+    </li>
+</ul>
+</div>
+
+
